@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le rayonnement — paillasse virtuelle</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd .val small{font-size:.62em;color:#9DB4C0;margin-left:2px}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.45rem;color:var(--lcdvert)}
+.reglage{margin:14px 0 0}
+.reglage:first-child{margin-top:0}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:70px;min-height:42px;font:inherit;font-size:.84rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+label.bascule{display:flex;align-items:center;gap:10px;font-size:.9rem;margin-top:14px;min-height:44px}
+label.bascule input{width:22px;height:22px;accent-color:var(--bleu)}
+#relever{background:var(--orange);border-color:var(--orange);color:#fff;width:100%;
+  min-height:52px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;border:1px solid var(--orange)}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:10px}
+th,td{padding:5px 3px;text-align:right;border-bottom:1px solid var(--bord);font-variant-numeric:tabular-nums}
+th{color:var(--gris);font-weight:600;font-size:.72rem}
+td.essai{font-family:var(--mono);color:var(--orange)}
+.vide{color:var(--gris);font-size:.85rem;margin:10px 0 0}
+.lienbas{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.lienbas button{font:inherit;font-size:.85rem;background:none;border:none;color:var(--bleu);
+  text-decoration:underline;padding:8px 0}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+.retour:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<a class="retour" href="../index.html#bts-et">&larr;&nbsp; Toutes les animations</a>
+
+<h1>Le rayonnement</h1>
+<p class="sous">Une plaque chaude est placée devant un capteur qui mesure la puissance qu'elle émet. Rien ne la touche : aucun contact, aucun courant d'air.</p>
+
+<div class="bloc">
+  <canvas id="scene" width="620" height="300"></canvas>
+  <div class="lcd">
+    <div><div class="nom">Température de la plaque</div><div class="val" id="vT">300<small>°C</small></div></div>
+    <div><div class="nom">Soit en kelvins</div><div class="val" id="vK">573<small>K</small></div></div>
+    <div class="large"><div class="nom" id="nomP">Puissance rayonnée par la plaque</div><div class="val" id="vP">0<small>W</small></div></div>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Réglages</h2>
+  <div class="reglage">
+    <div class="ligne"><span>Température</span><b id="lT">300 °C</b></div>
+    <input type="range" id="rT" min="20" max="1200" step="1" value="300">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Surface émettrice</span><b id="lS">1,00 m²</b></div>
+    <input type="range" id="rS" min="10" max="300" step="5" value="100">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>État de surface</span><b id="lE">0,90</b></div>
+    <input type="range" id="rE" min="5" max="98" step="1" value="90">
+    <p class="aide" id="aideE"></p>
+  </div>
+  <label class="bascule"><input type="checkbox" id="net">
+    Retrancher ce que la plaque reçoit de la pièce à 20 °C</label>
+</div>
+
+<div class="bloc">
+  <h2>Vos mesures</h2>
+  <button id="relever">Relever la mesure</button>
+  <p class="aide" style="margin-top:12px">Colonne d'essai : cherchez le calcul qui donne toujours le même nombre.</p>
+  <div class="choix" id="choixN"></div>
+  <div id="zoneTable"><p class="vide">Aucune mesure pour l'instant.</p></div>
+  <div class="lienbas"><span class="aide">Une seule chose change à la fois.</span>
+    <button id="effacer">Tout effacer</button></div>
+</div>
+
+<script>
+"use strict";
+const SIG=5.67e-8, T_AMB=293.15;
+let thC=300, S=1.00, eps=0.90, net=false, essai=0, mesures=[];
+const $=id=>document.getElementById(id);
+const fr=(x,n)=>x.toFixed(n).replace(".",",");
+
+const ETATS=[[0.05,"métal poli, très brillant"],[0.25,"métal usiné, clair"],
+  [0.55,"métal légèrement oxydé"],[0.80,"acier oxydé, peinture claire"],[0.95,"peinture noire mate"]];
+function libelleEtat(e){let t=ETATS[0][1];for(const [v,l] of ETATS) if(e>=v-0.001) t=l;return t;}
+
+function P(){const T=thC+273.15;
+  return eps*SIG*S*(net ? Math.pow(T,4)-Math.pow(T_AMB,4) : Math.pow(T,4));}
+
+function couleur(T){
+  if(T<600) return [90+T*0.06,92,96];
+  if(T<900) return [130+(T-600)*0.35,70,50];
+  if(T<1200) return [235,60+(T-900)*0.30,45];
+  if(T<1600) return [255,150+(T-1200)*0.22,60+(T-1200)*0.25];
+  return [255,240,215];
+}
+
+$("rT").oninput=e=>{thC=+e.target.value;maj();};
+$("rS").oninput=e=>{S=+e.target.value/100;maj();};
+$("rE").oninput=e=>{eps=+e.target.value/100;maj();};
+$("net").onchange=e=>{net=e.target.checked;maj();};
+$("relever").onclick=()=>{mesures.push({n:mesures.length+1,thC,S,eps,net,P:P()});affTable();};
+$("effacer").onclick=()=>{mesures=[];affTable();};
+
+function boutons(zone,liste,actif,cb){
+  zone.innerHTML="";
+  liste.forEach(([v,txt])=>{const b=document.createElement("button");
+    b.textContent=txt;b.setAttribute("aria-pressed",v===actif());
+    b.onclick=()=>{cb(v);boutons(zone,liste,actif,cb);};zone.appendChild(b);});
+}
+boutons($("choixN"),[[0,"aucune"],[1,"P / (ε·S·T)"],[2,"P / (ε·S·T²)"],[3,"P / (ε·S·T³)"],[4,"P / (ε·S·T⁴)"]],
+  ()=>essai,v=>{essai=v;affTable();});
+
+function maj(){
+  const T=thC+273.15, p=P();
+  $("vT").innerHTML=thC+'<small>°C</small>';
+  $("vK").innerHTML=T.toFixed(0)+'<small>K</small>';
+  $("vP").innerHTML=(p<1000? fr(p,1) : fr(p/1000,2)+" k")+'<small>W</small>';
+  $("nomP").textContent = net ? "Puissance échangée avec la pièce" : "Puissance rayonnée par la plaque";
+  $("lT").textContent=thC+" °C";
+  $("lS").textContent=fr(S,2)+" m²";
+  $("lE").textContent=fr(eps,2);
+  $("aideE").textContent=libelleEtat(eps);
+  dessine();
+}
+
+const cs=$("scene"),ctx=cs.getContext("2d");
+function dessine(){
+  const W=cs.width,H=cs.height;
+  ctx.clearRect(0,0,W,H);
+  const p=P(), T=thC+273.15;
+  // plaque, hauteur proportionnelle à la surface
+  const hp=40+S*70, px=70, py=H/2-hp/2;
+  const [r,g,b]=couleur(T);
+  // halo
+  const inten=Math.min(1,Math.pow(p/6000,0.4));
+  if(inten>0.02){
+    const gr=ctx.createRadialGradient(px+22,H/2,10,px+22,H/2,190);
+    gr.addColorStop(0,"rgba("+r+","+g+","+b+","+(0.55*inten)+")");
+    gr.addColorStop(1,"rgba("+r+","+g+","+b+",0)");
+    ctx.fillStyle=gr;ctx.fillRect(0,0,W,H);
+  }
+  ctx.fillStyle="rgb("+r+","+g+","+b+")";
+  ctx.fillRect(px,py,44,hp);
+  ctx.strokeStyle="#4A5A66";ctx.lineWidth=3;ctx.strokeRect(px,py,44,hp);
+  ctx.fillStyle="#5C6C79";ctx.font="600 16px "+getComputedStyle(document.body).fontFamily;
+  ctx.textAlign="center";ctx.fillText("plaque",px+22,py-14);
+  ctx.font="14px "+getComputedStyle(document.body).fontFamily;
+  ctx.fillText(fr(S,2)+" m²",px+22,py+hp+24);
+  // rayons : nombre lié à l'intensité, opacité à l'émissivité
+  const n=Math.max(2,Math.round(2+inten*11));
+  ctx.lineWidth=3;ctx.lineCap="round";
+  for(let i=0;i<n;i++){
+    const y=py+hp*(i+0.5)/n;
+    const lg=90+inten*230;
+    ctx.strokeStyle="rgba("+r+","+g+","+b+","+(0.35+0.6*eps)+")";
+    ctx.beginPath();
+    for(let x=0;x<=lg;x+=6) (x?ctx.lineTo:ctx.moveTo).call(ctx,px+46+x, y+Math.sin(x/13+i)*4.5);
+    ctx.stroke();
+    // pointe
+    const xe=px+46+lg;
+    ctx.beginPath();ctx.moveTo(xe,y-6);ctx.lineTo(xe+11,y);ctx.lineTo(xe,y+6);
+    ctx.fillStyle="rgba("+r+","+g+","+b+","+(0.35+0.6*eps)+")";ctx.fill();
+  }
+  ctx.lineCap="butt";
+  // capteur
+  const cx=W-95;
+  ctx.fillStyle="#28323A";ctx.beginPath();ctx.roundRect(cx,H/2-52,74,104,8);ctx.fill();
+  ctx.fillStyle="#0F1A22";ctx.fillRect(cx+9,H/2-40,56,40);
+  ctx.fillStyle="#7FD98A";ctx.font="600 15px "+getComputedStyle(document.body).fontFamily;
+  ctx.textAlign="center";
+  ctx.fillText(p<1000?fr(p,0):fr(p/1000,1)+"k",cx+37,H/2-15);
+  ctx.fillStyle="#9DB4C0";ctx.font="12px "+getComputedStyle(document.body).fontFamily;
+  ctx.fillText("W",cx+37,H/2+2);
+  ctx.fillStyle="#8FA3B0";ctx.fillRect(cx+18,H/2+16,38,26);
+  ctx.fillStyle="#5C6C79";ctx.font="14px "+getComputedStyle(document.body).fontFamily;
+  ctx.fillText("capteur",cx+37,H/2+66);
+  // ambiance
+  ctx.textAlign="left";ctx.fillStyle="#8FA0AC";
+  ctx.fillText("air de la pièce : 20 °C"+(net?"  (pris en compte)":"  (ignoré)"),16,H-12);
+}
+
+function affTable(){
+  const z=$("zoneTable");
+  if(!mesures.length){z.innerHTML='<p class="vide">Aucune mesure pour l\'instant.</p>';return;}
+  const ent=["n°","θ (°C)","T (K)","S (m²)","ε","P (W)"];
+  const nomEssai=["","P/(ε·S·T)","P/(ε·S·T²)","P/(ε·S·T³)","P/(ε·S·T⁴)"][essai];
+  let h='<table><thead><tr>'+ent.map(e=>'<th>'+e+'</th>').join("")
+       +(essai?'<th>'+nomEssai+'</th>':'')+'</tr></thead><tbody>';
+  mesures.forEach(r=>{
+    const T=r.thC+273.15;
+    h+='<tr><td>'+r.n+'</td><td>'+r.thC+'</td><td>'+T.toFixed(0)+'</td><td>'+fr(r.S,2)
+      +'</td><td>'+fr(r.eps,2)+'</td><td>'+(r.P<1000?fr(r.P,1):fr(r.P/1000,2)+" k")+'</td>';
+    if(essai){
+      const v=r.P/(r.eps*r.S*Math.pow(T,essai));
+      h+='<td class="essai">'+v.toExponential(2).replace(".",",").replace("e","·10^")+'</td>';
+    }
+    h+='</tr>';
+  });
+  z.innerHTML=h+'</tbody></table>';
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){
+  CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){
+    this.moveTo(x+r,y);this.arcTo(x+w,y,x+w,y+h,r);this.arcTo(x+w,y+h,x,y+h,r);
+    this.arcTo(x,y+h,x,y,r);this.arcTo(x,y,x+w,y,r);this.closePath();return this;};
+}
+maj();affTable();
+</script>
+</body>
+</html>
