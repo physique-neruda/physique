@@ -65,8 +65,8 @@ window.CHAPITRE = {
   {
    "q": "Le rendement d'un convertisseur se calcule par :",
    "choix": [
-    "P<sub>absorbée</sub>/P<sub>utile</sub>",
-    "P<sub>utile</sub>/P<sub>absorbée</sub>",
+    "(P<sub>absorbée</sub>)/(P<sub>utile</sub>)",
+    "(P<sub>utile</sub>)/(P<sub>absorbée</sub>)",
     "P<sub>utile</sub> × P<sub>absorbée</sub>",
     "P<sub>absorbée</sub> - P<sub>utile</sub>"
    ],
@@ -255,7 +255,7 @@ window.CHAPITRE = {
  "cartes": [
   {
    "type": "trou",
-   "recto": "Pour un conducteur ohmique, la tension à ses bornes est …… à l'intensité qui le traverse : \\[ U = R × I, U en V,\\ R en Ω, \\ I en A.",
+   "recto": "……",
    "verso": "<strong>proportionnelle</strong>",
    "origine": "cours a completer"
   },

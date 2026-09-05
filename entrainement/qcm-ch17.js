@@ -67,11 +67,11 @@ window.CHAPITRE = {
    "choix": [
     "joules (J)",
     "watts (W)",
-    "watts par mètre carré (W/m2)",
+    "watts par mètre carré (W/m²)",
     "hertz (Hz)"
    ],
    "bonne": 1,
-   "expl": "les W/m2 mesurent une puissance <em>par unité de surface</em>, pas une puissance"
+   "expl": "les W/m² mesurent une puissance <em>par unité de surface</em>, pas une puissance"
   },
   {
    "q": "Une grandeur I vaut P/S. Si P reste constante et que S <strong>augmente</strong>, alors I :",

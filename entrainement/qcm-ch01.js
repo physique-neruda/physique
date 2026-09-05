@@ -65,13 +65,13 @@ window.CHAPITRE = {
   {
    "q": "Une valeur passe de 200 à 206. L'écart relatif vaut :",
    "choix": [
-    "6 /cent",
-    "3 /cent",
-    "0,03 /cent",
-    "60 /cent"
+    "6 %",
+    "3 %",
+    "0,03 %",
+    "60 %"
    ],
    "bonne": 1,
-   "expl": "6/200 = 0,03, soit 3 /cent"
+   "expl": "6/200 = 0,03, soit 3 %"
   },
   {
    "q": "Sur une règle graduée en millimètres, la plus petite division lisible est :",
@@ -79,7 +79,7 @@ window.CHAPITRE = {
     "1 cm",
     "1 mm",
     "0,1 mm",
-    "1 micro m"
+    "1 µm"
    ],
    "bonne": 1,
    "expl": "c'est la <em>résolution</em> de l'instrument"
@@ -167,8 +167,8 @@ window.CHAPITRE = {
    "q": "L'incertitude-type sur la moyenne se calcule par :",
    "choix": [
     "u = s",
-    "u = s√(n)",
-    "u = s/√(n)",
+    "u = s√n",
+    "u = s/√n",
     "u = s/n"
    ],
    "bonne": 2,
@@ -183,7 +183,7 @@ window.CHAPITRE = {
     "on ne peut pas la calculer"
    ],
    "bonne": 1,
-   "expl": "mesure unique, donc type B : 0,02/√(3) = 0,012 mm"
+   "expl": "mesure unique, donc type B : 0,02/√3 = 0,012 mm"
   },
   {
    "q": "Pour diviser l'incertitude-type par 2, il faut multiplier le nombre de mesures par :",
@@ -194,7 +194,7 @@ window.CHAPITRE = {
     "16"
    ],
    "bonne": 1,
-   "expl": "u varie en 1/√(n)"
+   "expl": "u varie en 1/√n"
   },
   {
    "q": "L'incertitude doit être arrondie à :",
@@ -246,14 +246,14 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "Deux voies mènent à l'incertitude-type, et l'énoncé indique toujours laquelle suivre : …… → on exploite leur dispersion, u = s/√(n) (type A) ; <strong>une seule mesure</strong> → on exploite l'instrument, u = a/√(3) (type B).",
+   "recto": "Deux voies mènent à l'incertitude-type, et l'énoncé indique toujours laquelle suivre : …… → on exploite leur dispersion, u = s/√n (type A) ; <strong>une seule mesure</strong> → on exploite l'instrument, u = a/√3 (type B).",
    "verso": "<strong>plusieurs mesures</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "On l'écrit sous la forme\n……",
-   "verso": "d = (25,020 ± 0,008) mm.",
+   "verso": "d = (25,020 ± 0,008) mm .",
    "origine": "cours a completer"
   },
   {

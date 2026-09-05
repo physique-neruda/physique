@@ -41,7 +41,7 @@ window.CHAPITRE = {
    "expl": "6,0/0,30 = 20, la même division que pour compter des motifs"
   },
   {
-   "q": "La valeur de √(2) est environ :",
+   "q": "La valeur de √2 est environ :",
    "choix": [
     "1,41",
     "2,00",
@@ -52,7 +52,7 @@ window.CHAPITRE = {
    "expl": ""
   },
   {
-   "q": "Un signal monte jusqu'à +6 V et descend jusqu'à -6 V. Sa valeur maximale U<sub></sub> vaut :",
+   "q": "Un signal monte jusqu'à +6 V et descend jusqu'à -6 V. Sa valeur maximale U<sub>max</sub> vaut :",
    "choix": [
     "12 V",
     "6 V",
@@ -166,7 +166,7 @@ window.CHAPITRE = {
   {
    "q": "La valeur moyenne d'un signal se calcule en divisant :",
    "choix": [
-    "la valeur maximale par √(2)",
+    "la valeur maximale par √2",
     "l'aire algébrique d'une période par la période",
     "la période par le nombre de motifs",
     "la somme des valeurs extrêmes par deux"
@@ -177,10 +177,10 @@ window.CHAPITRE = {
   {
    "q": "La valeur moyenne d'une tension sinusoïdale vaut :",
    "choix": [
-    "U<sub></sub>",
-    "U<sub></sub>/√(2)",
+    "U<sub>max</sub>",
+    "U<sub>max</sub>/√2",
     "zéro",
-    "U<sub></sub>/2"
+    "U<sub>max</sub>/2"
    ],
    "bonne": 2,
    "expl": "les deux alternances se compensent"
@@ -191,7 +191,7 @@ window.CHAPITRE = {
     "moyenne, puis carré, puis racine",
     "carré, puis moyenne, puis racine",
     "racine, puis moyenne, puis carré",
-    "on divise toujours par √(2)"
+    "on divise toujours par √2"
    ],
    "bonne": 1,
    "expl": "l'ordre est essentiel : moyenner <em>avant</em> d'élever au carré est l'erreur la plus fréquente"
@@ -199,10 +199,10 @@ window.CHAPITRE = {
   {
    "q": "Pour une tension sinusoïdale, la valeur efficace vaut :",
    "choix": [
-    "U<sub></sub> × √(2)",
-    "U<sub></sub>/√(2)",
-    "U<sub></sub>/2",
-    "U<sub></sub>"
+    "U<sub>max</sub> × √2",
+    "(U<sub>max</sub>)/√2",
+    "(U<sub>max</sub>)/2",
+    "U<sub>max</sub>"
    ],
    "bonne": 1,
    "expl": "et pour une sinusoïde <em>seulement</em>"
@@ -246,7 +246,7 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "La …… u d'un signal périodique est le quotient de l'<strong>aire algébrique</strong> comprise entre la courbe et l'axe des temps, sur <strong>une</strong> période, par la durée de cette période.",
+   "recto": "La …… ⟨u⟩ d'un signal périodique est le quotient de l'<strong>aire algébrique</strong> comprise entre la courbe et l'axe des temps, sur <strong>une</strong> période, par la durée de cette période.",
    "verso": "<strong>valeur moyenne</strong>",
    "origine": "cours a completer"
   }

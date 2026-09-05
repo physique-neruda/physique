@@ -76,13 +76,13 @@ window.CHAPITRE = {
   {
    "q": "Dans un triangle rectangle, le côté adjacent à l'angle α vaut, si l'hypoténuse mesure L :",
    "choix": [
-    "L α",
-    "L α",
-    "L α",
+    "L sin α",
+    "L cos α",
+    "L tan α",
     "L/α"
    ],
    "bonne": 1,
-   "expl": "Lα, la projection utilisée dans tout ce chapitre"
+   "expl": "Lcos α, la projection utilisée dans tout ce chapitre"
   }
  ],
  "bilan": [
@@ -90,7 +90,7 @@ window.CHAPITRE = {
    "q": "Le travail d'une force constante s'écrit :",
    "choix": [
     "W = F/d",
-    "W = F × d × α",
+    "W = F × d × cos α",
     "W = 1/2Fd²",
     "W = F + d"
    ],
@@ -106,7 +106,7 @@ window.CHAPITRE = {
     "égal à F × d"
    ],
    "bonne": 2,
-   "expl": "(90° = 0)"
+   "expl": "(cos 90° = 0)"
   },
   {
    "q": "Un travail résistant :",
@@ -180,7 +180,7 @@ window.CHAPITRE = {
     "1/2mv²",
     "mgh",
     "1/2kx²",
-    "F dα"
+    "F dcos α"
    ],
    "bonne": 1,
    "expl": ""

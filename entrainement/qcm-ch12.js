@@ -19,12 +19,12 @@ window.CHAPITRE = {
    "expl": ""
   },
   {
-   "q": "Un échantillon de 54,0 g occupe un volume de 20,0 cm^3. Sa masse volumique vaut :",
+   "q": "Un échantillon de 54,0 g occupe un volume de 20,0 cm³. Sa masse volumique vaut :",
    "choix": [
-    "0,37 g/cm^3",
-    "2,70 g/cm^3",
-    "74 g/cm^3",
-    "1080 g/cm^3"
+    "0,37 g/cm³",
+    "2,70 g/cm³",
+    "74 g/cm³",
+    "1080 g/cm³"
    ],
    "bonne": 1,
    "expl": "ρ = 54,0/20,0 = 2,70 g/cm³ (c'est de l'aluminium)"
@@ -41,12 +41,12 @@ window.CHAPITRE = {
    "expl": "le PVC est un polymère, donc isolant"
   },
   {
-   "q": "Convertir 2,5 mm^2 en mètres carrés :",
+   "q": "Convertir 2,5 mm² en mètres carrés :",
    "choix": [
-    "2,5×10⁻³ m^2",
-    "2,5×10⁻⁶ m^2",
-    "2,5×10⁻² m^2",
-    "2,5×10⁻⁹ m^2"
+    "2,5×10⁻³ m²",
+    "2,5×10⁻⁶ m²",
+    "2,5×10⁻² m²",
+    "2,5×10⁻⁹ m²"
    ],
    "bonne": 1,
    "expl": "1 mm = 10⁻³ m donc 1 mm² = 10⁻⁶ m²"
@@ -133,10 +133,10 @@ window.CHAPITRE = {
   {
    "q": "La résistance d'un conducteur s'écrit :",
    "choix": [
-    "R = /L",
+    "R = ρS/L",
     "R = ρ L S",
-    "R = /S",
-    "R = L/ρ S"
+    "R = ρL/S",
+    "R = L/(ρ S)"
    ],
    "bonne": 2,
    "expl": ""

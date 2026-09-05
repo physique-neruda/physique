@@ -157,19 +157,19 @@ window.CHAPITRE = {
    "choix": [
     "2500 A",
     "0,25 A",
-    "2,5 × 10⁻³",
-    "2,5 × 10⁻⁶"
+    "2,5 × 10⁻³ A",
+    "2,5 × 10⁻⁶ A"
    ],
    "bonne": 2,
    "expl": ""
   },
   {
-   "q": "Une aire de 1 cm^2 vaut, en mètres carrés :",
+   "q": "Une aire de 1 cm² vaut, en mètres carrés :",
    "choix": [
-    "10⁻¹ ²",
-    "10⁻² ²",
-    "10⁻⁴ ²",
-    "10⁻⁶ ²"
+    "10⁻¹ m²",
+    "10⁻² m²",
+    "10⁻⁴ m²",
+    "10⁻⁶ m²"
    ],
    "bonne": 2,
    "expl": "on élève 10⁻² au carré"

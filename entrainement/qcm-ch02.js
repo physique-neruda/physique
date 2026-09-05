@@ -52,7 +52,7 @@ window.CHAPITRE = {
    "expl": ""
   },
   {
-   "q": "85 /cent de 1500 vaut :",
+   "q": "85 % de 1500 vaut :",
    "choix": [
     "127,5",
     "1275",
@@ -166,8 +166,8 @@ window.CHAPITRE = {
   {
    "q": "Le rendement d'un convertisseur se calcule par :",
    "choix": [
-    "η = E<sub>absorbée</sub>/E<sub>utile</sub>",
-    "η = E<sub>utile</sub>/E<sub>absorbée</sub>",
+    "η = (E<sub>absorbée</sub>)/(E<sub>utile</sub>)",
+    "η = (E<sub>utile</sub>)/(E<sub>absorbée</sub>)",
     "η = E<sub>utile</sub> × E<sub>absorbée</sub>",
     "η = E<sub>absorbée</sub> - E<sub>utile</sub>"
    ],
@@ -179,7 +179,7 @@ window.CHAPITRE = {
    "choix": [
     "1,25",
     "0,85",
-    "125 /cent",
+    "125 %",
     "n'importe quelle valeur"
    ],
    "bonne": 1,
@@ -188,10 +188,10 @@ window.CHAPITRE = {
   {
    "q": "Un moteur absorbe 900 W et fournit 720 W. Son rendement vaut :",
    "choix": [
-    "125 /cent",
-    "80 /cent",
-    "20 /cent",
-    "180 /cent"
+    "125 %",
+    "80 %",
+    "20 %",
+    "180 %"
    ],
    "bonne": 1,
    "expl": "720/900 = 0,80"

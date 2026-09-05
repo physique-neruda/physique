@@ -30,7 +30,7 @@ window.CHAPITRE = {
    "expl": "E = 1500 × 20 = 30 000 J = 30 kJ (Δt en secondes)"
   },
   {
-   "q": "À combien de joules correspond 1 kWhour ?",
+   "q": "À combien de joules correspond 1 kWh ?",
    "choix": [
     "1000 J",
     "3600 J",
@@ -38,7 +38,7 @@ window.CHAPITRE = {
     "60 kJ"
    ],
    "bonne": 2,
-   "expl": "1 kWhour = 1000 × 3600 = 3,6 MJ"
+   "expl": "1 kWh = 1000 × 3600 = 3,6 MJ"
   },
   {
    "q": "Le transfert d'énergie thermique entre deux corps de températures différentes se fait spontanément :",

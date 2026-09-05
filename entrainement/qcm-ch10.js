@@ -30,7 +30,7 @@ window.CHAPITRE = {
    "expl": "E = 2000 × 30 = 60 000 J = 60 kJ (Δt en secondes)"
   },
   {
-   "q": "À combien de joules correspond 1 kWhour ?",
+   "q": "À combien de joules correspond 1 kWh ?",
    "choix": [
     "3,6 MJ",
     "1000 J",
@@ -38,7 +38,7 @@ window.CHAPITRE = {
     "60 J"
    ],
    "bonne": 0,
-   "expl": "1 kWhour = 3,6 MJ"
+   "expl": "1 kWh = 3,6 MJ"
   },
   {
    "q": "Pour l'eau, la capacité thermique massique vaut c ≈ 4180 J/kg/K. L'énergie à fournir pour chauffer 1 kg d'eau de 20 °C à 30 °C (Q = m c Δθ) vaut environ :",

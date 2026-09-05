@@ -253,7 +253,7 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "C'est la <strong>dérivée</strong> de la position par rapport au temps :\n……",
-   "verso": "v(t) = /.",
+   "verso": "v(t) = dx/dt.",
    "origine": "cours a completer"
   }
  ]

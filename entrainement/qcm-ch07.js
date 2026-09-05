@@ -41,7 +41,7 @@ window.CHAPITRE = {
    "expl": "ne pas confondre avec l'unité de la masse"
   },
   {
-   "q": "Le poids d'un corps de 10 kilogram vaut environ :",
+   "q": "Le poids d'un corps de 10 kg vaut environ :",
    "choix": [
     "10 N",
     "98 N",
@@ -54,10 +54,10 @@ window.CHAPITRE = {
   {
    "q": "Convertir 800 g en kilogrammes :",
    "choix": [
-    "8,0 kilogram",
-    "0,800 kilogram",
-    "80 kilogram",
-    "0,080 kilogram"
+    "8,0 kg",
+    "0,800 kg",
+    "80 kg",
+    "0,080 kg"
    ],
    "bonne": 1,
    "expl": "conversion à faire <em>avant</em> tout calcul de poids"
@@ -65,9 +65,9 @@ window.CHAPITRE = {
   {
    "q": "Dans un triangle rectangle, le côté opposé à un angle α s'obtient en multipliant l'hypoténuse par :",
    "choix": [
-    "α",
-    "α",
-    "α",
+    "cos α",
+    "sin α",
+    "tan α",
     "α"
    ],
    "bonne": 1,
@@ -142,7 +142,7 @@ window.CHAPITRE = {
    "expl": ""
   },
   {
-   "q": "Le poids d'un corps de masse 250 kilogram vaut environ :",
+   "q": "Le poids d'un corps de masse 250 kg vaut environ :",
    "choix": [
     "250 N",
     "2452 N",
@@ -166,9 +166,9 @@ window.CHAPITRE = {
   {
    "q": "La force élastique exercée par un ressort de raideur k vaut :",
    "choix": [
-    "F = k + Δ",
-    "F = k × Δ",
-    "F = k/Δ",
+    "F = k + Δℓ",
+    "F = k × Δℓ",
+    "F = k/Δℓ",
     "F = k × m"
    ],
    "bonne": 1,
@@ -298,7 +298,7 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "La <strong>résultante</strong> des forces appliquées à un solide est la …… de toutes les forces qu'il subit, notée Σ.",
+   "recto": "La <strong>résultante</strong> des forces appliquées à un solide est la …… de toutes les forces qu'il subit, notée ΣF⃗.",
    "verso": "<strong>somme vectorielle</strong>",
    "origine": "cours a completer"
   },

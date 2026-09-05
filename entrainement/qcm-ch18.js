@@ -157,7 +157,7 @@ window.CHAPITRE = {
    "choix": [
     "40 nm à 80 nm",
     "400 nm à 800 nm",
-    "400 micro m à 800 micro m",
+    "400 µm à 800 µm",
     "4 mm à 8 mm"
    ],
    "bonne": 1,
@@ -253,7 +253,7 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Dans le <strong>vide</strong>, toutes les ondes électromagnétiques se propagent à la même célérité, notée c :\n……",
-   "verso": "c = 3,00 × 10⁸ m/s = 300 000 kilom/s.",
+   "verso": "c = 3,00 × 10⁸ m/s = 300 000 km/s.",
    "origine": "cours a completer"
   }
  ]
