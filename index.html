@@ -63,10 +63,14 @@ a.item:hover{border-color:var(--orange);border-left-color:var(--orange)}
 a.item:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
 a.item.animation{border-left-color:var(--teal)}
 a.item.pdf{border-left-color:var(--bleu)}
+a.item.qcm{border-left-color:var(--orange)}
+a.item.cartes{border-left-color:var(--orange)}
 .marque{flex:0 0 auto;font-family:var(--mono);font-size:.66rem;letter-spacing:.03em;
   border-radius:4px;padding:3px 6px;margin-top:2px;border:1px solid var(--bord);color:var(--gris)}
 a.item.animation .marque{color:var(--teal);border-color:var(--teal)}
 a.item.pdf .marque{color:var(--bleu);border-color:var(--bleu)}
+a.item.qcm .marque,
+a.item.cartes .marque{color:var(--orange);border-color:var(--orange)}
 .corps{min-width:0}
 .corps .nom{font-size:1.02rem;font-weight:600;color:var(--bleu)}
 .corps .desc{font-size:.89rem;margin-top:2px}
@@ -137,12 +141,20 @@ function docsDe(id){
 var vueFiliere = null, rubrique = null, recherche = "";
 
 /* ---------- rendu ---------- */
+/* Un type inconnu retombe sur "pdf" : le catalogue ne peut pas casser
+   l'affichage. Seuls les PDF s'ouvrent dans un nouvel onglet. */
+var TYPES = {
+  animation: { classe: "animation", marque: "ANIM",   onglet: false },
+  qcm:       { classe: "qcm",       marque: "QCM",    onglet: false },
+  cartes:    { classe: "cartes",    marque: "CARTES", onglet: false },
+  pdf:       { classe: "pdf",       marque: "PDF",    onglet: true  }
+};
 function carteItem(d, avecLieu){
   var f = laFiliere(d.filiere);
-  var estAnim = d.type === "animation";
-  return '<a class="item ' + (estAnim ? "animation" : "pdf") + '" href="' + echappe(d.fichier) + '"'
-       + (estAnim ? "" : ' target="_blank" rel="noopener"') + '>'
-       + '<span class="marque">' + (estAnim ? "ANIM" : "PDF") + '</span>'
+  var t = TYPES[d.type] || TYPES.pdf;
+  return '<a class="item ' + t.classe + '" href="' + echappe(d.fichier) + '"'
+       + (t.onglet ? ' target="_blank" rel="noopener"' : "") + '>'
+       + '<span class="marque">' + t.marque + '</span>'
        + '<span class="corps">'
        +   '<span class="nom">' + echappe(d.titre) + '</span>'
        +   (d.description ? '<span class="desc">' + echappe(d.description) + '</span>' : '')
@@ -159,9 +171,14 @@ function vueAccueil(){
   FILIERES.forEach(function(f){
     var d = docsDe(f.id);
     var nbA = d.filter(function(x){ return x.type==="animation"; }).length;
-    var nbP = d.length - nbA;
-    var compte = d.length
-      ? nbP + " document" + (nbP>1?"s":"") + (nbA ? ' et <em>' + nbA + " animation" + (nbA>1?"s":"") + '</em>' : "")
+    var nbE = d.filter(function(x){ return x.type==="qcm" || x.type==="cartes"; }).length;
+    var nbP = d.length - nbA - nbE;
+    var bouts = [];
+    if(nbP) bouts.push(nbP + " document" + (nbP>1?"s":""));
+    if(nbA) bouts.push('<em>' + nbA + " animation" + (nbA>1?"s":"") + '</em>');
+    if(nbE) bouts.push('<em>' + nbE + " entra\u00eenement" + (nbE>1?"s":"") + '</em>');
+    var compte = bouts.length
+      ? bouts.slice(0,-1).join(", ") + (bouts.length>1 ? " et " : "") + bouts[bouts.length-1]
       : "rien pour l'instant";
     html += '<a class="filiere" href="#' + f.id + '">'
           +   '<span class="nom">' + echappe(f.nom) + '</span>'

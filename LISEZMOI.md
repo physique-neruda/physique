@@ -15,6 +15,10 @@ catalogue.js               LE CATALOGUE — le seul fichier à modifier au quoti
 MODELE_animation.html      le gabarit pour créer une nouvelle animation
 LISEZMOI.md                ce fichier
 animations/                les animations (.html)
+entrainement/              les questionnaires et les cartes de révision
+   qcm.html                le questionnaire, valable pour tous les chapitres
+   cartes.html             les cartes, valables pour tous les chapitres
+   qcm-chXX.js             un fichier de données par chapitre
 calorimetre.html           \
 rayonnement.html            > redirections de compatibilité, à laisser
 flux-thermique.html        /
@@ -122,7 +126,46 @@ reste accessible à qui a le lien, mais n'est plus référencé.
 
 ---
 
-## 7. Créer une animation
+## 7. Les questionnaires et les cartes de révision
+
+Le dossier `entrainement/` ne contient que **deux pages** : `qcm.html` et `cartes.html`. Elles
+servent tous les chapitres, de toutes les filières. Le chapitre est passé dans l'adresse :
+
+```
+entrainement/qcm.html?ch=16&type=prerequis
+entrainement/qcm.html?ch=16&type=bilan
+entrainement/cartes.html?ch=16
+```
+
+La page va alors lire `entrainement/qcm-ch16.js`, qui contient les questions, les bonnes réponses,
+les explications et les cartes. **Ajouter un chapitre, c'est déposer un fichier de données de plus** ;
+les deux pages ne changent jamais.
+
+Ces fichiers ne s'écrivent pas à la main : ils sont **fabriqués à partir des sources LaTeX** par les
+scripts du dossier `outils/` de l'archive de travail (voir son propre LISEZMOI). Les questions
+n'existent donc qu'à un seul endroit, le `.tex`. Corriger une faute dans `ch16_bilan.tex` et
+relancer la fabrication met le site à jour ; il n'y a pas de deuxième version à maintenir.
+
+Comme pour un PDF ou une animation, l'entrée se recopie dans `catalogue.js`, avec `type: "qcm"` ou
+`type: "cartes"` et le chemin complet, paramètre compris :
+
+```js
+{
+  filiere: "1sti2d", rubrique: "S'entraîner",
+  chapitre: "Chapitre 16 — Notion d'onde et information",
+  type: "qcm", titre: "Bilan — se tester après",
+  fichier: "entrainement/qcm.html?ch=16&type=bilan",
+  description: "12 questions sur tout le chapitre."
+},
+```
+
+Rien n'est enregistré ni envoyé : les réponses restent dans le navigateur de l'étudiant. Il n'y a
+donc aucun moyen de savoir qui a travaillé — c'est le prix du dispositif sans compte, et la raison
+pour laquelle il ne pose aucune question de données personnelles.
+
+---
+
+## 8. Créer une animation
 
 Dupliquer `MODELE_animation.html`, le renommer, le déposer dans `animations/`, puis l'inscrire
 dans `catalogue.js` comme n'importe quel document, avec `type: "animation"`.
@@ -144,7 +187,7 @@ Contraintes à respecter, elles sont tenues par les trois animations existantes 
 
 ---
 
-## 8. Points d'attention
+## 9. Points d'attention
 
 **Les noms de fichiers sont sensibles à la casse** sur GitHub Pages. `Cours.pdf` et `cours.pdf`
 sont deux fichiers différents, alors qu'ils sont identiques pour Windows. C'est la cause
