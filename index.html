@@ -51,6 +51,16 @@ a.filiere .st{font-size:.88rem;color:var(--gris);margin-top:1px}
 a.filiere .compte{font-size:.85rem;color:var(--encre);margin-top:8px}
 a.filiere .compte em{font-style:normal;color:var(--orange)}
 
+/* liste des chapitres */
+a.chapitre{display:block;background:var(--panneau);border:1px solid var(--bord);
+  border-left:5px solid var(--orange);border-radius:10px;padding:14px 16px;margin-bottom:8px;
+  text-decoration:none;color:inherit}
+a.chapitre:hover{border-color:var(--orange);border-left-color:var(--orange)}
+a.chapitre:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+a.chapitre .nom{font-size:1.02rem;font-weight:600;color:var(--bleu)}
+a.chapitre .compte{font-size:.85rem;color:var(--gris);margin-top:4px}
+a.chapitre .compte em{font-style:normal;color:var(--orange)}
+
 /* listes */
 h2{font-size:1.05rem;margin:26px 0 2px;color:var(--bleu)}
 h3{font-size:.79rem;font-weight:600;letter-spacing:.02em;color:var(--gris);
@@ -99,7 +109,7 @@ noscript{display:block;background:#FDECEA;border:1px solid #E3A9A2;border-radius
 
 <div class="outils">
   <label for="q" style="position:absolute;left:-9999px">Rechercher</label>
-  <input id="q" type="search" placeholder="Chercher un document ou une animation…"
+  <input id="q" type="search" placeholder="Chercher un chapitre, un document, une animation…"
          autocomplete="off" enterkeyhint="search">
   <div class="chips" id="chips"></div>
 </div>
@@ -129,6 +139,13 @@ function echappe(s){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
   });
 }
+/* Identifiant d'un chapitre pour l'adresse : #1sti2d/chapitre-16-notion-d-onde
+   La clé ne retient que le nom du chapitre : un chapitre reste une seule
+   carte même s'il porte à la fois un cours, un TP et un entraînement. */
+function cleChapitre(d){
+  return sansAccents(d.chapitre)
+         .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
 function laFiliere(id){
   for(var i=0;i<FILIERES.length;i++){ if(FILIERES[i].id===id) return FILIERES[i]; }
   return null;
@@ -138,7 +155,7 @@ function docsDe(id){
 }
 
 /* ---------- état ---------- */
-var vueFiliere = null, rubrique = null, recherche = "";
+var vueFiliere = null, vueChapitre = null, rubrique = null, recherche = "";
 
 /* ---------- rendu ---------- */
 /* Un type inconnu retombe sur "pdf" : le catalogue ne peut pas casser
@@ -207,21 +224,79 @@ function vueRecherche(){
                   + r.map(function(d){ return carteItem(d, true); }).join("");
 }
 
+/* Regroupe une liste de documents par chapitre, dans l'ordre du catalogue. */
+function parChapitre(liste){
+  var ordre = [], par = {};
+  liste.forEach(function(d){
+    var c = cleChapitre(d);
+    if(!par[c]){ par[c] = { cle:c, nom:d.chapitre, rubrique:d.rubrique,
+                            rubriques:[], docs:[] };
+                 ordre.push(par[c]); }
+    if(par[c].rubriques.indexOf(d.rubrique) < 0) par[c].rubriques.push(d.rubrique);
+    par[c].docs.push(d);
+  });
+  return ordre;
+}
+
+/* « 5 documents et 2 entraînements » */
+function compteDe(docs){
+  var nbA = docs.filter(function(x){ return x.type==="animation"; }).length;
+  var nbE = docs.filter(function(x){ return x.type==="qcm" || x.type==="cartes"; }).length;
+  var nbP = docs.length - nbA - nbE;
+  var bouts = [];
+  if(nbP) bouts.push(nbP + " document" + (nbP>1?"s":""));
+  if(nbA) bouts.push('<em>' + nbA + " animation" + (nbA>1?"s":"") + '</em>');
+  if(nbE) bouts.push('<em>' + nbE + " entra\u00eenement" + (nbE>1?"s":"") + '</em>');
+  return bouts.length
+    ? bouts.slice(0,-1).join(", ") + (bouts.length>1 ? " et " : "") + bouts[bouts.length-1]
+    : "rien pour l'instant";
+}
+
+function ariane(){
+  var f = laFiliere(vueFiliere);
+  var fil = document.getElementById("fil");
+  fil.hidden = false;
+  var h = '<a href="#">Toutes les filières</a> &nbsp;›&nbsp; ';
+  if(vueChapitre){
+    var g = parChapitre(docsDe(f.id)).filter(function(x){ return x.cle===vueChapitre; })[0];
+    h += '<a href="#' + f.id + '">' + echappe(f.nom) + '</a>'
+       + (g ? ' &nbsp;›&nbsp; ' + echappe(g.nom) : "");
+  }else{
+    h += echappe(f.nom);
+  }
+  fil.innerHTML = h;
+}
+
+/* Niveau 3 : les documents d'un seul chapitre. */
+function vueChapitreRendu(){
+  var f = laFiliere(vueFiliere);
+  var g = parChapitre(docsDe(f.id)).filter(function(x){ return x.cle===vueChapitre; })[0];
+  if(!g){ vueChapitre = null; vueFiliereRendu(); return; }
+  ariane();
+  document.getElementById("chips").innerHTML = "";
+  var html = '<h2>' + echappe(g.nom) + '</h2>';
+  g.rubriques.forEach(function(r){
+    html += '<h3>' + echappe(r) + '</h3>'
+          + g.docs.filter(function(d){ return d.rubrique === r; })
+                  .map(function(d){ return carteItem(d, false); }).join("");
+  });
+  document.getElementById("vue").innerHTML = html;
+}
+
+/* Niveau 2 : la liste des chapitres d'une filière. */
 function vueFiliereRendu(){
   var f = laFiliere(vueFiliere);
   if(!f){ location.hash = ""; return; }
-
-  var fil = document.getElementById("fil");
-  fil.hidden = false;
-  fil.innerHTML = '<a href="#">Toutes les filières</a> &nbsp;›&nbsp; ' + echappe(f.nom);
+  if(vueChapitre){ vueChapitreRendu(); return; }
+  ariane();
 
   var tous = docsDe(f.id);
   var zone = document.getElementById("chips");
   zone.innerHTML = "";
   var choix = ["Tout"].concat(f.rubriques);
   choix.forEach(function(r){
-    var n = (r === "Tout") ? tous.length
-          : tous.filter(function(d){ return d.rubrique===r; }).length;
+    var n = (r === "Tout") ? parChapitre(tous).length
+          : parChapitre(tous.filter(function(d){ return d.rubrique===r; })).length;
     var b = document.createElement("button");
     b.type = "button";
     b.textContent = r + (n ? "  " + n : "");
@@ -237,17 +312,16 @@ function vueFiliereRendu(){
     return;
   }
 
-  var html = "", rubCourante = null, chapCourant = null;
-  liste.forEach(function(d){
-    if(!rubrique && d.rubrique !== rubCourante){
-      rubCourante = d.rubrique; chapCourant = null;
-      html += '<h2>' + echappe(d.rubrique) + '</h2>';
+  var html = "", rubCourante = null;
+  parChapitre(liste).forEach(function(g){
+    if(!rubrique && g.rubrique !== rubCourante){
+      rubCourante = g.rubrique;
+      html += '<h2>' + echappe(g.rubrique) + '</h2>';
     }
-    if(d.chapitre !== chapCourant){
-      chapCourant = d.chapitre;
-      html += '<h3>' + echappe(d.chapitre) + '</h3>';
-    }
-    html += carteItem(d, false);
+    html += '<a class="chapitre" href="#' + f.id + '/' + g.cle + '">'
+          +   '<span class="nom">' + echappe(g.nom) + '</span>'
+          +   '<div class="compte">' + compteDe(g.docs) + '</div>'
+          + '</a>';
   });
   cible.innerHTML = html;
 }
@@ -261,7 +335,9 @@ function rendu(){
 /* ---------- navigation ---------- */
 function surHash(){
   var h = (location.hash || "").replace(/^#/, "");
-  vueFiliere = h && laFiliere(h) ? h : null;
+  var bouts = h.split("/");
+  vueFiliere = bouts[0] && laFiliere(bouts[0]) ? bouts[0] : null;
+  vueChapitre = (vueFiliere && bouts[1]) ? bouts[1] : null;
   rubrique = null;
   document.getElementById("q").value = "";
   recherche = "";

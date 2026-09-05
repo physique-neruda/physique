@@ -35,11 +35,18 @@ sort de `catalogue.js`. `index.html` se charge de l'affichage, du rangement et d
 L'adresse d'une filière s'obtient en ajoutant son identifiant après un dièse :
 `…/physique/#bts-crsa`. C'est cette adresse-là qu'on donne à une classe.
 
+Un **chapitre** a lui aussi son adresse, obtenue en ajoutant une barre oblique et le nom du
+chapitre sans accent : `…/physique/#1sti2d/chapitre-16-notion-d-onde-et-information`. Pratique
+pour envoyer une classe droit sur le chapitre du jour, sans lui faire traverser la liste.
+
+Un chapitre n'apparaît qu'une fois, même s'il porte des documents dans plusieurs rubriques : la
+page de chapitre les range alors sous des sous-titres « Cours », « TP », « S'entraîner ».
+
 ---
 
 ## 2. La structure
 
-Deux niveaux, plus les chapitres.
+Trois niveaux : la filière, puis le chapitre, puis les documents.
 
 **Les filières** sont déclarées dans `FILIERES`, en haut de `catalogue.js`. L'ordre de la liste
 est l'ordre d'affichage sur la page d'accueil. Chacune a :
