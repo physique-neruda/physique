@@ -133,10 +133,10 @@ window.CHAPITRE = {
   {
    "q": "L'unité de la capacité thermique massique c est :",
    "choix": [
-    "",
-    "",
-    "",
-    ""
+    "J",
+    "J/kg",
+    "J/kg/K",
+    "W"
    ],
    "bonne": 2,
    "expl": ""

@@ -89,8 +89,8 @@ window.CHAPITRE = {
   {
    "q": "En un nœud, la loi des nœuds s'écrit :",
    "choix": [
-    "I<sub>entrant</sub> = I<sub>sortant</sub>",
-    "U = 0",
+    "ΣI<sub>entrant</sub> = ΣI<sub>sortant</sub>",
+    "ΣU = 0",
     "I = U × R",
     "toutes les intensités sont égales"
    ],
@@ -234,12 +234,6 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "En un nœud, la somme des intensités des courants qui <strong>entrent</strong> est égale à la somme des intensités des courants qui <strong>sortent</strong> : ……loc[2]\\[ I_entrant = I_sortant.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Conséquences à connaître : <strong>en série</strong>, il n'y a aucun nœud, donc …… ; <strong>en dérivation</strong>, l'intensité du courant principal se <strong>partage</strong> entre les branches. C'est pourquoi brancher un appareil de plus en dérivation augmente l'intensité totale appelée — et peut faire disjoncter l'installation.",
    "verso": "<strong>l'intensité est la même partout</strong>",
    "origine": "cours a completer"
@@ -258,14 +252,20 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "Si l'on part d'un point d'une maille et qu'on la parcourt entièrement pour revenir à ce même point, la <strong>somme des tensions rencontrées est nulle</strong> : ……loc[2]\\[ _maille U = 0.",
-   "verso": "b",
+   "recto": "En un nœud, la somme des intensités des courants qui <strong>entrent</strong> est égale à la somme des intensités des courants qui <strong>sortent</strong> :\n……",
+   "verso": "ΣI<sub>entrant</sub> = ΣI<sub>sortant</sub>.",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "En partant de A dans le circuit ci-dessus, on obtient -U₁ - U₂ + E = 0, c'est-à-dire : ……loc[2]\\[ E = U_1 + U_2 + … \\] La tension du générateur se <strong>répartit</strong> entre les récepteurs — mais retenez d'abord la forme « bilan nul sur un tour », c'est elle qui reste vraie dans tous les cas, même quand la maille ne contient aucun générateu",
-   "verso": "b",
+   "recto": "Si l'on part d'un point d'une maille et qu'on la parcourt entièrement pour revenir à ce même point, la <strong>somme des tensions rencontrées est nulle</strong> :\n……",
+   "verso": "Σ<sub>maille</sub> U = 0.",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "En partant de A dans le circuit ci-dessus, on obtient -U₁ - U₂ + E = 0, c'est-à-dire :\n……",
+   "verso": "E = U₁ + U₂ + …",
    "origine": "cours a completer"
   }
  ]

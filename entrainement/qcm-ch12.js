@@ -219,36 +219,5 @@ window.CHAPITRE = {
    "expl": ""
   }
  ],
- "cartes": [
-  {
-   "type": "trou",
-   "recto": "Un matériau n'est pas « bon » ou « mauvais » dans l'absolu : il est …… à un usage donné.",
-   "verso": "<strong>adapté ou non</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Le …… est la liste des <strong>critères</strong> que la pièce doit satisfaire.",
-   "verso": "<strong>cahier des charges</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "……loc[2]\\[ R = ρLS \\] R en ohms, L en mètres, S en m^2, et ρ la <strong>résistivité</strong> du matériau en · m.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Les électrons de valence qui ne servent pas à une liaison restent groupés par deux : ce sont les …….",
-   "verso": "<strong>doublets non liants</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "(éthanol C₂H₆O, soit CH₃-CH₂-OH) ;\n• le groupe <strong>carboxyle</strong> -COOH caractérise les …… (acide éthanoïque C₂H₄O₂, soit CH₃-COOH — le vinaigre).",
-   "verso": "<strong>acides carboxyliques</strong>",
-   "origine": "cours a completer"
-  }
- ]
+ "cartes": []
 };

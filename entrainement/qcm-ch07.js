@@ -168,7 +168,7 @@ window.CHAPITRE = {
    "choix": [
     "F = k + Δ",
     "F = k × Δ",
-    "F = k/(Δ)",
+    "F = k/Δ",
     "F = k × m"
    ],
    "bonne": 1,
@@ -298,13 +298,7 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "Pour chaque flèche du schéma, on doit pouvoir répondre à la question : ……loc[1]<strong>« qu'est-ce qui touche l'objet à cet endroit ? »</strong> Si la réponse est « rien », alors la flèche ne peut être que le <strong>poids</strong>, et elle part de G.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La <strong>résultante</strong> des forces appliquées à un solide est la …… de toutes les forces qu'il subit, notée .",
+   "recto": "La <strong>résultante</strong> des forces appliquées à un solide est la …… de toutes les forces qu'il subit, notée Σ.",
    "verso": "<strong>somme vectorielle</strong>",
    "origine": "cours a completer"
   },
@@ -318,6 +312,12 @@ window.CHAPITRE = {
    "type": "trou",
    "recto": "Lorsque la résultante des forces appliquées à un solide est <strong>nulle</strong>, ce solide est soit <strong>immobile</strong> (à l'équilibre), soit en …… — vitesse constante en direction, sens et valeur.",
    "verso": "<strong>translation rectiligne uniforme</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Pour chaque flèche du schéma, on doit pouvoir répondre à la question :\n……",
+   "verso": "<strong>« qu'est-ce qui touche l'objet à cet endroit ? »</strong>",
    "origine": "cours a completer"
   }
  ]

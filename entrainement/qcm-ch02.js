@@ -44,8 +44,8 @@ window.CHAPITRE = {
    "q": "Dans la relation E = P × Δt, la puissance P s'exprime par :",
    "choix": [
     "P = E × Δt",
-    "P = E/(Δt)",
-    "P = (Δt)/E",
+    "P = E/Δt",
+    "P = Δt/E",
     "P = E + Δt"
    ],
    "bonne": 1,
@@ -111,9 +111,9 @@ window.CHAPITRE = {
   {
    "q": "La relation entre énergie, puissance et durée s'écrit :",
    "choix": [
-    "E = P/(Δt)",
+    "E = P/Δt",
     "E = P × Δt",
-    "E = (Δt)/P",
+    "E = Δt/P",
     "E = P + Δt"
    ],
    "bonne": 1,
@@ -166,10 +166,10 @@ window.CHAPITRE = {
   {
    "q": "Le rendement d'un convertisseur se calcule par :",
    "choix": [
-    "= E<sub>absorbée</sub>/E<sub>utile</sub>",
-    "= E<sub>utile</sub>/E<sub>absorbée</sub>",
-    "= E<sub>utile</sub> × E<sub>absorbée</sub>",
-    "= E<sub>absorbée</sub> - E<sub>utile</sub>"
+    "η = E<sub>absorbée</sub>/E<sub>utile</sub>",
+    "η = E<sub>utile</sub>/E<sub>absorbée</sub>",
+    "η = E<sub>utile</sub> × E<sub>absorbée</sub>",
+    "η = E<sub>absorbée</sub> - E<sub>utile</sub>"
    ],
    "bonne": 1,
    "expl": ""

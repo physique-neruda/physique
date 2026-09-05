@@ -255,20 +255,8 @@ window.CHAPITRE = {
  "cartes": [
   {
    "type": "trou",
-   "recto": "Pour un conducteur ohmique, la tension à ses bornes est …… à l'intensité qui le traverse : \\[ U = R × I, U en ,\\ R en , \\ I en .",
+   "recto": "Pour un conducteur ohmique, la tension à ses bornes est …… à l'intensité qui le traverse : \\[ U = R × I, U en V,\\ R en Ω, \\ I en A.",
    "verso": "<strong>proportionnelle</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Pour un conducteur ohmique, la tension à ses bornes est <strong>proportionnelle</strong> à l'intensité qui le traverse : ……loc[2]\\[ U = R × I, U en ,\\ R en , \\ I en .",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La même relation se réarrange selon ce que l'on cherche : ……loc[2]\\[ U = R I, I = UR, R = UI.",
-   "verso": "b",
    "origine": "cours a completer"
   },
   {
@@ -285,14 +273,26 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "Un conducteur de résistance R parcouru par un courant d'intensité I dissipe une puissance thermique : ……loc[2]\\[ P_J = R × I^2.",
-   "verso": "b",
+   "recto": "C'est la relation la plus lourde de conséquences de tout le chapitre. Selon l'appareil, cet échauffement est un <strong>défaut</strong> (un câble qui chauffe est de l'énergie gaspillée) ou le …… (radiateur, plaque, grille-pain, fer à souder).",
+   "verso": "<strong>but recherché</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "C'est la relation la plus lourde de conséquences de tout le chapitre. Selon l'appareil, cet échauffement est un <strong>défaut</strong> (un câble qui chauffe est de l'énergie gaspillée) ou le …… (radiateur, plaque, grille-pain, fer à souder).",
-   "verso": "<strong>but recherché</strong>",
+   "recto": "Pour un conducteur ohmique, la tension à ses bornes est <strong>proportionnelle</strong> à l'intensité qui le traverse :\n……",
+   "verso": "U = R × I, U en V, R en Ω, I en A.",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "La même relation se réarrange selon ce que l'on cherche :\n……",
+   "verso": "U = R I, I = U/R, R = U/I.",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Un conducteur de résistance R parcouru par un courant d'intensité I dissipe une puissance thermique :\n……",
+   "verso": "P<sub>J</sub> = R × I².",
    "origine": "cours a completer"
   }
  ]

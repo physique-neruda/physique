@@ -191,7 +191,7 @@ window.CHAPITRE = {
     "d = v Δt",
     "d = (v Δt)/2",
     "d = 2 v Δt",
-    "d = (Δt)/v"
+    "d = Δt/v"
    ],
    "bonne": 1,
    "expl": "l'onde fait l'aller-retour"

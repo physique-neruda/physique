@@ -228,12 +228,6 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "On l'écrit sous la forme ……loc[2]\\[ d = (25,020 ± 0,008)\\ mm.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "La <strong>justesse</strong> caractérise l'écart entre la moyenne des mesures et la valeur vraie : elle traduit une …… (un appareil mal réglé, un zéro décalé).",
    "verso": "<strong>erreur systématique</strong>",
    "origine": "cours a completer"
@@ -246,12 +240,6 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "La <strong>moyenne</strong> m des n mesures est le meilleur estimateur de la grandeur cherchée : ……loc[2]\\[ m = x_1 + x_2 + … + x_nn.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "C'est la signature des ……, qui jouent autant dans un sens que dans l'autre — et c'est précisément pour cela que la moyenne les compense.",
    "verso": "<strong>erreurs aléatoires</strong>",
    "origine": "cours a completer"
@@ -260,6 +248,18 @@ window.CHAPITRE = {
    "type": "trou",
    "recto": "Deux voies mènent à l'incertitude-type, et l'énoncé indique toujours laquelle suivre : …… → on exploite leur dispersion, u = s/√(n) (type A) ; <strong>une seule mesure</strong> → on exploite l'instrument, u = a/√(3) (type B).",
    "verso": "<strong>plusieurs mesures</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "On l'écrit sous la forme\n……",
+   "verso": "d = (25,020 ± 0,008) mm.",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "La <strong>moyenne</strong> m des n mesures est le meilleur estimateur de la grandeur cherchée :\n……",
+   "verso": "m = (x₁ + x₂ + … + x<sub>n</sub>)/n.",
    "origine": "cours a completer"
   }
  ]

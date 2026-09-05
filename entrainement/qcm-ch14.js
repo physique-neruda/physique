@@ -219,36 +219,5 @@ window.CHAPITRE = {
    "expl": "200/10 = 20"
   }
  ],
- "cartes": [
-  {
-   "type": "trou",
-   "recto": "Une …… est un mélange <strong>homogène</strong> obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>.",
-   "verso": "<strong>solution</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Une <strong>solution</strong> est un mélange …… obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>.",
-   "verso": "<strong>homogène</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "……loc[2]\\[ c = nV (mol L) et c_m = mV (g L) \\] Les deux sont liées par la masse molaire : c<sub>m</sub> = c × M.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Dans ces deux formules, V est le volume ……, et non le volume de solvant ajouté.",
-   "verso": "<strong>total de la solution obtenue</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Lors d'une dilution, on n'ajoute que du <strong>solvant</strong> : la …… prélevée se retrouve intégralement dans la solution fille.",
-   "verso": "<strong>quantité de soluté</strong>",
-   "origine": "cours a completer"
-  }
- ]
+ "cartes": []
 };

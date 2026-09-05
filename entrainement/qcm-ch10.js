@@ -178,9 +178,9 @@ window.CHAPITRE = {
    "q": "Le <strong>pouvoir calorifique</strong> s'exprime en :",
    "choix": [
     "MJ",
-    "MJ",
+    "MJ/kg",
     "W",
-    "MJ"
+    "kg/MJ"
    ],
    "bonne": 1,
    "expl": ""

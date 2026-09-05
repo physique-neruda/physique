@@ -234,12 +234,6 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "Dans le <strong>vide</strong>, toutes les ondes électromagnétiques se propagent à la même célérité, notée c : ……loc[2]\\[ c = 3,00×10⁸ m/s = 300 000 kilom/s.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "C'est une …… : rien ne va plus vite.",
    "verso": "<strong>vitesse limite</strong>",
    "origine": "cours a completer"
@@ -254,6 +248,12 @@ window.CHAPITRE = {
    "type": "trou",
    "recto": "Il se découpe, des grandes longueurs d'onde vers les petites, en : <strong>ondes radio</strong>, <strong>micro-ondes</strong>, <strong>infrarouge</strong>, <strong>visible</strong>, <strong>ultraviolet</strong>, <strong>rayons X</strong> et …….",
    "verso": "<strong>rayons γ</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Dans le <strong>vide</strong>, toutes les ondes électromagnétiques se propagent à la même célérité, notée c :\n……",
+   "verso": "c = 3,00 × 10⁸ m/s = 300 000 kilom/s.",
    "origine": "cours a completer"
   }
  ]

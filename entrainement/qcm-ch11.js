@@ -102,8 +102,8 @@ window.CHAPITRE = {
    "choix": [
     "J",
     "W",
-    "W m^2",
-    "J"
+    "W/m^2",
+    "J/kg"
    ],
    "bonne": 2,
    "expl": ""
@@ -123,7 +123,7 @@ window.CHAPITRE = {
    "q": "Dans ce chapitre, la lettre E désigne :",
    "choix": [
     "une énergie en joules",
-    "une irradiance en W m^2",
+    "une irradiance en W/m^2",
     "une puissance en watts",
     "une tension en volts"
    ],
@@ -188,10 +188,10 @@ window.CHAPITRE = {
   {
    "q": "Le rendement d'un panneau photovoltaïque s'écrit :",
    "choix": [
-    "= (E × S)/P<sub>élec</sub>",
-    "= P<sub>élec</sub>/(E × S)",
-    "= P<sub>élec</sub> × E × S",
-    "= P<sub>élec</sub>/E"
+    "η = (E × S)/P<sub>élec</sub>",
+    "η = P<sub>élec</sub>/(E × S)",
+    "η = P<sub>élec</sub> × E × S",
+    "η = P<sub>élec</sub>/E"
    ],
    "bonne": 1,
    "expl": ""
@@ -216,7 +216,7 @@ window.CHAPITRE = {
     "324 m^2"
    ],
    "bonne": 1,
-   "expl": "S = P<sub>élec</sub>/( × E) = 1800/(0,18 × 1000) = 10 m²"
+   "expl": "S = P<sub>élec</sub>/(η × E) = 1800/(0,18 × 1000) = 10 m²"
   }
  ],
  "cartes": []

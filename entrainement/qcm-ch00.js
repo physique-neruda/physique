@@ -85,7 +85,7 @@ window.CHAPITRE = {
    "expl": "un croissant coûte 1,5 euro, donc quatre en coûtent 6"
   },
   {
-   "q": "Dans le tableau ci-dessous, la situation est-elle proportionnelle ? 3pt center tabular|>clairc|c|c|c| <strong>Nombre de pièces</strong> & 5 & 10 & 15 <strong>Masse (g)</strong> & 40 & 80 & 120 tabular center",
+   "q": "Dans le tableau ci-dessous, la situation est-elle proportionnelle ? <table><tr><th><strong>Nombre de pièces</strong></th><th>5</th><th>10</th><th>15</th></tr><tr><td><strong>Masse (g)</strong></td><td>40</td><td>80</td><td>120</td></tr></table>",
    "choix": [
     "oui, le quotient vaut toujours 8",
     "non, les nombres augmentent trop vite",
@@ -267,26 +267,8 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "Les deux seules règles de calcul utiles sont ……loc[1]\\[ 10^a × 10^b = 10^a+b et 10^a10^b = 10^a-b.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Autour de l'unité, les sept rangs se retiennent par une phrase dont chaque initiale donne un préfixe : ……loc[2] « Kevin Hurle Dans Un Débarras Complètement Moisi »\\",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "soit …….",
    "verso": "<strong>k</strong>ilo, <strong>h</strong>ecto, <strong>d</strong>éc<strong>a</strong>, <strong>u</strong>nité, <strong>d</strong>éci, <strong>c</strong>enti, <strong>m</strong>illi",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Convertir revient alors à deux questions : ……loc[2]<em>combien de crans ?</em> pour le chiffre, et <em>vers un découpage plus fin ou plus gros ?</em> pour le signe.",
-   "verso": "b",
    "origine": "cours a completer"
   },
   {
@@ -329,6 +311,24 @@ window.CHAPITRE = {
    "type": "trou",
    "recto": "Une égalité reste vraie si l'on effectue …… : additionner, soustraire, multiplier ou diviser par un même nombre non nul.",
    "verso": "<strong>la même opération sur ses deux membres</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Les deux seules règles de calcul utiles sont\n……",
+   "verso": "10<sup>a</sup> × 10<sup>b</sup> = 10<sup>a+b</sup> et 10<sup>a</sup>/10<sup>b</sup> = 10<sup>a-b</sup>.",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Autour de l'unité, les sept rangs se retiennent par une phrase dont chaque initiale donne un préfixe :\n……",
+   "verso": "« Kevin Hurle Dans Un Débarras Complètement Moisi » [2pt] ou « Kevin Hurle Devant Un Docteur Chauve Marrant »",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Convertir revient alors à deux questions :\n……",
+   "verso": "<em>combien de crans ?</em> pour le chiffre, et <em>vers un découpage plus fin ou plus gros ?</em> pour le signe.",
    "origine": "cours a completer"
   }
  ]

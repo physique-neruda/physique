@@ -106,7 +106,7 @@ window.CHAPITRE = {
     "égal à F × d"
    ],
    "bonne": 2,
-   "expl": "(90 = 0)"
+   "expl": "(90° = 0)"
   },
   {
    "q": "Un travail résistant :",
@@ -166,10 +166,10 @@ window.CHAPITRE = {
   {
    "q": "Le théorème de l'énergie cinétique s'énonce :",
    "choix": [
-    "ΔE<sub>c</sub> = W",
+    "ΔE<sub>c</sub> = ΣW",
     "ΔE<sub>c</sub> = 0 toujours",
     "E<sub>c</sub> = mgh",
-    "W = 0 toujours"
+    "ΣW = 0 toujours"
    ],
    "bonne": 0,
    "expl": ""

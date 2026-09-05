@@ -8,7 +8,7 @@ window.CHAPITRE = {
  "niveau": "1re STI2D",
  "prerequis": [
   {
-   "q": "Pour convertir des en , on :",
+   "q": "Pour convertir des km/h en m/s, on :",
    "choix": [
     "multiplie par 3,6",
     "divise par 3,6",
@@ -240,12 +240,6 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "C'est la <strong>dérivée</strong> de la position par rapport au temps : ……loc[2]\\[ v(t) = dxdt.",
-   "verso": "b",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Graphiquement, c'est la …… à la courbe x(t) en ce point.",
    "verso": "<strong>pente de la tangente</strong>",
    "origine": "cours a completer"
@@ -254,6 +248,12 @@ window.CHAPITRE = {
    "type": "trou",
    "recto": "Un mouvement …… suit une droite à vitesse constante : a = 0. Un mouvement <strong>rectiligne uniformément varié</strong> suit une droite avec une accélération constante non nulle : c'est le cas d'un démarrage ou d'une chute libre. Un mouvement <strong>circulaire uniforme</strong> parcourt",
    "verso": "<strong>rectiligne uniforme</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "C'est la <strong>dérivée</strong> de la position par rapport au temps :\n……",
+   "verso": "v(t) = /.",
    "origine": "cours a completer"
   }
  ]

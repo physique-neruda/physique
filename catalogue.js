@@ -264,11 +264,8 @@ const DOCUMENTS = [
     fichier: "docs/bts-et/tp01_bilan.pdf"
   },
 
-  /* ---------------- 1re STI2D · S'entraîner ----------------
-     Trois pages seulement (entrainement/qcm.html, entrainement/cartes.html)
-     servent tous les chapitres : le chapitre est passé dans l'adresse.
-     Ajouter un chapitre = déposer entrainement/qcm-chXX.js et recopier
-     les blocs ci-dessous en changeant le numéro. */
+/* >>> ENTRAINEMENT : bloc genere par outils/catalogue_entrainement.py
+   19 chapitres · relancer le script apres chaque fabrication. */
 
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -276,7 +273,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=0&type=prerequis",
     description: "10 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["outils", "base", "physique", "chimie"]
+    motscles: ["base", "chimie", "outils", "physique"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -284,7 +281,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=0&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["outils", "base", "physique", "chimie"]
+    motscles: ["base", "chimie", "outils", "physique"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -292,15 +289,16 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=0",
     description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["outils", "base", "physique", "chimie"]
+    motscles: ["base", "chimie", "outils", "physique"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Mesure et incertitudes",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=1&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["mesure", "incertitudes"]
+    motscles: ["incertitudes", "mesure"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -308,7 +306,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=1&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["mesure", "incertitudes"]
+    motscles: ["incertitudes", "mesure"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -316,15 +314,16 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=1",
     description: "7 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["mesure", "incertitudes"]
+    motscles: ["incertitudes", "mesure"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Énergie, puissance, chaînes",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=2&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["energie", "puissance", "chaines"]
+    motscles: ["chaines", "energie", "puissance"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -332,15 +331,16 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=2&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["energie", "puissance", "chaines"]
+    motscles: ["chaines", "energie", "puissance"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Courant continu",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=3&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["courant", "continu"]
+    motscles: ["continu", "courant"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -348,7 +348,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=3&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["courant", "continu"]
+    motscles: ["continu", "courant"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -356,8 +356,9 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=3",
     description: "8 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["courant", "continu"]
+    motscles: ["continu", "courant"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Grandeurs périodiques",
@@ -382,13 +383,14 @@ const DOCUMENTS = [
     description: "5 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["grandeurs", "periodiques"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Puissance, énergie électriques, loi d'Ohm",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=5&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["puissance", "energie", "electriques"]
+    motscles: ["electriques", "energie", "puissance"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -396,7 +398,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=5&type=bilan",
     description: "15 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["puissance", "energie", "electriques"]
+    motscles: ["electriques", "energie", "puissance"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -404,8 +406,9 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=5",
     description: "7 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["puissance", "energie", "electriques"]
+    motscles: ["electriques", "energie", "puissance"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — Cinématique",
@@ -430,13 +433,14 @@ const DOCUMENTS = [
     description: "6 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["cinematique"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Forces et principe d'inertie",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=7&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["forces", "principe", "inertie"]
+    motscles: ["forces", "inertie", "principe"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -444,7 +448,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=7&type=bilan",
     description: "14 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["forces", "principe", "inertie"]
+    motscles: ["forces", "inertie", "principe"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -452,15 +456,16 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=7",
     description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["forces", "principe", "inertie"]
+    motscles: ["forces", "inertie", "principe"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Travail et énergies mécaniques",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=8&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["travail", "energies", "mecaniques"]
+    motscles: ["energies", "mecaniques", "travail"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -468,15 +473,16 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=8&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["travail", "energies", "mecaniques"]
+    motscles: ["energies", "mecaniques", "travail"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Énergie interne et transferts thermiques",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=9&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["energie", "interne", "transferts", "thermiques"]
+    motscles: ["energie", "interne", "thermiques", "transferts"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -484,15 +490,16 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=9&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["energie", "interne", "transferts", "thermiques"]
+    motscles: ["energie", "interne", "thermiques", "transferts"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Énergie chimique",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=10&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["energie", "chimique"]
+    motscles: ["chimique", "energie"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -500,7 +507,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=10&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["energie", "chimique"]
+    motscles: ["chimique", "energie"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -508,15 +515,16 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=10",
     description: "5 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["energie", "chimique"]
+    motscles: ["chimique", "energie"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Énergie transportée par la lumière",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=11&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["energie", "transportee", "lumiere"]
+    motscles: ["energie", "lumiere", "transportee"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -524,15 +532,16 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=11&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["energie", "transportee", "lumiere"]
+    motscles: ["energie", "lumiere", "transportee"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Matériaux et organisation de la matière",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=12&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["materiaux", "organisation", "matiere"]
+    motscles: ["materiaux", "matiere", "organisation"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -540,23 +549,16 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=12&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["materiaux", "organisation", "matiere"]
+    motscles: ["materiaux", "matiere", "organisation"]
   },
-  {
-    filiere: "1sti2d", rubrique: "S'entraîner",
-    chapitre: "Chapitre 12 — Matériaux et organisation de la matière",
-    type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?ch=12",
-    description: "5 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["materiaux", "organisation", "matiere"]
-  },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Combustions et carburants",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=13&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["combustions", "carburants"]
+    motscles: ["carburants", "combustions"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -564,7 +566,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=13&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["combustions", "carburants"]
+    motscles: ["carburants", "combustions"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -572,15 +574,16 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=13",
     description: "5 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["combustions", "carburants"]
+    motscles: ["carburants", "combustions"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Solutions aqueuses",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=14&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["solutions", "aqueuses"]
+    motscles: ["aqueuses", "solutions"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -588,23 +591,16 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=14&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["solutions", "aqueuses"]
+    motscles: ["aqueuses", "solutions"]
   },
-  {
-    filiere: "1sti2d", rubrique: "S'entraîner",
-    chapitre: "Chapitre 14 — Solutions aqueuses",
-    type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?ch=14",
-    description: "5 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["solutions", "aqueuses"]
-  },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Oxydoréduction, corrosion et piles",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=15&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["oxydoreduction", "corrosion", "piles"]
+    motscles: ["corrosion", "oxydoreduction", "piles"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -612,7 +608,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=15&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["oxydoreduction", "corrosion", "piles"]
+    motscles: ["corrosion", "oxydoreduction", "piles"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -620,15 +616,16 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=15",
     description: "5 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["oxydoreduction", "corrosion", "piles"]
+    motscles: ["corrosion", "oxydoreduction", "piles"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Notion d'onde et information",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=16&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["notion", "onde", "information"]
+    motscles: ["information", "notion", "onde"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -636,7 +633,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=16&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["notion", "onde", "information"]
+    motscles: ["information", "notion", "onde"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -644,8 +641,9 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=16",
     description: "22 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["notion", "onde", "information"]
+    motscles: ["information", "notion", "onde"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 17 — Ondes sonores",
@@ -670,13 +668,14 @@ const DOCUMENTS = [
     description: "5 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["ondes", "sonores"]
   },
+
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 18 — Ondes électromagnétiques",
     type: "qcm", titre: "Prérequis — se tester avant",
     fichier: "entrainement/qcm.html?ch=18&type=prerequis",
     description: "7 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
-    motscles: ["ondes", "electromagnetiques"]
+    motscles: ["electromagnetiques", "ondes"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -684,7 +683,7 @@ const DOCUMENTS = [
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?ch=18&type=bilan",
     description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
-    motscles: ["ondes", "electromagnetiques"]
+    motscles: ["electromagnetiques", "ondes"]
   },
   {
     filiere: "1sti2d", rubrique: "S'entraîner",
@@ -692,7 +691,9 @@ const DOCUMENTS = [
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?ch=18",
     description: "6 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["ondes", "electromagnetiques"]
+    motscles: ["electromagnetiques", "ondes"]
   },
+
+/* <<< fin du bloc genere */
 
 ];
