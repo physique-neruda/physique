@@ -1,213 +1,197 @@
-# Site de physique appliquée — notice
+# Questionnaires et cartes de révision — 1re STI2D
 
-Un site statique : rien à installer, pas de base de données, pas de compte à administrer.
-Une seule page HTML fait tout le travail, pilotée par un fichier de catalogue.
-
-**Adresse : `https://physique-neruda.github.io/physique/`**
+Trois pages web et un jeu de fichiers de données, à déposer à côté des
+animations déjà en ligne. Aucun compte, aucune statistique, aucun appel vers
+l'extérieur : tout se passe dans le navigateur de l'étudiant.
 
 ---
 
-## 1. Ce qu'il y a dans le dossier
+## 1. Ce qu'il y a dans l'archive
 
 ```
-index.html                 toute l'interface : accueil, filières, rubriques, recherche
-catalogue.js               LE CATALOGUE — le seul fichier à modifier au quotidien
-MODELE_animation.html      le gabarit pour créer une nouvelle animation
-LISEZMOI.md                ce fichier
-animations/                les animations (.html)
-entrainement/              les questionnaires et les cartes de révision
-   qcm.html                le questionnaire, valable pour tous les chapitres
-   cartes.html             les cartes, valables pour tous les chapitres
-   qcm-chXX.js             un fichier de données par chapitre
-calorimetre.html           \
-rayonnement.html            > redirections de compatibilité, à laisser
-flux-thermique.html        /
-docs/
-   bts-et/                 les PDF du BTS Électrotechnique
-   bts-crsa/               (à créer quand il y aura des documents)
-   bts-tsma/
-   1sti2d/
+site-physique/ le site complet, prêt à être mis en ligne tel quel
+  index.html          modifié : gère les types "qcm" et "cartes"
+  catalogue.js        modifié : 53 entrées ajoutées pour la 1re STI2D
+  LISEZMOI.md         modifié : nouveau §7 sur l'entraînement
+  docs/1sti2d/ch00/ … ch18/   les 114 PDF publiables, par chapitre
+  entrainement/       nouveau dossier
+    qcm.html            questionnaire (prérequis ou bilan), tous chapitres
+    cartes.html         cartes de révision, tous chapitres
+    qcm-ch00.js …       un fichier de données par chapitre (19 fichiers)
+  (le reste du site est inchangé)
+
+outils/        la chaîne de fabrication, à garder de ton côté
+  tex2html.py         conversion LaTeX → HTML (siunitx, mhchem, maths, tableaux)
+  extraire_qcm.py     lit les .tex de prérequis et de bilan
+  extraire_cartes.py  lit les encadrés du cours, \trou et \troubloc
+  construire.py       assemble le fichier qcm-<filière>-chXX.js
+  filieres.py         DESCRIPTION DES FILIÈRES — le fichier à modifier
+  publier.py          dépose les PDF et réécrit le bloc de catalogue
+  verifier.py         contrôle de qualité de la conversion
+
+cartes/        les paquets de cartes, relus à la main
+  cartes-1sti2d-ch16.json   le seul terminé pour l'instant
+
+chapitres/     les titres de chapitre, un fichier par filière
+  1sti2d.json         régénéré depuis les sources LaTeX
+  bts-et.json         écrit à la main
 ```
 
-**Il n'y a jamais de nouvelle page HTML à créer.** Une filière, une rubrique, un chapitre : tout
-sort de `catalogue.js`. `index.html` se charge de l'affichage, du rangement et de la recherche.
+## 2. Comment ça marche
 
-L'adresse d'une filière s'obtient en ajoutant son identifiant après un dièse :
-`…/physique/#bts-crsa`. C'est cette adresse-là qu'on donne à une classe.
+Les adresses portent le chapitre en paramètre :
 
-Un **chapitre** a lui aussi son adresse, obtenue en ajoutant une barre oblique et le nom du
-chapitre sans accent : `…/physique/#1sti2d/chapitre-16-notion-d-onde-et-information`. Pratique
-pour envoyer une classe droit sur le chapitre du jour, sans lui faire traverser la liste.
+- `entrainement/qcm.html?ch=16&type=bilan`
+- `entrainement/qcm.html?ch=16&type=prerequis`
+- `entrainement/cartes.html?ch=16`
 
-Un chapitre n'apparaît qu'une fois, même s'il porte des documents dans plusieurs rubriques : la
-page de chapitre les range alors sous des sous-titres « Cours », « TP », « S'entraîner ».
+La page charge alors `qcm-1sti2d-ch16.js`. Ajouter un chapitre, c'est déposer un
+fichier de données de plus : les trois pages ne changent jamais.
 
----
+Les liens sont déjà dans `catalogue.js` : **1re STI2D → S'entraîner**.
 
-## 2. La structure
+## 3. Mettre à jour après une correction du LaTeX
 
-Trois niveaux : la filière, puis le chapitre, puis les documents.
-
-**Les filières** sont déclarées dans `FILIERES`, en haut de `catalogue.js`. L'ordre de la liste
-est l'ordre d'affichage sur la page d'accueil. Chacune a :
-
-- un `id` : minuscules, sans accent ni espace. Il sert dans l'adresse **et** comme nom de
-  dossier dans `docs/`. Une fois diffusé, ne plus le changer : cela casserait les liens.
-- un `nom` et un `sous_titre` affichés ;
-- une liste de `rubriques`, qui deviennent les boutons en haut de la page de la filière.
-  Le BTS ET en a trois (Cours, TP, ADM), les autres deux. Rien n'empêche d'en ajouter.
-
-**Les chapitres** ne se déclarent nulle part : ils naissent du champ `chapitre` des documents.
-Deux documents portant exactement le même texte se retrouvent groupés sous le même titre.
-D'où la seule règle à respecter : **copier-coller le texte du chapitre d'un document à
-l'autre**, sinon on obtient deux groupes au lieu d'un.
-
-**L'ordre à l'intérieur d'un chapitre est celui de `catalogue.js`.** C'est voulu : on range les
-documents dans l'ordre où on veut que l'étudiant les rencontre. Dans le Cours 1, l'animation
-« Le chauffage » est placée avant le document « Activité 1 » qui l'accompagne, et le cours à
-compléter avant le cours complet.
-
----
-
-## 3. Ajouter un document
-
-1. **Déposer le fichier.** Un PDF va dans `docs/<id de la filière>/`, une animation dans
-   `animations/`. Noms de fichiers en minuscules, sans accent ni espace.
-2. **Recopier un bloc dans `DOCUMENTS`**, dans `catalogue.js`, et changer les valeurs. Ne pas
-   oublier la virgule après l'accolade fermante, sauf sur le tout dernier bloc.
-3. C'est tout.
-
-Le champ `type` vaut `"pdf"` ou `"animation"`. Il décide de la pastille affichée, de la couleur
-du liseré, et du fait que le lien s'ouvre dans un nouvel onglet ou non. Le champ `trouve` ne sert
-qu'aux animations : c'est la loi qu'elle fait découvrir, affichée en orange.
-
-**Page blanche après modification** : c'est presque toujours une virgule oubliée ou un
-guillemet non fermé dans `catalogue.js`. Ouvrir `index.html` par un double-clic avant de mettre
-en ligne permet de s'en apercevoir tout de suite.
-
----
-
-## 4. Ajouter une filière
-
-Un bloc dans `FILIERES`, un dossier du même nom dans `docs/`, et les documents suivent. La
-filière apparaît sur la page d'accueil même vide, avec la mention « rien pour l'instant » :
-c'est utile pour montrer aux classes concernées que la place est faite.
-
----
-
-## 5. Mettre à jour le site en ligne
-
-Le site vit dans le dépôt GitHub public `physique`, du compte `physique-neruda`. Pour publier
-une modification, sans aucune ligne de commande :
-
-**Ajouter des fichiers.** Sur la page du dépôt, bouton *Add file → Upload files*, puis glisser
-les fichiers ou le dossier. Descendre en bas et cliquer *Commit changes*. On peut glisser un
-dossier entier, GitHub recrée l'arborescence.
-
-**Modifier `catalogue.js`.** Cliquer sur le fichier dans le dépôt, puis sur l'icône crayon en
-haut à droite, éditer directement dans la page, et valider par *Commit changes*.
-
-Dans les deux cas, le site est à jour une à deux minutes plus tard. Si l'ancienne version
-s'affiche encore, c'est le cache du navigateur : recharger en navigation privée pour vérifier.
-
----
-
-## 6. Ce qu'il ne faut pas déposer
-
-**Le dépôt est public**, c'est ce qui rend l'hébergement gratuit. Tout ce qui y est déposé est
-visible et téléchargeable par n'importe qui, et indexable par les moteurs de recherche. Une
-adresse compliquée ne protège rien : il n'existe pas de « lien secret » sur GitHub Pages.
-
-Ne pas y mettre :
-
-- les **corrigés**, quels qu'ils soient. Le site ne contient que les versions élève, et le pied
-  de page le dit explicitement ;
-- les **sujets d'évaluation à venir**, y compris les sujets type E4 non encore donnés ;
-- toute **copie, note, liste d'étudiants** ou document nominatif.
-
-Pour distribuer un corrigé après la séance, l'ENT reste le bon canal.
-
-Si l'on préfère que le site ne remonte pas dans une recherche au nom de l'établissement, ajouter
-cette ligne dans le `<head>` de `index.html` : `<meta name="robots" content="noindex">`. Le site
-reste accessible à qui a le lien, mais n'est plus référencé.
-
----
-
-## 7. Les questionnaires et les cartes de révision
-
-Le dossier `entrainement/` ne contient que **deux pages** : `qcm.html` et `cartes.html`. Elles
-servent tous les chapitres, de toutes les filières. Le chapitre est passé dans l'adresse :
+Le LaTeX reste la seule source. Les questions ne sont écrites nulle part
+ailleurs : elles sont relues dans les `.tex` à chaque fabrication.
 
 ```
-entrainement/qcm.html?ch=16&type=prerequis
-entrainement/qcm.html?ch=16&type=bilan
-entrainement/cartes.html?ch=16
+python3 outils/construire.py <racine_collection> 16 site-physique/entrainement/ 1sti2d
 ```
 
-La page va alors lire `entrainement/qcm-ch16.js`, qui contient les questions, les bonnes réponses,
-les explications et les cartes. **Ajouter un chapitre, c'est déposer un fichier de données de plus** ;
-les deux pages ne changent jamais.
+Corrigé une faute dans `ch16_bilan.tex` ? Relancer cette commande met le site à
+jour. Il n'y a pas de deuxième version des questions à maintenir.
 
-Ces fichiers ne s'écrivent pas à la main : ils sont **fabriqués à partir des sources LaTeX** par les
-scripts du dossier `outils/` de l'archive de travail (voir son propre LISEZMOI). Les questions
-n'existent donc qu'à un seul endroit, le `.tex`. Corriger une faute dans `ch16_bilan.tex` et
-relancer la fabrication met le site à jour ; il n'y a pas de deuxième version à maintenir.
+Puis déposer les PDF et remettre le catalogue en accord avec ce qui existe :
 
-Comme pour un PDF ou une animation, l'entrée se recopie dans `catalogue.js`, avec `type: "qcm"` ou
-`type: "cartes"` et le chemin complet, paramètre compris :
-
-```js
-{
-  filiere: "1sti2d", rubrique: "S'entraîner",
-  chapitre: "Chapitre 16 — Notion d'onde et information",
-  type: "qcm", titre: "Bilan — se tester après",
-  fichier: "entrainement/qcm.html?ch=16&type=bilan",
-  description: "12 questions sur tout le chapitre."
-},
+```
+python3 outils/publier.py site-physique                              # catalogue seul
+python3 outils/publier.py site-physique --deposer 1sti2d collection  # + les PDF
 ```
 
-Rien n'est enregistré ni envoyé : les réponses restent dans le navigateur de l'étudiant. Il n'y a
-donc aucun moyen de savoir qui a travaillé — c'est le prix du dispositif sans compte, et la raison
-pour laquelle il ne pose aucune question de données personnelles.
+La première forme ne lit que ce qui est déjà dans le site et vaut pour toutes
+les filières, même celles dont les sources ne sont pas sur la machine. La
+seconde y ajoute la copie des PDF depuis une collection LaTeX. Dans les deux
+cas, seul le bloc de `catalogue.js` encadré par `>>> bloc genere` et
+`<<< fin du bloc genere` est réécrit ; tout ce que tu écris ailleurs est
+laissé intact.
+
+Les entrées sont déduites des fichiers réellement présents : un chapitre dont
+le paquet de cartes n'est pas encore relu n'obtient pas de bouton « Cartes »,
+et il en obtient un dès que tu as écrit assez de rectos. Le lancer deux fois
+de suite ne change rien.
+
+**Ce qui n'est jamais publié.** Le dépôt est public. Le script travaille avec
+une liste blanche — prérequis, activité, cours à compléter, cours complet,
+exercices, bilan — et un second verrou refuse tout nom contenant « corrigé »
+ou « test », même s'il venait à être ajouté par erreur à la liste blanche.
+Sur les 190 PDF de la collection, 114 sont publiés et 76 restent de côté.
+
+Pour toute la collection d'un coup :
+
+```
+for n in 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18; do
+  python3 outils/construire.py collection $n site-physique/entrainement/ 1sti2d
+done
+python3 outils/verifier.py collection cartes
+python3 outils/publier.py site-physique --deposer 1sti2d collection
+```
+
+## 4. Contrôler la conversion
+
+```
+python3 outils/verifier.py <racine_collection> cartes
+```
+
+Quatre contrôles, dont trois sont nés d'erreurs réellement rencontrées.
+
+**Les résidus** : du LaTeX arrivé tel quel sous les yeux d'un étudiant.
+
+**Les effacements silencieux**, de loin le plus important. Le filet de
+sécurité de la conversion supprime toute commande qu'il ne sait pas rendre,
+sans laisser la moindre trace. C'est ainsi que `\cos`, `\sin` et `\tan` ont
+disparu d'un QCM du chapitre 8, où trois propositions devenaient du coup
+strictement identiques, et que le `\sqrt` de « racine de 44,8 » s'est évaporé
+en laissant « 44,8 ». Le script liste ce qui a été effacé ; tout nom inattendu
+est à examiner.
+
+**Les propositions identiques** : deux réponses au choix qui, une fois
+converties, s'écrivent pareil. La casse compte, `m/M` et `M/m` sont bien deux
+propositions différentes.
+
+**Les cartes non relues** : aucun recto ne doit rester marqué `A RELIRE`.
+
+À lancer après chaque fabrication, et surtout après toute modification de
+`tex2html.py`.
 
 ---
 
-## 8. Créer une animation
+## 5. Les cartes : ce qui est automatique et ce qui ne l'est pas
 
-Dupliquer `MODELE_animation.html`, le renommer, le déposer dans `animations/`, puis l'inscrire
-dans `catalogue.js` comme n'importe quel document, avec `type: "animation"`.
+Le script lit les encadrés du cours — `definition`, `aretenir`, `attention`,
+`essentiel`, `\formulecle` — et les commandes `\trou{}`.
 
-Le modèle contient déjà les couleurs, l'afficheur type multimètre, les curseurs au format
-tactile, le bouton *Relever* et le tableau de mesures. Ce qui change réellement d'une animation
-à l'autre tient dans deux fonctions : `mesure()` pour la physique, `dessine()` pour le schéma.
-Ne pas retoucher le reste : c'est ce qui fait que toutes les animations se ressemblent sans
-effort.
+- Les cartes issues de `\trou{}` sortent **finies**. Le trou marque déjà ce
+  que tu as choisi de faire retrouver dans le cours à compléter : c'est
+  exactement une carte recto-verso.
+- Pour les autres encadrés, le **verso** est extrait automatiquement mais le
+  **recto** est seulement proposé sous la forme `A RELIRE : <titre>`.
+  « Définition : Onde » n'est pas encore une question de carte.
 
-Contraintes à respecter, elles sont tenues par les trois animations existantes :
+À la première fabrication d'un chapitre, le script dépose un squelette dans
+`cartes/cartes-<filière>-chXX.json`. Tu réécris les rectos, tu supprimes ce qui ne mérite
+pas une carte, et tu relances : le fichier relu est alors utilisé tel quel et ne
+sera plus jamais écrasé.
 
-- **un seul fichier autonome**, sans bibliothèque ni appel réseau — le wifi d'un établissement
-  peut être filtré, et une animation doit marcher depuis une clé USB ;
-- **mobile d'abord** : colonne unique, cibles tactiles d'au moins 40 px, pas de survol ;
-- **aucun stockage** : ni cookie, ni `localStorage`. Les mesures vivent en mémoire et
-  disparaissent à la fermeture. Conséquence utile : aucune donnée personnelle en jeu, donc
-  aucune question RGPD, et l'adresse se diffuse librement.
+**Une carte dont le recto porte encore `A RELIRE` n'est pas publiée.** Un
+chapitre de moins de cinq cartes prêtes ne l'est pas non plus — son bouton
+n'apparaît simplement pas dans le catalogue. Rien d'inachevé ne peut arriver sous
+les yeux d'un étudiant par distraction.
+
+## 6. Mise en ligne
+
+Le dossier `site-physique/` est le site entier, à jour. Trois fichiers ont
+changé — `index.html`, `catalogue.js`, `LISEZMOI.md` — et un dossier est
+nouveau, `entrainement/`. Sur GitHub : *Add file → Upload files*, on dépose ces
+quatre éléments, puis *Commit changes*. Les fichiers de même nom sont remplacés,
+le reste du site n'est pas touché.
+
+Avant d'envoyer, on peut tout essayer en local : ouvrir `site-physique/index.html`
+dans un navigateur, aller dans **1re STI2D → S'entraîner**.
+
+## 7. Ce qui a été modifié dans le site
+
+- `index.html` : la fonction `carteItem` reposait sur un test à deux valeurs
+  (animation ou PDF). Elle utilise maintenant une petite table `TYPES`, ce qui
+  permet d'ajouter un type sans retoucher le rendu. Un type inconnu retombe sur
+  « pdf » : une faute de frappe dans le catalogue ne peut pas casser la page.
+  Le compte affiché sur l'accueil distingue documents, animations et
+  entraînements.
+- `catalogue.js` : la filière `1sti2d` gagne une rubrique « S'entraîner », et
+  53 entrées sont ajoutées à la fin de `DOCUMENTS`. Rien n'a été retiré.
+
+## 8. Ajouter une filière
+
+Le dispositif est le même partout. Pour brancher un BTS :
+
+1. décrire la filière dans `outils/filieres.py` — ses rubriques, la liste
+   blanche de ses types de documents, ses animations éventuelles ;
+2. nommer ses chapitres dans `chapitres/<filière>.json` ;
+3. fabriquer les questionnaires chapitre par chapitre avec `construire.py`,
+   en passant l'identifiant de filière en quatrième argument ;
+4. lancer `publier.py`.
+
+Les pages `qcm.html` et `cartes.html` ne changent pas : elles servent déjà
+toutes les filières. Le BTS ET est déjà décrit et ses documents rangés par
+chapitre ; il ne lui manque que ses questionnaires.
 
 ---
 
-## 9. Points d'attention
+## 9. Ce qui reste à faire
 
-**Les noms de fichiers sont sensibles à la casse** sur GitHub Pages. `Cours.pdf` et `cours.pdf`
-sont deux fichiers différents, alors qu'ils sont identiques pour Windows. C'est la cause
-numéro un des liens morts. Tout en minuscules, toujours.
-
-**Les trois fichiers de redirection à la racine ne doivent pas être supprimés.** Les QR codes
-imprimés sur les activités du Cours 1 pointent vers l'ancienne adresse à plat
-(`…/physique/calorimetre.html`) ; ces trois fichiers renvoient vers `animations/`. Toute
-nouvelle activité doit en revanche pointer directement vers `animations/…`.
-
-**Ne pas renommer un `id` de filière ni un fichier déjà diffusé.** Les liens donnés aux classes
-et les QR codes imprimés sur les documents pointent vers l'ancien nom.
-
-**Les animations qui font tourner une simulation dans le temps** se figent si le téléphone se
-met en veille ou passe la page en arrière-plan. On relance, ce n'est pas grave, mais mieux vaut
-l'avoir dit aux étudiants.
+- Écrire les rectos des cartes des 18 autres chapitres.
+- Ajouter un renvoi au cours sur les explications des QCM : le champ `renvoi`
+  est déjà géré par la page, mais les corrigés LaTeX ne portent aucun numéro de
+  paragraphe, donc rien ne peut être déduit automatiquement.
+- Fabriquer les questionnaires des trois BTS : il faut leurs sources LaTeX.
+- Compléter `chapitres/bts-et.json` au fil des chapitres écrits.

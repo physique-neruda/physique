@@ -1,0 +1,128 @@
+[
+ {
+  "type": "trou",
+  "recto": "Les particules du milieu vibrent …… au sens de propagation : l'onde sonore est dite <strong>longitudinale</strong>.",
+  "verso": "<strong>parallèlement</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Les particules du milieu vibrent <strong>parallèlement</strong> au sens de propagation : l'onde sonore est dite …….",
+  "verso": "<strong>longitudinale</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Comme toute onde mécanique, le son a …… : il ne se propage pas dans le vide. Toutes les notions du chapitre 13 s'appliquent : période T, fréquence f, longueur d'onde λ, et la relation v = λf.",
+  "verso": "<strong>besoin d'un milieu</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Le diapason produit un signal …… ; un instrument produit un signal <strong>périodique mais non sinusoïdal</strong>, superposition de la fréquence fondamentale et de ses <strong>harmoniques</strong> (multiples de la fondamentale).",
+  "verso": "<strong>sinusoïdal pur</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Le diapason produit un signal <strong>sinusoïdal pur</strong> ; un instrument produit un signal ……, superposition de la fréquence fondamentale et de ses <strong>harmoniques</strong> (multiples de la fondamentale).",
+  "verso": "<strong>périodique mais non sinusoïdal</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "f = 1/T (f en Hz, T en s)",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "I = P/4πd²",
+  "origine": "formulecle"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Onde sonore",
+  "verso": "Un <strong>son</strong> est une onde <strong>mécanique</strong> : la propagation d'une variation de pression dans un milieu matériel (air, eau, solide). Les particules du milieu vibrent <strong>parallèlement</strong> au sens de propagation : l'onde sonore est dite <strong>longitudinale</strong>.",
+  "origine": "definition [Onde sonore]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Trois domaines",
+  "verso": "L'oreille humaine perçoit les sons dont la fréquence est comprise entre 20 Hz et 20 kHz : ce sont les sons <strong>audibles</strong>. En dessous de 20 Hz se trouvent les <strong>infrasons</strong> (éléphants, séismes) ; au-dessus de 20 kHz, les <strong>ultrasons</strong> (chauves-souris, sonars, échographie).",
+  "origine": "definition [Trois domaines]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Hauteur",
+  "verso": "La <strong>hauteur</strong> d'un son est la sensation de grave ou d'aigu. Elle est déterminée par la <strong>fréquence</strong> : plus la fréquence est <strong>élevée</strong>, plus le son est <strong>aigu</strong> ; plus elle est <strong>basse</strong>, plus le son est <strong>grave</strong>.",
+  "origine": "definition [Hauteur]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Timbre et harmoniques",
+  "verso": "Le <strong>timbre</strong> est ce qui permet de reconnaître la source d'un son de même hauteur. Le diapason produit un signal <strong>sinusoïdal pur</strong> ; un instrument produit un signal <strong>périodique mais non sinusoïdal</strong>, superposition de la fréquence fondamentale et de ses <strong>harmoniques</strong> (multiples de la fondamentale). C'est la « recette » de ces harmoniques qui donne à chaque instrument sa couleur sonore.",
+  "origine": "definition [Timbre et harmoniques]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Intensité sonore",
+  "verso": "L'<strong>intensité sonore</strong> I est la <strong>puissance sonore</strong> P reçue par unité de <strong>surface</strong> S : I = P/S , I en W/m², P en W, S en m².",
+  "origine": "definition [Intensité sonore]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Comme toute onde mécanique, le son a <strong>besoin d'un milieu</strong> : il ne se propage pas dans le vide. Toutes les notions du chapitre 13 s'appliquent : période T, fréquence f, longueur d'onde λ, et la relation v = λf.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Hauteur et timbre se lisent tous deux sur la même courbe : la <strong>période</strong> (donc la fréquence fondamentale) fixe la <strong>hauteur</strong> ; la <strong>forme</strong> du motif qui se répète fixe le <strong>timbre</strong>.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Quand la distance à la source est <strong>multipliée par 2</strong>, l'intensité sonore est <strong>divisée par 4</strong> ; multipliée par 3, elle est divisée par 9. C'est la conséquence directe de S = 4πd². <em>S'éloigner</em> est donc le premier réflexe pour se protéger.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Trois leviers, dans l'ordre, pour réduire l'exposition sonore : <strong>s'éloigner</strong> de la source (l'intensité chute en 1/d²) ; <strong>réduire la durée</strong> d'exposition ; <strong>s'isoler</strong> (bouchons, casque anti-bruit) quand on ne peut pas s'éloigner. Baisser le volume d'un baladeur, c'est agir directement sur l'intensité reçue.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : La célérité ne dépend pas de la fréquence",
+  "verso": "Dans un milieu donné, <strong>tous</strong> les sons voyagent à la <strong>même</strong> vitesse, quelle que soit leur fréquence : un son grave et un son aigu émis au même instant arrivent <strong>ensemble</strong>. Sans cela, un orchestre écouté depuis le fond de la salle nous parviendrait complètement désordonné. C'est donc λ, et non v, qui change avec la fréquence : à f = 440 Hz, on a λ = v/f = 0,77 m dans l'air, mais 3,4 m dans l'eau.",
+  "origine": "attention [La célérité ne dépend pas de la fréquence]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Une frontière qui se déplace",
+  "verso": "Ces bornes sont des ordres de grandeur pour une oreille jeune et saine. Avec l'âge, et surtout après une exposition répétée aux sons forts, la borne haute chute nettement — c'est justement ce que la fin du chapitre cherche à éviter.",
+  "origine": "attention [Une frontière qui se déplace]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Hors programme : les « décibels »",
+  "verso": "Dans la vie courante, le volume s'exprime en <em>décibels</em> (dB). Cette échelle est <strong>hors programme</strong> : ici, on caractérise un son fort ou faible par son <strong>intensité I en W/m²</strong>, et par elle seule.",
+  "origine": "attention [Hors programme : les «~décibels~»]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : Vers la terminale",
+  "verso": "Deux prolongements attendent ce chapitre, et tous deux sont fréquents au baccalauréat.\n• L'intensité acoustique se double du <strong>niveau sonore</strong>, exprimé en <strong>décibels</strong> (dB) : une échelle <em>logarithmique</em>, mieux adaptée à l'oreille, qui explique pourquoi un doublement de l'intensité ne double pas la sensation. Elle s'appuiera sur la fonction logarithme vue en mathématiques.\n• Le <strong>spectre d'amplitude</strong> d'un son donnera enfin une explication quantitative du <strong>timbre</strong> : c'est la répartition des harmoniques qui distingue une guitare d'une flûte jouant la même note.",
+  "origine": "essentiel [Vers la terminale]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : L'essentiel du chapitre",
+  "verso": "• Le <strong>son</strong> est une onde <strong>mécanique longitudinale</strong> : il a besoin d'un milieu et ne se propage pas dans le vide. On lui applique v = λf.\n• L'oreille perçoit les <strong>sons audibles</strong> (20 Hz--20 kHz) ; en dessous : <strong>infrasons</strong>, au-dessus : <strong>ultrasons</strong>.\n• La <strong>hauteur</strong> (grave/aigu) est fixée par la <strong>fréquence</strong> f = 1/T ; le <strong>timbre</strong> (reconnaître la source) est fixé par les <strong>harmoniques</strong>.\n• L'<strong>intensité sonore</strong> vaut I = P/S en W/m² ; pour une source qui rayonne dans toutes les directions, I = P/4πd².\n• <strong>Distance × 2 ⇒ intensité /4</strong>. Le danger vient de l'intensité <strong>reçue</strong> (concentration), pas seulement de la puissance émise. Protection : s'éloigner, réduire la durée, s'isoler.",
+  "origine": "essentiel [L'essentiel du chapitre]"
+ }
+]

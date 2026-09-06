@@ -1,0 +1,92 @@
+[
+ {
+  "type": "trou",
+  "recto": "La température d'un corps traduit l'…… de ses constituants microscopiques : plus ils se déplacent vite, plus la température est élevée.",
+  "verso": "<strong>agitation</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Chauffer un corps et lui faire changer d'état sont deux étapes …… : on utilise ΔU = mcΔθ pour les portions <em>en pente</em> de la courbe, et Q = mL pour les <em>paliers</em>.",
+  "verso": "<strong>distinctes</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "T (K) = θ ( °C ) + 273,15",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "ΔU = m c Δθ",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "Q = m L",
+  "origine": "formulecle"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Température",
+  "verso": "La température d'un corps traduit l'<strong>agitation</strong> de ses constituants microscopiques : plus ils se déplacent vite, plus la température est élevée.",
+  "origine": "definition [Température]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Énergie interne",
+  "verso": "L'énergie interne U d'un système est la somme de l'énergie cinétique d'agitation et de l'énergie potentielle d'interaction de tous ses constituants microscopiques.",
+  "origine": "definition [Énergie interne]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Capacité thermique massique",
+  "verso": "La capacité thermique massique c d'un matériau est l'énergie qu'il faut fournir à 1 kg de ce matériau pour élever sa température de 1 K. Elle s'exprime en J/kg/K (J·kg⁻¹·K⁻¹).",
+  "origine": "definition [Capacité thermique massique]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Énergie massique de changement d'état",
+  "verso": "L'énergie massique de changement d'état L d'une espèce est l'énergie qu'il faut fournir à 1 kg de cette espèce pour la faire changer d'état <em>à température constante</em>. Elle s'exprime en J/kg.",
+  "origine": "definition [Énergie massique de changement d'état]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "La température mesure l'agitation microscopique. On la repère en degrés Celsius (θ) ou en kelvins (T), reliés par T = θ+ 273,15. Un <em>écart</em> de température est le même dans les deux unités.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Un transfert thermique se fait spontanément du corps le plus chaud vers le plus froid. Il s'arrête quand les deux corps ont la même température finale T<sub>f</sub> : c'est l'équilibre thermique.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Le mot <strong>chaleur</strong> désigne un <em>transfert</em> d'énergie thermique d'un corps à un autre — c'est un échange, pas une grandeur que contiendrait un corps. Un corps ne « contient » pas de la chaleur : il possède de l'énergie interne.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : attention",
+  "verso": "Chauffer un corps et lui faire changer d'état sont deux étapes <strong>distinctes</strong> : on utilise ΔU = mcΔθ pour les portions <em>en pente</em> de la courbe, et Q = mL pour les <em>paliers</em>. Pour un problème complet (glace → eau → vapeur), on additionne les énergies de chaque étape.",
+  "origine": "attention"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : Vers la terminale",
+  "verso": "Deux prolongements de ce chapitre vous attendent l'an prochain, et ils tombent très souvent au bac :\n• <strong>Le refroidissement suit une loi exponentielle.</strong> Plus un corps est chaud par rapport à la pièce, plus il perd vite : sa température décroît d'abord rapidement, puis de plus en plus lentement. En terminale, on décrira cela par une <strong>équation différentielle</strong> dont la solution est une <strong>fonction exponentielle</strong> — outil que vous construirez en mathématiques.\n• <strong>L'isolation se chiffre.</strong> Pour limiter les pertes du ballon (ou d'un mur), on introduit en terminale le <strong>flux thermique</strong> et la <strong>résistance thermique</strong> d'une paroi : plus la paroi résiste, moins elle laisse fuir l'énergie. Tout ce chapitre — capacité thermique, changement d'état, sens du transfert — sera alors réinvesti.",
+  "origine": "essentiel [Vers la terminale]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : essentiel",
+  "verso": "<strong>Température</strong> : mesure l'agitation microscopique ; T (K) = θ ( °C ) + 273,15. [3pt] <strong>Énergie interne</strong> U (en J) : agitation (cinétique) + interactions (potentielle) des constituants. [3pt] <strong>Chauffer sans changer d'état</strong> : ΔU = m c Δθ — pentes de la courbe. [3pt] <strong>Changer d'état (palier)</strong> : Q = m L — température constante. [3pt] <strong>Sens du transfert</strong> : du chaud vers le froid, jusqu'à l'équilibre T<sub>f</sub> ; dans un système isolé, énergie cédée = énergie reçue. [3pt] <strong>Trois modes</strong> : conduction (solide), convection (fluide), rayonnement (sans contact). La <em>chaleur</em> est un transfert, pas un contenu.",
+  "origine": "essentiel"
+ }
+]

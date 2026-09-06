@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Questionnaire</title>
+<!--
+  Page unique de questionnaire, valable pour toutes les filières et tous
+  les chapitres. On l'appelle avec trois paramètres :
+
+      qcm.html?f=1sti2d&ch=16&type=bilan
+
+  f    identifiant de filière, celui de catalogue.js
+  ch   numéro de chapitre dans cette filière
+  type "bilan" ou "prerequis"
+
+  Les questions sont lues dans qcm-<f>-ch<XX>.js déposé à côté, produit
+  par outils/construire.py. La filière fait partie du nom de fichier :
+  sans elle, le chapitre 1 de la 1re STI2D écraserait le cours 1 du BTS ET.
+  Aucune ressource extérieure, aucun appel réseau, aucun compte.
+-->
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18; --teal:#0E7C7B;
+  --juste:#0E7C4B; --faux:#B4342A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.5;padding:0 14px 56px;max-width:760px;margin:0 auto}
+
+/* ---- en-tête ---- */
+header{padding:18px 0 14px;border-bottom:3px solid var(--bleu)}
+header .retour{
+  display:inline-block;color:var(--teal);text-decoration:none;
+  font-size:.86rem;margin-bottom:10px;padding:4px 0
+}
+header .retour:hover{text-decoration:underline}
+header .chap{
+  color:var(--orange);font-size:.78rem;letter-spacing:.06em;
+  text-transform:uppercase;font-weight:700
+}
+header h1{margin:2px 0 0;font-size:1.32rem;line-height:1.25;color:var(--bleu)}
+header .genre{margin:6px 0 0;color:var(--gris);font-size:.9rem}
+
+/* ---- progression ---- */
+.avance{display:flex;align-items:center;gap:10px;margin:16px 0 4px}
+.avance .compte{font-size:.85rem;color:var(--gris);white-space:nowrap}
+.jauge{flex:1;height:6px;background:var(--bord);border-radius:3px;overflow:hidden}
+.jauge span{display:block;height:100%;background:var(--teal);width:0;
+  transition:width .25s ease}
+
+/* ---- question ---- */
+.question{
+  background:var(--panneau);border:1px solid var(--bord);border-left:5px solid var(--bleu);
+  border-radius:10px;padding:16px 16px 14px;margin:14px 0
+}
+.question p.enonce{margin:0;font-size:1.06rem}
+ol.choix{list-style:none;margin:14px 0 0;padding:0}
+ol.choix li{margin:0 0 9px}
+button.choix{
+  width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;
+  background:var(--panneau);border:1.5px solid var(--bord);border-radius:9px;
+  padding:12px 13px;display:flex;gap:11px;align-items:baseline;
+  min-height:48px
+}
+button.choix:hover:not(:disabled){border-color:var(--teal);background:#E4EDF4}
+button.choix:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+button.choix .lettre{
+  font-weight:700;color:var(--teal);flex:0 0 auto;min-width:1.1em
+}
+button.choix:disabled{cursor:default;opacity:1}
+button.choix.juste{border-color:var(--juste);background:#EAF6EF}
+button.choix.juste .lettre{color:var(--juste)}
+button.choix.faux{border-color:var(--faux);background:#FBEDEB}
+button.choix.faux .lettre{color:var(--faux)}
+button.choix.terne{opacity:.55}
+
+/* ---- verdict ---- */
+.verdict{margin:14px 0 0;padding:13px 14px;border-radius:9px;font-size:.97rem}
+.verdict.ok{background:#EAF6EF;border:1px solid #A8D5BC}
+.verdict.ko{background:#FBEDEB;border:1px solid #E7B4AD}
+.verdict strong.tete{display:block;margin-bottom:3px}
+.verdict.ok strong.tete{color:var(--juste)}
+.verdict.ko strong.tete{color:var(--faux)}
+.verdict .renvoi{display:block;margin-top:7px;font-size:.87rem;color:var(--gris)}
+
+/* ---- boutons ---- */
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 0}
+.bouton{
+  font:inherit;font-weight:600;cursor:pointer;border:none;border-radius:9px;
+  padding:12px 20px;min-height:48px;background:var(--bleu);color:#fff
+}
+.bouton:hover{background:#14405F}
+.bouton:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.bouton.second{background:var(--panneau);color:var(--bleu);border:1.5px solid var(--bleu)}
+.bouton.second:hover{background:#E4EDF4}
+
+/* ---- bilan de fin ---- */
+.score{background:var(--panneau);border:1px solid var(--bord);border-top:5px solid var(--orange);
+  border-radius:10px;padding:18px;margin:16px 0}
+.score .chiffre{font-size:2.5rem;font-weight:700;color:var(--bleu);line-height:1}
+.score .chiffre small{font-size:1.1rem;font-weight:400;color:var(--gris)}
+.score h2{margin:0 0 10px;font-size:1.1rem;color:var(--bleu)}
+.arevoir{margin:16px 0 0;padding:0;list-style:none}
+.arevoir li{padding:9px 0;border-top:1px solid var(--bord);font-size:.95rem}
+.arevoir li em{color:var(--faux);font-style:normal}
+.vide{color:var(--gris);font-size:.95rem}
+footer{margin:26px 0 0;padding-top:14px;border-top:1px solid var(--bord);
+  color:var(--gris);font-size:.8rem}
+/* tableaux venant du LaTeX */
+table{border-collapse:collapse;margin:12px 0;font-size:.94rem;
+  display:block;overflow-x:auto;max-width:100%}
+table th,table td{border:1px solid var(--bord);padding:7px 11px;text-align:left;
+  white-space:nowrap}
+table th{background:#E4EDF4;color:var(--bleu)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+  <header>
+    <a class="retour" href="../index.html">← Toutes les ressources du site</a>
+    <div class="chap" id="chap"></div>
+    <h1 id="titre">Chargement…</h1>
+    <p class="genre" id="genre"></p>
+  </header>
+  <main id="zone"></main>
+  <footer>Rien n'est enregistré ni envoyé : tes réponses restent dans ce
+  téléphone et disparaissent quand tu vides le navigateur.</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var par = new URLSearchParams(location.search);
+  var ch  = (par.get('ch') || '').replace(/[^0-9]/g,'');
+  // La filiere fait partie de l'adresse : le chapitre 1 de la 1re STI2D et
+  // le cours 1 du BTS ET sont deux choses differentes, et leurs fichiers de
+  // donnees comme leur progression enregistree doivent rester separes.
+  var fil = (par.get('f') || '').replace(/[^a-z0-9-]/g,'');
+  var typ = par.get('type') === 'prerequis' ? 'prerequis' : 'bilan';
+  var zone = document.getElementById('zone');
+
+  function erreur(txt){
+    document.getElementById('titre').textContent = 'Questionnaire indisponible';
+    zone.innerHTML = '<div class="question"><p class="enonce">' + txt +
+      '</p><div class="actions"><a class="bouton" href="../index.html">' +
+      'Revenir aux ressources</a></div></div>';
+  }
+  if(!ch || !fil){ erreur("L'adresse ne précise pas la filière et le " +
+    "chapitre. Passe par la page des ressources plutôt que de taper " +
+    "l'adresse à la main."); return; }
+
+  // Les fichiers sont numerotes sur deux chiffres (qcm-1sti2d-ch07.js)
+  // alors que le catalogue peut passer ch=7 : on complete.
+  var deux = ch.length < 2 ? '0' + ch : ch;
+  var s = document.createElement('script');
+  s.src = 'qcm-' + fil + '-ch' + deux + '.js';
+  s.onerror = function(){ erreur('Le chapitre ' + ch +
+    " n'a pas encore de questionnaire."); };
+  s.onload = function(){ demarrer(window.CHAPITRE); };
+  document.head.appendChild(s);
+
+  // ---------- outils ----------
+  function melange(t){
+    var a = t.slice();
+    for(var i=a.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1)), x = a[i]; a[i]=a[j]; a[j]=x;
+    }
+    return a;
+  }
+  function creer(balise, classe, html){
+    var e = document.createElement(balise);
+    if(classe) e.className = classe;
+    if(html !== undefined) e.innerHTML = html;
+    return e;
+  }
+  function memoriser(cle, val){
+    try{ localStorage.setItem(cle, val); }catch(e){}
+  }
+  function relire(cle){
+    try{ return localStorage.getItem(cle); }catch(e){ return null; }
+  }
+
+  // ---------- déroulement ----------
+  var LETTRES = 'abcdefgh', jeu, pos, faux, chap;
+
+  function demarrer(donnees){
+    chap = donnees;
+    document.getElementById('chap').textContent = 'Chapitre ' + chap.num;
+    document.getElementById('titre').textContent = chap.titre;
+    document.getElementById('genre').textContent =
+      (typ === 'bilan' ? 'Bilan du chapitre' : 'Vérifier ses prérequis')
+      + ' · ' + chap.niveau;
+    document.title = (typ==='bilan'?'Bilan':'Prérequis') + ' — ' + chap.titre;
+    if(!chap[typ] || !chap[typ].length){
+      erreur('Ce chapitre ne contient pas de ' + typ + '.'); return;
+    }
+    lancer();
+  }
+
+  function lancer(){
+    // Ordre des questions ET des propositions retiré au hasard à chaque essai :
+    // on ne peut pas retenir « c'est la troisième ».
+    jeu = melange(chap[typ]).map(function(q){
+      var idx = melange(q.choix.map(function(_,i){ return i; }));
+      return {
+        enonce: q.q,
+        choix : idx.map(function(i){ return q.choix[i]; }),
+        bonne : idx.indexOf(q.bonne),
+        expl  : q.expl || '',
+        renvoi: q.renvoi || ''
+      };
+    });
+    pos = 0; faux = [];
+    afficher();
+  }
+
+  function afficher(){
+    zone.innerHTML = '';
+    var q = jeu[pos];
+
+    var av = creer('div','avance');
+    av.appendChild(creer('span','compte','Question ' + (pos+1) + ' / ' + jeu.length));
+    var j = creer('div','jauge'); var b = creer('span');
+    b.style.width = Math.round(pos/jeu.length*100) + '%';
+    j.appendChild(b); av.appendChild(j);
+    zone.appendChild(av);
+
+    var bloc = creer('div','question');
+    bloc.appendChild(creer('p','enonce', q.enonce));
+    var ol = creer('ol','choix');
+    q.choix.forEach(function(txt,i){
+      var li = creer('li');
+      var bt = creer('button','choix');
+      bt.type = 'button';
+      bt.appendChild(creer('span','lettre', LETTRES[i] + '.'));
+      bt.appendChild(creer('span', null, txt));
+      bt.onclick = function(){ repondre(i, ol, bloc); };
+      li.appendChild(bt); ol.appendChild(li);
+    });
+    bloc.appendChild(ol);
+    zone.appendChild(bloc);
+    var prem = ol.querySelector('button');
+    if(prem) prem.focus({preventScroll:true});
+  }
+
+  function repondre(choisi, ol, bloc){
+    var q = jeu[pos], juste = (choisi === q.bonne);
+    var boutons = ol.querySelectorAll('button.choix');
+    for(var i=0;i<boutons.length;i++){
+      boutons[i].disabled = true;
+      if(i === q.bonne) boutons[i].classList.add('juste');
+      else if(i === choisi) boutons[i].classList.add('faux');
+      else boutons[i].classList.add('terne');
+    }
+    if(!juste) faux.push(q);
+
+    var v = creer('div','verdict ' + (juste ? 'ok' : 'ko'));
+    v.appendChild(creer('strong','tete', juste ? 'Bonne réponse.'
+      : 'Ce n\u2019est pas ça — la bonne réponse est '
+        + LETTRES[q.bonne] + '.'));
+    if(q.expl) v.appendChild(creer('span', null, q.expl));
+    if(q.renvoi) v.appendChild(creer('span','renvoi','À revoir : ' + q.renvoi));
+    bloc.appendChild(v);
+
+    var act = creer('div','actions');
+    var suite = creer('button','bouton',
+      pos + 1 < jeu.length ? 'Question suivante' : 'Voir mon résultat');
+    suite.type = 'button';
+    suite.onclick = function(){ pos++; (pos < jeu.length) ? afficher() : final(); };
+    act.appendChild(suite);
+    bloc.appendChild(act);
+    suite.focus({preventScroll:true});
+  }
+
+  function final(){
+    var bons = jeu.length - faux.length;
+    zone.innerHTML = '';
+    var d = creer('div','score');
+    d.appendChild(creer('h2', null, 'Résultat'));
+    d.appendChild(creer('p','chiffre', bons +
+      ' <small>bonnes réponses sur ' + jeu.length + '</small>'));
+
+    var cle = 'neruda.qcm.' + fil + '.ch' + chap.num + '.' + typ;
+    var avant = relire(cle);
+    if(avant !== null){
+      d.appendChild(creer('p','vide','Essai précédent : ' + avant +
+        ' sur ' + jeu.length + '.'));
+    }
+    memoriser(cle, String(bons));
+
+    if(faux.length){
+      d.appendChild(creer('h2', null, 'Les questions à reprendre'));
+      var ul = creer('ul','arevoir');
+      faux.forEach(function(q){
+        var li = creer('li');
+        li.appendChild(creer('div', null, q.enonce));
+        li.appendChild(creer('div', null, '<em>Réponse :</em> '
+          + q.choix[q.bonne] + (q.expl ? ' — ' + q.expl : '')));
+        ul.appendChild(li);
+      });
+      d.appendChild(ul);
+    }else{
+      d.appendChild(creer('p','vide',
+        'Tout est juste. Relance dans quelques jours pour vérifier que ça tient.'));
+    }
+    zone.appendChild(d);
+
+    var act = creer('div','actions');
+    var rj = creer('button','bouton','Recommencer');
+    rj.type = 'button'; rj.onclick = lancer;
+    act.appendChild(rj);
+    var lien = creer('a','bouton second','Réviser les cartes');
+    lien.href = 'cartes.html?f=' + fil + '&ch=' + chap.num;
+    act.appendChild(lien);
+    zone.appendChild(act);
+    rj.focus({preventScroll:true});
+  }
+})();
+</script>
+</body>
+</html>

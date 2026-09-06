@@ -1,0 +1,92 @@
+[
+ {
+  "type": "trou",
+  "recto": "Un matériau n'est pas « bon » ou « mauvais » dans l'absolu : il est …… à un usage donné.",
+  "verso": "<strong>adapté ou non</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Le …… est la liste des <strong>critères</strong> que la pièce doit satisfaire.",
+  "verso": "<strong>cahier des charges</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Les électrons de valence qui ne servent pas à une liaison restent groupés par deux : ce sont les …….",
+  "verso": "<strong>doublets non liants</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "(éthanol C₂H₆O, soit CH₃-CH₂-OH) ;\n• le groupe <strong>carboxyle</strong> -COOH caractérise les …… (acide éthanoïque C₂H₄O₂, soit CH₃-COOH — le vinaigre).",
+  "verso": "<strong>acides carboxyliques</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "A RELIRE : quelle relation ecrire ici ?",
+  "verso": "R = ρ L/S",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Cahier des charges",
+  "verso": "Le <strong>cahier des charges</strong> est la liste des <strong>critères</strong> que la pièce doit satisfaire. Chaque critère est confronté aux propriétés des matériaux candidats : un seul critère non respecté suffit à <strong>éliminer</strong> un candidat.",
+  "origine": "definition [Cahier des charges]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Résistance d'un conducteur",
+  "verso": "R = ρ L/S R en ohms, L en mètres, S en m², et ρ la <strong>résistivité</strong> du matériau en Ω·m. Plus ρ est faible, meilleur est le conducteur.",
+  "origine": "definition [Résistance d'un conducteur]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Groupes caractéristiques",
+  "verso": "Certains groupes d'atomes donnent à une molécule des propriétés reconnaissables :\n• le groupe <strong>hydroxyle</strong> -OH caractérise les <strong>alcools</strong> (éthanol C₂H₆O, soit CH₃-CH₂-OH) ;\n• le groupe <strong>carboxyle</strong> -COOH caractérise les <strong>acides carboxyliques</strong> (acide éthanoïque C₂H₄O₂, soit CH₃-COOH — le vinaigre).",
+  "origine": "definition [Groupes caractéristiques]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Un matériau n'est pas « bon » ou « mauvais » dans l'absolu : il est <strong>adapté ou non</strong> à un usage donné. L'acier est excellent pour une poutre, désastreux pour un boîtier portatif.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : Ordres de grandeur",
+  "verso": "Cuivre ρ ≈ 1,7 × 10⁻⁸ Ω·m\n• aluminium ≈ 2,8 × 10⁻⁸ Ω·m\n• fer ≈ 10⁻⁷ Ω·m. Un isolant comme le verre dépasse 10¹⁰ Ω·m : dix-huit ordres de grandeur d'écart.",
+  "origine": "aretenir [Ordres de grandeur]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : À savoir par cœur",
+  "verso": "H fait <strong>1</strong> liaison\n• C en fait <strong>4</strong>\n• N en fait <strong>3</strong>\n• O en fait <strong>2</strong>\n• Cl en fait <strong>1</strong>. Les électrons de valence qui ne servent pas à une liaison restent groupés par deux : ce sont les <strong>doublets non liants</strong>.",
+  "origine": "aretenir [À savoir par cœur]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Erreur fréquente",
+  "verso": "Choisir « le meilleur matériau » n'a aucun sens. On choisit celui qui satisfait <strong>tous</strong> les critères au moindre coût. Un matériau plus performant mais qui échoue sur un seul critère est <strong>éliminé</strong>, aussi remarquable soit-il par ailleurs.",
+  "origine": "attention [Erreur fréquente]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Erreur fréquente",
+  "verso": "Oublier les doublets non liants. Une formule développée n'est <em>pas</em> un schéma de Lewis : il manque les doublets, qui expliquent pourtant la forme de la molécule et sa réactivité. Sur H₂O, il en faut <strong>deux</strong> sur l'oxygène ; sur HCl, <strong>trois</strong> sur le chlore.",
+  "origine": "attention [Erreur fréquente]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Sécurité — les pictogrammes CLP",
+  "verso": "Les produits chimiques portent des pictogrammes normalisés : losange rouge sur fond blanc. Les plus courants signalent un produit <strong>inflammable</strong>, <strong>corrosif</strong>, <strong>toxique</strong>, <strong>nocif ou irritant</strong>, <strong>dangereux pour l'environnement</strong>. Il faut savoir les reconnaître <strong>avant</strong> d'ouvrir un flacon, et lire l'étiquette dans son entier.",
+  "origine": "attention [Sécurité — les pictogrammes CLP]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : L'essentiel à retenir",
+  "verso": "• Quatre familles : <strong>métalliques</strong>, <strong>organiques</strong>, <strong>minéraux</strong>, <strong>composites</strong> (qui associent les précédentes).\n• Six familles de propriétés : mécaniques, électriques, thermiques, optiques, chimiques, environnementales.\n• <strong>Choisir un matériau</strong>, c'est confronter un <strong>cahier des charges</strong> aux propriétés des candidats : un critère non respecté élimine le candidat.\n• <strong>Résistivité</strong> : R = ρL/S. Cuivre ≈ 1,7 × 10⁻⁸ Ω·m.\n• <strong>Isolation</strong> : R<sub>th</sub> = e/λ\n• <strong>optique</strong> : n = c/v.\n• <strong>Couche externe</strong> : un atome se stabilise à 8 électrons (2 pour H). D'où le nombre de liaisons : H 1\n• C 4\n• N 3\n• O 2\n• Cl 1.\n• <strong>Schéma de Lewis</strong> : traits gris = doublets <em>liants</em>, traits violets = doublets <em>non liants</em>.\n• On part de la <strong>brute</strong> : <strong>brute</strong> → <strong>développée</strong> → <strong>semi-développée</strong> → <strong>Lewis</strong> (qui seul porte les doublets non liants).\n• Une <strong>macromolécule</strong> répète un motif des milliers de fois : ce sont les polymères.\n• Groupes caractéristiques : -OH (alcool), -COOH (acide carboxylique).\n• Le <strong>recyclage</strong> referme le cycle de vie et économise énergie et ressources.",
+  "origine": "essentiel [L'essentiel à retenir]"
+ }
+]

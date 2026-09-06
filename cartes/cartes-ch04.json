@@ -1,0 +1,98 @@
+[
+ {
+  "type": "trou",
+  "recto": "Ensuite, seul un courant <strong>variable</strong> traverse un …… : sans lui, impossible d'élever puis d'abaisser la tension.",
+  "verso": "<strong>transformateur</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Enfin, transporter sous …… permet une <strong>faible intensité</strong>, donc peu de pertes par échauffement dans les lignes.",
+  "verso": "<strong>haute tension</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "La <strong>période</strong> T est la ……, en secondes.",
+  "verso": "<strong>durée d'un seul motif</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "La <strong>fréquence</strong> f est le ……, en hertz (Hz).",
+  "verso": "<strong>nombre de motifs contenus dans une seconde</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "La …… ⟨u⟩ d'un signal périodique est le quotient de l'<strong>aire algébrique</strong> comprise entre la courbe et l'axe des temps, sur <strong>une</strong> période, par la durée de cette période.",
+  "verso": "<strong>valeur moyenne</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "f = 1/T (f en Hz, T en s)",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "U<sub>eff</sub> = (U<sub>max</sub>)/√2 (sinusoïde <em>seulement</em>)",
+  "origine": "formulecle"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Période et fréquence",
+  "verso": "La <strong>période</strong> T est la <strong>durée d'un seul motif</strong>, en secondes. La <strong>fréquence</strong> f est le <strong>nombre de motifs contenus dans une seconde</strong>, en hertz (Hz).",
+  "origine": "definition [Période et fréquence]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Valeur moyenne",
+  "verso": "La <strong>valeur moyenne</strong> ⟨u⟩ d'un signal périodique est le quotient de l'<strong>aire algébrique</strong> comprise entre la courbe et l'axe des temps, sur <strong>une</strong> période, par la durée de cette période. Les aires situées <strong>au-dessus</strong> de l'axe comptent positivement, celles situées <strong>en dessous</strong> négativement.",
+  "origine": "definition [Valeur moyenne]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Valeur efficace",
+  "verso": "La <strong>valeur efficace</strong> U<sub>eff</sub> d'une tension périodique est la valeur de la tension <strong>continue</strong> qui produirait, dans la même résistance, <strong>le même échauffement</strong>. On l'obtient en trois temps : élever le signal <strong>au carré</strong>, prendre la <strong>valeur moyenne</strong> de ce carré, puis en extraire la <strong>racine</strong>.",
+  "origine": "definition [Valeur efficace]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Trois raisons se cumulent. D'abord, une bobine qui <strong>tourne</strong> dans un champ magnétique — un alternateur — délivre <em>naturellement</em> une tension sinusoïdale : c'est la forme la plus simple à produire. Ensuite, seul un courant <strong>variable</strong> traverse un <strong>transformateur</strong> : sans lui, impossible d'élever puis d'abaisser la tension. Enfin, transporter sous <strong>haute tension</strong> permet une <strong>faible intensité</strong>, donc peu de pertes par échauffement dans les lignes.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Cette méthode <strong>graphique</strong> vaut pour <em>n'importe quelle</em> forme de signal : rectangulaire, triangulaire, redressée. Pour une <strong>sinusoïde</strong>, les deux alternances ont des aires opposées : la valeur moyenne est donc <strong>nulle</strong>. C'est pourquoi un voltmètre en position continue affiche 0 sur une prise de courant.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Pourquoi cette formule devient indispensable",
+  "verso": "Tant que le motif est long, on pourrait compter les répétitions à la main. Mais à 1 kHz il y en a mille par seconde, et à 100 MHz cent millions : le comptage direct devient impossible. On mesure alors la durée <strong>d'un seul</strong> motif, et la division f = 1/T fait le comptage à notre place. C'est là toute l'utilité de la relation.",
+  "origine": "attention [Pourquoi cette formule devient indispensable]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Quel voltmètre affiche quoi ?",
+  "verso": "Un voltmètre ordinaire en position alternative suppose que le signal est sinusoïdal : il mesure en réalité autre chose, puis multiplie par un coefficient valable pour la seule sinusoïde. Devant un signal rectangulaire ou découpé — un variateur, une alimentation à découpage — il se trompe. Seul un voltmètre marqué <strong>TRUE RMS</strong> effectue réellement le calcul « carré, moyenne, racine » et donne la bonne valeur quelle que soit la forme du signal.",
+  "origine": "attention [Quel voltmètre affiche quoi ?]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : Vers la terminale",
+  "verso": "La valeur efficace n'est pas une curiosité de chapitre : c'est l'outil de base de tout ce qui suivra en électrotechnique.\n• En terminale, le produit des valeurs efficaces U × I portera un nom, la <strong>puissance apparente</strong> S ; comparée à la puissance réellement consommée (la <strong>puissance active</strong> P), elle définira le <strong>facteur de puissance</strong> k = P/S, grandeur clé du dimensionnement d'une installation.\n• Le régime sinusoïdal se décrira aussi à l'aide des <strong>nombres complexes</strong>, en lien direct avec le programme de mathématiques.\n• Enfin, un signal périodique quelconque — comme ceux d'un variateur ou d'une alimentation à découpage évoqués ci-dessus — se décomposera en une composante continue et une somme de sinusoïdes : c'est le <strong>spectre d'amplitude</strong>, avec son fondamental et ses harmoniques.",
+  "origine": "essentiel [Vers la terminale]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : L'essentiel du chapitre",
+  "verso": "• Le secteur est <strong>sinusoïdal</strong> parce que l'alternateur le produit ainsi, que le transformateur exige une tension variable, et que la haute tension limite les pertes.\n• Un signal périodique est un <strong>motif</strong> qui se répète : T est la durée d'un motif, f le nombre de motifs par seconde, d'où f = 1/T.\n• <strong>Valeur moyenne</strong> : aire algébrique divisée par la période — nulle pour une sinusoïde. Un voltmètre en position continue mesure cette valeur moyenne.\n• <strong>Valeur efficace</strong> : carré, puis moyenne, puis racine. Pour une sinusoïde <em>seulement</em>, U<sub>eff</sub> = (U<sub>max</sub>)/√2.\n• Seul un voltmètre <strong>TRUE RMS</strong> donne la valeur efficace exacte d'un signal non sinusoïdal (variateur, découpage).",
+  "origine": "essentiel [L'essentiel du chapitre]"
+ }
+]

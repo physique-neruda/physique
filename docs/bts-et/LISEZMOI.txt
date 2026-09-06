@@ -1,2 +1,0 @@
-Les PDF du BTS ET n'ont pas été renvoyés dans cette archive : ils sont
-inchangés et déjà en ligne. Ne pas supprimer ce dossier sur GitHub.

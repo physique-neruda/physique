@@ -1,0 +1,122 @@
+[
+ {
+  "type": "trou",
+  "recto": "Une …… est la propagation d'une perturbation électrique et magnétique. Contrairement à une onde mécanique, elle <strong>n'a besoin d'aucun milieu matériel</strong> : elle se propage dans le vide, et aussi dans certains milieux transparents (air, eau, verre). def",
+  "verso": "<strong>onde électromagnétique</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Une <strong>onde électromagnétique</strong> est la propagation d'une perturbation électrique et magnétique. Contrairement à une onde mécanique, elle …… : elle se propage dans le vide, et aussi dans certains milieux transparents (air, eau, verre).",
+  "verso": "<strong>n'a besoin d'aucun milieu matériel</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "C'est une …… : rien ne va plus vite.",
+  "verso": "<strong>vitesse limite</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Le …… est le classement de toutes les ondes électromagnétiques par longueur d'onde croissante en fréquence.",
+  "verso": "<strong>spectre électromagnétique</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Il se découpe, des grandes longueurs d'onde vers les petites, en : <strong>ondes radio</strong>, <strong>micro-ondes</strong>, <strong>infrarouge</strong>, <strong>visible</strong>, <strong>ultraviolet</strong>, <strong>rayons X</strong> et …….",
+  "verso": "<strong>rayons γ</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Dans le <strong>vide</strong>, toutes les ondes électromagnétiques se propagent à la même célérité, notée c :\n……",
+  "verso": "c = 3,00 × 10⁸ m/s = 300 000 km/s.",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "c = λ × f (c en m/s, λen m, f en Hz)",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "d = c × t",
+  "origine": "formulecle"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Onde électromagnétique",
+  "verso": "Une <strong>onde électromagnétique</strong> est la propagation d'une perturbation électrique et magnétique. Contrairement à une onde mécanique, elle <strong>n'a besoin d'aucun milieu matériel</strong> : elle se propage dans le vide, et aussi dans certains milieux transparents (air, eau, verre).",
+  "origine": "definition [Onde électromagnétique]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Spectre électromagnétique",
+  "verso": "Le <strong>spectre électromagnétique</strong> est le classement de toutes les ondes électromagnétiques par longueur d'onde croissante en fréquence. Il se découpe, des grandes longueurs d'onde vers les petites, en : <strong>ondes radio</strong>, <strong>micro-ondes</strong>, <strong>infrarouge</strong>, <strong>visible</strong>, <strong>ultraviolet</strong>, <strong>rayons X</strong> et <strong>rayons γ</strong>.",
+  "origine": "definition [Spectre électromagnétique]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Spectre d'émission",
+  "verso": "Une source à <strong>spectre continu</strong> (lampe à filament, Soleil) émet toutes les longueurs d'onde du visible : sa lumière est <strong>polychromatique</strong>. Une source <strong>monochromatique</strong> (laser) n'émet qu'une seule longueur d'onde. La <strong>LED</strong> est un cas intermédiaire : elle émet une bande étroite, donc une couleur bien définie.",
+  "origine": "definition [Spectre d'émission]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Dans le <strong>vide</strong>, toutes les ondes électromagnétiques se propagent à la même célérité, notée c : c = 3,00 × 10⁸ m/s = 300 000 km/s. C'est une <strong>vitesse limite</strong> : rien ne va plus vite. La lumière visible, les ondes radio, les rayons X y voyagent <strong>exactement</strong> à la même vitesse.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Comme c est <strong>fixée</strong>, λ et f varient en sens <strong>inverse</strong> : une grande longueur d'onde correspond à une basse fréquence, et une petite longueur d'onde à une haute fréquence. Donner λ ou donner f, c'est donner la même information.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Le <strong>laser</strong> se distingue par trois propriétés : il est <strong>monochromatique</strong> (une seule longueur d'onde), <strong>directif</strong> (le faisceau reste parallèle au lieu de s'étaler) et <strong>cohérent</strong>. C'est la directivité qui explique qu'il conserve une forte intensité même à distance — et qu'il faut s'en méfier.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "La <strong>classe</strong> d'un laser indique le risque encouru, de la classe 1 (sans danger) à la classe 4 (brûlures de l'œil et de la peau). Un pointeur du commerce relève normalement de la classe 2 : c'est le <strong>réflexe de clignement</strong>, en un quart de seconde, qui limite les dégâts. Ne jamais compter sur ce réflexe, et ne jamais diriger un laser vers un œil, ni vers une surface réfléchissante.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Les <strong>infrarouges</strong> chauffent. Les <strong>ultraviolets</strong> provoquent coups de soleil, vieillissement de la peau et lésions de l'œil ; la couche d'ozone en arrête une grande partie, le reste est filtré par une crème solaire ou des lunettes adaptées. Les <strong>rayons X</strong> et γ traversent les tissus : ils sont utiles en radiographie, mais leur usage est strictement encadré (tablier de plomb, dosimètre, limitation du nombre de clichés).",
+  "origine": "aretenir"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Dans un milieu, c'est plus lent",
+  "verso": "Dans l'eau ou le verre, la lumière est <strong>ralentie</strong> : environ 2,0×10⁸ m/s dans le verre. C'est pourquoi un signal dans une fibre optique met 29 ms pour aller de Paris à New York, alors que 19 ms suffiraient dans le vide (chapitre 13). Dans l'<strong>air</strong>, en revanche, la lumière est si peu ralentie qu'on utilise c sans erreur notable.",
+  "origine": "attention [Dans un milieu, c'est plus lent]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Une fenêtre minuscule",
+  "verso": "Le <strong>visible</strong> ne couvre qu'une bande très étroite, de 400 nm (violet) à 800 nm (rouge). Sur le schéma, elle est volontairement élargie pour rester lisible : à l'échelle réelle, elle serait invisible. Tout le reste du spectre existe pourtant bel et bien — nous ne le voyons simplement pas.",
+  "origine": "attention [Une fenêtre minuscule]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : Vers la terminale",
+  "verso": "La relation λ = c/f et le spectre électromagnétique sont acquis ; ils seront directement remobilisés l'an prochain pour les <strong>télécommunications</strong>.\n• On positionnera les domaines de fréquences réellement utilisés (radio, Wi-Fi, téléphonie, satellite) et on reliera la fréquence exploitée à la <strong>taille des antennes</strong>.\n• Transmettre plusieurs informations dans un même milieu supposera de les décaler en fréquence : c'est la <strong>transposition fréquentielle</strong>, à la base de la modulation.\n• La <strong>fibre optique</strong> et les liaisons infrarouge seront étudiées comme supports concrets.",
+  "origine": "essentiel [Vers la terminale]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : L'essentiel du chapitre",
+  "verso": "• Une <strong>onde électromagnétique</strong> n'a besoin d'<strong>aucun milieu</strong> : elle se propage dans le vide, à la célérité c = 3,00 × 10⁸ m/s, identique pour tout le spectre. Dans un milieu transparent, elle est <strong>ralentie</strong>.\n• c = λ × f : à célérité fixée, λ et f varient en sens <strong>inverse</strong>.\n• Le <strong>spectre</strong> se lit des grandes aux petites longueurs d'onde : radio, micro-ondes, infrarouge, <strong>visible</strong> (400--800 nm), ultraviolet, rayons X, rayons γ.\n• Une durée de propagation se calcule par d = c t : 8 min 20 s du Soleil à la Terre, 67 ms pour un satellite GPS.\n• Une source est <strong>polychromatique</strong> (spectre continu) ou <strong>monochromatique</strong> (laser). Le laser est en outre <strong>directif</strong>, d'où son classement en <strong>4 classes</strong> de risque.\n• Plus λ est <strong>petite</strong>, plus l'onde est <strong>énergétique</strong> : UV, X et γ exigent des protections adaptées.",
+  "origine": "essentiel [L'essentiel du chapitre]"
+ }
+]

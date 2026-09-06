@@ -1,0 +1,116 @@
+[
+ {
+  "type": "trou",
+  "recto": "Un …… comporte trois éléments indissociables : une <strong>valeur</strong>, une <strong>incertitude</strong> et une <strong>unité</strong>.",
+  "verso": "<strong>résultat de mesure</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "La <strong>justesse</strong> caractérise l'écart entre la moyenne des mesures et la valeur vraie : elle traduit une …… (un appareil mal réglé, un zéro décalé).",
+  "verso": "<strong>erreur systématique</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "La <strong>fidélité</strong> caractérise le regroupement des mesures entre elles : elle traduit les …… (lecture, vibrations, opérateur).",
+  "verso": "<strong>erreurs aléatoires</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "C'est la signature des ……, qui jouent autant dans un sens que dans l'autre — et c'est précisément pour cela que la moyenne les compense.",
+  "verso": "<strong>erreurs aléatoires</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Deux voies mènent à l'incertitude-type, et l'énoncé indique toujours laquelle suivre : …… → on exploite leur dispersion, u = s/√n (type A) ; <strong>une seule mesure</strong> → on exploite l'instrument, u = a/√3 (type B).",
+  "verso": "<strong>plusieurs mesures</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "On l'écrit sous la forme\n……",
+  "verso": "d = (25,020 ± 0,008) mm .",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "La <strong>moyenne</strong> m des n mesures est le meilleur estimateur de la grandeur cherchée :\n……",
+  "verso": "m = (x₁ + x₂ + … + x<sub>n</sub>)/n.",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "u = s/√n",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "u = a/√3",
+  "origine": "formulecle"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Résultat de mesure",
+  "verso": "Un <strong>résultat de mesure</strong> comporte trois éléments indissociables : une <strong>valeur</strong>, une <strong>incertitude</strong> et une <strong>unité</strong>. On l'écrit sous la forme d = (25,020 ± 0,008) mm .",
+  "origine": "definition [Résultat de mesure]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Justesse, fidélité",
+  "verso": "La <strong>justesse</strong> caractérise l'écart entre la moyenne des mesures et la valeur vraie : elle traduit une <strong>erreur systématique</strong> (un appareil mal réglé, un zéro décalé). La <strong>fidélité</strong> caractérise le regroupement des mesures entre elles : elle traduit les <strong>erreurs aléatoires</strong> (lecture, vibrations, opérateur).",
+  "origine": "definition [Justesse, fidélité]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Moyenne",
+  "verso": "La <strong>moyenne</strong> m des n mesures est le meilleur estimateur de la grandeur cherchée : m = (x₁ + x₂ + … + x<sub>n</sub>)/n.",
+  "origine": "definition [Moyenne]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Le système international (SI) repose sur sept unités de base, dont le <strong>mètre</strong> (m), le <strong>kilogramme</strong> (kg), la <strong>seconde</strong> (s), l'<strong>ampère</strong> (A) et le <strong>kelvin</strong> (K). Toutes les autres en dérivent : le newton, le volt ou le joule s'expriment à partir d'elles. Avant tout calcul, ramener les grandeurs aux unités du SI évite l'essentiel des erreurs.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "L'histogramme est en <strong>cloche</strong> : les valeurs proches de la moyenne sont les plus fréquentes, les valeurs extrêmes sont rares. C'est la signature des <strong>erreurs aléatoires</strong>, qui jouent autant dans un sens que dans l'autre — et c'est précisément pour cela que la moyenne les compense.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Deux voies mènent à l'incertitude-type, et l'énoncé indique toujours laquelle suivre : <strong>plusieurs mesures</strong> → on exploite leur dispersion, u = s/√n (type A) ; <strong>une seule mesure</strong> → on exploite l'instrument, u = a/√3 (type B).",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Deux règles, toujours dans cet ordre : <strong>1.</strong> l'incertitude est arrondie à <strong>un seul chiffre significatif</strong> (0,00816 → 0,008) ; <strong>2.</strong> la valeur est ensuite arrondie à la <strong>même décimale</strong> (25,0200 → 25,020). On écrit alors d = (25,020 ± 0,008) mm.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Deux remèdes différents",
+  "verso": "Un défaut de <strong>fidélité</strong> se réduit en <strong>répétant</strong> les mesures et en faisant la moyenne. Un défaut de <strong>justesse</strong>, lui, ne se corrige <strong>jamais</strong> par la répétition : refaire mille fois la même mesure avec un pied à coulisse mal remis à zéro donnera mille fois la même erreur. Il faut <strong>régler ou étalonner</strong> l'instrument.",
+  "origine": "attention [Deux remèdes différents]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Multiplier les mesures aide, mais de moins en moins",
+  "verso": "Puisque u varie en 1/√n, il faut <strong>quadrupler</strong> le nombre de mesures pour diviser l'incertitude par 2. Passer de 4 à 16 mesures la divise par 2 ; passer de 16 à 64 la divise encore par 2. Répéter est utile, mais le gain s'épuise vite : au-delà, c'est l'<em>instrument</em> qu'il faut changer.",
+  "origine": "attention [Multiplier les mesures aide, mais de moins en moins]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : L'essentiel du chapitre",
+  "verso": "• Un résultat de mesure comporte une <strong>valeur</strong>, une <strong>incertitude</strong> et une <strong>unité</strong> : d = (25,020 ± 0,008) mm.\n• La <strong>justesse</strong> concerne l'écart à la valeur vraie (erreur systématique) ; la <strong>fidélité</strong> concerne le regroupement des mesures (erreurs aléatoires). Seule la seconde s'améliore en répétant.\n• Les <strong>chiffres significatifs</strong> : produit et quotient gardent le plus petit nombre de chiffres significatifs, somme et différence le plus petit nombre de décimales.\n• Pour une série : la <strong>moyenne</strong> m estime la grandeur, l'<strong>écart-type</strong> s mesure la dispersion, et l'<strong>incertitude-type</strong> vaut u = s/√n.\n• <strong>Écriture</strong> : incertitude arrondie à <strong>un</strong> chiffre significatif, puis valeur alignée sur la même décimale.\n• <strong>Comparaison</strong> : E<sub>n</sub> = (|m - m<sub>ref</sub>|)/(√(u²+u<sub>ref</sub>²)). Si E<sub>n</sub> < 2, les résultats sont <strong>compatibles</strong>.",
+  "origine": "essentiel [L'essentiel du chapitre]"
+ }
+]

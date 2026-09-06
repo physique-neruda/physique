@@ -1,0 +1,17 @@
+{
+ "c01": {
+  "rubrique": "Cours",
+  "titre": "Énergie interne et transferts thermiques",
+  "niveau": "BTS Électrotechnique",
+  "titres_documents": {
+   "a1_chauffage": "Activité 1 — Chauffer un corps",
+   "a2_rayonnement": "Activité 2 — Le rayonnement",
+   "a3_flux": "Activité 3 — Le flux à travers une paroi"
+  }
+ },
+ "tp01": {
+  "rubrique": "TP",
+  "titre": "Notions fondamentales d'électricité",
+  "niveau": "BTS Électrotechnique"
+ }
+}

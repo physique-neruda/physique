@@ -1,0 +1,80 @@
+[
+ {
+  "type": "trou",
+  "recto": "Une …… est un mélange <strong>homogène</strong> obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>.",
+  "verso": "<strong>solution</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Une <strong>solution</strong> est un mélange …… obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>.",
+  "verso": "<strong>homogène</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Dans ces deux formules, V est le volume ……, et non le volume de solvant ajouté.",
+  "verso": "<strong>total de la solution obtenue</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Lors d'une dilution, on n'ajoute que du <strong>solvant</strong> : la …… prélevée se retrouve intégralement dans la solution fille.",
+  "verso": "<strong>quantité de soluté</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "A RELIRE : quelle relation ecrire ici ?",
+  "verso": "c = n/V (mol/L) et c<sub>m</sub> = m/V (g/L)",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Solution",
+  "verso": "Une <strong>solution</strong> est un mélange <strong>homogène</strong> obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>. Homogène signifie qu'on n'y distingue plus qu'une seule phase : le soluté est dispersé à l'échelle des molécules ou des ions.",
+  "origine": "definition [Solution]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Concentration",
+  "verso": "c = n/V (mol/L) et c<sub>m</sub> = m/V (g/L) Les deux sont liées par la masse molaire : c<sub>m</sub> = c × M.",
+  "origine": "definition [Concentration]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : Solution aqueuse",
+  "verso": "Lorsque le solvant est l'<strong>eau</strong> — le seul cas de ce programme — la solution est dite <strong>aqueuse</strong>, ce que l'on note (aq) derrière les espèces dissoutes. D'autres solvants existent (éthanol, acétone, white-spirit) et donnent des solutions non aqueuses : c'est ainsi que l'on dissout un vernis ou une peinture glycéro, insolubles dans l'eau.",
+  "origine": "aretenir [Solution aqueuse]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : Ce que diluer ne change pas",
+  "verso": "Lors d'une dilution, on n'ajoute que du <strong>solvant</strong> : la <strong>quantité de soluté</strong> prélevée se retrouve intégralement dans la solution fille. C'est le <strong>volume</strong> qui augmente, donc la concentration qui diminue — et c'est tout le contenu de la relation c₀V₀ = cV.",
+  "origine": "aretenir [Ce que diluer ne change pas]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Le volume est celui de la solution",
+  "verso": "Dans ces deux formules, V est le volume <strong>total de la solution obtenue</strong>, et non le volume de solvant ajouté. C'est précisément pourquoi on complète une fiole jaugée <em>jusqu'au trait</em> au lieu de mesurer l'eau à l'avance. Penser aussi à convertir : les volumes s'expriment en <strong>litres</strong> dans ces formules.",
+  "origine": "attention [Le volume est celui de la solution]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Le bon verre pour le bon geste",
+  "verso": "La <strong>fiole jaugée</strong> et la <strong>pipette jaugée</strong> sont <em>précises</em> : on les utilise dès qu'une concentration doit être exacte. Le <strong>bécher</strong> et l'<strong>éprouvette graduée</strong> ne servent qu'à des mesures approximatives. Préparer une solution titrée à l'éprouvette est une faute de méthode.",
+  "origine": "attention [Le bon verre pour le bon geste]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : Vers la suite",
+  "verso": "Ce chapitre ne fait que poser les outils ; ils vont servir immédiatement.\n• Le <strong>chapitre 15</strong> traite l'<strong>oxydoréduction</strong> : toutes les réactions y ont lieu en solution aqueuse, et les électrolytes des piles se préparent exactement comme ici.\n• La concentration permettra d'y calculer une <strong>quantité de matière disponible</strong>, donc de prévoir combien de temps une pile peut débiter avant épuisement.\n• En <strong>BTS</strong>, ces mêmes gestes servent au contrôle des bains de traitement de surface et aux dosages de conformité.",
+  "origine": "essentiel [Vers la suite]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : L'essentiel du chapitre",
+  "verso": "• Une <strong>solution</strong> = soluté dissous dans un solvant, mélange <strong>homogène</strong>. Solvant = eau ⇒ solution <strong>aqueuse</strong> (aq) ; d'autres solvants existent.\n• <strong>Concentration</strong> : c = n/V et c<sub>m</sub> = m/V, avec c<sub>m</sub> = c × M. V est le volume <strong>de la solution</strong>, en litres.\n• <strong>Dissolution</strong> : on pèse le soluté — n = c V puis m = n M.\n• <strong>Dilution</strong> : on prélève une solution mère — c₀V₀ = cV. La quantité de soluté <strong>ne change pas</strong>.\n• Verrerie <strong>de précision</strong> : fiole jaugée, pipette jaugée. Verrerie <strong>approximative</strong> : bécher, éprouvette graduée.",
+  "origine": "essentiel [L'essentiel du chapitre]"
+ }
+]

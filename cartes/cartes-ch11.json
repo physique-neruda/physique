@@ -1,0 +1,80 @@
+[
+ {
+  "type": "trou",
+  "recto": "……",
+  "verso": "<strong>irradiance</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "On la mesure avec un …….",
+  "verso": "<strong>pyranomètre</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "L'<strong>irradiance</strong> E est la puissance lumineuse P reçue par une surface, divisée par l'aire S de cette surface :\n……",
+  "verso": "E = P/S en watts par mètre carré (W/m²).",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "A RELIRE : quelle relation ecrire ici ?",
+  "verso": "η = (P<sub>élec</sub>)/(E × S)",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "S = (P<sub>élec</sub>)/(η × E)",
+  "origine": "formulecle"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Irradiance",
+  "verso": "L'<strong>irradiance</strong> E est la puissance lumineuse P reçue par une surface, divisée par l'aire S de cette surface : E = P/S en watts par mètre carré (W/m²). On la mesure avec un <strong>pyranomètre</strong>.",
+  "origine": "definition [Irradiance]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Rendement d'un panneau",
+  "verso": "η = (P<sub>élec</sub>)/(E × S) où P<sub>élec</sub> est la puissance électrique délivrée et E × S la puissance lumineuse reçue. Comme tout rendement, η< 1.",
+  "origine": "definition [Rendement d'un panneau]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : Ordres de grandeur à mémoriser",
+  "verso": "Par ciel dégagé, le Soleil apporte au sol E ≈ 1000 W/m² — c'est la valeur de référence de tous les calculs. Un éclairage intérieur confortable est de l'ordre de quelques W/m².",
+  "origine": "aretenir [Ordres de grandeur à mémoriser]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : Sur une année",
+  "verso": "En France, une surface bien orientée reçoit environ 1200 kWh/m² par an. Avec 17 m² de panneaux à 18 %, la production annuelle vaut 1200 × 17 × 0,18 ≈ 3700 kWh, soit à peu près la consommation électrique annuelle d'un logement (hors chauffage).",
+  "origine": "aretenir [Sur une année]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Attention à la notation",
+  "verso": "Ici, la lettre E désigne l'<strong>irradiance</strong> (en W/m²), et <em>non</em> une énergie (en joules) comme aux chapitres 2 et 10. Il faut toujours regarder l'<strong>unité</strong> pour savoir de quelle grandeur on parle.",
+  "origine": "attention [Attention à la notation]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Erreur fréquente",
+  "verso": "« Ce laser fait seulement 1 mW, il est donc inoffensif. » C'est faux : le danger ne vient pas de la <strong>puissance</strong> mais de l'<strong>irradiance</strong>, donc de la <strong>concentration</strong> du faisceau. Ne jamais diriger un laser vers les yeux, ni vers une surface réfléchissante.",
+  "origine": "attention [Erreur fréquente]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : Vers la terminale",
+  "verso": "Nous n'avons traité ici que l'aspect <strong>énergétique</strong> de la lumière — c'est ce que demande le programme de première. L'an prochain, on regardera de plus près.\n• La lumière sera décrite comme un flux de grains d'énergie, les <strong>photons</strong>, dont l'énergie se calcule par ΔE = h × f : plus la fréquence est grande, plus le photon est énergétique. C'est ce qui expliquera la dangerosité des UV par rapport à l'infrarouge.\n• Le panneau photovoltaïque sera étudié par sa <strong>caractéristique tension-courant</strong>, dont on tirera le <strong>point de fonctionnement</strong> et le rendement réel.\n• La <strong>conversion photothermique</strong> (chauffer de l'eau avec le rayonnement) complétera la conversion photovoltaïque.",
+  "origine": "essentiel [Vers la terminale]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : L'essentiel à retenir",
+  "verso": "• La lumière <strong>transporte de l'énergie</strong> ; on la caractérise par une puissance reçue.\n• <strong>Irradiance</strong> : E = P/S, en W/m², mesurée au <strong>pyranomètre</strong>. Attention : ici E n'est <em>pas</em> une énergie.\n• P = E × S : à irradiance donnée, la puissance reçue est <strong>proportionnelle à la surface</strong>. L'irradiance diminue si la surface est <strong>inclinée</strong> par rapport aux rayons.\n• Ordre de grandeur : Soleil au sol ≈ 1000 W/m².\n• Un <strong>laser</strong> est directif : sa puissance reste concentrée sur une section minuscule, donc son irradiance est énorme — c'est la <strong>concentration</strong>, et non la puissance, qui fait le danger.\n• <strong>Photovoltaïque</strong> : η = (P<sub>élec</sub>)/(E × S), de 15 à 20 % en pratique.\n• <strong>Dimensionner</strong> : S = (P<sub>élec</sub>)/(η × E).",
+  "origine": "essentiel [L'essentiel à retenir]"
+ }
+]

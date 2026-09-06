@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cartes de révision</title>
+<!--
+  Page unique de cartes de révision, valable pour toutes les filières :
+
+      cartes.html?f=1sti2d&ch=16
+
+  Les cartes sont lues dans qcm-<f>-ch<XX>.js, produit par
+  outils/construire.py. Aucune ressource extérieure.
+-->
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18; --teal:#0E7C7B;
+  --juste:#0E7C4B; --faux:#B4342A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.5;padding:0 14px 56px;max-width:760px;margin:0 auto}
+header{padding:18px 0 14px;border-bottom:3px solid var(--bleu)}
+header .retour{display:inline-block;color:var(--teal);text-decoration:none;
+  font-size:.86rem;margin-bottom:10px;padding:4px 0}
+header .retour:hover{text-decoration:underline}
+header .chap{color:var(--orange);font-size:.78rem;letter-spacing:.06em;
+  text-transform:uppercase;font-weight:700}
+header h1{margin:2px 0 0;font-size:1.32rem;line-height:1.25;color:var(--bleu)}
+header .genre{margin:6px 0 0;color:var(--gris);font-size:.9rem}
+
+.avance{display:flex;align-items:center;gap:10px;margin:16px 0 4px}
+.avance .compte{font-size:.85rem;color:var(--gris);white-space:nowrap}
+.jauge{flex:1;height:6px;background:var(--bord);border-radius:3px;overflow:hidden}
+.jauge span{display:block;height:100%;background:var(--teal);width:0;
+  transition:width .25s ease}
+
+/* ---- la carte ---- */
+.carte{
+  background:var(--panneau);border:1px solid var(--bord);border-top:5px solid var(--orange);
+  border-radius:10px;padding:22px 18px;margin:14px 0;min-height:11rem;
+  display:flex;flex-direction:column;justify-content:center
+}
+.carte .face{font-size:1.1rem}
+.carte .dos{
+  margin-top:16px;padding-top:15px;border-top:1px dashed var(--bord);
+  font-size:1.03rem
+}
+.carte .dos strong{color:var(--bleu)}
+.carte .source{margin-top:14px;font-size:.8rem;color:var(--gris)}
+.carte .indice{margin-top:16px;font-size:.85rem;color:var(--gris)}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.bouton{font:inherit;font-weight:600;cursor:pointer;border:none;border-radius:9px;
+  padding:12px 20px;min-height:48px;background:var(--bleu);color:#fff;flex:1}
+.bouton:hover{background:#14405F}
+.bouton:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.bouton.second{background:var(--panneau);color:var(--bleu);border:1.5px solid var(--bleu)}
+.bouton.second:hover{background:#E4EDF4}
+.bouton.su{background:var(--juste)}      .bouton.su:hover{background:#0A5C38}
+.bouton.pas{background:var(--orange)}  .bouton.pas:hover{background:#B2600F}
+
+.score{background:var(--panneau);border:1px solid var(--bord);border-top:5px solid var(--orange);
+  border-radius:10px;padding:18px;margin:16px 0}
+.score h2{margin:0 0 8px;font-size:1.1rem;color:var(--bleu)}
+.score .chiffre{font-size:2.5rem;font-weight:700;color:var(--bleu);line-height:1}
+.score .chiffre small{font-size:1.1rem;font-weight:400;color:var(--gris)}
+.vide{color:var(--gris);font-size:.95rem}
+footer{margin:26px 0 0;padding-top:14px;border-top:1px solid var(--bord);
+  color:var(--gris);font-size:.8rem}
+/* tableaux venant du LaTeX */
+table{border-collapse:collapse;margin:12px 0;font-size:.94rem;
+  display:block;overflow-x:auto;max-width:100%}
+table th,table td{border:1px solid var(--bord);padding:7px 11px;text-align:left;
+  white-space:nowrap}
+table th{background:#E4EDF4;color:var(--bleu)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+  <header>
+    <a class="retour" href="../index.html">← Toutes les ressources du site</a>
+    <div class="chap" id="chap"></div>
+    <h1 id="titre">Chargement…</h1>
+    <p class="genre" id="genre"></p>
+  </header>
+  <main id="zone"></main>
+  <footer>Rien n'est enregistré ni envoyé. Ce que tu marques « à revoir »
+  reste dans ce téléphone.</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var par = new URLSearchParams(location.search);
+  var ch  = (par.get('ch') || '').replace(/[^0-9]/g,'');
+  // La filiere fait partie de l'adresse : le chapitre 1 de la 1re STI2D et
+  // le cours 1 du BTS ET sont deux choses differentes, et leurs fichiers de
+  // donnees comme leur progression enregistree doivent rester separes.
+  var fil = (par.get('f') || '').replace(/[^a-z0-9-]/g,'');
+  var zone = document.getElementById('zone');
+
+  function erreur(txt){
+    document.getElementById('titre').textContent = 'Cartes indisponibles';
+    zone.innerHTML = '<div class="carte"><div class="face">' + txt +
+      '</div></div><div class="actions">' +
+      '<a class="bouton" href="../index.html">Revenir aux ressources</a></div>';
+  }
+  if(!ch || !fil){ erreur("L'adresse ne précise pas la filière et le " +
+    "chapitre."); return; }
+
+  // Les fichiers sont numerotes sur deux chiffres (qcm-1sti2d-ch07.js)
+  // alors que le catalogue peut passer ch=7 : on complete.
+  var deux = ch.length < 2 ? '0' + ch : ch;
+  var s = document.createElement('script');
+  s.src = 'qcm-' + fil + '-ch' + deux + '.js';
+  s.onerror = function(){ erreur('Le chapitre ' + ch +
+    " n'a pas encore de cartes."); };
+  s.onload = function(){ demarrer(window.CHAPITRE); };
+  document.head.appendChild(s);
+
+  function melange(t){
+    var a = t.slice();
+    for(var i=a.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1)), x=a[i]; a[i]=a[j]; a[j]=x;
+    }
+    return a;
+  }
+  function creer(b,c,h){
+    var e=document.createElement(b);
+    if(c) e.className=c;
+    if(h!==undefined) e.innerHTML=h;
+    return e;
+  }
+  function lire(cle){ try{ return JSON.parse(localStorage.getItem(cle)||'[]'); }
+    catch(e){ return []; } }
+  function ecrire(cle,v){ try{ localStorage.setItem(cle,JSON.stringify(v)); }
+    catch(e){} }
+
+  var chap, cle, pile, pos, revoir, su, total;
+
+  function demarrer(d){
+    chap = d;
+    cle = 'neruda.cartes.' + fil + '.ch' + chap.num;
+    document.getElementById('chap').textContent = 'Chapitre ' + chap.num;
+    document.getElementById('titre').textContent = chap.titre;
+    document.getElementById('genre').textContent = 'Cartes de révision · '
+      + chap.niveau;
+    document.title = 'Cartes — ' + chap.titre;
+    if(!chap.cartes || !chap.cartes.length){
+      erreur('Ce chapitre ne contient pas encore de cartes.'); return;
+    }
+    accueil();
+  }
+
+  function accueil(){
+    var acquises = lire(cle);
+    var reste = chap.cartes.filter(function(c,i){
+      return acquises.indexOf(i) < 0; });
+    zone.innerHTML = '';
+    var d = creer('div','score');
+    d.appendChild(creer('h2',null,'Cartes du chapitre'));
+    d.appendChild(creer('p','chiffre', chap.cartes.length +
+      ' <small>cartes</small>'));
+    if(acquises.length){
+      d.appendChild(creer('p','vide', acquises.length +
+        ' déjà marquées comme sues, ' + reste.length + ' à revoir.'));
+    }else{
+      d.appendChild(creer('p','vide',
+        'Une question par carte. Tu réponds dans ta tête, tu retournes, '
+        + 'et tu dis si tu savais.'));
+    }
+    zone.appendChild(d);
+
+    var act = creer('div','actions');
+    if(reste.length){
+      var b1 = creer('button','bouton','Réviser les ' + reste.length + ' cartes à revoir');
+      b1.type='button'; b1.onclick = function(){ lancer(false); };
+      act.appendChild(b1);
+    }
+    var b2 = creer('button','bouton second','Tout revoir depuis le début');
+    b2.type='button'; b2.onclick = function(){ lancer(true); };
+    act.appendChild(b2);
+    zone.appendChild(act);
+
+    var act2 = creer('div','actions');
+    var l = creer('a','bouton second','Faire le bilan du chapitre');
+    l.href = 'qcm.html?f=' + fil + '&ch=' + chap.num + '&type=bilan';
+    act2.appendChild(l);
+    zone.appendChild(act2);
+  }
+
+  function lancer(tout){
+    var acquises = tout ? [] : lire(cle);
+    if(tout) ecrire(cle, []);
+    pile = melange(chap.cartes.map(function(c,i){ return i; })
+      .filter(function(i){ return acquises.indexOf(i) < 0; }));
+    pos = 0; revoir = []; su = 0; total = pile.length;
+    if(!total){ accueil(); return; }
+    face();
+  }
+
+  function entete(){
+    var av = creer('div','avance');
+    av.appendChild(creer('span','compte','Carte ' + (pos+1) + ' / ' + pile.length));
+    var j = creer('div','jauge'), b = creer('span');
+    b.style.width = Math.round(pos/pile.length*100) + '%';
+    j.appendChild(b); av.appendChild(j);
+    return av;
+  }
+
+  function face(){
+    var c = chap.cartes[pile[pos]];
+    zone.innerHTML = '';
+    zone.appendChild(entete());
+    var d = creer('div','carte');
+    d.appendChild(creer('div','face', c.recto));
+    d.appendChild(creer('div','indice','Réponds dans ta tête, puis retourne.'));
+    zone.appendChild(d);
+    var act = creer('div','actions');
+    var b = creer('button','bouton','Retourner la carte');
+    b.type='button'; b.onclick = dos;
+    act.appendChild(b);
+    zone.appendChild(act);
+    b.focus({preventScroll:true});
+  }
+
+  function dos(){
+    var idx = pile[pos], c = chap.cartes[idx];
+    zone.innerHTML = '';
+    zone.appendChild(entete());
+    var d = creer('div','carte');
+    d.appendChild(creer('div','face', c.recto));
+    d.appendChild(creer('div','dos', (c.verso||'').replace(/\n/g,'<br>')));
+    if(c.origine) d.appendChild(creer('div','source', c.origine));
+    zone.appendChild(d);
+
+    var act = creer('div','actions');
+    var ok = creer('button','bouton su','Je savais');
+    ok.type='button';
+    ok.onclick = function(){
+      su++;
+      var a = lire(cle); if(a.indexOf(idx)<0){ a.push(idx); ecrire(cle,a); }
+      suivante();
+    };
+    var ko = creer('button','bouton pas','À revoir');
+    ko.type='button';
+    ko.onclick = function(){
+      revoir.push(idx);
+      var a = lire(cle).filter(function(x){ return x !== idx; });
+      ecrire(cle, a);
+      suivante();
+    };
+    act.appendChild(ok); act.appendChild(ko);
+    zone.appendChild(act);
+    ok.focus({preventScroll:true});
+  }
+
+  function suivante(){
+    pos++;
+    if(pos < pile.length){ face(); return; }
+    // Les cartes ratées repassent une fois avant la fin de la séance.
+    if(revoir.length){
+      pile = melange(revoir); revoir = []; pos = 0; face(); return;
+    }
+    fin();
+  }
+
+  function fin(){
+    zone.innerHTML = '';
+    var d = creer('div','score');
+    d.appendChild(creer('h2',null,'Séance terminée'));
+    d.appendChild(creer('p','chiffre', su + ' <small>cartes sues sur '
+      + total + '</small>'));
+    var reste = chap.cartes.length - lire(cle).length;
+    d.appendChild(creer('p','vide', reste
+      ? 'Il te reste ' + reste + ' carte' + (reste>1?'s':'')
+        + ' à revoir la prochaine fois.'
+      : 'Toutes les cartes du chapitre sont marquées comme sues. '
+        + 'Reviens dans quelques jours : c\u2019est l\u2019oubli qu\u2019on teste, '
+        + 'pas la mémoire de la minute.'));
+    zone.appendChild(d);
+    var act = creer('div','actions');
+    var b = creer('button','bouton','Retour au chapitre');
+    b.type='button'; b.onclick = accueil;
+    act.appendChild(b);
+    var l = creer('a','bouton second','Faire le bilan');
+    l.href = 'qcm.html?f=' + fil + '&ch=' + chap.num + '&type=bilan';
+    act.appendChild(l);
+    zone.appendChild(act);
+    b.focus({preventScroll:true});
+  }
+})();
+</script>
+</body>
+</html>

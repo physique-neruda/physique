@@ -1,0 +1,98 @@
+[
+ {
+  "type": "trou",
+  "recto": "En mathématiques, cette opération porte un nom : le …… des vecteurs F⃗ et d⃗.",
+  "verso": "<strong>produit scalaire</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "W(F⃗) = F × d × cos α",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "P = W/Δt",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "E<sub>c</sub> = 1/2 m v²",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "E<sub>c</sub>(B) - E<sub>c</sub>(A) = ΣW",
+  "origine": "formulecle"
+ },
+ {
+  "type": "formule",
+  "recto": "A RELIRE : quelle est la relation cle du chapitre ?",
+  "verso": "E<sub>m</sub> = E<sub>c</sub> + E<sub>p</sub>",
+  "origine": "formulecle"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Travail d'une force constante",
+  "verso": "Le travail d'une force constante F⃗ dont le point d'application se déplace d'une longueur d vaut W = F × d × cos α, où α est l'angle entre la force et le déplacement. Le travail est une <strong>énergie</strong> : il s'exprime en <strong>joules</strong> (J).",
+  "origine": "definition [Travail d'une force constante]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Puissance moyenne",
+  "verso": "La puissance moyenne est le travail effectué rapporté à la durée mise pour l'effectuer : P = W/Δt, en watts (W).",
+  "origine": "definition [Puissance moyenne]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Énergie cinétique",
+  "verso": "Un solide de masse m en translation à la vitesse v possède l'énergie cinétique E<sub>c</sub> = 1/2 m v², en joules (m en kg, v en m/s).",
+  "origine": "definition [Énergie cinétique]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Théorème de l'énergie cinétique",
+  "verso": "Entre deux instants, la variation de l'énergie cinétique d'un solide en translation est égale à la somme des travaux de <em>toutes</em> les forces qui s'exercent sur lui : ΔE<sub>c</sub> = ΣW.",
+  "origine": "definition [Théorème de l'énergie cinétique]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "En mathématiques, cette opération porte un nom : le <strong>produit scalaire</strong> des vecteurs F⃗ et d⃗. C'est exactement le même calcul, écrit W = F⃗ · d⃗ — un bel exemple d'outil mathématique construit pour la physique.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Pour un mouvement à vitesse constante, la puissance s'écrit aussi P = F × v. Une voiture roulant à 90 km/h contre des frottements de 480 N exige ainsi 480 × 25 = 12 kW — juste pour <em>maintenir</em> sa vitesse.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : attention",
+  "verso": "« Travail nul » ne veut pas dire « force inutile ». La force du support empêche l'objet de tomber : elle est indispensable, mais elle ne transfère aucune énergie <em>le long du déplacement</em>.",
+  "origine": "attention"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : attention",
+  "verso": "La vitesse est élevée <strong>au carré</strong>. Doubler la vitesse ne double pas l'énergie cinétique : elle la <strong>quadruple</strong>. C'est toute la différence entre 50 et 100 km/h. Et n'oubliez jamais de convertir les km/h en m/s (division par 3,6) <em>avant</em> le calcul.",
+  "origine": "attention"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : Vers la terminale",
+  "verso": "Ce chapitre est un point de passage vers plusieurs notions de terminale.\n• Le théorème de l'énergie cinétique servira à <strong>mesurer une force de frottement</strong> : en comparant la variation d'énergie cinétique au travail des forces connues, on remonte à la force inconnue.\n• Le <strong>principe fondamental de la dynamique</strong> (ΣF⃗ = m a⃗) complétera l'approche énergétique par une approche en termes d'accélération.\n• La puissance sera définie à chaque instant comme la <strong>dérivée</strong> de l'énergie par rapport au temps, et l'énergie se lira comme l'<strong>aire sous la courbe</strong> P(t) — l'intégrale.\n• Les mouvements de <strong>rotation</strong> introduiront le moment d'une force et le couple.",
+  "origine": "essentiel [Vers la terminale]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : essentiel",
+  "verso": "<strong>Travail</strong> d'une force constante : W = F dcos α, en joules. C'est le produit scalaire F⃗ · d⃗. [3pt] <strong>Signe</strong> : moteur (W>0) accélère, résistant (W<0) freine, nul si la force est perpendiculaire au déplacement. [3pt] <strong>Poids</strong> : W = ± m g h selon montée ou descente — indépendant du chemin suivi. [3pt] <strong>Puissance moyenne</strong> : P = W/Δt ; à vitesse constante, P = F v. [3pt] <strong>Énergie cinétique</strong> : E<sub>c</sub> = 1/2mv² — en v², donc vitesse × 2 donne énergie × 4. [3pt] <strong>Théorème de l'énergie cinétique</strong> : ΔE<sub>c</sub> = ΣW — le lien entre forces et énergie. [3pt] <strong>Énergies potentielles</strong> : E<sub>pp</sub> = mgh (référence à préciser) et E<sub>pe</sub> = 1/2kx². [3pt] <strong>Énergie mécanique</strong> : E<sub>m</sub> = E<sub>c</sub> + E<sub>p</sub> — constante sans frottement, dissipée en chaleur sinon.",
+  "origine": "essentiel"
+ }
+]

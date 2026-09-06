@@ -1,0 +1,158 @@
+[
+ {
+  "type": "trou",
+  "recto": "Une force se représente par un <strong>vecteur</strong> défini par son …… (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en <strong>newtons</strong> (N).",
+  "verso": "<strong>point d'application</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa …… (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en <strong>newtons</strong> (N).",
+  "verso": "<strong>direction</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son …… (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en <strong>newtons</strong> (N).",
+  "verso": "<strong>sens</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa ……, ou intensité, en <strong>newtons</strong> (N).",
+  "verso": "<strong>norme</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en …….",
+  "verso": "<strong>newtons</strong> (N)",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "On remplace cette infinité de petites forces par <strong>une seule</strong>, appliquée au …….",
+  "verso": "<strong>centre de gravité G</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Au programme, seul le …… est dans ce cas.\n• <strong>Action de contact</strong> — deux objets se touchent, et l'action ne peut naître que <strong>là où ils se touchent</strong>.",
+  "verso": "<strong>poids</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Au programme, seul le <strong>poids</strong> est dans ce cas.\n• <strong>Action de contact</strong> — deux objets se touchent, et l'action ne peut naître que …….",
+  "verso": "<strong>là où ils se touchent</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Le point d'application est donc …… : au milieu de la surface d'appui pour la force d'un support, au point d'accroche pour une corde ou un ressort, sur la surface qui glisse pour un frottement.",
+  "verso": "<strong>sur la zone de contact</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "La <strong>résultante</strong> des forces appliquées à un solide est la …… de toutes les forces qu'il subit, notée ΣF⃗.",
+  "verso": "<strong>somme vectorielle</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Lorsque la résultante des forces appliquées à un solide est <strong>nulle</strong>, ce solide est soit ……, soit en <strong>translation rectiligne uniforme</strong> — vitesse constante en direction, sens et valeur.",
+  "verso": "<strong>immobile</strong> (à l'équilibre)",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Lorsque la résultante des forces appliquées à un solide est <strong>nulle</strong>, ce solide est soit <strong>immobile</strong> (à l'équilibre), soit en …… — vitesse constante en direction, sens et valeur.",
+  "verso": "<strong>translation rectiligne uniforme</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Pour chaque flèche du schéma, on doit pouvoir répondre à la question :\n……",
+  "verso": "<strong>« qu'est-ce qui touche l'objet à cet endroit ? »</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Les quatre caractéristiques",
+  "verso": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en <strong>newtons</strong> (N).",
+  "origine": "definition [Les quatre caractéristiques]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : La règle, en deux cas",
+  "verso": "• <strong>Action à distance</strong> — rien ne touche l'objet, et l'action s'exerce sur <em>toute</em> sa matière. On remplace cette infinité de petites forces par <strong>une seule</strong>, appliquée au <strong>centre de gravité G</strong>. Au programme, seul le <strong>poids</strong> est dans ce cas.\n• <strong>Action de contact</strong> — deux objets se touchent, et l'action ne peut naître que <strong>là où ils se touchent</strong>. Le point d'application est donc <strong>sur la zone de contact</strong> : au milieu de la surface d'appui pour la force d'un support, au point d'accroche pour une corde ou un ressort, sur la surface qui glisse pour un frottement.",
+  "origine": "definition [La règle, en deux cas]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Principe d'inertie",
+  "verso": "Lorsque la résultante des forces appliquées à un solide est <strong>nulle</strong>, ce solide est soit <strong>immobile</strong> (à l'équilibre), soit en <strong>translation rectiligne uniforme</strong> — vitesse constante en direction, sens et valeur. La réciproque est également vraie.",
+  "origine": "definition [Principe d'inertie]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : Le contrôle qui ne trompe pas",
+  "verso": "Pour chaque flèche du schéma, on doit pouvoir répondre à la question : <strong>« qu'est-ce qui touche l'objet à cet endroit ? »</strong> Si la réponse est « rien », alors la flèche ne peut être que le <strong>poids</strong>, et elle part de G. Si la réponse nomme un objet (le sol, la corde, le ressort, la main), alors la flèche part <strong>du point où cet objet touche</strong>. Une flèche qui ne passe aucun de ces deux tests est une flèche à supprimer.",
+  "origine": "aretenir [Le contrôle qui ne trompe pas]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Les trois autres forces : la <strong>force exercée par un support</strong> empêche l'objet de traverser le support ; sur un plan sans frottement, elle lui est <strong>perpendiculaire</strong>. La <strong>force élastique</strong> d'un ressort vaut F = k × Δℓ, avec k la raideur en N/m et Δℓ l'allongement ; elle ramène toujours le ressort vers sa longueur d'équilibre. Le <strong>frottement fluide</strong> s'oppose toujours au mouvement, et son intensité <strong>croît avec la vitesse</strong>.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "La méthode de résolution en découle directement : on place les forces sur un schéma, puis on <strong>translate les vecteurs</strong> pour les mettre <strong>tête à queue</strong>. Si la résultante est nulle, ils forment une <strong>boucle fermée</strong> — ce qui permet de déterminer graphiquement, ou par trigonométrie, les caractéristiques des forces inconnues.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Le raisonnement se fait dans les <strong>deux sens</strong>, et c'est ce qui en fait la puissance. <em>Des forces vers le mouvement</em> : si le bilan donne une résultante nulle, on sait d'avance que la vitesse ne changera pas. <em>Du mouvement vers les forces</em> : si l'on observe une vitesse constante — ou un objet immobile — on en déduit que les forces se compensent, et l'on peut alors calculer celles qui sont inconnues. C'est ce second sens qui est le plus employé dans les exercices.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : L'erreur la plus fréquente du chapitre",
+  "verso": "Dessiner <strong>toutes</strong> les flèches depuis le centre de l'objet. C'est juste pour le poids, faux pour toutes les autres : une caisse tirée par une corde n'est pas tirée depuis son centre, mais depuis son <strong>crochet</strong>. Un schéma où tout part de G ne montre plus <em>qui</em> agit ni <em>où</em>, et il devient impossible de vérifier qu'aucune action n'a été oubliée.",
+  "origine": "attention [L'erreur la plus fréquente du chapitre]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Ne pas confondre masse et poids",
+  "verso": "La <strong>masse</strong> m, en kilogrammes, mesure la quantité de matière : elle est la même partout. Le <strong>poids</strong> P, en newtons, est une <em>force</em> : il dépend du lieu, puisque g varie.",
+  "origine": "attention [Ne pas confondre masse et poids]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Une somme vectorielle, pas une addition",
+  "verso": "On ne peut pas additionner les intensités : deux forces de 10 N opposées donnent une résultante <strong>nulle</strong>, et non 20 N.",
+  "origine": "attention [Une somme vectorielle, pas une addition]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : L'idée à retenir",
+  "verso": "Résultante nulle ne veut pas dire « immobile », mais « vitesse qui ne change pas ». Une voiture roulant à vitesse constante sur une route droite subit une résultante nulle, alors qu'elle avance à 90 km/h. Et il n'est <em>pas</em> nécessaire d'exercer une force pour entretenir un mouvement : la traction ne sert qu'à compenser les frottements.",
+  "origine": "attention [L'idée à retenir]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : Vers la terminale",
+  "verso": "Ce chapitre s'arrête volontairement au <strong>principe d'inertie</strong> : équilibre ou translation rectiligne uniforme. La suite est au programme de terminale.\n• Le <strong>principe fondamental de la dynamique</strong> reliera la résultante des forces à l'accélération (ΣF⃗ = m a⃗) : on saura alors traiter les mouvements <em>accélérés</em>, et non plus seulement les cas où la résultante est nulle.\n• Viendront aussi le <strong>moment d'une force</strong> et les mouvements de <strong>rotation</strong>, ainsi que la <strong>pression</strong> dans les fluides. Enfin, dès le <strong>chapitre 8</strong>, les forces serviront à calculer un <strong>travail</strong> : c'est le lien entre la mécanique et l'énergie.",
+  "origine": "essentiel [Vers la terminale]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : L'essentiel du chapitre",
+  "verso": "• Une <strong>force</strong> modélise une action mécanique : action de <strong>contact</strong> ou action à <strong>distance</strong>.\n• Le <strong>point d'application</strong> se lit sur la nature de l'action : au <strong>centre de gravité</strong> pour une action à <strong>distance</strong> (le poids), <strong>à l'endroit du contact</strong> pour toute action de <strong>contact</strong> (support, corde, ressort, frottement).\n• Elle se représente par un <strong>vecteur</strong> : point d'application, direction, sens, norme (en newtons).\n• Les quatre forces au programme : <strong>poids</strong> P = m g, <strong>force du support</strong>, <strong>force élastique</strong> F = k Δℓ, <strong>frottement fluide</strong> (croissant avec la vitesse).\n• Ne pas confondre <strong>masse</strong> (kg, partout la même) et <strong>poids</strong> (N, dépend du lieu).\n• <strong>Principe d'inertie</strong> : résultante nulle ⟺ immobile <em>ou</em> translation rectiligne uniforme. Les vecteurs placés tête à queue forment alors une <strong>boucle fermée</strong>.\n• Une force sert à <strong>changer</strong> un mouvement, pas à l'entretenir.",
+  "origine": "essentiel [L'essentiel du chapitre]"
+ }
+]

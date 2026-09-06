@@ -1,0 +1,74 @@
+[
+ {
+  "type": "trou",
+  "recto": "Au cours d'une transformation chimique, il y a …… avant et après la réaction.",
+  "verso": "<strong>autant d'atomes de chaque élément</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "C'est ce principe qui impose d'…… l'équation.",
+  "verso": "<strong>équilibrer</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Une …… compte pour deux.",
+  "verso": "<strong>double liaison</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Le …… est celui qui s'épuise le premier.",
+  "verso": "<strong>réactif limitant</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "trou",
+  "recto": "Ce nombre s'appelle la …….",
+  "verso": "<strong>constante d'Avogadro</strong>",
+  "origine": "cours a completer"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Conservation des atomes",
+  "verso": "Au cours d'une transformation chimique, il y a <strong>autant d'atomes de chaque élément</strong> avant et après la réaction. C'est ce principe qui impose d'<strong>équilibrer</strong> l'équation.",
+  "origine": "definition [Conservation des atomes]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : Réactif limitant",
+  "verso": "Le <strong>réactif limitant</strong> est celui qui s'épuise le premier. C'est lui — et lui seul — qui fixe la quantité de produits formés. Les autres réactifs, présents <strong>en excès</strong>, subsistent à la fin.",
+  "origine": "definition [Réactif limitant]"
+ },
+ {
+  "type": "definition",
+  "recto": "A RELIRE : La mole",
+  "verso": "Une <strong>mole</strong> d'entités contient N<sub>A</sub> = 6,02 × 10²³ entités. Ce nombre s'appelle la <strong>constante d'Avogadro</strong>. La quantité de matière n s'exprime en <strong>moles</strong> (mol).",
+  "origine": "definition [La mole]"
+ },
+ {
+  "type": "aretenir",
+  "recto": "A RELIRE : aretenir",
+  "verso": "Dans toutes ces molécules, le carbone forme <strong>4 liaisons</strong>, l'oxygène <strong>2</strong> et l'hydrogène <strong>1</strong> (chapitre 12). Une <strong>double liaison</strong> compte pour deux.",
+  "origine": "aretenir"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : Erreur fréquente",
+  "verso": "Ne <strong>jamais</strong> modifier les <em>indices</em> d'une formule pour équilibrer : écrire CO₃ au lieu de CO₂ change la molécule elle-même. On ne touche qu'aux <strong>coefficients</strong>, placés <em>devant</em> les formules.",
+  "origine": "attention [Erreur fréquente]"
+ },
+ {
+  "type": "attention",
+  "recto": "A RELIRE : L'erreur à ne pas commettre",
+  "verso": "« 0,5 mol, c'est moins d'une mole, donc c'est presque rien. » <strong>Faux.</strong> Une demi-mole, c'est encore 3,01 × 10²³ molécules — trois cent mille milliards de milliards. La mole compte des objets si petits que même une <em>fraction</em> de mole en contient un nombre colossal.",
+  "origine": "attention [L'erreur à ne pas commettre]"
+ },
+ {
+  "type": "essentiel",
+  "recto": "A RELIRE : essentiel",
+  "verso": "• Les <strong>atomes se conservent</strong> : on équilibre l'équation avec des <strong>coefficients</strong>, jamais en modifiant les indices.\n• On équilibre C, puis H, et l'<strong>oxygène en dernier</strong> — car O₂ ne contient que cet élément, on peut donc l'ajuster sans rien déranger.\n• Trois familles : <strong>alcanes</strong> (C<sub>n</sub>H<sub>2n+2</sub>), <strong>alcènes</strong> (C<sub>n</sub>H<sub>2n</sub>, double liaison), <strong>alcools</strong> (groupe -OH).\n• Une <strong>mole</strong> = 6,02 × 10²³ entités. <strong>Moins d'une mole n'est pas « presque rien »</strong> : 0,5 mol = 3,01 × 10²³ molécules.\n• <strong>Masse molaire</strong> : n = m/M (H 1\n• C 12\n• N 14\n• O 16 g/mol).\n• Le <strong>réactif limitant</strong> s'épuise le premier ; c'est lui qui fixe les quantités formées. L'autre reste <strong>en excès</strong>.\n• Une combustion <strong>incomplète</strong> (dioxygène limitant) produit CO et des suies.",
+  "origine": "essentiel"
+ }
+]
