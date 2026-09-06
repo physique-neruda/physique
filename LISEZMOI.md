@@ -18,14 +18,15 @@ animations/                les animations (.html)
 entrainement/              les questionnaires et les cartes de révision
    qcm.html                le questionnaire, valable pour tous les chapitres
    cartes.html             les cartes, valables pour tous les chapitres
-   qcm-chXX.js             un fichier de données par chapitre
+   qcm-<filière>-chXX.js   un fichier de données par chapitre et par filière
+outils/                    les scripts qui fabriquent ces fichiers de données
 calorimetre.html           \
 rayonnement.html            > redirections de compatibilité, à laisser
 flux-thermique.html        /
 docs/
-   bts-et/c01/ tp01/       un sous-dossier par chapitre
+   bts-et/c01/ c02/ tp01/ tp02/    un sous-dossier par chapitre
    bts-crsa/               (à créer quand il y aura des documents)
-   bts-tsma/
+   bts-tsma/ch00/ … ch17/
    1sti2d/ch00/ … ch18/
 ```
 
@@ -268,3 +269,84 @@ et les QR codes imprimés sur les documents pointent vers l'ancien nom.
 **Les animations qui font tourner une simulation dans le temps** se figent si le téléphone se
 met en veille ou passe la page en arrière-plan. On relance, ce n'est pas grave, mais mieux vaut
 l'avoir dit aux étudiants.
+
+
+---
+
+## Mise à jour du 6 septembre 2026
+
+**Le BTS TSMA entre sur le site.** Les dix-huit chapitres (ch.0 à ch.17) sont publiés :
+prérequis, cours à compléter, cours complet, exercices, bilan sous *Cours* ; activité, situation
+type CCF et sujet d'oral sous *TP*. **142 PDF**, rangés comme partout ailleurs en
+`docs/bts-tsma/chXX/<type>.pdf`. Aucun corrigé n'est en ligne, ici comme dans les autres
+filières : le dépôt est public.
+
+**Deux animations nouvelles pour le TSMA**, appelées depuis la rubrique *TP* du chapitre
+concerné :
+
+- `animations/pied-a-coulisse.html` — un pied à coulisse au 1/50 refermé sur un axe de piston.
+  L'étudiant lit lui-même le vernier, à la loupe, sur six axes numérotés dont deux sont hors
+  cote de façon certaine. Sert l'activité `ch01/activite_anim.pdf`.
+- `animations/treuil.html` — un treuil 24 V qui lève une masse réglable, avec chronomètre
+  manuel. Sert l'activité `ch02/activite_anim.pdf`.
+
+Ces deux activités portent un **QR code** qui pointe directement sur l'animation : les étudiants
+n'ont pas à traverser le site.
+
+**BTS Électrotechnique : le Cours 2 et le TP 2 sont ajoutés.** Cours 2 « Électromagnétisme »
+avec ses trois animations (`flux-magnetique.html`, `induction.html`, `reluctance.html`) et les
+trois activités qui vont avec ; TP 2 « Dipôles passifs et actifs ». **23 PDF** de plus.
+
+**Les QR codes des documents BTS ET ont été repointés** vers `…/physique/animations/xxx.html`,
+l'adresse canonique, au lieu de `…/physique/xxx.html`. Les trois redirections à la racine
+(`calorimetre.html`, `rayonnement.html`, `flux-thermique.html`) **restent en place** : les
+feuilles déjà distribuées continuent de fonctionner. Ne pas les supprimer.
+
+**Ce qui manque encore.** Le BTS TSMA n'a pas de rubrique *S'entraîner* : les questionnaires
+(`entrainement/qcm-btstsma-chXX.js`) et les cartes de révision restent à produire, chapitre par
+chapitre, à partir des prérequis et des bilans — c'est le même mécanisme qu'en 1re STI2D, il n'y
+a aucune page à créer, seulement les fichiers de données à déposer et une entrée
+`type: "qcm"` à ajouter au catalogue.
+
+
+---
+
+## Mise à jour du 6 septembre 2026 (suite) — l'entraînement du BTS TSMA
+
+Les dix-huit chapitres ont maintenant leur rubrique **S'entraîner** : un questionnaire de
+prérequis, un questionnaire de bilan et un jeu de cartes de révision par chapitre, soit
+**102 questions de prérequis, 216 questions de bilan et 158 cartes**. Rien de nouveau côté
+interface : `qcm.html` et `cartes.html` servent déjà toutes les filières, seuls les fichiers de
+données ont été déposés, sous le nom `entrainement/qcm-bts-tsma-chXX.js`.
+
+Le chapitre 0 n'a pas de questionnaire de prérequis, et c'est voulu : il **est** le prérequis de
+tous les autres. Son entrée « Prérequis — se tester avant » n'existe donc pas au catalogue.
+
+### D'où viennent ces questions
+
+Elles ne sont pas inventées : elles sortent des documents de la collection LaTeX.
+
+- Le **bilan** de chaque chapitre est déjà un QCM à trois propositions avec corrigé commenté :
+  `outils/construire_tsma.py` le lit dans `chXX_bilan.tex`, en extrait la bonne réponse et le
+  commentaire, et convertit le LaTeX en texte lisible (unités siunitx, fractions, exposants,
+  lettres grecques).
+- Les **cartes** sont fabriquées à partir des `\trou{}` du cours à compléter : la phrase du
+  cours devient le recto, avec le passage remplacé par « …… », et le contenu du trou devient le
+  verso. C'est exactement ce que les étudiants ont à écrire en séance.
+- Les **prérequis** papier étant des questions *ouvertes* (calculer, convertir, isoler), ils ne
+  peuvent pas être convertis automatiquement. Ils ont été rédigés en QCM à la main, dans
+  `outils/prerequis_tsma.py`, à partir des mêmes énoncés et des mêmes corrigés — avec des
+  distracteurs choisis parmi les erreurs réellement commises : oubli d'une conversion, racine
+  prise pour une division, somme au lieu d'une composition quadratique.
+
+### Régénérer après une modification du cours
+
+```sh
+cd outils
+python3 construire_tsma.py <chemin>/BTS_TSMA_LaTeX/collection ../entrainement
+```
+
+Le script réécrit les dix-huit fichiers de données. Ne jamais éditer un `qcm-bts-tsma-chXX.js`
+à la main : la prochaine exécution l'écraserait. Pour changer une question de bilan, corriger
+`chXX_bilan.tex` dans la collection ; pour changer un prérequis, corriger
+`outils/prerequis_tsma.py`.

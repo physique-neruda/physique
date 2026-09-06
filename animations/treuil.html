@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treuil virtuel — BTS TSMA ch.2</title>
+<style>
+:root{--bleu:#14507A;--bleu2:#2E86AB;--orange:#E8871E;--orangef:#C0530E;
+      --rouge:#C0392B;--vert:#2E8B57;--clair:#EAF2F8;--fond:#F4F7FA;--gris:#555}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+     background:var(--fond);color:#1a1a1a;line-height:1.45}
+header{background:var(--bleu);color:#fff;padding:14px 18px}
+header h1{margin:0;font-size:1.15rem}
+header p{margin:4px 0 0;font-size:.85rem;opacity:.85}
+main{max-width:1000px;margin:0 auto;padding:14px}
+.carte{background:#fff;border:1px solid #d7e1ea;border-radius:8px;padding:14px;margin-bottom:14px}
+.carte h2{margin:0 0 10px;font-size:1rem;color:var(--bleu);
+          border-bottom:2px solid var(--orange);padding-bottom:5px}
+.ligne{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+label{font-size:.9rem;font-weight:600;color:var(--bleu)}
+select,input[type=number]{font:inherit;padding:7px 9px;border:1px solid #b9c9d6;
+  border-radius:5px;background:#fff}
+input[type=number]{width:110px;text-align:right}
+button{font:inherit;font-weight:600;padding:8px 14px;border:0;border-radius:5px;
+  background:var(--bleu);color:#fff;cursor:pointer}
+button:hover{background:var(--bleu2)}
+button.sec{background:#fff;color:var(--bleu);border:1.5px solid var(--bleu)}
+button.sec:hover{background:var(--clair)}
+button.go{background:var(--vert)} button.go:hover{background:#37a066}
+button.stop{background:var(--rouge)} button.stop:hover{background:#d4503f}
+button:disabled{background:#c3ccd4;color:#fff;border-color:#c3ccd4;cursor:not-allowed}
+.grille{display:flex;flex-wrap:wrap;gap:14px}
+.col{flex:1 1 300px}
+.zone{background:var(--clair);border-radius:6px;padding:6px;overflow-x:auto}
+svg{display:block;margin:0 auto}
+.appareils{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.app{flex:1 1 120px;background:#111;color:#8fe08f;border-radius:6px;padding:9px;
+     text-align:center;font-variant-numeric:tabular-nums}
+.app span{display:block;font-size:.72rem;color:#9db0c0}
+.app strong{font-size:1.35rem;letter-spacing:.5px}
+.chrono{background:#111;color:#ffd479;border-radius:6px;padding:9px;text-align:center;
+  flex:1 1 120px;font-variant-numeric:tabular-nums}
+.chrono span{display:block;font-size:.72rem;color:#9db0c0}
+.chrono strong{font-size:1.35rem}
+.msg{margin-top:10px;padding:9px 11px;border-radius:5px;font-size:.92rem}
+.ok{background:#e6f4ec;border-left:4px solid var(--vert)}
+.ko{background:#fbeceb;border-left:4px solid var(--rouge)}
+.info{background:#fdf2e3;border-left:4px solid var(--orange)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin-top:6px}
+th,td{border:1px solid #d7e1ea;padding:5px 6px;text-align:center}
+th{background:var(--clair);color:var(--bleu)}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.stat{flex:1 1 130px;background:var(--clair);border-radius:6px;padding:9px;text-align:center}
+.stat span{display:block;font-size:.78rem;color:var(--gris)}
+.stat strong{font-size:1.1rem;color:var(--bleu);font-variant-numeric:tabular-nums}
+.aide{font-size:.85rem;color:var(--gris);margin-top:8px}
+footer{text-align:center;font-size:.8rem;color:var(--gris);padding:10px 0 24px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Treuil virtuel 24 V — où passe l'énergie électrique consommée ?</h1>
+  <p>BTS TSMA · chapitre 2 · Énergie, puissance, rendement</p>
+</header>
+
+<main>
+<div class="carte">
+  <h2>1 · Régler l'essai</h2>
+  <div class="ligne">
+    <label for="masse">Masse levée</label>
+    <select id="masse">
+      <option value="2">2,0 kg</option><option value="5" selected>5,0 kg</option>
+      <option value="8">8,0 kg</option><option value="10">10,0 kg</option>
+      <option value="12">12,0 kg</option>
+    </select>
+    <label for="haut">Repère haut</label>
+    <select id="haut">
+      <option value="0.40">0,40 m</option><option value="0.80">0,80 m</option>
+      <option value="1.20" selected>1,20 m</option>
+    </select>
+    <button id="btnMonter">Mettre le treuil sous tension</button>
+    <button id="btnDescendre" class="sec">Redescendre la charge</button>
+  </div>
+  <p class="aide">Le câble est détendu au départ : le moteur tourne un court instant
+     <strong>avant</strong> que la charge ne décolle. C'est à toi de décider quand déclencher
+     le chronomètre.</p>
+</div>
+
+<div class="grille">
+  <div class="carte col">
+    <h2>2 · Le banc</h2>
+    <div class="zone"><svg id="banc" width="330" height="360" viewBox="0 0 330 360"></svg></div>
+  </div>
+
+  <div class="carte col">
+    <h2>3 · Les appareils</h2>
+    <div class="appareils">
+      <div class="app"><span>Voltmètre — U</span><strong id="dU">0,0 V</strong></div>
+      <div class="app"><span>Ampèremètre — I</span><strong id="dI">0,00 A</strong></div>
+    </div>
+    <div class="appareils" style="margin-top:10px">
+      <div class="chrono"><span>Chronomètre</span><strong id="dT">0,00 s</strong></div>
+    </div>
+    <div class="ligne" style="margin-top:10px">
+      <button id="btnDep" class="go">Départ chrono</button>
+      <button id="btnStop" class="stop">Stop</button>
+      <button id="btnEnr" class="sec">Enregistrer cette durée</button>
+    </div>
+    <div id="message" class="msg info">Règle la masse, puis mets le treuil sous tension.</div>
+    <p class="aide">Le chronomètre se déclenche et s'arrête <strong>à la main</strong>, comme
+       au laboratoire. Recommence cinq fois le même essai : c'est la dispersion de tes propres
+       relevés qui donnera l'incertitude.</p>
+  </div>
+</div>
+
+<div class="carte">
+  <h2>4 · Les durées relevées</h2>
+  <table id="tab"><thead><tr id="thn"></tr></thead><tbody><tr id="tdv"></tr></tbody></table>
+  <div class="stats" id="stats" hidden>
+    <div class="stat"><span>durée moyenne t̄</span><strong id="sMoy">—</strong></div>
+    <div class="stat"><span>écart-type s</span><strong id="sEt">—</strong></div>
+    <div class="stat"><span>nombre n</span><strong id="sN">—</strong></div>
+  </div>
+  <div class="ligne" style="margin-top:10px">
+    <button id="btnVider" class="sec">Vider le tableau</button>
+    <button id="btnVrai" class="sec">Comparer à la durée réelle</button>
+  </div>
+  <div id="msg2" class="msg info">La durée réelle n'est consultable qu'après cinq relevés :
+     l'objectif est d'abord de mesurer, pas de vérifier.</div>
+</div>
+</main>
+
+<footer>Lycée Pablo Neruda — M. Cronenberger · fonctionne hors ligne</footer>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const fmt=(x,n)=>x.toFixed(n).replace('.',',');
+const G=9.81, U0=24.0, SLACK=0.70;          // s de rattrapage du mou du câble
+const vitesse=m=>0.1522*(1-0.012*m);        // m/s
+const courant =m=>0.25+0.094*m;             // A en régime établi
+
+let m=5, H=1.20, etat='repos', t0=0, y=0, raf=null;
+let chronoOn=false, cDeb=0, cVal=0, durees=[], vraieDuree=null;
+
+// ------------------------------------------------------------------ dessin
+const NS='http://www.w3.org/2000/svg';
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function dessine(){
+  const s=$('banc'); s.innerHTML='';
+  const SOL=310, HAUT=60, ECH=(SOL-HAUT-40)/1.20;      // px par mètre
+  // potence
+  s.appendChild(el('rect',{x:40,y:HAUT-14,width:230,height:12,fill:'#8a99a6'}));
+  s.appendChild(el('rect',{x:40,y:HAUT-14,width:14,height:SOL-HAUT+14,fill:'#8a99a6'}));
+  s.appendChild(el('rect',{x:20,y:SOL,width:270,height:12,fill:'#5c6a75'}));
+  // treuil (tambour + moteur)
+  s.appendChild(el('rect',{x:54,y:HAUT+6,width:56,height:34,rx:4,fill:'#14507A'}));
+  const tm=el('text',{x:82,y:HAUT+28,'text-anchor':'middle','font-size':'12',fill:'#fff'});
+  tm.textContent='M'; s.appendChild(tm);
+  s.appendChild(el('circle',{cx:130,cy:HAUT+23,r:13,fill:'#c8d4de',stroke:'#5c6a75'}));
+  // règle graduée
+  s.appendChild(el('line',{x1:250,y1:SOL,x2:250,y2:HAUT+10,stroke:'#14507A','stroke-width':1.5}));
+  for(let h=0;h<=1.2001;h+=0.20){
+    const yy=SOL-h*ECH, gros=(Math.abs(h*100-Math.round(h*100/40)*40)<1e-6);
+    s.appendChild(el('line',{x1:250,y1:yy,x2:250+(gros?14:8),y2:yy,stroke:'#14507A'}));
+    if(gros){const t=el('text',{x:270,y:yy+4,'font-size':'11',fill:'#14507A'});
+      t.textContent=fmt(h,2)+' m'; s.appendChild(t);}
+  }
+  // repère haut
+  const yr=SOL-H*ECH;
+  s.appendChild(el('line',{x1:150,y1:yr,x2:262,y2:yr,stroke:'#C0392B','stroke-width':2,
+    'stroke-dasharray':'6 4'}));
+  const tr=el('text',{x:152,y:yr-6,'font-size':'11.5',fill:'#C0392B','font-weight':'700'});
+  tr.textContent='repère haut'; s.appendChild(tr);
+  // câble + charge
+  const yc=SOL-y*ECH;
+  s.appendChild(el('line',{x1:180,y1:HAUT+23,x2:180,y2:yc-34,stroke:'#3d4a55','stroke-width':2}));
+  s.appendChild(el('line',{x1:130,y1:HAUT+23,x2:180,y2:HAUT+23,stroke:'#3d4a55','stroke-width':2}));
+  s.appendChild(el('rect',{x:148,y:yc-34,width:64,height:34,rx:3,fill:'#E8871E',stroke:'#C0530E'}));
+  const tc=el('text',{x:180,y:yc-12,'text-anchor':'middle','font-size':'13',fill:'#fff',
+    'font-weight':'700'}); tc.textContent=fmt(m,1)+' kg'; s.appendChild(tc);
+  // sol hachuré
+  const ts=el('text',{x:24,y:SOL+30,'font-size':'11',fill:'#5c6a75'});
+  ts.textContent=(etat==='repos'?'treuil hors tension':
+                  etat==='mou'?'le câble se tend…':
+                  etat==='monte'?'la charge monte':'charge au repère haut');
+  s.appendChild(ts);
+}
+
+// ------------------------------------------------------------------ moteur
+function boucle(ts){
+  if(!t0)t0=ts;
+  const dt=(ts-t0)/1000;
+  if(etat==='mou'){
+    afficheApp(courant(m)*2.2);
+    if(dt>=SLACK){ etat='monte'; t0=ts; }
+  } else if(etat==='monte'){
+    y=Math.min(H, vitesse(m)*dt);
+    afficheApp(courant(m));
+    if(y>=H-1e-9){ etat='haut'; vraieDuree=H/vitesse(m); afficheApp(0);
+      $('message').className='msg ok';
+      $('message').innerHTML='La charge a atteint le repère haut. Arrête ton chronomètre '+
+        'si ce n\'est pas déjà fait.'; }
+  }
+  if(chronoOn) $('dT').textContent=fmt((performance.now()-cDeb)/1000,2)+' s';
+  dessine();
+  if(etat==='mou'||etat==='monte') raf=requestAnimationFrame(boucle);
+}
+function afficheApp(I){
+  const bruit=(Math.random()-0.5)*0.02;
+  $('dI').textContent=fmt(I>0?I+bruit:0,2)+' A';
+  $('dU').textContent=fmt(I>0?U0-0.1*Math.random():0,1)+' V';
+}
+
+// ------------------------------------------------------------------ commandes
+$('btnMonter').onclick=()=>{
+  if(etat==='mou'||etat==='monte')return;
+  if(y>=H-1e-9){ $('message').className='msg ko';
+    $('message').textContent='La charge est déjà en haut : redescends-la d\'abord.'; return; }
+  y=0; etat='mou'; t0=0; vraieDuree=null; raf=requestAnimationFrame(boucle);
+  $('message').className='msg info';
+  $('message').innerHTML='Treuil sous tension. <strong>Surveille la charge</strong> : '+
+    'le chronomètre doit partir au décollage, pas à la mise sous tension.';
+};
+$('btnDescendre').onclick=()=>{
+  if(raf)cancelAnimationFrame(raf);
+  etat='repos'; y=0; t0=0; afficheApp(0); dessine();
+  $('message').className='msg info'; $('message').textContent='Charge reposée au sol.';
+};
+$('btnDep').onclick=()=>{ chronoOn=true; cDeb=performance.now();
+  $('dT').textContent='0,00 s'; };
+$('btnStop').onclick=()=>{ if(!chronoOn)return; chronoOn=false;
+  cVal=(performance.now()-cDeb)/1000; $('dT').textContent=fmt(cVal,2)+' s'; };
+$('btnEnr').onclick=()=>{
+  if(chronoOn||cVal<=0){ $('message').className='msg ko';
+    $('message').textContent='Arrête d\'abord le chronomètre.'; return; }
+  if(durees.length>=5){ $('message').className='msg info';
+    $('message').textContent='Cinq durées suffisent. Vide le tableau pour un autre essai.'; return; }
+  durees.push(cVal); cVal=0; majTable();
+  $('message').className='msg ok'; $('message').textContent='Durée enregistrée.';
+};
+$('btnVider').onclick=()=>{ durees=[]; majTable();
+  $('msg2').className='msg info'; $('msg2').textContent='Tableau vidé.'; };
+$('btnVrai').onclick=()=>{
+  if(durees.length<5){ $('msg2').className='msg ko';
+    $('msg2').textContent='Il faut cinq relevés avant de comparer.'; return; }
+  if(vraieDuree===null){ $('msg2').className='msg ko';
+    $('msg2').textContent='Fais d\'abord une levée complète.'; return; }
+  const n=durees.length, mo=durees.reduce((a,b)=>a+b,0)/n;
+  const ec=mo-vraieDuree;
+  $('msg2').className='msg info';
+  $('msg2').innerHTML='Durée réelle de la levée : <strong>'+fmt(vraieDuree,2)+' s</strong>. '+
+    'Ta moyenne vaut '+fmt(mo,2)+' s, soit un écart de '+(ec>=0?'+':'')+fmt(ec,2)+' s ('+
+    (ec>=0?'+':'')+fmt(100*ec/vraieDuree,1)+' %). Cet écart est-il aléatoire ou systématique ?';
+};
+$('masse').onchange=e=>{ m=+e.target.value; $('btnDescendre').click(); };
+$('haut').onchange =e=>{ H=+e.target.value; $('btnDescendre').click(); };
+
+function majTable(){
+  const th=$('thn'), td=$('tdv');
+  th.innerHTML='<th>essai</th>'; td.innerHTML='<td><strong>t (s)</strong></td>';
+  for(let i=0;i<5;i++){
+    th.insertAdjacentHTML('beforeend','<th>'+(i+1)+'</th>');
+    td.insertAdjacentHTML('beforeend','<td>'+(durees[i]!==undefined?fmt(durees[i],2):'—')+'</td>');
+  }
+  if(durees.length>=2){
+    const n=durees.length, mo=durees.reduce((a,b)=>a+b,0)/n;
+    const s=Math.sqrt(durees.reduce((a,b)=>a+(b-mo)*(b-mo),0)/(n-1));
+    $('stats').hidden=false;
+    $('sMoy').textContent=fmt(mo,2)+' s'; $('sEt').textContent=fmt(s,3)+' s';
+    $('sN').textContent=n;
+  } else $('stats').hidden=true;
+}
+majTable(); afficheApp(0); dessine();
+</script>
+</body>
+</html>

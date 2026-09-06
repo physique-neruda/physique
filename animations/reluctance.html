@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- =====================================================================
+     reluctance.html — Cours 2, activité 3
+     Une bobine sur un circuit magnétique dont on peut retirer le fer et
+     ouvrir un entrefer. Ce que l'étudiant doit trouver : le courant
+     necessaire est fixe par l'entrefer, pas par le fer, et la relation
+     N x I = R x Phi avec des reluctances qui s'ajoutent.
+     ===================================================================== -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le circuit magnétique — paillasse virtuelle</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd .val small{font-size:.62em;color:#9DB4C0;margin-left:2px}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.45rem;color:var(--lcdvert)}
+.reglage{margin:14px 0 0}
+.reglage:first-child{margin-top:0}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:72px;min-height:42px;font:inherit;font-size:.86rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+#relever{background:var(--orange);border-color:var(--orange);color:#fff;width:100%;
+  min-height:52px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;border:1px solid var(--orange)}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:10px}
+th,td{padding:5px 4px;text-align:right;border-bottom:1px solid var(--bord);font-variant-numeric:tabular-nums}
+th{color:var(--gris);font-weight:600;font-size:.74rem}
+td.essai{color:var(--bleu);font-weight:600}
+.vide{color:var(--gris);font-size:.85rem;margin:10px 0 0}
+.lienbas{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.lienbas button{font:inherit;font-size:.85rem;background:none;border:none;color:var(--bleu);
+  text-decoration:underline;padding:8px 0}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+.alerte{color:#C0392B;font-weight:600}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+.retour:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<a class="retour" href="index.html">&larr;&nbsp; Toutes les animations</a>
+
+<h1>Le circuit magnétique</h1>
+<p class="sous">Une bobine enroulée sur un cadre. Vous choisissez le champ que vous voulez
+obtenir, et l'animation vous dit le courant qu'il faut pour l'atteindre. Vous pouvez retirer le
+fer, ou ouvrir une fente dans le cadre.</p>
+
+<div class="bloc">
+  <canvas id="scene" width="620" height="310"></canvas>
+  <div class="lcd">
+    <div><div class="nom">Champ obtenu</div><div class="val" id="vB">0<small>T</small></div></div>
+    <div><div class="nom">Flux dans le cadre</div><div class="val" id="vPhi">0<small>mWb</small></div></div>
+    <div><div class="nom">Ampères-tours N·I</div><div class="val" id="vNI">0<small>At</small></div></div>
+    <div><div class="nom">Puissance dissipée</div><div class="val" id="vP">0<small>W</small></div></div>
+    <div class="large"><div class="nom">Courant nécessaire dans la bobine</div>
+      <div class="val" id="vI">0,00<small>A</small></div></div>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Réglages</h2>
+  <div class="reglage">
+    <div class="ligne"><span>Champ voulu dans le cadre</span><b id="lB">0,80 T</b></div>
+    <input type="range" id="rB" min="10" max="150" step="5" value="80">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Ouverture de la fente</span><b id="lE">0,0 mm</b></div>
+    <input type="range" id="rE" min="0" max="50" step="1" value="0">
+    <p class="aide" id="aideE">le cadre est fermé</p>
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Nombre de spires</span><b id="lN">600</b></div>
+    <input type="range" id="rN" min="100" max="2000" step="50" value="600">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Matière du cadre</span><b id="lM">fer</b></div>
+    <div class="choix" id="choixM"></div>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Vos mesures</h2>
+  <button id="relever">Relever la mesure</button>
+  <p class="aide" style="margin-top:12px">Colonne d'essai : cherchez le calcul qui redonne
+  toujours le flux.</p>
+  <div class="choix" id="choixN"></div>
+  <div id="zoneTable"><p class="vide">Aucune mesure pour l'instant.</p></div>
+  <div class="lienbas"><span class="aide">Une seule chose change à la fois.</span>
+    <button id="effacer">Tout effacer</button></div>
+</div>
+
+<script>
+"use strict";
+const MU0=1.2566e-6;
+const LFER=0.42, SEC=9.0e-4, RBOB=4.2;   /* m, m2, ohms */
+let Bv=0.80, emm=0.0, N=600, mur=2400, essai=0, mesures=[];
+const $=id=>document.getElementById(id);
+const fr=(x,n)=>x.toFixed(n).replace(".",",");
+
+/* --- la physique --- */
+function Rfer(){ return LFER/(MU0*mur*SEC); }
+function Rent(){ return (emm*1e-3)/(MU0*1*SEC); }
+function Rtot(){ return Rfer()+Rent(); }
+function flux(){ return Bv*SEC; }                  /* Wb  */
+function NI(){ return Rtot()*flux(); }             /* At  */
+function courant(){ return NI()/N; }               /* A   */
+function puiss(){ return RBOB*courant()*courant(); }
+
+const MAT=[[2400,"fer"],[6000,"tôle de qualité"],[1,"air (pas de cadre)"]];
+
+$("rB").oninput=e=>{Bv=+e.target.value/100;maj();};
+$("rE").oninput=e=>{emm=+e.target.value/10;maj();};
+$("rN").oninput=e=>{N=+e.target.value;maj();};
+$("relever").onclick=()=>{mesures.push({n:mesures.length+1,Bv,emm,N,mur,
+  Phi:flux(),NI:NI(),I:courant()});affTable();};
+$("effacer").onclick=()=>{mesures=[];affTable();};
+
+function boutons(zone,liste,actif,cb){
+  zone.innerHTML="";
+  liste.forEach(([v,txt])=>{const b=document.createElement("button");
+    b.textContent=txt;b.setAttribute("aria-pressed",v===actif());
+    b.onclick=()=>{cb(v);boutons(zone,liste,actif,cb);};zone.appendChild(b);});
+}
+boutons($("choixM"),MAT,()=>mur,v=>{mur=v;maj();});
+boutons($("choixN"),[[0,"aucune"],[1,"N·I / R"],[2,"N·I × R"],[3,"N·I / (R·S)"]],
+  ()=>essai,v=>{essai=v;affTable();});
+
+function maj(){
+  const I=courant();
+  $("vB").innerHTML=fr(Bv,2)+'<small>T</small>';
+  $("vPhi").innerHTML=fr(flux()*1000,2)+'<small>mWb</small>';
+  $("vNI").innerHTML=(NI()<10000?fr(NI(),0):fr(NI()/1000,1)+" k")+'<small>At</small>';
+  $("vP").innerHTML=(puiss()<10000?fr(puiss(),1):fr(puiss()/1000,1)+" k")+'<small>W</small>';
+  $("vI").innerHTML=(I<100?fr(I,2):fr(I,0))+'<small>A</small>';
+  $("lB").textContent=fr(Bv,2)+" T";
+  $("lE").textContent=fr(emm,1)+" mm";
+  $("lN").textContent=N;
+  $("lM").textContent=MAT.find(m=>m[0]===mur)[1];
+  const p=100*Rent()/Rtot();
+  $("aideE").innerHTML = emm<0.05
+    ? "le cadre est fermé"
+    : "la fente prend "+fr(p,0)+" % de la difficulté totale"
+      +(I>5?' — <span class="alerte">au-delà de 5 A la bobine chaufferait trop</span>':"");
+  dessine();
+}
+
+const cs=$("scene"),ctx=cs.getContext("2d");
+function dessine(){
+  const W=cs.width,H=cs.height,fam=getComputedStyle(document.body).fontFamily;
+  ctx.clearRect(0,0,W,H);
+  const x0=120,y0=60,lg=330,ht=180,ep=30;
+
+  /* cadre */
+  const gris = (mur===1) ? "#E4EAEF" : (mur===6000 ? "#8FA3B0" : "#A9B6C0");
+  ctx.fillStyle=gris;
+  const fente=Math.min(60,emm*11);
+  ctx.fillRect(x0,y0,lg,ep);                                  /* haut, coupé plus bas */
+  ctx.fillRect(x0,y0+ht-ep,lg,ep);                            /* bas */
+  ctx.fillRect(x0,y0,ep,ht);                                  /* gauche */
+  ctx.fillRect(x0+lg-ep,y0,ep,ht);                            /* droite */
+  if(fente>0){                                                 /* on ouvre en haut */
+    ctx.clearRect(x0+lg/2-fente/2,y0-2,fente,ep+4);
+  }
+  ctx.strokeStyle="#6C7B87";ctx.lineWidth=1.5;
+  ctx.strokeRect(x0,y0,lg,ht);
+  ctx.strokeRect(x0+ep,y0+ep,lg-2*ep,ht-2*ep);
+
+  if(mur===1){
+    ctx.fillStyle="#8FA0AC";ctx.font="14px "+fam;ctx.textAlign="center";
+    ctx.fillText("pas de cadre : le champ passe dans l'air",x0+lg/2,y0+ht/2+5);
+  }
+
+  /* bobine sur le montant gauche */
+  ctx.strokeStyle="#C0530E";ctx.lineWidth=4;
+  for(let i=0;i<7;i++){
+    const y=y0+34+i*16;
+    ctx.beginPath();ctx.ellipse(x0+ep/2,y,ep/2+11,6,0,0,2*Math.PI);ctx.stroke();
+  }
+  ctx.fillStyle="#C0530E";ctx.font="14px "+fam;ctx.textAlign="right";
+  ctx.fillText(N+" spires",x0-16,y0+ht/2-6);
+  ctx.fillText(fr(courant(),2)+" A",x0-16,y0+ht/2+14);
+
+  /* fente cotée */
+  if(fente>0){
+    ctx.strokeStyle="#C0392B";ctx.lineWidth=2.5;
+    ctx.beginPath();ctx.moveTo(x0+lg/2-fente/2,y0-16);ctx.lineTo(x0+lg/2+fente/2,y0-16);ctx.stroke();
+    ctx.fillStyle="#C0392B";ctx.font="600 14px "+fam;ctx.textAlign="center";
+    ctx.fillText(fr(emm,1)+" mm",x0+lg/2,y0-24);
+  }
+
+  /* flux : épaisseur liée au flux, opacité au fait qu'on y arrive */
+  ctx.strokeStyle="rgba(31,111,178,0.75)";ctx.lineWidth=3;
+  ctx.setLineDash([9,7]);
+  ctx.beginPath();
+  ctx.rect(x0+ep/2,y0+ep/2,lg-ep,ht-ep);
+  ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle="#1F6FB2";ctx.font="14px "+fam;ctx.textAlign="center";
+  ctx.fillText("Φ = "+fr(flux()*1000,2)+" mWb",x0+lg/2,y0+ht/2+6);
+
+  /* barre de répartition de la difficulté */
+  const p=Rent()/Rtot();
+  const bw=W-90, bx=45, by=H-30;
+  ctx.fillStyle="#A9B6C0";ctx.fillRect(bx,by,bw*(1-p),14);
+  ctx.fillStyle="#C0392B";ctx.fillRect(bx+bw*(1-p),by,bw*p,14);
+  ctx.fillStyle="#5C6C79";ctx.font="12px "+fam;ctx.textAlign="left";
+  ctx.fillText("part du cadre",bx,by-5);
+  ctx.textAlign="right";ctx.fillStyle="#C0392B";
+  ctx.fillText("part de la fente",bx+bw,by-5);
+}
+
+function affTable(){
+  const z=$("zoneTable");
+  if(!mesures.length){z.innerHTML='<p class="vide">Aucune mesure pour l\'instant.</p>';return;}
+  const ent=["n°","B (T)","fente (mm)","N","I (A)","N·I (At)","Φ (mWb)"];
+  const nomEssai=["","N·I/R","N·I×R","N·I/(R·S)"][essai];
+  let h='<table><thead><tr>'+ent.map(x=>'<th>'+x+'</th>').join("")
+       +(essai?'<th>'+nomEssai+' (mWb)</th>':'')+'</tr></thead><tbody>';
+  mesures.forEach(r=>{
+    h+='<tr><td>'+r.n+'</td><td>'+fr(r.Bv,2)+'</td><td>'+fr(r.emm,1)+'</td><td>'+r.N
+      +'</td><td>'+fr(r.I,2)+'</td><td>'+fr(r.NI,0)+'</td><td>'+fr(r.Phi*1000,2)+'</td>';
+    if(essai){
+      const R=LFER/(MU0*r.mur*SEC)+(r.emm*1e-3)/(MU0*SEC);
+      const v=[0, r.NI/R, r.NI*R, r.NI/(R*SEC)][essai];
+      h+='<td class="essai">'+(v>1e4?v.toExponential(2).replace(".",","):fr(v*1000,2))+'</td>';
+    }
+    h+='</tr>';
+  });
+  z.innerHTML=h+'</tbody></table>';
+}
+
+maj();affTable();
+</script>
+</body>
+</html>

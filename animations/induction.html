@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- =====================================================================
+     induction.html — Cours 2, activité 2
+     Un aimant qu'on approche ou qu'on éloigne d'une bobine, à vitesse
+     choisie. Ce que l'étudiant doit trouver : la tension induite dépend
+     de la VITESSE de variation du flux et non de sa valeur, puis
+     e = N x (variation de flux) / (duree), et le sens qui s'oppose.
+     ===================================================================== -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L'induction — paillasse virtuelle</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd .val small{font-size:.62em;color:#9DB4C0;margin-left:2px}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.45rem;color:var(--lcdvert)}
+.reglage{margin:14px 0 0}
+.reglage:first-child{margin-top:0}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:72px;min-height:42px;font:inherit;font-size:.86rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+#relever{background:var(--orange);border-color:var(--orange);color:#fff;width:100%;
+  min-height:52px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;border:1px solid var(--orange)}
+.gestes{display:flex;gap:8px;margin-bottom:10px}
+.gestes button{flex:1;min-height:52px;font:inherit;font-size:.92rem;font-weight:600;
+  border:1px solid var(--bleu);background:#F5F8FA;color:var(--bleu);border-radius:8px}
+.gestes button:disabled{opacity:.45}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:10px}
+th,td{padding:5px 4px;text-align:right;border-bottom:1px solid var(--bord);font-variant-numeric:tabular-nums}
+th{color:var(--gris);font-weight:600;font-size:.74rem}
+td.essai{color:var(--bleu);font-weight:600}
+.vide{color:var(--gris);font-size:.85rem;margin:10px 0 0}
+.lienbas{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.lienbas button{font:inherit;font-size:.85rem;background:none;border:none;color:var(--bleu);
+  text-decoration:underline;padding:8px 0}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+.retour:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<a class="retour" href="index.html">&larr;&nbsp; Toutes les animations</a>
+
+<h1>L'induction</h1>
+<p class="sous">Un aimant devant une bobine reliée à un voltmètre. Vous choisissez la force de
+l'aimant, le nombre de spires et le temps que dure le geste, puis vous approchez l'aimant ou
+vous l'éloignez. Le voltmètre est un vrai voltmètre : il affiche des volts.</p>
+
+<div class="bloc">
+  <canvas id="scene" width="620" height="300"></canvas>
+  <div class="lcd">
+    <div><div class="nom">Flux à travers la bobine</div><div class="val" id="vPhi">0<small>mWb</small></div></div>
+    <div><div class="nom">Variation depuis le début</div><div class="val" id="vDPhi">0<small>mWb</small></div></div>
+    <div><div class="nom">Durée du geste</div><div class="val" id="vT">0<small>s</small></div></div>
+    <div><div class="nom">Sens du courant</div><div class="val" id="vSens" style="font-size:1.05rem">—</div></div>
+    <div class="large"><div class="nom">Tension aux bornes de la bobine</div>
+      <div class="val" id="vE">0,000<small>V</small></div></div>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Le geste</h2>
+  <div class="gestes">
+    <button id="bApp">Approcher l'aimant</button>
+    <button id="bEloi">Éloigner l'aimant</button>
+  </div>
+  <p class="aide" id="etat">L'aimant est loin. Le flux est nul.</p>
+</div>
+
+<div class="bloc">
+  <h2>Réglages</h2>
+  <div class="reglage">
+    <div class="ligne"><span>Force de l'aimant (flux à bout portant)</span><b id="lF">2,00 mWb</b></div>
+    <input type="range" id="rF" min="20" max="600" step="10" value="200">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Nombre de spires</span><b id="lN">200</b></div>
+    <input type="range" id="rN" min="50" max="1000" step="50" value="200">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Durée du geste</span><b id="lT">1,00 s</b></div>
+    <input type="range" id="rT" min="10" max="300" step="5" value="100">
+    <p class="aide">Plus le geste est bref, plus la variation est rapide.</p>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Vos mesures</h2>
+  <button id="relever">Relever le dernier geste</button>
+  <p class="aide" style="margin-top:12px">Colonne d'essai : cherchez le calcul qui redonne
+  toujours la tension mesurée.</p>
+  <div class="choix" id="choixN"></div>
+  <div id="zoneTable"><p class="vide">Aucune mesure pour l'instant.</p></div>
+  <div class="lienbas"><span class="aide">Une seule chose change à la fois.</span>
+    <button id="effacer">Tout effacer</button></div>
+</div>
+
+<script>
+"use strict";
+let Fmax=2.00, N=200, duree=1.00;        /* mWb, spires, s */
+let pos=0;                                /* 0 = loin, 1 = au contact */
+let anim=null, sens=0, e=0, dphi=0, dernier=null, mesures=[], essai=0;
+const $=id=>document.getElementById(id);
+const fr=(x,n)=>x.toFixed(n).replace(".",",");
+
+/* --- la physique --- */
+function phi(){ return Fmax*pos; }                       /* mWb */
+function fem(dp,dt){ return N*Math.abs(dp)*1e-3/dt; }    /* V   */
+
+function geste(vers){
+  if(anim) return;
+  const dep=pos, arr=vers, t0=performance.now();
+  dphi = Fmax*(arr-dep);
+  sens = (arr>dep) ? 1 : -1;
+  e = fem(dphi,duree);
+  dernier = {Fmax:Fmax,N:N,duree:duree,dphi:Math.abs(dphi),e:e,
+             sens:(sens>0?"approche":"éloignement")};
+  $("bApp").disabled=true; $("bEloi").disabled=true;
+  function pas(t){
+    const u=Math.min(1,(t-t0)/(duree*1000));
+    pos = dep+(arr-dep)*u;
+    maj();
+    if(u<1){ anim=requestAnimationFrame(pas); }
+    else { anim=null; sens=0; e=0;
+           $("bApp").disabled=(pos>0.99); $("bEloi").disabled=(pos<0.01);
+           maj(); }
+  }
+  anim=requestAnimationFrame(pas);
+}
+
+$("bApp").onclick=()=>geste(1);
+$("bEloi").onclick=()=>geste(0);
+$("rF").oninput=ev=>{Fmax=+ev.target.value/100;maj();};
+$("rN").oninput=ev=>{N=+ev.target.value;maj();};
+$("rT").oninput=ev=>{duree=+ev.target.value/100;maj();};
+$("relever").onclick=()=>{
+  if(!dernier){ return; }
+  mesures.push(Object.assign({n:mesures.length+1},dernier)); affTable();
+};
+$("effacer").onclick=()=>{mesures=[];affTable();};
+
+function boutons(zone,liste,actif,cb){
+  zone.innerHTML="";
+  liste.forEach(([v,txt])=>{const b=document.createElement("button");
+    b.textContent=txt;b.setAttribute("aria-pressed",v===actif());
+    b.onclick=()=>{cb(v);boutons(zone,liste,actif,cb);};zone.appendChild(b);});
+}
+boutons($("choixN"),[[0,"aucune"],[1,"N·ΔΦ"],[2,"N·ΔΦ/Δt"],[3,"N·ΔΦ·Δt"],[4,"ΔΦ/Δt"]],
+  ()=>essai,v=>{essai=v;affTable();});
+
+function maj(){
+  $("vPhi").innerHTML=fr(phi(),2)+'<small>mWb</small>';
+  $("vDPhi").innerHTML=(sens? (dphi>0?"+":"")+fr(dphi,2) : "0,00")+'<small>mWb</small>';
+  $("vT").innerHTML=fr(duree,2)+'<small>s</small>';
+  $("vE").innerHTML=fr(sens?e:0,3)+'<small>V</small>';
+  $("vSens").textContent = sens>0 ? "il freine l'aimant" : (sens<0 ? "il retient l'aimant" : "—");
+  $("lF").textContent=fr(Fmax,2)+" mWb";
+  $("lN").textContent=N;
+  $("lT").textContent=fr(duree,2)+" s";
+  $("etat").textContent = anim
+     ? (sens>0?"L'aimant approche : le flux augmente.":"L'aimant s'éloigne : le flux diminue.")
+     : (pos>0.99 ? "L'aimant est au contact, immobile. Le flux est maximal — et la tension est nulle."
+                 : "L'aimant est loin, immobile. Le flux est nul.");
+  dessine();
+}
+
+const cs=$("scene"),ctx=cs.getContext("2d");
+function dessine(){
+  const W=cs.width,H=cs.height,cy=H/2;
+  const fam=getComputedStyle(document.body).fontFamily;
+  ctx.clearRect(0,0,W,H);
+
+  /* bobine */
+  const bx=W-250;
+  ctx.strokeStyle="#C0530E";ctx.lineWidth=5;ctx.lineCap="round";
+  for(let i=0;i<6;i++){
+    const x=bx+i*17;
+    ctx.beginPath();ctx.ellipse(x,cy,7,46,0,0,2*Math.PI);ctx.stroke();
+  }
+  ctx.lineCap="butt";
+  ctx.fillStyle="#C0530E";ctx.font="14px "+fam;ctx.textAlign="center";
+  ctx.fillText("bobine  "+N+" spires",bx+42,cy+72);
+
+  /* voltmetre */
+  const vx=W-118;
+  ctx.strokeStyle="#16232D";ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(bx+90,cy-46);ctx.lineTo(vx+34,cy-46);ctx.lineTo(vx+34,cy-30);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(bx+90,cy+46);ctx.lineTo(vx+34,cy+46);ctx.lineTo(vx+34,cy+30);ctx.stroke();
+  ctx.fillStyle="#28323A";ctx.beginPath();ctx.roundRect(vx,cy-30,68,60,8);ctx.fill();
+  ctx.fillStyle="#7FD98A";ctx.font="600 17px "+fam;
+  ctx.fillText(fr(sens?e:0,2),vx+34,cy+2);
+  ctx.fillStyle="#9DB4C0";ctx.font="12px "+fam;ctx.fillText("V",vx+34,cy+18);
+
+  /* aimant, position selon pos */
+  const x0=30, x1=bx-92;
+  const ax=x0+(x1-x0)*pos;
+  ctx.fillStyle="#C0392B";ctx.fillRect(ax,cy-22,42,44);
+  ctx.fillStyle="#1F6FB2";ctx.fillRect(ax+42,cy-22,42,44);
+  ctx.fillStyle="#fff";ctx.font="600 15px "+fam;
+  ctx.fillText("N",ax+21,cy+6);ctx.fillText("S",ax+63,cy+6);
+
+  /* lignes de flux, densité selon pos */
+  const nl=Math.round(1+pos*5);
+  if(pos>0.02){
+    ctx.strokeStyle="rgba(31,111,178,"+(0.25+0.6*pos)+")";ctx.lineWidth=2.5;
+    for(let i=0;i<nl;i++){
+      const y=cy-34+68*(i+0.5)/nl;
+      ctx.beginPath();ctx.moveTo(ax+86,y);ctx.lineTo(bx+92,y);ctx.stroke();
+    }
+  }
+
+  /* flèche du geste */
+  if(anim){
+    const fx=ax+(sens>0?100:-30);
+    ctx.strokeStyle="#DD7A18";ctx.lineWidth=4;
+    ctx.beginPath();ctx.moveTo(fx,cy-60);ctx.lineTo(fx+sens*44,cy-60);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(fx+sens*44,cy-60);
+    ctx.lineTo(fx+sens*30,cy-68);ctx.lineTo(fx+sens*30,cy-52);ctx.closePath();
+    ctx.fillStyle="#DD7A18";ctx.fill();
+    /* force d'opposition sur l'aimant */
+    ctx.strokeStyle="#2E7D32";ctx.lineWidth=4;
+    ctx.beginPath();ctx.moveTo(fx,cy+62);ctx.lineTo(fx-sens*44,cy+62);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(fx-sens*44,cy+62);
+    ctx.lineTo(fx-sens*30,cy+54);ctx.lineTo(fx-sens*30,cy+70);ctx.closePath();
+    ctx.fillStyle="#2E7D32";ctx.fill();
+    ctx.font="13px "+fam;ctx.textAlign="left";
+    ctx.fillStyle="#2E7D32";ctx.fillText("la bobine résiste au geste",24,H-12);
+  }
+  ctx.textAlign="left";ctx.fillStyle="#8FA0AC";ctx.font="13px "+fam;
+  ctx.fillText("aimant",34,cy-38);
+}
+
+function affTable(){
+  const z=$("zoneTable");
+  if(!mesures.length){z.innerHTML='<p class="vide">Aucune mesure pour l\'instant.</p>';return;}
+  const ent=["n°","geste","N","ΔΦ (mWb)","Δt (s)","U (V)"];
+  const nomEssai=["","N·ΔΦ","N·ΔΦ/Δt","N·ΔΦ·Δt","ΔΦ/Δt"][essai];
+  let h='<table><thead><tr>'+ent.map(x=>'<th>'+x+'</th>').join("")
+       +(essai?'<th>'+nomEssai+'</th>':'')+'</tr></thead><tbody>';
+  mesures.forEach(r=>{
+    h+='<tr><td>'+r.n+'</td><td>'+r.sens+'</td><td>'+r.N+'</td><td>'+fr(r.dphi,2)
+      +'</td><td>'+fr(r.duree,2)+'</td><td>'+fr(r.e,3)+'</td>';
+    if(essai){
+      const d=r.dphi*1e-3;
+      const v=[0, r.N*d, r.N*d/r.duree, r.N*d*r.duree, d/r.duree][essai];
+      h+='<td class="essai">'+fr(v,3)+'</td>';
+    }
+    h+='</tr>';
+  });
+  z.innerHTML=h+'</tbody></table>';
+}
+
+if(!CanvasRenderingContext2D.prototype.roundRect){
+  CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){
+    this.moveTo(x+r,y);this.arcTo(x+w,y,x+w,y+h,r);this.arcTo(x+w,y+h,x,y+h,r);
+    this.arcTo(x,y+h,x,y,r);this.arcTo(x,y,x+w,y,r);this.closePath();return this;};
+}
+$("bEloi").disabled=true;
+maj();affTable();
+</script>
+</body>
+</html>

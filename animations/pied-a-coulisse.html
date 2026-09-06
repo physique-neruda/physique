@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pied à coulisse virtuel — BTS TSMA ch.1</title>
+<style>
+:root{
+  --bleu:#14507A; --bleu2:#2E86AB; --orange:#E8871E; --orangef:#C0530E;
+  --rouge:#C0392B; --vert:#2E8B57; --clair:#EAF2F8; --fond:#F4F7FA; --gris:#555;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+     background:var(--fond);color:#1a1a1a;line-height:1.45}
+header{background:var(--bleu);color:#fff;padding:14px 18px}
+header h1{margin:0;font-size:1.15rem}
+header p{margin:4px 0 0;font-size:.85rem;opacity:.85}
+main{max-width:1000px;margin:0 auto;padding:14px}
+.carte{background:#fff;border:1px solid #d7e1ea;border-radius:8px;padding:14px;margin-bottom:14px}
+.carte h2{margin:0 0 10px;font-size:1rem;color:var(--bleu);
+          border-bottom:2px solid var(--orange);padding-bottom:5px}
+.ligne{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+label{font-size:.9rem;font-weight:600;color:var(--bleu)}
+select,input[type=number]{font:inherit;padding:7px 9px;border:1px solid #b9c9d6;
+  border-radius:5px;background:#fff}
+input[type=number]{width:120px;text-align:right}
+button{font:inherit;font-weight:600;padding:8px 14px;border:0;border-radius:5px;
+  background:var(--bleu);color:#fff;cursor:pointer}
+button:hover{background:var(--bleu2)}
+button.sec{background:#fff;color:var(--bleu);border:1.5px solid var(--bleu)}
+button.sec:hover{background:var(--clair)}
+button:disabled{background:#c3ccd4;cursor:not-allowed}
+.zone{overflow-x:auto;background:var(--clair);border-radius:6px;padding:8px 4px}
+svg{display:block}
+.msg{margin-top:10px;padding:9px 11px;border-radius:5px;font-size:.92rem}
+.ok{background:#e6f4ec;border-left:4px solid var(--vert)}
+.ko{background:#fbeceb;border-left:4px solid var(--rouge)}
+.info{background:#fdf2e3;border-left:4px solid var(--orange)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin-top:6px}
+th,td{border:1px solid #d7e1ea;padding:5px 6px;text-align:center}
+th{background:var(--clair);color:var(--bleu)}
+td.v{font-variant-numeric:tabular-nums}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.stat{flex:1 1 130px;background:var(--clair);border-radius:6px;padding:9px;text-align:center}
+.stat span{display:block;font-size:.78rem;color:var(--gris)}
+.stat strong{font-size:1.1rem;color:var(--bleu);font-variant-numeric:tabular-nums}
+.aide{font-size:.85rem;color:var(--gris);margin-top:8px}
+.pastille{display:inline-block;background:var(--orange);color:#fff;border-radius:4px;
+  padding:1px 7px;font-size:.8rem;font-weight:700}
+footer{text-align:center;font-size:.8rem;color:var(--gris);padding:10px 0 24px}
+@media(max-width:620px){input[type=number]{width:100px}}
+
+.zone{overflow-x:auto;background:var(--clair);border-radius:6px;padding:8px 4px}
+.loupebarre{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+input[type=range]{flex:1 1 240px;accent-color:#14507A}
+.mini{font-size:.82rem;color:var(--gris)}
+button.rond{padding:6px 12px;font-size:1rem;line-height:1}
+</style>
+</head>
+<body>
+<header>
+  <h1>Pied à coulisse virtuel — contrôle d'un axe de piston</h1>
+  <p>BTS TSMA · chapitre 1 · Mesures, erreurs et incertitudes — vernier au 1/50 (résolution 0,02 mm)</p>
+</header>
+
+<main>
+<div class="carte">
+  <h2>1 · La pièce à contrôler</h2>
+  <div class="ligne">
+    <label for="piece">Axe n°</label>
+    <select id="piece">
+      <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+    </select>
+    <button id="btnMesure">Prendre une mesure</button>
+    <button id="btnReset" class="sec">Recommencer la série</button>
+    <span class="pastille" id="compteur">0 / 10</span>
+  </div>
+  <p class="aide">Cote nominale <strong>25,00 mm</strong>, tolérance h7 :
+     l'axe est bon si son diamètre est compris entre <strong>24,979</strong> et
+     <strong>25,000 mm</strong>. Chaque mesure est prise à un endroit différent de l'axe,
+     par un opérateur différent.</p>
+</div>
+
+<div class="carte">
+  <h2>2 · La pièce et l'instrument</h2>
+  <div class="zone"><svg id="svgVue" width="880" height="300" viewBox="0 0 880 300"
+       role="img" aria-label="Le pied a coulisse referme sur l'axe de piston"></svg></div>
+  <p class="aide">L'axe est vu <strong>en bout</strong> : c'est son diamètre que les becs
+     enserrent. Le dessin est à l'échelle du millimètre — il ne permet pas de lire les
+     centièmes, c'est le rôle du vernier ci-dessous.</p>
+</div>
+
+<div class="carte">
+  <h2>3 · Où tombe le zéro du vernier ?</h2>
+  <div class="zone"><svg id="svgPC" width="880" height="185" viewBox="0 0 880 185"
+       role="img" aria-label="Vue d'ensemble de la regle et du vernier"></svg></div>
+  <p class="aide" id="txtEntier">—</p>
+</div>
+
+<div class="carte">
+  <h2>4 · La loupe : trouver la division qui coïncide</h2>
+  <p class="aide" style="margin-top:0">Sur un vrai pied à coulisse, on fait glisser l'œil le
+     long du vernier jusqu'à trouver <strong>le seul</strong> trait qui tombe exactement en face
+     d'un trait de la règle. Déplacez la loupe et faites la même chose : ici, un décalage de
+     0,02 mm se voit.</p>
+  <div class="zone"><svg id="svgLoupe" width="1000" height="240" viewBox="0 0 1000 240"
+       role="img" aria-label="Vue tres agrandie de quelques divisions du vernier"></svg></div>
+  <div class="loupebarre">
+    <button id="btnPrec" class="sec rond">&#9664;</button>
+    <input type="range" id="curseur" min="0" max="45" step="1" value="0">
+    <button id="btnSuiv" class="sec rond">&#9654;</button>
+    <span class="mini" id="txtLoupe">divisions 0 à 6</span>
+  </div>
+  <div class="ligne" style="margin-top:10px">
+    <label for="lecture">Ma lecture (mm)</label>
+    <input type="number" id="lecture" step="0.01" min="24" max="26" placeholder="25,00">
+    <button id="btnValide">Valider la mesure</button>
+    <button id="btnAide" class="sec">Aide à la lecture</button>
+  </div>
+  <div id="message" class="msg info">Clique sur <strong>« Prendre une mesure »</strong>
+    pour placer le pied à coulisse sur l'axe.</div>
+</div>
+
+<div class="carte">
+  <h2>5 · La série de mesures</h2>
+  <table id="tab">
+    <thead><tr id="thn"></tr></thead>
+    <tbody><tr id="tdv"></tr></tbody>
+  </table>
+  <div class="stats" id="stats" hidden>
+    <div class="stat"><span>moyenne D&#772;</span><strong id="sMoy">—</strong></div>
+    <div class="stat"><span>écart-type s</span><strong id="sEt">—</strong></div>
+    <div class="stat"><span>étendue</span><strong id="sEt2">—</strong></div>
+    <div class="stat"><span>nombre n</span><strong id="sN">—</strong></div>
+  </div>
+  <div class="zone" style="margin-top:12px"><svg id="svgDot" width="820" height="150"
+       viewBox="0 0 820 150" role="img" aria-label="Report des mesures sur un axe"></svg></div>
+  <p class="aide">L'animation ne calcule ni l'incertitude ni la conclusion : c'est le travail
+     demandé sur la feuille d'activité.</p>
+</div>
+</main>
+
+<footer>Lycée Pablo Neruda — M. Cronenberger · fonctionne hors ligne</footer>
+
+<script>
+"use strict";
+// ---- séries de référence (multiples de 0,02 mm : c'est ce que peut lire un vernier au 1/50)
+const SERIES = {
+ 1:[25.02,25.00,24.98,25.00,25.04,25.02,24.98,24.96,24.98,25.02],
+ 2:[24.96,25.00,25.00,25.02,24.98,24.98,25.00,25.00,24.94,25.02],
+ 3:[25.00,25.08,25.04,25.06,25.02,25.06,25.04,25.04,25.08,25.02],
+ 4:[24.92,24.98,25.00,24.94,24.94,24.96,24.92,24.96,24.96,24.94],
+ 5:[24.98,25.02,24.94,24.98,25.02,24.98,24.96,25.00,25.00,24.98],
+ 6:[24.94,25.00,24.94,24.92,25.04,25.02,25.06,24.96,25.04,24.98]
+};
+const TOL=[24.979,25.000];
+const NVUE=5;                      // divisions visibles sous la loupe
+let piece=1, k=0, courante=null, mesures=[], aide=0, essais=0, d0=0;
+
+const $=id=>document.getElementById(id);
+const fmt=(x,n=2)=>x.toFixed(n).replace('.',',');
+const NS='http://www.w3.org/2000/svg';
+function el(t,a){const e=document.createElementNS(NS,t);
+  for(const k in a)e.setAttribute(k,a[k]);return e;}
+function txt(svg,x,y,s,o){const t=el('text',Object.assign(
+  {x:x,y:y,'font-size':'12',fill:'#14507A'},o||{})); t.textContent=s; svg.appendChild(t);}
+const divCoinc=v=>Math.round((v-Math.floor(v+1e-9))/0.02);   // division qui coincide
+
+// ------------------------------------------------- vue d'ensemble : la pièce
+function dessineVue(val,pt){
+  const svg=$('svgVue'); svg.innerHTML='';
+  const NS='http://www.w3.org/2000/svg';
+  const el=(t,a)=>{const e=document.createElementNS(NS,t);
+                   for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const txt=(x,y,s,o={})=>{const t=el('text',Object.assign(
+      {x:x,y:y,'font-size':'12',fill:'#14507A'},o)); t.textContent=s; svg.appendChild(t);};
+
+  const S=5;                       // 5 pixels par millimètre
+  const D=(val===null)?25.00:val;  // becs au nominal tant qu'aucune mesure n'est prise
+  const XF=62, XM=XF+S*D;          // faces de mesure : bec fixe, bec mobile
+  const YB=52, HB=16;              // règle (le corps du pied à coulisse)
+  const YJ=YB+HB, HJ=160;          // becs
+  const CY=150;                    // centre de l'axe, entre les becs
+
+  txt(20,26,"Le pied à coulisse refermé sur l'axe",{ 'font-weight':'700'});
+
+  // règle graduée
+  svg.appendChild(el('rect',{x:46,y:YB,width:364,height:HB,fill:'#c8d4de',stroke:'#9fb2c0'}));
+  for(let i=0;i<=70;i+=5){const x=62+i*S; if(x>404)break;
+    svg.appendChild(el('line',{x1:x,y1:YB,x2:x,y2:YB+(i%10?5:9),stroke:'#7d8f9c'}));}
+  txt(320,YB-6,'règle graduée',{'font-size':'11',fill:'#5c6a75'});
+
+  // bec fixe
+  svg.appendChild(el('rect',{x:46,y:YB,width:16,height:HJ+HB,fill:'#8a99a6',stroke:'#5c6a75'}));
+  txt(18,YJ+HJ+18,'bec fixe',{'font-size':'11',fill:'#5c6a75'});
+  // coulisseau + bec mobile
+  svg.appendChild(el('rect',{x:XM,y:YB-14,width:92,height:HB+18,rx:3,
+                             fill:'#dfe8ef',stroke:'#9fb2c0'}));
+  svg.appendChild(el('rect',{x:XM,y:YB,width:16,height:HJ+HB,fill:'#8a99a6',stroke:'#5c6a75'}));
+  txt(XM+4,YJ+HJ+18,'bec mobile',{'font-size':'11',fill:'#5c6a75'});
+  txt(XM+46,YB+2,'vernier',{'text-anchor':'middle','font-size':'10',fill:'#5c6a75'});
+
+  // l'axe de piston, vu en bout
+  const R=(XM-XF)/2, CX=XF+R;
+  svg.appendChild(el('circle',{cx:CX,cy:CY,r:R,fill:'#E8871E','fill-opacity':'0.30',
+                               stroke:'#C0530E','stroke-width':2}));
+  txt(CX,CY-2,"axe de piston",{'text-anchor':'middle','font-size':'12',fill:'#C0530E',
+      'font-weight':'700'});
+  txt(CX,CY+15,"vu en bout",{'text-anchor':'middle','font-size':'12',fill:'#C0530E'});
+
+  // cote mesurée
+  const YD=YJ+HJ+34;
+  svg.appendChild(el('line',{x1:XF,y1:CY,x2:XF,y2:YD+6,stroke:'#2E86AB','stroke-dasharray':'3 3'}));
+  svg.appendChild(el('line',{x1:XM,y1:CY,x2:XM,y2:YD+6,stroke:'#2E86AB','stroke-dasharray':'3 3'}));
+  svg.appendChild(el('line',{x1:XF,y1:YD,x2:XM,y2:YD,stroke:'#2E86AB','stroke-width':1.6}));
+  svg.appendChild(el('path',{d:`M${XF},${YD} l7,-4 v8 z`,fill:'#2E86AB'}));
+  svg.appendChild(el('path',{d:`M${XM},${YD} l-7,-4 v8 z`,fill:'#2E86AB'}));
+  txt(CX,YD+16,'diamètre à mesurer',{'text-anchor':'middle','font-size':'11.5',fill:'#2E86AB'});
+
+  // ---- panneau de droite : où l'on mesure le long de l'axe
+  txt(455,26,"Où l'on mesure sur l'axe",{'font-weight':'700'});
+  const XA=470, LA=340, YA=CY-34, HA=68;
+  svg.appendChild(el('rect',{x:XA,y:YA,width:LA,height:HA,rx:HA/2,
+                             fill:'#EAF2F8',stroke:'#9fb2c0','stroke-width':1.5}));
+  svg.appendChild(el('ellipse',{cx:XA+18,cy:YA+HA/2,rx:12,ry:HA/2-2,fill:'none',
+                                stroke:'#9fb2c0','stroke-dasharray':'3 3'}));
+  for(let i=1;i<=10;i++){
+    const x=XA+40+(i-0.5)*((LA-56)/10), on=(pt===i);
+    svg.appendChild(el('line',{x1:x,y1:YA+4,x2:x,y2:YA+HA-4,
+      stroke:on?'#C0530E':'#9fb2c0','stroke-width':on?2.4:1}));
+    txt(x,YA+HA+15,i,{'text-anchor':'middle','font-size':'10',
+      fill:on?'#C0530E':'#8a97a2','font-weight':on?'700':'400'});
+    if(on){
+      svg.appendChild(el('path',{d:`M${x},${YA-6} l-6,-11 h12 z`,fill:'#C0530E'}));
+      txt(x,YA-22,'becs ici',{'text-anchor':'middle','font-size':'11',fill:'#C0530E',
+        'font-weight':'700'});
+    }
+  }
+  txt(455,YA+HA+48,
+      pt?('Mesure n° '+pt+' sur 10 — repère '+pt+', becs tournés d\'un quart de tour.')
+        :'Chaque mesure se prend à un repère différent de l\'axe.',
+      {'font-size':'11.5',fill:'#5c6a75'});
+  if(val===null)
+    txt(455,YA+HA+68,'(becs représentés à la cote nominale, aucune mesure en cours)',
+        {'font-size':'11',fill:'#8a97a2'});
+}
+// ---------------------------------------------------------------- report des points
+function dessineDot(){
+  const svg=$('svgDot'); svg.innerHTML='';
+  const NS='http://www.w3.org/2000/svg';
+  const el=(t,a)=>{const e=document.createElementNS(NS,t);
+                   for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const A=24.90,B=25.10,X0=50,X1=790,Y=100;
+  const px=v=>X0+(v-A)/(B-A)*(X1-X0);
+  // bande de tolérance
+  svg.appendChild(el('rect',{x:px(TOL[0]),y:Y-52,width:px(TOL[1])-px(TOL[0]),height:52,
+    fill:'#2E8B57','fill-opacity':'0.13'}));
+  const tt=el('text',{x:(px(TOL[0])+px(TOL[1]))/2,y:Y-58,'text-anchor':'middle',
+    'font-size':'12',fill:'#2E8B57','font-weight':'700'});
+  tt.textContent='tolérance h7'; svg.appendChild(tt);
+  // axe
+  svg.appendChild(el('line',{x1:X0,y1:Y,x2:X1,y2:Y,stroke:'#14507A','stroke-width':2}));
+  for(let v=24.90;v<=25.1001;v+=0.02){
+    const x=px(v), gros=Math.abs(v*100-Math.round(v*100/5)*5)<1e-6;
+    svg.appendChild(el('line',{x1:x,y1:Y,x2:x,y2:Y+(gros?9:5),stroke:'#14507A'}));
+    if(gros){const t=el('text',{x:x,y:Y+25,'text-anchor':'middle','font-size':'11',
+      fill:'#14507A'}); t.textContent=fmt(v); svg.appendChild(t);}
+  }
+  // points empilés
+  const paq={};
+  mesures.forEach(v=>{const c=v.toFixed(2); paq[c]=(paq[c]||0)+1;
+    svg.appendChild(el('circle',{cx:px(v),cy:Y-8-(paq[c]-1)*11,r:4.5,
+      fill:'#E8871E',stroke:'#C0530E'}));});
+  if(mesures.length){
+    const m=mesures.reduce((a,b)=>a+b,0)/mesures.length;
+    svg.appendChild(el('line',{x1:px(m),y1:Y-60,x2:px(m),y2:Y+2,stroke:'#C0397B',
+      'stroke-width':2,'stroke-dasharray':'5 3'}));
+    const t=el('text',{x:px(m),y:Y-66,'text-anchor':'middle','font-size':'12',
+      fill:'#C0397B','font-weight':'700'}); t.textContent='moyenne'; svg.appendChild(t);
+  }
+}
+
+// ---------------------------------------------------------- vue d'ensemble regle/vernier
+const PX=13, X0=30, YR=70, YV=124;      // 13 px par mm
+function dessinePC(val){
+  const svg=$('svgPC'); svg.innerHTML='';
+  if(val===null){
+    txt(svg,440,95,'Aucune mesure en cours.',
+        {'text-anchor':'middle',fill:'#8a97a2','font-size':'15'});
+    $('txtEntier').textContent='—'; return;
+  }
+  const M=Math.floor(val+1e-9), debut=M-4;
+  const mm2px=x=>X0+(x-debut)*PX;
+  const xz=mm2px(val), n=divCoinc(val);
+
+  svg.appendChild(el('rect',{x:0,y:YR-30,width:880,height:22,fill:'#c8d4de'}));
+  svg.appendChild(el('line',{x1:X0,y1:YR,x2:860,y2:YR,stroke:'#14507A','stroke-width':2}));
+  for(let g=debut;g<=debut+63;g++){
+    const x=mm2px(g); if(x>866)break;
+    const gr=(g%10===0)?18:((g%5===0)?12:7);
+    svg.appendChild(el('line',{x1:x,y1:YR,x2:x,y2:YR-gr,stroke:'#14507A',
+      'stroke-width':(g%10===0)?1.6:1}));
+    if(g%10===0) txt(svg,x,YR-22,g,{'text-anchor':'middle','font-size':'12'});
+  }
+  // fenetre de la loupe
+  const xa=mm2px(val+d0*0.98)-6, xb=mm2px(val+(d0+NVUE)*0.98)+6;
+  svg.appendChild(el('rect',{x:xa,y:YV-34,width:xb-xa,height:58,fill:'#E8871E',
+    'fill-opacity':'0.16',stroke:'#E8871E','stroke-dasharray':'4 3'}));
+  txt(svg,(xa+xb)/2,YV+40,'loupe',{'text-anchor':'middle','font-size':'11',fill:'#C0530E',
+    'font-weight':'700'});
+  // zone de recherche conseillee (aide niveau 1)
+  if(aide>=1){
+    const lo=Math.max(0,n-5), hi=Math.min(50,n+5);
+    svg.appendChild(el('rect',{x:mm2px(val+lo*0.98),y:YV-2,
+      width:(hi-lo)*0.98*PX,height:16,fill:'#2E8B57','fill-opacity':'0.25'}));
+  }
+  // vernier
+  svg.appendChild(el('line',{x1:X0,y1:YV,x2:860,y2:YV,stroke:'#C0530E','stroke-width':2}));
+  for(let i=0;i<=50;i++){
+    const x=xz+i*0.98*PX; if(x>866)break;
+    const gr=(i%10===0)?16:((i%5===0)?11:6);
+    const fort=(aide>=2&&i===n);
+    svg.appendChild(el('line',{x1:x,y1:YV,x2:x,y2:YV+gr,
+      stroke:fort?'#2E8B57':'#C0530E','stroke-width':fort?3:((i%10===0)?1.6:1)}));
+    if(i%10===0) txt(svg,x,YV+30,i,{'text-anchor':'middle','font-size':'11',fill:'#C0530E'});
+  }
+  svg.appendChild(el('line',{x1:xz,y1:YR+2,x2:xz,y2:YV-2,stroke:'#2E86AB',
+    'stroke-width':1,'stroke-dasharray':'3 3'}));
+  txt(svg,xz,YR-40,'zéro du vernier',{'text-anchor':'middle','font-size':'11.5',
+    fill:'#2E86AB','font-weight':'700'});
+
+  const frac=val-M;
+  $('txtEntier').innerHTML='Le zéro du vernier a dépassé la graduation <strong>'+M+
+    '</strong> mm sans atteindre la suivante : la lecture commence par <strong>'+M+
+    ' mm</strong>. Il reste à trouver les centièmes.'+
+    (aide>=1?' <span style="color:#2E8B57"><strong>Le zéro tombe à peu près aux '+
+      Math.round(frac*10)+'/10 de l\'intervalle : cherche vers la division '+
+      (Math.max(0,divCoinc(val)-5))+' à '+(Math.min(50,divCoinc(val)+5))+
+      '</strong> (bande verte).</span>':'');
+}
+
+// ---------------------------------------------------------------- la loupe
+function dessineLoupe(val){
+  const svg=$('svgLoupe'); svg.innerHTML='';
+  const W=1000, YRL=58, YRT=108, YVL=170, YVT=118;   // lignes et pointes des traits
+  if(val===null){
+    txt(svg,W/2,110,'Aucune mesure en cours.',
+        {'text-anchor':'middle',fill:'#8a97a2','font-size':'15'});
+    $('txtLoupe').textContent='—'; return;
+  }
+  const pas=0.98, marge=0.45;
+  const xdeb=val+d0*pas-marge;                  // mm au bord gauche de la loupe
+  const MG=W/(NVUE*pas+2*marge);                // ~172 pixels par mm
+  const mm2px=x=>(x-xdeb)*MG;
+  const n=divCoinc(val);
+
+  txt(svg,10,20,'Vue très agrandie — les deux traits se font face : ils coïncident ou non',
+      {'font-size':'12','font-weight':'700'});
+
+  // ---- règle : traits vers le BAS
+  svg.appendChild(el('line',{x1:0,y1:YRL,x2:W,y2:YRL,stroke:'#14507A','stroke-width':2.5}));
+  const g0=Math.ceil(xdeb), g1=Math.floor(xdeb+W/MG);
+  for(let g=g0;g<=g1;g++){
+    const x=mm2px(g);
+    svg.appendChild(el('line',{x1:x,y1:YRL,x2:x,y2:YRT,stroke:'#14507A','stroke-width':1.8}));
+    txt(svg,x,YRL-10,g+' mm',{'text-anchor':'middle','font-size':'12.5'});
+  }
+  txt(svg,6,YRL-28,'règle',{'font-size':'11',fill:'#5c6a75'});
+
+  // ---- vernier : traits vers le HAUT, pointes face à celles de la règle
+  svg.appendChild(el('line',{x1:0,y1:YVL,x2:W,y2:YVL,stroke:'#C0530E','stroke-width':2.5}));
+  txt(svg,6,YVL+16,'vernier',{'font-size':'11',fill:'#5c6a75'});
+  for(let i=Math.max(0,d0-1);i<=Math.min(50,d0+NVUE+1);i++){
+    const pos=val+i*pas, x=mm2px(pos);
+    if(x<-20||x>W+20) continue;
+    const coince=(i===n), fort=(aide>=2&&coince);
+    svg.appendChild(el('line',{x1:x,y1:YVL,x2:x,y2:YVT,
+      stroke:fort?'#2E8B57':'#C0530E','stroke-width':fort?3.4:1.8}));
+    txt(svg,x,YVL+34,i,{'text-anchor':'middle','font-size':'13',
+      fill:fort?'#2E8B57':'#C0530E','font-weight':'700'});
+    if(fort){
+      svg.appendChild(el('line',{x1:x,y1:YRL,x2:x,y2:YRT,
+        stroke:'#2E8B57','stroke-width':3.4}));
+      svg.appendChild(el('rect',{x:x-13,y:YRT,width:26,height:YVT-YRT,
+        fill:'#2E8B57','fill-opacity':'0.22'}));
+    }
+  }
+  if(aide>=2){
+    const x=mm2px(val+n*pas);
+    txt(svg,Math.min(Math.max(x,110),W-110),YVL+58,
+        'division '+n+' → '+fmt(n*0.02)+' mm',
+        {'text-anchor':'middle','font-size':'13.5',fill:'#2E8B57','font-weight':'700'});
+  }
+  $('txtLoupe').textContent='divisions '+d0+' à '+Math.min(50,d0+NVUE);
+}
+
+
+// ---------------------------------------------------------------- tableau et stats
+function majTable(){
+  const th=$('thn'), td=$('tdv');
+  th.innerHTML='<th>n°</th>'; td.innerHTML='<td><strong>D (mm)</strong></td>';
+  for(let i=0;i<10;i++){
+    th.insertAdjacentHTML('beforeend','<th>'+(i+1)+'</th>');
+    td.insertAdjacentHTML('beforeend','<td class="v">'+
+      (mesures[i]!==undefined?fmt(mesures[i]):'—')+'</td>');
+  }
+  $('compteur').textContent=mesures.length+' / 10';
+  if(mesures.length>=2){
+    const n=mesures.length, m=mesures.reduce((a,b)=>a+b,0)/n;
+    const s=Math.sqrt(mesures.reduce((a,b)=>a+(b-m)*(b-m),0)/(n-1));
+    $('stats').hidden=false;
+    $('sMoy').textContent=fmt(m,3); $('sEt').textContent=fmt(s,3);
+    $('sEt2').textContent=fmt(Math.max(...mesures)-Math.min(...mesures),2);
+    $('sN').textContent=n;
+  } else { $('stats').hidden=true; }
+  dessineDot();
+}
+
+// ---------------------------------------------------------------- interactions
+function redessine(){ dessineVue(courante,courante===null?null:mesures.length+1);
+  dessinePC(courante); dessineLoupe(courante); }
+function bougeLoupe(v){ d0=Math.max(0,Math.min(50-NVUE,v)); $('curseur').value=d0; redessine(); }
+
+function nouvelleMesure(){
+  if(mesures.length>=10){
+    $('message').className='msg info';
+    $('message').innerHTML='La série de 10 mesures est complète. Passe à l\'exploitation, '+
+      'ou clique sur <strong>Recommencer la série</strong>.'; return;
+  }
+  courante=SERIES[piece][k % 10]; k++; essais=0; aide=0; d0=0;
+  $('curseur').value=0; $('btnAide').textContent='Aide à la lecture';
+  redessine(); $('lecture').value=''; $('lecture').focus();
+  $('message').className='msg info';
+  $('message').innerHTML='Repère d\'abord les millimètres entiers, puis promène la loupe le '+
+    'long du vernier jusqu\'au trait qui tombe pile en face d\'un trait de la règle.';
+}
+function valide(){
+  if(courante===null){ $('message').className='msg ko';
+    $('message').textContent='Prends d\'abord une mesure.'; return; }
+  const v=parseFloat(($('lecture').value||'').replace(',','.'));
+  if(isNaN(v)){ $('message').className='msg ko';
+    $('message').textContent='Saisis une valeur numérique, par exemple 25,02.'; return; }
+  if(Math.abs(v*100-Math.round(v*100/2)*2)>0.5){
+    $('message').className='msg ko';
+    $('message').innerHTML='Un vernier au 1/50 ne peut afficher que des <strong>multiples de '+
+      '0,02 mm</strong> : cette valeur est impossible.'; return; }
+  if(Math.abs(v-courante)<0.005){
+    mesures.push(courante); courante=null; aide=0;
+    $('btnAide').textContent='Aide à la lecture';
+    majTable(); redessine();
+    $('message').className='msg ok';
+    $('message').innerHTML='Lecture correcte : <strong>'+fmt(mesures[mesures.length-1])+
+      ' mm</strong>. Mesure enregistrée.';
+    if(mesures.length===10)
+      $('message').innerHTML+=' <strong>Série terminée</strong> — passe au calcul.';
+  } else {
+    essais++;
+    $('message').className='msg ko';
+    $('message').innerHTML='Ce n\'est pas la bonne lecture.'+
+      (essais>=2?' Clique sur <strong>Aide à la lecture</strong> : elle indique d\'abord où '+
+                 'chercher, puis la division qui coïncide.':
+                 ' Vérifie les millimètres entiers, puis reprends la loupe depuis le début.');
+  }
+}
+$('btnMesure').onclick=nouvelleMesure;
+$('btnValide').onclick=valide;
+$('lecture').addEventListener('keydown',e=>{if(e.key==='Enter')valide();});
+$('btnPrec').onclick=()=>bougeLoupe(d0-NVUE);
+$('btnSuiv').onclick=()=>bougeLoupe(d0+NVUE);
+$('curseur').oninput=e=>bougeLoupe(+e.target.value);
+$('btnAide').onclick=()=>{
+  if(courante===null)return;
+  aide=(aide+1)%3;
+  if(aide===2) bougeLoupe(Math.max(0,Math.min(50-NVUE,divCoinc(courante)-2)));
+  else redessine();
+  $('btnAide').textContent=(aide===0)?'Aide à la lecture':
+                           (aide===1)?'Aide : montrer la division':'Masquer l\'aide';
+  $('message').className='msg info';
+  $('message').innerHTML=(aide===1)
+    ?'La position du zéro donne déjà une estimation : la bande verte indique où chercher.'
+    :(aide===2)
+    ?'La division surlignée est la seule dont le trait tombe exactement en face d\'un trait '+
+     'de la règle. Lecture = millimètres entiers + numéro × 0,02 mm.'
+    :'Aide masquée.';
+};
+$('btnReset').onclick=()=>{ mesures=[]; k=0; courante=null; aide=0; d0=0;
+  $('curseur').value=0; $('btnAide').textContent='Aide à la lecture';
+  majTable(); redessine();
+  $('message').className='msg info'; $('message').textContent='Série remise à zéro.'; };
+$('piece').onchange=e=>{ piece=+e.target.value; $('btnReset').click();
+  $('message').innerHTML='Axe n°'+piece+' monté sur le marbre. Prends ta première mesure.'; };
+
+majTable(); redessine();
+</script>
+</body>
+</html>

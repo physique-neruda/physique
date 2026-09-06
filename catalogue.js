@@ -1826,4 +1826,2025 @@ const DOCUMENTS = [
 
 /* <<< fin du bloc genere */
 
+
+  /* ================= BTS TSMA — les 18 chapitres ================= */
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 0 — Outils de base",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch00/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 0 — Outils de base",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch00/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 0 — Outils de base",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch00/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 0 — Outils de base",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch00/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch01/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch01/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch01/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch01/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch01/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch01/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Activité sur animation",
+    fichier: "docs/bts-tsma/ch01/activite_anim.pdf",
+    description: "La même étude, menée sur une animation : aucun matériel nécessaire.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch01/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch01/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "animation", titre: "Pied à coulisse virtuel",
+    fichier: "animations/pied-a-coulisse.html",
+    description: "Un pied à coulisse au 1/50 refermé sur un axe de piston : on lit soi-même le vernier, à la loupe, sur six axes numérotés. L'animation donne la moyenne et l'écart-type, pas la conclusion.",
+    trouve: "Une mesure ne se conclut qu'en comparant un intervalle à une tolérance.",
+    motscles: ["pied a coulisse", "vernier", "mesure", "incertitude", "tolerance", "dispersion"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch02/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch02/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch02/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch02/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch02/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch02/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Activité sur animation",
+    fichier: "docs/bts-tsma/ch02/activite_anim.pdf",
+    description: "La même étude, menée sur une animation : aucun matériel nécessaire.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch02/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch02/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "animation", titre: "Treuil virtuel 24 V",
+    fichier: "animations/treuil.html",
+    description: "Un treuil lève une masse réglable : voltmètre, ampèremètre et chronomètre à déclencher soi-même. Cinq chronométrages du même essai suffisent à voir d'où vient l'incertitude.",
+    trouve: "η = E utile / E absorbée, et le rendement dépend de la charge.",
+    motscles: ["treuil", "rendement", "energie", "puissance", "chronometre", "incertitude"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch03/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch03/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch03/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch03/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch03/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch03/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch03/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch03/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch04/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch04/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch04/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch04/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch04/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch04/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch04/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch04/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch05/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch05/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch05/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch05/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch05/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch05/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch05/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch05/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch06/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch06/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch06/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch06/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch06/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch06/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch06/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch06/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch07/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch07/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch07/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch07/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch07/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch07/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch07/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch07/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch08/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch08/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch08/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch08/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch08/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch08/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch08/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch08/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch09/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch09/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch09/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch09/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch09/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch09/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch09/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch09/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch10/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch10/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch10/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch10/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch10/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch10/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch10/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch10/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch11/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch11/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch11/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch11/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch11/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch11/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch11/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch11/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch12/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["signal", "frequence", "spectre", "periode"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch12/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["signal", "frequence", "spectre", "periode"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch12/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["signal", "frequence", "spectre", "periode"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch12/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["signal", "frequence", "spectre", "periode"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch12/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["signal", "frequence", "spectre", "periode"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch12/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["signal", "frequence", "spectre", "periode"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch12/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["signal", "frequence", "spectre", "periode"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch12/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["signal", "frequence", "spectre", "periode"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch13/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch13/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch13/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch13/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch13/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch13/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch13/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch13/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch14/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch14/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch14/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch14/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch14/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch14/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch14/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch14/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch15/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch15/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch15/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch15/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch15/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch15/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch15/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch15/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch16/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch16/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch16/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch16/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch16/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch16/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch16/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch16/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-tsma/ch17/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-tsma/ch17/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-tsma/ch17/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-tsma/ch17/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-tsma/ch17/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-tsma/ch17/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-tsma/ch17/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-tsma/ch17/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
+  },
+
+
+  /* ======== BTS Électrotechnique — Cours 2 et TP 2 ======== */
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/c02/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/c02/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/c02/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/c02/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/c02/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/c02/activite.pdf",
+    description: "L'activité de découverte, à faire en classe.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Sujet type U51",
+    fichier: "docs/bts-et/c02/u51.pdf",
+    description: "Un sujet d'entraînement au format de l'épreuve U51.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Épreuve E4 — sujet",
+    fichier: "docs/bts-et/c02/e4_sujet.pdf",
+    description: "Le sujet, au format de l'épreuve.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Épreuve E4 — DRES",
+    fichier: "docs/bts-et/c02/e4_dres.pdf",
+    description: "Le document réponse à rendre.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Épreuve E4 — DREP",
+    fichier: "docs/bts-et/c02/e4_drep.pdf",
+    description: "Le document réponse complémentaire.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "animation", titre: "Le flux magnétique",
+    fichier: "animations/flux-magnetique.html",
+    description: "Un aimant, une bobine, une surface orientable : on fait varier l'aire et l'angle et on lit le flux. Φ = B·S·cos α.",
+    trouve: "Φ = B·S·cos α",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Activité 1 — Le flux magnétique",
+    fichier: "docs/bts-et/c02/a1_flux.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "animation", titre: "L'induction",
+    fichier: "animations/induction.html",
+    description: "On fait varier le flux à travers une bobine et on relève la tension induite : c'est la vitesse de variation qui compte, pas la valeur du flux. e = −N·dΦ/dt.",
+    trouve: "e = −N·dΦ/dt",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Activité 2 — L'induction",
+    fichier: "docs/bts-et/c02/a2_induction.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "animation", titre: "Le circuit magnétique",
+    fichier: "animations/reluctance.html",
+    description: "Un circuit ferromagnétique avec entrefer réglable : on voit la réluctance dominer dès que l'entrefer s'ouvre. ℛ = ℓ/(µ·S).",
+    trouve: "ℛ = ℓ/(µ·S) et la loi d'Hopkinson",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Chapitre 2 — Électromagnétisme",
+    type: "pdf", titre: "Activité 3 — Le circuit magnétique",
+    fichier: "docs/bts-et/c02/a3_circuit.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/tp02/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/tp02/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/tp02/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/tp02/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/tp02/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/tp02/activite.pdf",
+    description: "L'activité de découverte, à faire en classe.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Sujet type U51",
+    fichier: "docs/bts-et/tp02/u51.pdf",
+    description: "Un sujet d'entraînement au format de l'épreuve U51.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Épreuve E4 — sujet",
+    fichier: "docs/bts-et/tp02/e4_sujet.pdf",
+    description: "Le sujet, au format de l'épreuve.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Épreuve E4 — DRES",
+    fichier: "docs/bts-et/tp02/e4_dres.pdf",
+    description: "Le document réponse à rendre.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Épreuve E4 — DREP",
+    fichier: "docs/bts-et/tp02/e4_drep.pdf",
+    description: "Le document réponse complémentaire.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+
+  /* ========== BTS TSMA — s'entraîner (questionnaires et cartes) ========== */
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 0 — Outils de base",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=0&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 0 — Outils de base",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=0",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=1&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=1&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=1",
+    description: "8 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=2&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=2&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=2",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["energie", "puissance", "rendement", "joule", "watt"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=3&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["fluide", "pression", "statique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=3&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["fluide", "pression", "statique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=3",
+    description: "6 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["fluide", "pression", "statique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=4&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["debit", "bernoulli", "conservation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=4&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["debit", "bernoulli", "conservation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=4",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["debit", "bernoulli", "conservation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=5&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["viscosite", "pertes de charge", "reynolds"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=5&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["viscosite", "pertes de charge", "reynolds"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=5",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["viscosite", "pertes de charge", "reynolds"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=6&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["reaction chimique", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=6&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["reaction chimique", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 6 — La réaction chimique",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=6",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["reaction chimique", "mole", "masse molaire"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=7&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["combustion", "carburant", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=7&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["combustion", "carburant", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 7 — Combustions et carburants",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=7",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["combustion", "carburant", "pouvoir calorifique"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=8&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["gaz parfait", "premier principe", "travail"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=8&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["gaz parfait", "premier principe", "travail"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=8",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["gaz parfait", "premier principe", "travail"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=9&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=9&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=9",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["transfert thermique", "calorimetrie", "conduction"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=10&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["machine thermique", "moteur", "cycle", "carnot"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=10&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["machine thermique", "moteur", "cycle", "carnot"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 10 — Machines thermiques",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=10",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["machine thermique", "moteur", "cycle", "carnot"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=11&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["oxydoreduction", "pile", "corrosion"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=11&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["oxydoreduction", "pile", "corrosion"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=11",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["oxydoreduction", "pile", "corrosion"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=12&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["signal", "frequence", "valeur efficace"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=12&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["signal", "frequence", "valeur efficace"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 12 — Analyse du signal",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=12",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["signal", "frequence", "valeur efficace"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=13&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["oscillation", "resonance", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=13&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["oscillation", "resonance", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 13 — Oscillations et résonance",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=13",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["oscillation", "resonance", "amortissement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=14&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["acoustique", "bruit", "decibel"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=14&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["acoustique", "bruit", "decibel"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=14",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["acoustique", "bruit", "decibel"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=15&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["asservissement", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=15&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["asservissement", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=15",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["asservissement", "boucle", "regulation"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=16&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["capteur", "conditionnement", "conversion"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=16&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["capteur", "conditionnement", "conversion"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=16",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["capteur", "conditionnement", "conversion"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=17&type=prerequis",
+    description: "6 questions sur ce qu'il faut déjà savoir manipuler. Correction et explication après chaque réponse.",
+    motscles: ["distribution electrique", "securite", "triphase"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=17&type=bilan",
+    description: "12 questions sur tout le chapitre. L'ordre change à chaque essai, on peut recommencer autant qu'on veut.",
+    motscles: ["distribution electrique", "securite", "triphase"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "S'entraîner",
+    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=17",
+    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["distribution electrique", "securite", "triphase"]
+  },
+
 ];
