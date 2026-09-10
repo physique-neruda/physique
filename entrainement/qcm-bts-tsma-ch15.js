@@ -199,75 +199,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Un …… mesure la sortie et referme la boucle.",
-   "verso": "<strong>capteur</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Réponse indicielle » ?",
+   "verso": "La <strong>réponse indicielle</strong> est l'enregistrement de la sortie lorsque l'entrée subit un échelon, c'est-à-dire une variation brusque.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "La boucle fermée …… : il lui suffit de constater l'écart.",
-   "verso": "<strong>compense les perturbations sans avoir besoin de les connaître</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Constante de temps » ?",
+   "verso": "Un système du premier ordre est entièrement décrit par sa transmittance statique et par sa <strong>constante de temps</strong> τ, qui est l'instant où la sortie atteint 63 % de sa valeur finale. À 3τ, elle en atteint 95 %.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Deux indices, dans cet ordre — qu'y a-t-il à retenir ?",
+   "verso": "Un <strong>dépassement</strong> suffit à conclure : le système est au moins du second ordre, car un premier ordre n'en présente jamais.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Deux grandeurs à relever — qu'y a-t-il à retenir ?",
+   "verso": "Le <strong>dépassement</strong> D = s_max - s_∞s_∞ dit de combien le système déborde. Le <strong>temps de réponse à 5 %</strong> est l'instant à partir duquel la sortie ne ressort plus de la bande s_∞ ± 5 %.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Les éléments d'une boucle fermée — qu'y a-t-il à retenir ?",
+   "verso": "Une <strong>consigne</strong> entre dans un comparateur, qui la confronte à la mesure venue de la chaîne de retour et en forme l'écart.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Le <strong>dépassement</strong> D = s_max - s_∞s_∞ dit …….",
+   "rep": "de combien le système déborde",
    "verso": "<strong>de combien le système déborde</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Le <strong>temps de réponse à 5 %</strong> est …… de la bande s_∞ ± 5 %.",
+   "recto": "Le <strong>temps de réponse à 5 %</strong> est …… de la bande s_∞ ± 5 %.",
+   "rep": "l'instant à partir duquel la sortie ne ressort plus",
    "verso": "<strong>l'instant à partir duquel la sortie ne ressort plus</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Elle rend aussi le comportement …… du matériel, qui vieillit et s'échauffe.",
-   "verso": "<strong>moins dépendant des caractéristiques exactes</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "On y distingue le ……, pendant lequel la sortie évolue, et le régime permanent, où elle ne bouge plus.",
-   "verso": "<strong>régime transitoire</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "On y distingue le régime transitoire, pendant lequel la sortie évolue, et le ……, où elle ne bouge plus.",
-   "verso": "<strong>régime permanent</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "En l'absence de dépassement, regarder le …… : une tangente horizontale trahit un second ordre fortement amorti.",
+   "rep": "départ de la courbe",
    "verso": "<strong>départ de la courbe</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Un <strong>dépassement</strong> suffit à conclure : le système est ……, car un premier ordre n'en présente jamais.",
-   "verso": "<strong>au moins du second ordre</strong>",
+   "recto": "Une <strong>consigne</strong> entre dans un comparateur, qui la confronte à la mesure venue de la …… et en forme l'écart.",
+   "rep": "chaîne de retour",
+   "verso": "<strong>chaîne de retour</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "La <strong>réponse indicielle</strong> est l'enregistrement de la sortie lorsque l'entrée subit ……, c'est-à-dire une variation brusque.",
+   "rep": "un échelon",
+   "verso": "<strong>un échelon</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "La valeur finale d'une réponse indicielle se lit ……",
-   "verso": "<strong>dans le régime permanent</strong> — la valeur finale se lit sur le palier, donc en régime permanent. Mais c'est le régime transitoire qui porte toute l'information : le permanent ne donne qu'un seul nombre. Et la transmittance statique est bien le rapport de ce qui sort à ce qui entre, avec son unité propre. 3pt",
+   "rep": "dans le régime permanent",
+   "verso": "<strong>dans le régime permanent</strong> — la valeur finale se lit sur le palier, donc en régime permanent. Mais c'est le régime transitoire qui porte toute l'information : le permanent ne donne qu'un seul nombre.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La transmittance statique d'un système vaut ……",
-   "verso": "<strong>K = Δs / Δe</strong> — la valeur finale se lit sur le palier, donc en régime permanent. Mais c'est le régime transitoire qui porte toute l'information : le permanent ne donne qu'un seul nombre. Et la transmittance statique est bien le rapport de ce qui sort à ce qui entre, avec son unité propre. 3pt",
+   "rep": "K = Δs / Δe",
+   "verso": "<strong>K = Δs / Δe</strong> — la valeur finale se lit sur le palier, donc en régime permanent. Mais c'est le régime transitoire qui porte toute l'information : le permanent ne donne qu'un seul nombre.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour un premier ordre, la sortie atteint 63 % de sa valeur finale à l'instant ……",
-   "verso": "<strong>τ</strong> — ce sont les deux repères du premier ordre : 63 % à τ, 95 % à 3τ. Les retenir dans ce sens évite l'erreur symétrique, qui consiste à croire que la sortie atteint sa valeur finale à τ. 3pt",
+   "rep": "τ",
+   "verso": "<strong>τ</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "À t = 3τ, la sortie d'un premier ordre vaut ……",
+   "rep": "95 % de s_∞",
+   "verso": "<strong>95 % de s_∞</strong> — ce sont les deux repères du premier ordre : 63 % à τ, 95 % à 3τ. Les retenir dans ce sens évite l'erreur symétrique, qui consiste à croire que la sortie atteint sa valeur finale à τ. 3pt",
    "origine": "bilan"
   }
  ]

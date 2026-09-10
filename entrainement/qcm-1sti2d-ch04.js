@@ -222,74 +222,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Ensuite, seul un courant <strong>variable</strong> traverse un …… : sans lui, impossible d'élever puis d'abaisser la tension.",
-   "verso": "<strong>transformateur</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Période et fréquence » ?",
+   "verso": "La <strong>période</strong> T est la <strong>durée d'un seul motif</strong>, en secondes. La <strong>fréquence</strong> f est le <strong>nombre de motifs contenus dans une seconde</strong>, en hertz (Hz).",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Enfin, transporter sous …… permet une <strong>faible intensité</strong>, donc peu de pertes par échauffement dans les lignes.",
-   "verso": "<strong>haute tension</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Valeur moyenne » ?",
+   "verso": "La <strong>valeur moyenne</strong> u d'un signal périodique est le quotient de l'<strong>aire algébrique</strong> comprise entre la courbe et l'axe des temps, sur <strong>une</strong> période, par la durée de cette période.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Valeur efficace » ?",
+   "verso": "La <strong>valeur efficace</strong> U_eff d'une tension périodique est la valeur de la tension <strong>continue</strong> qui produirait, dans la même résistance, <strong>le même échauffement</strong>.",
+   "origine": "definition du cours"
   },
   {
    "type": "trou",
    "recto": "La <strong>période</strong> T est la ……, en secondes.",
+   "rep": "durée d'un seul motif",
    "verso": "<strong>durée d'un seul motif</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>fréquence</strong> f est le ……, en hertz (Hz).",
+   "rep": "nombre de motifs contenus dans une seconde",
    "verso": "<strong>nombre de motifs contenus dans une seconde</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "La …… ⟨u⟩ d'un signal périodique est le quotient de l'<strong>aire algébrique</strong> comprise entre la courbe et l'axe des temps, sur <strong>une</strong> période, par la durée de cette période.",
-   "verso": "<strong>valeur moyenne</strong>",
+   "recto": "Ensuite, seul un courant <strong>variable</strong> traverse un …… : sans lui, impossible d'élever puis d'abaisser la tension.",
+   "rep": "transformateur",
+   "verso": "<strong>transformateur</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Enfin, transporter sous …… permet une <strong>faible intensité</strong>, donc peu de pertes par échauffement dans les lignes.",
+   "rep": "haute tension",
+   "verso": "<strong>haute tension</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Le courant du secteur est sinusoïdal notamment parce que ……",
+   "rep": "l'alternateur le produit naturellement ainsi",
    "verso": "<strong>l'alternateur le produit naturellement ainsi</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un transformateur ne fonctionne pas en courant continu parce que ……",
+   "rep": "il exige une tension <strong>variable</strong>",
    "verso": "<strong>il exige une tension <strong>variable</strong></strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le <strong>motif</strong> d'un signal périodique est ……",
+   "rep": "le morceau de courbe qui se répète",
    "verso": "<strong>le morceau de courbe qui se répète</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La période T d'un signal périodique est ……",
+   "rep": "la durée d'un seul motif",
    "verso": "<strong>la durée d'un seul motif</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La fréquence est ……",
+   "rep": "le nombre de motifs contenus dans une seconde",
    "verso": "<strong>le nombre de motifs contenus dans une seconde</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un signal a une période T = 20 ms. Sa fréquence vaut ……",
+   "rep": "50 Hz",
    "verso": "<strong>50 Hz</strong> — 1/0,020 = 50",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un signal a une fréquence f = 250 Hz. Sa période vaut ……",
+   "rep": "4,0 ms",
    "verso": "<strong>4,0 ms</strong> — 1/250 = 4,0 × 10⁻³ s",
    "origine": "bilan"
   }

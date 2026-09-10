@@ -255,75 +255,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "……",
-   "verso": "<strong>proportionnelle</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Loi d'Ohm » ?",
+   "verso": "Pour un conducteur ohmique, la tension à ses bornes est <strong>proportionnelle</strong> à l'intensité qui le traverse : [2]\\[ U = R × I, U en, R en, I en. \\] Le coefficient de proportionnalité R est la <strong>résistance</strong> du conducteur.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Convention de signe » ?",
+   "verso": "Lorsqu'un dipôle est fléché en <strong>convention récepteur</strong>, on calcule P = U × I et l'on interprète le <strong>signe</strong> du résultat : si P > 0, le dipôle <strong>reçoit</strong> de l'énergie ; si P < 0, il en <strong>fournit</strong>.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Effet Joule » ?",
+   "verso": "Un conducteur de résistance R parcouru par un courant d'intensité I dissipe une puissance thermique : [2]\\[ P_J = R × I². \\]",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Deux protections complémentaires » ?",
+   "verso": "Le <strong>disjoncteur magnétothermique</strong> surveille l'<strong>intensité</strong> qui circule et coupe en cas de surcharge ou de court-circuit : il protège le <strong>câble</strong>.",
+   "origine": "definition du cours"
   },
   {
    "type": "trou",
-   "recto": "Lorsqu'un dipôle est fléché en ……, on calcule P = U × I et l'on interprète le <strong>signe</strong> du résultat : si P > 0, le dipôle <strong>reçoit</strong> de l'énergie ; si P < 0, il en <strong>fournit</strong>.",
-   "verso": "<strong>convention récepteur</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "On flèche en convention récepteur, on calcule, et le ……. Une résistance donne toujours P > 0 — elle ne peut que recevoir.",
+   "recto": "On flèche en convention récepteur, on calcule, et le …….",
+   "rep": "signe répond à notre place",
    "verso": "<strong>signe répond à notre place</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "C'est la relation la plus lourde de conséquences de tout le chapitre. Selon l'appareil, cet échauffement est un <strong>défaut</strong> (un câble qui chauffe est de l'énergie gaspillée) ou le …… (radiateur, plaque, grille-pain, fer à souder).",
-   "verso": "<strong>but recherché</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Pour un conducteur ohmique, la tension à ses bornes est <strong>proportionnelle</strong> à l'intensité qui le traverse :\n……",
-   "verso": "U = R × I, U en V, R en Ω, I en A.",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La même relation se réarrange selon ce que l'on cherche :\n……",
-   "verso": "U = R I, I = U/R, R = U/I.",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Un conducteur de résistance R parcouru par un courant d'intensité I dissipe une puissance thermique :\n……",
-   "verso": "P<sub>J</sub> = R × I².",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "La loi d'Ohm s'écrit ……",
+   "rep": "U = R × I",
    "verso": "<strong>U = R × I</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La caractéristique U(I) d'un conducteur ohmique est ……",
+   "rep": "une droite passant par l'origine",
    "verso": "<strong>une droite passant par l'origine</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Si l'on double la tension aux bornes d'une résistance, sa valeur R ……",
+   "rep": "ne change pas",
    "verso": "<strong>ne change pas</strong> — R est une caractéristique du composant",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La puissance d'un dipôle quelconque vaut ……",
+   "rep": "P = U × I",
    "verso": "<strong>P = U × I</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Les écritures P = R I² et P = U²/R ne sont valables que pour ……",
+   "rep": "un conducteur ohmique",
    "verso": "<strong>un conducteur ohmique</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un appareil de 2000 W sous 230 V appelle une intensité de ……",
+   "rep": "8,7 A",
+   "verso": "<strong>8,7 A</strong> — 2000/230",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La puissance dissipée par effet Joule vaut ……",
+   "rep": "R × I²",
+   "verso": "<strong>R × I²</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Si l'on double l'intensité dans un câble, les pertes par effet Joule sont ……",
+   "rep": "multipliées par 4",
+   "verso": "<strong>multipliées par 4</strong> — l'intensité intervient au carré",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour un câble, une section plus grande donne une résistance ……",
+   "rep": "plus faible",
+   "verso": "<strong>plus faible</strong>",
    "origine": "bilan"
   }
  ]

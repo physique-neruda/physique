@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "2",
  "titre": "Dipôles passifs et actifs",
  "niveau": "BTS ET",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Un générateur de 12 V alimente R₁ = 150 Ω et R₂ = 250 Ω en série. Le courant vaut :",
+   "choix": [
+    "30 mA",
+    "80 mA",
+    "48 mA",
+    "3,0 mA"
+   ],
+   "bonne": 0,
+   "expl": "En série les résistances s'ajoutent : 400 Ω, et I = 12/400 = 0,030 A = 30 mA."
+  },
+  {
+   "q": "Dans ce même circuit, la tension aux bornes de R₂ vaut :",
+   "choix": [
+    "7,5 V",
+    "4,5 V",
+    "12 V",
+    "6,0 V"
+   ],
+   "bonne": 0,
+   "expl": "250 × 0,030 = 7,5 V. Et 7,5 + 4,5 = 12 V : la loi des mailles sert de vérification."
+  },
+  {
+   "q": "La résistance équivalente de 120 Ω et 180 Ω en parallèle vaut :",
+   "choix": [
+    "72 Ω",
+    "300 Ω",
+    "150 Ω",
+    "216 Ω"
+   ],
+   "bonne": 0,
+   "expl": "(120 × 180)/(120 + 180) = 72 Ω. En parallèle, le résultat est toujours plus petit que la plus petite des deux : 150 Ω ou 300 Ω sont impossibles."
+  },
+  {
+   "q": "Une résistance de 47 Ω est parcourue par 0,35 A. La puissance dissipée vaut :",
+   "choix": [
+    "5,76 W",
+    "16,5 W",
+    "4,79 W",
+    "0,38 W"
+   ],
+   "bonne": 0,
+   "expl": "P = R I² = 47 × 0,1225 = 5,76 W. C'est le carré de l'intensité ; 16,5 V est la tension, pas la puissance."
+  },
+  {
+   "q": "Convertir 470 µF en farads :",
+   "choix": [
+    "4,70×10⁻⁴ F",
+    "4,70×10⁻⁶ F",
+    "4,70×10⁻³ F",
+    "4,70×10² F"
+   ],
+   "bonne": 0,
+   "expl": "micro vaut 10⁻⁶ : 470 × 10⁻⁶ = 4,70×10⁻⁴ F. Le 470 apporte deux rangs."
+  },
+  {
+   "q": "Une droite passe par (0 ; 9) et (3 ; 0). Son équation est :",
+   "choix": [
+    "y = −3x + 9",
+    "y = 3x + 9",
+    "y = −x/3 + 9",
+    "y = −3x − 9"
+   ],
+   "bonne": 0,
+   "expl": "L'ordonnée à l'origine vaut 9, et la pente (0 − 9)/(3 − 0) = −3. C'est la caractéristique d'un générateur : une pente négative."
+  }
+ ],
  "bilan": [
   {
    "q": "Un dipôle dont la caractéristique passe par l'origine est :",
@@ -164,55 +231,62 @@ window.CHAPITRE = {
   {
    "type": "retenir",
    "recto": "Trois dipôles dont la résistance n'est pas constante — qu'y a-t-il à retenir ?",
-   "verso": "La <strong>diode</strong> ne conduit que dans un sens, et seulement au-delà d'une tension de seuil de l'ordre de 0,6 V pour le silicium. La <strong>lampe à filament</strong> voit sa résistance augmenter avec la température, donc avec le courant. La <strong>varistance</strong> est quasi isolante puis brutalement conductrice : c'est un limiteur de surtension.",
+   "verso": "La <strong>diode</strong> ne conduit que dans un sens, et seulement au-delà d'une tension de seuil de l'ordre de 0,6 V pour le silicium. La <strong>lampe à filament</strong> voit sa résistance augmenter avec la température, donc avec le courant.",
    "origine": "encadre du cours"
   },
   {
    "type": "retenir",
    "recto": "Le réflexe du régime continu établi — qu'y a-t-il à retenir ?",
-   "verso": "Une fois le régime établi en continu, plus rien ne varie. Le condensateur se comporte alors comme un interrupteur ouvert (i = 0) et la bobine comme un fil (u = 0). Ce réflexe permet de simplifier n'importe quel schéma avant d'en calculer le point de fonctionnement.",
+   "verso": "Une fois le régime établi en continu, plus rien ne varie. Le condensateur se comporte alors comme un interrupteur ouvert (i = 0) et la bobine comme un fil (u = 0).",
    "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Un dipôle est ohmique lorsque sa caractéristique est …….",
+   "rep": "une droite passant par l'origine",
    "verso": "<strong>une droite passant par l'origine</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Deux dipôles branchés l'un sur l'autre ont forcément …….",
+   "rep": "la même tension et le même courant",
    "verso": "<strong>la même tension et le même courant</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La tension à ses bornes vaut ……, où L est l'inductance, en henrys (H).",
+   "rep": "u = L di/dt",
    "verso": "<strong>u = L di/dt</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La source génère E I, en fournit U I à l'extérieur, et dissipe …… en interne.",
+   "rep": "r I²",
    "verso": "<strong>r I²</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>lampe à filament</strong> voit sa résistance ……, donc avec le courant.",
+   "rep": "augmenter avec la température",
    "verso": "<strong>augmenter avec la température</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un dipôle dont la caractéristique passe par l'origine est ……",
+   "rep": "passif",
    "verso": "<strong>passif</strong> — Passer par l'origine signifie qu'à tension nulle le courant est nul : sans générateur, il ne se passe rien. La réponse c est trop forte — une diode et une lampe passent par l'origine sans être ohmiques.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Sur la caractéristique I(U) d'un conducteur ohmique, la pente vaut ……",
-   "verso": "<strong>1/R</strong> — I = U/R : la pente de I(U) vaut 1/R. Une caractéristique raide correspond donc à une faible résistance. Attention à l'axe choisi : sur un tracé U(I), la pente vaut bien R.",
+   "rep": "1/R",
+   "verso": "<strong>1/R</strong>",
    "origine": "bilan"
   }
  ]

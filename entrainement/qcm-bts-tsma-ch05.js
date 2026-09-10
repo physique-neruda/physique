@@ -199,74 +199,94 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "À Δp et L fixés, le débit varie comme …….",
-   "verso": "<strong>la puissance quatrième du diamètre</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Viscosité dynamique » ?",
+   "verso": "La <strong>viscosité dynamique</strong> η mesure la résistance d'un fluide au glissement de ses couches les unes sur les autres. Elle s'exprime en pascal-seconde (Pa·s).",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Elle s'exprime en pratique en mm²/s, avec …….",
-   "verso": "<strong>1 mm²/s = 1×10⁻⁶ m²/s</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Les deux régimes » ?",
+   "verso": "En régime <strong>laminaire</strong>, les filets de fluide glissent les uns sur les autres sans se mélanger ; le profil de vitesse est parabolique.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Doubler le diamètre multiplie le débit par …….",
-   "verso": "<strong>16</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Pertes de charge » ?",
+   "verso": "On appelle <strong>perte de charge</strong> la chute de pression subie par un fluide entre deux points d'un circuit. L'énergie correspondante est dissipée en chaleur et ne peut jamais être récupérée.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "On appelle <strong>perte de charge</strong> …….",
-   "verso": "<strong>la chute de pression subie par un fluide entre deux points d'un circuit</strong>",
-   "origine": "cours a completer"
+   "type": "retenir",
+   "recto": "Deux viscosités, une seule idée — qu'y a-t-il à retenir ?",
+   "verso": "La <strong>viscosité cinématique</strong> ν se déduit de la précédente : ν= η/ρ, en m²/s. Elle s'exprime en pratique en mm²/s, avec 1 mm²/s = 1×10⁻⁶ m²/s.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Régulières et singulières — qu'y a-t-il à retenir ?",
+   "verso": "Les pertes <strong>régulières</strong> (ou linéaires) se produisent dans les portions droites, sur toute la longueur : Δp = λL/D·1/2ρv².",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Le diamètre commande tout — qu'y a-t-il à retenir ?",
+   "verso": "À Δp et L fixés, le débit varie comme la puissance quatrième du diamètre. Doubler le diamètre multiplie le débit par 16. Réduire le diamètre de 10 % fait chuter le débit de 34 % (0,90⁴ = 0,656).",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "La <strong>viscosité dynamique</strong> η mesure …….",
+   "rep": "la résistance d'un fluide au glissement de ses couches les unes sur les autres",
    "verso": "<strong>la résistance d'un fluide au glissement de ses couches les unes sur les autres</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "En régime <strong>turbulent</strong>, …… ; le profil s'aplatit.",
+   "rep": "l'écoulement devient chaotique, parcouru de tourbillons",
    "verso": "<strong>l'écoulement devient chaotique, parcouru de tourbillons</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "L'énergie correspondante est …… et ne peut jamais être récupérée.",
+   "rep": "dissipée en chaleur",
    "verso": "<strong>dissipée en chaleur</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Réduire le diamètre de 10 % fait chuter le débit de …… (0,90⁴ = 0,656).",
-   "verso": "<strong>34 %</strong>",
+   "recto": "Réduire le diamètre de 10 % fait chuter le débit de …… (0,90⁴ = 0,656).",
+   "rep": "34 %",
+   "verso": "<strong>34 %</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Les pertes <strong>singulières</strong> se produisent …… : Δp = K·1/2ρv².",
+   "rep": "en un point précis : coude, vanne, raccord, filtre, rétrécissement",
    "verso": "<strong>en un point précis : coude, vanne, raccord, filtre, rétrécissement</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "La viscosité dynamique η s'exprime en ……",
-   "verso": "<strong>Pa·s</strong> — η en Pa·s. La réponse a est celle de la viscosité cinématique ν= η/ρ : les deux se distinguent par la masse volumique. 3pt",
+   "rep": "Pa·s",
+   "verso": "<strong>Pa·s</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La désignation « ISO VG 46 » signifie que la viscosité cinématique vaut 46 mm²/s ……",
-   "verso": "<strong>à 40 °C</strong> — le nombre du grade ISO VG est la viscosité cinématique à 40 °C, température de référence normalisée. Une huile n'a pas « une » viscosité : elle en a une par température, et le facteur atteint 90 entre 0 °C et 100 °C. 3pt",
+   "rep": "à 40 °C",
+   "verso": "<strong>à 40 °C</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Quand la température d'une huile augmente, sa viscosité ……",
+   "rep": "diminue fortement",
    "verso": "<strong>diminue fortement</strong> — le nombre du grade ISO VG est la viscosité cinématique à 40 °C, température de référence normalisée. Une huile n'a pas « une » viscosité : elle en a une par température, et le facteur atteint 90 entre 0 °C et 100 °C. 3pt",
    "origine": "bilan"
   }

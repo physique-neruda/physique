@@ -33,6 +33,23 @@ h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
 .balance{background:var(--lcd);border-radius:8px;padding:14px 12px;color:var(--lcdtexte);
   font-family:var(--mono);font-size:1.35rem;text-align:center;letter-spacing:.01em}
 .balance .eq{color:var(--lcdvert)}
+.colonnes{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.colonne{flex:1 1 250px;border:1px solid var(--bord);border-radius:9px;padding:10px;background:#F9FBFC}
+.colonne h3{font-size:.86rem;margin:0 0 2px;color:var(--bleu)}
+.colonne .regle{font-size:.78rem;color:var(--gris);margin:0 0 8px;font-style:italic}
+.pas{margin:0 0 8px;padding-bottom:8px;border-bottom:1px dashed var(--bord)}
+.pas:last-child{border-bottom:0;padding-bottom:0;margin-bottom:0}
+.pas .quoi{display:block;font-size:.8rem;color:var(--gris);margin-bottom:5px}
+.pas .ligne{display:block;font-family:var(--mono);font-size:1.02rem;text-align:center;
+  line-height:1.15;padding:3px 0}
+.pas.final .ligne{color:var(--bleu);font-weight:700;font-size:1.12rem}
+.fr{display:inline-block;vertical-align:middle;text-align:center;margin:0 .18em}
+.fr .n{display:block;padding:0 .35em}
+.fr .d{display:block;border-top:2px solid currentColor;padding:0 .35em}
+.croix{display:inline-block;color:var(--orange);font-size:1.5rem;vertical-align:middle;
+  margin:0 .1em;font-weight:700}
+.pas s{color:var(--faux);text-decoration-thickness:2px}
+.pas em{font-style:normal;color:var(--orange);font-weight:700}
 .etape{margin:10px 0 0;padding:9px 11px;border-left:4px solid var(--bleu);background:#F5F8FA;
   border-radius:0 7px 7px 0;font-size:.9rem}
 .etape b{color:var(--bleu)}
@@ -73,9 +90,21 @@ on le fait de l'autre. On choisit la lettre cherchée, et on regarde le chemin.<
 </div>
 
 <div class="bloc">
-  <h2>3. Le chemin</h2>
+  <h2>3. Deux méthodes, le même résultat</h2>
   <div class="balance" id="cible"></div>
-  <div id="etapes"></div>
+  <div class="colonnes">
+    <div class="colonne">
+      <h3>Méthode « équation »</h3>
+      <p class="regle">Ce qu'on fait d'un côté, on le fait de l'autre.</p>
+      <div id="meq"></div>
+    </div>
+    <div class="colonne">
+      <h3>Méthode « produit en croix »</h3>
+      <p class="regle">Chaque lettre traverse en diagonale : ce qui est en haut d'un côté
+      arrive en bas de l'autre.</p>
+      <div id="mcx"></div>
+    </div>
+  </div>
 </div>
 
 <div class="bloc">
@@ -193,51 +222,117 @@ on le fait de l'autre. On choisit la lettre cherchée, et on regarde le chemin.<
     saisies();
   }
 
+  // --------------------------------------------------------- petits rendus
+  function fr(n,d){ return '<span class="fr"><span class="n">' + n
+    + '</span><span class="d">' + d + '</span></span>'; }
+  function prod(l){ return l.length ? l.map(jolie).join(' × ') : '1'; }
+  // une fraction dont le dénominateur vaut 1 ne s'écrit pas
+  function frx(n,d){ return d === '1' ? n : fr(n,d); }
+  function barre(t){ return '<s>' + t + '</s>'; }
+  function autres(l,x){ return l.filter(function(y){ return y !== x; }); }
+  // membre de droite de la relation de départ
+  function droite(){ return f.b.length ? fr(prod(f.h), prod(f.b)) : prod(f.h); }
+  function pas(zone, quoi, ligne, final){
+    var e = creer('div','pas' + (final?' final':''));
+    e.innerHTML = '<span class="quoi">' + quoi + '</span><span class="ligne">'
+      + ligne + '</span>';
+    $(zone).appendChild(e);
+  }
+
   function chemin(){
-    var z = $('etapes'); z.innerHTML='';
+    $('meq').innerHTML = ''; $('mcx').innerHTML = '';
     if(!cible){
-      $('cible').innerHTML = jolie(f.g) + ' <span class="eq">=</span> ' + ecrit({h:f.h,b:f.b});
-      z.appendChild(creer('p','aide','Choisir la lettre à isoler.'));
+      $('cible').innerHTML = jolie(f.g) + ' <span class="eq">=</span> '
+        + ecrit({h:f.h,b:f.b});
+      $('meq').appendChild(creer('p','aide','Choisir la lettre à isoler.'));
       return;
     }
     var e = isoler(cible);
     $('cible').innerHTML = jolie(cible) + ' <span class="eq">=</span> ' + ecrit(e);
+    var res = e.b.length ? fr(prod(e.h), prod(e.b)) : prod(e.h);
+    equation(res);
+    croix(res);
+  }
 
-    z.appendChild(creer('div','etape',
-      '<b>Départ :</b><span class="calc">' + jolie(f.g) + ' = '
-      + ecrit({h:f.h,b:f.b}) + '</span>'));
-
+  // ------------------------------------------------- colonne « équation »
+  function equation(res){
+    pas('meq', 'La relation de départ', jolie(f.g) + ' = ' + droite());
     if(cible === f.g){
-      z.appendChild(creer('div','etape',
-        'La lettre cherchée est <b>déjà seule</b> à gauche : il n\u2019y a rien à faire.'));
+      pas('meq', 'Rien à faire', jolie(cible) + ' = ' + droite(), true);
       return;
     }
     if(f.b.indexOf(cible) >= 0){
-      z.appendChild(creer('div','etape',
-        '<b>1.</b> ' + jolie(cible) + ' est <span class="geste">en bas</span>. '
-        + 'On multiplie les deux côtés par ' + jolie(cible)
-        + ' : en bas à droite, il se simplifie.'
-        + '<span class="calc">' + jolie(f.g) + ' × ' + jolie(cible) + ' = '
-        + ecrit({h:f.h,b:f.b.filter(function(y){return y!==cible;})}) + '</span>'));
-      z.appendChild(creer('div','etape',
-        '<b>2.</b> Il reste à faire descendre ce qui multiplie ' + jolie(cible)
-        + ' : on divise les deux côtés par ' + jolie(f.g) + '.'
-        + '<span class="calc">' + jolie(cible) + ' = ' + ecrit(isoler(cible)) + '</span>'));
-    } else {
-      z.appendChild(creer('div','etape',
-        '<b>1.</b> ' + jolie(cible) + ' est <span class="geste">en haut à droite</span>, '
-        + 'multiplié par ' + f.h.filter(function(y){return y!==cible;}).map(jolie).join(' et ')
-        + '. On divise les deux côtés par ' + f.h.filter(function(y){return y!==cible;}).map(jolie).join(' × ')
-        + '.'));
-      z.appendChild(creer('div','etape',
-        '<b>2.</b> Ce qui multipliait ' + jolie(cible)
-        + ' passe donc au dénominateur de l\u2019autre côté.'
-        + '<span class="calc">' + jolie(cible) + ' = ' + ecrit(isoler(cible)) + '</span>'));
+      // la lettre cherchée est au dénominateur : on multiplie les deux côtés
+      var reste = autres(f.b, cible);
+      pas('meq', 'On multiplie les deux côtés par <em>' + jolie(cible) + '</em>',
+        jolie(f.g) + ' × ' + jolie(cible) + ' = '
+        + fr(prod(f.h) + ' × ' + jolie(cible),
+             prod(autres(f.b,cible)) === '1' ? barre(jolie(cible))
+               : prod(reste) + ' × ' + barre(jolie(cible))));
+      pas('meq', '<em>' + jolie(cible) + '</em> se simplifie à droite',
+        jolie(f.g) + ' × ' + jolie(cible) + ' = '
+        + (reste.length ? fr(prod(f.h), prod(reste)) : prod(f.h)));
+      pas('meq', 'On divise les deux côtés par <em>' + jolie(f.g) + '</em>',
+        jolie(cible) + ' = ' + res, true);
+      return;
     }
-    z.appendChild(creer('div','etape',
-      '<b>Le contrôle :</b> une lettre qui <span class="geste">multipliait</span> d\u2019un côté '
-      + '<span class="geste">divise</span> de l\u2019autre. Si une lettre est passée sans '
-      + 'changer d\u2019étage, c\u2019est faux.'));
+    // la lettre cherchée est au numérateur
+    var co = autres(f.h, cible);
+    if(f.b.length){
+      pas('meq', 'On multiplie les deux côtés par <em>' + prod(f.b) + '</em>',
+        jolie(f.g) + ' × ' + prod(f.b) + ' = '
+        + fr(prod(f.h) + ' × ' + barre(prod(f.b)), barre(prod(f.b))));
+      pas('meq', 'Le dénominateur disparaît',
+        jolie(f.g) + ' × ' + prod(f.b) + ' = ' + prod(f.h));
+    }
+    if(!co.length){
+      pas('meq', 'La lettre est déjà seule', jolie(cible) + ' = ' + res, true);
+      return;
+    }
+    pas('meq', 'On divise les deux côtés par <em>' + prod(co) + '</em>',
+      fr((f.b.length ? jolie(f.g) + ' × ' + prod(f.b) : jolie(f.g)), prod(co))
+      + ' = ' + fr(jolie(cible) + ' × ' + barre(prod(co)), barre(prod(co))));
+    pas('meq', 'Il ne reste que la lettre cherchée',
+      jolie(cible) + ' = ' + res, true);
+  }
+
+  // ------------------------------------------ colonne « produit en croix »
+  function croix(res){
+    var deux = fr(jolie(f.g),'1') + '<span class="croix">&#10799;</span>'
+             + fr(prod(f.h), prod(f.b));
+    pas('mcx', 'On écrit la relation en deux fractions', deux);
+    if(cible === f.g){
+      pas('mcx', 'La lettre est déjà seule à gauche',
+        jolie(cible) + ' = ' + droite(), true);
+      return;
+    }
+    if(f.b.indexOf(cible) >= 0){
+      // en bas à droite : elle traverse vers le haut à gauche
+      var reste = autres(f.b, cible);
+      pas('mcx', '<em>' + jolie(cible) + '</em> est en bas à droite : elle traverse '
+        + 'en diagonale et arrive en haut à gauche',
+        jolie(f.g) + ' × ' + jolie(cible) + ' = ' + frx(prod(f.h), prod(reste)));
+      pas('mcx', 'Reste <em>' + jolie(f.g) + '</em>, en haut à gauche : elle traverse '
+        + 'à son tour, vers le bas à droite',
+        jolie(cible) + ' = ' + res, true);
+      return;
+    }
+    // en haut à droite : tout le reste traverse
+    var co = autres(f.h, cible), mouv = [];
+    co.forEach(function(y){ mouv.push('<em>' + jolie(y)
+      + '</em> : en haut à droite → en bas à gauche'); });
+    f.b.forEach(function(y){ mouv.push('<em>' + jolie(y)
+      + '</em> : en bas à droite → en haut à gauche'); });
+    if(!mouv.length){
+      pas('mcx', 'Il n\u2019y a rien à déplacer',
+        jolie(cible) + ' = ' + res, true);
+      return;
+    }
+    pas('mcx', 'Tout ce qui accompagne <em>' + jolie(cible)
+      + '</em> traverse en diagonale :<br>' + mouv.join('<br>'),
+      frx((f.b.length ? jolie(f.g) + ' × ' + prod(f.b) : jolie(f.g)),
+          prod(co)) + ' = ' + jolie(cible));
+    pas('mcx', 'On retourne l\u2019égalité', jolie(cible) + ' = ' + res, true);
   }
 
   // -------------------------------------------------- application numérique

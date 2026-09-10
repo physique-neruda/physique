@@ -199,75 +199,95 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Pour un système et tout ce qui l'entoure, …….",
-   "verso": "<strong>ΔS_total ≥ 0</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Réversible, irréversible » ?",
+   "verso": "Une transformation est <strong>réversible</strong> si l'on peut la parcourir en sens inverse : Elle est <strong>irréversible</strong> dans le cas contraire — c'est-à-dire dans tous les cas réels.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Entropie échangée » ?",
+   "verso": "Lorsqu'un système échange une chaleur Q avec un thermostat à la température T, sa variation d'entropie vaut ΔS = Q/T, en J/K. Le signe de ΔS est celui de Q.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Machine ditherme » ?",
+   "verso": "Une <strong>machine ditherme</strong> est une machine qui, <strong>en fonctionnant par cycles</strong>, échange de la chaleur avec deux sources de températures différentes et du travail avec le milieu extérieur.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Second principe, énoncé de l'évolution — qu'y a-t-il à retenir ?",
+   "verso": "Un transfert thermique ne peut pas s'effectuer spontanément d'un corps froid vers un corps chaud. Plus généralement, le second principe est un <strong>principe d'évolution</strong> : il indique dans quel sens une transformation se produit.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Le second principe, écrit avec l'entropie — qu'y a-t-il à retenir ?",
+   "verso": "Pour un système et tout ce qui l'entoure, ΔS_total ≥ 0. L'égalité ne vaut que pour une transformation réversible ; toute transformation réelle donne ΔS_total > 0.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Rendement, efficacité, coefficient de performance — qu'y a-t-il à retenir ?",
+   "verso": "Moteur : η= |W| / Q_c, toujours inférieur à 1. Machine frigorifique : e_f = Q_f / |W|. Pompe à chaleur : e_c = Q_c / |W|. Ces deux dernières sont souvent supérieures à 1.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Un transfert thermique ne peut pas s'effectuer spontanément …….",
+   "rep": "d'un corps froid vers un corps chaud",
    "verso": "<strong>d'un corps froid vers un corps chaud</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Chacune de ces trois irréversibilités …… par rapport à celle de Carnot.",
+   "rep": "dégrade la performance",
    "verso": "<strong>dégrade la performance</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "L'égalité ne vaut que pour une transformation réversible ; toute transformation réelle donne …….",
+   "rep": "ΔS_total > 0",
    "verso": "<strong>ΔS_total > 0</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "L'égalité ne vaut que pour une transformation …… ; toute transformation réelle donne ΔS_total > 0.",
-   "verso": "<strong>réversible</strong>",
+   "recto": "Dans un diagramme (T,S), la chaleur échangée à température constante vaut Q = T × ΔS, c'est-à-dire …….",
+   "rep": "l'aire du rectangle correspondant",
+   "verso": "<strong>l'aire du rectangle correspondant</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Dans une machine réelle, les échanges se font ……, le fluide subit des frottements, et les détentes sont brutales.",
+   "rep": "sous des écarts finis de température",
    "verso": "<strong>sous des écarts finis de température</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Lorsqu'un système échange une chaleur Q avec un thermostat à la température T, sa variation d'entropie vaut ……, en J/K.",
-   "verso": "<strong>ΔS = Q/T</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Dans un diagramme (T,S), la chaleur échangée à température constante vaut ……, c'est-à-dire l'aire du rectangle correspondant.",
-   "verso": "<strong>Q = T × ΔS</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Dans une machine réelle, les échanges se font sous des écarts finis de température, le fluide subit ……, et les détentes sont brutales.",
-   "verso": "<strong>des frottements</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Le second principe de la thermodynamique ……",
-   "verso": "<strong>indique dans quel sens les transformations se produisent</strong> — c'est le premier principe qui interdit de créer de l'énergie ; le second dit dans quel sens les choses se produisent. Les deux coexistent, aucun ne remplace l'autre : devant une machine impossible, il faut savoir dire lequel des deux est violé. 3pt",
+   "rep": "indique dans quel sens les transformations se produisent",
+   "verso": "<strong>indique dans quel sens les transformations se produisent</strong> — c'est le premier principe qui interdit de créer de l'énergie ; le second dit dans quel sens les choses se produisent.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Parmi ces phénomènes, lequel n'est pas une cause d'irréversibilité ?",
-   "verso": "<strong>une compression infiniment lente dans un cylindre à température constante</strong> — les trois causes d'irréversibilité sont les frottements, les transferts sous écart fini, les détentes brusques. Une compression infiniment lente à température constante est au contraire le seul cas réversible — et c'est précisément ce que fait le cycle de Carnot. 3pt",
+   "rep": "une compression infiniment lente dans un cylindre à température constante",
+   "verso": "<strong>une compression infiniment lente dans un cylindre à température constante</strong> — les trois causes d'irréversibilité sont les frottements, les transferts sous écart fini, les détentes brusques.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un système reçoit 600 J d'un thermostat à 300 K. Sa variation d'entropie vaut ……",
-   "verso": "<strong>+2,00 J/K</strong> — ΔS = Q/T = 600/300 = +2,00 J/K, le signe étant celui de Q. La réponse c vient d'une multiplication au lieu d'une division. Et pour l'ensemble système + entourage, ΔS_total ≥ 0 toujours : aucune conception, aussi soignée soit-elle, ne fait diminuer l'entropie totale. 3pt",
+   "rep": "+2,00 J/K",
+   "verso": "<strong>+2,00 J/K</strong>",
    "origine": "bilan"
   }
  ]

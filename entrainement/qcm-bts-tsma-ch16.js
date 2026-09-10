@@ -199,75 +199,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "L'<strong>étendue de mesure</strong> est …….",
-   "verso": "<strong>la plage dans laquelle le capteur est utilisable</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Actif ou passif » ?",
+   "verso": "Un capteur est <strong>actif</strong> s'il délivre lui-même une tension ou un courant. Il est <strong>passif</strong> s'il se contente de faire varier une résistance, une capacité ou une inductance : il lui faut alors une alimentation et un montage.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Le <strong>conditionneur</strong> en fait …….",
-   "verso": "<strong>une tension exploitable</strong>",
-   "origine": "cours a completer"
+   "type": "retenir",
+   "recto": "Quatre maillons — qu'y a-t-il à retenir ?",
+   "verso": "Le <strong>capteur</strong> traduit la grandeur physique en une grandeur électrique. Le <strong>conditionneur</strong> en fait une tension exploitable. Le <strong>convertisseur</strong> la traduit en un nombre.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "trou",
-   "recto": "Un capteur est <strong>actif</strong> s'il …….",
-   "verso": "<strong>délivre lui-même une tension ou un courant</strong>",
-   "origine": "cours a completer"
+   "type": "retenir",
+   "recto": "Trois grandeurs à savoir extraire — qu'y a-t-il à retenir ?",
+   "verso": "La <strong>sensibilité</strong> est la pente de la caractéristique, avec son unité. L'<strong>étendue de mesure</strong> est la plage dans laquelle le capteur est utilisable.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Deux notions à ne jamais confondre — qu'y a-t-il à retenir ?",
+   "verso": "La <strong>résolution</strong> est le plus petit écart que la chaîne peut distinguer ; elle est fixée par le convertisseur. La <strong>précision</strong> est l'écart possible avec la vraie valeur ; elle est fixée par le capteur.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Le <strong>convertisseur</strong> la traduit en …….",
+   "rep": "un nombre",
    "verso": "<strong>un nombre</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>sensibilité</strong> est ……, avec son unité.",
+   "rep": "la pente de la caractéristique",
    "verso": "<strong>la pente de la caractéristique</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Le <strong>capteur</strong> traduit la grandeur physique en …….",
-   "verso": "<strong>une grandeur électrique</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "La <strong>précision</strong> est …… ; elle est fixée par le capteur.",
+   "rep": "l'écart possible avec la vraie valeur",
    "verso": "<strong>l'écart possible avec la vraie valeur</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>linéarité</strong> est ……, exprimé en pourcentage de l'étendue.",
+   "rep": "l'écart maximal à la droite",
    "verso": "<strong>l'écart maximal à la droite</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>résolution</strong> est …… ; elle est fixée par le convertisseur.",
+   "rep": "le plus petit écart que la chaîne peut distinguer",
    "verso": "<strong>le plus petit écart que la chaîne peut distinguer</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Dans une chaîne de mesure, l'ordre des maillons est ……",
-   "verso": "<strong>capteur, conditionneur, convertisseur, calculateur</strong> — la grandeur physique traverse les quatre maillons dans cet ordre, et aucun n'améliore ce que le précédent lui donne : chacun ne fait que traduire. Retenir cette phrase règle la moitié des questions du chapitre. 3pt",
+   "rep": "capteur, conditionneur, convertisseur, calculateur",
+   "verso": "<strong>capteur, conditionneur, convertisseur, calculateur</strong> — la grandeur physique traverse les quatre maillons dans cet ordre, et aucun n'améliore ce que le précédent lui donne : chacun ne fait que traduire.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un capteur qui se contente de faire varier sa résistance est ……",
-   "verso": "<strong>passif</strong> — un capteur passif ne délivre rien par lui-même, il faut l'alimenter et le monter. Le thermocouple, lui, produit une tension à partir de la seule différence de température : c'est le type même du capteur actif. La jauge de contrainte et la CTN sont passives. 3pt",
+   "rep": "passif",
+   "verso": "<strong>passif</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Parmi ces capteurs, le seul actif est ……",
-   "verso": "<strong>le thermocouple</strong> — un capteur passif ne délivre rien par lui-même, il faut l'alimenter et le monter. Le thermocouple, lui, produit une tension à partir de la seule différence de température : c'est le type même du capteur actif. La jauge de contrainte et la CTN sont passives. 3pt",
+   "rep": "le thermocouple",
+   "verso": "<strong>le thermocouple</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La sensibilité d'un capteur de pression délivrant 0,50 V à 0 bar et 4,50 V à 250 bar vaut ……",
+   "rep": "16 mV/bar",
+   "verso": "<strong>16 mV/bar</strong> — (4,50 - 0,50)/250 = 0,016 V/bar. La réponse b vient d'un oubli du décalage de 0,50 V (on aurait divisé 4,50 par 250). Ce décalage est volontaire : il permet de distinguer une pression nulle d'un capteur débranché. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une CTN a un coefficient de température négatif : quand la température augmente, sa résistance ……",
+   "rep": "diminue",
+   "verso": "<strong>diminue</strong> — CTN veut dire coefficient de température négatif. Et le diviseur ne fabrique aucune information : il traduit la variation de résistance en variation de tension, sur une plage choisie.",
    "origine": "bilan"
   }
  ]

@@ -198,75 +198,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Avec ……, ce niveau de confiance est d'environ 95 %.",
-   "verso": "<strong>k = 2</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Les deux natures d'erreur » ?",
+   "verso": "Une erreur <strong>aléatoire</strong> change de valeur et de signe d'une mesure à l'autre : elle disperse les résultats. On la réduit en répétant les mesures et en les moyennant.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Incertitude élargie et niveau de confiance » ?",
+   "verso": "L'<strong>incertitude élargie</strong> U = k u définit un intervalle dans lequel la valeur vraie se trouve avec une probabilité donnée. Avec k = 2, ce niveau de confiance est d'environ 95 %. C'est la convention retenue dans tous les sujets de BTS.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Écrire un résultat de mesure — qu'y a-t-il à retenir ?",
+   "verso": "Un résultat s'écrit valeur ± incertitude, suivies de l'unité. L'incertitude porte un ou deux chiffres significatifs, arrondis vers le haut ; le dernier chiffre de la valeur est au même rang que celui de l'incertitude.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Avec k = 2, ce niveau de confiance est d'environ …….",
-   "verso": "<strong>95 %</strong>",
+   "rep": "95 %",
+   "verso": "<strong>95 %</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Lecture unique sur un instrument de résolution d : …….",
+   "rep": "u = d2√3 ≈ 0,29 d",
    "verso": "<strong>u = d2√3 ≈ 0,29 d</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Appareil analogique de classe c sur un calibre E : …….",
+   "rep": "u = c × E100√3",
    "verso": "<strong>u = c × E100√3</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "L'incertitude porte ……, arrondis vers le haut ; le dernier chiffre de la valeur est au même rang que celui de l'incertitude.",
-   "verso": "<strong>un ou deux chiffres significatifs</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Pour une <strong>somme</strong> ou une <strong>différence</strong> y = a ± b, ce sont les incertitudes <em>absolues</em> : …….",
+   "rep": "u(y) = √(u(a)² + u(b)²)",
    "verso": "<strong>u(y) = √(u(a)² + u(b)²)</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "L'incertitude porte un ou deux chiffres significatifs, arrondis …… ; le dernier chiffre de la valeur est au même rang que celui de l'incertitude.",
-   "verso": "<strong>vers le haut</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Pour un <strong>produit</strong> ou un <strong>quotient</strong> y = a × b ou y = a/b, ce sont les incertitudes <em>relatives</em> qui se composent : …….",
+   "rep": "u(y)/y = √((u(a)/a)² + (u(b)/b)²)",
    "verso": "<strong>u(y)/y = √((u(a)/a)² + (u(b)/b)²)</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Répéter une mesure et moyenner permet de réduire ……",
+   "rep": "l'erreur aléatoire",
    "verso": "<strong>l'erreur aléatoire</strong> — moyenner ne corrige que l'aléatoire. Un zéro décalé se retrouve identique sur les mille mesures suivantes : seule la comparaison à une référence le révèle. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un manomètre dont le zéro est décalé de 0,4 bar introduit une erreur ……",
+   "rep": "systématique",
    "verso": "<strong>systématique</strong> — moyenner ne corrige que l'aléatoire. Un zéro décalé se retrouve identique sur les mille mesures suivantes : seule la comparaison à une référence le révèle. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une série de mesures très groupées prouve que la mesure est ……",
-   "verso": "<strong>fidèle</strong> — des mesures groupées sont fidèles. Elles peuvent être parfaitement fausses : c'est le cas le plus dangereux, parce qu'il inspire confiance. 3pt",
+   "rep": "fidèle",
+   "verso": "<strong>fidèle</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour une lecture unique sur un instrument de résolution d = 0,02 mm, l'incertitude-type vaut environ ……",
+   "rep": "0,006 mm",
    "verso": "<strong>0,006 mm</strong> — u = d/(2√3) = 0,02/3,46 = 5,8×10⁻³ mm. Prendre u = d surestime d'un facteur 3,5. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour un appareil de classe, l'incertitude dépend ……",
+   "rep": "du calibre utilisé",
+   "verso": "<strong>du calibre utilisé</strong> — u = c E/(100√3) : l'incertitude est constante sur toute l'échelle. D'où la règle : choisir le plus petit calibre compatible, pour lire dans le haut de l'échelle. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une série de n mesures d'écart-type s, l'incertitude-type de répétabilité vaut ……",
+   "rep": "s/√n",
+   "verso": "<strong>s/√n</strong>",
    "origine": "bilan"
   }
  ]

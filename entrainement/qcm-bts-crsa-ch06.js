@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "6",
  "titre": "Viscosité et pertes de charge",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Une grandeur varie comme 1/D⁴. Si D passe de 10 à 14, elle est multipliée par :",
+   "choix": [
+    "0,260",
+    "0,714",
+    "3,84",
+    "2,00"
+   ],
+   "bonne": 0,
+   "expl": "(10/14)⁴ = 0,260 : elle est divisée par 3,84. Un exposant 4 amplifie énormément le moindre écart de diamètre."
+  },
+  {
+   "q": "Une grandeur varie comme x². Si x est multiplié par 1,5, elle est multipliée par :",
+   "choix": [
+    "2,25",
+    "1,50",
+    "3,00",
+    "4,50"
+   ],
+   "bonne": 0,
+   "expl": "1,5² = 2,25. Le carré ne se contente pas de suivre : il amplifie."
+  },
+  {
+   "q": "Convertir 20 L/min en m³/s :",
+   "choix": [
+    "3,33×10⁻⁴ m³/s",
+    "3,33×10⁻² m³/s",
+    "1,20 m³/s",
+    "3,33×10⁻⁶ m³/s"
+   ],
+   "bonne": 0,
+   "expl": "20 L = 2,0×10⁻² m³, et une minute vaut 60 s : 2,0×10⁻²/60 = 3,33×10⁻⁴ m³/s. Deux conversions, une en haut, une en bas."
+  },
+  {
+   "q": "Calculer 64/230 :",
+   "choix": [
+    "0,278",
+    "2,78",
+    "3,59",
+    "0,0278"
+   ],
+   "bonne": 0,
+   "expl": "0,278. C'est la forme du coefficient de perte de charge en régime laminaire : 64/Re."
+  },
+  {
+   "q": "Calculer (1,70 × 0,025)/(1,0×10⁻⁶) :",
+   "choix": [
+    "4,25×10⁴",
+    "4,25×10⁻⁸",
+    "4,25×10²",
+    "2,35×10⁻⁵"
+   ],
+   "bonne": 0,
+   "expl": "0,0425 / 10⁻⁶ = 4,25×10⁴. Diviser par 10⁻⁶ revient à multiplier par 10⁺⁶ : l'exposant change de signe en remontant du dénominateur."
+  },
+  {
+   "q": "Une grandeur varie comme 1/D⁴. Pour la diviser par 3, il faut multiplier D par :",
+   "choix": [
+    "1,32",
+    "3,00",
+    "1,73",
+    "0,76"
+   ],
+   "bonne": 0,
+   "expl": "3^(1/4) = 1,32. Un tout petit élargissement de conduite suffit à diviser les pertes par trois."
+  }
+ ],
  "bilan": [
   {
    "q": "La viscosité cinématique ν s'exprime en :",
@@ -164,67 +231,78 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Si Re > 4000, il est …… : les filets s'enchevêtrent en tourbillons.",
+   "rep": "turbulent",
    "verso": "<strong>turbulent</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Entre les deux, le régime est dit …… — instable, il n'est pas au programme.",
+   "rep": "transitoire",
    "verso": "<strong>transitoire</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Si Re < 2000, l'écoulement est …… : les filets de fluide restent parallèles.",
+   "rep": "laminaire",
    "verso": "<strong>laminaire</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La viscosité <strong>dynamique</strong> µ s'exprime en Pa·s ; la viscosité <strong>cinématique</strong> ν= µ/ρ s'exprime en …….",
+   "rep": "meter²/s",
    "verso": "<strong>meter²/s</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "À débit imposé et en régime laminaire, la perte de charge varie comme 1/D⁴ : augmenter le diamètre de 40 % divise les pertes par …….",
+   "rep": "quatre",
    "verso": "<strong>quatre</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "La viscosité cinématique ν s'exprime en ……",
+   "rep": "meter²/s",
    "verso": "<strong>meter²/s</strong> — ν= µ/ρ. La réponse a est l'unité de la viscosité dynamique µ : les deux se confondent facilement.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Quand la température d'une huile diminue, sa viscosité ……",
+   "rep": "augmente",
    "verso": "<strong>augmente</strong> — Une huile VG 46 est cinq fois et demie plus visqueuse à 10 qu'à 40 °C. C'est ce qui explique les difficultés au démarrage à froid.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le nombre de Reynolds s'exprime en ……",
+   "rep": "sans unité",
    "verso": "<strong>sans unité</strong> — C'est un nombre pur, qui compare effets d'inertie et effets visqueux.",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "Un écoulement pour lequel Re = 350 est ?",
-   "verso": "<strong>laminaire</strong> — Re < 2000.",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "En régime laminaire, le coefficient de perte de charge vaut ……",
+   "rep": "λ= 64/Re",
    "verso": "<strong>λ= 64/Re</strong> — Et cette relation n'est valable qu'en laminaire.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "En régime turbulent, le coefficient λ ……",
+   "rep": "se lit sur un abaque",
    "verso": "<strong>se lit sur un abaque</strong> — λ dépend alors aussi de la rugosité de la conduite ; l'énoncé le fournit.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Les pertes de charge régulières se produisent ……",
+   "rep": "le long des conduites droites",
+   "verso": "<strong>le long des conduites droites</strong> — Les coudes et les vannes relèvent des pertes singulières.",
    "origine": "bilan"
   }
  ]

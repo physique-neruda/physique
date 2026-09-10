@@ -27,6 +27,7 @@ Règles de bonne tenue d'une carte, appliquées ici :
 import re
 import sys
 import os
+import unicodedata
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
@@ -34,6 +35,8 @@ from construire_tsma import tex2txt   # noqa: E402
 
 CIBLE = 14          # nombre de cartes visé par chapitre
 PLANCHER = 12       # en dessous, on complète coûte que coûte avec le bilan
+RECTO_MAX = 165     # une question de carte tient en deux lignes, pas en cinq
+VERSO_MAX = 260     # la réponse aussi : on révise, on ne relit pas le cours
 
 # un recto qui commence par l'un de ces mots ne se comprend pas seul
 AMORCES = ("ni ", "et ", "or ", "donc ", "mais ", "c'est-à-dire", "puis ",
@@ -44,6 +47,83 @@ AMORCES = ("ni ", "et ", "or ", "donc ", "mais ", "c'est-à-dire", "puis ",
 # un recto qui renvoie à la page d'où il sort ne se comprend pas seul non plus
 RENVOIS = ("ci-dessus", "ci-dessous", "ci-contre", "figure", "tableau",
            "schéma ci", "précédent", "page ")
+
+
+MOTS_VIDES = set("""dans avec pour sans sous elle elles cette cette celui celle leur
+leurs mais donc alors ainsi quand comme plus moins tout tous toute toutes entre
+lorsque parce puisque etre avoir fait faire cela ceci meme aussi encore chaque
+autre autres deux trois quatre vaut valoir peut peuvent doit doivent""".split())
+
+
+def _sansacc(t):
+    return "".join(c for c in unicodedata.normalize("NFD", t.lower())
+                   if unicodedata.category(c) != "Mn")
+
+
+def _nu(t):
+    """Texte débarrassé de son balisage, pour les tests de longueur et de fuite."""
+    return re.sub(r"<[^>]+>", "", t)
+
+
+def _fuite(recto, verso):
+    """La réponse est-elle déjà écrite dans la question ?
+
+    C'est le défaut le plus vicieux d'une carte engendrée : « En ……, les
+    flèches sont de sens contraires, alors qu'en convention générateur… » —
+    le mot cherché, ou son binôme, figure dans l'énoncé. La carte ne teste
+    plus rien.
+    """
+    r = _sansacc(_nu(recto))
+    for mot in re.findall(r"[^\W\d_]{4,}", _sansacc(_nu(verso)), re.UNICODE):
+        if mot in MOTS_VIDES:
+            continue
+        if mot[:6] in r:
+            return True
+    return False
+
+
+def _reponse(c):
+    """Ce qu'il faut vraiment trouver — pas toute la réponse affichée.
+
+    Le test de fuite ne porte que là-dessus : l'explication qui suit une
+    bonne réponse reprend forcément des mots de la question, c'est même sa
+    raison d'être. Une définition aussi répète le terme défini. Seul le mot
+    ou le groupe cherché compte.
+    """
+    if c.get("rep"):
+        return c["rep"]
+    if "\u2026\u2026" in c.get("recto", ""):
+        m = re.search(r"<strong>(.*?)</strong>", c.get("verso", ""), re.S)
+        return m.group(1) if m else c.get("verso", "")
+    return None
+
+
+def bonne_carte(c):
+    """Le filtre final, appliqué à toutes les cartes quelle que soit leur source."""
+    recto, verso = _nu(c.get("recto", "")), _nu(c.get("verso", ""))
+    if not recto or not verso:
+        return False
+    if len(recto) > RECTO_MAX or len(verso) > VERSO_MAX:
+        return False
+    if not _utilisable(recto):
+        return False
+    if recto.count("\u2026\u2026") > 1:
+        return False
+    rep = _reponse(c)
+    return not (rep and _fuite(recto, rep))
+
+
+def _raccourcir(t, maxi):
+    """Coupe à la fin d'une phrase plutôt qu'au milieu d'un mot."""
+    t = t.strip()
+    if len(t) <= maxi:
+        return t
+    coupe = t[:maxi]
+    for sep in (". ", " ; ", ", "):
+        i = coupe.rfind(sep)
+        if i > maxi * 0.5:
+            return coupe[:i].rstrip(" ,;") + "."
+    return coupe.rstrip() + "\u2026"
 
 
 def _propre(t):
@@ -93,10 +173,13 @@ def _texte_encadre(corps):
 def _definitions(cours):
     out = []
     for titre, corps in _env(cours, "definition"):
-        if not titre:
+        # un titre d'encadré qui est une phrase (« Ce qui blesse, c'est
+        # l'intensité ») ne fait pas un « Qu'appelle-t-on… ? »
+        if not titre or re.search(r"\bc'est\b|\bce qui\b|\bil faut\b|\bon \b|\?",
+                                  titre, re.I):
             continue
-        t = _texte_encadre(corps)
-        if not (25 <= len(t) <= 420):
+        t = _raccourcir(_texte_encadre(corps), VERSO_MAX)
+        if not (25 <= len(t) <= VERSO_MAX):
             continue
         titre = _propre(tex2txt(titre))
         out.append({"type": "definition",
@@ -113,8 +196,8 @@ def _aretenir(cours):
         # un titre allusif (« Ce qui n'intervient pas ») ne fait pas un recto
         if len(titre) < 12 or not _utilisable(titre):
             continue
-        t = _texte_encadre(corps)
-        if not (25 <= len(t) <= 420):
+        t = _raccourcir(_texte_encadre(corps), VERSO_MAX)
+        if not (25 <= len(t) <= VERSO_MAX):
             continue
         out.append({"type": "retenir",
                     "recto": titre + " — qu'y a-t-il à retenir ?",
@@ -167,7 +250,7 @@ def _trous(cours):
         if not phrase:
             continue
         phrase = _propre(phrase)
-        if not (50 <= len(phrase) <= 260):
+        if not (50 <= len(phrase) <= RECTO_MAX):
             continue
         if phrase.count("\u27ea\u27eb") > 1:
             continue
@@ -184,8 +267,9 @@ def _trous(cours):
             par_phrase[cle] = (contenu, recto)
     out = []
     for contenu, recto in par_phrase.values():
-        out.append({"type": "trou", "recto": recto,
-                    "verso": "<strong>" + _propre(tex2txt(contenu)) + "</strong>",
+        rep = _propre(tex2txt(contenu))
+        out.append({"type": "trou", "recto": recto, "rep": rep,
+                    "verso": "<strong>" + rep + "</strong>",
                     "origine": "cours a completer"})
     out.sort(key=lambda c: len(c["recto"]))
     return out
@@ -213,34 +297,51 @@ def _du_bilan(bilan):
             recto += " ……"
         bonne = q["choix"][q["bonne"]] if q["bonne"] < len(q["choix"]) else q["choix"][0]
         verso = "<strong>" + _propre(bonne) + "</strong>"
-        if q.get("expl"):
-            verso += " — " + _propre(q["expl"])
-        out.append({"type": "question", "recto": recto, "verso": verso,
-                    "origine": "bilan"})
+        expl = _propre(q.get("expl") or "")
+        court = _sansacc(re.sub(r"[^\w]", "", expl))
+        rep_c = _sansacc(re.sub(r"[^\w]", "", _propre(bonne)))
+        if expl and court not in rep_c and rep_c not in court:
+            reste = VERSO_MAX - len(_nu(verso)) - 3
+            if reste > 40:
+                verso += " — " + _raccourcir(expl, reste)
+        out.append({"type": "question", "recto": recto, "rep": _propre(bonne),
+                    "verso": verso, "origine": "bilan"})
     return out
 
 
 # ---------------------------------------------------------------- montage
 def _cle(c):
-    return re.sub(r"[^a-z0-9]", "", c["recto"].lower())[:55]
+    return re.sub(r"[^a-z0-9]", "", _sansacc(_nu(c["recto"])))[:55]
 
 
-def fabriquer(cours, bilan=None, cible=CIBLE):
+def _cle_reponse(c):
+    """Deux cartes qui attendent la même réponse font doublon, même si les
+    énoncés diffèrent : « la loi des nœuds s'écrit …… » et « en un nœud, la
+    somme des intensités… » demandent la même chose."""
+    r = _reponse(c) or c.get("verso", "")
+    r = re.sub(r"[^a-z0-9]", "", _sansacc(_nu(r)))
+    return r[:40] if len(r) >= 8 else None
+
+
+def fabriquer(cours, bilan=None, prerequis=None, cible=CIBLE):
     """Cartes d'un chapitre, dans l'ordre où on veut les rencontrer."""
     lots = [(_definitions(cours) if cours else [], 4),
             (_aretenir(cours) if cours else [], 3),
             (_trous(cours) if cours else [], 5),
-            (_du_bilan(bilan), cible)]
+            (_du_bilan(bilan), cible),
+            (_du_bilan(prerequis), cible)]
     cartes, vus = [], set()
     for lot, maxi in lots:
         pris = 0
         for c in lot:
             if len(cartes) >= cible or pris >= maxi:
                 break
-            k = _cle(c)
-            if k in vus:
+            k, kr = _cle(c), _cle_reponse(c)
+            if k in vus or (kr and kr in vus) or not bonne_carte(c):
                 continue
             vus.add(k)
+            if kr:
+                vus.add(kr)
             cartes.append(c)
             pris += 1
     # jamais moins que le plancher : on rouvre le bilan sans quota
@@ -248,8 +349,10 @@ def fabriquer(cours, bilan=None, cible=CIBLE):
         for c in _du_bilan(bilan):
             if len(cartes) >= PLANCHER:
                 break
-            k = _cle(c)
-            if k not in vus:
+            k, kr = _cle(c), _cle_reponse(c)
+            if k not in vus and not (kr and kr in vus) and bonne_carte(c):
                 vus.add(k)
+                if kr:
+                    vus.add(kr)
                 cartes.append(c)
     return cartes

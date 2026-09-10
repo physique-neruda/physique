@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "14",
  "titre": "Les capteurs",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Une droite passe par les points (20 ; 4,0) et (60 ; 12,0). Sa pente vaut :",
+   "choix": [
+    "0,20",
+    "5,0",
+    "0,80",
+    "2,0"
+   ],
+   "bonne": 0,
+   "expl": "(12,0 − 4,0)/(60 − 20) = 0,20. La pente d'une droite d'étalonnage, c'est la sensibilité du capteur."
+  },
+  {
+   "q": "Un quotient « une résistance divisée par une température » s'exprime en :",
+   "choix": [
+    "Ω/K",
+    "K/Ω",
+    "Ω·K",
+    "sans unité"
+   ],
+   "bonne": 0,
+   "expl": "Les unités se divisent comme les nombres. C'est l'unité d'une sensibilité de sonde résistive."
+  },
+  {
+   "q": "Combien vaut 95 % de 40 ?",
+   "choix": [
+    "38",
+    "42",
+    "4,2",
+    "3,8"
+   ],
+   "bonne": 0,
+   "expl": "0,95 × 40 = 38. Les 95 % d'une variation, c'est le repère du temps de réponse d'un capteur."
+  },
+  {
+   "q": "Une Pt100 suit R = 100 (1 + 3,85×10⁻³ θ). À 60 °C, sa résistance vaut :",
+   "choix": [
+    "123,1 Ω",
+    "138,5 Ω",
+    "100,4 Ω",
+    "331 Ω"
+   ],
+   "bonne": 0,
+   "expl": "100 × (1 + 0,231) = 123,1 Ω. Le nom « Pt100 » dit qu'elle vaut 100 Ω à 0 °C."
+  },
+  {
+   "q": "Même sonde : quelle température donne R = 138,5 Ω ?",
+   "choix": [
+    "100 °C",
+    "138 °C",
+    "38,5 °C",
+    "85 °C"
+   ],
+   "bonne": 0,
+   "expl": "(1,385 − 1)/3,85×10⁻³ = 100 °C. On isole θ, on ne devine pas."
+  },
+  {
+   "q": "Calculer ΔL/L₀ pour ΔL = 5,0 µm et L₀ = 10 mm :",
+   "choix": [
+    "5,0×10⁻⁴, sans unité",
+    "5,0×10⁻⁴ m",
+    "0,50, sans unité",
+    "5,0×10⁻³ m"
+   ],
+   "bonne": 0,
+   "expl": "5,0×10⁻⁶/1,0×10⁻² = 5,0×10⁻⁴. Deux longueurs divisées l'une par l'autre : les mètres se simplifient, il ne reste aucune unité."
+  }
+ ],
  "bilan": [
   {
    "q": "La grandeur de sortie d'un capteur est :",
@@ -170,61 +237,71 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Un capteur <strong>traduit</strong> une grandeur physique en une grandeur ……, exploitable par un circuit.",
+   "rep": "électrique",
    "verso": "<strong>électrique</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Un capteur est <strong>passif</strong> lorsque sa grandeur de sortie est …… — le plus souvent une résistance.",
+   "rep": "une impédance",
    "verso": "<strong>une impédance</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La sensibilité d'un capteur est …… : elle indique de combien varie la sortie lorsque l'entrée varie d'une unité.",
+   "rep": "la pente de sa caractéristique statique",
    "verso": "<strong>la pente de sa caractéristique statique</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le temps de réponse à 5 %, noté t_r(5 %), est le temps que met le capteur pour atteindre …… après un échelon appliqué à son entrée.",
+   "rep": "95 % de sa variation finale",
    "verso": "<strong>95 % de sa variation finale</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>linéarité</strong> est acquise quand la caractéristique est …… : la sensibilité est alors constante, ce qui simplifie tout.",
+   "rep": "une droite",
    "verso": "<strong>une droite</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
-   "recto": "La grandeur de sortie d'un capteur est ……",
-   "verso": "<strong>toujours une grandeur électrique</strong> — C'est la définition même d'un capteur : il traduit une grandeur physique en grandeur électrique. Laquelle — résistance, tension, courant, charge — dépend du capteur ; c'est justement ce qui distingue les passifs des actifs.",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Une sonde Pt100 mesure la température d'un bain. Sa grandeur d'entrée est ……",
-   "verso": "<strong>une température</strong> — L'entrée est la grandeur physique que l'on veut connaître, ici la température. La résistance, elle, est la sortie. Inverser les deux est l'erreur la plus coûteuse du chapitre, car la question tombe dans quatre sujets sur dix.",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "Un capteur est dit passif lorsque ……",
-   "verso": "<strong>sa sortie est une impédance</strong> — Sa sortie est une impédance — résistance, capacité ou inductance. Attention au piège des réponses a et d : c'est le capteur passif qui a besoin d'une alimentation extérieure, pas l'actif. Le vocabulaire dit exactement le contraire de l'intuition.",
+   "rep": "sa sortie est une impédance",
+   "verso": "<strong>sa sortie est une impédance</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Parmi ces capteurs, lequel est actif ?",
-   "verso": "<strong>le thermocouple</strong> — Le thermocouple délivre directement une tension par effet Seebeck : il se comporte en générateur. Les trois autres ont une résistance pour grandeur de sortie.",
+   "rep": "le thermocouple",
+   "verso": "<strong>le thermocouple</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Que signifie le « 100 » de la sonde Pt100 ?",
+   "rep": "sa résistance à 0 °C",
    "verso": "<strong>sa résistance à 0 °C</strong> — 100 Ω à 0 °C — question posée telle quelle en 2023. Le « Pt » est le symbole chimique du platine.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'unité de la sensibilité d'une sonde Pt100 est ……",
+   "rep": "le Ω/°C",
+   "verso": "<strong>le Ω/°C</strong> — L'unité se déduit du quotient : une résistance divisée par une température, soit des Ω/°C. Ne jamais donner une sensibilité sans son unité.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une caractéristique statique est une droite. On en déduit que le capteur est ……",
+   "rep": "linéaire",
+   "verso": "<strong>linéaire</strong>",
    "origine": "bilan"
   }
  ]

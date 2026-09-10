@@ -199,75 +199,95 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Période et fréquence » ?",
+   "verso": "La <strong>période</strong> T est la durée du motif qui se répète, en secondes. La <strong>fréquence</strong> f est le nombre de motifs par seconde, en hertz, avec f = 1/T.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Valeur moyenne » ?",
+   "verso": "La <strong>valeur moyenne</strong> d'un signal périodique est le niveau <em>constant</em> qui donnerait, sur une période, la même aire sous la courbe. C'est la valeur qu'affiche un multimètre en position continue.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Valeur efficace » ?",
+   "verso": "La <strong>valeur efficace</strong> U_eff d'un signal est la valeur de la tension continue qui produirait, dans la même résistance, le même échauffement.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Les carrés s'ajoutent — qu'y a-t-il à retenir ?",
+   "verso": "Tout signal périodique se décompose en une composante continue — sa valeur moyenne — et une composante alternative de moyenne nulle. Leurs valeurs efficaces ne s'additionnent pas : U_eff² = U_moy² + U_alt,eff².",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Pourquoi on ne peut pas corriger — qu'y a-t-il à retenir ?",
+   "verso": "L'erreur change de signe selon la forme du signal. La corriger supposerait donc de connaître la forme d'onde à l'avance — c'est-à-dire de disposer déjà de l'information que l'on cherche.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Décomposition d'un signal périodique — qu'y a-t-il à retenir ?",
+   "verso": "Tout signal périodique alternatif est la somme d'une sinusoïde de même fréquence que lui — le fondamental — et de sinusoïdes de fréquences multiples de celle-ci, les harmoniques.",
+   "origine": "encadre du cours"
+  },
+  {
    "type": "trou",
    "recto": "La <strong>période</strong> T est ……, en secondes.",
+   "rep": "la durée du motif qui se répète",
    "verso": "<strong>la durée du motif qui se répète</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Leurs valeurs efficaces ne s'additionnent pas : …….",
+   "rep": "U_eff² = U_moy² + U_alt,eff²",
    "verso": "<strong>U_eff² = U_moy² + U_alt,eff²</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "C'est la valeur qu'affiche un multimètre en position …….",
+   "rep": "continue",
    "verso": "<strong>continue</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>fréquence</strong> f est ……, en hertz, avec f = 1/T.",
+   "rep": "le nombre de motifs par seconde",
    "verso": "<strong>le nombre de motifs par seconde</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "La <strong>fréquence</strong> f est le nombre de motifs par seconde, en hertz, avec …….",
-   "verso": "<strong>f = 1/T</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Le <strong>spectre d'amplitude</strong> porte …… en abscisse et l'amplitude en ordonnée.",
+   "rep": "la fréquence",
    "verso": "<strong>la fréquence</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Le <strong>spectre d'amplitude</strong> porte la fréquence en abscisse et …… en ordonnée.",
-   "verso": "<strong>l'amplitude</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La corriger supposerait donc de …… — c'est-à-dire de disposer déjà de l'information que l'on cherche.",
-   "verso": "<strong>connaître la forme d'onde à l'avance</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Tout signal périodique se décompose en une composante continue — sa valeur moyenne — et …… de moyenne nulle.",
-   "verso": "<strong>une composante alternative</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un signal a une période de 4,0 ms. Sa fréquence vaut ……",
-   "verso": "<strong>250 Hz</strong> — f = 1/(4,0×10⁻³) = 250 Hz. La réponse a vient d'un oubli de conversion des millisecondes, la c d'une inversion. Repère utile : 20 ms 50 Hz, le réseau. 3pt",
+   "rep": "250 Hz",
+   "verso": "<strong>250 Hz</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La valeur moyenne d'un signal est ce qu'affiche un multimètre en position ……",
-   "verso": "<strong>continu</strong> — position continu : la valeur moyenne. En position alternatif, le multimètre retire la composante continue et ne mesure plus que l'ondulation. 3pt",
+   "rep": "continu",
+   "verso": "<strong>continu</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un hacheur alimenté sous 24 V est réglé à α= 0,60. La valeur moyenne vaut ……",
-   "verso": "<strong>14,4 V</strong> — u_moy = αU = 0,60 × 24 = 14,4 V ; la réponse b est la valeur efficace (24√(0,60)), qui existe bien mais répond à une autre question. Et c'est la valeur moyenne qui fixe la vitesse : un moteur à courant continu ne répond qu'à la composante continue. Le hacheur fait tourner le moteur comme s'il était sous 14,4 V, mais il chauffe les câbles comme s'il était sous 18,6 V. 3pt",
+   "rep": "14,4 V",
+   "verso": "<strong>14,4 V</strong>",
    "origine": "bilan"
   }
  ]

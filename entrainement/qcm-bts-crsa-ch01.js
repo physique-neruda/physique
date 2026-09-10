@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "1",
  "titre": "Énergie, puissance, rendement",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Parmi ces deux quotients, lequel peut être un rendement : 731/1190 ou 1190/731 ?",
+   "choix": [
+    "731/1190",
+    "1190/731",
+    "les deux",
+    "aucun des deux"
+   ],
+   "bonne": 0,
+   "expl": "731/1190 = 0,614. Un rendement est toujours inférieur à 1 : la puissance utile ne peut pas dépasser la puissance absorbée."
+  },
+  {
+   "q": "Combien vaut 0,96 × 0,88 × 0,85 ?",
+   "choix": [
+    "0,718",
+    "0,896",
+    "2,69",
+    "0,850"
+   ],
+   "bonne": 0,
+   "expl": "0,718 — et le résultat est plus petit que le plus petit des trois facteurs. Trois rendements en cascade se multiplient, et la chaîne est toujours moins bonne que son maillon le plus faible."
+  },
+  {
+   "q": "Convertir 1450 tr/min en rad/s :",
+   "choix": [
+    "151,8 rad/s",
+    "24,17 rad/s",
+    "9111 rad/s",
+    "86,7 rad/s"
+   ],
+   "bonne": 0,
+   "expl": "1450 × 2π / 60 = 151,8 rad/s. On divise par 60 pour passer aux tours par seconde, puis on multiplie par 2π."
+  },
+  {
+   "q": "Une grandeur passe de 900 à 835. La diminution vaut :",
+   "choix": [
+    "7,22 %",
+    "6,50 %",
+    "7,78 %",
+    "92,8 %"
+   ],
+   "bonne": 0,
+   "expl": "65/900 = 7,22 %. On divise l'écart par la valeur de DÉPART, jamais par celle d'arrivée."
+  },
+  {
+   "q": "Exprimer 0,417 en pourcentage :",
+   "choix": [
+    "41,7 %",
+    "4,17 %",
+    "0,417 %",
+    "417 %"
+   ],
+   "bonne": 0,
+   "expl": "0,417 = 41,7 %. Un rendement de 0,417 est un rendement de 41,7 %."
+  },
+  {
+   "q": "Convertir 19,2 kW·h en joules, sachant que 1 kW·h = 3,6 MJ :",
+   "choix": [
+    "6,91×10⁷ J",
+    "6,91×10⁴ J",
+    "5,33×10⁶ J",
+    "6,91×10¹⁰ J"
+   ],
+   "bonne": 0,
+   "expl": "19,2 × 3,6×10⁶ = 6,91×10⁷ J. Le kilowattheure est une énergie, pas une puissance."
+  }
+ ],
  "bilan": [
   {
    "q": "L'unité de la puissance est :",
@@ -180,7 +247,7 @@ window.CHAPITRE = {
   {
    "type": "definition",
    "recto": "Qu'appelle-t-on « Efficacité » ?",
-   "verso": "L'<strong>efficacité</strong> d'une machine est le quotient e = P_utile/P_fournie, où P_fournie ne compte que l'énergie que l'on apporte, et que l'on paie. Le reste de l'énergie entrante est prélevé dans l'environnement : il est gratuit, et ne figure pas au dénominateur.",
+   "verso": "L'<strong>efficacité</strong> d'une machine est le quotient e = P_utile/P_fournie, où P_fournie ne compte que l'énergie que l'on apporte, et que l'on paie.",
    "origine": "definition du cours"
   },
   {
@@ -204,49 +271,57 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Les 3 kW·h manquants ne sont pas créés : ils sont …….",
+   "rep": "prélevés dans l'environnement extérieur",
    "verso": "<strong>prélevés dans l'environnement extérieur</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Toute l'énergie qui entre dans une machine en ressort : …….",
+   "rep": "P_a = P_u + P_p",
    "verso": "<strong>P_a = P_u + P_p</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le <strong>rendement</strong> d'une machine est le quotient …….",
+   "rep": "η= P_u/P_a",
    "verso": "<strong>η= P_u/P_a</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Une ressource est dite <strong>renouvelable</strong> si elle …….",
+   "rep": "se reconstitue à l'échelle d'une vie humaine",
    "verso": "<strong>se reconstitue à l'échelle d'une vie humaine</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le bilan complet reste équilibré, et le principe de conservation …….",
+   "rep": "n'est pas violé",
    "verso": "<strong>n'est pas violé</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "L'unité de la puissance est ……",
+   "rep": "le watt",
    "verso": "<strong>le watt</strong> — Le joule est l'unité d'énergie, le newton-mètre celle d'un couple.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le kilowattheure est une unité ……",
+   "rep": "d'énergie",
    "verso": "<strong>d'énergie</strong> — Malgré son nom, c'est le produit d'une puissance par une durée.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un appareil de 2 kW fonctionne 3 h. L'énergie consommée vaut ……",
-   "verso": "<strong>6 kW·h</strong> — E = P Δt = 2×3 = 6 kW·h. La réponse c est un piège d'unité : le résultat est une énergie, pas une puissance.",
+   "rep": "6 kW·h",
+   "verso": "<strong>6 kW·h</strong>",
    "origine": "bilan"
   }
  ]

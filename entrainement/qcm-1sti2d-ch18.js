@@ -222,75 +222,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Une …… est la propagation d'une perturbation électrique et magnétique. Contrairement à une onde mécanique, elle <strong>n'a besoin d'aucun milieu matériel</strong> : elle se propage dans le vide, et aussi dans certains milieux transparents (air, eau, verre). def",
-   "verso": "<strong>onde électromagnétique</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Onde électromagnétique » ?",
+   "verso": "Une <strong>onde électromagnétique</strong> est la propagation d'une perturbation électrique et magnétique. Contrairement à une onde mécanique, elle <strong>n'a besoin d'aucun milieu matériel</strong> : elle se propage dans le vide.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Une <strong>onde électromagnétique</strong> est la propagation d'une perturbation électrique et magnétique. Contrairement à une onde mécanique, elle …… : elle se propage dans le vide, et aussi dans certains milieux transparents (air, eau, verre).",
-   "verso": "<strong>n'a besoin d'aucun milieu matériel</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Spectre électromagnétique » ?",
+   "verso": "Le <strong>spectre électromagnétique</strong> est le classement de toutes les ondes électromagnétiques par longueur d'onde croissante en fréquence.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "C'est une …… : rien ne va plus vite.",
-   "verso": "<strong>vitesse limite</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Le …… est le classement de toutes les ondes électromagnétiques par longueur d'onde croissante en fréquence.",
-   "verso": "<strong>spectre électromagnétique</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Il se découpe, des grandes longueurs d'onde vers les petites, en : <strong>ondes radio</strong>, <strong>micro-ondes</strong>, <strong>infrarouge</strong>, <strong>visible</strong>, <strong>ultraviolet</strong>, <strong>rayons X</strong> et …….",
-   "verso": "<strong>rayons γ</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Dans le <strong>vide</strong>, toutes les ondes électromagnétiques se propagent à la même célérité, notée c :\n……",
-   "verso": "c = 3,00 × 10⁸ m/s = 300 000 km/s.",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Spectre d'émission » ?",
+   "verso": "Une source à <strong>spectre continu</strong> (lampe à filament, Soleil) émet toutes les longueurs d'onde du visible : sa lumière est <strong>polychromatique</strong>. Une source <strong>monochromatique</strong> (laser) n'émet qu'une seule longueur d'onde.",
+   "origine": "definition du cours"
   },
   {
    "type": "question",
    "recto": "Une onde électromagnétique ……",
+   "rep": "se propage dans le vide",
    "verso": "<strong>se propage dans le vide</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans le vide, les ondes radio et les rayons X se propagent ……",
+   "rep": "à la même célérité c",
    "verso": "<strong>à la même célérité c</strong> — la célérité dans le vide est la même pour tout le spectre",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La célérité de la lumière dans le vide vaut environ ……",
+   "rep": "3,00×10⁸ m/s",
    "verso": "<strong>3,00×10⁸ m/s</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "Dans un morceau de verre, la lumière se propage ……",
-   "verso": "<strong>moins vite que dans le vide</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "La relation entre célérité, longueur d'onde et fréquence dans le vide est ……",
+   "rep": "c = λ × f",
    "verso": "<strong>c = λ × f</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une onde de fréquence 100 MHz a une longueur d'onde de ……",
-   "verso": "<strong>3,00 m</strong> — λ = 3,00 × 10⁸/1,00 × 10⁸ = 3,00 m",
+   "rep": "3,00 m",
+   "verso": "<strong>3,00 m</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le domaine visible s'étend environ de ……",
+   "rep": "400 nm à 800 nm",
+   "verso": "<strong>400 nm à 800 nm</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Parmi ces ondes, laquelle a la <strong>plus petite</strong> longueur d'onde ?",
+   "rep": "un rayon γ",
+   "verso": "<strong>un rayon γ</strong> — plus on va vers les γ, plus λ est petite",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une source <strong>monochromatique</strong> émet ……",
+   "rep": "une seule longueur d'onde",
+   "verso": "<strong>une seule longueur d'onde</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un laser est dangereux pour l'œil principalement parce que ……",
+   "rep": "son faisceau reste concentré sur une très petite surface",
+   "verso": "<strong>son faisceau reste concentré sur une très petite surface</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La lumière du Soleil met environ, pour parvenir jusqu'à la Terre ……",
+   "rep": "8 min",
+   "verso": "<strong>8 min</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le préfixe « nano » signifie ……",
+   "rep": "10⁻⁹",
+   "verso": "<strong>10⁻⁹</strong>",
    "origine": "bilan"
   }
  ]

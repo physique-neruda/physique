@@ -255,82 +255,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "• unité d'arrivée <strong>plus petite</strong> → …… ;\n• unité d'arrivée <strong>plus grande</strong> → il en faut <strong>moins</strong> → le nombre <strong>diminue</strong>. Avant tout calcul de conversion, on se demande simplement : « est-ce que je vais vers un découpage plus fin ou",
-   "verso": "il en faut <strong>davantage</strong> → le nombre <strong>augmente</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Grandeurs proportionnelles » ?",
+   "verso": "Deux grandeurs sont <strong>proportionnelles</strong> si l'on passe de l'une à l'autre en multipliant <em>toujours</em> par le même nombre.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Le principe de l'égalité » ?",
+   "verso": "Une égalité reste vraie si l'on effectue <strong>la même opération sur ses deux membres</strong> : additionner, soustraire, multiplier ou diviser par un même nombre non nul. C'est le seul outil nécessaire — tout le reste n'en est qu'un raccourci.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "La règle qui donne le signe — qu'y a-t-il à retenir ?",
+   "verso": "C'est de cette idée que découle tout le reste du chapitre : · unité d'arrivée <strong>plus petite</strong> il en faut <strong>davantage</strong> le nombre <strong>augmente</strong>.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Retenir l'ordre des préfixes — qu'y a-t-il à retenir ?",
+   "verso": "Autour de l'unité, les sept rangs se retiennent par une phrase dont chaque initiale donne un préfixe : soit <strong>k</strong>ilo, <strong>h</strong>ecto, <strong>d</strong>éc<strong>a</strong>, <strong>u</strong>nité, <strong>d</strong>éci.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "La règle d'or du calcul en physique — qu'y a-t-il à retenir ?",
+   "verso": "Avant tout calcul numérique, on convertit <strong>toutes</strong> les grandeurs dans les unités du système international : les longueurs en, les masses en, les durées en.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
-   "recto": "→ le nombre <strong>augmente</strong> ;\n• unité d'arrivée <strong>plus grande</strong> → ……. Avant tout calcul de conversion, on se demande simplement : « est-ce que je vais vers un découpage plus fin ou plus gros ? » La réponse donne le <strong>sens</strong> du changement, donc le <strong>signe</strong> de l'exposant.",
-   "verso": "il en faut <strong>moins</strong> → le nombre <strong>diminue</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "soit …….",
-   "verso": "<strong>k</strong>ilo, <strong>h</strong>ecto, <strong>d</strong>éc<strong>a</strong>, <strong>u</strong>nité, <strong>d</strong>éci, <strong>c</strong>enti, <strong>m</strong>illi",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La partie décimale est une <strong>fraction d'heure</strong> : 0,5 h = 0,5 × 60 = 30 min, donc 1,5 h vaut …….",
-   "verso": "<strong>1 h 30 min</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "De même 2,25 h = 2 h + 0,25 × 60 = …….",
-   "verso": "<strong>2 h 15 min</strong>",
+   "recto": "C'est faux : il faut <strong>aussi</strong> que …….",
+   "rep": "la droite passe par l'origine",
+   "verso": "<strong>la droite passe par l'origine</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Deux grandeurs sont <strong>proportionnelles</strong> si l'on passe de l'une à l'autre en multipliant …….",
-   "verso": "<em>toujours</em> par le même nombre",
+   "rep": "toujours par le même nombre",
+   "verso": "<strong>toujours par le même nombre</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Ce nombre est le <strong>coefficient de proportionnalité</strong> ; c'est le …… des deux grandeurs, et il doit rester <strong>constant</strong>.",
-   "verso": "<strong>quotient</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Ce nombre est le <strong>coefficient de proportionnalité</strong> ; c'est le <strong>quotient</strong> des deux grandeurs, et il doit rester …….",
-   "verso": "<strong>constant</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "C'est faux : il faut <strong>aussi</strong> que …….",
-   "verso": "la droite passe par l'<strong>origine</strong>",
+   "recto": "La partie décimale est une <strong>fraction d'heure</strong> : 0,5 h = 0,5 × 60 = 30min, donc 1,5 h vaut …….",
+   "rep": "1 h 30 min",
+   "verso": "<strong>1 h 30 min</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Une égalité reste vraie si l'on effectue …… : additionner, soustraire, multiplier ou diviser par un même nombre non nul.",
+   "rep": "la même opération sur ses deux membres",
    "verso": "<strong>la même opération sur ses deux membres</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Les deux seules règles de calcul utiles sont\n……",
-   "verso": "10<sup>a</sup> × 10<sup>b</sup> = 10<sup>a+b</sup> et 10<sup>a</sup>/10<sup>b</sup> = 10<sup>a-b</sup>.",
+   "recto": "Ce nombre est le <strong>coefficient de proportionnalité</strong> ; c'est le …… des deux grandeurs, et il doit rester <strong>constant</strong>.",
+   "rep": "quotient",
+   "verso": "<strong>quotient</strong>",
    "origine": "cours a completer"
   },
   {
-   "type": "trou",
-   "recto": "Autour de l'unité, les sept rangs se retiennent par une phrase dont chaque initiale donne un préfixe :\n……",
-   "verso": "« Kevin Hurle Dans Un Débarras Complètement Moisi » [2pt] ou « Kevin Hurle Devant Un Docteur Chauve Marrant »",
-   "origine": "cours a completer"
+   "type": "question",
+   "recto": "On convertit une longueur des mètres vers les millimètres. Le nombre obtenu ……",
+   "rep": "augmente, car le mm est un découpage plus petit",
+   "verso": "<strong>augmente, car le mm est un découpage plus petit</strong> — plus le découpage est fin, plus il en faut",
+   "origine": "bilan"
   },
   {
-   "type": "trou",
-   "recto": "Convertir revient alors à deux questions :\n……",
-   "verso": "<em>combien de crans ?</em> pour le chiffre, et <em>vers un découpage plus fin ou plus gros ?</em> pour le signe.",
-   "origine": "cours a completer"
+   "type": "question",
+   "recto": "Le produit (4 × 10⁻³) × (5 × 10⁸) vaut ……",
+   "rep": "2 × 10⁶",
+   "verso": "<strong>2 × 10⁶</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "2,5 mA vaut ……",
+   "rep": "2,5 × 10⁻³ A",
+   "verso": "<strong>2,5 × 10⁻³ A</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une aire de 1 cm² vaut, en mètres carrés ……",
+   "rep": "10⁻⁴ m²",
+   "verso": "<strong>10⁻⁴ m²</strong> — on élève 10⁻² au carré",
+   "origine": "bilan"
   }
  ]
 };

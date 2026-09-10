@@ -222,74 +222,95 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Un …… est une espèce qui <strong>cède</strong> des électrons : elle est alors <em>oxydée</em>.\\",
-   "verso": "<strong>réducteur</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Oxydant et réducteur » ?",
+   "verso": "Un <strong>réducteur</strong> est une espèce qui <strong>cède</strong> des électrons : elle est alors <em>oxydée</em>. Un <strong>oxydant</strong> est une espèce qui <strong>capte</strong> des électrons : elle est alors <em>réduite</em>.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Anode et cathode » ?",
+   "verso": "L'<strong>anode</strong> est l'électrode où se produit l'<strong>oxydation</strong> ; dans une pile, c'est la borne <strong>négative</strong>, car elle libère les électrons.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Pourquoi H2O et H+, et dans cet ordre — qu'y a-t-il à retenir ?",
+   "verso": "On travaille en <strong>solution aqueuse acide</strong> : l'eau est le solvant, présente en énorme excès, et les ions H+ y sont abondants. On ne les <em>apporte</em> donc pas — on écrit simplement ceux qui participent réellement.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Pourquoi le fer rouille et l'aluminium non — qu'y a-t-il à retenir ?",
+   "verso": "L'aluminium s'oxyde aussi — très vite même — mais son oxyde forme une couche <strong>compacte et adhérente</strong> qui bloque la suite. La rouille, au contraire, est <strong>poreuse et s'effrite</strong> : l'attaque se poursuit jusqu'au cœur de la pièce.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Moyen mnémotechnique — qu'y a-t-il à retenir ?",
+   "verso": "La <strong>CA</strong>thode <strong>CA</strong>pte les électrons. Cette règle est <strong>toujours</strong> vraie — y compris en électrolyse, où les bornes seront pourtant inversées. Retenir la règle par le rôle (oxydation/réduction), jamais par le signe.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
-   "recto": "Le vocabulaire est piégeux : c'est le …… qui subit l'<strong>oxydation</strong>, et l'<strong>oxydant</strong> qui subit la <strong>réduction</strong>.",
-   "verso": "<strong>réducteur</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "On travaille en …… : l'eau est le solvant, présente en énorme excès, et les ions H+ y sont abondants.",
-   "verso": "<strong>solution aqueuse acide</strong>",
+   "recto": "La rouille, au contraire, est …… : l'attaque se poursuit jusqu'au cœur de la pièce.",
+   "rep": "poreuse et s'effrite",
+   "verso": "<strong>poreuse et s'effrite</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "L'aluminium s'oxyde aussi — très vite même — mais son oxyde forme une couche …… qui bloque la suite.",
+   "rep": "compacte et adhérente",
    "verso": "<strong>compacte et adhérente</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La rouille, au contraire, est …… : l'attaque se poursuit jusqu'au cœur de la pièce.",
-   "verso": "<strong>poreuse et s'effrite</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un <strong>réducteur</strong> est une espèce qui ……",
+   "rep": "cède des électrons et est oxydée",
    "verso": "<strong>cède des électrons et est oxydée</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans la demi-équation Cu²⁺ + 2 e- → Cu, l'espèce Cu²⁺ est ……",
+   "rep": "l'oxydant",
    "verso": "<strong>l'oxydant</strong> — il capte les électrons",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Les électrons circulent toujours ……",
+   "rep": "du réducteur vers l'oxydant",
    "verso": "<strong>du réducteur vers l'oxydant</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un <strong>couple</strong> oxydant/réducteur est constitué ……",
+   "rep": "d'une espèce et de celle qu'elle devient par échange d'électrons",
    "verso": "<strong>d'une espèce et de celle qu'elle devient par échange d'électrons</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour équilibrer une demi-équation en milieu aqueux acide, on équilibre l'oxygène ……",
+   "rep": "avec des molécules H₂O",
    "verso": "<strong>avec des molécules H₂O</strong> — l'eau apporte l'oxygène ; H+ viendra ensuite pour l'hydrogène",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "On ajoute des ions H+ dans les demi-équations parce que ……",
+   "rep": "le milieu est supposé acide, ils y sont donc déjà abondants",
    "verso": "<strong>le milieu est supposé acide, ils y sont donc déjà abondants</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans une demi-équation, la dernière étape consiste à équilibrer ……",
+   "rep": "les charges, avec des électrons",
    "verso": "<strong>les charges, avec des électrons</strong> — atomes d'abord, charges en dernier",
    "origine": "bilan"
   }

@@ -199,75 +199,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "La masse molaire d'une molécule s'obtient en …….",
-   "verso": "<strong>additionnant les masses molaires atomiques, chacune multipliée par son indice</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « La mole » ?",
+   "verso": "La <strong>mole</strong> est la quantité de matière d'un système contenant N_ A = 6,02×10²³ entités (atomes, molécules ou ions). Son symbole est mol.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Les réactifs disparaissent alors ……, sans reste.",
-   "verso": "<strong>en même temps</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Masse molaire » ?",
+   "verso": "La <strong>masse molaire</strong> M d'une espèce est la masse d'une mole de cette espèce. Elle s'exprime en g/mol. La masse molaire d'une molécule s'obtient en additionnant les masses molaires atomiques, chacune multipliée par son indice.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Nombres stœchiométriques » ?",
+   "verso": "Les coefficients placés devant les formules sont les <strong>nombres stœchiométriques</strong>. Ils indiquent dans quelles proportions les espèces réagissent et se forment.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Avancement » ?",
+   "verso": "L'<strong>avancement</strong> x, en moles, mesure le degré de progression de la réaction. Un réactif de nombre stœchiométrique ν voit sa quantité diminuer de νx ; un produit voit la sienne augmenter de νx.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Les trois relations — qu'y a-t-il à retenir ?",
+   "verso": "Solide ou liquide, on le pèse : n = m/M, avec m en g et M en g/mol. Gaz, on mesure son volume : n = V/V_m, avec V en L et V_m en L/mol. Espèce en solution, on connaît volume et concentration : n = C × V, avec C en mol/L et V en L.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Une équation est <strong>ajustée</strong> lorsque …….",
+   "rep": "chaque élément est présent en même nombre des deux côtés de la flèche",
    "verso": "<strong>chaque élément est présent en même nombre des deux côtés de la flèche</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "La <strong>masse molaire</strong> M d'une espèce est …….",
-   "verso": "<strong>la masse d'une mole de cette espèce</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Un mélange est <strong>stœchiométrique</strong> lorsque …….",
+   "rep": "les quotients n/ν de tous les réactifs sont égaux",
    "verso": "<strong>les quotients n/ν de tous les réactifs sont égaux</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Gaz, on mesure son volume : ……, avec V en L et V_m en L/mol.",
+   "rep": "n = V/V_m",
    "verso": "<strong>n = V/V_m</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Solide ou liquide, on le pèse : ……, avec m en g et M en g/mol.",
+   "rep": "n = m/M",
    "verso": "<strong>n = m/M</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le <strong>réactif limitant</strong> est …… : c'est lui qui arrête la réaction.",
+   "rep": "celui qui s'épuise le premier",
    "verso": "<strong>celui qui s'épuise le premier</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Espèce en solution, on connaît volume et concentration : ……, avec C en mol/L et V en L.",
-   "verso": "<strong>n = C × V</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "L'unité de la quantité de matière est ……",
+   "rep": "la mole",
    "verso": "<strong>la mole</strong> — 40,1 + 12,0 + 3×16,0 = 100,1. La réponse a correspond à un oubli du facteur 3 sur l'oxygène. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La masse molaire de CaCO₃ vaut (Ca 40,1 ; C 12,0 ; O 16,0) ……",
+   "rep": "100,1 g/mol",
    "verso": "<strong>100,1 g/mol</strong> — 40,1 + 12,0 + 3×16,0 = 100,1. La réponse a correspond à un oubli du facteur 3 sur l'oxygène. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans Ca(OH)₂, le nombre d'atomes d'hydrogène est ……",
+   "rep": "4",
    "verso": "<strong>4</strong> — l'indice 2 porte sur tout le groupe (OH) : deux O et deux H. C'est le piège le plus fréquent du calcul de masse molaire. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour une espèce en solution, la quantité de matière se calcule par ……",
+   "rep": "n = C × V",
+   "verso": "<strong>n = C × V</strong> — trois chemins vers n selon la forme de l'espèce. Le volume molaire ne dépend que de la température et de la pression : un même volume de dihydrogène et de dioxyde de carbone contient le même nombre de molécules, mais pas du tout la même masse.",
    "origine": "bilan"
   }
  ]

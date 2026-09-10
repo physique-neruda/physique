@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "10",
  "titre": "Les redresseurs",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Une tension sinusoïdale de 230 V efficace a pour valeur maximale :",
+   "choix": [
+    "325 V",
+    "163 V",
+    "460 V",
+    "230 V"
+   ],
+   "bonne": 0,
+   "expl": "230 × √2 = 325 V. De l'efficace vers le maximum, on MULTIPLIE par √2."
+  },
+  {
+   "q": "Combien vaut √2 à trois chiffres significatifs ?",
+   "choix": [
+    "1,41",
+    "1,73",
+    "1,42",
+    "2,00"
+   ],
+   "bonne": 0,
+   "expl": "1,41421… donc 1,41. Ne pas le confondre avec √3 = 1,73, celui du triphasé."
+  },
+  {
+   "q": "Un signal dont la valeur maximale est 100 V et la valeur moyenne 2/π fois cette valeur a pour valeur moyenne :",
+   "choix": [
+    "63,7 V",
+    "70,7 V",
+    "50,0 V",
+    "31,8 V"
+   ],
+   "bonne": 0,
+   "expl": "2/π = 0,637, donc 63,7 V. C'est la valeur moyenne d'un redressement double alternance ; 70,7 V serait la valeur efficace."
+  },
+  {
+   "q": "Un signal a une période T = 2,5 ms. Sa fréquence vaut :",
+   "choix": [
+    "400 Hz",
+    "40 Hz",
+    "4000 Hz",
+    "250 Hz"
+   ],
+   "bonne": 0,
+   "expl": "1/0,0025 = 400 Hz. Convertir la milliseconde avant d'inverser."
+  },
+  {
+   "q": "Sur un oscilloscope réglé à 10 V par division, une courbe atteint 4,8 divisions. La tension vaut :",
+   "choix": [
+    "48 V",
+    "4,8 V",
+    "480 V",
+    "14,8 V"
+   ],
+   "bonne": 0,
+   "expl": "4,8 × 10 = 48 V. On multiplie le nombre de divisions par le calibre."
+  },
+  {
+   "q": "Une période dure 20 ms. Un retard de 2,5 ms correspond à un angle de :",
+   "choix": [
+    "45°",
+    "90°",
+    "30°",
+    "12,5°"
+   ],
+   "bonne": 0,
+   "expl": "2,5/20 × 360 = 45°. Une période entière vaut 360° : le reste est une proportionnalité."
+  }
+ ],
  "bilan": [
   {
    "q": "Un redresseur est un convertisseur :",
@@ -170,61 +237,71 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Sur un spectre en amplitude, la raie située à f = 0 Hz …….",
+   "rep": "est la valeur moyenne du signal",
    "verso": "<strong>est la valeur moyenne du signal</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Dans les deux cas, le courant entre par la <strong>même</strong> borne de la charge : c'est pourquoi …….",
+   "rep": "u_s ne change jamais de signe",
    "verso": "<strong>u_s ne change jamais de signe</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un redresseur est un convertisseur ……",
+   "rep": "alternatif continu",
    "verso": "<strong>alternatif continu</strong> — C'est la définition même du redressement. Le a est le transformateur, le c le hacheur, le d l'onduleur.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un pont de Graetz comporte ……",
-   "verso": "<strong>quatre diodes</strong> — Quatre diodes, montées en deux branches.",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Dans un pont de diodes alimenté en sinusoïdal, à un instant donné ……",
-   "verso": "<strong>deux diodes conduisent, en diagonale</strong> — Elles conduisent deux par deux, en diagonale : une diode du haut avec la diode du bas de l'autre branche. C'est ce qui fait que le courant traverse toujours la charge dans le même sens.",
+   "rep": "quatre diodes",
+   "verso": "<strong>quatre diodes</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans un schéma équivalent, une diode bloquée est remplacée par ……",
-   "verso": "<strong>un interrupteur ouvert</strong> — Une diode bloquée ne laisse passer aucun courant : c'est un interrupteur ouvert. Une diode passante, elle, se remplace par un fil.",
+   "rep": "un interrupteur ouvert",
+   "verso": "<strong>un interrupteur ouvert</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le réseau est à 50 Hz. La fréquence de la tension en sortie d'un pont de Graetz vaut ……",
+   "rep": "100 Hz",
    "verso": "<strong>100 Hz</strong> — Le redressement est double alternance : l'alternance négative est retournée, donc le motif se répète deux fois par période. f_s = 2 f_e.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le secondaire d'un transformateur délivre 24 V efficaces. La valeur moyenne en sortie du pont de diodes vaut ……",
-   "verso": "<strong>21,6 V</strong> — Attention au piège : 24 V est une valeur efficace. Il faut d'abord U_max = 24√2 = 34 V, puis u_s = 2 × 34/π= 21,6 V. La réponse d est l'erreur classique consistant à s'arrêter à U_max.",
+   "rep": "21,6 V",
+   "verso": "<strong>21,6 V</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour mesurer la valeur moyenne d'une tension redressée, le commutateur du voltmètre se place sur ……",
-   "verso": "<strong>DC</strong> — La position DC affiche la valeur moyenne. En AC, l'appareil retire justement la composante continue.",
+   "rep": "DC",
+   "verso": "<strong>DC</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour lisser la tension aux bornes d'une charge, on ajoute ……",
+   "rep": "un condensateur en parallèle",
    "verso": "<strong>un condensateur en parallèle</strong> — Le condensateur se monte en parallèle sur la charge : il se charge à la crête et comble les creux de tension.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour lisser le courant dans une charge, on ajoute ……",
+   "rep": "une bobine en série",
+   "verso": "<strong>une bobine en série</strong> — La bobine se monte en série : elle s'oppose aux variations du courant. Retenir la paire : C en parallèle pour la tension, L en série pour le courant.",
    "origine": "bilan"
   }
  ]

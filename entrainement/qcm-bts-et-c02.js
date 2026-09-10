@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "2",
  "titre": "Électromagnétisme",
  "niveau": "BTS ET",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Combien vaut cos 60° ?",
+   "choix": [
+    "0,500",
+    "0,866",
+    "0,577",
+    "0,600"
+   ],
+   "bonne": 0,
+   "expl": "0,500 exactement, en mode DEGRÉ. 0,866 est le cosinus de 30°, et le sinus de 60°."
+  },
+  {
+   "q": "Surface d'un disque de diamètre 8 cm, en m² :",
+   "choix": [
+    "5,03×10⁻³ m²",
+    "5,03×10⁻² m²",
+    "2,01×10⁻² m²",
+    "5,03×10¹ m²"
+   ],
+   "bonne": 0,
+   "expl": "S = πD²/4 avec D = 0,080 m : π × 0,0064/4 = 5,03×10⁻³ m². Convertir avant d'élever au carré."
+  },
+  {
+   "q": "Convertir 450 mT en teslas :",
+   "choix": [
+    "4,50×10⁻¹ T",
+    "4,50×10⁻³ T",
+    "4,50×10² T",
+    "4,50×10⁻⁶ T"
+   ],
+   "bonne": 0,
+   "expl": "milli vaut 10⁻³ : 450 × 10⁻³ = 0,450 T. Le 450 apporte deux rangs."
+  },
+  {
+   "q": "Une grandeur passe de 0,40 à 0,65 en 20 ms. Son taux de variation vaut :",
+   "choix": [
+    "12,5 par seconde",
+    "0,0125 par seconde",
+    "1,25 par seconde",
+    "32,5 par seconde"
+   ],
+   "bonne": 0,
+   "expl": "0,25/0,020 = 12,5 par seconde. C'est ce quotient-là, dΦ/dt, qui fabrique la tension induite."
+  },
+  {
+   "q": "Calculer 4π×10⁻⁷ × 500 × 2,5 :",
+   "choix": [
+    "1,57×10⁻³",
+    "1,57×10⁻⁴",
+    "3,93×10⁻⁴",
+    "1,25×10⁻³"
+   ],
+   "bonne": 0,
+   "expl": "4π×10⁻⁷ = 1,257×10⁻⁶ ; × 500 = 6,28×10⁻⁴ ; × 2,5 = 1,57×10⁻³. Le 4π fait partie du nombre, il ne s'oublie pas."
+  },
+  {
+   "q": "Une bobine comporte 800 spires réparties sur 25 cm. Le nombre de spires par mètre vaut :",
+   "choix": [
+    "3200",
+    "32",
+    "20 000",
+    "320"
+   ],
+   "bonne": 0,
+   "expl": "800/0,25 = 3200 spires par mètre. Le dénominateur doit être en mètres : diviser par 25 donnerait des spires par centimètre."
+  }
+ ],
  "bilan": [
   {
    "q": "Le champ magnétique s'exprime en :",
@@ -163,55 +230,62 @@ window.CHAPITRE = {
   },
   {
    "type": "retenir",
-   "recto": "La spire tournante — qu'y a-t-il à retenir ?",
-   "verso": "Une spire tournant à vitesse constante dans un champ uniforme voit son flux varier sinusoïdalement, donc la f.é.m. induite est sinusoïdale elle aussi. Elle est maximale quand le flux varie le plus vite, c'est-à-dire quand la spire est dans le plan du champ — et nulle quand le flux est maximal.",
+   "recto": "Une tension, tout simplement — qu'y a-t-il à retenir ?",
+   "verso": "La force électromotrice induite est une tension, en volts, que l'on mesure avec un voltmètre comme n'importe quelle autre. Rien de nouveau ne se mesure ici.",
    "origine": "encadre du cours"
   },
   {
    "type": "retenir",
-   "recto": "Les pertes fer — qu'y a-t-il à retenir ?",
-   "verso": "Le matériau ne suit pas le même chemin à la montée et à la descente : c'est l'hystérésis, et l'énergie perdue à chaque cycle est proportionnelle à l'aire du cycle. S'y ajoutent les <strong>courants de Foucault</strong>, courants induits dans la masse du métal, qu'on limite en feuilletant le circuit magnétique en tôles isolées les unes des autres.",
+   "recto": "La spire tournante — qu'y a-t-il à retenir ?",
+   "verso": "Une spire tournant à vitesse constante dans un champ uniforme voit son flux varier sinusoïdalement, donc la f.é.m. induite est sinusoïdale elle aussi.",
    "origine": "encadre du cours"
   },
   {
    "type": "trou",
-   "recto": "induite convertit l'énergie …… : c'est la génératrice.",
-   "verso": "<strong>mécanique en énergie électrique</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Un matériau ferromagnétique placé dans un champ le …….",
+   "rep": "canalise et l'amplifie considérablement",
    "verso": "<strong>canalise et l'amplifie considérablement</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Le flux du champ B à travers une surface plane S mesure …… :",
-   "verso": "<strong>ce qui traverse effectivement cette surface</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La force de Laplace convertit l'énergie …… : c'est le moteur.",
-   "verso": "<strong>électrique en énergie mécanique</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Le champ magnétique est …… : une direction, un sens et une valeur.",
+   "rep": "une grandeur vectorielle définie en chaque point de l'espace",
    "verso": "<strong>une grandeur vectorielle définie en chaque point de l'espace</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "À l'intérieur d'un solénoïde long, loin des extrémités, le champ est ……, dirigé selon l'axe, et vaut :",
+   "rep": "uniforme",
+   "verso": "<strong>uniforme</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Lorsqu'un circuit fermé voit le flux qui le traverse varier, il y apparaît un courant induit dont les effets …….",
+   "rep": "s'opposent à la cause qui lui a donné naissance",
+   "verso": "<strong>s'opposent à la cause qui lui a donné naissance</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "La force électromotrice induite est une tension, en volts, que l'on mesure avec …… comme n'importe quelle autre.",
+   "rep": "un voltmètre",
+   "verso": "<strong>un voltmètre</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Le champ magnétique s'exprime en ……",
+   "rep": "teslas",
    "verso": "<strong>teslas</strong> — Le tesla (T) est l'unité du champ magnétique. Le weber est celle du flux, le henry celle de l'inductance : les trois grandeurs sont liées mais distinctes.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans la relation B = µ₀ n I, la grandeur n désigne ……",
+   "rep": "le nombre de spires par mètre",
    "verso": "<strong>le nombre de spires par mètre</strong> — n = N/ est une densité de spires, en spires par mètre. C'est la distinction la plus souvent manquée du chapitre.",
    "origine": "bilan"
   }

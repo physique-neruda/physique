@@ -199,75 +199,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "En revanche, la durée d'un aller-retour reste …….",
-   "verso": "<strong>pratiquement inchangée</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Oscillateur » ?",
+   "verso": "Un <strong>oscillateur</strong> est un système qui, écarté de sa position d'équilibre, y revient en la dépassant. Il est caractérisé par sa <strong>période propre</strong> T₀ et sa <strong>fréquence propre</strong> f₀ = 1/T₀.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Libre et forcé » ?",
+   "verso": "Les oscillations sont <strong>libres</strong> lorsque le système oscille de lui-même après avoir été écarté ; il vibre alors à sa fréquence propre.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Résonance mécanique — qu'y a-t-il à retenir ?",
+   "verso": "Il y a <strong>résonance</strong> lorsque l'amplitude de la réponse passe par un maximum, pour une fréquence d'excitation voisine de la fréquence propre du système. Plus l'amortissement est faible, plus le pic est haut et étroit.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "La règle de l'isolation — qu'y a-t-il à retenir ?",
+   "verso": "Des plots élastiques forment avec la masse portée un <em>nouvel</em> oscillateur, de fréquence propre f₀ basse. L'isolation n'est efficace que si f > √2 f₀. En dessous de cette limite, on amplifie au lieu d'atténuer.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Plus l'amortissement est faible, plus le pic est …….",
+   "rep": "haut et étroit",
    "verso": "<strong>haut et étroit</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Sans amortissement, le régime est …… — cas idéal, jamais atteint.",
+   "rep": "périodique",
    "verso": "<strong>périodique</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Pour une vitesse de N tours par minute, cette fréquence vaut …… en hertz.",
+   "rep": "f = N/60",
    "verso": "<strong>f = N/60</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "En régime pseudopériodique, les amplitudes successives se succèdent dans un …….",
+   "rep": "rapport constant",
    "verso": "<strong>rapport constant</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Avec un amortissement fort, il devient apériodique : le retour à l'équilibre se fait …….",
+   "rep": "sans aucune oscillation",
    "verso": "<strong>sans aucune oscillation</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Avec un amortissement modéré, il est …… : le système oscille encore en perdant de l'amplitude.",
-   "verso": "<strong>pseudopériodique</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Un <strong>oscillateur</strong> est un système qui, écarté de sa position d'équilibre, y revient …….",
-   "verso": "<strong>en la dépassant</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Avec un amortissement fort, il devient …… : le retour à l'équilibre se fait sans aucune oscillation.",
-   "verso": "<strong>apériodique</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un système écarté puis lâché, sans excitation extérieure, effectue des oscillations ……",
-   "verso": "<strong>libres</strong> — c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur. La résonance, elle, n'est pas un troisième type d'oscillation : c'est ce qui arrive aux oscillations forcées dans un cas particulier. 3pt",
+   "rep": "libres",
+   "verso": "<strong>libres</strong> — c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "En régime forcé établi, le système oscille à ……",
-   "verso": "<strong>la fréquence de l'excitateur</strong> — c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur. La résonance, elle, n'est pas un troisième type d'oscillation : c'est ce qui arrive aux oscillations forcées dans un cas particulier. 3pt",
+   "rep": "la fréquence de l'excitateur",
+   "verso": "<strong>la fréquence de l'excitateur</strong> — c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un enregistrement montre un retour à l'équilibre sans aucune oscillation. Le régime est ……",
-   "verso": "<strong>apériodique</strong> — un retour sans oscillation signe un amortissement fort : c'est le régime apériodique, et c'est celui que l'on recherche pour un amortisseur de suspension. Le régime périodique pur, lui, n'existe pas en pratique. 3pt",
+   "rep": "apériodique",
+   "verso": "<strong>apériodique</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La fréquence propre d'un système masse-ressort vaut f₀ = 1/2π√(k/m). Si on quadruple la masse, f₀ est ……",
+   "rep": "divisée par 2",
+   "verso": "<strong>divisée par 2</strong> — f₀ varie en 1/√m : quadrupler m divise f₀ par √4 = 2. La racine carrée écrase les variations : pour diviser une fréquence propre par deux, il ne suffit pas de doubler la masse. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Les amplitudes successives d'un système amorti valent 42,0, 34,0, 27,6, 22,3 mm. La décroissance est ……",
+   "rep": "géométrique, de rapport voisin de 0,81",
+   "verso": "<strong>géométrique, de rapport voisin de 0,81</strong> — les rapports successifs valent 0,810, 0,812, 0,808 : ils sont constants, ce qui est la signature d'une décroissance géométrique, donc exponentielle.",
    "origine": "bilan"
   }
  ]

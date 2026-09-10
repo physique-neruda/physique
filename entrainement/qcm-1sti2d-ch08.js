@@ -222,75 +222,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Travail d'une force constante » ?",
+   "verso": "Le travail d'une force constante F dont le point d'application se déplace d'une longueur d vaut W = F × d × cosα, où α est l'angle entre la force et le déplacement. Le travail est une <strong>énergie</strong> : il s'exprime en <strong>joules</strong> (J).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Puissance moyenne » ?",
+   "verso": "La puissance moyenne est le travail effectué rapporté à la durée mise pour l'effectuer : P = W/(Δt), en watts (W).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Énergie cinétique » ?",
+   "verso": "Un solide de masse m en translation à la vitesse v possède l'énergie cinétique E_c = 1/2 m v², en joules (m en kg, v en m/s).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Théorème de l'énergie cinétique » ?",
+   "verso": "Entre deux instants, la variation de l'énergie cinétique d'un solide en translation est égale à la somme des travaux de <em>toutes</em> les forces qui s'exercent sur lui : ΔE_c = W.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "trou",
+   "recto": "En mathématiques, cette opération porte un nom : le …… des vecteurs F et d.",
+   "rep": "produit scalaire",
+   "verso": "<strong>produit scalaire</strong>",
+   "origine": "cours a completer"
+  },
+  {
    "type": "question",
    "recto": "Le travail d'une force constante s'écrit ……",
+   "rep": "W = F × d × cos α",
    "verso": "<strong>W = F × d × cos α</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le travail d'une force perpendiculaire au déplacement est ……",
+   "rep": "nul",
    "verso": "<strong>nul</strong> — (cos 90° = 0)",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un travail résistant ……",
+   "rep": "ralentit le solide",
    "verso": "<strong>ralentit le solide</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le travail du poids lors d'une montée de hauteur h vaut ……",
+   "rep": "-mgh",
    "verso": "<strong>-mgh</strong> — (résistant à la montée)",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La puissance moyenne se calcule par ……",
+   "rep": "P = W/Δt",
    "verso": "<strong>P = W/Δt</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "L'énergie cinétique d'un solide en translation vaut ……",
+   "rep": "1/2mv²",
    "verso": "<strong>1/2mv²</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Si la vitesse d'un véhicule est multipliée par 3, son énergie cinétique est multipliée par ……",
-   "verso": "<strong>9</strong> — (3² = 9)",
+   "rep": "9",
+   "verso": "<strong>9</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le théorème de l'énergie cinétique s'énonce ……",
+   "rep": "ΔE<sub>c</sub> = ΣW",
    "verso": "<strong>ΔE<sub>c</sub> = ΣW</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "L'énergie potentielle de pesanteur vaut ……",
+   "rep": "mgh",
    "verso": "<strong>mgh</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Pour calculer une énergie potentielle de pesanteur, il faut d'abord ……",
-   "verso": "<strong>choisir une référence des altitudes</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "L'énergie mécanique d'un système est ……",
-   "verso": "<strong>E<sub>c</sub> + E<sub>p</sub></strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "En présence de frottements, l'énergie mécanique d'un solide ……",
-   "verso": "<strong>diminue, l'énergie partant sous forme thermique</strong>",
    "origine": "bilan"
   }
  ]

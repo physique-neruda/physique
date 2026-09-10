@@ -199,75 +199,94 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "C'est une <strong>fonction d'état</strong> : …….",
-   "verso": "<strong>elle ne dépend que de l'état du système, jamais du chemin suivi pour y parvenir</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Système » ?",
+   "verso": "Le <strong>système</strong> est la portion de matière que l'on choisit d'étudier ; tout le reste constitue le milieu extérieur. Les deux sont séparés par la frontière, réelle ou imaginaire.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Intensif, extensif » ?",
+   "verso": "Une grandeur est <strong>intensive</strong> si elle ne change pas quand on coupe le système en deux ; elle est <strong>extensive</strong> si elle est proportionnelle à la taille du système.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Énergie interne » ?",
+   "verso": "L'<strong>énergie interne</strong> U d'un système est l'énergie contenue dans l'agitation et les interactions de ses particules. C'est une <strong>fonction d'état</strong> : elle ne dépend que de l'état du système, jamais du chemin suivi pour y parvenir.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Enthalpie » ?",
+   "verso": "L'<strong>enthalpie</strong> est définie par H = U + p V. Son intérêt est le suivant : pour une transformation <strong>à pression constante</strong>, ΔH = Q.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "La convention de signe — qu'y a-t-il à retenir ?",
+   "verso": "Tout ce que le système reçoit est compté positivement ; tout ce qu'il cède est compté négativement. Cette règle vaut pour le travail comme pour la chaleur, et elle ne souffre aucune exception.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Quatre noms, quatre contraintes — qu'y a-t-il à retenir ?",
+   "verso": "Isochore : le volume est constant. Isobare : la pression est constante. Isotherme : la température est constante. Adiabatique : aucun échange de chaleur, Q = 0.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Première loi de Joule — qu'y a-t-il à retenir ?",
+   "verso": "Pour un gaz parfait, l'énergie interne ne dépend que de la température : ΔU = n C_v,m ΔT. Cette relation vaut <strong>quelle que soit la transformation</strong>, même si le volume et la pression ont changé.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
-   "recto": "L'<strong>enthalpie</strong> est définie par …….",
-   "verso": "<strong>H = U + p V</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Les deux sont séparés par ……, réelle ou imaginaire.",
-   "verso": "<strong>la frontière</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "L'<strong>énergie interne</strong> U d'un système est …….",
-   "verso": "<strong>l'énergie contenue dans l'agitation et les interactions de ses particules</strong>",
+   "recto": "Pour un gaz parfait, l'énergie interne ne dépend que de la température : …….",
+   "rep": "ΔU = n C_v,m ΔT",
+   "verso": "<strong>ΔU = n C_v,m ΔT</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Pour un gaz parfait, l'énergie interne ne dépend que de …… : ΔU = n C_v,m ΔT.",
+   "rep": "la température",
    "verso": "<strong>la température</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le <strong>système</strong> est …… ; tout le reste constitue le milieu extérieur.",
+   "rep": "la portion de matière que l'on choisit d'étudier",
    "verso": "<strong>la portion de matière que l'on choisit d'étudier</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>température</strong> mesure …… : plus elles vont vite, plus elle est élevée.",
+   "rep": "l'agitation des particules",
    "verso": "<strong>l'agitation des particules</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Tout ce que le système reçoit est compté …… ; tout ce qu'il cède est compté négativement.",
+   "rep": "positivement",
    "verso": "<strong>positivement</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Tout ce que le système reçoit est compté positivement ; tout ce qu'il cède est compté …….",
-   "verso": "<strong>négativement</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Parmi ces grandeurs, laquelle est intensive ?",
-   "verso": "<strong>la pression</strong> — le test : je coupe le système en deux. La pression ne change pas (intensive) ; le volume et l'énergie interne sont divisés par deux (extensives). 3pt",
+   "rep": "la pression",
+   "verso": "<strong>la pression</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans pV = nRT, la température doit être exprimée en ……",
-   "verso": "<strong>kelvins</strong> — deux conversions oubliées à chaque devoir. La température doit être absolue : une valeur en degrés Celsius donne un résultat absurde, parfois négatif. Et le manomètre affiche une pression relative : il faut ajouter le bar atmosphérique, ce qui change ici le résultat d'un tiers. 3pt",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Un pneu affiche 2,0 au manomètre. La pression à employer dans pV = nRT est ……",
-   "verso": "<strong>3,0</strong> — deux conversions oubliées à chaque devoir. La température doit être absolue : une valeur en degrés Celsius donne un résultat absurde, parfois négatif. Et le manomètre affiche une pression relative : il faut ajouter le bar atmosphérique, ce qui change ici le résultat d'un tiers. 3pt",
+   "rep": "kelvins",
+   "verso": "<strong>kelvins</strong> — deux conversions oubliées à chaque devoir. La température doit être absolue : une valeur en degrés Celsius donne un résultat absurde, parfois négatif.",
    "origine": "bilan"
   }
  ]

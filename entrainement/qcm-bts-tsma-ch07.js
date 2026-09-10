@@ -199,75 +199,95 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Les ……, qui pénètrent profondément dans les poumons.",
-   "verso": "<strong>particules (suies)</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Combustion » ?",
+   "verso": "Une <strong>combustion</strong> est une réaction chimique entre un <strong>combustible</strong> et un <strong>comburant</strong>, qui libère de l'énergie sous forme thermique.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Le ……, mortel et inodore, issu des combustions incomplètes.",
-   "verso": "<strong>monoxyde de carbone CO</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Combustion incomplète » ?",
+   "verso": "Lorsque le dioxygène est en défaut, le carbone n'est oxydé qu'en partie. Il se forme alors, en plus, du monoxyde de carbone CO et des particules (suies).",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Les ……, formés à haute température à partir de l'azote de l'air.",
-   "verso": "<strong>oxydes d'azote NO_x</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Pouvoir calorifique inférieur » ?",
+   "verso": "Le <strong>pouvoir calorifique inférieur</strong> (PCI) d'un combustible est l'énergie libérée par la combustion complète d'un kilogramme de ce combustible, l'eau formée restant à l'état de vapeur. Il s'exprime en MJ/kg.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Les produits d'une combustion complète — qu'y a-t-il à retenir ?",
+   "verso": "Un hydrocarbure brûlant complètement dans le dioxygène produit du dioxyde de carbone CO₂ et de l'eau H₂O, et rien d'autre.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Une combustion incomplète coûte deux fois — qu'y a-t-il à retenir ?",
+   "verso": "Elle produit des polluants, <em>et</em> elle libère moins d'énergie : le carbone s'est arrêté à mi-chemin de son oxydation. L'énergie qui manque part par l'échappement, sous forme de CO et d'imbrûlés.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Comparer à énergie égale, pas à volume égal — qu'y a-t-il à retenir ?",
+   "verso": "Un carburant se juge sur son rejet par mégajoule d'énergie libérée, non par litre : sinon on avantage mécaniquement les carburants peu énergétiques, dont il faut consommer davantage.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Lorsque le dioxygène est ……, le carbone n'est oxydé qu'en partie.",
+   "rep": "en défaut",
    "verso": "<strong>en défaut</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Dans un moteur, le combustible est le carburant et le comburant est …….",
+   "rep": "le dioxygène de l'air",
    "verso": "<strong>le dioxygène de l'air</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Dans un moteur, le combustible est …… et le comburant est le dioxygène de l'air.",
-   "verso": "<strong>le carburant</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Un hydrocarbure brûlant complètement dans le dioxygène produit ……, et rien d'autre.",
+   "rep": "du dioxyde de carbone CO₂ et de l'eau H₂O",
    "verso": "<strong>du dioxyde de carbone CO₂ et de l'eau H₂O</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Elle produit des polluants, <em>et</em> elle libère …… : le carbone s'est arrêté à mi-chemin de son oxydation.",
-   "verso": "<strong>moins d'énergie</strong>",
+   "recto": "Une <strong>combustion</strong> est une réaction chimique entre un <strong>combustible</strong> et un <strong>comburant</strong>, qui …….",
+   "rep": "libère de l'énergie sous forme thermique",
+   "verso": "<strong>libère de l'énergie sous forme thermique</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Le <strong>pouvoir calorifique inférieur</strong> (PCI) d'un combustible est ……, l'eau formée restant à l'état de vapeur.",
-   "verso": "<strong>l'énergie libérée par la combustion complète d'un kilogramme de ce combustible</strong>",
+   "recto": "Un carburant se juge sur son rejet ……, non par litre : sinon on avantage mécaniquement les carburants peu énergétiques, dont il faut consommer davantage.",
+   "rep": "par mégajoule d'énergie libérée",
+   "verso": "<strong>par mégajoule d'énergie libérée</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
-   "recto": "Dans un moteur thermique, le comburant est ……",
-   "verso": "<strong>le dioxygène de l'air</strong> — le carburant est le combustible, l'air apporte le comburant. Le troisième côté du triangle est l'énergie d'activation : étincelle en essence, compression en diesel. Supprimer un seul côté éteint le feu. 3pt",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "Les trois éléments du triangle du feu sont ……",
+   "rep": "combustible, comburant, énergie d'activation",
    "verso": "<strong>combustible, comburant, énergie d'activation</strong> — le carburant est le combustible, l'air apporte le comburant. Le troisième côté du triangle est l'énergie d'activation : étincelle en essence, compression en diesel. Supprimer un seul côté éteint le feu. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une combustion complète d'hydrocarbure produit ……",
-   "verso": "<strong>CO₂ et H₂O</strong> — une combustion complète ne produit que CO₂ et H₂O. Pour l'octane, on compte 16 C et 36 H dans deux molécules, donc 16 CO₂ et 18 H₂O, soit 32 + 18 = 50 atomes d'oxygène à droite : 25 O₂. 3pt",
+   "rep": "CO₂ et H₂O",
+   "verso": "<strong>CO₂ et H₂O</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'équation ajustée de la combustion de l'octane est ……",
+   "rep": "2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O",
+   "verso": "<strong>2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O</strong> — une combustion complète ne produit que CO₂ et H₂O. Pour l'octane, on compte 16 C et 36 H dans deux molécules, donc 16 CO₂ et 18 H₂O, soit 32 + 18 = 50 atomes d'oxygène à droite : 25 O₂. 3pt",
    "origine": "bilan"
   }
  ]

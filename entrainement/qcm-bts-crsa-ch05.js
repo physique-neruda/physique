@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "5",
  "titre": "Statique et dynamique des fluides",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Aire d'un disque de diamètre 50 mm, en m² :",
+   "choix": [
+    "1,96×10⁻³ m²",
+    "1,96×10⁻² m²",
+    "7,85×10⁻⁴ m²",
+    "1,96×10³ m²"
+   ],
+   "bonne": 0,
+   "expl": "S = πD²/4 avec D = 0,050 m : π × 0,0025 / 4 = 1,96×10⁻³ m². Convertir le diamètre AVANT d'élever au carré évite le rang de trop."
+  },
+  {
+   "q": "Si le diamètre d'un disque est divisé par 2, son aire est :",
+   "choix": [
+    "divisée par 4",
+    "divisée par 2",
+    "divisée par 16",
+    "multipliée par 2"
+   ],
+   "bonne": 0,
+   "expl": "L'aire varie comme le carré du diamètre. Une conduite deux fois plus étroite offre quatre fois moins de section."
+  },
+  {
+   "q": "Convertir 2,5 bar en pascals :",
+   "choix": [
+    "2,5×10⁵ Pa",
+    "2,5×10³ Pa",
+    "2,5×10⁶ Pa",
+    "2,5×10² Pa"
+   ],
+   "bonne": 0,
+   "expl": "1 bar = 10⁵ Pa. Le bar est commode, le pascal est l'unité de calcul."
+  },
+  {
+   "q": "Convertir 40 m³/h en m³/s :",
+   "choix": [
+    "1,11×10⁻² m³/s",
+    "1,11×10⁻³ m³/s",
+    "6,67×10⁻¹ m³/s",
+    "1,44×10⁵ m³/s"
+   ],
+   "bonne": 0,
+   "expl": "40/3600 = 1,11×10⁻² m³/s. Le bas de la fraction est une heure : on divise par 3600."
+  },
+  {
+   "q": "Sachant que √(2 × 9,81 × 1,8) = 5,94, que vaut √(2 × 9,81 × 7,2) ?",
+   "choix": [
+    "11,9",
+    "23,8",
+    "8,40",
+    "5,94"
+   ],
+   "bonne": 0,
+   "expl": "7,2 = 4 × 1,8, et la racine d'un quadruple est un double : 11,9. Quadrupler la hauteur ne fait que doubler la vitesse."
+  },
+  {
+   "q": "Résoudre ½ × 1000 × v² = 1294 :",
+   "choix": [
+    "v = 1,61",
+    "v = 2,59",
+    "v = 0,80",
+    "v = 1294"
+   ],
+   "bonne": 0,
+   "expl": "v² = 2 × 1294 / 1000 = 2,588, donc v = 1,61. Ne pas oublier la racine à la fin."
+  }
+ ],
  "bilan": [
   {
    "q": "Un fluide incompressible est un fluide dont :",
@@ -170,60 +237,70 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "La masse volumique …… : l'eau et l'huile sortent à la même vitesse.",
+   "rep": "disparaît",
    "verso": "<strong>disparaît</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Un fluide est dit <strong>incompressible</strong> si …… quelle que soit la pression.",
+   "rep": "sa masse volumique reste constante",
    "verso": "<strong>sa masse volumique reste constante</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le long d'un écoulement permanent de fluide parfait incompressible, la somme 1/2ρv² + ρg z + p …….",
+   "rep": "reste constante",
    "verso": "<strong>reste constante</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le premier terme est celui de la vitesse, le deuxième celui de l'altitude, le troisième celui de …….",
+   "rep": "la pression",
    "verso": "<strong>la pression</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Pour un bac ouvert se vidant par un orifice à l'air libre, les trois simplifications conduisent à …….",
+   "rep": "v = √(2gh)",
    "verso": "<strong>v = √(2gh)</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un fluide incompressible est un fluide dont ……",
+   "rep": "la masse volumique est constante",
    "verso": "<strong>la masse volumique est constante</strong> — Son volume ne varie pas sous l'effet de la pression.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Parmi ces fluides, lequel n'est pas incompressible ?",
-   "verso": "<strong>l'air comprimé</strong> — Tous les gaz sont compressibles. C'est ce qui sépare le pneumatique de l'hydraulique — et ce qui interdit d'appliquer ce chapitre à l'air comprimé.",
+   "rep": "l'air comprimé",
+   "verso": "<strong>l'air comprimé</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "120 bar valent, en pascals ……",
-   "verso": "<strong>1,2×10⁷ Pa</strong> — 1 bar = 1×10⁵ Pa, donc 120×10⁵ = 1,2×10⁷ Pa. Oublier cette conversion fait manquer le résultat d'un facteur 100000.",
+   "rep": "1,2×10⁷ Pa",
+   "verso": "<strong>1,2×10⁷ Pa</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La pression au fond d'un récipient dépend ……",
+   "rep": "de la hauteur de liquide",
    "verso": "<strong>de la hauteur de liquide</strong> — p = ρg h : ni le volume, ni la forme, ni la surface du fond n'interviennent.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un capteur de pression relative plongé dans l'air libre indique ……",
+   "rep": "zéro",
    "verso": "<strong>zéro</strong> — La pression relative se compte à partir de la pression atmosphérique.",
    "origine": "bilan"
   }

@@ -222,75 +222,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Onde sonore » ?",
+   "verso": "Un <strong>son</strong> est une onde <strong>mécanique</strong> : la propagation d'une variation de pression dans un milieu matériel (air, eau, solide).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Trois domaines » ?",
+   "verso": "L'oreille humaine perçoit les sons dont la fréquence est comprise entre 20 et 20 : ce sont les sons <strong>audibles</strong>. En dessous de 20 se trouvent les <strong>infrasons</strong> (éléphants, séismes).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Hauteur » ?",
+   "verso": "La <strong>hauteur</strong> d'un son est la sensation de grave ou d'aigu. Elle est déterminée par la <strong>fréquence</strong> : plus la fréquence est <strong>élevée</strong>, plus le son est <strong>aigu</strong>.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Timbre et harmoniques » ?",
+   "verso": "Le <strong>timbre</strong> est ce qui permet de reconnaître la source d'un son de même hauteur. Le diapason produit un signal <strong>sinusoïdal pur</strong>.",
+   "origine": "definition du cours"
+  },
+  {
    "type": "trou",
    "recto": "Les particules du milieu vibrent …… au sens de propagation : l'onde sonore est dite <strong>longitudinale</strong>.",
+   "rep": "parallèlement",
    "verso": "<strong>parallèlement</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Les particules du milieu vibrent <strong>parallèlement</strong> au sens de propagation : l'onde sonore est dite …….",
+   "rep": "longitudinale",
    "verso": "<strong>longitudinale</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Comme toute onde mécanique, le son a …… : il ne se propage pas dans le vide. Toutes les notions du chapitre 13 s'appliquent : période T, fréquence f, longueur d'onde λ, et la relation v = λf.",
-   "verso": "<strong>besoin d'un milieu</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Le diapason produit un signal …… ; un instrument produit un signal <strong>périodique mais non sinusoïdal</strong>, superposition de la fréquence fondamentale et de ses <strong>harmoniques</strong> (multiples de la fondamentale).",
-   "verso": "<strong>sinusoïdal pur</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Le diapason produit un signal <strong>sinusoïdal pur</strong> ; un instrument produit un signal ……, superposition de la fréquence fondamentale et de ses <strong>harmoniques</strong> (multiples de la fondamentale).",
-   "verso": "<strong>périodique mais non sinusoïdal</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Le son est une onde ……",
+   "rep": "mécanique longitudinale",
    "verso": "<strong>mécanique longitudinale</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans une onde sonore, les tranches d'air ……",
+   "rep": "oscillent sur place, parallèlement à la propagation",
    "verso": "<strong>oscillent sur place, parallèlement à la propagation</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La célérité du son est la plus grande dans ……",
+   "rep": "l'acier",
    "verso": "<strong>l'acier</strong> — le son va d'autant plus vite que le milieu est dense et rigide",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans un milieu donné, si la fréquence d'un son augmente, sa célérité ……",
+   "rep": "ne change pas",
    "verso": "<strong>ne change pas</strong> — la célérité ne dépend que du <em>milieu</em> ; c'est λ qui change",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un son de fréquence 12 Hz est ……",
+   "rep": "un infrason",
    "verso": "<strong>un infrason</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le domaine audible de l'oreille humaine s'étend environ de ……",
+   "rep": "20 Hz à 20 kHz",
    "verso": "<strong>20 Hz à 20 kHz</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un son est d'autant plus <strong>aigu</strong> que ……",
+   "rep": "sa fréquence est grande",
    "verso": "<strong>sa fréquence est grande</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un signal a une période T = 4,0 ms. Sa fréquence vaut ……",
+   "rep": "250 Hz",
+   "verso": "<strong>250 Hz</strong>",
    "origine": "bilan"
   }
  ]

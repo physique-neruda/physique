@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "15",
  "titre": "Analyse du signal",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Convertir 20 ms en secondes, en écriture scientifique :",
+   "choix": [
+    "2,0×10⁻² s",
+    "2,0×10⁻³ s",
+    "2,0×10⁻⁵ s",
+    "2,0×10¹ s"
+   ],
+   "bonne": 0,
+   "expl": "milli vaut 10⁻³, et 20 = 2,0×10¹ : 2,0×10¹ × 10⁻³ = 2,0×10⁻² s."
+  },
+  {
+   "q": "L'inverse d'une durée est :",
+   "choix": [
+    "une fréquence, en hertz",
+    "une période, en secondes",
+    "une pulsation, en rad/s",
+    "un nombre sans unité"
+   ],
+   "bonne": 0,
+   "expl": "1/s = Hz. C'est la définition même de la fréquence."
+  },
+  {
+   "q": "Un rectangle a pour hauteur 24 et pour largeur 2,8. Son aire vaut :",
+   "choix": [
+    "67,2",
+    "26,8",
+    "8,57",
+    "33,6"
+   ],
+   "bonne": 0,
+   "expl": "24 × 2,8 = 67,2. L'aire sous un signal rectangulaire se calcule ainsi, et c'est ce qui donne la valeur moyenne."
+  },
+  {
+   "q": "Comparer √0,35 à 0,35 :",
+   "choix": [
+    "√0,35 est plus grand",
+    "√0,35 est plus petit",
+    "les deux sont égaux",
+    "la racine n'existe pas"
+   ],
+   "bonne": 0,
+   "expl": "√0,35 = 0,592, plus grand que 0,35. Pour un nombre inférieur à 1, la racine remonte — le contraire de ce à quoi on s'attend."
+  },
+  {
+   "q": "Calculer √(6² + 2,83²) :",
+   "choix": [
+    "6,63",
+    "8,83",
+    "44,0",
+    "6,00"
+   ],
+   "bonne": 0,
+   "expl": "√(36 + 8,0) = √44,0 = 6,63. Une somme quadratique n'est pas une somme : 8,83 serait 6 + 2,83."
+  },
+  {
+   "q": "Une tension a pour valeur maximale 325 V. Sa valeur efficace vaut :",
+   "choix": [
+    "230 V",
+    "460 V",
+    "163 V",
+    "325 V"
+   ],
+   "bonne": 0,
+   "expl": "325/√2 = 230 V. C'est le réseau domestique, vu des deux côtés."
+  }
+ ],
  "bilan": [
   {
    "q": "Un signal a une période de 2,0 ms. Sa fréquence vaut :",
@@ -170,61 +237,71 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "La valeur moyenne d'un signal périodique, notée u, est …… sur une période, divisée par la période.",
+   "rep": "l'aire algébrique sous la courbe",
    "verso": "<strong>l'aire algébrique sous la courbe</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Tout signal périodique est la somme de sa composante continue, égale à sa valeur moyenne, et de …….",
-   "verso": "<strong>sa composante alternative, de valeur moyenne nulle</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "La valeur efficace d'un signal périodique est la valeur de …… qui dissiperait la même puissance dans la même résistance.",
+   "rep": "la tension continue",
    "verso": "<strong>la tension continue</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Un signal périodique alternatif se décompose en une somme de sinusoïdes : le <strong>fondamental</strong>, de fréquence f₁ égale à celle du signal, et les <strong>harmoniques</strong>, de fréquences …….",
-   "verso": "<strong>multiples entiers de f₁</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un signal a une période de 2,0 ms. Sa fréquence vaut ……",
-   "verso": "<strong>500 Hz</strong> — f = 1/T = 1/(2,0×10⁻³) = 500 Hz. La réponse a est le piège classique : oublier de convertir les millisecondes en secondes.",
+   "rep": "500 Hz",
+   "verso": "<strong>500 Hz</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La composante continue d'un signal périodique, c'est ……",
+   "rep": "sa valeur moyenne",
    "verso": "<strong>sa valeur moyenne</strong> — La composante continue est la valeur moyenne du signal. C'est elle que lit un voltmètre en position DC, et elle apparaît sur le spectre sous la forme d'une raie à 0 Hz.",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "La valeur efficace d'un signal périodique est, par définition ……",
-   "verso": "<strong>la valeur de la tension continue qui dissiperait la même puissance</strong> — C'est la définition énergétique, la seule valable pour tout signal, et celle que le programme demande de savoir énoncer. La réponse a est un résultat, et seulement pour un sinusoïdal.",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "Un créneau varie entre 0 et 20 V avec un rapport cyclique α= 0,25. Sa valeur moyenne vaut ……",
-   "verso": "<strong>5 V</strong> — u = αU_max = 0,25 × 20 = 5 V.",
+   "rep": "5 V",
+   "verso": "<strong>5 V</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour ce même créneau, la valeur efficace vaut ……",
-   "verso": "<strong>10 V</strong> — U_eff = U_max√(α) = 20 × √(0,25) = 20 × 0,5 = 10 V. La réponse a confond avec la valeur moyenne — c'est l'erreur la plus fréquente du chapitre : on écrit α au lieu de √(α).",
+   "rep": "10 V",
+   "verso": "<strong>10 V</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La relation U_eff = U_max/√2 s'applique ……",
+   "rep": "aux seuls signaux sinusoïdaux",
    "verso": "<strong>aux seuls signaux sinusoïdaux</strong> — Uniquement pour un sinusoïdal. Appliquée à un créneau symétrique, où U_eff = U_max, elle donnerait une erreur de 30 %.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Sur un spectre d'amplitude, la raie située à 0 Hz représente ……",
+   "rep": "la composante continue",
+   "verso": "<strong>la composante continue</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le fondamental d'un signal est à 50 Hz. L'harmonique de rang 7 est à ……",
+   "rep": "350 Hz",
+   "verso": "<strong>350 Hz</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un spectre ne comporte qu'une seule raie, à 100 Hz. Le signal est ……",
+   "rep": "sinusoïdal",
+   "verso": "<strong>sinusoïdal</strong> — Une seule raie signifie une seule fréquence : le signal est une sinusoïde pure. Un créneau ou un triangle donneraient un fondamental et des harmoniques. Un signal continu n'aurait qu'une raie, mais à 0 Hz.",
    "origine": "bilan"
   }
  ]

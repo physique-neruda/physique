@@ -222,75 +222,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Conservation des atomes » ?",
+   "verso": "Au cours d'une transformation chimique, il y a <strong>autant d'atomes de chaque élément</strong> avant et après la réaction. C'est ce principe qui impose d'<strong>équilibrer</strong> l'équation.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Réactif limitant » ?",
+   "verso": "Le <strong>réactif limitant</strong> est celui qui s'épuise le premier. C'est lui — et lui seul — qui fixe la quantité de produits formés. Les autres réactifs, présents <strong>en excès</strong>, subsistent à la fin.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « La mole » ?",
+   "verso": "Une <strong>mole</strong> d'entités contient N_A = 6,02×10²³ entités. Ce nombre s'appelle la <strong>constante d'Avogadro</strong>. La quantité de matière n s'exprime en <strong>moles</strong> (mol).",
+   "origine": "definition du cours"
+  },
+  {
    "type": "trou",
    "recto": "Au cours d'une transformation chimique, il y a …… avant et après la réaction.",
+   "rep": "autant d'atomes de chaque élément",
    "verso": "<strong>autant d'atomes de chaque élément</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "C'est ce principe qui impose d'…… l'équation.",
-   "verso": "<strong>équilibrer</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Une …… compte pour deux.",
-   "verso": "<strong>double liaison</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Le …… est celui qui s'épuise le premier.",
-   "verso": "<strong>réactif limitant</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Ce nombre s'appelle la …….",
-   "verso": "<strong>constante d'Avogadro</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Au cours d'une transformation chimique ……",
+   "rep": "les atomes sont conservés et réorganisés",
    "verso": "<strong>les atomes sont conservés et réorganisés</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour équilibrer une équation, on modifie ……",
+   "rep": "les coefficients devant les formules",
    "verso": "<strong>les coefficients devant les formules</strong> — on ne touche jamais aux indices",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans une combustion, on équilibre l'oxygène <strong>en dernier</strong> parce que ……",
+   "rep": "O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres",
    "verso": "<strong>O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "L'équation CH₄ + O₂ → CO₂ + H₂O équilibrée s'écrit ……",
+   "rep": "CH₄ + 2 O₂ → CO₂ + 2 H₂O",
    "verso": "<strong>CH₄ + 2 O₂ → CO₂ + 2 H₂O</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La molécule C₄H₈ appartient à la famille des ……",
+   "rep": "alcènes",
    "verso": "<strong>alcènes</strong> — C<sub>n</sub>H<sub>2n</sub> avec n = 4",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le groupe caractéristique des alcools est ……",
+   "rep": "-OH",
    "verso": "<strong>-OH</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une mole contient ……",
+   "rep": "6,02 × 10²³ entités",
    "verso": "<strong>6,02 × 10²³ entités</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La masse molaire du dioxyde de carbone CO₂ vaut ……",
+   "rep": "44 g/mol",
+   "verso": "<strong>44 g/mol</strong> — 12 + 2 × 16 = 44",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La quantité de matière contenue dans 88 g de CO₂ vaut ……",
+   "rep": "2 mol",
+   "verso": "<strong>2 mol</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le <strong>réactif limitant</strong> est celui qui ……",
+   "rep": "s'épuise le premier",
+   "verso": "<strong>s'épuise le premier</strong>",
    "origine": "bilan"
   }
  ]

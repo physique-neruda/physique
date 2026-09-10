@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "1",
  "titre": "Énergie interne et transferts thermiques",
  "niveau": "BTS ET",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Convertir 2,5 kg en grammes :",
+   "choix": [
+    "2,5×10³ g",
+    "2,5×10⁶ g",
+    "2,5×10⁻³ g",
+    "25 g"
+   ],
+   "bonne": 0,
+   "expl": "kilo vaut 10³ : 2,5 kg = 2500 g = 2,5×10³ g."
+  },
+  {
+   "q": "Un appareil de 1500 W fonctionne pendant 40 min. L'énergie consommée vaut :",
+   "choix": [
+    "1,0 kW·h",
+    "60 kW·h",
+    "0,60 kW·h",
+    "3,6 kW·h"
+   ],
+   "bonne": 0,
+   "expl": "1,5 kW × (40/60) h = 1,0 kW·h, soit 3,6×10⁶ J. Le temps doit être en heures pour sortir des kilowattheures."
+  },
+  {
+   "q": "Calculer 2,5 × 4185 × (60 − 15) :",
+   "choix": [
+    "4,71×10⁵",
+    "4,71×10⁴",
+    "1,05×10⁴",
+    "4,71×10⁶"
+   ],
+   "bonne": 0,
+   "expl": "470 813, soit 4,71×10⁵ J. C'est l'énergie pour chauffer 2,5 kg d'eau de 45 °C."
+  },
+  {
+   "q": "Une grandeur y est proportionnelle à x. Quand x passe de 20 à 50, y passe de 140 à :",
+   "choix": [
+    "350",
+    "170",
+    "56",
+    "280"
+   ],
+   "bonne": 0,
+   "expl": "y est multipliée par 50/20 = 2,5 : 140 × 2,5 = 350. On applique le rapport, on n'ajoute pas l'écart."
+  },
+  {
+   "q": "Le rapport 600⁴/300⁴ vaut :",
+   "choix": [
+    "16",
+    "4",
+    "8",
+    "2"
+   ],
+   "bonne": 0,
+   "expl": "(600/300)⁴ = 2⁴ = 16. Un exposant 4 transforme un doublement en facteur seize — c'est le rayonnement thermique."
+  },
+  {
+   "q": "Un écart de température de 85 °C vaut, en kelvins :",
+   "choix": [
+    "85 K",
+    "358 K",
+    "188 K",
+    "0,85 K"
+   ],
+   "bonne": 0,
+   "expl": "Un ÉCART se transporte tel quel : les deux échelles ont le même pas. C'est une température, elle, qui devient 358 K."
+  }
+ ],
  "bilan": [
   {
    "q": "Une température de 27 °C vaut, en kelvins :",
@@ -157,61 +224,68 @@ window.CHAPITRE = {
   },
   {
    "type": "retenir",
+   "recto": "Trois activités au simulateur précèdent ce cours — qu'y a-t-il à retenir ?",
+   "verso": "Chacune fait <em>trouver</em> une loi avant qu'elle ne soit écrite ici, à partir de mesures relevées sur téléphone. L'<strong>activité 1</strong> donne E = P × t, puis Q = m c Δθ et Q = m L ; l'<strong>activité 2</strong> donne la loi de Stefan.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Trois capteurs industriels — qu'y a-t-il à retenir ?",
+   "verso": "La <strong>Pt100</strong> exploite la variation de résistance du platine : linéaire, précise, c'est le capteur de la régulation. Le <strong>thermocouple</strong> délivre une tension due au contact de deux métaux différents : quelques millivolts.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
    "recto": "Q et E sont la même grandeur — qu'y a-t-il à retenir ?",
-   "verso": "Quand une résistance chauffante délivre son énergie à un corps, ce que le corps reçoit est exactement ce que la résistance a dépensé. On le note Q au lieu de E, et on l'appelle chaleur, ou quantité de chaleur. Ce n'est pas une autre grandeur : c'est une énergie, en joules. La lettre change seulement pour dire <em>par quel chemin</em> l'énergie est passée — par transfert thermique, et non par un travail mécanique.",
-   "origine": "encadre du cours"
-  },
-  {
-   "type": "retenir",
-   "recto": "Lire une courbe de chauffe — qu'y a-t-il à retenir ?",
-   "verso": "Les <strong>pentes</strong> correspondent à Q = m c Δθ : la température monte. Les <strong>paliers</strong> correspondent à Q = m L : on continue de chauffer et la température ne bouge plus, car l'énergie sert à défaire les liaisons entre les particules.",
-   "origine": "encadre du cours"
-  },
-  {
-   "type": "retenir",
-   "recto": "Conduction, convection, rayonnement — qu'y a-t-il à retenir ?",
-   "verso": "La <strong>conduction</strong> propage l'énergie de proche en proche dans la matière : c'est ce qui chauffe la tôle d'une armoire. La <strong>convection</strong> transporte l'énergie par le déplacement d'un fluide : c'est le ventilateur d'armoire. Le <strong>rayonnement</strong> transporte l'énergie sans aucun support matériel, par ondes électromagnétiques : c'est ce que capte une caméra thermique.",
+   "verso": "Quand une résistance chauffante délivre son énergie à un corps, ce que le corps reçoit est exactement ce que la résistance a dépensé. On le note Q au lieu de E, et on l'appelle chaleur, ou quantité de chaleur.",
    "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Pour en déduire une température, il faut lui fournir …….",
+   "rep": "l'émissivité de la surface visée",
    "verso": "<strong>l'émissivité de la surface visée</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le flux joue le rôle du courant, l'écart de température celui …….",
+   "rep": "de la tension",
    "verso": "<strong>de la tension</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Une caméra thermique ne mesure pas une température : elle mesure …….",
+   "rep": "un rayonnement",
    "verso": "<strong>un rayonnement</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "On le note Q au lieu de E, et on l'appelle ……, ou quantité de chaleur.",
-   "verso": "<strong>chaleur</strong>",
+   "recto": "Les <strong>pentes</strong> correspondent à …… : la température monte.",
+   "rep": "Q = m c Δθ",
+   "verso": "<strong>Q = m c Δθ</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Les <strong>pentes</strong> correspondent à …… : la température monte.",
-   "verso": "<strong>Q = m c Δθ</strong>",
+   "recto": "Le zéro absolu correspond à -273 °C : c'est ……, une limite inatteignable.",
+   "rep": "l'arrêt de l'agitation microscopique",
+   "verso": "<strong>l'arrêt de l'agitation microscopique</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Une température de 27 °C vaut, en kelvins ……",
-   "verso": "<strong>300 K</strong> — T = 27+273 = 300 K.",
+   "rep": "300 K",
+   "verso": "<strong>300 K</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un écart de température de 35 °C vaut, en kelvins ……",
+   "rep": "35 K",
    "verso": "<strong>35 K</strong> — Un écart est le même dans les deux échelles : le décalage de 273 disparaît dans la soustraction. C'est pour cela que Q = m c Δθ accepte indifféremment les degrés Celsius et les kelvins.",
    "origine": "bilan"
   }

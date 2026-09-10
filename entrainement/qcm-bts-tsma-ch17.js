@@ -199,75 +199,100 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Tension simple, tension composée » ?",
+   "verso": "La <strong>tension simple</strong> V se mesure entre une phase et le neutre ; la <strong>tension composée</strong> U se mesure entre deux phases.",
+   "origine": "definition du cours"
+  },
+  {
    "type": "trou",
    "recto": "La puissance <strong>active</strong> P, en watts, est …….",
+   "rep": "celle qui travaille et que l'on paie",
    "verso": "<strong>celle qui travaille et que l'on paie</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La puissance <strong>réactive</strong> Q, en var, est …….",
+   "rep": "celle qui fait des allers-retours sans travailler",
    "verso": "<strong>celle qui fait des allers-retours sans travailler</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La puissance <strong>apparente</strong> S, en V·A, est …….",
+   "rep": "celle que voient les câbles et le disjoncteur",
    "verso": "<strong>celle que voient les câbles et le disjoncteur</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Il ne mesure aucune intensité en valeur absolue : il compare …….",
-   "verso": "<strong>le courant aller et le courant retour</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "En couplage <strong>étoile</strong>, chaque récepteur est soumis à …….",
+   "rep": "la tension simple V",
    "verso": "<strong>la tension simple V</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Ce n'est pas la tension qui tue, c'est le courant — et il suffit de …….",
+   "rep": "quelques dizaines de milliampères",
    "verso": "<strong>quelques dizaines de milliampères</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "En couplage <strong>triangle</strong>, il est soumis à ……, soit √3 fois plus.",
-   "verso": "<strong>la tension composée U</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Si la différence dépasse son calibre — 30 mA usuellement — il coupe, parce que du courant …….",
-   "verso": "<strong>s'échappe vers la terre</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Ce n'est pas la tension qui tue, c'est …… — et il suffit de quelques dizaines de milliampères.",
-   "verso": "<strong>le courant</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "La tension composée se mesure ……",
-   "verso": "<strong>entre deux phases</strong> — la composée se mesure entre deux phases, et U = √3 × 230 = 400 V. La réponse a de la question 2 vient d'une division au lieu d'une multiplication : contrôler que la composée est toujours la plus grande des deux suffit à écarter l'erreur. 3pt",
+   "rep": "entre deux phases",
+   "verso": "<strong>entre deux phases</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Sur un réseau où V = 230 V, la tension composée vaut ……",
-   "verso": "<strong>400 V</strong> — la composée se mesure entre deux phases, et U = √3 × 230 = 400 V. La réponse a de la question 2 vient d'une division au lieu d'une multiplication : contrôler que la composée est toujours la plus grande des deux suffit à écarter l'erreur. 3pt",
+   "rep": "400 V",
+   "verso": "<strong>400 V</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "En couplage étoile, chaque récepteur est soumis à ……",
-   "verso": "<strong>la tension simple</strong> — en étoile, chaque récepteur voit la tension simple. Un moteur 230 /400 V a des enroulements prévus pour 230 V : sur un réseau 400 V entre phases, seul le couplage étoile leur donne les 231 V attendus. Le coupler en triangle triple la puissance appelée et le détruit en quelques minutes. 3pt",
+   "recto": "Un moteur 230 /400 V est branché sur un réseau 400 V entre phases. Il faut le coupler en ……",
+   "rep": "étoile",
+   "verso": "<strong>étoile</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En triphasé équilibré, la puissance apparente vaut ……",
+   "rep": "S = √3 U I",
+   "verso": "<strong>S = √3 U I</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "On relève le facteur de puissance d'une installation de 0,74 à 0,93. La puissance active ……",
+   "rep": "ne change pas",
+   "verso": "<strong>ne change pas</strong> — et c'est le cœur du chapitre. Relever le facteur de puissance ne change rien à la puissance active : le moteur fournit le même travail et la facture d'énergie active ne bouge pas.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Ce relèvement fait baisser le courant de ligne de 20 %. Les pertes en ligne baissent alors de ……",
+   "rep": "36 %",
+   "verso": "<strong>36 %</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le disjoncteur protège avant tout ……",
+   "rep": "les biens",
+   "verso": "<strong>les biens</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans la consignation, la vérification d'absence de tension ……",
+   "rep": "se fait sur place, juste avant de toucher",
+   "verso": "<strong>se fait sur place, juste avant de toucher</strong>",
    "origine": "bilan"
   }
  ]

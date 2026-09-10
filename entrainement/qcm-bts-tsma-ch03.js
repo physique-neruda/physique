@@ -199,75 +199,94 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Toute variation de pression exercée en un point d'un fluide incompressible enfermé …….",
-   "verso": "<strong>se transmet intégralement en tout autre point du fluide</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Pression » ?",
+   "verso": "La <strong>pression</strong> p exercée par une force F répartie perpendiculairement sur une surface S est le quotient de cette force par cette surface.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Principe fondamental de l'hydrostatique (PFH) » ?",
+   "verso": "Dans un liquide <strong>au repos</strong> et <strong>incompressible</strong>, la différence de pression entre deux points séparés d'une hauteur h vaut :",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Les deux pressions » ?",
+   "verso": "La <strong>pression relative</strong> (ou effective) est celle qu'affiche le manomètre : elle se compte à partir de la pression atmosphérique. La <strong>pression absolue</strong> se compte à partir du vide.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Théorème de Pascal » ?",
+   "verso": "Toute variation de pression exercée en un point d'un fluide incompressible enfermé se transmet intégralement en tout autre point du fluide.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Les trois unités à savoir manier — qu'y a-t-il à retenir ?",
+   "verso": "1 bar = 1×10⁵ Pa = 0,1 MPa et 1 MPa = 10 bar. Le pascal est la seule unité du Système international : c'est celle qu'il faut employer dans <em>tous</em> les calculs. Le bar sert à lire et à communiquer.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Le paradoxe hydrostatique — qu'y a-t-il à retenir ?",
+   "verso": "La pression au fond d'un récipient ne dépend ni de sa forme, ni du volume de liquide qu'il contient : elle ne dépend que de la hauteur et de la masse volumique.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Le prix de la multiplication — qu'y a-t-il à retenir ?",
+   "verso": "Le rapport des forces vaut le rapport des sections. Mais le volume d'huile chassé par le petit piston est celui que reçoit le gros, d'où S₁ d₁ = S₂ d₂ : le gros piston avance d'autant moins que la force est multipliée.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Lorsque ρ= a/g et que g est connu très précisément, l'incertitude relative se transmet telle quelle : …….",
+   "rep": "u(ρ)/ρ= u(a)/a",
    "verso": "<strong>u(ρ)/ρ= u(a)/a</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "La <strong>pression</strong> p exercée par une force F répartie perpendiculairement sur une surface S est …….",
-   "verso": "<strong>le quotient de cette force par cette surface</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "La pression au fond d'un récipient ne dépend ni de sa forme, …… qu'il contient : elle ne dépend que de la hauteur et de la masse volumique.",
+   "rep": "ni du volume de liquide",
    "verso": "<strong>ni du volume de liquide</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La pression au fond d'un récipient ne dépend ……, ni du volume de liquide qu'il contient : elle ne dépend que de la hauteur et de la masse volumique.",
-   "verso": "<strong>ni de sa forme</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Mais le volume d'huile chassé par le petit piston est celui que reçoit le gros, d'où …… : le gros piston avance d'autant moins que la force est multipliée.",
-   "verso": "<strong>S₁ d₁ = S₂ d₂</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "La pression est ……",
+   "rep": "une force divisée par une surface",
    "verso": "<strong>une force divisée par une surface</strong> — p = F/S.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "1 bar vaut ……",
-   "verso": "<strong>1×10⁵ Pa</strong> — 1 bar = 1×10⁵ Pa = 0,1 MPa.",
+   "rep": "1×10⁵ Pa",
+   "verso": "<strong>1×10⁵ Pa</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une section de 25 cm² vaut, en m² ……",
+   "rep": "2,5×10⁻⁴",
    "verso": "<strong>2,5×10⁻⁴</strong> — une aire se convertit en e-4 : c'est le piège numéro un du chapitre. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "Dans un liquide au repos, la pression au fond dépend ……",
-   "verso": "<strong>de la hauteur de liquide et de sa masse volumique</strong> — c'est le paradoxe hydrostatique : ni la forme, ni le volume n'interviennent. Attention, la force sur le fond dépend en revanche de l'aire de ce fond (F = p S) : pression et force ne se confondent pas. 3pt",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "Deux cuves de même hauteur de liquide, l'une cylindrique, l'autre évasée. La pression au fond est ……",
+   "rep": "identique",
    "verso": "<strong>identique</strong> — c'est le paradoxe hydrostatique : ni la forme, ni le volume n'interviennent. Attention, la force sur le fond dépend en revanche de l'aire de ce fond (F = p S) : pression et force ne se confondent pas. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La différence de pression entre la surface et un point situé 4,0 m plus bas dans du gazole (ρ= 840 kg/m³) vaut environ ……",
-   "verso": "<strong>3,3×10⁴ Pa</strong> — 840 × 9,81 × 4,0 = 3,3×10⁴ Pa, soit 0,33 bar. Vérifier l'ordre de grandeur : 10 m d'eau donnent 1 bar, donc quatre mètres de gazole doivent donner un tiers de bar environ. 3pt",
+   "rep": "3,3×10⁴ Pa",
+   "verso": "<strong>3,3×10⁴ Pa</strong>",
    "origine": "bilan"
   }
  ]

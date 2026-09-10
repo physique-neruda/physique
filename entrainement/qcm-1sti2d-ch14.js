@@ -222,69 +222,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "question",
-   "recto": "Une solution est un mélange ……",
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Solution » ?",
+   "verso": "Une <strong>solution</strong> est un mélange <strong>homogène</strong> obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Concentration » ?",
+   "verso": "[2]\\[ c = n/V (mol L) c_m = m/V (g L) \\] Les deux sont liées par la masse molaire : c_m = c × M.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Solution aqueuse — qu'y a-t-il à retenir ?",
+   "verso": "Lorsque le solvant est l'<strong>eau</strong> — le seul cas de ce programme — la solution est dite <strong>aqueuse</strong>, ce que l'on note (aq) derrière les espèces dissoutes.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "trou",
+   "recto": "Dans ces deux formules, V est le volume ……, et non le volume de solvant ajouté.",
+   "rep": "total de la solution obtenue",
+   "verso": "<strong>total de la solution obtenue</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Lors d'une dilution, on n'ajoute que du <strong>solvant</strong> : la …… prélevée se retrouve intégralement dans la solution fille.",
+   "rep": "quantité de soluté",
+   "verso": "<strong>quantité de soluté</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Une <strong>solution</strong> est un mélange …… obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>.",
+   "rep": "homogène",
    "verso": "<strong>homogène</strong>",
-   "origine": "bilan"
+   "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Dans une solution, l'espèce dissoute s'appelle ……",
+   "rep": "le soluté",
    "verso": "<strong>le soluté</strong> — le solvant est le liquide",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une solution est dite <strong>aqueuse</strong> lorsque ……",
+   "rep": "le solvant est l'eau",
    "verso": "<strong>le solvant est l'eau</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La concentration en quantité de matière vaut ……",
+   "rep": "c = n/V",
    "verso": "<strong>c = n/V</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans la formule c = n/V, le volume V est celui ……",
+   "rep": "de la solution obtenue",
    "verso": "<strong>de la solution obtenue</strong> — d'où le trait de jauge, que l'on complète <em>après</em> avoir introduit le soluté",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une solution contient 5,85 g de NaCl par litre. Sa concentration vaut ……",
+   "rep": "0,100 mol/L",
    "verso": "<strong>0,100 mol/L</strong> — M = 58,5 g/mol, donc 5,85/58,5 = 0,100 mol dans 1 L",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour préparer une solution par <strong>dissolution</strong>, on part ……",
+   "rep": "d'un soluté solide que l'on pèse",
    "verso": "<strong>d'un soluté solide que l'on pèse</strong> — par dilution, on partirait d'une solution mère",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Lors d'une <strong>dilution</strong>, la quantité de soluté ……",
+   "rep": "ne change pas",
    "verso": "<strong>ne change pas</strong> — on n'ajoute que du solvant",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La relation de dilution s'écrit ……",
+   "rep": "c₀V₀ = cV",
    "verso": "<strong>c₀V₀ = cV</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Pour préparer une solution dont la concentration doit être précise, on utilise ……",
-   "verso": "<strong>une fiole jaugée</strong> — le bécher et l'éprouvette sont imprécis",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "On dilue 10 mL de solution mère jusqu'à 200 mL. Le facteur de dilution vaut ……",
-   "verso": "<strong>20</strong> — 200/10 = 20",
    "origine": "bilan"
   }
  ]

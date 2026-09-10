@@ -222,75 +222,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Résultat de mesure » ?",
+   "verso": "Un <strong>résultat de mesure</strong> comporte trois éléments indissociables : une <strong>valeur</strong>, une <strong>incertitude</strong> et une <strong>unité</strong>. On l'écrit sous la forme [2]\\[ d = (25,020 ± 0,008) mm. \\]",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Justesse, fidélité » ?",
+   "verso": "La <strong>justesse</strong> caractérise l'écart entre la moyenne des mesures et la valeur vraie : elle traduit une <strong>erreur systématique</strong> (un appareil mal réglé, un zéro décalé).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Moyenne » ?",
+   "verso": "La <strong>moyenne</strong> m des n mesures est le meilleur estimateur de la grandeur cherchée : [2]\\[ m = x₁ + x₂ + + x_nn. \\]",
+   "origine": "definition du cours"
+  },
+  {
    "type": "trou",
-   "recto": "Un …… comporte trois éléments indissociables : une <strong>valeur</strong>, une <strong>incertitude</strong> et une <strong>unité</strong>.",
-   "verso": "<strong>résultat de mesure</strong>",
+   "recto": "La <strong>fidélité</strong> caractérise le regroupement des mesures entre elles : elle traduit les …… (lecture, vibrations, opérateur).",
+   "rep": "erreurs aléatoires",
+   "verso": "<strong>erreurs aléatoires</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>justesse</strong> caractérise l'écart entre la moyenne des mesures et la valeur vraie : elle traduit une …… (un appareil mal réglé, un zéro décalé).",
+   "rep": "erreur systématique",
    "verso": "<strong>erreur systématique</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La <strong>fidélité</strong> caractérise le regroupement des mesures entre elles : elle traduit les …… (lecture, vibrations, opérateur).",
-   "verso": "<strong>erreurs aléatoires</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "C'est la signature des ……, qui jouent autant dans un sens que dans l'autre — et c'est précisément pour cela que la moyenne les compense.",
-   "verso": "<strong>erreurs aléatoires</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Deux voies mènent à l'incertitude-type, et l'énoncé indique toujours laquelle suivre : …… → on exploite leur dispersion, u = s/√n (type A) ; <strong>une seule mesure</strong> → on exploite l'instrument, u = a/√3 (type B).",
-   "verso": "<strong>plusieurs mesures</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "On l'écrit sous la forme\n……",
-   "verso": "d = (25,020 ± 0,008) mm .",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La <strong>moyenne</strong> m des n mesures est le meilleur estimateur de la grandeur cherchée :\n……",
-   "verso": "m = (x₁ + x₂ + … + x<sub>n</sub>)/n.",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un résultat de mesure complet comporte ……",
+   "rep": "une valeur, une incertitude et une unité",
    "verso": "<strong>une valeur, une incertitude et une unité</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un instrument mal réglé au zéro provoque une erreur ……",
+   "rep": "systématique",
    "verso": "<strong>systématique</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Répéter les mesures et faire la moyenne permet de réduire ……",
+   "rep": "les erreurs aléatoires",
    "verso": "<strong>les erreurs aléatoires</strong> — la moyenne compense les écarts aléatoires, jamais un décalage systématique",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Des mesures très groupées mais toutes décalées de la valeur vraie sont ……",
+   "rep": "fidèles mais pas justes",
    "verso": "<strong>fidèles mais pas justes</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le nombre 0,0250 comporte ……",
+   "rep": "3 chiffres significatifs",
    "verso": "<strong>3 chiffres significatifs</strong> — les zéros de tête ne comptent pas, celui de fin oui",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le produit 12,4 × 3,0 doit s'écrire ……",
+   "rep": "37",
+   "verso": "<strong>37</strong> — le facteur 3,0 n'a que 2 chiffres significatifs",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une série de mesures, l'écart-type s mesure ……",
+   "rep": "la dispersion des valeurs",
+   "verso": "<strong>la dispersion des valeurs</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'incertitude-type sur la moyenne se calcule par ……",
+   "rep": "u = s/√n",
+   "verso": "<strong>u = s/√n</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "On effectue <strong>une seule</strong> mesure avec un instrument dont la notice indique ± 0,02 mm. L'incertitude-type vaut ……",
+   "rep": "0,012 mm",
+   "verso": "<strong>0,012 mm</strong>",
    "origine": "bilan"
   }
  ]

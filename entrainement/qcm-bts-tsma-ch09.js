@@ -199,75 +199,94 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Rayonnement : à distance, par ondes, …….",
-   "verso": "<strong>sans aucun support matériel</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Flux thermique » ?",
+   "verso": "Le <strong>flux thermique</strong> φ est l'énergie transférée par unité de temps. C'est donc une puissance, exprimée en watts.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "…… : transport par un fluide en mouvement.",
-   "verso": "<strong>Convection</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Densité de flux » ?",
+   "verso": "La <strong>densité de flux</strong> est le flux rapporté à l'unité de surface : φ= φ/ S, en W/m².",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Le <strong>flux thermique</strong> φ est …….",
-   "verso": "<strong>l'énergie transférée par unité de temps</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Résistance thermique » ?",
+   "verso": "La <strong>résistance thermique</strong> d'une paroi plane se calcule par R_th = e / (λS) et s'exprime en K/W. Le flux s'écrit alors φ= ΔT / R_th.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "…… : de proche en proche dans la matière immobile.",
-   "verso": "<strong>Conduction</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Convection » ?",
+   "verso": "La <strong>convection</strong> est le transfert thermique assuré par le mouvement d'un fluide. Elle est dite naturelle lorsque ce mouvement naît du seul échauffement du fluide, et forcée lorsqu'un ventilateur ou une pompe l'impose.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "…… : à distance, par ondes, sans aucun support matériel.",
-   "verso": "<strong>Rayonnement</strong>",
-   "origine": "cours a completer"
+   "type": "retenir",
+   "recto": "Un sens unique — qu'y a-t-il à retenir ?",
+   "verso": "Un transfert thermique s'effectue toujours spontanément du corps le plus chaud vers le corps le plus froid, et il cesse lorsque les deux températures sont égales.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>densité de flux</strong> est …… : φ= φ/ S, en W/m².",
-   "verso": "<strong>le flux rapporté à l'unité de surface</strong>",
-   "origine": "cours a completer"
+   "type": "retenir",
+   "recto": "Trois mécanismes, trois exigences — qu'y a-t-il à retenir ?",
+   "verso": "Conduction : de proche en proche dans la matière immobile. Convection : transport par un fluide en mouvement. Rayonnement : à distance, par ondes, sans aucun support matériel.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Isolant ou conducteur — qu'y a-t-il à retenir ?",
+   "verso": "Un matériau isole d'autant mieux que sa conductivité λ est petite. Les bons isolants du métier — laine de verre, polystyrène, liège — se situent tous autour de 0,04 W/m/K, soit dix mille fois moins que le cuivre.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Un matériau isole d'autant mieux que sa conductivité λ est …….",
+   "rep": "petite",
    "verso": "<strong>petite</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>convection</strong> est le transfert thermique assuré par …….",
+   "rep": "le mouvement d'un fluide",
    "verso": "<strong>le mouvement d'un fluide</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>densité de flux</strong> est le flux rapporté à l'unité de surface : ……, en W/m².",
+   "rep": "φ= φ/ S",
    "verso": "<strong>φ= φ/ S</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "La <strong>densité de flux</strong> est le flux rapporté à l'unité de surface : φ= φ/ S, en …….",
+   "rep": "W/m²",
+   "verso": "<strong>W/m²</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "La <strong>résistance thermique</strong> d'une paroi plane se calcule par …… et s'exprime en K/W.",
+   "rep": "R_th = e / (λS)",
+   "verso": "<strong>R_th = e / (λS)</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Le flux thermique φ s'exprime en ……",
-   "verso": "<strong>watts</strong> — le flux est une puissance, donc des watts. La réponse a confond flux et énergie ; la c est la densité de flux, qui rapporte le flux à la surface. Les trois grandeurs sont différentes et les trois unités le disent. 3pt",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Un transfert thermique s'effectue spontanément ……",
-   "verso": "<strong>du chaud vers le froid</strong> — le sens du transfert ne dépend jamais du matériau, seulement des températures. Et parmi les trois modes, seul le rayonnement se passe de support : c'est pourquoi l'énergie du Soleil traverse l'espace vide alors qu'aucun son n'y circule. 3pt",
+   "rep": "watts",
+   "verso": "<strong>watts</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le seul mode de transfert qui fonctionne dans le vide est ……",
-   "verso": "<strong>le rayonnement</strong> — le sens du transfert ne dépend jamais du matériau, seulement des températures. Et parmi les trois modes, seul le rayonnement se passe de support : c'est pourquoi l'énergie du Soleil traverse l'espace vide alors qu'aucun son n'y circule. 3pt",
+   "rep": "le rayonnement",
+   "verso": "<strong>le rayonnement</strong>",
    "origine": "bilan"
   }
  ]

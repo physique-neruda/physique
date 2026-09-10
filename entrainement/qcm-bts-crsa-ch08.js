@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "8",
  "titre": "Corrosion, risques chimiques et acoustiques",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Combien vaut log(10⁶) ?",
+   "choix": [
+    "6",
+    "10⁶",
+    "0,6",
+    "60"
+   ],
+   "bonne": 0,
+   "expl": "Le logarithme décimal d'une puissance de dix, c'est son exposant. C'est toute la définition."
+  },
+  {
+   "q": "Sachant que log 2 = 0,30, combien vaut log 20 ?",
+   "choix": [
+    "1,30",
+    "0,60",
+    "3,00",
+    "0,30"
+   ],
+   "bonne": 0,
+   "expl": "log 20 = log 2 + log 10 = 0,30 + 1 = 1,30. Multiplier par dix ajoute un au logarithme : c'est ce qui fait les décibels."
+  },
+  {
+   "q": "Écrire 10^8,4 en notation scientifique, à deux chiffres significatifs :",
+   "choix": [
+    "2,5×10⁸",
+    "8,4×10⁸",
+    "2,5×10⁹",
+    "1,4×10⁸"
+   ],
+   "bonne": 0,
+   "expl": "10^0,4 = 2,5, donc 10^8,4 = 2,5×10⁸. On sépare la partie entière de l'exposant du reste."
+  },
+  {
+   "q": "On résout 10 log(x) = 88 puis 10 log(x) = 91. Le rapport des deux solutions vaut :",
+   "choix": [
+    "2,0",
+    "1,03",
+    "3,0",
+    "10"
+   ],
+   "bonne": 0,
+   "expl": "3 décibels d'écart, c'est 10^0,3 = 2,0 : un doublement. Trois décibels de plus, deux fois plus d'énergie sonore."
+  },
+  {
+   "q": "Compléter : Al → Al³⁺ + … e⁻",
+   "choix": [
+    "3",
+    "2",
+    "1",
+    "6"
+   ],
+   "bonne": 0,
+   "expl": "Trois électrons cédés, pour équilibrer la charge : l'aluminium passe de 0 à +3."
+  },
+  {
+   "q": "Parmi −0,44 ; +0,34 ; −2,37 ; 0,00 ; −0,76, le plus petit est :",
+   "choix": [
+    "−2,37",
+    "−0,76",
+    "0,00",
+    "−0,44"
+   ],
+   "bonne": 0,
+   "expl": "−2,37. Chez les négatifs, plus le nombre paraît grand, plus il est petit — et c'est ce potentiel-là qui donne le métal le plus attaqué."
+  }
+ ],
  "bilan": [
   {
    "q": "Un réducteur est une espèce qui :",
@@ -188,43 +255,50 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Un <strong>oxydant</strong> est une espèce capable de …….",
+   "rep": "capter un ou plusieurs électrons",
    "verso": "<strong>capter un ou plusieurs électrons</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Un <strong>réducteur</strong> est une espèce capable de …….",
+   "rep": "céder un ou plusieurs électrons",
    "verso": "<strong>céder un ou plusieurs électrons</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Deux machines de 85 dB côte à côte donnent donc ……, et non 170 .",
+   "rep": "88 dB",
    "verso": "<strong>88 dB</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Doubler l'intensité ajoute …… ; la multiplier par dix en ajoute 10 .",
+   "rep": "3 dB",
    "verso": "<strong>3 dB</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Doubler l'intensité ajoute 3 dB ; la multiplier par dix en ajoute …….",
+   "rep": "10",
    "verso": "<strong>10</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un réducteur est une espèce qui ……",
+   "rep": "cède des électrons",
    "verso": "<strong>cède des électrons</strong> — Il réduit l'autre espèce en lui cédant ses électrons. Le nom dit ce qu'il fait à l'autre, pas ce qu'il subit.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un métal qui se corrode subit ……",
-   "verso": "<strong>une oxydation</strong> — Il perd des électrons : c'est bien une oxydation. L'inversion oxydation / réduction est la faute la plus coûteuse du chapitre.",
+   "rep": "une oxydation",
+   "verso": "<strong>une oxydation</strong>",
    "origine": "bilan"
   }
  ]

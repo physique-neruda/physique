@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <!-- =====================================================================
-     L'ÉCHELLE DES UNITÉS — outil transversal, toutes classes.
+     CONVERTIR AVEC LES PUISSANCES DE DIX — outil transversal.
      Aucune bibliothèque, aucun appel réseau, aucun stockage.
+     Règle de la maison : jamais de virgule qui se déplace. On lit le RANG
+     du préfixe (toujours celui du préfixe SEUL, jamais élevé au carré ni au
+     cube), on compte l'écart entre les deux rangs sans s'occuper du signe,
+     et c'est la taille des unités qui décide du signe.
      ===================================================================== -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>L'échelle des unités — outils</title>
+<title>Convertir avec les puissances de dix — outils</title>
 <style>
 :root{
   --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
@@ -34,29 +38,35 @@ h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
   border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
 .choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
 .echelle{display:flex;gap:3px;overflow-x:auto;padding:4px 0 8px}
-.cran{flex:0 0 auto;width:52px;text-align:center;border:1px solid var(--bord);
-  border-radius:7px;padding:6px 2px;background:#F5F8FA;font-size:.78rem;min-height:56px}
+.cran{flex:0 0 auto;width:64px;text-align:center;border:1px solid var(--bord);
+  border-radius:7px;padding:6px 2px;background:#F5F8FA;font-size:.78rem;min-height:58px}
 .cran b{display:block;font-family:var(--mono);font-size:1rem;color:var(--bleu)}
-.cran small{display:block;color:var(--gris);font-size:.66rem;line-height:1.2}
+.cran small{display:block;font-family:var(--mono);font-size:.8rem;font-weight:700;
+  color:var(--orange);margin-top:2px;white-space:nowrap}
 .cran.depart{background:var(--bleu);border-color:var(--bleu);color:#fff}
 .cran.depart b,.cran.depart small{color:#fff}
 .cran.arrivee{background:var(--orange);border-color:var(--orange);color:#fff}
 .cran.arrivee b,.cran.arrivee small{color:#fff}
-.cran.entre{background:#E4EDF4}
 label{display:block;font-size:.88rem;margin:0 0 4px;color:var(--gris)}
-input[type=text],input[type=number]{width:100%;font:inherit;font-family:var(--mono);font-size:1.1rem;
+input[type=text]{width:100%;font:inherit;font-family:var(--mono);font-size:1.1rem;
   padding:10px;border:1px solid var(--bord);border-radius:8px;background:#fff;min-height:48px}
-.deux{display:flex;gap:10px}.deux>*{flex:1}
 .etape{margin:10px 0 0;padding:9px 11px;border-left:4px solid var(--bleu);background:#F5F8FA;
   border-radius:0 7px 7px 0;font-size:.9rem}
 .etape b{color:var(--bleu)}
+.etape .calc{font-family:var(--mono);font-size:1.02rem;display:block;margin-top:5px;
+  color:var(--encre);line-height:1.6}
+.etape.pont{border-left-color:var(--juste);background:#EFF7F2}
+.etape.pont b{color:var(--juste)}
+.fr{display:inline-block;vertical-align:middle;text-align:center;margin:0 .2em}
+.fr .n{display:block;padding:0 .35em}
+.fr .d{display:block;border-top:2px solid currentColor;padding:0 .35em}
 .bouton{width:100%;min-height:50px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;
   border:1px solid var(--orange);background:var(--orange);color:#fff;cursor:pointer}
-.bouton.second{background:#F5F8FA;border-color:var(--bord);color:var(--bleu);font-weight:600}
+.bouton.second{background:#F5F8FA;border-color:var(--bord);color:var(--bleu)}
 .verdict{margin:10px 0 0;font-size:.95rem;font-weight:600}
 .verdict.ok{color:var(--juste)} .verdict.ko{color:var(--faux)}
 .aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
-.moyen{font-size:.85rem;color:var(--gris);margin:6px 0 0;font-style:italic}
+.moyen{font-size:.85rem;color:var(--gris);margin:6px 0 0}
 .retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
   text-decoration:none;padding:8px 0;min-height:40px}
 .score{font-family:var(--mono);font-size:.9rem;color:var(--gris)}
@@ -66,9 +76,9 @@ input[type=text],input[type=number]{width:100%;font:inherit;font-family:var(--mo
 
 <a class="retour" href="../index.html">&larr;&nbsp; Tous les outils</a>
 
-<h1>L'échelle des unités</h1>
-<p class="sous">Une seule question à se poser pour convertir : le nouveau nombre doit-il être
-plus grand ou plus petit&nbsp;? Le reste suit tout seul.</p>
+<h1>Convertir avec les puissances de dix</h1>
+<p class="sous">Pas de virgule qui se promène&nbsp;: chaque unité porte son <b>rang</b>, on compte
+l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe.</p>
 
 <div class="bloc">
   <h2>1. Choisir la grandeur</h2>
@@ -78,12 +88,8 @@ plus grand ou plus petit&nbsp;? Le reste suit tout seul.</p>
 
 <div class="bloc">
   <h2>2. Poser la conversion</h2>
-  <div class="deux">
-    <div>
-      <label for="valeur">Valeur de départ</label>
-      <input type="text" id="valeur" inputmode="decimal" value="2,5">
-    </div>
-  </div>
+  <label for="valeur">Valeur de départ</label>
+  <input type="text" id="valeur" inputmode="decimal" value="2,5">
   <label style="margin-top:12px">Unité de départ</label>
   <div class="echelle" id="depart"></div>
   <label>Unité d'arrivée</label>
@@ -98,7 +104,7 @@ plus grand ou plus petit&nbsp;? Le reste suit tout seul.</p>
 
 <div class="bloc">
   <h2>4. S'entraîner</h2>
-  <p class="aide" id="consigne">Dix conversions tirées au hasard. On répond, on vérifie.</p>
+  <p class="aide">Dix conversions tirées au hasard. On répond, on vérifie.</p>
   <div id="exo"></div>
   <button class="bouton" id="lancer" type="button">Commencer</button>
   <p class="score" id="score"></p>
@@ -108,108 +114,181 @@ plus grand ou plus petit&nbsp;? Le reste suit tout seul.</p>
 (function(){
   "use strict";
 
-  // Les préfixes, du plus grand au plus petit. « ecart » est la puissance
-  // de dix par rapport à l'unité de base.
+  // ------------------------------------------------------------- préfixes
   var PREFIXES = [
-    {p:'M',  nom:'méga',  ecart:6},
-    {p:'k',  nom:'kilo',  ecart:3},
-    {p:'h',  nom:'hecto', ecart:2},
-    {p:'da', nom:'déca',  ecart:1},
-    {p:'',   nom:'unité', ecart:0},
-    {p:'d',  nom:'déci',  ecart:-1},
-    {p:'c',  nom:'centi', ecart:-2},
-    {p:'m',  nom:'milli', ecart:-3},
-    {p:'µ',  nom:'micro', ecart:-6},
-    {p:'n',  nom:'nano',  ecart:-9}
+    {p:'M',  nom:'méga',  r:6},  {p:'k', nom:'kilo',  r:3},
+    {p:'h',  nom:'hecto', r:2},  {p:'da',nom:'déca',  r:1},
+    {p:'',   nom:'sans préfixe', r:0}, {p:'d', nom:'déci', r:-1},
+    {p:'c',  nom:'centi', r:-2}, {p:'m', nom:'milli', r:-3},
+    {p:'µ',  nom:'micro', r:-6}, {p:'n', nom:'nano',  r:-9}
   ];
+  function nomPrefixe(r){
+    for(var i=0;i<PREFIXES.length;i++) if(PREFIXES[i].r===r) return PREFIXES[i].nom;
+    return '';
+  }
 
-  // Une grandeur : son unité de base, sa puissance (1 pour une longueur,
-  // 2 pour une aire, 3 pour un volume — c'est là que tout le monde se
-  // trompe), et les préfixes qui ont un sens pour elle.
+  // ------------------------------------------------------------ grandeurs
+  // mode 'simple'   : un préfixe et une puissance (1 longueur, 2 aire, 3 volume)
+  // mode 'capacite' : les litres et les mètres cubes, reliés par 1 L = 1 dm³
+  // mode 'composee' : une unité en fraction — m/s, L/min, g/cm³…
   var GRANDEURS = [
-    {nom:'Longueur', base:'m', pui:1, gamme:['k','h','da','','d','c','m','µ']},
-    {nom:'Aire',     base:'m²', pui:2, gamme:['k','','d','c','m']},
-    {nom:'Volume',   base:'m³', pui:3, gamme:['','d','c','m']},
-    {nom:'Masse',    base:'g', pui:1, gamme:['k','h','da','','d','c','m','µ']},
-    {nom:'Puissance',base:'W', pui:1, gamme:['M','k','','m','µ']},
-    {nom:'Tension',  base:'V', pui:1, gamme:['M','k','','m','µ']},
-    {nom:'Courant',  base:'A', pui:1, gamme:['k','','m','µ','n']},
-    {nom:'Temps',    base:'s', pui:1, gamme:['','m','µ','n']}
+    {nom:'Longueur', mode:'simple', base:'m', pui:1,
+     gamme:['k','h','da','','d','c','m','µ']},
+    {nom:'Aire', mode:'simple', base:'m²', pui:2, gamme:['k','','d','c','m']},
+    {nom:'Volume', mode:'simple', base:'m³', pui:3, gamme:['','d','c','m']},
+    {nom:'Capacités', mode:'capacite', base:'m³'},
+    {nom:'Masse', mode:'simple', base:'g', pui:1,
+     gamme:['k','h','da','','d','c','m','µ']},
+    {nom:'Vitesse', mode:'composee', base:'m/s', haut:'m', bas:'s', unites:[
+      {t:'m/s',    hu:'m',  bu:'s',   n:0,  d:1,    dt:'1 s'},
+      {t:'km/h',   hu:'km', bu:'h',   n:3,  d:3600, dt:'3600 s'},
+      {t:'km/min', hu:'km', bu:'min', n:3,  d:60,   dt:'60 s'},
+      {t:'m/min',  hu:'m',  bu:'min', n:0,  d:60,   dt:'60 s'},
+      {t:'cm/s',   hu:'cm', bu:'s',   n:-2, d:1,    dt:'1 s'},
+      {t:'mm/s',   hu:'mm', bu:'s',   n:-3, d:1,    dt:'1 s'},
+      {t:'m/ms',   hu:'m',  bu:'ms',  n:0,  d:1e-3, dt:'10\u207b\u00b3 s'}
+    ]},
+    {nom:'Débit', mode:'composee', base:'m³/s', haut:'m³', bas:'s', unites:[
+      {t:'m³/s',  hu:'m³', bu:'s',   n:0,  d:1,    dt:'1 s'},
+      {t:'m³/h',  hu:'m³', bu:'h',   n:0,  d:3600, dt:'3600 s'},
+      {t:'L/s',   hu:'L',  bu:'s',   n:-3, d:1,    dt:'1 s'},
+      {t:'L/min', hu:'L',  bu:'min', n:-3, d:60,   dt:'60 s'},
+      {t:'L/h',   hu:'L',  bu:'h',   n:-3, d:3600, dt:'3600 s'},
+      {t:'mL/s',  hu:'mL', bu:'s',   n:-6, d:1,    dt:'1 s'}
+    ]},
+    {nom:'Masse volumique', mode:'composee', base:'kg/m³', haut:'kg', bas:'m³', unites:[
+      {t:'kg/m³', hu:'kg', bu:'m³',  n:0,  d:1,    dt:'1 m³'},
+      {t:'g/cm³', hu:'g',  bu:'cm³', n:-3, d:1e-6, dt:'10\u207b\u2076 m³'},
+      {t:'kg/L',  hu:'kg', bu:'L',   n:0,  d:1e-3, dt:'10\u207b\u00b3 m³'},
+      {t:'g/L',   hu:'g',  bu:'L',   n:-3, d:1e-3, dt:'10\u207b\u00b3 m³'},
+      {t:'mg/L',  hu:'mg', bu:'L',   n:-6, d:1e-3, dt:'10\u207b\u00b3 m³'}
+    ]},
+    {nom:'Puissance', mode:'simple', base:'W', pui:1, gamme:['M','k','','m','µ']},
+    {nom:'Tension',   mode:'simple', base:'V', pui:1, gamme:['M','k','','m','µ']},
+    {nom:'Courant',   mode:'simple', base:'A', pui:1, gamme:['k','','m','µ','n']},
+    {nom:'Temps',     mode:'simple', base:'s', pui:1, gamme:['','m','µ','n']}
   ];
 
-  var g = GRANDEURS[0], iDep = 0, iArr = 0, ex = null;
+  // Les capacités : deux familles, un seul pont entre elles.
+  //   'cube'  : le rang est celui du préfixe de LONGUEUR, à élever au cube
+  //   'litre' : le rang est celui du préfixe de litre, et 1 L = 1 dm³
+  var CAPACITES = [
+    {t:'m³',  fam:'cube',  r:0},
+    {t:'dm³', fam:'cube',  r:-1},
+    {t:'L',   fam:'litre', r:0},
+    {t:'dL',  fam:'litre', r:-1},
+    {t:'cL',  fam:'litre', r:-2},
+    {t:'mL',  fam:'litre', r:-3},
+    {t:'cm³', fam:'cube',  r:-2},
+    {t:'mm³', fam:'cube',  r:-3}
+  ];
+
+  var g = GRANDEURS[0], iDep = 0, iArr = 0;
 
   function $(i){ return document.getElementById(i); }
   function creer(b,c,h){ var e=document.createElement(b); if(c)e.className=c;
     if(h!==undefined)e.innerHTML=h; return e; }
+  function fr(n,d){ return '<span class="fr"><span class="n">' + n
+    + '</span><span class="d">' + d + '</span></span>'; }
 
-  function crans(){
-    return PREFIXES.filter(function(x){ return g.gamme.indexOf(x.p)>=0; });
+  // ------------------------------------------------------------- écriture
+  function expo(e){
+    var h={'-':'\u207b','0':'\u2070','1':'\u00b9','2':'\u00b2','3':'\u00b3',
+           '4':'\u2074','5':'\u2075','6':'\u2076','7':'\u2077','8':'\u2078','9':'\u2079'};
+    return String(e).split('').map(function(c){ return h[c]||c; }).join('');
   }
-  function unite(x){ return x.p + g.base; }
-  // L'écart réel entre deux crans : pour une aire il est doublé, pour un
-  // volume triplé. Un mètre cube vaut mille litres, pas dix.
-  function ecart(a,b){ return (crans()[a].ecart - crans()[b].ecart) * g.pui; }
-
+  function puiss(e){ return '10' + expo(e); }
+  function ent(e){ return String(e).replace('-', '\u2212'); }   // vrai signe moins
   function nombre(t){
-    t = String(t).replace(/\s/g,'').replace(',','.');
+    t = String(t).replace(/[\s\u00a0]/g,'').replace(',','.');
+    t = t.replace(/[\u00d7x*]10\^?/gi,'e').replace(/10\^/g,'1e');
     var v = parseFloat(t);
     return isFinite(v) ? v : null;
+  }
+  function sci(v){
+    if(v === 0) return '0';
+    var e = Math.floor(Math.log(Math.abs(v))/Math.LN10);
+    var m = v / Math.pow(10,e);
+    m = Math.round(m*1e3)/1e3;
+    if(Math.abs(m) >= 10){ m /= 10; e += 1; }
+    if(e === 0) return String(m).replace('.',',');
+    return String(m).replace('.',',') + ' \u00d7 ' + puiss(e);
   }
   function ecrire(v){
     if(v === null) return '—';
     if(v === 0) return '0';
     var a = Math.abs(v);
-    if(a >= 1e6 || a < 1e-4){
-      var e = Math.floor(Math.log(a)/Math.LN10);
-      var m = v / Math.pow(10,e);
-      return (Math.round(m*1000)/1000).toString().replace('.',',')
-        + ' × 10' + expo(e);
-    }
-    var s = parseFloat(v.toPrecision(10)).toString();
-    return s.replace('.',',');
-  }
-  function expo(e){
-    var h={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶',
-           '7':'⁷','8':'⁸','9':'⁹'};
-    return String(e).split('').map(function(c){ return h[c]||c; }).join('');
+    if(a >= 1e6 || a < 1e-4) return sci(v);
+    return String(parseFloat(v.toPrecision(10))).replace('.',',');
   }
 
-  // ------------------------------------------------------------- affichage
+  // --------------------------------------------- les unités d'une grandeur
+  // Chacune porte k : 1 unité = k × (unité de base). Tout le reste en découle.
+  function unites(){
+    if(g.mode === 'simple'){
+      return PREFIXES.filter(function(x){ return g.gamme.indexOf(x.p) >= 0; })
+        .map(function(x){
+          return {t:x.p + g.base, rang:x.r, k:Math.pow(10, x.r*g.pui)};
+        });
+    }
+    if(g.mode === 'capacite'){
+      return CAPACITES.map(function(x){
+        var e = x.fam === 'cube' ? x.r*3 : x.r - 3;
+        return {t:x.t, fam:x.fam, rang:x.r, e:e, k:Math.pow(10,e)};
+      });
+    }
+    return g.unites.map(function(x){
+      var o = {}; for(var c in x) o[c] = x[c];
+      o.k = Math.pow(10, x.n) / x.d;
+      return o;
+    });
+  }
+
+  // ------------------------------------------------------------ affichage
   function dessineGrandeurs(){
     var z = $('grandeurs'); z.innerHTML='';
-    GRANDEURS.forEach(function(x,i){
+    GRANDEURS.forEach(function(x){
       var b = creer('button',null,x.nom);
       b.type='button';
       b.setAttribute('aria-pressed', x===g ? 'true':'false');
       b.onclick = function(){
         g = x;
-        var c = crans();
-        iDep = Math.min(iDep, c.length-1);
-        iArr = Math.min(iArr, c.length-1);
-        if(iDep===iArr) iArr = (iDep+1) % c.length;
+        var u = unites();
+        iDep = Math.min(iDep, u.length-1);
+        iArr = Math.min(iArr, u.length-1);
+        if(iDep===iArr) iArr = (iDep+1) % u.length;
         tout();
       };
       z.appendChild(b);
     });
-    $('mnemo').innerHTML = g.pui>1
-      ? 'Attention : une ' + (g.pui===2?'aire':'un volume') + ' change de '
-        + g.pui + ' rangs à chaque cran. 1&nbsp;m' + (g.pui===2?'²':'³')
-        + ' = ' + (g.pui===2?'10 000':'1 000 000') + '&nbsp;cm'
-        + (g.pui===2?'²':'³') + ', pas 100.'
-      : 'Pour retenir l\u2019ordre : « Kevin Hurle Dans Un Débarras Complètement Moisi ». '
-        + 'Après milli : « Manu Mange Notre Pizza » (milli, micro, nano, pico).';
+    if(g.mode === 'simple' && g.pui > 1){
+      $('mnemo').innerHTML = '<b>Les rangs écrits sous les unités sont toujours ceux du '
+        + 'préfixe seul</b> — jamais élevés au carré ni au cube. Ici c\u2019est le rang de '
+        + 'centi, de milli\u2026 L\u2019élévation à la puissance ' + g.pui
+        + ' se fait <b>en dernier</b>, une seule fois, sur la puissance de dix '
+        + 'trouvée entre les deux unités.';
+    }else if(g.mode === 'capacite'){
+      $('mnemo').innerHTML = 'Un seul pont à retenir : <b>1\u00a0L = 1\u00a0dm\u00b3</b>, '
+        + 'le cube de 10\u00a0cm de côté. Tout le reste s\u2019en déduit. Les rangs écrits '
+        + 'sous les unités restent ceux du préfixe seul.';
+    }else if(g.mode === 'composee'){
+      $('mnemo').innerHTML = 'Une unité en fraction se lit à voix haute : «\u00a0'
+        + g.base + '\u00a0», c\u2019est le <b>nombre de ' + g.haut + ' pour 1\u00a0'
+        + g.bas + '</b>. C\u2019est cette lecture qui dit quoi convertir, en haut et en bas.';
+    }else{
+      $('mnemo').innerHTML = 'Sous chaque unité est écrit son <b>rang</b> : c\u2019est '
+        + 'tout ce qu\u2019il faut pour convertir.';
+    }
   }
 
   function dessineEchelle(id, sel, poser){
-    var z = $(id); z.innerHTML=''; var c = crans();
-    c.forEach(function(x,i){
+    var z = $(id); z.innerHTML=''; var u = unites();
+    u.forEach(function(x,i){
       var e = creer('button','cran');
       e.type='button';
-      e.innerHTML = '<b>' + unite(x) + '</b><small>' + x.nom + '</small>';
-      var lo = Math.min(iDep,iArr), hi = Math.max(iDep,iArr);
+      var bas = g.mode === 'composee' ? x.hu + ' / ' + x.bu : 'rang ' + ent(x.rang);
+      e.innerHTML = '<b>' + x.t + '</b><small>' + bas + '</small>';
       if(i===sel) e.className = 'cran ' + (id==='depart'?'depart':'arrivee');
-      else if(i>lo && i<hi) e.className = 'cran entre';
       e.onclick = function(){ poser(i); tout(); };
       z.appendChild(e);
     });
@@ -222,58 +301,186 @@ plus grand ou plus petit&nbsp;? Le reste suit tout seul.</p>
     calcule();
   }
 
+  // ----------------------------------------------------- le raisonnement
+  var no = 0;
+  function pas(t, classe){
+    no++;
+    $('etapes').appendChild(creer('div','etape' + (classe?' '+classe:''),
+      '<b>' + no + '. ' + t));
+  }
+  function ecart(ea, eb){
+    var n = ea - eb, e = Math.abs(n);
+    pas('Compter l\u2019écart entre les deux rangs, <b>sans s\u2019occuper du signe</b>.</b>'
+      + '<span class="calc">du rang ' + ent(ea) + ' au rang ' + ent(eb)
+      + ' : <b>' + e + ' rang' + (e>1?'s':'') + '</b></span>');
+    return n;
+  }
+  function controle(a, b, n){
+    pas('Vérifier le signe — <b>toujours de la même façon</b>.</b> On compare la '
+      + '<b>taille</b> des deux unités : ' + b + ' est '
+      + (n>0 ? 'plus <b>petit</b>' : 'plus <b>grand</b>') + ' que ' + a
+      + ', il en faut donc ' + (n>0 ? '<b>plus</b>' : '<b>moins</b>')
+      + ' pour la même quantité. Le nombre doit '
+      + (n>0 ? 'augmenter' : 'diminuer') + ' : l\u2019exposant est '
+      + (n>0 ? 'positif' : 'négatif') + ', soit <b>' + ent(n) + '</b>.');
+  }
+  function resultat(v, r, a, b, n){
+    $('etapes').appendChild(creer('div','etape',
+      '<b>Résultat.</b><span class="calc">' + ecrire(v) + '\u00a0' + a.t + ' = '
+      + ecrire(v) + ' \u00d7 ' + puiss(n) + '\u00a0' + b.t
+      + (sci(r) === ecrire(v) + ' \u00d7 ' + puiss(n) ? ''
+         : '<br>soit ' + sci(r) + '\u00a0' + b.t) + '</span>'));
+  }
+
   function calcule(){
     var v = nombre($('valeur').value);
-    var c = crans(), n = ecart(iDep, iArr);
-    var r = (v===null) ? null : v * Math.pow(10, n);
-    $('nomres').textContent = 'Résultat en ' + unite(c[iArr]);
-    $('res').textContent = (r===null ? '—' : ecrire(r) + ' ' + unite(c[iArr]));
-
-    var z = $('etapes'); z.innerHTML='';
-    if(v===null){ z.appendChild(creer('p','aide','Entrer un nombre.')); return; }
-    if(n===0){
-      z.appendChild(creer('div','etape','<b>Même unité :</b> il n\u2019y a rien à convertir.'));
-      return;
+    var u = unites(), a = u[iDep], b = u[iArr];
+    var r = (v===null) ? null : v * a.k / b.k;
+    $('nomres').textContent = 'Résultat en ' + b.t;
+    $('res').textContent = (r===null ? '—' : sci(r) + ' ' + b.t);
+    $('etapes').innerHTML = ''; no = 0;
+    if(v===null){ $('etapes').appendChild(creer('p','aide','Entrer un nombre.')); return; }
+    if(a.t === b.t){
+      pas('Même unité :</b> il n\u2019y a rien à convertir.'); return;
     }
-    var plusGrand = n > 0;
-    z.appendChild(creer('div','etape',
-      '<b>1. La question :</b> ' + unite(c[iArr]) + ' est '
-      + (plusGrand ? 'plus <b>petit</b>' : 'plus <b>grand</b>') + ' que '
-      + unite(c[iDep]) + '. Il en faudra donc '
-      + (plusGrand ? '<b>plus</b>' : '<b>moins</b>')
-      + ' pour la même quantité : le nombre doit '
-      + (plusGrand ? '<b>augmenter</b>.' : '<b>diminuer</b>.')));
-    z.appendChild(creer('div','etape',
-      '<b>2. De combien :</b> ' + Math.abs(ecart(iDep,iArr)) + ' rang'
-      + (Math.abs(n)>1?'s':'') + ' de puissance de dix'
-      + (g.pui>1 ? ' (' + Math.abs(crans()[iDep].ecart-crans()[iArr].ecart)
-                 + ' cran(s) × ' + g.pui + ', parce qu\u2019il s\u2019agit d\u2019'
-                 + (g.pui===2?'une aire':'un volume') + ')' : '')
-      + '. On multiplie donc par <b>10' + expo(n) + '</b>.'));
-    z.appendChild(creer('div','etape',
-      '<b>3. Le calcul :</b> ' + ecrire(v) + ' × 10' + expo(n) + ' = <b>'
-      + ecrire(r) + ' ' + unite(c[iArr]) + '</b>.'));
-    z.appendChild(creer('div','etape',
-      '<b>4. Le contrôle :</b> le nombre a bien '
-      + (plusGrand ? 'augmenté' : 'diminué') + '. Si ce n\u2019est pas le cas, '
-      + 'c\u2019est qu\u2019on s\u2019est trompé de sens.'));
+    if(g.mode === 'simple')   return simple(v, r, a, b);
+    if(g.mode === 'capacite') return capacite(v, r, a, b);
+    return composee(v, r, a, b);
+  }
+
+  // -- longueurs, masses, grandeurs électriques, aires et volumes
+  // L'élévation au carré ou au cube arrive EN DERNIER : on compte d'abord
+  // l'écart entre les rangs normaux, ce qui donne une puissance de dix, et
+  // c'est cette puissance-là, une seule fois, qu'on élève.
+  function simple(v, r, a, b){
+    var pui = g.pui;
+    pas('Chercher la puissance de dix <b>normale</b> de chaque préfixe.</b>'
+      + (pui>1 ? ' Celle du préfixe tout seul : le ' + (pui===2?'carré':'cube')
+                 + ' viendra à la fin, et une seule fois.' : '')
+      + '<span class="calc">' + a.t + ' \u2192 ' + nomPrefixe(a.rang) + ', rang '
+      + ent(a.rang) + ', soit ' + puiss(a.rang) + '<br>'
+      + b.t + ' \u2192 ' + nomPrefixe(b.rang) + ', rang ' + ent(b.rang)
+      + ', soit ' + puiss(b.rang) + '</span>');
+
+    var nn = a.rang - b.rang, en = Math.abs(nn);   // écart entre les rangs normaux
+    pas('Compter l\u2019écart entre les deux rangs, <b>sans s\u2019occuper du signe</b>.</b>'
+      + '<span class="calc">du rang ' + ent(a.rang) + ' au rang ' + ent(b.rang)
+      + ' : <b>' + en + ' rang' + (en>1?'s':'') + '</b>, soit ' + puiss(en) + '</span>');
+
+    var n = nn * pui;
+    if(pui > 1){
+      pas('Maintenant seulement, le ' + (pui===2?'carré':'cube') + '.</b> '
+        + 'C\u2019est ' + (pui===2 ? 'une aire' : 'un volume') + ' : on élève à la '
+        + 'puissance ' + pui + ' <b>la puissance de dix qu\u2019on vient de trouver</b>, '
+        + 'et elle seule. Une fois, pas deux.'
+        + '<span class="calc">(' + puiss(en) + ')' + (pui===2?'\u00b2':'\u00b3')
+        + ' = ' + puiss(en*pui) + '  \u2192  <b>' + (en*pui) + ' rangs</b></span>');
+    }
+    controle(a.t, b.t, n);
+    resultat(v, r, a, b, n);
+  }
+
+  // -- capacités : on passe toujours par 1 L = 1 dm³
+  function capacite(v, r, a, b){
+    pas('Le pont, et il n\u2019y en a qu\u2019un : <b>1\u00a0L = 1\u00a0dm\u00b3</b>.</b> '
+      + 'Un litre, c\u2019est le cube de 10\u00a0cm de côté — la brique de lait. '
+      + 'Tout passe par là.', 'pont');
+
+    // chaque unité ramenée au m³ : par le cube du préfixe, ou par le pont
+    function versM3(x){
+      if(x.fam === 'cube'){
+        if(x.rang === 0) return '1\u00a0m\u00b3, c\u2019est l\u2019unité de base.';
+        return '1\u00a0' + x.t + ' : ' + nomPrefixe(x.rang) + ' \u2192 rang '
+          + ent(x.rang) + ', soit ' + puiss(x.rang)
+          + '<br>cube : (' + puiss(x.rang) + ')\u00b3 = ' + puiss(x.e)
+          + '<br>donc 1\u00a0' + x.t + ' = ' + puiss(x.e) + '\u00a0m\u00b3';
+      }
+      var tete = x.rang === 0 ? '1\u00a0L = 1\u00a0dm\u00b3'
+        : '1\u00a0' + x.t + ' = ' + puiss(x.rang) + '\u00a0L = ' + puiss(x.rang)
+          + '\u00a0dm\u00b3';
+      return tete + '<br>déci \u2192 rang ' + ent(-1) + ', et (' + puiss(-1)
+        + ')\u00b3 = ' + puiss(-3) + '<br>donc 1\u00a0' + x.t + ' = ' + puiss(x.e)
+        + '\u00a0m\u00b3';
+    }
+
+    pas('Ramener chaque unité au mètre cube.</b> Même méthode qu\u2019ailleurs : la '
+      + 'puissance de dix du préfixe, puis le cube.'
+      + '<span class="calc">' + versM3(a) + '<br><br>' + versM3(b) + '</span>');
+
+    var n = ecart(a.e, b.e);
+    controle(a.t, b.t, n);
+    resultat(v, r, a, b, n);
+  }
+
+  // -- unités composées : m/s, L/min, g/cm³…
+  function composee(v, r, a, b){
+    pas('Lire l\u2019unité à voix haute, puis l\u2019écrire en fraction.</b> '
+      + '«\u00a0' + ecrire(v) + '\u00a0' + a.t + '\u00a0» veut dire : <b>'
+      + ecrire(v) + '\u00a0' + a.hu + ' pour 1\u00a0' + a.bu + '</b> \u2014 pour '
+      + 'une seule, pas pour dix ni pour mille.'
+      + '<span class="calc">' + ecrire(v) + '\u00a0' + a.t + ' = '
+      + fr(ecrire(v) + '\u00a0' + a.hu, '1\u00a0' + a.bu) + '</span>');
+
+    if(a.n !== 0){
+      pas('Convertir le <b>haut</b>, comme n\u2019importe quelle unité simple.</b>'
+        + '<span class="calc">1\u00a0' + a.hu + ' = ' + puiss(a.n) + '\u00a0' + g.haut
+        + '<br>' + fr(ecrire(v) + '\u00a0' + a.hu, '1\u00a0' + a.bu) + ' = '
+        + fr(ecrire(v) + ' \u00d7 ' + puiss(a.n) + '\u00a0' + g.haut, '1\u00a0' + a.bu)
+        + '</span>');
+    }else{
+      pas('Le <b>haut</b> est déjà dans la bonne unité :</b> rien à y faire.');
+    }
+    var hautTxt = a.n === 0 ? ecrire(v) + '\u00a0' + g.haut
+      : ecrire(v) + ' \u00d7 ' + puiss(a.n) + '\u00a0' + g.haut;
+
+    if(a.d !== 1){
+      pas('Revenir à l\u2019unité du <b>bas</b> — c\u2019est celle qu\u2019on oublie.</b> '
+        + 'Le bas divise : une puissance de dix qui remonte du dénominateur '
+        + '<b>change de signe</b>.'
+        + '<span class="calc">1\u00a0' + a.bu + ' = ' + a.dt + '<br>'
+        + fr(hautTxt, a.dt) + ' = ' + sci(v*a.k) + '\u00a0' + g.base + '</span>');
+    }else{
+      pas('Le <b>bas</b> est déjà l\u2019unité de base.</b>'
+        + '<span class="calc">' + fr(hautTxt, '1\u00a0' + g.bas) + ' = '
+        + sci(v*a.k) + '\u00a0' + g.base + '</span>');
+    }
+
+    if(b.t !== g.base){
+      pas('Repartir vers l\u2019unité d\u2019arrivée, par le même chemin, en sens '
+        + 'inverse.</b> Le haut se divise, le bas se multiplie.'
+        + '<span class="calc">1\u00a0' + b.t + ' = '
+        + fr(puiss(b.n) + '\u00a0' + g.haut, b.dt) + '<br>'
+        + 'on divise par ' + puiss(b.n) + ' et on multiplie par ' + b.dt.split(' ')[0]
+        + '<br>' + sci(v*a.k) + ' \u00d7 ' + b.dt.split(' ')[0] + ' \u00f7 '
+        + puiss(b.n) + ' = ' + sci(v*a.k/b.k) + '\u00a0' + b.t + '</span>');
+    }
+
+    $('etapes').appendChild(creer('div','etape',
+      '<b>Résultat.</b><span class="calc">' + ecrire(v) + '\u00a0' + a.t + ' = '
+      + sci(r) + '\u00a0' + b.t + '</span>'));
+
+    $('etapes').appendChild(creer('div','etape',
+      '<b>Vérifier — même méthode.</b> On compare la taille des deux unités : '
+      + (a.k > b.k
+        ? '1\u00a0' + a.t + ' représente <b>plus</b> que 1\u00a0' + b.t
+          + ', le nombre doit donc <b>augmenter</b>.'
+        : '1\u00a0' + a.t + ' représente <b>moins</b> que 1\u00a0' + b.t
+          + ', le nombre doit donc <b>diminuer</b>.')));
   }
 
   $('valeur').addEventListener('input', calcule);
 
   // ------------------------------------------------------------ entraînement
-  var serie = [], k = 0, bons = 0;
+  var serie=[], k=0, bons=0;
 
   function tirer(){
-    var gg = GRANDEURS[Math.floor(Math.random()*GRANDEURS.length)];
-    var sauve = g; g = gg;
-    var c = crans();
-    var a = Math.floor(Math.random()*c.length), b = a;
-    while(b===a) b = Math.floor(Math.random()*c.length);
+    var gr = GRANDEURS[Math.floor(Math.random()*GRANDEURS.length)];
+    var sauve = g; g = gr;
+    var u = unites();
+    var i = Math.floor(Math.random()*u.length), j = i;
+    while(j===i) j = Math.floor(Math.random()*u.length);
     var mant = [1,1.5,2,2.5,3,4,5,7.5,8][Math.floor(Math.random()*9)];
-    var q = {gr:gg, a:a, b:b, v:mant,
-             rep: mant * Math.pow(10, (c[a].ecart-c[b].ecart)*gg.pui),
-             ua: c[a].p+gg.base, ub: c[b].p+gg.base};
+    var q = {v:mant, ua:u[i].t, ub:u[j].t, rep:mant*u[i].k/u[j].k};
     g = sauve;
     return q;
   }
@@ -283,28 +490,26 @@ plus grand ou plus petit&nbsp;? Le reste suit tout seul.</p>
     if(k >= serie.length){
       z.appendChild(creer('p','verdict ' + (bons>=8?'ok':'ko'),
         'Série terminée : ' + bons + ' bonnes réponses sur ' + serie.length + '.'));
-      $('lancer').textContent = 'Nouvelle série';
-      $('lancer').style.display='';
-      $('score').textContent='';
-      return;
+      $('lancer').textContent='Nouvelle série'; $('lancer').style.display='';
+      $('score').textContent=''; return;
     }
     var q = serie[k];
-    z.appendChild(creer('p',null, '<b>Question ' + (k+1) + '.</b> Convertir <b>'
-      + ecrire(q.v) + ' ' + q.ua + '</b> en <b>' + q.ub + '</b>.'));
+    z.appendChild(creer('p',null,'<b>Question ' + (k+1) + '.</b> Convertir <b>'
+      + ecrire(q.v) + '\u00a0' + q.ua + '</b> en <b>' + q.ub + '</b>.'));
     var i = document.createElement('input');
-    i.type='text'; i.inputMode='decimal'; i.placeholder='ta réponse en ' + q.ub;
+    i.type='text'; i.inputMode='decimal';
+    i.placeholder='ta réponse en ' + q.ub + ' (2,5e3 accepté)';
     z.appendChild(i);
-    var b = creer('button','bouton','Vérifier');
-    b.type='button'; b.style.marginTop='10px';
+    var b = creer('button','bouton','Vérifier'); b.type='button'; b.style.marginTop='10px';
     b.onclick = function(){
-      var v = nombre(i.value);
-      var ok = v !== null && Math.abs(v - q.rep) <= Math.abs(q.rep)*1e-6;
+      var val = nombre(i.value);
+      var ok = val !== null && Math.abs(val - q.rep) <= Math.abs(q.rep)*1e-4;
       if(ok) bons++;
-      var p = creer('p','verdict ' + (ok?'ok':'ko'),
-        ok ? 'Juste.' : 'Non : ' + ecrire(q.rep) + ' ' + q.ub + '.');
-      z.appendChild(p);
+      z.appendChild(creer('p','verdict ' + (ok?'ok':'ko'),
+        ok ? 'Juste.' : 'Non : ' + sci(q.rep) + '\u00a0' + q.ub + '.'));
       b.style.display='none'; i.disabled=true;
-      var s = creer('button','bouton second', k+1 < serie.length ? 'Question suivante' : 'Voir le résultat');
+      var s = creer('button','bouton second',
+        k+1 < serie.length ? 'Question suivante' : 'Voir le résultat');
       s.type='button'; s.style.marginTop='8px';
       s.onclick = function(){ k++; question(); };
       z.appendChild(s); s.focus({preventScroll:true});
@@ -314,10 +519,8 @@ plus grand ou plus petit&nbsp;? Le reste suit tout seul.</p>
   }
 
   $('lancer').onclick = function(){
-    serie = []; for(var i=0;i<10;i++) serie.push(tirer());
-    k = 0; bons = 0;
-    $('lancer').style.display='none';
-    question();
+    serie=[]; for(var i=0;i<10;i++) serie.push(tirer());
+    k=0; bons=0; $('lancer').style.display='none'; question();
   };
 
   tout();

@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "13",
  "titre": "Machines alternatives",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Convertir 1440 tr/min en rad/s :",
+   "choix": [
+    "151 rad/s",
+    "24,0 rad/s",
+    "9048 rad/s",
+    "90,5 rad/s"
+   ],
+   "bonne": 0,
+   "expl": "1440 × 2π/60 = 151 rad/s."
+  },
+  {
+   "q": "Dans un réseau dont la tension composée vaut 690 V, la tension simple vaut :",
+   "choix": [
+    "398 V",
+    "1195 V",
+    "345 V",
+    "230 V"
+   ],
+   "bonne": 0,
+   "expl": "690/√3 = 398 V. Toujours diviser la composée par √3."
+  },
+  {
+   "q": "Un récepteur triphasé équilibré : U = 400 V, I = 10,0 A, cos φ = 0,85. La puissance active vaut :",
+   "choix": [
+    "5,89 kW",
+    "3,40 kW",
+    "10,2 kW",
+    "1,96 kW"
+   ],
+   "bonne": 0,
+   "expl": "P = √3 U I cos φ = 1,732 × 400 × 10,0 × 0,85 = 5,89 kW. Le √3 ne s'oublie pas."
+  },
+  {
+   "q": "Une machine reçoit 5,0 kW et en restitue 4,3 kW. Ses pertes valent :",
+   "choix": [
+    "0,70 kW",
+    "0,86 kW",
+    "1,16 kW",
+    "9,3 kW"
+   ],
+   "bonne": 0,
+   "expl": "5,0 − 4,3 = 0,70 kW, soit 700 W partis en chaleur. Le rendement, lui, vaut 86 %."
+  },
+  {
+   "q": "Une machine de rendement 88 % doit fournir 5,5 kW. Elle absorbe :",
+   "choix": [
+    "6,25 kW",
+    "4,84 kW",
+    "5,50 kW",
+    "6,60 kW"
+   ],
+   "bonne": 0,
+   "expl": "5,5/0,88 = 6,25 kW. On DIVISE par le rendement pour remonter à l'absorbée ; multiplier donnerait moins que l'utile, ce qui est impossible."
+  },
+  {
+   "q": "Le champ tourne à 1500 tr/min, le rotor à 1440 tr/min. Le glissement vaut :",
+   "choix": [
+    "4,0 %",
+    "6,0 %",
+    "96 %",
+    "0,96 %"
+   ],
+   "bonne": 0,
+   "expl": "(1500 − 1440)/1500 = 4,0 %. Un glissement de quelques pour cent est normal en charge."
+  }
+ ],
  "bilan": [
   {
    "q": "Trois bobines décalées de 120 ° et alimentées en triphasé créent :",
@@ -164,67 +231,78 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Le glissement mesure le retard relatif du rotor sur le champ tournant : …….",
+   "rep": "c'est l'écart des deux vitesses, rapporté à la vitesse de synchronisme",
    "verso": "<strong>c'est l'écart des deux vitesses, rapporté à la vitesse de synchronisme</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "La vitesse de rotation du champ magnétique créé par le stator s'appelle la …….",
-   "verso": "<strong>vitesse de synchronisme</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Dans les deux cas ……, si bien que la fréquence et la vitesse sont liées l'une à l'autre.",
+   "rep": "n = n_s",
    "verso": "<strong>n = n_s</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Dans sa zone d'utilisation, la caractéristique mécanique d'une machine asynchrone est …….",
+   "rep": "une droite très raide, presque verticale",
    "verso": "<strong>une droite très raide, presque verticale</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La machine <strong>asynchrone</strong> a un glissement …… : sans ce retard, aucun courant ne serait induit dans son rotor, donc aucun couple.",
+   "rep": "non nul, de quelques pour cent",
    "verso": "<strong>non nul, de quelques pour cent</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Trois bobines décalées de 120 ° et alimentées en triphasé créent ……",
+   "rep": "un champ magnétique tournant",
    "verso": "<strong>un champ magnétique tournant</strong> — C'est le point de départ de tout le chapitre : le triphasé produit un champ tournant, et c'est lui qui entraîne le rotor sans aucun contact mécanique.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La vitesse de synchronisme d'une machine alimentée en 50 Hz et possédant 3 paires de pôles vaut ……",
-   "verso": "<strong>1000 1/min</strong> — n_s = 60 × 50 / 3 = 1000 1/min.",
+   "rep": "1000 1/min",
+   "verso": "<strong>1000 1/min</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un moteur porte la mention « 4 pôles ». Le nombre p à utiliser dans n_s = 60f/p vaut ……",
+   "rep": "p = 2",
    "verso": "<strong>p = 2</strong> — p est le nombre de paires de pôles : 4 pôles font 2 paires. C'est l'erreur la plus fréquente du chapitre — elle fait trouver 750 1/min au lieu de 1500 1/min.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une machine est dite asynchrone lorsque ……",
+   "rep": "son rotor tourne moins vite que le champ",
    "verso": "<strong>son rotor tourne moins vite que le champ</strong> — « Asynchrone » signifie littéralement « qui n'est pas synchronisé » : le rotor reste en retard sur le champ. Un rotor plus rapide que le champ correspondrait à un fonctionnement en génératrice, hors programme ici.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le glissement d'un moteur asynchrone en charge nominale vaut typiquement ……",
+   "rep": "quelques pour cent",
    "verso": "<strong>quelques pour cent</strong> — Un glissement nominal se compte en unités de pour cent — 3 %, 4 %, 5 %. Trouver 30 % dans un calcul doit faire reprendre la copie.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Si le glissement d'une machine asynchrone devenait nul, alors ……",
+   "rep": "aucun couple ne serait produit",
    "verso": "<strong>aucun couple ne serait produit</strong> — Sans glissement, le rotor verrait un champ immobile par rapport à lui : plus de variation de flux, donc plus de courant induit, donc plus de couple. Le glissement n'est pas un défaut, il est la condition du fonctionnement.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une plaque indique 400 V / 690 V. Sur un réseau 230 V / 400 V, le couplage à réaliser est ……",
+   "rep": "triangle",
+   "verso": "<strong>triangle</strong>",
    "origine": "bilan"
   }
  ]

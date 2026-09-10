@@ -199,75 +199,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "C'est toujours …… qui s'oxyde, donc qui se corrode.",
-   "verso": "<strong>le plus réducteur</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Oxydant et réducteur » ?",
+   "verso": "Un <strong>oxydant</strong> est une espèce capable de capter un ou plusieurs électrons ; un <strong>réducteur</strong> est une espèce capable d'en céder. L'oxydant se réduit, le réducteur s'oxyde.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Anode et cathode » ?",
+   "verso": "L'<strong>anode</strong> est l'électrode où se produit l'oxydation ; la <strong>cathode</strong> celle où se produit la réduction. Dans une pile, l'anode est le pôle négatif, car c'est d'elle que partent les électrons.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Couple oxydant/réducteur — qu'y a-t-il à retenir ?",
+   "verso": "Un oxydant et son réducteur associé forment un <strong>couple</strong>, noté ox/réd — <strong>l'oxydant en premier</strong>. Le passage de l'un à l'autre s'écrit sous forme d'une demi-équation électronique : Cu^2+ + 2 e⁻ <=> Cu.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Prévoir une réaction — qu'y a-t-il à retenir ?",
+   "verso": "La réaction spontanée met en présence l'oxydant du couple le plus haut et le réducteur du couple le plus bas. Dans l'autre sens, il ne se passe rien.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Trois façons d'alimenter la même chimie — qu'y a-t-il à retenir ?",
+   "verso": "Dans une <strong>pile</strong>, les réactifs sont enfermés et la transformation n'est pas réversible. Dans un <strong>accumulateur</strong>, elle l'est : un courant imposé en sens inverse régénère les réactifs, c'est la charge.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Dans une pile, l'anode est le pôle négatif, car c'est d'elle que …….",
+   "rep": "partent les électrons",
    "verso": "<strong>partent les électrons</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "La réaction spontanée met en présence l'oxydant du couple le plus haut et …….",
-   "verso": "<strong>le réducteur du couple le plus bas</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Le passage de l'un à l'autre s'écrit sous forme d'une …… : Cu^2+ + 2 e⁻ <=> Cu.",
+   "rep": "demi-équation électronique",
    "verso": "<strong>demi-équation électronique</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "La réaction spontanée met en présence …… et le réducteur du couple le plus bas.",
-   "verso": "<strong>l'oxydant du couple le plus haut</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Dans une pile, l'anode est le pôle ……, car c'est d'elle que partent les électrons.",
-   "verso": "<strong>négatif</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Dans une <strong>pile à combustible</strong>, les réactifs sont …… de l'extérieur.",
+   "rep": "apportés en continu",
    "verso": "<strong>apportés en continu</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Dans une <strong>pile</strong>, les réactifs sont enfermés et la transformation …….",
+   "rep": "n'est pas réversible",
    "verso": "<strong>n'est pas réversible</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Dans un <strong>accumulateur</strong>, elle l'est : un courant imposé en sens inverse ……, c'est la charge.",
-   "verso": "<strong>régénère les réactifs</strong>",
+   "recto": "Plus E° est grand, plus l'oxydant du couple est fort ; plus E° est ……, plus le réducteur est fort.",
+   "rep": "petit",
+   "verso": "<strong>petit</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un réducteur est une espèce qui ……",
-   "verso": "<strong>cède des électrons</strong> — le réducteur réduit l'autre espèce, donc il lui cède ses électrons ; l'oxydant fait l'inverse. Dans la notation d'un couple, l'oxydant est toujours écrit en premier : c'est une convention, mais elle évite bien des confusions en évaluation. 3pt",
+   "rep": "cède des électrons",
+   "verso": "<strong>cède des électrons</strong> — le réducteur réduit l'autre espèce, donc il lui cède ses électrons ; l'oxydant fait l'inverse. Dans la notation d'un couple, l'oxydant est toujours écrit en premier : c'est une convention.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans le couple Cu^2+/Cu, l'oxydant est ……",
+   "rep": "Cu^2+",
    "verso": "<strong>Cu^2+</strong> — le réducteur réduit l'autre espèce, donc il lui cède ses électrons ; l'oxydant fait l'inverse. Dans la notation d'un couple, l'oxydant est toujours écrit en premier : c'est une convention, mais elle évite bien des confusions en évaluation. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "L'équation bilan correcte entre Ag+ et Cu est ……",
-   "verso": "<strong>2 Ag+ + Cu -> 2 Ag + Cu^2+</strong> — l'argent n'échange qu'un électron, le cuivre deux : il faut donc deux ions argent pour un atome de cuivre. La réponse a ne s'équilibre pas en charges, la c laisse un électron dans le bilan — une équation bilan n'en contient jamais. 3pt",
+   "rep": "2 Ag+ + Cu -> 2 Ag + Cu^2+",
+   "verso": "<strong>2 Ag+ + Cu -> 2 Ag + Cu^2+</strong> — l'argent n'échange qu'un électron, le cuivre deux : il faut donc deux ions argent pour un atome de cuivre. La réponse a ne s'équilibre pas en charges.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Parmi ces quatre métaux, le meilleur réducteur est ……",
+   "rep": "le zinc",
+   "verso": "<strong>le zinc</strong>",
    "origine": "bilan"
   }
  ]

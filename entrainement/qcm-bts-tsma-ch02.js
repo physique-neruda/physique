@@ -199,75 +199,95 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Hydraulique : ……, avec p en Pa et Q_v en m³/s.",
-   "verso": "<strong>P = p × Q_v</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Puissance » ?",
+   "verso": "La <strong>puissance</strong> est le quotient de l'énergie échangée par la durée de l'échange.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Rendement » ?",
+   "verso": "Le <strong>rendement</strong> d'un convertisseur est le quotient de la puissance utile par la puissance absorbée.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Consommation spécifique » ?",
+   "verso": "La <strong>consommation spécifique</strong> est la masse de carburant consommée par unité d'énergie mécanique produite. Elle s'exprime en g/kW·h.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Les conversions à maîtriser — qu'y a-t-il à retenir ?",
+   "verso": "1 kW·h = 1000 × 3600 = 3,6×10⁶ J = 3,6 MJ 1 = 736 W et 1 L de gazole ≈ 36 MJ",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Deux formules de plus — qu'y a-t-il à retenir ?",
+   "verso": "Hydraulique : P = p × Q_v, avec p en Pa et Q_v en m³/s. Électricité (courant continu) : P = U × I, avec U en V et I en A.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Rendements en série — qu'y a-t-il à retenir ?",
+   "verso": "Quand plusieurs convertisseurs se suivent, les rendements se multiplient : η_global = η₁ × η₂ × η₃ × …",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "La <strong>puissance</strong> est le quotient de …….",
+   "rep": "l'énergie échangée par la durée de l'échange",
    "verso": "<strong>l'énergie échangée par la durée de l'échange</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "1 kW·h = 1000 × 3600 = 3,6×10⁶ J = 3,6 MJ 1 = 736 W et ……",
-   "verso": "<strong>1 L de gazole ≈ 36 MJ</strong>",
+   "recto": "1 kW·h = 1000 × 3600 = 3,6×10⁶ J = 3,6 MJ 1 = 736 W et ……",
+   "rep": "1 L de gazole ≈ 36 MJ",
+   "verso": "<strong>1 L de gazole ≈ 36 MJ</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Électricité (courant continu) : ……, avec U en V et I en A.",
+   "rep": "P = U × I",
    "verso": "<strong>P = U × I</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "P = C × ω avec …… C en N·m, ω en rad/s, N en tours par minute.",
-   "verso": "<strong>ω= (2πN)/60</strong>",
+   "recto": "1 kW·h = 1000 × 3600 = 3,6×10⁶ J = 3,6 MJ …… et 1 L de gazole ≈ 36 MJ",
+   "rep": "1 = 736 W",
+   "verso": "<strong>1 = 736 W</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "…… avec ω= (2πN)/60 C en N·m, ω en rad/s, N en tours par minute.",
-   "verso": "<strong>P = C × ω</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "1 kW·h = 1000 × 3600 = 3,6×10⁶ J = 3,6 MJ …… et 1 L de gazole ≈ 36 MJ",
-   "verso": "<strong>1 = 736 W</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Quand plusieurs convertisseurs se suivent, les rendements …… : η_global = η₁ × η₂ × η₃ × …",
-   "verso": "<strong>se multiplient</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Le <strong>rendement</strong> d'un convertisseur est le quotient de …… par la puissance absorbée.",
-   "verso": "<strong>la puissance utile</strong>",
+   "recto": "Quand plusieurs convertisseurs se suivent, les rendements se multiplient : ……",
+   "rep": "η_global = η₁ × η₂ × η₃ × …",
+   "verso": "<strong>η_global = η₁ × η₂ × η₃ × …</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "L'unité de l'énergie dans le Système international est ……",
-   "verso": "<strong>le joule</strong> — le joule est l'unité légale, le kilowattheure celle des factures : 1 kW·h = 1000 × 3600 = 3,6×10⁶ J. 3pt",
+   "rep": "le joule",
+   "verso": "<strong>le joule</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "1 kW·h vaut ……",
+   "rep": "3,6 MJ",
    "verso": "<strong>3,6 MJ</strong> — le joule est l'unité légale, le kilowattheure celle des factures : 1 kW·h = 1000 × 3600 = 3,6×10⁶ J. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un arbre tourne à 540 1/min. Sa vitesse angulaire vaut ……",
-   "verso": "<strong>56,5 rad/s</strong> — ω= 2πN/60 = 56,5 rad/s. Employer N directement dans P = Cω fausse le résultat d'un facteur 9,55 : c'est l'erreur la plus fréquente du chapitre. 3pt",
+   "rep": "56,5 rad/s",
+   "verso": "<strong>56,5 rad/s</strong>",
    "origine": "bilan"
   }
  ]

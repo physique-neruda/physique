@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "11",
  "titre": "Hacheur série et onduleur",
  "niveau": "BTS CRSA",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Convertir 50 µs en secondes, en notation scientifique :",
+   "choix": [
+    "5,0×10⁻⁵ s",
+    "5,0×10⁻⁶ s",
+    "5,0×10⁻³ s",
+    "5,0×10⁻⁴ s"
+   ],
+   "bonne": 0,
+   "expl": "micro vaut 10⁻⁶, donc 50 × 10⁻⁶ = 5,0×10⁻⁵ s. Le 50 apporte un rang de plus."
+  },
+  {
+   "q": "Une période T = 50 µs correspond à une fréquence de :",
+   "choix": [
+    "20 kHz",
+    "2,0 kHz",
+    "200 kHz",
+    "50 kHz"
+   ],
+   "bonne": 0,
+   "expl": "1/(5,0×10⁻⁵) = 2,0×10⁴ Hz = 20 kHz. C'est l'ordre de grandeur du découpage."
+  },
+  {
+   "q": "Calculer 36/48 :",
+   "choix": [
+    "0,750",
+    "1,33",
+    "0,720",
+    "12"
+   ],
+   "bonne": 0,
+   "expl": "0,750. C'est la forme d'un rapport cyclique : entre 0 et 1."
+  },
+  {
+   "q": "Un rapport de deux durées :",
+   "choix": [
+    "n'a pas d'unité",
+    "s'exprime en secondes",
+    "s'exprime en hertz",
+    "s'exprime en pourcentage de seconde"
+   ],
+   "bonne": 0,
+   "expl": "Les secondes se simplifient : le rapport cyclique est un nombre pur, souvent donné en pourcentage."
+  },
+  {
+   "q": "Calculer 0,60 × 48 V :",
+   "choix": [
+    "28,8 V",
+    "80,0 V",
+    "48,6 V",
+    "24,0 V"
+   ],
+   "bonne": 0,
+   "expl": "28,8 V. C'est la tension moyenne d'un hacheur série de rapport cyclique 0,60."
+  },
+  {
+   "q": "Un signal vaut +200 V pendant une demi-période puis −200 V pendant l'autre. Sa valeur moyenne vaut :",
+   "choix": [
+    "0 V",
+    "200 V",
+    "100 V",
+    "141 V"
+   ],
+   "bonne": 0,
+   "expl": "Les deux moitiés se compensent exactement : la valeur moyenne est nulle. C'est ce qui distingue un onduleur d'un hacheur."
+  }
+ ],
  "bilan": [
   {
    "q": "Un hacheur est un convertisseur :",
@@ -164,67 +231,78 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Le courant oscille de Δi autour de sa valeur moyenne, …….",
+   "rep": "sans jamais s'annuler",
    "verso": "<strong>sans jamais s'annuler</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Pour réduire l'ondulation, on peut augmenter l'inductance ou …….",
-   "verso": "<strong>augmenter la fréquence de découpage</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "C'en serait un si l'on voulait la même tension : mais on veut ……, et c'est le seul moyen de l'obtenir.",
+   "rep": "une autre fréquence que celle du réseau",
    "verso": "<strong>une autre fréquence que celle du réseau</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Un transistor utilisé en <strong>commutation</strong> ne prend que deux états : passant, il se comporte en fil ; …….",
-   "verso": "<strong>bloqué, il se comporte en interrupteur ouvert</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Sa valeur moyenne est nulle, et sa valeur efficace vaut …… — c'est le seul cas où amplitude et valeur efficace coïncident, puisque |u_c| vaut U en permanence.",
+   "rep": "exactement U",
    "verso": "<strong>exactement U</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Un hacheur est un convertisseur ……",
+   "rep": "continu continu",
    "verso": "<strong>continu continu</strong> — Continu vers continu, mais réglable : c'est tout son intérêt.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un onduleur est un convertisseur ……",
+   "rep": "continu alternatif",
    "verso": "<strong>continu alternatif</strong> — L'onduleur fabrique de l'alternatif à partir du continu. Le a est le redresseur, le d le transformateur.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans un variateur de vitesse pour moteur asynchrone, l'ordre des blocs est ……",
+   "rep": "redresseur, filtre, onduleur",
    "verso": "<strong>redresseur, filtre, onduleur</strong> — On redresse, on filtre, puis on ondule. C'est le schéma des sujets 2019 et 2022.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le rapport cyclique d'un hacheur ……",
+   "rep": "est compris entre 0 et 1, sans unité",
    "verso": "<strong>est compris entre 0 et 1, sans unité</strong> — C'est un rapport de deux durées : les unités se simplifient, et il ne peut pas dépasser 1 puisque la durée de fermeture ne peut excéder la période.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un hacheur série alimenté sous 48 V est réglé à α= 0,75. La tension moyenne de sortie vaut ……",
-   "verso": "<strong>36 V</strong> — u_s = αU = 0,75 × 48 = 36 V. La réponse d est impossible : un hacheur série n'élève jamais la tension.",
+   "rep": "36 V",
+   "verso": "<strong>36 V</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Sur un chronogramme, le palier haut dure 3,0 divisions et le motif complet 5,0 divisions. Le rapport cyclique vaut ……",
-   "verso": "<strong>0,60</strong> — α= 3,0/5,0 = 0,60. Inutile de convertir en secondes. La réponse d est le rapport inversé.",
+   "rep": "0,60",
+   "verso": "<strong>0,60</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un hacheur série peut délivrer une tension moyenne ……",
+   "rep": "toujours inférieure ou égale à celle de la source",
+   "verso": "<strong>toujours inférieure ou égale à celle de la source</strong> — Puisque α 1, on a toujours αU U. Si un montage délivre davantage que sa source, ce n'est pas un hacheur série — c'était le cas du sujet 2021.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pendant que l'interrupteur d'un hacheur est ouvert, la diode de roue libre est ……",
+   "rep": "passante, et le courant décroît",
+   "verso": "<strong>passante, et le courant décroît</strong> — La diode devient passante et offre au courant un chemin pour continuer de circuler ; il décroît sans s'annuler. C'est le régime de conduction continue.",
    "origine": "bilan"
   }
  ]

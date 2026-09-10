@@ -34,6 +34,17 @@ NIVEAUX = {"bts-crsa": "BTS CRSA", "bts-et": "BTS ET"}
 
 
 # ----------------------------------------------------------- lecture du QCM
+def _pre(t):
+    """Nettoyages qui doivent précéder tex2txt.
+
+    \\dot\\omega et \\omega donnaient tous deux « ω » : deux propositions de QCM
+    devenaient identiques, et l'étudiant voyait deux fois la même ligne.
+    """
+    t = re.sub(r"\\dot\s*\{?\\?([a-zA-Z]+)\}?", r"d\1/dt", t)
+    t = re.sub(r"\\ddot\s*\{?\\?([a-zA-Z]+)\}?", r"d²\1/dt²", t)
+    return t
+
+
 def _questions(enonce, macro_opts):
     """Énoncés + propositions, en lecture d'accolades équilibrées."""
     questions, i = [], 0
@@ -73,7 +84,7 @@ def _opts_choix(zone):
         if i >= len(zone) or zone[i] != "{":
             break
         a, i = _arg(zone, i)
-        out.append(tex2txt(a).strip())
+        out.append(tex2txt(_pre(a)).strip())
     return out
 
 
@@ -85,7 +96,7 @@ def _opts_opt(zone):
         if not m:
             break
         o, j = _arg(zone, m.end() - 1)
-        o = tex2txt(o)
+        o = tex2txt(_pre(o))
         out.append(re.sub(r"^[a-d]\.\s*", "", o).strip())
     return out
 
@@ -100,6 +111,31 @@ def _corrige_enumerate(corrige, n):
         texte = re.sub(r"\s*(tcolorbox|document|enumerate)\s*$", "", texte).strip()
         rep[k] = "abcd".index(m.group(1))
         expl[k] = texte
+    return rep, expl
+
+
+def _corrige_paires(corrige, n):
+    """Troisième écriture rencontrée : \\textbf{1 b} et \\textbf{2 b} — le numéro
+    et la lettre dans la même accolade, parfois groupés par deux dans la
+    même phrase. Le chapitre 0 du CRSA est écrit ainsi ; sans ce lecteur,
+    toutes ses réponses tombaient sur la première proposition."""
+    rep, expl = {}, {}
+    trouves = list(re.finditer(r"\\textbf\{\s*(\d+)\s*([a-d])\s*\}", corrige))
+    for k, m in enumerate(trouves):
+        fin = trouves[k + 1].start() if k + 1 < len(trouves) else len(corrige)
+        num = int(m.group(1))
+        rep[num] = "abcd".index(m.group(2))
+        texte = tex2txt(corrige[m.end():fin]).strip(" —-–\n\t")
+        texte = re.sub(r"^(et|,)\s*", "", texte).strip()
+        texte = re.sub(r"\s*(tcolorbox|document|enumerate)\s*$", "", texte).strip()
+        expl[num] = texte
+    # « 1 b et 2 b — <explication> » : le texte suit le second numéro mais
+    # vaut pour les deux. On le partage plutôt que de laisser un trou.
+    for num in sorted(expl):
+        if not expl[num]:
+            suite = [n for n in sorted(expl) if n > num and expl[n]]
+            if suite and suite[0] - num == 1:
+                expl[num] = expl[suite[0]]
     return rep, expl
 
 
@@ -121,8 +157,13 @@ def lire_bilan(src, filiere):
     questions = _questions(enonce, _opts_choix if "\\choix{" in enonce else _opts_opt)
     if "\\cor{" in corrige:
         rep, expl = _corrige_cor(corrige, len(questions))
-    else:
+    elif re.search(r"\\item\s*\\textbf\{[a-d]", corrige):
         rep, expl = _corrige_enumerate(corrige, len(questions))
+    else:
+        rep, expl = _corrige_paires(corrige, len(questions))
+    # aucune réponse trouvée : on refuse de publier un questionnaire muet
+    if not rep:
+        print("    !! corrigé illisible — questionnaire non fiable", file=sys.stderr)
     for n, q in enumerate(questions, 1):
         q["bonne"] = rep.get(n, 0)
         q["expl"] = expl.get(n, "")
@@ -162,13 +203,28 @@ def construire(filiere, racine, sortie):
         cours = open(fc, encoding="utf-8").read() if fc else ""
         cartes = fabriquer_cartes(cours, bilan=bilan)
         titre = info["titre"].split("—", 1)[-1].strip()
+        # les prérequis sont écrits à la main (prerequis_<filiere>.py) : on les
+        # relit dans le fichier existant plutôt que de les effacer
+        cible = os.path.join(sortie, f"qcm-{filiere}-{ch}.js")
+        anciens = []
+        if os.path.exists(cible):
+            vieux = open(cible, encoding="utf-8").read()
+            m = "window.CHAPITRE = "
+            if m in vieux:
+                try:
+                    anciens = json.loads(
+                        vieux[vieux.index(m) + len(m): vieux.rindex("}") + 1]
+                    ).get("prerequis") or []
+                except ValueError:
+                    anciens = []
         data = {"filiere": filiere, "num": info["num"], "titre": titre,
-                "niveau": NIVEAUX[filiere], "prerequis": [], "bilan": bilan, "cartes": cartes}
+                "niveau": NIVEAUX[filiere], "prerequis": anciens,
+                "bilan": bilan, "cartes": cartes}
         entete = (f"/* Engendré par outils/construire.py — ne pas éditer à la main.\n"
                   f"   {NIVEAUX[filiere]} · {info['titre']}\n"
                   f"   Le bilan vient de {os.path.basename(fb)}, les cartes des \\trou{{}} de\n"
                   f"   {os.path.basename(fc) if fc else '—'}. */\n")
-        with open(os.path.join(sortie, f"qcm-{filiere}-{ch}.js"), "w", encoding="utf-8") as f:
+        with open(cible, "w", encoding="utf-8") as f:
             f.write(entete + "window.CHAPITRE = "
                     + json.dumps(data, ensure_ascii=False, indent=1) + ";\n")
         resume.append((ch, len(bilan), len(cartes)))

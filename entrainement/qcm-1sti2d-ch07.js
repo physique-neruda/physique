@@ -244,82 +244,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Une force se représente par un <strong>vecteur</strong> défini par son …… (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en <strong>newtons</strong> (N).",
-   "verso": "<strong>point d'application</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Les quatre caractéristiques » ?",
+   "verso": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action).",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa …… (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en <strong>newtons</strong> (N).",
-   "verso": "<strong>direction</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « La règle, en deux cas » ?",
+   "verso": "<strong>Action à distance</strong> — rien ne touche l'objet, et l'action s'exerce sur <em>toute</em> sa matière. On remplace cette infinité de petites forces par <strong>une seule</strong>, appliquée au <strong>centre de gravité G</strong>.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son …… (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en <strong>newtons</strong> (N).",
-   "verso": "<strong>sens</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Principe d'inertie » ?",
+   "verso": "Lorsque la résultante des forces appliquées à un solide est <strong>nulle</strong>, ce solide est soit <strong>immobile</strong> (à l'équilibre), soit en <strong>translation rectiligne uniforme</strong> — vitesse constante en direction, sens et valeur.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa ……, ou intensité, en <strong>newtons</strong> (N).",
-   "verso": "<strong>norme</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action), son <strong>sens</strong> (de quel côté sur cette droite) et sa <strong>norme</strong>, ou intensité, en …….",
-   "verso": "<strong>newtons</strong> (N)",
-   "origine": "cours a completer"
+   "type": "retenir",
+   "recto": "Le contrôle qui ne trompe pas — qu'y a-t-il à retenir ?",
+   "verso": "Pour chaque flèche du schéma, on doit pouvoir répondre à la question : [1]<strong>« qu'est-ce qui touche l'objet à cet endroit ? »</strong> Si la réponse est « rien », alors la flèche ne peut être que le <strong>poids</strong>, et elle part de G.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "On remplace cette infinité de petites forces par <strong>une seule</strong>, appliquée au …….",
+   "rep": "centre de gravité G",
    "verso": "<strong>centre de gravité G</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Au programme, seul le …… est dans ce cas.\n• <strong>Action de contact</strong> — deux objets se touchent, et l'action ne peut naître que <strong>là où ils se touchent</strong>.",
-   "verso": "<strong>poids</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Au programme, seul le <strong>poids</strong> est dans ce cas.\n• <strong>Action de contact</strong> — deux objets se touchent, et l'action ne peut naître que …….",
-   "verso": "<strong>là où ils se touchent</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Le point d'application est donc …… : au milieu de la surface d'appui pour la force d'un support, au point d'accroche pour une corde ou un ressort, sur la surface qui glisse pour un frottement.",
-   "verso": "<strong>sur la zone de contact</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La <strong>résultante</strong> des forces appliquées à un solide est la …… de toutes les forces qu'il subit, notée ΣF⃗.",
+   "recto": "La résultante des forces 2.1 Définition La <strong>résultante</strong> des forces appliquées à un solide est la …… de toutes les forces qu'il subit, notée F.",
+   "rep": "somme vectorielle",
    "verso": "<strong>somme vectorielle</strong>",
    "origine": "cours a completer"
   },
   {
-   "type": "trou",
-   "recto": "Lorsque la résultante des forces appliquées à un solide est <strong>nulle</strong>, ce solide est soit ……, soit en <strong>translation rectiligne uniforme</strong> — vitesse constante en direction, sens et valeur.",
-   "verso": "<strong>immobile</strong> (à l'équilibre)",
-   "origine": "cours a completer"
+   "type": "question",
+   "recto": "Les quatre caractéristiques d'une force sont ……",
+   "rep": "point d'application, direction, sens, valeur",
+   "verso": "<strong>point d'application, direction, sens, valeur</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "trou",
-   "recto": "Lorsque la résultante des forces appliquées à un solide est <strong>nulle</strong>, ce solide est soit <strong>immobile</strong> (à l'équilibre), soit en …… — vitesse constante en direction, sens et valeur.",
-   "verso": "<strong>translation rectiligne uniforme</strong>",
-   "origine": "cours a completer"
+   "type": "question",
+   "recto": "Parmi ces actions, laquelle est une action <strong>à distance</strong> ?",
+   "rep": "le poids",
+   "verso": "<strong>le poids</strong> — les autres exigent un contact matériel",
+   "origine": "bilan"
   },
   {
-   "type": "trou",
-   "recto": "Pour chaque flèche du schéma, on doit pouvoir répondre à la question :\n……",
-   "verso": "<strong>« qu'est-ce qui touche l'objet à cet endroit ? »</strong>",
-   "origine": "cours a completer"
+   "type": "question",
+   "recto": "L'unité d'une force est ……",
+   "rep": "le newton",
+   "verso": "<strong>le newton</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le poids d'un corps de masse 250 kg vaut environ ……",
+   "rep": "2452 N",
+   "verso": "<strong>2452 N</strong> — 250 × 9,81",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En passant de la Terre à la Lune, un objet conserve ……",
+   "rep": "sa masse",
+   "verso": "<strong>sa masse</strong> — la masse est la même partout, le poids dépend de g",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La force élastique exercée par un ressort de raideur k vaut ……",
+   "rep": "F = k × Δℓ",
+   "verso": "<strong>F = k × Δℓ</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La résultante de deux forces de 10 N opposées et de même droite d'action vaut ……",
+   "rep": "0 N",
+   "verso": "<strong>0 N</strong> — on additionne des <strong>vecteurs</strong>, pas des intensités",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Si la somme des forces appliquées à un corps est nulle, alors ce corps ……",
+   "rep": "est immobile ou en mouvement rectiligne uniforme",
+   "verso": "<strong>est immobile ou en mouvement rectiligne uniforme</strong> — c'est le principe d'inertie",
+   "origine": "bilan"
   }
  ]
 };

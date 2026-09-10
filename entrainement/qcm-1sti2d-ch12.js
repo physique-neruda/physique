@@ -222,75 +222,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Cahier des charges » ?",
+   "verso": "Le <strong>cahier des charges</strong> est la liste des <strong>critères</strong> que la pièce doit satisfaire. Chaque critère est confronté aux propriétés des matériaux candidats : un seul critère non respecté suffit à <strong>éliminer</strong> un candidat.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Résistance d'un conducteur » ?",
+   "verso": "[2]\\[ R = ρL/S \\] R en ohms, L en mètres, S en m², et ρ la <strong>résistivité</strong> du matériau en · m. Plus ρ est faible, meilleur est le conducteur.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Groupes caractéristiques » ?",
+   "verso": "Certains groupes d'atomes donnent à une molécule des propriétés reconnaissables : · [--] le groupe <strong>hydroxyle</strong> -OH caractérise les <strong>alcools</strong> (éthanol C2H6O, soit CH3-CH2-OH).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Ordres de grandeur — qu'y a-t-il à retenir ?",
+   "verso": "Cuivre ρ≈ 1.7e-8· m aluminium ≈ 2.8e-8· m fer ≈ 1.0e-7· m. Un isolant comme le verre dépasse 10¹⁰ · m : dix-huit ordres de grandeur d'écart.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "À savoir par cœur — qu'y a-t-il à retenir ?",
+   "verso": "H fait <strong>1</strong> liaison C en fait <strong>4</strong> N en fait <strong>3</strong> O en fait <strong>2</strong> Cl en fait <strong>1</strong>.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "trou",
+   "recto": "Un matériau n'est pas « bon » ou « mauvais » dans l'absolu : il est …… à un usage donné.",
+   "rep": "adapté ou non",
+   "verso": "<strong>adapté ou non</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Les électrons de valence qui ne servent pas à une liaison restent groupés par deux : ce sont les …….",
+   "rep": "doublets non liants",
+   "verso": "<strong>doublets non liants</strong>",
+   "origine": "cours a completer"
+  },
+  {
    "type": "question",
    "recto": "Le verre appartient à la famille des matériaux ……",
+   "rep": "minéraux",
    "verso": "<strong>minéraux</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "Un matériau <strong>composite</strong> est un matériau qui ……",
-   "verso": "<strong>associe au moins deux matériaux pour cumuler leurs avantages</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "La <strong>masse volumique</strong> d'un matériau relève de ses propriétés ……",
+   "rep": "mécaniques",
    "verso": "<strong>mécaniques</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Lors d'un choix de matériau, un candidat qui ne respecte <strong>qu'un seul</strong> critère du cahier des charges en moins ……",
+   "rep": "est <strong>éliminé</strong>",
    "verso": "<strong>est <strong>éliminé</strong></strong> — un seul critère manqué suffit à éliminer",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La résistance d'un conducteur s'écrit ……",
+   "rep": "R = ρL/S",
    "verso": "<strong>R = ρL/S</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Si l'on double la <strong>section</strong> d'un câble sans changer sa longueur, sa résistance ……",
+   "rep": "est divisée par deux",
    "verso": "<strong>est divisée par deux</strong> — R est inversement proportionnelle à S",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La résistance thermique surfacique d'une paroi vaut ……",
+   "rep": "R<sub>th</sub> = e/λ",
    "verso": "<strong>R<sub>th</sub> = e/λ</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "L'indice de réfraction d'un milieu se définit par ……",
+   "rep": "n = c/v",
    "verso": "<strong>n = c/v</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Dans une molécule, l'atome de <strong>carbone</strong> forme ……",
-   "verso": "<strong>4 liaisons</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Dans la molécule d'eau, l'atome d'oxygène porte ……",
-   "verso": "<strong>deux doublets non liants</strong> — 6 électrons de valence, 2 servent aux liaisons, il reste 2 doublets",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "La formule CH₃-CH₂-OH est une formule ……",
-   "verso": "<strong>semi-développée</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Le groupe caractéristique -COOH identifie la famille des ……",
-   "verso": "<strong>acides carboxyliques</strong>",
    "origine": "bilan"
   }
  ]

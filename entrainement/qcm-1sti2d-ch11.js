@@ -222,63 +222,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Irradiance » ?",
+   "verso": "L'<strong>irradiance</strong> E est la puissance lumineuse P reçue par une surface, divisée par l'aire S de cette surface : [2]\\[ E = P/S en watts par mètre carré (W m²). \\] On la mesure avec un <strong>pyranomètre</strong>.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Rendement d'un panneau » ?",
+   "verso": "[2]\\[ η= P_élecE × S \\] où P_élec est la puissance électrique délivrée et E × S la puissance lumineuse reçue. Comme tout rendement, η< 1.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Ordres de grandeur à mémoriser — qu'y a-t-il à retenir ?",
+   "verso": "Par ciel dégagé, le Soleil apporte au sol E ≈ 1000W m² — c'est la valeur de référence de tous les calculs. Un éclairage intérieur confortable est de l'ordre de quelques W m².",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Sur une année — qu'y a-t-il à retenir ?",
+   "verso": "En France, une surface bien orientée reçoit environ 1200kW m² par an. Avec 17m² de panneaux à 18, la production annuelle vaut 1200 × 17 × 0,18 ≈ 3700kW, soit à peu près la consommation électrique annuelle d'un logement (hors chauffage).",
+   "origine": "encadre du cours"
+  },
+  {
    "type": "question",
    "recto": "L'<strong>irradiance</strong> est ……",
+   "rep": "la puissance lumineuse reçue par unité de surface",
    "verso": "<strong>la puissance lumineuse reçue par unité de surface</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Son unité est ……",
+   "rep": "W/m²",
    "verso": "<strong>W/m²</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "On mesure l'irradiance avec ……",
+   "rep": "un pyranomètre",
    "verso": "<strong>un pyranomètre</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans ce chapitre, la lettre E désigne ……",
+   "rep": "une irradiance en W/m²",
    "verso": "<strong>une irradiance en W/m²</strong> — c'est l'unité qui permet de trancher",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "La puissance reçue par une surface S vaut ……",
+   "rep": "P = E × S",
    "verso": "<strong>P = E × S</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "À irradiance constante, si l'on double la surface exposée, la puissance reçue ……",
-   "verso": "<strong>double</strong> — P est proportionnelle à S",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "Lorsqu'une surface est <strong>inclinée</strong> par rapport aux rayons, l'irradiance qu'elle reçoit ……",
+   "rep": "diminue",
    "verso": "<strong>diminue</strong> — la même puissance se répartit sur une surface plus grande",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Par ciel dégagé, l'irradiance du Soleil au sol vaut environ ……",
+   "rep": "1000 W/m²",
    "verso": "<strong>1000 W/m²</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le rendement d'un panneau photovoltaïque s'écrit ……",
+   "rep": "η = (P<sub>élec</sub>)/(E × S)",
    "verso": "<strong>η = (P<sub>élec</sub>)/(E × S)</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "On veut 1800 W électriques avec des panneaux à 18 % sous E = 1000 W/m². La surface nécessaire vaut ……",
-   "verso": "<strong>10 m²</strong> — S = (P<sub>élec</sub>)/(η × E) = 1800/(0,18 × 1000) = 10 m²",
+   "rep": "10 m²",
+   "verso": "<strong>10 m²</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'unité de la <strong>puissance</strong> dans le Système international est ……",
+   "rep": "le watt (W)",
+   "verso": "<strong>le watt (W)</strong>",
    "origine": "bilan"
   }
  ]

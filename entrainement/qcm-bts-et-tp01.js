@@ -7,7 +7,74 @@ window.CHAPITRE = {
  "num": "1",
  "titre": "Notions fondamentales d'électricité",
  "niveau": "BTS ET",
- "prerequis": [],
+ "prerequis": [
+  {
+   "q": "Écrire 0,000047 en notation scientifique :",
+   "choix": [
+    "4,7×10⁻⁵",
+    "4,7×10⁻⁴",
+    "47×10⁻⁶",
+    "4,7×10⁵"
+   ],
+   "bonne": 0,
+   "expl": "4,7×10⁻⁵. La notation scientifique demande un seul chiffre avant la virgule : 47×10⁻⁶ est juste numériquement mais mal écrit."
+  },
+  {
+   "q": "Convertir 2,5 mA en ampères :",
+   "choix": [
+    "2,5×10⁻³ A",
+    "2,5×10³ A",
+    "2,5×10⁻⁶ A",
+    "2,5×10⁻² A"
+   ],
+   "bonne": 0,
+   "expl": "milli vaut 10⁻³. C'est la conversion la plus fréquente de l'année."
+  },
+  {
+   "q": "Convertir 16 mm² en m² :",
+   "choix": [
+    "1,6×10⁻⁵ m²",
+    "1,6×10⁻³ m²",
+    "1,6×10⁻⁶ m²",
+    "1,6×10⁻² m²"
+   ],
+   "bonne": 0,
+   "expl": "1 mm = 10⁻³ m, donc 1 mm² = (10⁻³)² = 10⁻⁶ m² : 16 mm² = 1,6×10⁻⁵ m². Le rang du préfixe s'élève au carré, une seule fois."
+  },
+  {
+   "q": "Calculer (1,8×10⁻⁸ × 40)/(4×10⁻⁶) :",
+   "choix": [
+    "0,18",
+    "1,8",
+    "0,018",
+    "18"
+   ],
+   "bonne": 0,
+   "expl": "7,2×10⁻⁷ / 4×10⁻⁶ = 0,18 Ω. Diviser par 10⁻⁶ revient à multiplier par 10⁺⁶ : l'exposant change de signe en remontant."
+  },
+  {
+   "q": "De P = U I, on tire :",
+   "choix": [
+    "I = P/U",
+    "I = U/P",
+    "I = P U",
+    "I = U − P"
+   ],
+   "bonne": 0,
+   "expl": "Le U qui multipliait à droite passe au dénominateur à gauche. Ce qui multiplie d'un côté divise de l'autre."
+  },
+  {
+   "q": "Une grandeur y varie comme x². Si x est divisée par 2, y est divisée par :",
+   "choix": [
+    "4",
+    "2",
+    "8",
+    "16"
+   ],
+   "bonne": 0,
+   "expl": "(1/2)² = 1/4. Le carré double l'effet de toute variation."
+  }
+ ],
  "bilan": [
   {
    "q": "Pour mesurer le courant absorbé par un moteur, l'ampèremètre se branche :",
@@ -160,7 +227,7 @@ window.CHAPITRE = {
   {
    "type": "definition",
    "recto": "Qu'appelle-t-on « Potentiel et tension » ?",
-   "verso": "Chaque point d'un circuit est caractérisé par son <strong>potentiel</strong> V, en volts : c'est son « niveau électrique ». La <strong>tension</strong> entre deux points A et B est la différence de leurs potentiels : U_AB = V_A - V_B. C'est une grandeur qui n'existe qu'entre <em>deux</em> points ; parler de « la tension en A » n'a aucun sens.",
+   "verso": "Chaque point d'un circuit est caractérisé par son <strong>potentiel</strong> V, en volts : c'est son « niveau électrique ». La <strong>tension</strong> entre deux points A et B est la différence de leurs potentiels : U_AB = V_A - V_B.",
    "origine": "definition du cours"
   },
   {
@@ -172,19 +239,19 @@ window.CHAPITRE = {
   {
    "type": "definition",
    "recto": "Qu'appelle-t-on « Maille » ?",
-   "verso": "Une <strong>maille</strong> est un <strong>chemin fermé</strong> du circuit : on part d'un point, on suit des branches sans jamais emprunter deux fois la même, et on revient au point de départ. Un circuit en série n'en comporte qu'une ; dès qu'il y a une dérivation, il y en a plusieurs.",
+   "verso": "Une <strong>maille</strong> est un <strong>chemin fermé</strong> du circuit : on part d'un point, on suit des branches sans jamais emprunter deux fois la même, et on revient au point de départ.",
    "origine": "definition du cours"
   },
   {
    "type": "retenir",
    "recto": "Une convention d'écriture, valable tout le chapitre — qu'y a-t-il à retenir ?",
-   "verso": "Nous travaillons ici en <strong>régime continu</strong> : les grandeurs ne varient pas au cours du temps. On les note donc en <strong>lettres majuscules</strong> — U, I, P, E. Les minuscules u, i, p seront réservées, à partir du chapitre sur le régime sinusoïdal, aux <em>valeurs instantanées</em> d'une grandeur qui varie.",
+   "verso": "Nous travaillons ici en <strong>régime continu</strong> : les grandeurs ne varient pas au cours du temps. On les note donc en <strong>lettres majuscules</strong> — U, I, P, E.",
    "origine": "encadre du cours"
   },
   {
    "type": "retenir",
    "recto": "Le point de référence : la masse — qu'y a-t-il à retenir ?",
-   "verso": "Un potentiel ne se mesure pas tout seul, pas plus qu'une altitude sans niveau de la mer. On choisit donc dans le montage un point de référence, appelé masse, dont on décide que le potentiel vaut 0 V. Tous les autres potentiels s'expriment alors par rapport à lui, et « le potentiel du point A » n'est qu'une façon abrégée de dire « la tension entre A et la masse ».",
+   "verso": "Un potentiel ne se mesure pas tout seul, pas plus qu'une altitude sans niveau de la mer. On choisit donc dans le montage un point de référence, appelé masse, dont on décide que le potentiel vaut 0 V.",
    "origine": "encadre du cours"
   },
   {
@@ -196,43 +263,50 @@ window.CHAPITRE = {
   {
    "type": "trou",
    "recto": "Son intensité mesure …… : I = Q/t, en ampères (A).",
+   "rep": "la charge qui traverse une section du conducteur par unité de temps",
    "verso": "<strong>la charge qui traverse une section du conducteur par unité de temps</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "En convention <strong>générateur</strong>, elles sont …….",
+   "rep": "dans le même sens",
    "verso": "<strong>dans le même sens</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "En convention <strong>récepteur</strong>, les flèches de U et de I sont …….",
+   "rep": "opposées",
    "verso": "<strong>opposées</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Toute résistance parcourue par un courant dissipe …… sous forme de chaleur.",
+   "rep": "P_J = R I²",
    "verso": "<strong>P_J = R I²</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La <strong>tension</strong> entre deux points A et B est …… : U_AB = V_A - V_B.",
+   "rep": "la différence de leurs potentiels",
    "verso": "<strong>la différence de leurs potentiels</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
-   "recto": "Pour mesurer le courant absorbé par un moteur, l'ampèremètre se branche ……",
-   "verso": "<strong>en série avec le moteur</strong> — Le courant traverse : l'appareil doit être inséré dans la branche. Branché aux bornes, il constitue un court-circuit — c'est la seule erreur de branchement dangereuse.",
+   "recto": "La tension U_AB vaut 12 V. Alors U_BA vaut ……",
+   "rep": "-12 V",
+   "verso": "<strong>-12 V</strong> — U_BA = V_B - V_A = -U_AB. L'ordre des indices est une information, pas une formalité : l'inverser change le signe de toutes les conclusions qui suivent.",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "La tension U_AB vaut 12 V. Alors U_BA vaut ……",
-   "verso": "<strong>-12 V</strong> — U_BA = V_B - V_A = -U_AB. L'ordre des indices est une information, pas une formalité : l'inverser change le signe de toutes les conclusions qui suivent.",
+   "recto": "Deux points M et N sont reliés par un simple fil. La tension U_MN vaut ……",
+   "rep": "0 V",
+   "verso": "<strong>0 V</strong>",
    "origine": "bilan"
   }
  ]

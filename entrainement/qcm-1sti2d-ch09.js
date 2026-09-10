@@ -222,75 +222,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Température » ?",
+   "verso": "La température d'un corps traduit l'<strong>agitation</strong> de ses constituants microscopiques : plus ils se déplacent vite, plus la température est élevée.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Énergie interne » ?",
+   "verso": "L'énergie interne U d'un système est la somme de l'énergie cinétique d'agitation et de l'énergie potentielle d'interaction de tous ses constituants microscopiques.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Capacité thermique massique » ?",
+   "verso": "La capacité thermique massique c d'un matériau est l'énergie qu'il faut fournir à 1 de ce matériau pour élever sa température de 1. Elle s'exprime en (J·kg-1·K-1).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Énergie massique de changement d'état » ?",
+   "verso": "L'énergie massique de changement d'état L d'une espèce est l'énergie qu'il faut fournir à 1 de cette espèce pour la faire changer d'état <em>à température constante</em>. Elle s'exprime en.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "trou",
+   "recto": "La température d'un corps traduit l'…… de ses constituants microscopiques : plus ils se déplacent vite, plus la température est élevée.",
+   "rep": "agitation",
+   "verso": "<strong>agitation</strong>",
+   "origine": "cours a completer"
+  },
+  {
    "type": "question",
    "recto": "La température d'un corps traduit ……",
+   "rep": "l'agitation de ses constituants microscopiques",
    "verso": "<strong>l'agitation de ses constituants microscopiques</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une température de 20 °C vaut, en kelvins ……",
-   "verso": "<strong>293 K</strong> — (20+273 = 293 K)",
+   "rep": "293 K",
+   "verso": "<strong>293 K</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un écart de température de 1 °C correspond à un écart de ……",
+   "rep": "1 K",
    "verso": "<strong>1 K</strong> — (même pas d'échelle)",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "L'énergie interne U d'un système regroupe ……",
-   "verso": "<strong>l'énergie cinétique d'agitation et l'énergie potentielle d'interaction</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "L'unité de la capacité thermique massique c est ……",
+   "rep": "J/kg/K",
    "verso": "<strong>J/kg/K</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pour élever de 10 K la température de 1 kg d'eau, il faut environ ……",
-   "verso": "<strong>42 kJ</strong> — (ΔU = 1 × 4180 × 10 ≈ 42 kJ)",
+   "rep": "42 kJ",
+   "verso": "<strong>42 kJ</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Pendant un palier de changement d'état, la température du corps ……",
+   "rep": "reste constante",
    "verso": "<strong>reste constante</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "L'énergie à fournir pour faire fondre 0,5 kg de glace à 0 °C vaut ……",
-   "verso": "<strong>167 kJ</strong> — (Q = 0,5 × 334 = 167 kJ)",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Lorsqu'on met en contact un corps chaud et un corps froid, le transfert thermique va ……",
-   "verso": "<strong>du chaud vers le froid</strong>",
+   "rep": "167 kJ",
+   "verso": "<strong>167 kJ</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "À l'équilibre thermique, les deux corps ont ……",
+   "rep": "la même température",
    "verso": "<strong>la même température</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le mode de transfert thermique qui se produit <strong>sans contact</strong>, même dans le vide, est ……",
+   "rep": "le rayonnement",
    "verso": "<strong>le rayonnement</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "En physique, le mot « chaleur » désigne ……",
-   "verso": "<strong>un transfert d'énergie thermique entre deux corps</strong>",
    "origine": "bilan"
   }
  ]

@@ -199,75 +199,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Le <strong>débit massique</strong> Q_m est …….",
-   "verso": "<strong>la masse correspondante</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Débits » ?",
+   "verso": "Le <strong>débit volumique</strong> Q_v est le volume de fluide traversant une section par unité de temps. Le <strong>débit massique</strong> Q_m est la masse correspondante.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Le <strong>débit volumique</strong> Q_v est …….",
-   "verso": "<strong>le volume de fluide traversant une section par unité de temps</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Équation de continuité » ?",
+   "verso": "Dans un écoulement permanent d'un fluide incompressible, le débit volumique est le même à travers toute section de la conduite.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Le fluide …… et ralentit dans les élargissements.",
-   "verso": "<strong>accélère dans les rétrécissements</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Théorème de Bernoulli » ?",
+   "verso": "Pour un fluide <strong>parfait</strong> (sans viscosité), <strong>incompressible</strong>, en écoulement <strong>permanent</strong>, la somme des trois termes suivants se conserve le long d'une ligne de courant.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Le fluide accélère dans les rétrécissements et …….",
-   "verso": "<strong>ralentit dans les élargissements</strong>",
-   "origine": "cours a completer"
+   "type": "retenir",
+   "recto": "La conséquence à retenir — qu'y a-t-il à retenir ?",
+   "verso": "Le fluide accélère dans les rétrécissements et ralentit dans les élargissements. Comme les sections varient en D², diviser le diamètre par deux multiplie la vitesse par quatre.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Vitesse et pression varient en sens inverse — qu'y a-t-il à retenir ?",
+   "verso": "Là où le fluide va plus vite, la pression statique est plus faible. Dans un circuit horizontal, la conservation impose p₁ - p₂ = 1/2ρ(v₂² - v₁²).",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Dans un circuit horizontal, la conservation impose …….",
+   "rep": "p₁ - p₂ = 1/2ρ(v₂² - v₁²)",
    "verso": "<strong>p₁ - p₂ = 1/2ρ(v₂² - v₁²)</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Là où le fluide va plus vite, la pression statique est …….",
+   "rep": "plus faible",
    "verso": "<strong>plus faible</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Dans un écoulement permanent d'un fluide incompressible, …….",
+   "rep": "le débit volumique est le même à travers toute section de la conduite",
    "verso": "<strong>le débit volumique est le même à travers toute section de la conduite</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Là où le fluide va ……, la pression statique est plus faible.",
-   "verso": "<strong>plus vite</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Comme les sections varient en D², diviser le diamètre par deux multiplie la vitesse par …….",
+   "rep": "quatre",
    "verso": "<strong>quatre</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Le débit volumique s'exprime, dans le Système international, en ……",
-   "verso": "<strong>m³/s</strong> — le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse b de la question 2 correspond à un oubli du facteur 60. 3pt",
+   "rep": "m³/s",
+   "verso": "<strong>m³/s</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "60 L/min valent ……",
+   "rep": "1,0×10⁻³ m³/s",
    "verso": "<strong>1,0×10⁻³ m³/s</strong> — le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse b de la question 2 correspond à un oubli du facteur 60. 3pt",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le débit massique se calcule par ……",
-   "verso": "<strong>Q_m = ρQ_v</strong> — Q_m = ρQ_v : une masse volumique multipliée par un volume par seconde donne bien des kg/s. Vérifier par les unités en cas de doute. 3pt",
+   "rep": "Q_m = ρQ_v",
+   "verso": "<strong>Q_m = ρQ_v</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'équation de continuité traduit la conservation ……",
+   "rep": "de la masse",
+   "verso": "<strong>de la masse</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une conduite passe de 40 mm à 20 mm de diamètre. La vitesse est multipliée par ……",
+   "rep": "4",
+   "verso": "<strong>4</strong> — la continuité découle de la conservation de la masse (rien ne s'accumule), pas de l'énergie : c'est Bernoulli qui traduit l'énergie. Et comme S D², diviser le diamètre par deux divise la section par quatre, donc multiplie la vitesse par quatre. 3pt",
    "origine": "bilan"
   }
  ]

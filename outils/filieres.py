@@ -247,20 +247,24 @@ ANIMATIONS = {
 
     "outils": [
         {"chapitre": "ou01", "rubrique": "Calcul", "avant": None,
-         "titre": "L'échelle des unités", "fichier": "animations/conversion-unites.html",
-         "description": "On choisit la grandeur, l'unité de départ et l'unité d'arrivée, et "
-                        "l'outil déroule le raisonnement : le nombre doit-il augmenter ou "
-                        "diminuer, de combien de rangs, et pourquoi une aire change de deux "
-                        "rangs à chaque cran. Dix conversions au hasard pour s'entraîner.",
-         "trouve": "Convertir, c'est répondre à une seule question : plus grand ou plus petit ?",
+         "titre": "Convertir avec les puissances de dix",
+         "fichier": "animations/conversion-unites.html",
+         "description": "Aucune virgule ne se déplace : chaque unité porte son rang, on compte "
+                        "l'écart entre les deux rangs, et c'est la taille des unités qui donne "
+                        "le signe. Les aires et les volumes élèvent la puissance de dix, et "
+                        "elle seule, au carré ou au cube. Les capacités passent par 1 L = 1 dm3, "
+                        "les unités composées (m/s, L/min, g/cm3) s'écrivent en fraction. Dix "
+                        "conversions au hasard pour s'entraîner.",
+         "trouve": "L'écart des rangs donne le nombre, le sens donne le signe.",
          "motscles": ["unites", "conversion", "prefixes", "puissances de dix", "kilo",
                       "milli", "aire", "volume", "ordre de grandeur"]},
         {"chapitre": "ou02", "rubrique": "Calcul", "avant": None,
          "titre": "Transformer une formule", "fichier": "animations/transformer-formule.html",
-         "description": "Douze relations du programme, une lettre à isoler : l'outil montre "
-                        "le chemin étape par étape, puis fait l'application numérique. Une "
-                        "série d'entraînement tire les relations au hasard.",
-         "trouve": "Ce qui multiplie d'un côté divise de l'autre.",
+         "description": "Douze relations du programme, une lettre à isoler, et les deux "
+                        "méthodes côte à côte : l'équation qu'on multiplie ou divise des deux "
+                        "côtés, et le produit en croix où chaque lettre traverse en diagonale. "
+                        "Application numérique et série d'entraînement.",
+         "trouve": "Deux chemins, un seul résultat : c'est la meilleure des vérifications.",
          "motscles": ["formule", "isoler", "calcul litteral", "loi d'ohm", "rendement",
                       "pression", "debit"]},
     ],

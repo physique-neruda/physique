@@ -199,74 +199,94 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "Doubler le nombre de décibels ne double donc …….",
-   "verso": "<strong>rien du tout</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Onde acoustique » ?",
+   "verso": "Une onde acoustique est la propagation d'une suite de compressions et de dilatations dans un milieu matériel. La grandeur que l'on mesure est la surpression, c'est-à-dire l'écart à la pression atmosphérique.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Puissance et intensité acoustiques » ?",
+   "verso": "La <strong>puissance acoustique</strong> P, en watts, caractérise la source seule. L'<strong>intensité acoustique</strong> I, en W/m², est la puissance qui traverse un mètre carré : elle dépend aussi de la distance à la source.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Décibel pondéré A » ?",
+   "verso": "Le <strong>décibel pondéré A</strong>, noté dB(A), est le niveau corrigé de la sensibilité de l'oreille selon la fréquence. C'est lui, et lui seul, qu'utilise la réglementation.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "La célérité dépend du milieu, pas de la source — qu'y a-t-il à retenir ?",
+   "verso": "Lorsqu'un son passe d'un milieu à un autre, sa fréquence ne change pas — elle est imposée par la source — mais sa célérité change, donc sa longueur d'onde aussi. Le son va d'autant plus vite que le milieu est rigide.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Lire une échelle logarithmique — qu'y a-t-il à retenir ?",
+   "verso": "Ajouter 10 dB, c'est multiplier l'intensité par dix. Ajouter 3 dB, c'est la multiplier par deux. Doubler le nombre de décibels ne double donc rien du tout.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "La règle des 6 dB — qu'y a-t-il à retenir ?",
+   "verso": "En champ direct, doubler la distance fait perdre 6 dB. Ce qui compte est le rapport des distances, jamais leur différence.",
+   "origine": "encadre du cours"
   },
   {
    "type": "trou",
    "recto": "Le son va d'autant plus vite que le milieu est …….",
+   "rep": "rigide",
    "verso": "<strong>rigide</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "À intensité égale, un grave est perçu …… qu'un son medium.",
+   "rep": "beaucoup moins fort",
    "verso": "<strong>beaucoup moins fort</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "La perception d'un son dépend de son …… et de sa fréquence.",
+   "rep": "intensité",
    "verso": "<strong>intensité</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "La perception d'un son dépend de son intensité et de sa …….",
-   "verso": "<strong>fréquence</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Ce qui compte est le …… des distances, jamais leur différence.",
-   "verso": "<strong>rapport</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La <strong>puissance acoustique</strong> P, en watts, caractérise …….",
-   "verso": "<strong>la source seule</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "Une onde acoustique est la propagation d'une …… dans un milieu matériel.",
+   "rep": "suite de compressions et de dilatations",
    "verso": "<strong>suite de compressions et de dilatations</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
    "recto": "Le <strong>décibel pondéré A</strong>, noté dB(A), est le niveau corrigé de …….",
+   "rep": "la sensibilité de l'oreille selon la fréquence",
    "verso": "<strong>la sensibilité de l'oreille selon la fréquence</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Dans une onde acoustique, ce qui se déplace est ……",
-   "verso": "<strong>la perturbation de pression</strong> — chaque tranche d'air ne fait qu'aller et venir sur place : c'est la perturbation qui voyage, pas la matière. Un son n'est pas un courant d'air. Et lors d'un changement de milieu, c'est la célérité qui change ; la fréquence, elle, est imposée par la source et ne change jamais — d'où une longueur d'onde qui suit. 3pt",
+   "rep": "la perturbation de pression",
+   "verso": "<strong>la perturbation de pression</strong> — chaque tranche d'air ne fait qu'aller et venir sur place : c'est la perturbation qui voyage, pas la matière. Un son n'est pas un courant d'air.",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un son de 500 Hz passe de l'air à l'acier. Ce qui ne change pas est ……",
-   "verso": "<strong>la fréquence</strong> — chaque tranche d'air ne fait qu'aller et venir sur place : c'est la perturbation qui voyage, pas la matière. Un son n'est pas un courant d'air. Et lors d'un changement de milieu, c'est la célérité qui change ; la fréquence, elle, est imposée par la source et ne change jamais — d'où une longueur d'onde qui suit. 3pt",
+   "rep": "la fréquence",
+   "verso": "<strong>la fréquence</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "En champ direct, l'intensité acoustique à la distance r d'une source de puissance P vaut ……",
+   "rep": "I = P/(4πr²)",
    "verso": "<strong>I = P/(4πr²)</strong> — la puissance de la source se répartit sur la sphère de rayon r, dont la surface vaut 4πr². Retenir que la puissance caractérise la source seule, alors que l'intensité dépend aussi d'où l'on se place. 3pt",
    "origine": "bilan"
   }

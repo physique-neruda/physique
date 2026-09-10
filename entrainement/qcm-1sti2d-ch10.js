@@ -222,75 +222,99 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Pouvoir calorifique » ?",
+   "verso": "Le <strong>pouvoir calorifique</strong> PC est l'énergie libérée par la combustion complète de <strong>1 kg</strong> (ou 1 L) de combustible, en kJ/kg ou MJ/kg.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Ordres de grandeur à mémoriser — qu'y a-t-il à retenir ?",
+   "verso": "Bois sec ≈ 15 · éthanol ≈ 27 · essence et gazole ≈ 43 à 44 · gaz naturel ≈ 50 · dihydrogène ≈ 120 MJ/kg. À masse égale, le dihydrogène est champion, mais si peu dense qu'il faut le comprimer fortement.",
+   "origine": "encadre du cours"
+  },
+  {
    "type": "trou",
-   "recto": "Règle sans exception : exothermique → énergie du système qui <strong>diminue</strong> ; endothermique → énergie qui …….",
-   "verso": "<strong>augmente</strong>",
+   "recto": "Deux détecteurs sauvent des vies : <strong>fumée</strong> (obligatoire) et …….",
+   "rep": "monoxyde de carbone",
+   "verso": "<strong>monoxyde de carbone</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Elle fait intervenir le …… (ce qui brûle) et le <strong>comburant</strong> (le O₂ de l'air).",
-   "verso": "<strong>combustible</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Pourquoi gratter une allumette ? Parce que la réaction doit franchir une « bosse » : il faut lui fournir une …… pour l'amorcer.",
+   "recto": "Parce que la réaction doit franchir une « bosse » : il faut lui fournir une …… pour l'amorcer.",
+   "rep": "énergie d'activation",
    "verso": "<strong>énergie d'activation</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Le …… PC est l'énergie libérée par la combustion complète de <strong>1 kg</strong> (ou 1 L) de combustible, en kJ/kg ou MJ/kg.",
-   "verso": "<strong>pouvoir calorifique</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Deux détecteurs sauvent des vies : <strong>fumée</strong> (obligatoire) et …….",
-   "verso": "<strong>monoxyde de carbone</strong>",
+   "recto": "Règle sans exception : exothermique énergie du système qui <strong>diminue</strong> ; endothermique énergie qui …….",
+   "rep": "augmente",
+   "verso": "<strong>augmente</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Le <strong>système chimique</strong>, c'est ……",
+   "rep": "l'ensemble des espèces qui réagissent et se forment",
    "verso": "<strong>l'ensemble des espèces qui réagissent et se forment</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "L'<strong>effet thermique</strong> d'une transformation désigne ……",
-   "verso": "<strong>le transfert d'énergie thermique qui l'accompagne</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "Lors d'une transformation <strong>exothermique</strong>, l'énergie du système ……",
-   "verso": "<strong>diminue</strong> — exo : le système <em>cède</em>, son énergie diminue",
+   "rep": "diminue",
+   "verso": "<strong>diminue</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Toutes les <strong>combustions</strong> sont ……",
+   "rep": "exothermiques",
    "verso": "<strong>exothermiques</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Le <strong>triangle du feu</strong> réunit ……",
+   "rep": "combustible, comburant, énergie d'activation",
    "verso": "<strong>combustible, comburant, énergie d'activation</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans une combustion, le <strong>comburant</strong> est le plus souvent ……",
+   "rep": "le dioxygène O₂ de l'air",
    "verso": "<strong>le dioxygène O₂ de l'air</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "L'<strong>énergie d'activation</strong> sert à ……",
+   "rep": "amorcer la réaction",
    "verso": "<strong>amorcer la réaction</strong> — amorcer (c'est l'auto-entretien qui prend le relais ensuite)",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le <strong>pouvoir calorifique</strong> s'exprime en ……",
+   "rep": "MJ/kg",
+   "verso": "<strong>MJ/kg</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un combustible a PC = 50 MJ/kg. L'énergie libérée par 3,0 kg vaut ……",
+   "rep": "150 MJ",
+   "verso": "<strong>150 MJ</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une combustion <strong>incomplète</strong> produit, en plus de CO₂ et H₂O ……",
+   "rep": "du monoxyde de carbone CO et des suies",
+   "verso": "<strong>du monoxyde de carbone CO et des suies</strong>",
    "origine": "bilan"
   }
  ]

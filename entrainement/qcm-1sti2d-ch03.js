@@ -222,75 +222,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "trou",
-   "recto": "L'<strong>intensité</strong> I mesure le débit de charges qui traversent une section du circuit ; elle se note par une …… et se mesure en <strong>ampères</strong> (A) avec un ampèremètre placé <strong>en série</strong>.",
-   "verso": "<strong>flèche sur le fil</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Intensité et tension » ?",
+   "verso": "L'<strong>intensité</strong> I mesure le débit de charges qui traversent une section du circuit ; elle se note par une <strong>flèche sur le fil</strong> et se mesure en <strong>ampères</strong> (A) avec un ampèremètre placé <strong>en série</strong>.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>tension</strong> U mesure une différence d'état électrique <em>entre deux points</em> ; elle se note par une …… et se mesure en <strong>volts</strong> (V) avec un voltmètre placé <strong>en dérivation</strong>.",
-   "verso": "<strong>flèche à côté du dipôle</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Loi des nœuds » ?",
+   "verso": "En un nœud, la somme des intensités des courants qui <strong>entrent</strong> est égale à la somme des intensités des courants qui <strong>sortent</strong> : [2]\\[ I_entrant = I_sortant. \\]",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Conséquences à connaître : <strong>en série</strong>, il n'y a aucun nœud, donc …… ; <strong>en dérivation</strong>, l'intensité du courant principal se <strong>partage</strong> entre les branches. C'est pourquoi brancher un appareil de plus en dérivation augmente l'intensité totale appelée — et peut faire disjoncter l'installation.",
-   "verso": "<strong>l'intensité est la même partout</strong>",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Les deux conventions » ?",
+   "verso": "En <strong>convention récepteur</strong>, les flèches de U et de I sont de <strong>sens contraires</strong> ; on l'emploie pour tout dipôle qui <strong>reçoit</strong> de l'énergie : résistance, lampe, moteur.",
+   "origine": "definition du cours"
   },
   {
-   "type": "trou",
-   "recto": "Conséquences à connaître : <strong>en série</strong>, il n'y a aucun nœud, donc <strong>l'intensité est la même partout</strong> ; ……, l'intensité du courant principal se <strong>partage</strong> entre les branches. C'est pourquoi brancher un appareil de plus en dérivation augmente l'intensité totale appelée — et peut faire disjoncter l'installation.",
-   "verso": "<strong>en dérivation</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "En ……, les flèches de U et de I sont de <strong>sens contraires</strong> ; on l'emploie pour tout dipôle qui <strong>reçoit</strong> de l'énergie : résistance, lampe, moteur. En <strong>convention générateur</strong>, elles sont de <strong>même sens</strong> ; on l'emploie pour tout dipôle qu",
-   "verso": "<strong>convention récepteur</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "En un nœud, la somme des intensités des courants qui <strong>entrent</strong> est égale à la somme des intensités des courants qui <strong>sortent</strong> :\n……",
-   "verso": "ΣI<sub>entrant</sub> = ΣI<sub>sortant</sub>.",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Si l'on part d'un point d'une maille et qu'on la parcourt entièrement pour revenir à ce même point, la <strong>somme des tensions rencontrées est nulle</strong> :\n……",
-   "verso": "Σ<sub>maille</sub> U = 0.",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "En partant de A dans le circuit ci-dessus, on obtient -U₁ - U₂ + E = 0, c'est-à-dire :\n……",
-   "verso": "E = U₁ + U₂ + …",
-   "origine": "cours a completer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Maille » ?",
+   "verso": "Une <strong>maille</strong> est un <strong>chemin fermé</strong> du circuit : on part d'un point, on suit des branches sans jamais emprunter deux fois la même, et on revient au point de départ.",
+   "origine": "definition du cours"
   },
   {
    "type": "question",
    "recto": "En un nœud, la loi des nœuds s'écrit ……",
+   "rep": "ΣI<sub>entrant</sub> = ΣI<sub>sortant</sub>",
    "verso": "<strong>ΣI<sub>entrant</sub> = ΣI<sub>sortant</sub></strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Un courant de 0,45 A arrive à un nœud d'où partent deux branches. L'une est parcourue par 0,30 A, l'autre par ……",
+   "rep": "0,15 A",
    "verso": "<strong>0,15 A</strong> — 0,45 - 0,30",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Dans un circuit en série, l'intensité ……",
+   "rep": "est la même partout",
    "verso": "<strong>est la même partout</strong> — il n'y a aucun nœud en série",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "Une <strong>maille</strong> est ……",
-   "verso": "<strong>un chemin fermé du circuit</strong> — un chemin fermé",
+   "rep": "un chemin fermé du circuit",
+   "verso": "<strong>un chemin fermé du circuit</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En parcourant une maille entière et en revenant au point de départ, la somme des tensions rencontrées vaut ……",
+   "rep": "zéro",
+   "verso": "<strong>zéro</strong> — on revient au même potentiel, donc au même point",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Sur une maille comportant un générateur de 12 V et deux résistances, si U₁ = 7,2 V alors U₂ vaut ……",
+   "rep": "4,8 V",
+   "verso": "<strong>4,8 V</strong> — 12 - 7,2",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En <strong>convention récepteur</strong>, les flèches de U et de I sont ……",
+   "rep": "de sens contraires",
+   "verso": "<strong>de sens contraires</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une pile qui débite dans un circuit se flèche en convention ……",
+   "rep": "générateur",
+   "verso": "<strong>générateur</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une <strong>tension</strong> se rapporte ……",
+   "rep": "à deux points du circuit",
+   "verso": "<strong>à deux points du circuit</strong> — d'où la flèche tracée à côté du dipôle",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'ampèremètre se branche ……",
+   "rep": "en série",
+   "verso": "<strong>en série</strong> — il doit être traversé par le courant",
    "origine": "bilan"
   }
  ]

@@ -222,75 +222,99 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Référentiel et trajectoire » ?",
+   "verso": "Le <strong>référentiel</strong> est le point de vue depuis lequel on observe le mouvement. La <strong>trajectoire</strong> d'un point est l'ensemble des positions successives qu'il occupe au cours du temps, <em>dans un référentiel donné</em>.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Vitesse instantanée » ?",
+   "verso": "La <strong>vitesse instantanée</strong> est la limite de la vitesse moyenne lorsque Δt tend vers zéro. C'est la <strong>dérivée</strong> de la position par rapport au temps : [2]\\[ v(t) = dxdt.",
+   "origine": "definition du cours"
+  },
+  {
    "type": "trou",
-   "recto": "Dans une translation, tous les points du solide décrivent des trajectoires ……. Il est donc inutile de les étudier séparément : on remplace le solide par un <strong>point matériel</strong> placé en son <strong>centre de masse</strong>, qui concentre toute sa masse.",
+   "recto": "Dans une translation, tous les points du solide décrivent des trajectoires …….",
+   "rep": "superposables",
    "verso": "<strong>superposables</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Dans une translation, tous les points du solide décrivent des trajectoires <strong>superposables</strong>. Il est donc inutile de les étudier séparément : on remplace le solide par un …… placé en son <strong>centre de masse</strong>, qui concentre toute sa masse.",
-   "verso": "<strong>point matériel</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La …… est la limite de la vitesse moyenne lorsque Δt tend vers zéro.",
-   "verso": "<strong>vitesse instantanée</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Graphiquement, c'est la …… à la courbe x(t) en ce point.",
-   "verso": "<strong>pente de la tangente</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "Un mouvement …… suit une droite à vitesse constante : a = 0. Un mouvement <strong>rectiligne uniformément varié</strong> suit une droite avec une accélération constante non nulle : c'est le cas d'un démarrage ou d'une chute libre. Un mouvement <strong>circulaire uniforme</strong> parcourt",
-   "verso": "<strong>rectiligne uniforme</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "C'est la <strong>dérivée</strong> de la position par rapport au temps :\n……",
-   "verso": "v(t) = dx/dt.",
    "origine": "cours a completer"
   },
   {
    "type": "question",
    "recto": "Avant toute étude de mouvement, il faut d'abord préciser ……",
+   "rep": "le référentiel",
    "verso": "<strong>le référentiel</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "Un passager assis dans un train en marche est ……",
-   "verso": "<strong>immobile dans le référentiel du train, en mouvement dans celui du quai</strong> — le mouvement est <strong>relatif</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "La <strong>trajectoire</strong> d'un point ……",
+   "rep": "dépend du référentiel choisi",
    "verso": "<strong>dépend du référentiel choisi</strong> — une bille lâchée d'un chariot en marche décrit une droite vue du chariot, une courbe vue du sol",
    "origine": "bilan"
   },
   {
    "type": "question",
-   "recto": "Dans une translation, tous les points du solide ont des trajectoires ……",
-   "verso": "<strong>superposables</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
    "recto": "Le modèle du <strong>point matériel</strong> consiste à remplacer le solide par un point placé ……",
+   "rep": "en son centre de masse",
    "verso": "<strong>en son centre de masse</strong>",
    "origine": "bilan"
   },
   {
    "type": "question",
    "recto": "90 km/h correspondent à ……",
+   "rep": "25 m/s",
    "verso": "<strong>25 m/s</strong> — 90/3,6",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La vitesse instantanée est, mathématiquement ……",
+   "rep": "la dérivée de la position par rapport au temps",
+   "verso": "<strong>la dérivée de la position par rapport au temps</strong> — c'est la définition de la dérivée",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Sur un graphique x(t), la vitesse instantanée se lit comme ……",
+   "rep": "la pente de la tangente",
+   "verso": "<strong>la pente de la tangente</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'accélération est la dérivée ……",
+   "rep": "de la vitesse",
+   "verso": "<strong>de la vitesse</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Sur une chronophotographie, des positions de plus en plus espacées traduisent un mouvement ……",
+   "rep": "accéléré",
+   "verso": "<strong>accéléré</strong> — les espacements croissent",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une accélération nulle signifie que ……",
+   "rep": "la vitesse ne change pas",
+   "verso": "<strong>la vitesse ne change pas</strong> — une voiture à 90 km/h sur autoroute a une accélération nulle",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans un mouvement <strong>circulaire uniforme</strong>, l'accélération est ……",
+   "rep": "non nulle, car la direction de la vitesse change",
+   "verso": "<strong>non nulle, car la direction de la vitesse change</strong> — la vitesse est un <strong>vecteur</strong> : sa valeur est constante, sa direction non",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour convertir des km/h en m/s, on ……",
+   "rep": "divise par 3,6",
+   "verso": "<strong>divise par 3,6</strong>",
    "origine": "bilan"
   }
  ]
