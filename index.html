@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Physique appliquée — M. Cronenberger</title>
+<meta name="description" content="Cours, TP et animations interactives de physique-chimie du lycée Pablo Neruda, Dieppe.">
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18; --teal:#0E7C7B;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.5;padding:0 14px 56px;max-width:760px;margin:0 auto}
+
+header{padding:26px 0 2px}
+h1{font-size:1.4rem;line-height:1.2;margin:0 0 5px;color:var(--bleu);letter-spacing:-.015em}
+h1 a{color:inherit;text-decoration:none}
+header .qui{margin:0;color:var(--gris);font-size:.92rem}
+
+/* fil d'ariane */
+.fil{margin:16px 0 0;font-size:.88rem;color:var(--gris)}
+.fil a{color:var(--bleu);text-decoration:none}
+.fil a:hover{text-decoration:underline}
+
+/* recherche + rubriques */
+.outils{position:sticky;top:0;z-index:5;background:var(--fond);
+  padding:12px 0 10px;border-bottom:1px solid var(--bord);margin-bottom:6px}
+#q{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border-radius:9px;
+  border:1px solid var(--bord);background:var(--panneau);color:var(--encre);min-height:48px}
+#q:focus{outline:3px solid var(--orange);outline-offset:1px;border-color:var(--orange)}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.chips button{font:inherit;font-size:.86rem;min-height:42px;padding:6px 15px;border-radius:21px;
+  border:1px solid var(--bord);background:var(--panneau);color:var(--encre)}
+.chips button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.chips button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+/* accueil : les filières */
+a.filiere{display:block;background:var(--panneau);border:1px solid var(--bord);
+  border-left:5px solid var(--bleu);border-radius:10px;padding:16px 18px;margin-bottom:10px;
+  text-decoration:none;color:inherit}
+a.filiere:hover{border-color:var(--orange);border-left-color:var(--orange)}
+a.filiere:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+a.filiere .nom{font-size:1.12rem;font-weight:600;color:var(--bleu)}
+a.filiere .st{font-size:.88rem;color:var(--gris);margin-top:1px}
+a.filiere .compte{font-size:.85rem;color:var(--encre);margin-top:8px}
+a.filiere .compte em{font-style:normal;color:var(--orange)}
+
+/* liste des chapitres */
+a.chapitre{display:block;background:var(--panneau);border:1px solid var(--bord);
+  border-left:5px solid var(--orange);border-radius:10px;padding:14px 16px;margin-bottom:8px;
+  text-decoration:none;color:inherit}
+a.chapitre:hover{border-color:var(--orange);border-left-color:var(--orange)}
+a.chapitre:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+a.chapitre .nom{font-size:1.02rem;font-weight:600;color:var(--bleu)}
+a.chapitre .compte{font-size:.85rem;color:var(--gris);margin-top:4px}
+a.chapitre .compte em{font-style:normal;color:var(--orange)}
+
+/* listes */
+h2{font-size:1.05rem;margin:26px 0 2px;color:var(--bleu)}
+h3{font-size:.79rem;font-weight:600;letter-spacing:.02em;color:var(--gris);
+  margin:20px 0 9px;padding-bottom:6px;border-bottom:1px solid var(--bord)}
+
+a.item{display:flex;gap:12px;align-items:flex-start;background:var(--panneau);
+  border:1px solid var(--bord);border-left:5px solid var(--bord);border-radius:10px;
+  padding:13px 15px;margin-bottom:8px;text-decoration:none;color:inherit}
+a.item:hover{border-color:var(--orange);border-left-color:var(--orange)}
+a.item:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+a.item.animation{border-left-color:var(--teal)}
+a.item.pdf{border-left-color:var(--bleu)}
+a.item.qcm{border-left-color:var(--orange)}
+a.item.cartes{border-left-color:var(--orange)}
+.marque{flex:0 0 auto;font-family:var(--mono);font-size:.66rem;letter-spacing:.03em;
+  border-radius:4px;padding:3px 6px;margin-top:2px;border:1px solid var(--bord);color:var(--gris)}
+a.item.animation .marque{color:var(--teal);border-color:var(--teal)}
+a.item.pdf .marque{color:var(--bleu);border-color:var(--bleu)}
+a.item.qcm .marque,
+a.item.cartes .marque{color:var(--orange);border-color:var(--orange)}
+.corps{min-width:0}
+.corps .nom{font-size:1.02rem;font-weight:600;color:var(--bleu)}
+.corps .desc{font-size:.89rem;margin-top:2px}
+.corps .trouve{font-size:.86rem;color:var(--orange);margin-top:6px}
+.corps .trouve b{font-weight:600}
+.corps .ou{font-size:.8rem;color:var(--gris);margin-top:5px}
+
+.rien{background:var(--panneau);border:1px dashed var(--bord);border-radius:10px;
+  padding:18px;color:var(--gris);font-size:.92rem;text-align:center}
+
+footer{margin-top:38px;padding-top:16px;border-top:1px solid var(--bord);
+  color:var(--gris);font-size:.84rem;line-height:1.65}
+footer p{margin:0 0 8px}
+noscript{display:block;background:#FDECEA;border:1px solid #E3A9A2;border-radius:8px;
+  padding:12px 14px;margin-top:16px;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<header>
+  <h1><a href="#" id="accueil">Physique appliquée</a></h1>
+  <p class="qui">Lycée Pablo Neruda, Dieppe · M. Cronenberger</p>
+</header>
+
+<nav class="fil" id="fil" hidden></nav>
+
+<div class="outils">
+  <label for="q" style="position:absolute;left:-9999px">Rechercher</label>
+  <input id="q" type="search" placeholder="Chercher un chapitre, un document, une animation…"
+         autocomplete="off" enterkeyhint="search">
+  <div class="chips" id="chips"></div>
+</div>
+
+<noscript>Cette page a besoin de JavaScript. Les documents restent accessibles directement dans
+les dossiers <b>docs/</b> et <b>animations/</b>.</noscript>
+
+<main id="vue"></main>
+
+<footer>
+  <p>Les animations fonctionnent sur téléphone, sans installation et sans compte. Tous les
+  calculs se font dans votre navigateur : rien n'est envoyé, et les mesures que vous relevez
+  disparaissent quand vous fermez la page.</p>
+  <p>Les corrigés ne sont pas déposés ici.</p>
+</footer>
+
+<script src="catalogue.js"></script>
+<script>
+"use strict";
+
+/* ---------- utilitaires ---------- */
+function sansAccents(s){
+  return (s||"").toString().normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+}
+function echappe(s){
+  return (s||"").toString().replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+  });
+}
+/* Identifiant d'un chapitre pour l'adresse : #1sti2d/chapitre-16-notion-d-onde
+   La clé ne retient que le nom du chapitre : un chapitre reste une seule
+   carte même s'il porte à la fois un cours, un TP et un entraînement. */
+function cleChapitre(d){
+  return sansAccents(d.chapitre)
+         .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+function laFiliere(id){
+  for(var i=0;i<FILIERES.length;i++){ if(FILIERES[i].id===id) return FILIERES[i]; }
+  return null;
+}
+function docsDe(id){
+  return DOCUMENTS.filter(function(d){ return d.filiere===id; });
+}
+
+/* ---------- état ---------- */
+var vueFiliere = null, vueChapitre = null, rubrique = null, recherche = "";
+
+/* ---------- rendu ---------- */
+/* Un type inconnu retombe sur "pdf" : le catalogue ne peut pas casser
+   l'affichage. Seuls les PDF s'ouvrent dans un nouvel onglet. */
+var TYPES = {
+  animation: { classe: "animation", marque: "ANIM",   onglet: false },
+  qcm:       { classe: "qcm",       marque: "QCM",    onglet: false },
+  cartes:    { classe: "cartes",    marque: "CARTES", onglet: false },
+  pdf:       { classe: "pdf",       marque: "PDF",    onglet: true  }
+};
+function carteItem(d, avecLieu){
+  var f = laFiliere(d.filiere);
+  var t = TYPES[d.type] || TYPES.pdf;
+  return '<a class="item ' + t.classe + '" href="' + echappe(d.fichier) + '"'
+       + (t.onglet ? ' target="_blank" rel="noopener"' : "") + '>'
+       + '<span class="marque">' + t.marque + '</span>'
+       + '<span class="corps">'
+       +   '<span class="nom">' + echappe(d.titre) + '</span>'
+       +   (d.description ? '<span class="desc">' + echappe(d.description) + '</span>' : '')
+       +   (d.trouve ? '<span class="trouve">Pour trouver <b>' + echappe(d.trouve) + '</b></span>' : '')
+       +   (avecLieu ? '<span class="ou">' + echappe((f ? f.nom : d.filiere) + " · " + d.rubrique
+                        + " · " + d.chapitre) + '</span>' : '')
+       + '</span></a>';
+}
+
+function vueAccueil(){
+  document.getElementById("fil").hidden = true;
+  document.getElementById("chips").innerHTML = "";
+  var html = "";
+  FILIERES.forEach(function(f){
+    var d = docsDe(f.id);
+    var nbA = d.filter(function(x){ return x.type==="animation"; }).length;
+    var nbE = d.filter(function(x){ return x.type==="qcm" || x.type==="cartes"; }).length;
+    var nbP = d.length - nbA - nbE;
+    var bouts = [];
+    if(nbP) bouts.push(nbP + " document" + (nbP>1?"s":""));
+    if(nbA) bouts.push('<em>' + nbA + " animation" + (nbA>1?"s":"") + '</em>');
+    if(nbE) bouts.push('<em>' + nbE + " entra\u00eenement" + (nbE>1?"s":"") + '</em>');
+    var compte = bouts.length
+      ? bouts.slice(0,-1).join(", ") + (bouts.length>1 ? " et " : "") + bouts[bouts.length-1]
+      : "rien pour l'instant";
+    html += '<a class="filiere" href="#' + f.id + '">'
+          +   '<span class="nom">' + echappe(f.nom) + '</span>'
+          +   (f.sous_titre ? '<div class="st">' + echappe(f.sous_titre) + '</div>' : '')
+          +   '<div class="compte">' + compte + '</div>'
+          + '</a>';
+  });
+  document.getElementById("vue").innerHTML = html;
+}
+
+function vueRecherche(){
+  document.getElementById("fil").hidden = true;
+  document.getElementById("chips").innerHTML = "";
+  var r = DOCUMENTS.filter(function(d){
+    var f = laFiliere(d.filiere);
+    var champs = [d.titre, d.description, d.trouve, d.chapitre, d.rubrique,
+                  f ? f.nom : ""].concat(d.motscles||[]).join(" ");
+    return sansAccents(champs).indexOf(sansAccents(recherche)) >= 0;
+  });
+  var cible = document.getElementById("vue");
+  if(!r.length){
+    cible.innerHTML = '<p class="rien">Rien ne correspond à cette recherche.</p>';
+    return;
+  }
+  cible.innerHTML = '<h2>' + r.length + ' résultat' + (r.length>1?"s":"") + '</h2>'
+                  + r.map(function(d){ return carteItem(d, true); }).join("");
+}
+
+/* Regroupe une liste de documents par chapitre, dans l'ordre du catalogue. */
+function parChapitre(liste){
+  var ordre = [], par = {};
+  liste.forEach(function(d){
+    var c = cleChapitre(d);
+    if(!par[c]){ par[c] = { cle:c, nom:d.chapitre, rubrique:d.rubrique,
+                            rubriques:[], docs:[] };
+                 ordre.push(par[c]); }
+    if(par[c].rubriques.indexOf(d.rubrique) < 0) par[c].rubriques.push(d.rubrique);
+    par[c].docs.push(d);
+  });
+  return ordre;
+}
+
+/* « 5 documents et 2 entraînements » */
+function compteDe(docs){
+  var nbA = docs.filter(function(x){ return x.type==="animation"; }).length;
+  var nbE = docs.filter(function(x){ return x.type==="qcm" || x.type==="cartes"; }).length;
+  var nbP = docs.length - nbA - nbE;
+  var bouts = [];
+  if(nbP) bouts.push(nbP + " document" + (nbP>1?"s":""));
+  if(nbA) bouts.push('<em>' + nbA + " animation" + (nbA>1?"s":"") + '</em>');
+  if(nbE) bouts.push('<em>' + nbE + " entra\u00eenement" + (nbE>1?"s":"") + '</em>');
+  return bouts.length
+    ? bouts.slice(0,-1).join(", ") + (bouts.length>1 ? " et " : "") + bouts[bouts.length-1]
+    : "rien pour l'instant";
+}
+
+function ariane(){
+  var f = laFiliere(vueFiliere);
+  var fil = document.getElementById("fil");
+  fil.hidden = false;
+  var h = '<a href="#">Toutes les filières</a> &nbsp;›&nbsp; ';
+  if(vueChapitre){
+    var g = parChapitre(docsDe(f.id)).filter(function(x){ return x.cle===vueChapitre; })[0];
+    h += '<a href="#' + f.id + '">' + echappe(f.nom) + '</a>'
+       + (g ? ' &nbsp;›&nbsp; ' + echappe(g.nom) : "");
+  }else{
+    h += echappe(f.nom);
+  }
+  fil.innerHTML = h;
+}
+
+/* Niveau 3 : les documents d'un seul chapitre. */
+function vueChapitreRendu(){
+  var f = laFiliere(vueFiliere);
+  var g = parChapitre(docsDe(f.id)).filter(function(x){ return x.cle===vueChapitre; })[0];
+  if(!g){ vueChapitre = null; vueFiliereRendu(); return; }
+  ariane();
+  document.getElementById("chips").innerHTML = "";
+  var html = '<h2>' + echappe(g.nom) + '</h2>';
+  g.rubriques.forEach(function(r){
+    html += '<h3>' + echappe(r) + '</h3>'
+          + g.docs.filter(function(d){ return d.rubrique === r; })
+                  .map(function(d){ return carteItem(d, false); }).join("");
+  });
+  document.getElementById("vue").innerHTML = html;
+}
+
+/* Niveau 2 : la liste des chapitres d'une filière. */
+function vueFiliereRendu(){
+  var f = laFiliere(vueFiliere);
+  if(!f){ location.hash = ""; return; }
+  if(vueChapitre){ vueChapitreRendu(); return; }
+  ariane();
+
+  var tous = docsDe(f.id);
+  var zone = document.getElementById("chips");
+  zone.innerHTML = "";
+  var choix = ["Tout"].concat(f.rubriques);
+  choix.forEach(function(r){
+    var n = (r === "Tout") ? parChapitre(tous).length
+          : parChapitre(tous.filter(function(d){ return d.rubrique===r; })).length;
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = r + (n ? "  " + n : "");
+    b.setAttribute("aria-pressed", (rubrique||"Tout") === r);
+    b.onclick = function(){ rubrique = (r==="Tout" ? null : r); vueFiliereRendu(); };
+    zone.appendChild(b);
+  });
+
+  var liste = rubrique ? tous.filter(function(d){ return d.rubrique===rubrique; }) : tous;
+  var cible = document.getElementById("vue");
+  if(!liste.length){
+    cible.innerHTML = '<p class="rien">Rien n\'est encore déposé ici.</p>';
+    return;
+  }
+
+  var html = "", rubCourante = null;
+  parChapitre(liste).forEach(function(g){
+    if(!rubrique && g.rubrique !== rubCourante){
+      rubCourante = g.rubrique;
+      html += '<h2>' + echappe(g.rubrique) + '</h2>';
+    }
+    html += '<a class="chapitre" href="#' + f.id + '/' + g.cle + '">'
+          +   '<span class="nom">' + echappe(g.nom) + '</span>'
+          +   '<div class="compte">' + compteDe(g.docs) + '</div>'
+          + '</a>';
+  });
+  cible.innerHTML = html;
+}
+
+function rendu(){
+  if(recherche){ vueRecherche(); return; }
+  if(vueFiliere){ vueFiliereRendu(); return; }
+  vueAccueil();
+}
+
+/* ---------- navigation ---------- */
+function surHash(){
+  var h = (location.hash || "").replace(/^#/, "");
+  var bouts = h.split("/");
+  vueFiliere = bouts[0] && laFiliere(bouts[0]) ? bouts[0] : null;
+  vueChapitre = (vueFiliere && bouts[1]) ? bouts[1] : null;
+  rubrique = null;
+  document.getElementById("q").value = "";
+  recherche = "";
+  rendu();
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", surHash);
+document.getElementById("q").addEventListener("input", function(e){
+  recherche = e.target.value.trim();
+  rendu();
+});
+
+surHash();
+</script>
+</body>
+</html>
