@@ -243,7 +243,17 @@ ANIMATIONS = {
                       "incertitude"]},
     ],
 
-    "1sti2d": [],
+    "1sti2d": [
+        {"chapitre": "ch01", "rubrique": "TP", "avant": "activite",
+         "titre": "Pied à coulisse virtuel", "fichier": "animations/pied-a-coulisse.html",
+         "description": "Un pied à coulisse au 1/50 (résolution 0,02 mm) avec une loupe "
+                        "déplaçable le long du vernier : on lit soi-même, sur six axes "
+                        "numérotés. L'animation donne la moyenne et l'écart-type, pas la "
+                        "conclusion. C'est la partie B de l'activité.",
+         "trouve": "Une mesure ne se conclut qu'en comparant un intervalle à une tolérance.",
+         "motscles": ["pied a coulisse", "vernier", "mesure", "incertitude", "tolerance",
+                      "dispersion", "resolution"]},
+    ],
 
     "outils": [
         {"chapitre": "ou01", "rubrique": "Calcul", "avant": None,

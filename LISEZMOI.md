@@ -493,3 +493,30 @@ python3 outils/enrichir_cartes.py bts-tsma <...>/collection entrainement
 
 Sur les 826 cartes du site : 154 définitions, 102 encadrés à retenir, 212 textes à trous,
 358 questions.
+
+
+---
+
+## Correctif du 10 septembre 2026 — animations sans niveau
+
+Trois animations portaient le nom d'une filière dans leur titre et leur sous-titre :
+`pied-a-coulisse.html` et `treuil.html` annonçaient « BTS TSMA · chapitre 1 » ou « chapitre 2 »,
+`mcc-banc-essai.html` annonçait « Lycée Pablo Neruda — BTS CRSA — chapitre 1 ». Un élève de
+1re STI2D à qui on donne le pied à coulisse voyait donc s'afficher BTS TSMA.
+
+Les trois sont maintenant **neutres** : le titre décrit l'instrument et la notion, jamais la
+classe. Le lien de retour « Toutes les animations » y a été ajouté, comme sur les autres — il
+pointe vers `../index.html` sans ancre de filière, pour la même raison.
+
+C'est la règle à tenir pour toute nouvelle animation : **aucune mention de niveau, de filière
+ni de numéro de chapitre à l'intérieur du fichier.** Le rattachement à un chapitre se fait dans
+`ANIMATIONS` de `outils/filieres.py`, et là seulement — une même animation peut ainsi servir à
+plusieurs classes sans être dupliquée.
+
+Le pied à coulisse est d'ailleurs désormais déclaré **deux fois** : au chapitre 1 du BTS TSMA
+et au chapitre 1 de la 1re STI2D, dont l'activité refondue s'appuie dessus pour sa partie B.
+Un seul fichier, deux rattachements.
+
+L'activité `docs/1sti2d/ch01/activite.pdf` a été remplacée par sa nouvelle version (les cinq
+parties A à E, la comparaison 1/10 contre 1/50, la décision de conformité). Le corrigé n'est
+pas publié, conformément à la liste blanche.
