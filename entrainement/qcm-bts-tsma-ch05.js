@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Les pertes <strong>singulières</strong> se produisent …… : Δp = K·1/2ρv².",
    "verso": "<strong>en un point précis : coude, vanne, raccord, filtre, rétrécissement</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "La viscosité dynamique η s'exprime en ……",
+   "verso": "<strong>Pa·s</strong> — η en Pa·s. La réponse a est celle de la viscosité cinématique ν= η/ρ : les deux se distinguent par la masse volumique. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La désignation « ISO VG 46 » signifie que la viscosité cinématique vaut 46 mm²/s ……",
+   "verso": "<strong>à 40 °C</strong> — le nombre du grade ISO VG est la viscosité cinématique à 40 °C, température de référence normalisée. Une huile n'a pas « une » viscosité : elle en a une par température, et le facteur atteint 90 entre 0 °C et 100 °C. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Quand la température d'une huile augmente, sa viscosité ……",
+   "verso": "<strong>diminue fortement</strong> — le nombre du grade ISO VG est la viscosité cinématique à 40 °C, température de référence normalisée. Une huile n'a pas « une » viscosité : elle en a une par température, et le facteur atteint 90 entre 0 °C et 100 °C. 3pt",
+   "origine": "bilan"
   }
  ]
 };

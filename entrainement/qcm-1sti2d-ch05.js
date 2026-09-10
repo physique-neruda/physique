@@ -295,6 +295,36 @@ window.CHAPITRE = {
    "recto": "Un conducteur de résistance R parcouru par un courant d'intensité I dissipe une puissance thermique :\n……",
    "verso": "P<sub>J</sub> = R × I².",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "La loi d'Ohm s'écrit ……",
+   "verso": "<strong>U = R × I</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La caractéristique U(I) d'un conducteur ohmique est ……",
+   "verso": "<strong>une droite passant par l'origine</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Si l'on double la tension aux bornes d'une résistance, sa valeur R ……",
+   "verso": "<strong>ne change pas</strong> — R est une caractéristique du composant",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La puissance d'un dipôle quelconque vaut ……",
+   "verso": "<strong>P = U × I</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Les écritures P = R I² et P = U²/R ne sont valables que pour ……",
+   "verso": "<strong>un conducteur ohmique</strong>",
+   "origine": "bilan"
   }
  ]
 };

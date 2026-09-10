@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Dans une machine réelle, les échanges se font sous des écarts finis de température, le fluide subit ……, et les détentes sont brutales.",
    "verso": "<strong>des frottements</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Le second principe de la thermodynamique ……",
+   "verso": "<strong>indique dans quel sens les transformations se produisent</strong> — c'est le premier principe qui interdit de créer de l'énergie ; le second dit dans quel sens les choses se produisent. Les deux coexistent, aucun ne remplace l'autre : devant une machine impossible, il faut savoir dire lequel des deux est violé. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Parmi ces phénomènes, lequel n'est pas une cause d'irréversibilité ?",
+   "verso": "<strong>une compression infiniment lente dans un cylindre à température constante</strong> — les trois causes d'irréversibilité sont les frottements, les transferts sous écart fini, les détentes brusques. Une compression infiniment lente à température constante est au contraire le seul cas réversible — et c'est précisément ce que fait le cycle de Carnot. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un système reçoit 600 J d'un thermostat à 300 K. Sa variation d'entropie vaut ……",
+   "verso": "<strong>+2,00 J/K</strong> — ΔS = Q/T = 600/300 = +2,00 J/K, le signe étant celui de Q. La réponse c vient d'une multiplication au lieu d'une division. Et pour l'ensemble système + entourage, ΔS_total ≥ 0 toujours : aucune conception, aussi soignée soit-elle, ne fait diminuer l'entropie totale. 3pt",
+   "origine": "bilan"
   }
  ]
 };

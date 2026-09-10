@@ -256,6 +256,42 @@ window.CHAPITRE = {
    "recto": "C'est la <strong>dérivée</strong> de la position par rapport au temps :\n……",
    "verso": "v(t) = dx/dt.",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Avant toute étude de mouvement, il faut d'abord préciser ……",
+   "verso": "<strong>le référentiel</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un passager assis dans un train en marche est ……",
+   "verso": "<strong>immobile dans le référentiel du train, en mouvement dans celui du quai</strong> — le mouvement est <strong>relatif</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La <strong>trajectoire</strong> d'un point ……",
+   "verso": "<strong>dépend du référentiel choisi</strong> — une bille lâchée d'un chariot en marche décrit une droite vue du chariot, une courbe vue du sol",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une translation, tous les points du solide ont des trajectoires ……",
+   "verso": "<strong>superposables</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le modèle du <strong>point matériel</strong> consiste à remplacer le solide par un point placé ……",
+   "verso": "<strong>en son centre de masse</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "90 km/h correspondent à ……",
+   "verso": "<strong>25 m/s</strong> — 90/3,6",
+   "origine": "bilan"
   }
  ]
 };

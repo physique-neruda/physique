@@ -250,6 +250,48 @@ window.CHAPITRE = {
    "recto": "Deux détecteurs sauvent des vies : <strong>fumée</strong> (obligatoire) et …….",
    "verso": "<strong>monoxyde de carbone</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Le <strong>système chimique</strong>, c'est ……",
+   "verso": "<strong>l'ensemble des espèces qui réagissent et se forment</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'<strong>effet thermique</strong> d'une transformation désigne ……",
+   "verso": "<strong>le transfert d'énergie thermique qui l'accompagne</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Lors d'une transformation <strong>exothermique</strong>, l'énergie du système ……",
+   "verso": "<strong>diminue</strong> — exo : le système <em>cède</em>, son énergie diminue",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Toutes les <strong>combustions</strong> sont ……",
+   "verso": "<strong>exothermiques</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le <strong>triangle du feu</strong> réunit ……",
+   "verso": "<strong>combustible, comburant, énergie d'activation</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une combustion, le <strong>comburant</strong> est le plus souvent ……",
+   "verso": "<strong>le dioxygène O₂ de l'air</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'<strong>énergie d'activation</strong> sert à ……",
+   "verso": "<strong>amorcer la réaction</strong> — amorcer (c'est l'auto-entretien qui prend le relais ensuite)",
+   "origine": "bilan"
   }
  ]
 };

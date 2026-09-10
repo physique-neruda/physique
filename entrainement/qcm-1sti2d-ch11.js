@@ -220,5 +220,66 @@ window.CHAPITRE = {
    "expl": "S = (P<sub>élec</sub>)/(η × E) = 1800/(0,18 × 1000) = 10 m²"
   }
  ],
- "cartes": []
+ "cartes": [
+  {
+   "type": "question",
+   "recto": "L'<strong>irradiance</strong> est ……",
+   "verso": "<strong>la puissance lumineuse reçue par unité de surface</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Son unité est ……",
+   "verso": "<strong>W/m²</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "On mesure l'irradiance avec ……",
+   "verso": "<strong>un pyranomètre</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans ce chapitre, la lettre E désigne ……",
+   "verso": "<strong>une irradiance en W/m²</strong> — c'est l'unité qui permet de trancher",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La puissance reçue par une surface S vaut ……",
+   "verso": "<strong>P = E × S</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "À irradiance constante, si l'on double la surface exposée, la puissance reçue ……",
+   "verso": "<strong>double</strong> — P est proportionnelle à S",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Lorsqu'une surface est <strong>inclinée</strong> par rapport aux rayons, l'irradiance qu'elle reçoit ……",
+   "verso": "<strong>diminue</strong> — la même puissance se répartit sur une surface plus grande",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Par ciel dégagé, l'irradiance du Soleil au sol vaut environ ……",
+   "verso": "<strong>1000 W/m²</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le rendement d'un panneau photovoltaïque s'écrit ……",
+   "verso": "<strong>η = (P<sub>élec</sub>)/(E × S)</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "On veut 1800 W électriques avec des panneaux à 18 % sous E = 1000 W/m². La surface nécessaire vaut ……",
+   "verso": "<strong>10 m²</strong> — S = (P<sub>élec</sub>)/(η × E) = 1800/(0,18 × 1000) = 10 m²",
+   "origine": "bilan"
+  }
+ ]
 };

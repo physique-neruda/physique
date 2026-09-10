@@ -64,6 +64,7 @@ header .genre{margin:6px 0 0;color:var(--gris);font-size:.9rem}
 .bouton.second:hover{background:#E4EDF4}
 .bouton.su{background:var(--juste)}      .bouton.su:hover{background:#0A5C38}
 .bouton.pas{background:var(--orange)}  .bouton.pas:hover{background:#B2600F}
+.aide{max-width:34em;margin:14px auto 0;font-size:.92rem;line-height:1.5;text-align:center}
 
 .score{background:var(--panneau);border:1px solid var(--bord);border-top:5px solid var(--orange);
   border-radius:10px;padding:18px;margin:16px 0}
@@ -192,7 +193,50 @@ table th{background:#E4EDF4;color:var(--bleu)}
     var l = creer('a','bouton second','Faire le bilan du chapitre');
     l.href = 'qcm.html?f=' + fil + '&ch=' + chap.num + '&type=bilan';
     act2.appendChild(l);
+    var b3 = creer('button','bouton second','Télécharger pour Anki');
+    b3.type='button'; b3.onclick = anki;
+    act2.appendChild(b3);
     zone.appendChild(act2);
+    zone.appendChild(creer('p','vide aide',
+      'Le fichier téléchargé s\u2019ouvre dans Anki par <em>Fichier &rsaquo; '
+      + 'Importer</em>. Les cartes arrivent dans un paquet au nom du chapitre. '
+      + 'Rien n\u2019est envoyé nulle part : le fichier se fabrique dans le '
+      + 'téléphone.'));
+  }
+
+  // ------------------------------------------------------------- export Anki
+  // Anki lit un simple texte tabulé. Les lignes « # » en tête lui disent le
+  // séparateur, qu'on lui envoie du HTML, dans quel paquet ranger et avec
+  // quelles étiquettes. Tout se fabrique ici, dans le navigateur.
+  function champ(t){
+    return String(t||'').replace(/\t/g,' ').replace(/\r?\n/g,'<br>').trim();
+  }
+  function sansAccent(t){
+    return t.normalize ? t.normalize('NFD').replace(/[\u0300-\u036f]/g,'') : t;
+  }
+  function anki(){
+    var nom = chap.niveau + '::' + sansAccent(chap.titre).replace(/[:|]/g,' ');
+    var l = [
+      '#separator:tab',
+      '#html:true',
+      '#notetype:Basic',
+      '#deck:Physique::' + nom,
+      '#tags:physique ' + fil + ' ch' + chap.num,
+      '#columns:Recto\tVerso'
+    ];
+    for(var i=0;i<chap.cartes.length;i++){
+      var c = chap.cartes[i];
+      l.push(champ(c.recto) + '\t' + champ(c.verso));
+    }
+    var texte = '\ufeff' + l.join('\n') + '\n';
+    var url = URL.createObjectURL(new Blob([texte],
+      {type:'text/plain;charset=utf-8'}));
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'anki-' + fil + '-ch' + (chap.num.length<2?'0':'') +
+      chap.num + '.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
   }
 
   function lancer(tout){

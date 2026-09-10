@@ -220,5 +220,78 @@ window.CHAPITRE = {
    "expl": ""
   }
  ],
- "cartes": []
+ "cartes": [
+  {
+   "type": "question",
+   "recto": "La température d'un corps traduit ……",
+   "verso": "<strong>l'agitation de ses constituants microscopiques</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une température de 20 °C vaut, en kelvins ……",
+   "verso": "<strong>293 K</strong> — (20+273 = 293 K)",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un écart de température de 1 °C correspond à un écart de ……",
+   "verso": "<strong>1 K</strong> — (même pas d'échelle)",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'énergie interne U d'un système regroupe ……",
+   "verso": "<strong>l'énergie cinétique d'agitation et l'énergie potentielle d'interaction</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'unité de la capacité thermique massique c est ……",
+   "verso": "<strong>J/kg/K</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour élever de 10 K la température de 1 kg d'eau, il faut environ ……",
+   "verso": "<strong>42 kJ</strong> — (ΔU = 1 × 4180 × 10 ≈ 42 kJ)",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pendant un palier de changement d'état, la température du corps ……",
+   "verso": "<strong>reste constante</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'énergie à fournir pour faire fondre 0,5 kg de glace à 0 °C vaut ……",
+   "verso": "<strong>167 kJ</strong> — (Q = 0,5 × 334 = 167 kJ)",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Lorsqu'on met en contact un corps chaud et un corps froid, le transfert thermique va ……",
+   "verso": "<strong>du chaud vers le froid</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "À l'équilibre thermique, les deux corps ont ……",
+   "verso": "<strong>la même température</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le mode de transfert thermique qui se produit <strong>sans contact</strong>, même dans le vide, est ……",
+   "verso": "<strong>le rayonnement</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En physique, le mot « chaleur » désigne ……",
+   "verso": "<strong>un transfert d'énergie thermique entre deux corps</strong>",
+   "origine": "bilan"
+  }
+ ]
 };

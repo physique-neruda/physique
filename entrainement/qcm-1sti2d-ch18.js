@@ -256,6 +256,42 @@ window.CHAPITRE = {
    "recto": "Dans le <strong>vide</strong>, toutes les ondes électromagnétiques se propagent à la même célérité, notée c :\n……",
    "verso": "c = 3,00 × 10⁸ m/s = 300 000 km/s.",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Une onde électromagnétique ……",
+   "verso": "<strong>se propage dans le vide</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans le vide, les ondes radio et les rayons X se propagent ……",
+   "verso": "<strong>à la même célérité c</strong> — la célérité dans le vide est la même pour tout le spectre",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La célérité de la lumière dans le vide vaut environ ……",
+   "verso": "<strong>3,00×10⁸ m/s</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans un morceau de verre, la lumière se propage ……",
+   "verso": "<strong>moins vite que dans le vide</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La relation entre célérité, longueur d'onde et fréquence dans le vide est ……",
+   "verso": "<strong>c = λ × f</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une onde de fréquence 100 MHz a une longueur d'onde de ……",
+   "verso": "<strong>3,00 m</strong> — λ = 3,00 × 10⁸/1,00 × 10⁸ = 3,00 m",
+   "origine": "bilan"
   }
  ]
 };

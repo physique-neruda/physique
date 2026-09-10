@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Avec un amortissement fort, il devient …… : le retour à l'équilibre se fait sans aucune oscillation.",
    "verso": "<strong>apériodique</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Un système écarté puis lâché, sans excitation extérieure, effectue des oscillations ……",
+   "verso": "<strong>libres</strong> — c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur. La résonance, elle, n'est pas un troisième type d'oscillation : c'est ce qui arrive aux oscillations forcées dans un cas particulier. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En régime forcé établi, le système oscille à ……",
+   "verso": "<strong>la fréquence de l'excitateur</strong> — c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur. La résonance, elle, n'est pas un troisième type d'oscillation : c'est ce qui arrive aux oscillations forcées dans un cas particulier. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un enregistrement montre un retour à l'équilibre sans aucune oscillation. Le régime est ……",
+   "verso": "<strong>apériodique</strong> — un retour sans oscillation signe un amortissement fort : c'est le régime apériodique, et c'est celui que l'on recherche pour un amortisseur de suspension. Le régime périodique pur, lui, n'existe pas en pratique. 3pt",
+   "origine": "bilan"
   }
  ]
 };

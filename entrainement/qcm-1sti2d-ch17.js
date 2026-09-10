@@ -250,6 +250,48 @@ window.CHAPITRE = {
    "recto": "Le diapason produit un signal <strong>sinusoïdal pur</strong> ; un instrument produit un signal ……, superposition de la fréquence fondamentale et de ses <strong>harmoniques</strong> (multiples de la fondamentale).",
    "verso": "<strong>périodique mais non sinusoïdal</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Le son est une onde ……",
+   "verso": "<strong>mécanique longitudinale</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une onde sonore, les tranches d'air ……",
+   "verso": "<strong>oscillent sur place, parallèlement à la propagation</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La célérité du son est la plus grande dans ……",
+   "verso": "<strong>l'acier</strong> — le son va d'autant plus vite que le milieu est dense et rigide",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans un milieu donné, si la fréquence d'un son augmente, sa célérité ……",
+   "verso": "<strong>ne change pas</strong> — la célérité ne dépend que du <em>milieu</em> ; c'est λ qui change",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un son de fréquence 12 Hz est ……",
+   "verso": "<strong>un infrason</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le domaine audible de l'oreille humaine s'étend environ de ……",
+   "verso": "<strong>20 Hz à 20 kHz</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un son est d'autant plus <strong>aigu</strong> que ……",
+   "verso": "<strong>sa fréquence est grande</strong>",
+   "origine": "bilan"
   }
  ]
 };

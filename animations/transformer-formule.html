@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- =====================================================================
+     TRANSFORMER UNE FORMULE — outil transversal, toutes classes.
+     Aucune bibliothèque, aucun appel réseau, aucun stockage.
+     ===================================================================== -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Transformer une formule — outils</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18; --juste:#0C7A4A; --faux:#B3261E;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:70px;min-height:44px;font:inherit;font-size:.86rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.choix button b{font-family:var(--mono);font-size:1rem}
+.balance{background:var(--lcd);border-radius:8px;padding:14px 12px;color:var(--lcdtexte);
+  font-family:var(--mono);font-size:1.35rem;text-align:center;letter-spacing:.01em}
+.balance .eq{color:var(--lcdvert)}
+.etape{margin:10px 0 0;padding:9px 11px;border-left:4px solid var(--bleu);background:#F5F8FA;
+  border-radius:0 7px 7px 0;font-size:.9rem}
+.etape b{color:var(--bleu)}
+.etape .calc{font-family:var(--mono);font-size:1.05rem;display:block;margin-top:4px;color:var(--encre)}
+.geste{color:var(--orange);font-weight:600}
+label{display:block;font-size:.88rem;margin:10px 0 4px;color:var(--gris)}
+input[type=text]{width:100%;font:inherit;font-family:var(--mono);font-size:1.1rem;
+  padding:10px;border:1px solid var(--bord);border-radius:8px;background:#fff;min-height:48px}
+.deux{display:flex;gap:10px}.deux>*{flex:1}
+.bouton{width:100%;min-height:50px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;
+  border:1px solid var(--orange);background:var(--orange);color:#fff;cursor:pointer}
+.bouton.second{background:#F5F8FA;border-color:var(--bord);color:var(--bleu)}
+.verdict{margin:10px 0 0;font-size:.95rem;font-weight:600}
+.verdict.ok{color:var(--juste)} .verdict.ko{color:var(--faux)}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+.score{font-family:var(--mono);font-size:.9rem;color:var(--gris)}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+</style>
+</head>
+<body>
+
+<a class="retour" href="../index.html">&larr;&nbsp; Tous les outils</a>
+
+<h1>Transformer une formule</h1>
+<p class="sous">Une seule règle, toujours la même : ce qu'on fait d'un côté du signe égal,
+on le fait de l'autre. On choisit la lettre cherchée, et on regarde le chemin.</p>
+
+<div class="bloc">
+  <h2>1. La relation</h2>
+  <div class="choix" id="formules"></div>
+  <p class="aide" id="contexte"></p>
+</div>
+
+<div class="bloc">
+  <h2>2. La lettre cherchée</h2>
+  <div class="choix" id="lettres"></div>
+</div>
+
+<div class="bloc">
+  <h2>3. Le chemin</h2>
+  <div class="balance" id="cible"></div>
+  <div id="etapes"></div>
+</div>
+
+<div class="bloc">
+  <h2>4. Application numérique</h2>
+  <div id="saisies"></div>
+  <div class="balance" id="resultat" style="margin-top:12px">—</div>
+  <p class="aide">Les valeurs sont supposées dans les unités indiquées : ici on ne convertit
+  pas, on isole.</p>
+</div>
+
+<div class="bloc">
+  <h2>5. S'entraîner</h2>
+  <p class="aide">Huit relations tirées au hasard : écrire la lettre demandée en fonction
+  des autres.</p>
+  <div id="exo"></div>
+  <button class="bouton" id="lancer" type="button">Commencer</button>
+  <p class="score" id="score"></p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // Une relation : un produit ou un quotient de facteurs.
+  //   gauche  : la lettre isolée à gauche du signe égal
+  //   hauts   : les facteurs du numérateur à droite
+  //   bas     : les facteurs du dénominateur à droite
+  // Ainsi  eta = Pu / Pa  s'écrit  gauche 'η', hauts ['P_u'], bas ['P_a'].
+  var F = [
+    {nom:'U = R·I',      g:'U', h:['R','I'], b:[],
+     u:{'U':'V','R':'Ω','I':'A'}, ctx:'Loi d\u2019Ohm — un conducteur ohmique.'},
+    {nom:'P = U·I',      g:'P', h:['U','I'], b:[],
+     u:{'P':'W','U':'V','I':'A'}, ctx:'Puissance en continu.'},
+    {nom:'E = P·t',      g:'E', h:['P','t'], b:[],
+     u:{'E':'J','P':'W','t':'s'}, ctx:'Énergie et durée : le robinet et le seau.'},
+    {nom:'η = Pu/Pa',    g:'η', h:['P_u'], b:['P_a'],
+     u:{'η':'','P_u':'W','P_a':'W'}, ctx:'Rendement : toujours sans unité, toujours < 1.'},
+    {nom:'p = F/S',      g:'p', h:['F'], b:['S'],
+     u:{'p':'Pa','F':'N','S':'m²'}, ctx:'Pression exercée par une force sur une surface.'},
+    {nom:'v = d/t',      g:'v', h:['d'], b:['t'],
+     u:{'v':'m/s','d':'m','t':'s'}, ctx:'Vitesse moyenne.'},
+    {nom:'Q = m·c·Δθ',   g:'Q', h:['m','c','Δθ'], b:[],
+     u:{'Q':'J','m':'kg','c':'J/(kg·K)','Δθ':'K'}, ctx:'Échauffement d\u2019un corps sans changement d\u2019état.'},
+    {nom:'Qv = S·v',     g:'Q_v', h:['S','v'], b:[],
+     u:{'Q_v':'m³/s','S':'m²','v':'m/s'}, ctx:'Débit volumique dans une conduite.'},
+    {nom:'R = ρ·L/S',    g:'R', h:['ρ','L'], b:['S'],
+     u:{'R':'Ω','ρ':'Ω·m','L':'m','S':'m²'}, ctx:'Résistance d\u2019un câble.'},
+    {nom:'Φ = B·S',      g:'Φ', h:['B','S'], b:[],
+     u:{'Φ':'Wb','B':'T','S':'m²'}, ctx:'Flux magnétique à travers une surface perpendiculaire.'},
+    {nom:'f = 1/T',      g:'f', h:['1'], b:['T'],
+     u:{'f':'Hz','T':'s'}, ctx:'Fréquence et période.'},
+    {nom:'S = U·I',      g:'S', h:['U','I'], b:[],
+     u:{'S':'V·A','U':'V','I':'A'}, ctx:'Puissance apparente en monophasé.'}
+  ];
+
+  var f = F[0], cible = null;
+
+  function $(i){ return document.getElementById(i); }
+  function creer(b,c,h){ var e=document.createElement(b); if(c)e.className=c;
+    if(h!==undefined)e.innerHTML=h; return e; }
+  function jolie(x){ return x.replace(/_(\w+)/g,'<sub>$1</sub>'); }
+  function brut(x){ return x.replace(/_/g,''); }
+
+  // toutes les lettres de la relation, sauf la constante 1
+  function lettres(){
+    return [f.g].concat(f.h, f.b).filter(function(x){ return x !== '1'; });
+  }
+
+  // Expression de la lettre cherchée, sous forme {hauts, bas}
+  // On part de   g × (bas) = (hauts)   — obtenu en montant le dénominateur.
+  function isoler(x){
+    if(x === f.g) return {h:f.h.slice(), b:f.b.slice()};
+    if(f.h.indexOf(x) >= 0){
+      // x est en haut à droite : il passe à gauche, et g descend
+      var h = [f.g].concat(f.b);
+      var b = f.h.filter(function(y){ return y !== x; });
+      return {h:h, b:b};
+    }
+    // x est en bas à droite : il monte, et le reste change de côté
+    var h2 = f.h.slice();
+    var b2 = [f.g].concat(f.b.filter(function(y){ return y !== x; }));
+    return {h:h2, b:b2};
+  }
+
+  function ecrit(e){
+    var h = e.h.length ? e.h.map(jolie).join(' × ') : '1';
+    if(!e.b.length) return h;
+    var b = e.b.map(jolie).join(' × ');
+    if(e.b.length > 1) b = '(' + b + ')';
+    if(e.h.length > 1) h = '(' + h + ')';
+    return h + ' / ' + b;
+  }
+
+  // ---------------------------------------------------------- affichage
+  function dessine(){
+    var z = $('formules'); z.innerHTML='';
+    F.forEach(function(x){
+      var b = creer('button',null,'<b>'+x.nom+'</b>');
+      b.type='button';
+      b.setAttribute('aria-pressed', x===f?'true':'false');
+      b.onclick = function(){ f = x; cible = null; dessine(); };
+      z.appendChild(b);
+    });
+    $('contexte').textContent = f.ctx;
+
+    var l = $('lettres'); l.innerHTML='';
+    lettres().forEach(function(x){
+      var b = creer('button',null,'<b>'+jolie(x)+'</b>');
+      b.type='button';
+      b.setAttribute('aria-pressed', x===cible?'true':'false');
+      b.onclick = function(){ cible = x; dessine(); };
+      l.appendChild(b);
+    });
+    chemin();
+    saisies();
+  }
+
+  function chemin(){
+    var z = $('etapes'); z.innerHTML='';
+    if(!cible){
+      $('cible').innerHTML = jolie(f.g) + ' <span class="eq">=</span> ' + ecrit({h:f.h,b:f.b});
+      z.appendChild(creer('p','aide','Choisir la lettre à isoler.'));
+      return;
+    }
+    var e = isoler(cible);
+    $('cible').innerHTML = jolie(cible) + ' <span class="eq">=</span> ' + ecrit(e);
+
+    z.appendChild(creer('div','etape',
+      '<b>Départ :</b><span class="calc">' + jolie(f.g) + ' = '
+      + ecrit({h:f.h,b:f.b}) + '</span>'));
+
+    if(cible === f.g){
+      z.appendChild(creer('div','etape',
+        'La lettre cherchée est <b>déjà seule</b> à gauche : il n\u2019y a rien à faire.'));
+      return;
+    }
+    if(f.b.indexOf(cible) >= 0){
+      z.appendChild(creer('div','etape',
+        '<b>1.</b> ' + jolie(cible) + ' est <span class="geste">en bas</span>. '
+        + 'On multiplie les deux côtés par ' + jolie(cible)
+        + ' : en bas à droite, il se simplifie.'
+        + '<span class="calc">' + jolie(f.g) + ' × ' + jolie(cible) + ' = '
+        + ecrit({h:f.h,b:f.b.filter(function(y){return y!==cible;})}) + '</span>'));
+      z.appendChild(creer('div','etape',
+        '<b>2.</b> Il reste à faire descendre ce qui multiplie ' + jolie(cible)
+        + ' : on divise les deux côtés par ' + jolie(f.g) + '.'
+        + '<span class="calc">' + jolie(cible) + ' = ' + ecrit(isoler(cible)) + '</span>'));
+    } else {
+      z.appendChild(creer('div','etape',
+        '<b>1.</b> ' + jolie(cible) + ' est <span class="geste">en haut à droite</span>, '
+        + 'multiplié par ' + f.h.filter(function(y){return y!==cible;}).map(jolie).join(' et ')
+        + '. On divise les deux côtés par ' + f.h.filter(function(y){return y!==cible;}).map(jolie).join(' × ')
+        + '.'));
+      z.appendChild(creer('div','etape',
+        '<b>2.</b> Ce qui multipliait ' + jolie(cible)
+        + ' passe donc au dénominateur de l\u2019autre côté.'
+        + '<span class="calc">' + jolie(cible) + ' = ' + ecrit(isoler(cible)) + '</span>'));
+    }
+    z.appendChild(creer('div','etape',
+      '<b>Le contrôle :</b> une lettre qui <span class="geste">multipliait</span> d\u2019un côté '
+      + '<span class="geste">divise</span> de l\u2019autre. Si une lettre est passée sans '
+      + 'changer d\u2019étage, c\u2019est faux.'));
+  }
+
+  // -------------------------------------------------- application numérique
+  function saisies(){
+    var z = $('saisies'); z.innerHTML='';
+    if(!cible){ z.appendChild(creer('p','aide',
+      'Choisir d\u2019abord la lettre cherchée.')); $('resultat').textContent='—'; return; }
+    var connues = lettres().filter(function(x){ return x !== cible; });
+    var d = creer('div','deux');
+    connues.forEach(function(x,i){
+      var w = creer('div');
+      w.appendChild(creer('label',null, jolie(x) + (f.u[x] ? ' (' + f.u[x] + ')' : '')));
+      var inp = document.createElement('input');
+      inp.type='text'; inp.inputMode='decimal'; inp.id='v'+i; inp.dataset.lettre=x;
+      inp.addEventListener('input', numerique);
+      w.appendChild(inp);
+      d.appendChild(w);
+      if(i % 2 === 1 || i === connues.length-1){ z.appendChild(d); d = creer('div','deux'); }
+    });
+    numerique();
+  }
+
+  function numerique(){
+    var val = {};
+    var ok = true;
+    Array.prototype.forEach.call(document.querySelectorAll('#saisies input'), function(i){
+      var v = parseFloat(String(i.value).replace(',','.'));
+      if(!isFinite(v)) ok = false; else val[i.dataset.lettre] = v;
+    });
+    if(!ok || !cible){ $('resultat').textContent='—'; return; }
+    var e = isoler(cible), r = 1;
+    e.h.forEach(function(x){ r *= (x==='1' ? 1 : val[x]); });
+    e.b.forEach(function(x){ r /= val[x]; });
+    if(!isFinite(r)){ $('resultat').textContent = 'division par zéro'; return; }
+    var s = Math.abs(r)>=1e5 || (Math.abs(r)<1e-3 && r!==0)
+      ? r.toExponential(3).replace('.',',').replace('e','×10^')
+      : String(parseFloat(r.toPrecision(4))).replace('.',',');
+    $('resultat').innerHTML = jolie(cible) + ' <span class="eq">=</span> ' + s
+      + (f.u[cible] ? ' ' + f.u[cible] : '');
+  }
+
+  // ------------------------------------------------------------ entraînement
+  var serie=[], k=0, bons=0;
+
+  function tirer(){
+    var x = F[Math.floor(Math.random()*F.length)];
+    var sauve = f; f = x;
+    var l = lettres().filter(function(y){ return y !== x.g; });
+    var c = l[Math.floor(Math.random()*l.length)];
+    var rep = ecrit(isoler(c));
+    f = sauve;
+    return {f:x, c:c, rep:rep};
+  }
+
+  function normalise(t){
+    return String(t).toLowerCase()
+      .replace(/[\s·*()]/g,'').replace(/×/g,'').replace(/_/g,'')
+      .replace(/theta/g,'θ').replace(/rho/g,'ρ').replace(/eta/g,'η')
+      .replace(/phi/g,'φ').replace(/delta/g,'Δ');
+  }
+  // Deux écritures équivalentes du même quotient : on compare les ensembles
+  // de facteurs du haut et du bas.
+  function memeChose(rep, saisi){
+    function decoupe(t){
+      var p = normalise(t).split('/');
+      var haut = (p[0]||'').split('').sort().join('');
+      var bas  = (p[1]||'').split('').sort().join('');
+      return haut + '|' + bas;
+    }
+    return decoupe(rep.replace(/<\/?sub>/g,'')) === decoupe(saisi);
+  }
+
+  function question(){
+    var z = $('exo'); z.innerHTML='';
+    if(k >= serie.length){
+      z.appendChild(creer('p','verdict ' + (bons>=6?'ok':'ko'),
+        'Série terminée : ' + bons + ' bonnes réponses sur ' + serie.length + '.'));
+      $('lancer').textContent='Nouvelle série'; $('lancer').style.display='';
+      $('score').textContent=''; return;
+    }
+    var q = serie[k];
+    z.appendChild(creer('p',null,'<b>Question ' + (k+1) + '.</b> Dans <b>'
+      + q.f.nom + '</b>, écrire <b>' + jolie(q.c) + '</b> en fonction des autres.'));
+    var i = document.createElement('input');
+    i.type='text'; i.placeholder='exemple : U/I';
+    z.appendChild(i);
+    var b = creer('button','bouton','Vérifier'); b.type='button'; b.style.marginTop='10px';
+    b.onclick = function(){
+      var ok = memeChose(q.rep, i.value);
+      if(ok) bons++;
+      z.appendChild(creer('p','verdict ' + (ok?'ok':'ko'),
+        ok ? 'Juste.' : 'Non : ' + q.rep.replace(/<\/?sub>/g,'') + '.'));
+      b.style.display='none'; i.disabled=true;
+      var s = creer('button','bouton second',
+        k+1 < serie.length ? 'Question suivante' : 'Voir le résultat');
+      s.type='button'; s.style.marginTop='8px';
+      s.onclick = function(){ k++; question(); };
+      z.appendChild(s); s.focus({preventScroll:true});
+    };
+    z.appendChild(b);
+    $('score').textContent = bons + ' / ' + k + ' jusqu\u2019ici';
+  }
+
+  $('lancer').onclick = function(){
+    serie=[]; for(var i=0;i<8;i++) serie.push(tirer());
+    k=0; bons=0; $('lancer').style.display='none'; question();
+  };
+
+  dessine();
+})();
+</script>
+</body>
+</html>

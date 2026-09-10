@@ -1,0 +1,87 @@
+{
+ "ch00": {
+  "num": "0",
+  "titre": "Chapitre 0 — Outils de base",
+  "motscles": ["outils", "puissances de dix", "unites", "conversions", "chiffres significatifs", "proportionnalite"]
+ },
+ "ch01": {
+  "num": "1",
+  "titre": "Chapitre 1 — Énergie, puissance, rendement",
+  "motscles": ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
+ },
+ "ch02": {
+  "num": "2",
+  "titre": "Chapitre 2 — Conversion et stockage de l'énergie",
+  "motscles": ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
+ },
+ "ch03": {
+  "num": "3",
+  "titre": "Chapitre 3 — Énergie thermique",
+  "motscles": ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
+ },
+ "ch04": {
+  "num": "4",
+  "titre": "Chapitre 4 — Mécanique du solide",
+  "motscles": ["mecanique", "solide", "force", "moment", "couple", "travail", "rotation"]
+ },
+ "ch05": {
+  "num": "5",
+  "titre": "Chapitre 5 — Statique et dynamique des fluides",
+  "motscles": ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
+ },
+ "ch06": {
+  "num": "6",
+  "titre": "Chapitre 6 — Viscosité et pertes de charge",
+  "motscles": ["viscosite", "pertes de charge", "reynolds", "conduite", "pompe"]
+ },
+ "ch07": {
+  "num": "7",
+  "titre": "Chapitre 7 — Distribution triphasée",
+  "motscles": ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
+ },
+ "ch08": {
+  "num": "8",
+  "titre": "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
+  "motscles": ["corrosion", "oxydoreduction", "risque chimique", "bruit", "acoustique", "protection"]
+ },
+ "ch09": {
+  "num": "9",
+  "titre": "Chapitre 9 — Le transformateur",
+  "motscles": ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
+ },
+ "ch10": {
+  "num": "10",
+  "titre": "Chapitre 10 — Les redresseurs",
+  "motscles": ["redressement", "diode", "pont", "filtrage", "ondulation", "valeur moyenne"]
+ },
+ "ch11": {
+  "num": "11",
+  "titre": "Chapitre 11 — Hacheur série et onduleur",
+  "motscles": ["hacheur", "onduleur", "rapport cyclique", "mli", "variation de vitesse"]
+ },
+ "ch12": {
+  "num": "12",
+  "titre": "Chapitre 12 — Machine à courant continu",
+  "motscles": ["machine a courant continu", "mcc", "couple", "force electromotrice", "vitesse", "rendement"]
+ },
+ "ch13": {
+  "num": "13",
+  "titre": "Chapitre 13 — Machines alternatives",
+  "motscles": ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
+ },
+ "ch14": {
+  "num": "14",
+  "titre": "Chapitre 14 — Les capteurs",
+  "motscles": ["capteur", "etendue de mesure", "sensibilite", "linearite", "tor", "analogique"]
+ },
+ "ch15": {
+  "num": "15",
+  "titre": "Chapitre 15 — Analyse du signal",
+  "motscles": ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
+ },
+ "ch16": {
+  "num": "16",
+  "titre": "Chapitre 16 — Conditionnement du signal",
+  "motscles": ["conditionnement", "diviseur de tension", "pont de wheatstone", "amplification", "comparateur"]
+ }
+}

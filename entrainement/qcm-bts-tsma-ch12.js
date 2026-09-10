@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Tout signal périodique se décompose en une composante continue — sa valeur moyenne — et …… de moyenne nulle.",
    "verso": "<strong>une composante alternative</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Un signal a une période de 4,0 ms. Sa fréquence vaut ……",
+   "verso": "<strong>250 Hz</strong> — f = 1/(4,0×10⁻³) = 250 Hz. La réponse a vient d'un oubli de conversion des millisecondes, la c d'une inversion. Repère utile : 20 ms 50 Hz, le réseau. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La valeur moyenne d'un signal est ce qu'affiche un multimètre en position ……",
+   "verso": "<strong>continu</strong> — position continu : la valeur moyenne. En position alternatif, le multimètre retire la composante continue et ne mesure plus que l'ondulation. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un hacheur alimenté sous 24 V est réglé à α= 0,60. La valeur moyenne vaut ……",
+   "verso": "<strong>14,4 V</strong> — u_moy = αU = 0,60 × 24 = 14,4 V ; la réponse b est la valeur efficace (24√(0,60)), qui existe bien mais répond à une autre question. Et c'est la valeur moyenne qui fixe la vitesse : un moteur à courant continu ne répond qu'à la composante continue. Le hacheur fait tourner le moteur comme s'il était sous 14,4 V, mais il chauffe les câbles comme s'il était sous 18,6 V. 3pt",
+   "origine": "bilan"
   }
  ]
 };

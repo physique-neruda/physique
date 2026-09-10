@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Le <strong>décibel pondéré A</strong>, noté dB(A), est le niveau corrigé de …….",
    "verso": "<strong>la sensibilité de l'oreille selon la fréquence</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une onde acoustique, ce qui se déplace est ……",
+   "verso": "<strong>la perturbation de pression</strong> — chaque tranche d'air ne fait qu'aller et venir sur place : c'est la perturbation qui voyage, pas la matière. Un son n'est pas un courant d'air. Et lors d'un changement de milieu, c'est la célérité qui change ; la fréquence, elle, est imposée par la source et ne change jamais — d'où une longueur d'onde qui suit. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un son de 500 Hz passe de l'air à l'acier. Ce qui ne change pas est ……",
+   "verso": "<strong>la fréquence</strong> — chaque tranche d'air ne fait qu'aller et venir sur place : c'est la perturbation qui voyage, pas la matière. Un son n'est pas un courant d'air. Et lors d'un changement de milieu, c'est la célérité qui change ; la fréquence, elle, est imposée par la source et ne change jamais — d'où une longueur d'onde qui suit. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En champ direct, l'intensité acoustique à la distance r d'une source de puissance P vaut ……",
+   "verso": "<strong>I = P/(4πr²)</strong> — la puissance de la source se répartit sur la sphère de rayon r, dont la surface vaut 4πr². Retenir que la puissance caractérise la source seule, alors que l'intensité dépend aussi d'où l'on se place. 3pt",
+   "origine": "bilan"
   }
  ]
 };

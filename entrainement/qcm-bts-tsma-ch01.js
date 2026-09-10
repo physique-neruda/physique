@@ -244,6 +244,30 @@ window.CHAPITRE = {
    "recto": "Pour un <strong>produit</strong> ou un <strong>quotient</strong> y = a × b ou y = a/b, ce sont les incertitudes <em>relatives</em> qui se composent : …….",
    "verso": "<strong>u(y)/y = √((u(a)/a)² + (u(b)/b)²)</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Répéter une mesure et moyenner permet de réduire ……",
+   "verso": "<strong>l'erreur aléatoire</strong> — moyenner ne corrige que l'aléatoire. Un zéro décalé se retrouve identique sur les mille mesures suivantes : seule la comparaison à une référence le révèle. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un manomètre dont le zéro est décalé de 0,4 bar introduit une erreur ……",
+   "verso": "<strong>systématique</strong> — moyenner ne corrige que l'aléatoire. Un zéro décalé se retrouve identique sur les mille mesures suivantes : seule la comparaison à une référence le révèle. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une série de mesures très groupées prouve que la mesure est ……",
+   "verso": "<strong>fidèle</strong> — des mesures groupées sont fidèles. Elles peuvent être parfaitement fausses : c'est le cas le plus dangereux, parce qu'il inspire confiance. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour une lecture unique sur un instrument de résolution d = 0,02 mm, l'incertitude-type vaut environ ……",
+   "verso": "<strong>0,006 mm</strong> — u = d/(2√3) = 0,02/3,46 = 5,8×10⁻³ mm. Prendre u = d surestime d'un facteur 3,5. 3pt",
+   "origine": "bilan"
   }
  ]
 };

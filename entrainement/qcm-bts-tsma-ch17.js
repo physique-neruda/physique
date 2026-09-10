@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Ce n'est pas la tension qui tue, c'est …… — et il suffit de quelques dizaines de milliampères.",
    "verso": "<strong>le courant</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "La tension composée se mesure ……",
+   "verso": "<strong>entre deux phases</strong> — la composée se mesure entre deux phases, et U = √3 × 230 = 400 V. La réponse a de la question 2 vient d'une division au lieu d'une multiplication : contrôler que la composée est toujours la plus grande des deux suffit à écarter l'erreur. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Sur un réseau où V = 230 V, la tension composée vaut ……",
+   "verso": "<strong>400 V</strong> — la composée se mesure entre deux phases, et U = √3 × 230 = 400 V. La réponse a de la question 2 vient d'une division au lieu d'une multiplication : contrôler que la composée est toujours la plus grande des deux suffit à écarter l'erreur. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En couplage étoile, chaque récepteur est soumis à ……",
+   "verso": "<strong>la tension simple</strong> — en étoile, chaque récepteur voit la tension simple. Un moteur 230 /400 V a des enroulements prévus pour 230 V : sur un réseau 400 V entre phases, seul le couplage étoile leur donne les 231 V attendus. Le coupler en triangle triple la puissance appelée et le détruit en quelques minutes. 3pt",
+   "origine": "bilan"
   }
  ]
 };

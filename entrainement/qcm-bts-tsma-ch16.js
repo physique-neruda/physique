@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "La <strong>résolution</strong> est …… ; elle est fixée par le convertisseur.",
    "verso": "<strong>le plus petit écart que la chaîne peut distinguer</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une chaîne de mesure, l'ordre des maillons est ……",
+   "verso": "<strong>capteur, conditionneur, convertisseur, calculateur</strong> — la grandeur physique traverse les quatre maillons dans cet ordre, et aucun n'améliore ce que le précédent lui donne : chacun ne fait que traduire. Retenir cette phrase règle la moitié des questions du chapitre. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un capteur qui se contente de faire varier sa résistance est ……",
+   "verso": "<strong>passif</strong> — un capteur passif ne délivre rien par lui-même, il faut l'alimenter et le monter. Le thermocouple, lui, produit une tension à partir de la seule différence de température : c'est le type même du capteur actif. La jauge de contrainte et la CTN sont passives. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Parmi ces capteurs, le seul actif est ……",
+   "verso": "<strong>le thermocouple</strong> — un capteur passif ne délivre rien par lui-même, il faut l'alimenter et le monter. Le thermocouple, lui, produit une tension à partir de la seule différence de température : c'est le type même du capteur actif. La jauge de contrainte et la CTN sont passives. 3pt",
+   "origine": "bilan"
   }
  ]
 };

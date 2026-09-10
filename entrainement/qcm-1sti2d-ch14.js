@@ -220,5 +220,72 @@ window.CHAPITRE = {
    "expl": "200/10 = 20"
   }
  ],
- "cartes": []
+ "cartes": [
+  {
+   "type": "question",
+   "recto": "Une solution est un mélange ……",
+   "verso": "<strong>homogène</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une solution, l'espèce dissoute s'appelle ……",
+   "verso": "<strong>le soluté</strong> — le solvant est le liquide",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une solution est dite <strong>aqueuse</strong> lorsque ……",
+   "verso": "<strong>le solvant est l'eau</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La concentration en quantité de matière vaut ……",
+   "verso": "<strong>c = n/V</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans la formule c = n/V, le volume V est celui ……",
+   "verso": "<strong>de la solution obtenue</strong> — d'où le trait de jauge, que l'on complète <em>après</em> avoir introduit le soluté",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une solution contient 5,85 g de NaCl par litre. Sa concentration vaut ……",
+   "verso": "<strong>0,100 mol/L</strong> — M = 58,5 g/mol, donc 5,85/58,5 = 0,100 mol dans 1 L",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour préparer une solution par <strong>dissolution</strong>, on part ……",
+   "verso": "<strong>d'un soluté solide que l'on pèse</strong> — par dilution, on partirait d'une solution mère",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Lors d'une <strong>dilution</strong>, la quantité de soluté ……",
+   "verso": "<strong>ne change pas</strong> — on n'ajoute que du solvant",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La relation de dilution s'écrit ……",
+   "verso": "<strong>c₀V₀ = cV</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour préparer une solution dont la concentration doit être précise, on utilise ……",
+   "verso": "<strong>une fiole jaugée</strong> — le bécher et l'éprouvette sont imprécis",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "On dilue 10 mL de solution mère jusqu'à 200 mL. Le facteur de dilution vaut ……",
+   "verso": "<strong>20</strong> — 200/10 = 20",
+   "origine": "bilan"
+  }
+ ]
 };

@@ -220,5 +220,78 @@ window.CHAPITRE = {
    "expl": ""
   }
  ],
- "cartes": []
+ "cartes": [
+  {
+   "type": "question",
+   "recto": "Le travail d'une force constante s'écrit ……",
+   "verso": "<strong>W = F × d × cos α</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le travail d'une force perpendiculaire au déplacement est ……",
+   "verso": "<strong>nul</strong> — (cos 90° = 0)",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un travail résistant ……",
+   "verso": "<strong>ralentit le solide</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le travail du poids lors d'une montée de hauteur h vaut ……",
+   "verso": "<strong>-mgh</strong> — (résistant à la montée)",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La puissance moyenne se calcule par ……",
+   "verso": "<strong>P = W/Δt</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'énergie cinétique d'un solide en translation vaut ……",
+   "verso": "<strong>1/2mv²</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Si la vitesse d'un véhicule est multipliée par 3, son énergie cinétique est multipliée par ……",
+   "verso": "<strong>9</strong> — (3² = 9)",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le théorème de l'énergie cinétique s'énonce ……",
+   "verso": "<strong>ΔE<sub>c</sub> = ΣW</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'énergie potentielle de pesanteur vaut ……",
+   "verso": "<strong>mgh</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour calculer une énergie potentielle de pesanteur, il faut d'abord ……",
+   "verso": "<strong>choisir une référence des altitudes</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'énergie mécanique d'un système est ……",
+   "verso": "<strong>E<sub>c</sub> + E<sub>p</sub></strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En présence de frottements, l'énergie mécanique d'un solide ……",
+   "verso": "<strong>diminue, l'énergie partant sous forme thermique</strong>",
+   "origine": "bilan"
+  }
+ ]
 };

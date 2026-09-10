@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Dans un <strong>accumulateur</strong>, elle l'est : un courant imposé en sens inverse ……, c'est la charge.",
    "verso": "<strong>régénère les réactifs</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Un réducteur est une espèce qui ……",
+   "verso": "<strong>cède des électrons</strong> — le réducteur réduit l'autre espèce, donc il lui cède ses électrons ; l'oxydant fait l'inverse. Dans la notation d'un couple, l'oxydant est toujours écrit en premier : c'est une convention, mais elle évite bien des confusions en évaluation. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans le couple Cu^2+/Cu, l'oxydant est ……",
+   "verso": "<strong>Cu^2+</strong> — le réducteur réduit l'autre espèce, donc il lui cède ses électrons ; l'oxydant fait l'inverse. Dans la notation d'un couple, l'oxydant est toujours écrit en premier : c'est une convention, mais elle évite bien des confusions en évaluation. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'équation bilan correcte entre Ag+ et Cu est ……",
+   "verso": "<strong>2 Ag+ + Cu -> 2 Ag + Cu^2+</strong> — l'argent n'échange qu'un électron, le cuivre deux : il faut donc deux ions argent pour un atome de cuivre. La réponse a ne s'équilibre pas en charges, la c laisse un électron dans le bilan — une équation bilan n'en contient jamais. 3pt",
+   "origine": "bilan"
   }
  ]
 };

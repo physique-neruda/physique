@@ -350,3 +350,78 @@ Le script réécrit les dix-huit fichiers de données. Ne jamais éditer un `qcm
 à la main : la prochaine exécution l'écraserait. Pour changer une question de bilan, corriger
 `chXX_bilan.tex` dans la collection ; pour changer un prérequis, corriger
 `outils/prerequis_tsma.py`.
+
+---
+
+## Mise à jour du 10 septembre 2026
+
+**Le BTS CRSA entre sur le site.** Les dix-sept chapitres (ch.0 à ch.16) sont publiés :
+prérequis, cours à compléter, cours complet, exercices, bilan sous *Cours* ; activités,
+situation type CCF, devoir type E32 et sujet d'oral sous *TP*. **149 PDF**, plus l'animation
+`animations/mcc-banc-essai.html` rattachée à l'activité 1 du chapitre 1. Le questionnaire
+diagnostique du chapitre 0 n'est **pas** publié : c'est un support de positionnement, passé en
+première séance.
+
+**Le BTS ET est à jour et complété.** Les 46 PDF déjà en ligne ont été remplacés — toute la
+collection a été recompilée avec le gabarit v0.4 — et le **chapitre 0, « Outils
+mathématiques »**, s'y ajoute. Le chapitre 9 n'est pas publié. Les chapitres portent désormais
+le nom qu'ils portent sur les documents eux-mêmes : *Chapitre 0*, *Cours 1*, *Cours 2*,
+*TP 1*, *TP 2*.
+
+**Une filière « Outils », transversale.** Elle ne dépend d'aucune classe et rassemble ce qui
+sert partout. Deux animations pour commencer :
+
+- `animations/conversion-unites.html` — l'échelle des préfixes, avec le raisonnement déroulé
+  (le nombre doit-il augmenter ou diminuer, de combien de rangs) et le cas des aires et des
+  volumes, qui changent de deux ou trois rangs par cran. Dix conversions tirées au hasard.
+- `animations/transformer-formule.html` — douze relations du programme, une lettre à isoler,
+  le chemin montré étape par étape, puis l'application numérique. Série d'entraînement.
+
+Pour en ajouter une : la déposer dans `animations/`, l'inscrire dans `ANIMATIONS["outils"]`
+de `outils/filieres.py`, ajouter son chapitre dans `chapitres/outils.json`, relancer
+`publier.py`. Aucune page HTML à créer.
+
+### Les cartes de révision ont été refaites
+
+L'ancienne fabrique ne tirait que des textes à trous : plusieurs chapitres n'en avaient
+aucune, et certaines cartes étaient des fragments incompréhensibles hors de leur page, ou deux
+variantes de la même phrase. `outils/cartes.py` les fabrique maintenant à partir de **quatre
+sources**, dans cet ordre : les **définitions** du cours, les encadrés **à retenir**, les
+**textes à trous** (une carte par phrase au plus, jamais deux), et les **questions du bilan**,
+bien posées par construction. Un recto qui ne se comprend pas seul est écarté : amorce
+allusive (« Ni… », « Ce qui… »), renvoi à une figure, trou en tête de phrase.
+
+**Aucun chapitre du site n'a moins de douze cartes.** Les filières dont les sources LaTeX ne
+sont pas sur la machine ont été complétées depuis leur propre fichier de données :
+
+```sh
+python3 outils/completer_cartes.py entrainement 1sti2d bts-tsma
+```
+
+### Export Anki
+
+Chaque jeu de cartes porte un bouton **« Télécharger pour Anki »**. Il fabrique dans le
+navigateur un fichier texte tabulé qu'Anki lit tel quel (*Fichier › Importer*) : les en-têtes
+`#separator`, `#html`, `#deck` et `#tags` lui disent où ranger les cartes et sous quelles
+étiquettes. Le paquet s'appelle `Physique::BTS CRSA::Chapitre 5 …`, les étiquettes reprennent
+la filière et le chapitre. Rien n'est envoyé nulle part, rien n'est installé : le fichier se
+fabrique dans le téléphone, comme le reste du site.
+
+Il n'y a **pas** de `.apkg` : ce format est une base de données compressée, qu'une page
+statique ne peut pas produire. Le texte tabulé donne le même résultat à l'import, et il a
+l'avantage de rester lisible et corrigeable.
+
+### Régénérer après une modification du cours
+
+```sh
+python3 outils/construire.py bts-crsa <...>/BTS_CRSA_LaTeX/collection entrainement
+python3 outils/construire.py bts-et   <...>/BTS_ET_LaTeX               entrainement
+python3 outils/publier.py .
+```
+
+### Ce qui manque encore
+
+Les rubriques *S'entraîner* du CRSA et du BTS ET n'ont **pas de questionnaire de prérequis** :
+les prérequis papier de ces deux filières sont des questions ouvertes, elles ne se
+convertissent pas automatiquement. Il faudra les rédiger à la main, comme l'a été
+`outils/prerequis_tsma.py`.

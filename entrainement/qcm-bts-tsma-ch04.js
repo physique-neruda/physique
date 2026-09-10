@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Comme les sections varient en D², diviser le diamètre par deux multiplie la vitesse par …….",
    "verso": "<strong>quatre</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Le débit volumique s'exprime, dans le Système international, en ……",
+   "verso": "<strong>m³/s</strong> — le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse b de la question 2 correspond à un oubli du facteur 60. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "60 L/min valent ……",
+   "verso": "<strong>1,0×10⁻³ m³/s</strong> — le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse b de la question 2 correspond à un oubli du facteur 60. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le débit massique se calcule par ……",
+   "verso": "<strong>Q_m = ρQ_v</strong> — Q_m = ρQ_v : une masse volumique multipliée par un volume par seconde donne bien des kg/s. Vérifier par les unités en cas de doute. 3pt",
+   "origine": "bilan"
   }
  ]
 };

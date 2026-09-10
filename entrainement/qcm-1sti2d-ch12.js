@@ -220,5 +220,78 @@ window.CHAPITRE = {
    "expl": ""
   }
  ],
- "cartes": []
+ "cartes": [
+  {
+   "type": "question",
+   "recto": "Le verre appartient à la famille des matériaux ……",
+   "verso": "<strong>minéraux</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un matériau <strong>composite</strong> est un matériau qui ……",
+   "verso": "<strong>associe au moins deux matériaux pour cumuler leurs avantages</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La <strong>masse volumique</strong> d'un matériau relève de ses propriétés ……",
+   "verso": "<strong>mécaniques</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Lors d'un choix de matériau, un candidat qui ne respecte <strong>qu'un seul</strong> critère du cahier des charges en moins ……",
+   "verso": "<strong>est <strong>éliminé</strong></strong> — un seul critère manqué suffit à éliminer",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La résistance d'un conducteur s'écrit ……",
+   "verso": "<strong>R = ρL/S</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Si l'on double la <strong>section</strong> d'un câble sans changer sa longueur, sa résistance ……",
+   "verso": "<strong>est divisée par deux</strong> — R est inversement proportionnelle à S",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La résistance thermique surfacique d'une paroi vaut ……",
+   "verso": "<strong>R<sub>th</sub> = e/λ</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'indice de réfraction d'un milieu se définit par ……",
+   "verso": "<strong>n = c/v</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une molécule, l'atome de <strong>carbone</strong> forme ……",
+   "verso": "<strong>4 liaisons</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans la molécule d'eau, l'atome d'oxygène porte ……",
+   "verso": "<strong>deux doublets non liants</strong> — 6 électrons de valence, 2 servent aux liaisons, il reste 2 doublets",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La formule CH₃-CH₂-OH est une formule ……",
+   "verso": "<strong>semi-développée</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le groupe caractéristique -COOH identifie la famille des ……",
+   "verso": "<strong>acides carboxyliques</strong>",
+   "origine": "bilan"
+  }
+ ]
 };

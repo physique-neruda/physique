@@ -250,6 +250,48 @@ window.CHAPITRE = {
    "recto": "La rouille, au contraire, est …… : l'attaque se poursuit jusqu'au cœur de la pièce.",
    "verso": "<strong>poreuse et s'effrite</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Un <strong>réducteur</strong> est une espèce qui ……",
+   "verso": "<strong>cède des électrons et est oxydée</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans la demi-équation Cu²⁺ + 2 e- → Cu, l'espèce Cu²⁺ est ……",
+   "verso": "<strong>l'oxydant</strong> — il capte les électrons",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Les électrons circulent toujours ……",
+   "verso": "<strong>du réducteur vers l'oxydant</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un <strong>couple</strong> oxydant/réducteur est constitué ……",
+   "verso": "<strong>d'une espèce et de celle qu'elle devient par échange d'électrons</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour équilibrer une demi-équation en milieu aqueux acide, on équilibre l'oxygène ……",
+   "verso": "<strong>avec des molécules H₂O</strong> — l'eau apporte l'oxygène ; H+ viendra ensuite pour l'hydrogène",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "On ajoute des ions H+ dans les demi-équations parce que ……",
+   "verso": "<strong>le milieu est supposé acide, ils y sont donc déjà abondants</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une demi-équation, la dernière étape consiste à équilibrer ……",
+   "verso": "<strong>les charges, avec des électrons</strong> — atomes d'abord, charges en dernier",
+   "origine": "bilan"
   }
  ]
 };

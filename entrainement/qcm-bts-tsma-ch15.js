@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Un <strong>dépassement</strong> suffit à conclure : le système est ……, car un premier ordre n'en présente jamais.",
    "verso": "<strong>au moins du second ordre</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "La valeur finale d'une réponse indicielle se lit ……",
+   "verso": "<strong>dans le régime permanent</strong> — la valeur finale se lit sur le palier, donc en régime permanent. Mais c'est le régime transitoire qui porte toute l'information : le permanent ne donne qu'un seul nombre. Et la transmittance statique est bien le rapport de ce qui sort à ce qui entre, avec son unité propre. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La transmittance statique d'un système vaut ……",
+   "verso": "<strong>K = Δs / Δe</strong> — la valeur finale se lit sur le palier, donc en régime permanent. Mais c'est le régime transitoire qui porte toute l'information : le permanent ne donne qu'un seul nombre. Et la transmittance statique est bien le rapport de ce qui sort à ce qui entre, avec son unité propre. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour un premier ordre, la sortie atteint 63 % de sa valeur finale à l'instant ……",
+   "verso": "<strong>τ</strong> — ce sont les deux repères du premier ordre : 63 % à τ, 95 % à 3τ. Les retenir dans ce sens évite l'erreur symétrique, qui consiste à croire que la sortie atteint sa valeur finale à τ. 3pt",
+   "origine": "bilan"
   }
  ]
 };

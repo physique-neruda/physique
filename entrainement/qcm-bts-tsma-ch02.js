@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Le <strong>rendement</strong> d'un convertisseur est le quotient de …… par la puissance absorbée.",
    "verso": "<strong>la puissance utile</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "L'unité de l'énergie dans le Système international est ……",
+   "verso": "<strong>le joule</strong> — le joule est l'unité légale, le kilowattheure celle des factures : 1 kW·h = 1000 × 3600 = 3,6×10⁶ J. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "1 kW·h vaut ……",
+   "verso": "<strong>3,6 MJ</strong> — le joule est l'unité légale, le kilowattheure celle des factures : 1 kW·h = 1000 × 3600 = 3,6×10⁶ J. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un arbre tourne à 540 1/min. Sa vitesse angulaire vaut ……",
+   "verso": "<strong>56,5 rad/s</strong> — ω= 2πN/60 = 56,5 rad/s. Employer N directement dans P = Cω fausse le résultat d'un facteur 9,55 : c'est l'erreur la plus fréquente du chapitre. 3pt",
+   "origine": "bilan"
   }
  ]
 };

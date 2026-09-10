@@ -184,6 +184,24 @@ window.CHAPITRE = {
    "recto": "Ce nombre est le <strong>coefficient de proportionnalité</strong> ; c'est le …… des deux grandeurs, et il doit rester <strong>constant</strong>.",
    "verso": "<strong>quotient</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "L'unité SI de la masse est ……",
+   "verso": "<strong>le kilogramme</strong> — le kilogramme est l'unité de base, et c'est la seule dont le nom porte déjà un préfixe : il n'existe pas de « kilokilogramme ». Et « kilo » vaut toujours 1000, jamais 100. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "2,5 kW valent ……",
+   "verso": "<strong>2500 W</strong> — le kilogramme est l'unité de base, et c'est la seule dont le nom porte déjà un préfixe : il n'existe pas de « kilokilogramme ». Et « kilo » vaut toujours 1000, jamais 100. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le nombre 0,00450 comporte ……",
+   "verso": "<strong>3 chiffres significatifs</strong> — dans 0,00450, les zéros de gauche ne comptent pas, celui de droite si : trois chiffres significatifs. Et le quotient garde le nombre de chiffres de la donnée la moins précise, ici deux. Recopier les huit décimales de la calculatrice est sanctionné au titre de Communiquer. 3pt",
+   "origine": "bilan"
   }
  ]
 };

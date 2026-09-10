@@ -250,6 +250,48 @@ window.CHAPITRE = {
    "recto": "La …… ⟨u⟩ d'un signal périodique est le quotient de l'<strong>aire algébrique</strong> comprise entre la courbe et l'axe des temps, sur <strong>une</strong> période, par la durée de cette période.",
    "verso": "<strong>valeur moyenne</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Le courant du secteur est sinusoïdal notamment parce que ……",
+   "verso": "<strong>l'alternateur le produit naturellement ainsi</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un transformateur ne fonctionne pas en courant continu parce que ……",
+   "verso": "<strong>il exige une tension <strong>variable</strong></strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le <strong>motif</strong> d'un signal périodique est ……",
+   "verso": "<strong>le morceau de courbe qui se répète</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La période T d'un signal périodique est ……",
+   "verso": "<strong>la durée d'un seul motif</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La fréquence est ……",
+   "verso": "<strong>le nombre de motifs contenus dans une seconde</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un signal a une période T = 20 ms. Sa fréquence vaut ……",
+   "verso": "<strong>50 Hz</strong> — 1/0,020 = 50",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un signal a une fréquence f = 250 Hz. Sa période vaut ……",
+   "verso": "<strong>4,0 ms</strong> — 1/250 = 4,0 × 10⁻³ s",
+   "origine": "bilan"
   }
  ]
 };

@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Tout ce que le système reçoit est compté positivement ; tout ce qu'il cède est compté …….",
    "verso": "<strong>négativement</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Parmi ces grandeurs, laquelle est intensive ?",
+   "verso": "<strong>la pression</strong> — le test : je coupe le système en deux. La pression ne change pas (intensive) ; le volume et l'énergie interne sont divisés par deux (extensives). 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans pV = nRT, la température doit être exprimée en ……",
+   "verso": "<strong>kelvins</strong> — deux conversions oubliées à chaque devoir. La température doit être absolue : une valeur en degrés Celsius donne un résultat absurde, parfois négatif. Et le manomètre affiche une pression relative : il faut ajouter le bar atmosphérique, ce qui change ici le résultat d'un tiers. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un pneu affiche 2,0 au manomètre. La pression à employer dans pV = nRT est ……",
+   "verso": "<strong>3,0</strong> — deux conversions oubliées à chaque devoir. La température doit être absolue : une valeur en degrés Celsius donne un résultat absurde, parfois négatif. Et le manomètre affiche une pression relative : il faut ajouter le bar atmosphérique, ce qui change ici le résultat d'un tiers. 3pt",
+   "origine": "bilan"
   }
  ]
 };

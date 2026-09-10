@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Le <strong>pouvoir calorifique inférieur</strong> (PCI) d'un combustible est ……, l'eau formée restant à l'état de vapeur.",
    "verso": "<strong>l'énergie libérée par la combustion complète d'un kilogramme de ce combustible</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Dans un moteur thermique, le comburant est ……",
+   "verso": "<strong>le dioxygène de l'air</strong> — le carburant est le combustible, l'air apporte le comburant. Le troisième côté du triangle est l'énergie d'activation : étincelle en essence, compression en diesel. Supprimer un seul côté éteint le feu. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Les trois éléments du triangle du feu sont ……",
+   "verso": "<strong>combustible, comburant, énergie d'activation</strong> — le carburant est le combustible, l'air apporte le comburant. Le troisième côté du triangle est l'énergie d'activation : étincelle en essence, compression en diesel. Supprimer un seul côté éteint le feu. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une combustion complète d'hydrocarbure produit ……",
+   "verso": "<strong>CO₂ et H₂O</strong> — une combustion complète ne produit que CO₂ et H₂O. Pour l'octane, on compte 16 C et 36 H dans deux molécules, donc 16 CO₂ et 18 H₂O, soit 32 + 18 = 50 atomes d'oxygène à droite : 25 O₂. 3pt",
+   "origine": "bilan"
   }
  ]
 };

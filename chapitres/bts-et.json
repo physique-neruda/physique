@@ -1,0 +1,59 @@
+{
+ "ch00": {
+  "num": "0",
+  "titre": "Chapitre 0 — Outils mathématiques",
+  "motscles": [
+   "outils",
+   "puissances de dix",
+   "unites",
+   "conversions",
+   "chiffres significatifs",
+   "proportionnalite"
+  ]
+ },
+ "c01": {
+  "num": "1",
+  "titre": "Cours 1 — Énergie interne et transferts thermiques",
+  "motscles": [
+   "energie",
+   "interne",
+   "thermiques",
+   "transferts"
+  ]
+ },
+ "c02": {
+  "num": "2",
+  "titre": "Cours 2 — Électromagnétisme",
+  "motscles": [
+   "electromagnetisme",
+   "flux magnetique",
+   "induction",
+   "reluctance",
+   "circuit magnetique"
+  ]
+ },
+ "tp01": {
+  "num": "1",
+  "titre": "TP 1 — Notions fondamentales d'électricité",
+  "motscles": [
+   "electricite",
+   "fondamentales",
+   "notions",
+   "potentiel",
+   "loi des mailles",
+   "diviseur de tension"
+  ]
+ },
+ "tp02": {
+  "num": "2",
+  "titre": "TP 2 — Dipôles passifs et actifs",
+  "motscles": [
+   "dipole",
+   "resistance",
+   "condensateur",
+   "bobine",
+   "source",
+   "caracteristique"
+  ]
+ }
+}

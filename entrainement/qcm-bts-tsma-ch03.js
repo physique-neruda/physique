@@ -233,6 +233,42 @@ window.CHAPITRE = {
    "recto": "Mais le volume d'huile chassé par le petit piston est celui que reçoit le gros, d'où …… : le gros piston avance d'autant moins que la force est multipliée.",
    "verso": "<strong>S₁ d₁ = S₂ d₂</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "La pression est ……",
+   "verso": "<strong>une force divisée par une surface</strong> — p = F/S.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "1 bar vaut ……",
+   "verso": "<strong>1×10⁵ Pa</strong> — 1 bar = 1×10⁵ Pa = 0,1 MPa.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une section de 25 cm² vaut, en m² ……",
+   "verso": "<strong>2,5×10⁻⁴</strong> — une aire se convertit en e-4 : c'est le piège numéro un du chapitre. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans un liquide au repos, la pression au fond dépend ……",
+   "verso": "<strong>de la hauteur de liquide et de sa masse volumique</strong> — c'est le paradoxe hydrostatique : ni la forme, ni le volume n'interviennent. Attention, la force sur le fond dépend en revanche de l'aire de ce fond (F = p S) : pression et force ne se confondent pas. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Deux cuves de même hauteur de liquide, l'une cylindrique, l'autre évasée. La pression au fond est ……",
+   "verso": "<strong>identique</strong> — c'est le paradoxe hydrostatique : ni la forme, ni le volume n'interviennent. Attention, la force sur le fond dépend en revanche de l'aire de ce fond (F = p S) : pression et force ne se confondent pas. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La différence de pression entre la surface et un point situé 4,0 m plus bas dans du gazole (ρ= 840 kg/m³) vaut environ ……",
+   "verso": "<strong>3,3×10⁴ Pa</strong> — 840 × 9,81 × 4,0 = 3,3×10⁴ Pa, soit 0,33 bar. Vérifier l'ordre de grandeur : 10 m d'eau donnent 1 bar, donc quatre mètres de gazole doivent donner un tiers de bar environ. 3pt",
+   "origine": "bilan"
   }
  ]
 };

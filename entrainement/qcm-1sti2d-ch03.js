@@ -268,6 +268,30 @@ window.CHAPITRE = {
    "recto": "En partant de A dans le circuit ci-dessus, on obtient -U₁ - U₂ + E = 0, c'est-à-dire :\n……",
    "verso": "E = U₁ + U₂ + …",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "En un nœud, la loi des nœuds s'écrit ……",
+   "verso": "<strong>ΣI<sub>entrant</sub> = ΣI<sub>sortant</sub></strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un courant de 0,45 A arrive à un nœud d'où partent deux branches. L'une est parcourue par 0,30 A, l'autre par ……",
+   "verso": "<strong>0,15 A</strong> — 0,45 - 0,30",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans un circuit en série, l'intensité ……",
+   "verso": "<strong>est la même partout</strong> — il n'y a aucun nœud en série",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une <strong>maille</strong> est ……",
+   "verso": "<strong>un chemin fermé du circuit</strong> — un chemin fermé",
+   "origine": "bilan"
   }
  ]
 };

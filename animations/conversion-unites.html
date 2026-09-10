@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- =====================================================================
+     L'ÉCHELLE DES UNITÉS — outil transversal, toutes classes.
+     Aucune bibliothèque, aucun appel réseau, aucun stockage.
+     ===================================================================== -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L'échelle des unités — outils</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18; --juste:#0C7A4A; --faux:#B3261E;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte)}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;
+  color:var(--lcdvert);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:64px;min-height:44px;font:inherit;font-size:.86rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.echelle{display:flex;gap:3px;overflow-x:auto;padding:4px 0 8px}
+.cran{flex:0 0 auto;width:52px;text-align:center;border:1px solid var(--bord);
+  border-radius:7px;padding:6px 2px;background:#F5F8FA;font-size:.78rem;min-height:56px}
+.cran b{display:block;font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+.cran small{display:block;color:var(--gris);font-size:.66rem;line-height:1.2}
+.cran.depart{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.cran.depart b,.cran.depart small{color:#fff}
+.cran.arrivee{background:var(--orange);border-color:var(--orange);color:#fff}
+.cran.arrivee b,.cran.arrivee small{color:#fff}
+.cran.entre{background:#E4EDF4}
+label{display:block;font-size:.88rem;margin:0 0 4px;color:var(--gris)}
+input[type=text],input[type=number]{width:100%;font:inherit;font-family:var(--mono);font-size:1.1rem;
+  padding:10px;border:1px solid var(--bord);border-radius:8px;background:#fff;min-height:48px}
+.deux{display:flex;gap:10px}.deux>*{flex:1}
+.etape{margin:10px 0 0;padding:9px 11px;border-left:4px solid var(--bleu);background:#F5F8FA;
+  border-radius:0 7px 7px 0;font-size:.9rem}
+.etape b{color:var(--bleu)}
+.bouton{width:100%;min-height:50px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;
+  border:1px solid var(--orange);background:var(--orange);color:#fff;cursor:pointer}
+.bouton.second{background:#F5F8FA;border-color:var(--bord);color:var(--bleu);font-weight:600}
+.verdict{margin:10px 0 0;font-size:.95rem;font-weight:600}
+.verdict.ok{color:var(--juste)} .verdict.ko{color:var(--faux)}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+.moyen{font-size:.85rem;color:var(--gris);margin:6px 0 0;font-style:italic}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.score{font-family:var(--mono);font-size:.9rem;color:var(--gris)}
+</style>
+</head>
+<body>
+
+<a class="retour" href="../index.html">&larr;&nbsp; Tous les outils</a>
+
+<h1>L'échelle des unités</h1>
+<p class="sous">Une seule question à se poser pour convertir : le nouveau nombre doit-il être
+plus grand ou plus petit&nbsp;? Le reste suit tout seul.</p>
+
+<div class="bloc">
+  <h2>1. Choisir la grandeur</h2>
+  <div class="choix" id="grandeurs"></div>
+  <p class="moyen" id="mnemo"></p>
+</div>
+
+<div class="bloc">
+  <h2>2. Poser la conversion</h2>
+  <div class="deux">
+    <div>
+      <label for="valeur">Valeur de départ</label>
+      <input type="text" id="valeur" inputmode="decimal" value="2,5">
+    </div>
+  </div>
+  <label style="margin-top:12px">Unité de départ</label>
+  <div class="echelle" id="depart"></div>
+  <label>Unité d'arrivée</label>
+  <div class="echelle" id="arrivee"></div>
+</div>
+
+<div class="bloc">
+  <h2>3. Le raisonnement</h2>
+  <div class="lcd"><div class="nom" id="nomres">Résultat</div><div class="val" id="res">—</div></div>
+  <div id="etapes"></div>
+</div>
+
+<div class="bloc">
+  <h2>4. S'entraîner</h2>
+  <p class="aide" id="consigne">Dix conversions tirées au hasard. On répond, on vérifie.</p>
+  <div id="exo"></div>
+  <button class="bouton" id="lancer" type="button">Commencer</button>
+  <p class="score" id="score"></p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // Les préfixes, du plus grand au plus petit. « ecart » est la puissance
+  // de dix par rapport à l'unité de base.
+  var PREFIXES = [
+    {p:'M',  nom:'méga',  ecart:6},
+    {p:'k',  nom:'kilo',  ecart:3},
+    {p:'h',  nom:'hecto', ecart:2},
+    {p:'da', nom:'déca',  ecart:1},
+    {p:'',   nom:'unité', ecart:0},
+    {p:'d',  nom:'déci',  ecart:-1},
+    {p:'c',  nom:'centi', ecart:-2},
+    {p:'m',  nom:'milli', ecart:-3},
+    {p:'µ',  nom:'micro', ecart:-6},
+    {p:'n',  nom:'nano',  ecart:-9}
+  ];
+
+  // Une grandeur : son unité de base, sa puissance (1 pour une longueur,
+  // 2 pour une aire, 3 pour un volume — c'est là que tout le monde se
+  // trompe), et les préfixes qui ont un sens pour elle.
+  var GRANDEURS = [
+    {nom:'Longueur', base:'m', pui:1, gamme:['k','h','da','','d','c','m','µ']},
+    {nom:'Aire',     base:'m²', pui:2, gamme:['k','','d','c','m']},
+    {nom:'Volume',   base:'m³', pui:3, gamme:['','d','c','m']},
+    {nom:'Masse',    base:'g', pui:1, gamme:['k','h','da','','d','c','m','µ']},
+    {nom:'Puissance',base:'W', pui:1, gamme:['M','k','','m','µ']},
+    {nom:'Tension',  base:'V', pui:1, gamme:['M','k','','m','µ']},
+    {nom:'Courant',  base:'A', pui:1, gamme:['k','','m','µ','n']},
+    {nom:'Temps',    base:'s', pui:1, gamme:['','m','µ','n']}
+  ];
+
+  var g = GRANDEURS[0], iDep = 0, iArr = 0, ex = null;
+
+  function $(i){ return document.getElementById(i); }
+  function creer(b,c,h){ var e=document.createElement(b); if(c)e.className=c;
+    if(h!==undefined)e.innerHTML=h; return e; }
+
+  function crans(){
+    return PREFIXES.filter(function(x){ return g.gamme.indexOf(x.p)>=0; });
+  }
+  function unite(x){ return x.p + g.base; }
+  // L'écart réel entre deux crans : pour une aire il est doublé, pour un
+  // volume triplé. Un mètre cube vaut mille litres, pas dix.
+  function ecart(a,b){ return (crans()[a].ecart - crans()[b].ecart) * g.pui; }
+
+  function nombre(t){
+    t = String(t).replace(/\s/g,'').replace(',','.');
+    var v = parseFloat(t);
+    return isFinite(v) ? v : null;
+  }
+  function ecrire(v){
+    if(v === null) return '—';
+    if(v === 0) return '0';
+    var a = Math.abs(v);
+    if(a >= 1e6 || a < 1e-4){
+      var e = Math.floor(Math.log(a)/Math.LN10);
+      var m = v / Math.pow(10,e);
+      return (Math.round(m*1000)/1000).toString().replace('.',',')
+        + ' × 10' + expo(e);
+    }
+    var s = parseFloat(v.toPrecision(10)).toString();
+    return s.replace('.',',');
+  }
+  function expo(e){
+    var h={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶',
+           '7':'⁷','8':'⁸','9':'⁹'};
+    return String(e).split('').map(function(c){ return h[c]||c; }).join('');
+  }
+
+  // ------------------------------------------------------------- affichage
+  function dessineGrandeurs(){
+    var z = $('grandeurs'); z.innerHTML='';
+    GRANDEURS.forEach(function(x,i){
+      var b = creer('button',null,x.nom);
+      b.type='button';
+      b.setAttribute('aria-pressed', x===g ? 'true':'false');
+      b.onclick = function(){
+        g = x;
+        var c = crans();
+        iDep = Math.min(iDep, c.length-1);
+        iArr = Math.min(iArr, c.length-1);
+        if(iDep===iArr) iArr = (iDep+1) % c.length;
+        tout();
+      };
+      z.appendChild(b);
+    });
+    $('mnemo').innerHTML = g.pui>1
+      ? 'Attention : une ' + (g.pui===2?'aire':'un volume') + ' change de '
+        + g.pui + ' rangs à chaque cran. 1&nbsp;m' + (g.pui===2?'²':'³')
+        + ' = ' + (g.pui===2?'10 000':'1 000 000') + '&nbsp;cm'
+        + (g.pui===2?'²':'³') + ', pas 100.'
+      : 'Pour retenir l\u2019ordre : « Kevin Hurle Dans Un Débarras Complètement Moisi ». '
+        + 'Après milli : « Manu Mange Notre Pizza » (milli, micro, nano, pico).';
+  }
+
+  function dessineEchelle(id, sel, poser){
+    var z = $(id); z.innerHTML=''; var c = crans();
+    c.forEach(function(x,i){
+      var e = creer('button','cran');
+      e.type='button';
+      e.innerHTML = '<b>' + unite(x) + '</b><small>' + x.nom + '</small>';
+      var lo = Math.min(iDep,iArr), hi = Math.max(iDep,iArr);
+      if(i===sel) e.className = 'cran ' + (id==='depart'?'depart':'arrivee');
+      else if(i>lo && i<hi) e.className = 'cran entre';
+      e.onclick = function(){ poser(i); tout(); };
+      z.appendChild(e);
+    });
+  }
+
+  function tout(){
+    dessineGrandeurs();
+    dessineEchelle('depart', iDep, function(i){ iDep=i; });
+    dessineEchelle('arrivee', iArr, function(i){ iArr=i; });
+    calcule();
+  }
+
+  function calcule(){
+    var v = nombre($('valeur').value);
+    var c = crans(), n = ecart(iDep, iArr);
+    var r = (v===null) ? null : v * Math.pow(10, n);
+    $('nomres').textContent = 'Résultat en ' + unite(c[iArr]);
+    $('res').textContent = (r===null ? '—' : ecrire(r) + ' ' + unite(c[iArr]));
+
+    var z = $('etapes'); z.innerHTML='';
+    if(v===null){ z.appendChild(creer('p','aide','Entrer un nombre.')); return; }
+    if(n===0){
+      z.appendChild(creer('div','etape','<b>Même unité :</b> il n\u2019y a rien à convertir.'));
+      return;
+    }
+    var plusGrand = n > 0;
+    z.appendChild(creer('div','etape',
+      '<b>1. La question :</b> ' + unite(c[iArr]) + ' est '
+      + (plusGrand ? 'plus <b>petit</b>' : 'plus <b>grand</b>') + ' que '
+      + unite(c[iDep]) + '. Il en faudra donc '
+      + (plusGrand ? '<b>plus</b>' : '<b>moins</b>')
+      + ' pour la même quantité : le nombre doit '
+      + (plusGrand ? '<b>augmenter</b>.' : '<b>diminuer</b>.')));
+    z.appendChild(creer('div','etape',
+      '<b>2. De combien :</b> ' + Math.abs(ecart(iDep,iArr)) + ' rang'
+      + (Math.abs(n)>1?'s':'') + ' de puissance de dix'
+      + (g.pui>1 ? ' (' + Math.abs(crans()[iDep].ecart-crans()[iArr].ecart)
+                 + ' cran(s) × ' + g.pui + ', parce qu\u2019il s\u2019agit d\u2019'
+                 + (g.pui===2?'une aire':'un volume') + ')' : '')
+      + '. On multiplie donc par <b>10' + expo(n) + '</b>.'));
+    z.appendChild(creer('div','etape',
+      '<b>3. Le calcul :</b> ' + ecrire(v) + ' × 10' + expo(n) + ' = <b>'
+      + ecrire(r) + ' ' + unite(c[iArr]) + '</b>.'));
+    z.appendChild(creer('div','etape',
+      '<b>4. Le contrôle :</b> le nombre a bien '
+      + (plusGrand ? 'augmenté' : 'diminué') + '. Si ce n\u2019est pas le cas, '
+      + 'c\u2019est qu\u2019on s\u2019est trompé de sens.'));
+  }
+
+  $('valeur').addEventListener('input', calcule);
+
+  // ------------------------------------------------------------ entraînement
+  var serie = [], k = 0, bons = 0;
+
+  function tirer(){
+    var gg = GRANDEURS[Math.floor(Math.random()*GRANDEURS.length)];
+    var sauve = g; g = gg;
+    var c = crans();
+    var a = Math.floor(Math.random()*c.length), b = a;
+    while(b===a) b = Math.floor(Math.random()*c.length);
+    var mant = [1,1.5,2,2.5,3,4,5,7.5,8][Math.floor(Math.random()*9)];
+    var q = {gr:gg, a:a, b:b, v:mant,
+             rep: mant * Math.pow(10, (c[a].ecart-c[b].ecart)*gg.pui),
+             ua: c[a].p+gg.base, ub: c[b].p+gg.base};
+    g = sauve;
+    return q;
+  }
+
+  function question(){
+    var z = $('exo'); z.innerHTML='';
+    if(k >= serie.length){
+      z.appendChild(creer('p','verdict ' + (bons>=8?'ok':'ko'),
+        'Série terminée : ' + bons + ' bonnes réponses sur ' + serie.length + '.'));
+      $('lancer').textContent = 'Nouvelle série';
+      $('lancer').style.display='';
+      $('score').textContent='';
+      return;
+    }
+    var q = serie[k];
+    z.appendChild(creer('p',null, '<b>Question ' + (k+1) + '.</b> Convertir <b>'
+      + ecrire(q.v) + ' ' + q.ua + '</b> en <b>' + q.ub + '</b>.'));
+    var i = document.createElement('input');
+    i.type='text'; i.inputMode='decimal'; i.placeholder='ta réponse en ' + q.ub;
+    z.appendChild(i);
+    var b = creer('button','bouton','Vérifier');
+    b.type='button'; b.style.marginTop='10px';
+    b.onclick = function(){
+      var v = nombre(i.value);
+      var ok = v !== null && Math.abs(v - q.rep) <= Math.abs(q.rep)*1e-6;
+      if(ok) bons++;
+      var p = creer('p','verdict ' + (ok?'ok':'ko'),
+        ok ? 'Juste.' : 'Non : ' + ecrire(q.rep) + ' ' + q.ub + '.');
+      z.appendChild(p);
+      b.style.display='none'; i.disabled=true;
+      var s = creer('button','bouton second', k+1 < serie.length ? 'Question suivante' : 'Voir le résultat');
+      s.type='button'; s.style.marginTop='8px';
+      s.onclick = function(){ k++; question(); };
+      z.appendChild(s); s.focus({preventScroll:true});
+    };
+    z.appendChild(b);
+    $('score').textContent = bons + ' / ' + k + ' jusqu\u2019ici';
+  }
+
+  $('lancer').onclick = function(){
+    serie = []; for(var i=0;i<10;i++) serie.push(tirer());
+    k = 0; bons = 0;
+    $('lancer').style.display='none';
+    question();
+  };
+
+  tout();
+})();
+</script>
+</body>
+</html>

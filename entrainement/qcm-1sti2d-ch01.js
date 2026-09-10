@@ -262,6 +262,36 @@ window.CHAPITRE = {
    "recto": "La <strong>moyenne</strong> m des n mesures est le meilleur estimateur de la grandeur cherchée :\n……",
    "verso": "m = (x₁ + x₂ + … + x<sub>n</sub>)/n.",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Un résultat de mesure complet comporte ……",
+   "verso": "<strong>une valeur, une incertitude et une unité</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un instrument mal réglé au zéro provoque une erreur ……",
+   "verso": "<strong>systématique</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Répéter les mesures et faire la moyenne permet de réduire ……",
+   "verso": "<strong>les erreurs aléatoires</strong> — la moyenne compense les écarts aléatoires, jamais un décalage systématique",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Des mesures très groupées mais toutes décalées de la valeur vraie sont ……",
+   "verso": "<strong>fidèles mais pas justes</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le nombre 0,0250 comporte ……",
+   "verso": "<strong>3 chiffres significatifs</strong> — les zéros de tête ne comptent pas, celui de fin oui",
+   "origine": "bilan"
   }
  ]
 };

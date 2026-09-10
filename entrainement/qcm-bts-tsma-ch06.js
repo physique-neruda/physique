@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "Espèce en solution, on connaît volume et concentration : ……, avec C en mol/L et V en L.",
    "verso": "<strong>n = C × V</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "L'unité de la quantité de matière est ……",
+   "verso": "<strong>la mole</strong> — 40,1 + 12,0 + 3×16,0 = 100,1. La réponse a correspond à un oubli du facteur 3 sur l'oxygène. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La masse molaire de CaCO₃ vaut (Ca 40,1 ; C 12,0 ; O 16,0) ……",
+   "verso": "<strong>100,1 g/mol</strong> — 40,1 + 12,0 + 3×16,0 = 100,1. La réponse a correspond à un oubli du facteur 3 sur l'oxygène. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans Ca(OH)₂, le nombre d'atomes d'hydrogène est ……",
+   "verso": "<strong>4</strong> — l'indice 2 porte sur tout le groupe (OH) : deux O et deux H. C'est le piège le plus fréquent du calcul de masse molaire. 3pt",
+   "origine": "bilan"
   }
  ]
 };

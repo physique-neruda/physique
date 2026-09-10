@@ -250,6 +250,48 @@ window.CHAPITRE = {
    "recto": "Ce nombre s'appelle la …….",
    "verso": "<strong>constante d'Avogadro</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Au cours d'une transformation chimique ……",
+   "verso": "<strong>les atomes sont conservés et réorganisés</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour équilibrer une équation, on modifie ……",
+   "verso": "<strong>les coefficients devant les formules</strong> — on ne touche jamais aux indices",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une combustion, on équilibre l'oxygène <strong>en dernier</strong> parce que ……",
+   "verso": "<strong>O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'équation CH₄ + O₂ → CO₂ + H₂O équilibrée s'écrit ……",
+   "verso": "<strong>CH₄ + 2 O₂ → CO₂ + 2 H₂O</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La molécule C₄H₈ appartient à la famille des ……",
+   "verso": "<strong>alcènes</strong> — C<sub>n</sub>H<sub>2n</sub> avec n = 4",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le groupe caractéristique des alcools est ……",
+   "verso": "<strong>-OH</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une mole contient ……",
+   "verso": "<strong>6,02 × 10²³ entités</strong>",
+   "origine": "bilan"
   }
  ]
 };

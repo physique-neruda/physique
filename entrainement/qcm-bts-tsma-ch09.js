@@ -251,6 +251,24 @@ window.CHAPITRE = {
    "recto": "La <strong>densité de flux</strong> est le flux rapporté à l'unité de surface : ……, en W/m².",
    "verso": "<strong>φ= φ/ S</strong>",
    "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Le flux thermique φ s'exprime en ……",
+   "verso": "<strong>watts</strong> — le flux est une puissance, donc des watts. La réponse a confond flux et énergie ; la c est la densité de flux, qui rapporte le flux à la surface. Les trois grandeurs sont différentes et les trois unités le disent. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un transfert thermique s'effectue spontanément ……",
+   "verso": "<strong>du chaud vers le froid</strong> — le sens du transfert ne dépend jamais du matériau, seulement des températures. Et parmi les trois modes, seul le rayonnement se passe de support : c'est pourquoi l'énergie du Soleil traverse l'espace vide alors qu'aucun son n'y circule. 3pt",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le seul mode de transfert qui fonctionne dans le vide est ……",
+   "verso": "<strong>le rayonnement</strong> — le sens du transfert ne dépend jamais du matériau, seulement des températures. Et parmi les trois modes, seul le rayonnement se passe de support : c'est pourquoi l'énergie du Soleil traverse l'espace vide alors qu'aucun son n'y circule. 3pt",
+   "origine": "bilan"
   }
  ]
 };
