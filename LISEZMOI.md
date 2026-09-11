@@ -382,12 +382,14 @@ sert partout. Deux animations pour commencer :
   - **aires et volumes** : `2 rangs → 10²`, puis `(10²)² = 10⁴` ;
   - **capacités** : le passage L ↔ m³ par le seul pont à retenir, `1 L = 1 dm³`, le cube de
     10 cm de côté ;
-  - **unités composées** (m/s, L/min, g/cm³) : l'unité se lit à voix haute — « nombre de
-    mètres pour **une seule** seconde » — s'écrit en fraction, puis on convertit le haut et le
-    bas. Le dénominateur tient en une ligne : l'équivalence, et rien de plus. Quand cette
-    conversion a son propre onglet — `1 cm³ = 10⁻⁶ m³`, `1 mL = 10⁻⁶ m³` — l'élève y est
-    renvoyé au lieu de se voir réexpliquer le cube et le pont `1 L = 1 dm³`. Pour les durées
-    non décimales (`1 h = 3600 s`, `1 min = 60 s`), l'équivalence est simplement rappelée.
+  - **unités composées** (m/s, L/min, g/cm³) : **trois étapes, pas une de plus**. Mettre sous
+    forme de fraction — « 72 km pour 1 h, une seule » ; convertir le haut et le bas, une ligne
+    chacun ; diviser. Quand les deux conversions sont des puissances de dix, la dernière étape
+    est une simple soustraction d'exposants : `10⁻³ ÷ 10⁻⁶ = 10³`. Sinon, la puissance de dix
+    s'applique d'abord, le facteur ensuite (`30 × 10⁻³ = 3 × 10⁻²`, puis `÷ 60`) — jamais de
+    décimal intermédiaire à rallonge. Les conversions qui ont leur propre onglet ne sont
+    **pas** redémontrées : `1 cm³ = 10⁻⁶ m³` est donné tel quel, avec un renvoi vers
+    *Capacités* ; `1 h = 3600 s` est simplement rappelé.
 
   - **durées** : un onglet à part, parce qu'il le faut. Le préambule le dit sans détour —
     *au-dessus de la seconde, on n'est plus dans le système décimal* : plus de rang, plus de

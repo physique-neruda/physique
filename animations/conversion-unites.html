@@ -562,48 +562,67 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
                + o + '</b>.</em>' : '';
   }
 
+  // Trois étapes, pas une de plus : mettre en fraction, convertir en haut et
+  // en bas, diviser. Les conversions de capacité ou de durée ne sont jamais
+  // redémontrées ici — elles ont leur onglet, on y renvoie.
+  function nb(x){
+    if(x === Math.round(x)) return String(x);
+    return String(Math.round(x*1e6)/1e6).replace('.', ',');
+  }
+  function estDix(x){
+    var e = Math.log(x)/Math.LN10;
+    return Math.abs(e - Math.round(e)) < 1e-9 ? Math.round(e) : null;
+  }
+
   function composee(v, r, a, b){
-    pas('Lire l\u2019unité à voix haute, puis l\u2019écrire en fraction.</b> '
-      + '«\u00a0' + ecrire(v) + '\u00a0' + a.t + '\u00a0» veut dire : <b>'
-      + ecrire(v) + '\u00a0' + a.hu + ' pour 1\u00a0' + a.bu + '</b> \u2014 pour '
-      + 'une seule, pas pour dix ni pour mille.'
+    var ph = a.n - b.n;        // le haut : une division de deux puissances de dix
+    var rb = a.d / b.d;        // le bas : combien de « b.bu » dans un « a.bu »
+
+    // 1. la fraction
+    pas('Mettre sous forme de fraction.</b> «\u00a0' + a.t + '\u00a0», c\u2019est '
+      + ecrire(v) + '\u00a0' + a.hu + ' pour <b>1\u00a0' + a.bu
+      + '</b> \u2014 une seule.'
       + '<span class="calc">' + ecrire(v) + '\u00a0' + a.t + ' = '
       + fr(ecrire(v) + '\u00a0' + a.hu, '1\u00a0' + a.bu) + '</span>');
 
-    if(a.n !== 0){
-      pas('Convertir le <b>haut</b>, comme n\u2019importe quelle unité simple.</b>'
-        + renvoi(a.hu)
-        + '<span class="calc">1\u00a0' + a.hu + ' = ' + puiss(a.n) + '\u00a0' + g.haut
-        + '</span>');
+    // 2. le haut et le bas, chacun vers l'unité d'arrivée
+    var lignes = [];
+    lignes.push(a.hu === b.hu
+      ? 'en haut : ' + a.hu + ' ne change pas'
+      : 'en haut : 1\u00a0' + a.hu + ' = ' + puiss(ph) + '\u00a0' + b.hu);
+    var eb = estDix(rb);
+    if(a.bu === b.bu){
+      lignes.push('en bas : ' + a.bu + ' ne change pas');
+    }else if(eb !== null){
+      lignes.push('en bas : 1\u00a0' + a.bu + ' = ' + puiss(eb) + '\u00a0' + b.bu);
+    }else if(rb > 1){
+      lignes.push('en bas : 1\u00a0' + a.bu + ' = ' + nb(rb) + '\u00a0' + b.bu);
     }else{
-      pas('Le <b>haut</b> est déjà dans la bonne unité :</b> rien à y faire.');
+      lignes.push('en bas : 1\u00a0' + b.bu + ' = ' + nb(1/rb) + '\u00a0' + a.bu);
     }
-    var hautTxt = a.n === 0 ? ecrire(v) + '\u00a0' + g.haut
-      : ecrire(v) + ' \u00d7 ' + puiss(a.n) + '\u00a0' + g.haut;
+    pas('Convertir en haut et en bas.</b>' + renvoi(a.hu) + renvoi(a.bu)
+      + '<span class="calc">' + lignes.join('<br>') + '</span>');
 
-    if(a.d !== 1){
-      pas('Le <b>bas</b> \u2014 c\u2019est celui qu\u2019on oublie.</b> Il divise.'
-        + renvoi(a.bu)
-        + '<span class="calc">1\u00a0' + a.bu + ' = ' + a.dt + '<br>'
-        + fr(hautTxt, a.dt) + ' = ' + sci(v*a.k) + '\u00a0' + g.base + '</span>');
+    // 3. la division. Quand le bas est lui aussi une puissance de dix, c'est
+    // une simple soustraction d'exposants — le cas le plus fréquent. Sinon on
+    // applique d'abord la puissance de dix, puis le facteur : jamais de
+    // nombre décimal intermédiaire à rallonge.
+    var calc;
+    if(rb === 1){
+      calc = puiss(ph) + '<br>' + ecrire(v) + ' \u00d7 ' + puiss(ph)
+        + ' = <b>' + sci(r) + '\u00a0' + b.t + '</b>';
+    }else if(eb !== null){
+      calc = puiss(ph) + ' \u00f7 ' + puiss(eb) + ' = ' + puiss(ph - eb) + '<br>'
+        + ecrire(v) + ' \u00d7 ' + puiss(ph - eb)
+        + ' = <b>' + sci(r) + '\u00a0' + b.t + '</b>';
     }else{
-      pas('Le <b>bas</b> est déjà l\u2019unité de base.</b>'
-        + '<span class="calc">' + fr(hautTxt, '1\u00a0' + g.bas) + ' = '
-        + sci(v*a.k) + '\u00a0' + g.base + '</span>');
+      var inter = v * Math.pow(10, ph);
+      calc = ecrire(v) + ' \u00d7 ' + puiss(ph) + ' = ' + sci(inter) + '<br>'
+        + sci(inter) + (rb > 1 ? ' \u00f7 ' + nb(rb) : ' \u00d7 ' + nb(1/rb))
+        + ' = <b>' + sci(r) + '\u00a0' + b.t + '</b>';
     }
-
-    if(b.t !== g.base){
-      pas('Repartir vers l\u2019unité d\u2019arrivée, en sens inverse.</b> '
-        + 'Le haut se divise, le bas se multiplie.'
-        + '<span class="calc">1\u00a0' + b.t + ' = '
-        + fr(puiss(b.n) + '\u00a0' + g.haut, b.dt) + '<br>'
-        + sci(v*a.k) + ' \u00d7 ' + b.dt.split(' ')[0] + ' \u00f7 '
-        + puiss(b.n) + ' = ' + sci(v*a.k/b.k) + '\u00a0' + b.t + '</span>');
-    }
-
-    $('etapes').appendChild(creer('div','etape',
-      '<b>Résultat.</b><span class="calc">' + ecrire(v) + '\u00a0' + a.t + ' = '
-      + sci(r) + '\u00a0' + b.t + '</span>'));
+    pas('Finir le calcul : le haut divisé par le bas.</b>'
+      + '<span class="calc">' + calc + '</span>');
 
     $('etapes').appendChild(creer('div','etape',
       '<b>Vérifier — même méthode.</b> On compare la taille des deux unités : '
