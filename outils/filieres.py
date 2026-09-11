@@ -261,10 +261,11 @@ ANIMATIONS = {
          "fichier": "animations/conversion-unites.html",
          "description": "Aucune virgule ne se déplace : chaque unité porte son rang, on compte "
                         "l'écart entre les deux rangs, et c'est la taille des unités qui donne "
-                        "le signe. Les aires et les volumes élèvent la puissance de dix, et "
-                        "elle seule, au carré ou au cube. Les capacités passent par 1 L = 1 dm3, "
-                        "les unités composées (m/s, L/min, g/cm3) s'écrivent en fraction. Dix "
-                        "conversions au hasard pour s'entraîner.",
+                        "le signe. Douze onglets, du nanomètre au gigawatt : les aires et les "
+                        "volumes élèvent la puissance de dix au carré ou au cube, les capacités "
+                        "passent par 1 L = 1 dm3, les unités composées (m/s, L/min, g/cm3) "
+                        "s'écrivent en fraction, et les durées quittent le decimal au-dessus de "
+                        "la seconde. Dix conversions au hasard pour s'entraîner.",
          "trouve": "L'écart des rangs donne le nombre, le sens donne le signe.",
          "motscles": ["unites", "conversion", "prefixes", "puissances de dix", "kilo",
                       "milli", "aire", "volume", "ordre de grandeur"]},

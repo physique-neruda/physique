@@ -53,6 +53,7 @@ input[type=text]{width:100%;font:inherit;font-family:var(--mono);font-size:1.1re
 .etape{margin:10px 0 0;padding:9px 11px;border-left:4px solid var(--bleu);background:#F5F8FA;
   border-radius:0 7px 7px 0;font-size:.9rem}
 .etape b{color:var(--bleu)}
+.etape em{color:var(--juste);font-style:normal;font-size:.88em}
 .etape .calc{font-family:var(--mono);font-size:1.02rem;display:block;margin-top:5px;
   color:var(--encre);line-height:1.6}
 .etape.pont{border-left-color:var(--juste);background:#EFF7F2}
@@ -116,11 +117,13 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
 
   // ------------------------------------------------------------- préfixes
   var PREFIXES = [
+    {p:'G',  nom:'giga',  r:9},
     {p:'M',  nom:'méga',  r:6},  {p:'k', nom:'kilo',  r:3},
     {p:'h',  nom:'hecto', r:2},  {p:'da',nom:'déca',  r:1},
     {p:'',   nom:'sans préfixe', r:0}, {p:'d', nom:'déci', r:-1},
     {p:'c',  nom:'centi', r:-2}, {p:'m', nom:'milli', r:-3},
-    {p:'µ',  nom:'micro', r:-6}, {p:'n', nom:'nano',  r:-9}
+    {p:'µ',  nom:'micro', r:-6}, {p:'n', nom:'nano',  r:-9},
+    {p:'p',  nom:'pico',  r:-12}
   ];
   function nomPrefixe(r){
     for(var i=0;i<PREFIXES.length;i++) if(PREFIXES[i].r===r) return PREFIXES[i].nom;
@@ -133,12 +136,12 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
   // mode 'composee' : une unité en fraction — m/s, L/min, g/cm³…
   var GRANDEURS = [
     {nom:'Longueur', mode:'simple', base:'m', pui:1,
-     gamme:['k','h','da','','d','c','m','µ']},
+     gamme:['k','h','da','','d','c','m','µ','n']},
     {nom:'Aire', mode:'simple', base:'m²', pui:2, gamme:['k','','d','c','m']},
     {nom:'Volume', mode:'simple', base:'m³', pui:3, gamme:['','d','c','m']},
     {nom:'Capacités', mode:'capacite', base:'m³'},
     {nom:'Masse', mode:'simple', base:'g', pui:1,
-     gamme:['k','h','da','','d','c','m','µ']},
+     gamme:['k','h','da','','d','c','m','µ','n']},
     {nom:'Vitesse', mode:'composee', base:'m/s', haut:'m', bas:'s', unites:[
       {t:'m/s',    hu:'m',  bu:'s',   n:0,  d:1,    dt:'1 s'},
       {t:'km/h',   hu:'km', bu:'h',   n:3,  d:3600, dt:'3600 s'},
@@ -163,15 +166,32 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
       {t:'g/L',   hu:'g',  bu:'L',   n:-3, d:1e-3, dt:'10\u207b\u00b3 m³'},
       {t:'mg/L',  hu:'mg', bu:'L',   n:-6, d:1e-3, dt:'10\u207b\u00b3 m³'}
     ]},
-    {nom:'Puissance', mode:'simple', base:'W', pui:1, gamme:['M','k','','m','µ']},
-    {nom:'Tension',   mode:'simple', base:'V', pui:1, gamme:['M','k','','m','µ']},
-    {nom:'Courant',   mode:'simple', base:'A', pui:1, gamme:['k','','m','µ','n']},
-    {nom:'Temps',     mode:'simple', base:'s', pui:1, gamme:['','m','µ','n']}
+    {nom:'Puissance', mode:'simple', base:'W', pui:1,
+     gamme:['G','M','k','','m','µ','n']},
+    {nom:'Tension',   mode:'simple', base:'V', pui:1,
+     gamme:['M','k','','m','µ','n']},
+    {nom:'Courant',   mode:'simple', base:'A', pui:1,
+     gamme:['M','k','','m','µ','n']},
+    {nom:'Condensateurs', mode:'simple', base:'F', pui:1,
+     gamme:['','m','µ','n','p']},
+    {nom:'Temps',     mode:'duree',  base:'s'}
   ];
 
   // Les capacités : deux familles, un seul pont entre elles.
   //   'cube'  : le rang est celui du préfixe de LONGUEUR, à élever au cube
   //   'litre' : le rang est celui du préfixe de litre, et 1 L = 1 dm³
+  // Les durées. « dec » : l'unité se déduit de la seconde par une puissance de
+  // dix, la méthode des rangs s'y applique. Sinon, un facteur, et rien d'autre.
+  var DUREES = [
+    {t:'j',   dec:false, k:86400, ft:'86 400 s', par:'24 h',  sf:24, su:'h'},
+    {t:'h',   dec:false, k:3600,  ft:'3600 s',   par:'60 min', sf:60, su:'min'},
+    {t:'min', dec:false, k:60,    ft:'60 s',     par:'60 s',   sf:60, su:'s'},
+    {t:'s',   dec:true,  rang:0},
+    {t:'ms',  dec:true,  rang:-3},
+    {t:'µs',  dec:true,  rang:-6},
+    {t:'ns',  dec:true,  rang:-9}
+  ];
+
   var CAPACITES = [
     {t:'m³',  fam:'cube',  r:0},
     {t:'dm³', fam:'cube',  r:-1},
@@ -237,6 +257,13 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
         return {t:x.t, fam:x.fam, rang:x.r, e:e, k:Math.pow(10,e)};
       });
     }
+    if(g.mode === 'duree'){
+      return DUREES.map(function(x){
+        var o = {}; for(var c in x) o[c] = x[c];
+        if(x.dec) o.k = Math.pow(10, x.rang);
+        return o;
+      });
+    }
     return g.unites.map(function(x){
       var o = {}; for(var c in x) o[c] = x[c];
       o.k = Math.pow(10, x.n) / x.d;
@@ -271,6 +298,12 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
       $('mnemo').innerHTML = 'Un seul pont à retenir : <b>1\u00a0L = 1\u00a0dm\u00b3</b>, '
         + 'le cube de 10\u00a0cm de côté. Tout le reste s\u2019en déduit. Les rangs écrits '
         + 'sous les unités restent ceux du préfixe seul.';
+    }else if(g.mode === 'duree'){
+      $('mnemo').innerHTML = '<b>Attention : ici, on n\u2019est plus dans le système '
+        + 'décimal.</b> Sous la seconde, rien ne change — milli, micro, nano, ce sont les '
+        + 'rangs habituels. Au-dessus, il n\u2019y a plus ni rang ni puissance de dix : '
+        + 'on multiplie ou on divise par <b>60</b>, puis encore par 60, puis par 24. '
+        + 'La seconde est le point de passage obligé.';
     }else if(g.mode === 'composee'){
       $('mnemo').innerHTML = 'Une unité en fraction se lit à voix haute : «\u00a0'
         + g.base + '\u00a0», c\u2019est le <b>nombre de ' + g.haut + ' pour 1\u00a0'
@@ -286,7 +319,10 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
     u.forEach(function(x,i){
       var e = creer('button','cran');
       e.type='button';
-      var bas = g.mode === 'composee' ? x.hu + ' / ' + x.bu : 'rang ' + ent(x.rang);
+      var bas;
+      if(g.mode === 'composee') bas = x.hu + ' / ' + x.bu;
+      else if(g.mode === 'duree') bas = x.dec ? 'rang ' + ent(x.rang) : x.par;
+      else bas = 'rang ' + ent(x.rang);
       e.innerHTML = '<b>' + x.t + '</b><small>' + bas + '</small>';
       if(i===sel) e.className = 'cran ' + (id==='depart'?'depart':'arrivee');
       e.onclick = function(){ poser(i); tout(); };
@@ -315,14 +351,15 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
       + ' : <b>' + e + ' rang' + (e>1?'s':'') + '</b></span>');
     return n;
   }
-  function controle(a, b, n){
-    pas('Vérifier le signe — <b>toujours de la même façon</b>.</b> On compare la '
+  function controle(a, b, n, sansExposant){
+    pas('Vérifier le sens — <b>toujours de la même façon</b>.</b> On compare la '
       + '<b>taille</b> des deux unités : ' + b + ' est '
       + (n>0 ? 'plus <b>petit</b>' : 'plus <b>grand</b>') + ' que ' + a
       + ', il en faut donc ' + (n>0 ? '<b>plus</b>' : '<b>moins</b>')
-      + ' pour la même quantité. Le nombre doit '
-      + (n>0 ? 'augmenter' : 'diminuer') + ' : l\u2019exposant est '
-      + (n>0 ? 'positif' : 'négatif') + ', soit <b>' + ent(n) + '</b>.');
+      + ' pour la même durée ou la même quantité. Le nombre doit '
+      + (n>0 ? '<b>augmenter</b>' : '<b>diminuer</b>')
+      + (sansExposant ? '.' : ' : l\u2019exposant est '
+        + (n>0 ? 'positif' : 'négatif') + ', soit <b>' + ent(n) + '</b>.'));
   }
   function resultat(v, r, a, b, n){
     $('etapes').appendChild(creer('div','etape',
@@ -337,7 +374,17 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
     var u = unites(), a = u[iDep], b = u[iArr];
     var r = (v===null) ? null : v * a.k / b.k;
     $('nomres').textContent = 'Résultat en ' + b.t;
-    $('res').textContent = (r===null ? '—' : sci(r) + ' ' + b.t);
+    if(r === null){
+      $('res').textContent = '—';
+    }else if(g.mode === 'duree'){
+      // le même instant écrit deux fois : en nombre, et en h min s
+      var deux = ecrire(r) + ' ' + b.t;
+      var sec = v * a.k;
+      if(!b.dec && Math.abs(r - Math.round(r)) > 1e-9) deux += '   =   ' + hms(sec);
+      $('res').textContent = deux;
+    }else{
+      $('res').textContent = sci(r) + ' ' + b.t;
+    }
     $('etapes').innerHTML = ''; no = 0;
     if(v===null){ $('etapes').appendChild(creer('p','aide','Entrer un nombre.')); return; }
     if(a.t === b.t){
@@ -345,6 +392,7 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
     }
     if(g.mode === 'simple')   return simple(v, r, a, b);
     if(g.mode === 'capacite') return capacite(v, r, a, b);
+    if(g.mode === 'duree')    return duree(v, r, a, b);
     return composee(v, r, a, b);
   }
 
@@ -412,7 +460,108 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
     resultat(v, r, a, b, n);
   }
 
+  // -- durées : deux mondes, et la seconde entre les deux
+  function hms(sec){
+    var neg = sec < 0; sec = Math.abs(sec);
+    var j = Math.floor(sec/86400); sec -= j*86400;
+    var h = Math.floor(sec/3600);  sec -= h*3600;
+    var m = Math.floor(sec/60);    sec -= m*60;
+    var s2 = Math.round(sec*1000)/1000;
+    var out = [];
+    if(j) out.push(j + ' j');
+    if(h) out.push(h + ' h');
+    if(m) out.push(m + ' min');
+    if(s2 || !out.length) out.push(String(s2).replace('.',',') + ' s');
+    return (neg ? '\u2212' : '') + out.join(' ');
+  }
+
+  function duree(v, r, a, b){
+    // cas entièrement décimal : c'est la méthode des rangs, telle quelle
+    if(a.dec && b.dec){
+      pas('Les deux unités sont <b>sous la seconde</b> :</b> on est en terrain connu, '
+        + 'la méthode des rangs s\u2019applique sans changement.'
+        + '<span class="calc">' + a.t + ' \u2192 rang ' + ent(a.rang) + '<br>'
+        + b.t + ' \u2192 rang ' + ent(b.rang) + '</span>');
+      var nn = a.rang - b.rang, en = Math.abs(nn);
+      pas('Compter l\u2019écart entre les deux rangs, <b>sans s\u2019occuper du '
+        + 'signe</b>.</b><span class="calc">du rang ' + ent(a.rang) + ' au rang '
+        + ent(b.rang) + ' : <b>' + en + ' rang' + (en>1?'s':'') + '</b></span>');
+      controle(a.t, b.t, nn);
+      resultat(v, r, a, b, nn);
+      return;
+    }
+
+    // 1. de quel côté de la seconde se trouve-t-on
+    function situe(x){
+      if(x.rang === 0) return 's est <b>la seconde elle-même</b> : le point de passage.';
+      return x.dec
+        ? x.t + ' est <b>sous</b> la seconde : rang ' + ent(x.rang) + ', soit '
+          + puiss(x.rang) + '\u00a0s'
+        : x.t + ' est <b>au-dessus</b> : 1\u00a0' + x.t + ' = ' + x.par
+          + (x.ft !== x.par ? ' = ' + x.ft : '') + ' \u2014 aucun rang, aucune '
+          + 'puissance de dix';
+    }
+    pas('Situer chaque unité par rapport à la seconde.</b>'
+      + '<span class="calc">' + situe(a) + '<br>' + situe(b) + '</span>', 'pont');
+
+    // 2. tout ramener en secondes
+    var sec = v * a.k;
+    if(a.rang === 0){
+      pas('La valeur est <b>déjà en secondes</b> :</b> rien à faire pour l\u2019instant.');
+    }else{
+      pas('Ramener en <b>secondes</b> : c\u2019est le point de passage.</b>'
+        + '<span class="calc">' + (a.dec
+          ? ecrire(v) + '\u00a0' + a.t + ' = ' + ecrire(v) + ' \u00d7 ' + puiss(a.rang)
+            + ' = ' + sci(sec) + '\u00a0s'
+          : ecrire(v) + '\u00a0' + a.t + ' = ' + ecrire(v) + ' \u00d7 ' + a.k
+            + ' = ' + ecrire(sec) + '\u00a0s') + '</span>');
+    }
+
+    // 3. repartir vers l'unité d'arrivée
+    if(b.t !== 's'){
+      pas('Repartir vers ' + b.t + '.</b>'
+        + '<span class="calc">' + (b.dec
+          ? sci(sec) + '\u00a0s = ' + sci(sec) + ' \u00f7 ' + puiss(b.rang) + ' = '
+            + sci(r) + '\u00a0' + b.t
+          : ecrire(sec) + '\u00a0s \u00f7 ' + b.k + ' = ' + ecrire(r) + '\u00a0'
+            + b.t) + '</span>');
+    }
+
+    // 4. le piège de la partie décimale
+    if(!b.dec && Math.abs(r - Math.round(r)) > 1e-9){
+      var ent2 = Math.floor(r), reste = r - ent2;
+      var faux = Math.round(reste * 100);
+      pas('Le piège : la partie décimale n\u2019est <b>pas</b> un nombre de '
+        + b.su + '.</b> On lit « ' + ecrire(r) + '\u00a0' + b.t + ' » et on écrit '
+        + '<b>' + ent2 + '\u00a0' + b.t + ' ' + faux + '\u00a0' + b.su
+        + '</b> : c\u2019est faux. Ce «\u00a0'
+        + String(Math.round(reste*1000)/1000).replace('.',',')
+        + '\u00a0» est une fraction <b>de ' + b.t + '</b>, il faut la reconvertir.'
+        + '<span class="calc">'
+        + String(Math.round(reste*1000)/1000).replace('.',',') + '\u00a0' + b.t
+        + ' \u00d7 ' + b.sf + ' = '
+        + String(Math.round(reste*b.sf*100)/100).replace('.',',') + '\u00a0' + b.su
+        + '<br>donc <b>' + hms(sec) + '</b></span>');
+    }
+
+    controle(a.t, b.t, a.k > b.k ? 1 : -1, true);
+  }
+
   // -- unités composées : m/s, L/min, g/cm³…
+  // Le principe d'une conversion de capacité ou de durée n'est pas réexpliqué
+  // ici : il a son propre onglet. On donne l'équivalence, et on renvoie.
+  var VOLUMES = ['m\u00b3', 'dm\u00b3', 'cm\u00b3', 'mm\u00b3', 'L', 'dL', 'cL', 'mL'];
+  function onglet(u){
+    if(VOLUMES.indexOf(u) >= 0) return 'Capacités';
+    if(['ms','\u00b5s','ns'].indexOf(u) >= 0) return 'Temps';
+    return null;
+  }
+  function renvoi(u){
+    var o = onglet(u);
+    return o ? ' <em>Le détail de cette conversion est dans l\u2019onglet <b>'
+               + o + '</b>.</em>' : '';
+  }
+
   function composee(v, r, a, b){
     pas('Lire l\u2019unité à voix haute, puis l\u2019écrire en fraction.</b> '
       + '«\u00a0' + ecrire(v) + '\u00a0' + a.t + '\u00a0» veut dire : <b>'
@@ -423,9 +572,8 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
 
     if(a.n !== 0){
       pas('Convertir le <b>haut</b>, comme n\u2019importe quelle unité simple.</b>'
+        + renvoi(a.hu)
         + '<span class="calc">1\u00a0' + a.hu + ' = ' + puiss(a.n) + '\u00a0' + g.haut
-        + '<br>' + fr(ecrire(v) + '\u00a0' + a.hu, '1\u00a0' + a.bu) + ' = '
-        + fr(ecrire(v) + ' \u00d7 ' + puiss(a.n) + '\u00a0' + g.haut, '1\u00a0' + a.bu)
         + '</span>');
     }else{
       pas('Le <b>haut</b> est déjà dans la bonne unité :</b> rien à y faire.');
@@ -434,9 +582,8 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
       : ecrire(v) + ' \u00d7 ' + puiss(a.n) + '\u00a0' + g.haut;
 
     if(a.d !== 1){
-      pas('Revenir à l\u2019unité du <b>bas</b> — c\u2019est celle qu\u2019on oublie.</b> '
-        + 'Le bas divise : une puissance de dix qui remonte du dénominateur '
-        + '<b>change de signe</b>.'
+      pas('Le <b>bas</b> \u2014 c\u2019est celui qu\u2019on oublie.</b> Il divise.'
+        + renvoi(a.bu)
         + '<span class="calc">1\u00a0' + a.bu + ' = ' + a.dt + '<br>'
         + fr(hautTxt, a.dt) + ' = ' + sci(v*a.k) + '\u00a0' + g.base + '</span>');
     }else{
@@ -446,12 +593,11 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
     }
 
     if(b.t !== g.base){
-      pas('Repartir vers l\u2019unité d\u2019arrivée, par le même chemin, en sens '
-        + 'inverse.</b> Le haut se divise, le bas se multiplie.'
+      pas('Repartir vers l\u2019unité d\u2019arrivée, en sens inverse.</b> '
+        + 'Le haut se divise, le bas se multiplie.'
         + '<span class="calc">1\u00a0' + b.t + ' = '
         + fr(puiss(b.n) + '\u00a0' + g.haut, b.dt) + '<br>'
-        + 'on divise par ' + puiss(b.n) + ' et on multiplie par ' + b.dt.split(' ')[0]
-        + '<br>' + sci(v*a.k) + ' \u00d7 ' + b.dt.split(' ')[0] + ' \u00f7 '
+        + sci(v*a.k) + ' \u00d7 ' + b.dt.split(' ')[0] + ' \u00f7 '
         + puiss(b.n) + ' = ' + sci(v*a.k/b.k) + '\u00a0' + b.t + '</span>');
     }
 
@@ -480,7 +626,9 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
     var i = Math.floor(Math.random()*u.length), j = i;
     while(j===i) j = Math.floor(Math.random()*u.length);
     var mant = [1,1.5,2,2.5,3,4,5,7.5,8][Math.floor(Math.random()*9)];
-    var q = {v:mant, ua:u[i].t, ub:u[j].t, rep:mant*u[i].k/u[j].k};
+    var q = {v:mant, ua:u[i].t, ub:u[j].t, rep:mant*u[i].k/u[j].k,
+             dur:gr.mode === 'duree', sec:mant*u[i].k,
+             hms:gr.mode === 'duree' && !u[j].dec};
     g = sauve;
     return q;
   }
@@ -505,8 +653,13 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
       var val = nombre(i.value);
       var ok = val !== null && Math.abs(val - q.rep) <= Math.abs(q.rep)*1e-4;
       if(ok) bons++;
+      var bonne = (q.dur ? ecrire(q.rep) : sci(q.rep)) + '\u00a0' + q.ub
+        + (q.hms && Math.abs(q.rep - Math.round(q.rep)) > 1e-9
+           ? ', soit ' + hms(q.sec) : '');
       z.appendChild(creer('p','verdict ' + (ok?'ok':'ko'),
-        ok ? 'Juste.' : 'Non : ' + sci(q.rep) + '\u00a0' + q.ub + '.'));
+        ok ? 'Juste' + (q.hms && Math.abs(q.rep-Math.round(q.rep))>1e-9
+             ? ' \u2014 soit ' + hms(q.sec) + '.' : '.')
+           : 'Non : ' + bonne + '.'));
       b.style.display='none'; i.disabled=true;
       var s = creer('button','bouton second',
         k+1 < serie.length ? 'Question suivante' : 'Voir le résultat');

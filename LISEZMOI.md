@@ -383,11 +383,26 @@ sert partout. Deux animations pour commencer :
   - **capacités** : le passage L ↔ m³ par le seul pont à retenir, `1 L = 1 dm³`, le cube de
     10 cm de côté ;
   - **unités composées** (m/s, L/min, g/cm³) : l'unité se lit à voix haute — « nombre de
-    mètres pour **une seule** seconde » — s'écrit en fraction, et on convertit le haut, puis
-    le bas, en rappelant qu'une puissance de dix qui remonte du dénominateur change de signe.
+    mètres pour **une seule** seconde » — s'écrit en fraction, puis on convertit le haut et le
+    bas. Le dénominateur tient en une ligne : l'équivalence, et rien de plus. Quand cette
+    conversion a son propre onglet — `1 cm³ = 10⁻⁶ m³`, `1 mL = 10⁻⁶ m³` — l'élève y est
+    renvoyé au lieu de se voir réexpliquer le cube et le pont `1 L = 1 dm³`. Pour les durées
+    non décimales (`1 h = 3600 s`, `1 min = 60 s`), l'équivalence est simplement rappelée.
 
-  Résultats en écriture scientifique, saisie acceptant `2,5 × 10^3` comme `2,5e3`, et dix
-  conversions au hasard pour s'entraîner.
+  - **durées** : un onglet à part, parce qu'il le faut. Le préambule le dit sans détour —
+    *au-dessus de la seconde, on n'est plus dans le système décimal* : plus de rang, plus de
+    puissance de dix, on multiplie ou on divise par 60, puis par 60, puis par 24. La seconde
+    est le point de passage obligé, comme `1 L = 1 dm³` l'est pour les capacités. Sous la
+    seconde, la méthode des rangs reprend ses droits et l'animation le dit. Le piège du
+    `51,15 min` y a son étape à lui : on lit 51,15, on écrit *51 min 15 s*, c'est faux —
+    `0,15 min × 60 = 9 s`, donc **51 min 9 s**. L'afficheur montre les deux écritures du même
+    instant côte à côte, et l'entraînement redonne la forme h-min-s à la correction.
+
+  Les gammes sont étendues : `GW MW kW W mW µW nW`, `MV kV V mV µV nV`, `MA kA A mA µA nA`,
+  `km … mm µm nm`, `kg … mg µg ng`, et un onglet **Condensateurs** `F mF µF nF pF` — le seul
+  endroit où le pico serve. Il s'appelle ainsi, et non « Capacité », pour ne pas être confondu
+  avec l'onglet des litres et des mètres cubes. Résultats en écriture scientifique, saisie acceptant
+  `2,5 × 10^3` comme `2,5e3`, et dix conversions au hasard pour s'entraîner.
 - `animations/transformer-formule.html` — douze relations du programme, une lettre à isoler,
   et **deux colonnes côte à côte** : la méthode « équation » (multiplier ou diviser les deux
   côtés, avec les simplifications barrées) et la méthode « produit en croix » (chaque lettre
