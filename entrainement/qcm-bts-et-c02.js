@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-et",
  "num": "2",
+ "cle": "c02",
+ "etiquette": "Cours 2",
  "titre": "Électromagnétisme",
  "niveau": "BTS ET",
  "prerequis": [

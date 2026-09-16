@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-et",
  "num": "101",
+ "cle": "adm01",
+ "etiquette": "ADM 1",
  "titre": "Schémas électriques et appareillage de commande",
  "niveau": "BTS ET",
  "prerequis": [

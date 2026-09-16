@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "9",
+ "cle": "ch09",
+ "etiquette": "Chapitre 9",
  "titre": "Le transformateur",
  "niveau": "BTS CRSA",
  "prerequis": [

@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "7",
+ "cle": "ch07",
+ "etiquette": "Chapitre 7",
  "titre": "Distribution triphasée",
  "niveau": "BTS CRSA",
  "prerequis": [

@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-et",
  "num": "1",
+ "cle": "tp01",
+ "etiquette": "TP 1",
  "titre": "Notions fondamentales d'électricité",
  "niveau": "BTS ET",
  "prerequis": [

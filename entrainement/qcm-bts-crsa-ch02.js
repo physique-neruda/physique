@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "2",
+ "cle": "ch02",
+ "etiquette": "Chapitre 2",
  "titre": "Conversion et stockage de l'énergie",
  "niveau": "BTS CRSA",
  "prerequis": [

@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "11",
+ "cle": "ch11",
+ "etiquette": "Chapitre 11",
  "titre": "Hacheur série et onduleur",
  "niveau": "BTS CRSA",
  "prerequis": [

@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "4",
+ "cle": "ch04",
+ "etiquette": "Chapitre 4",
  "titre": "Mécanique du solide",
  "niveau": "BTS CRSA",
  "prerequis": [

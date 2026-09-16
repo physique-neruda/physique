@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-et",
  "num": "1",
+ "cle": "c01",
+ "etiquette": "Cours 1",
  "titre": "Énergie interne et transferts thermiques",
  "niveau": "BTS ET",
  "prerequis": [

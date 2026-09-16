@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-et",
  "num": "2",
+ "cle": "tp02",
+ "etiquette": "TP 2",
  "titre": "Dipôles passifs et actifs",
  "niveau": "BTS ET",
  "prerequis": [

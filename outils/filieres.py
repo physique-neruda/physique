@@ -246,6 +246,16 @@ ANIMATIONS = {
                    "verrouillage.",
          "motscles": ["etoile triangle", "couplage", "temporisation", "verrouillage",
                       "temps mort", "courant de demarrage", "moteur asynchrone"]},
+        {"chapitre": "adm01", "rubrique": "ADM", "avant": None, "type": "anki",
+         "titre": "Les symboles — paquet Anki",
+         "fichier": "docs/bts-et/adm01/symboles-anki.apkg",
+         "description": "Quarante cartes à installer dans Anki : au recto le symbole "
+                        "normalisé, au verso le nom de l'appareil, son rôle, son "
+                        "fonctionnement et une photo du matériel réel. Fichier à ouvrir "
+                        "avec Anki, qui l'importe tout seul.",
+         "trouve": "Un symbole se reconnaît d'un coup d'œil, ou il ne sert à rien.",
+         "motscles": ["symbole", "anki", "cartes", "appareillage", "contacteur",
+                      "sectionneur", "relais thermique", "bouton poussoir"]},
         {"chapitre": "c02", "rubrique": "Cours", "avant": "a3_circuit",
          "titre": "Le circuit magnétique", "fichier": "animations/reluctance.html",
          "description": "Un circuit ferromagnétique avec entrefer réglable : on voit la "

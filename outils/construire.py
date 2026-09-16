@@ -217,7 +217,9 @@ def construire(filiere, racine, sortie):
                     ).get("prerequis") or []
                 except ValueError:
                     anciens = []
-        data = {"filiere": filiere, "num": info["num"], "titre": titre,
+        data = {"filiere": filiere, "num": info["num"],
+                "cle": ch, "etiquette": info["titre"].split("\u2014")[0].strip(),
+                "titre": titre,
                 "niveau": NIVEAUX[filiere], "prerequis": anciens,
                 "bilan": bilan, "cartes": cartes}
         entete = (f"/* Engendré par outils/construire.py — ne pas éditer à la main.\n"

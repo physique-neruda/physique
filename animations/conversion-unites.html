@@ -442,22 +442,21 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
   }
 
   // -- capacités : on passe toujours par 1 L = 1 dm³
-  // Le pont 1 L = 1 dm³ n'est pas un décor : c'est la route. On ne passe par
-  // le mètre cube que s'il est l'une des deux unités demandées.
+  // Le pont 1 L = 1 dm³ n'est pas un décor : c'est la route, et on la suit
+  // dans l'ordre. cL, puis L, donc dm³, puis mm³ — l'unité d'arrivée n'est
+  // jamais « exprimée en dm³ », elle est atteinte depuis le dm³.
   function versPont(x){
-    // exposant de l'unité par rapport au couple L = dm³
     return x.fam === 'litre' ? x.rang : (x.rang + 1) * 3;
   }
-  function chaine(a, b, ea, eb, memeFamille){
-    var h = '<div class="chaine"><span class="case">' + a.t + '</span>';
-    h += '<span class="fleche">\u2192<s>\u00d7 '
-       + puiss(memeFamille ? ea - eb : ea) + '</s></span>';
-    if(!memeFamille){
-      h += '<span class="case pivot">L = dm\u00b3</span>';
-      h += '<span class="fleche">\u2192<s>\u00d7 ' + puiss(-eb) + '</s></span>';
-      h += '<span class="case">' + b.t + '</span>';
-    }else{
-      h += '<span class="case">' + b.t + '</span>';
+  // le schéma de la route, en cases et en flèches
+  function schema(etapes){
+    var h = '<div class="chaine">';
+    for(var i = 0; i < etapes.length; i++){
+      if(i) h += '<span class="fleche">' + (etapes[i].par === '1' ? '=' : '\u2192')
+              + '<s>' + (etapes[i].par === '1' ? 'le pont'
+                         : '\u00d7 ' + etapes[i].par) + '</s></span>';
+      h += '<span class="case' + (etapes[i].pivot ? ' pivot' : '') + '">'
+         + etapes[i].t + '</span>';
     }
     return h + '</div>';
   }
@@ -465,52 +464,80 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
   function capacite(v, r, a, b){
     var ea = versPont(a), eb = versPont(b);
     var meme = a.fam === b.fam;
+    var etapes, n = ea - eb;
 
-    pas('Le pont, et il n\u2019y en a qu\u2019un : <b>1\u00a0L = 1\u00a0dm\u00b3</b>.</b> '
-      + 'Un litre, c\u2019est le cube de 10\u00a0cm de côté \u2014 la brique de lait. '
-      + (meme ? 'Ici les deux unités sont de la même famille : on n\u2019a même pas '
-                + 'besoin de le traverser.'
-              : 'C\u2019est par là qu\u2019on passe, et par là seulement \u2014 '
-                + 'inutile de faire un détour par le mètre cube.')
-      + chaine(a, b, ea, eb, meme), 'pont');
-
-    // situer chaque unité par rapport au pont, jamais par rapport au m³
-    function situe(x, e){
-      if(x.fam === 'litre'){
-        return x.rang === 0
-          ? '1\u00a0L, c\u2019est le pont lui-même.'
-          : '1\u00a0' + x.t + ' : ' + nomPrefixe(x.rang) + ', rang ' + ent(x.rang)
-            + ' \u2192 1\u00a0' + x.t + ' = ' + puiss(e) + '\u00a0L';
-      }
-      if(x.rang === -1) return '1\u00a0dm\u00b3, c\u2019est le pont lui-même.';
-      var dr = x.rang - (-1);   // écart de rang entre ce préfixe et le déci
-      return '1\u00a0' + x.t + ' : de ' + (x.rang === 0 ? 'l\u2019unité' : nomPrefixe(x.rang))
-        + ' à déci, ' + Math.abs(dr) + ' rang' + (Math.abs(dr) > 1 ? 's' : '')
-        + ' \u2192 ' + puiss(dr) + ', et c\u2019est un volume : (' + puiss(dr)
-        + ')\u00b3 = ' + puiss(e) + '<br>donc 1\u00a0' + x.t + ' = ' + puiss(e)
-        + '\u00a0dm\u00b3';
+    if(meme){
+      etapes = [{t:a.t}, {t:b.t, par:puiss(n)}];
+    }else if(a.fam === 'litre'){
+      // cL → L, donc dm³, → mm³
+      etapes = [{t:a.t}, {t:'L', par:puiss(ea)}, {t:'dm\u00b3', par:'1', pivot:true},
+                {t:b.t, par:puiss(-eb)}];
+    }else{
+      // cm³ → dm³, donc L, → cL
+      etapes = [{t:a.t}, {t:'dm\u00b3', par:puiss(ea), pivot:true},
+                {t:'L', par:'1'}, {t:b.t, par:puiss(-eb)}];
     }
-    pas('Situer chaque unité par rapport au pont.</b>'
-      + '<span class="calc">' + situe(a, ea) + '<br><br>' + situe(b, eb) + '</span>');
 
-    var n = ecart(ea, eb);
-    controle(a.t, b.t, n);
-    resultat(v, r, a, b, n);
-  }
+    pas('La route, et le pont qui la coupe en deux : <b>1\u00a0L = 1\u00a0dm\u00b3</b>.</b> '
+      + 'Un litre, c\u2019est le cube de 10\u00a0cm de côté \u2014 la brique de lait. '
+      + (meme ? 'Ici les deux unités sont de la même famille : le pont ne sert pas.'
+              : 'On suit les cases dans l\u2019ordre, et le mètre cube n\u2019a rien à '
+                + 'faire dans l\u2019histoire tant qu\u2019on ne le demande pas.')
+      + schema(etapes), 'pont');
 
-  // -- durées : deux mondes, et la seconde entre les deux
-  function hms(sec){
-    var neg = sec < 0; sec = Math.abs(sec);
-    var j = Math.floor(sec/86400); sec -= j*86400;
-    var h = Math.floor(sec/3600);  sec -= h*3600;
-    var m = Math.floor(sec/60);    sec -= m*60;
-    var s2 = Math.round(sec*1000)/1000;
-    var out = [];
-    if(j) out.push(j + ' j');
-    if(h) out.push(h + ' h');
-    if(m) out.push(m + ' min');
-    if(s2 || !out.length) out.push(String(s2).replace('.',',') + ' s');
-    return (neg ? '\u2212' : '') + out.join(' ');
+    // les étapes de la route, une par flèche
+    var lignes = [], val = ecrire(v);
+    function rangEntre(r1, r2){   // écart de rang entre deux préfixes de longueur
+      return r1 - r2;
+    }
+    if(meme){
+      if(a.fam === 'litre'){
+        lignes.push('de ' + a.t + ' à ' + b.t + ' : ' + Math.abs(n) + ' rang'
+          + (Math.abs(n) > 1 ? 's' : '') + ' \u2192 \u00d7 ' + puiss(n));
+      }else{
+        var dr = a.rang - b.rang;
+        lignes.push('de ' + a.t + ' à ' + b.t + ' : ' + Math.abs(dr) + ' rang'
+          + (Math.abs(dr) > 1 ? 's' : '') + ', et c\u2019est un volume \u2192 ('
+          + puiss(dr) + ')\u00b3 = ' + puiss(n));
+      }
+    }else if(a.fam === 'litre'){
+      lignes.push('<b>1.</b> ' + a.t + ' \u2192 L : ' + (a.rang === 0
+        ? 'on y est déjà'
+        : nomPrefixe(a.rang) + ', rang ' + ent(a.rang) + ' \u2192 \u00d7 ' + puiss(ea)));
+      lignes.push('<b>2.</b> le pont : ' + val
+        + (ea ? ' \u00d7 ' + puiss(ea) : '') + '\u00a0L, <b>donc autant de dm\u00b3</b>');
+      var db = b.rang - (-1);
+      lignes.push('<b>3.</b> dm\u00b3 \u2192 ' + b.t + ' : ' + (b.rang === -1
+        ? 'on y est déjà'
+        : 'de déci à ' + (b.rang === 0 ? 'l\u2019unité' : nomPrefixe(b.rang)) + ', '
+          + Math.abs(db) + ' rang' + (Math.abs(db) > 1 ? 's' : '')
+          + ', et c\u2019est un volume \u2192 (' + puiss(-db) + ')\u00b3 = '
+          + puiss(-eb) + ' \u2192 \u00d7 ' + puiss(-eb)));
+    }else{
+      var da = a.rang - (-1);
+      lignes.push('<b>1.</b> ' + a.t + ' \u2192 dm\u00b3 : ' + (a.rang === -1
+        ? 'on y est déjà'
+        : 'de ' + (a.rang === 0 ? 'l\u2019unité' : nomPrefixe(a.rang)) + ' à déci, '
+          + Math.abs(da) + ' rang' + (Math.abs(da) > 1 ? 's' : '')
+          + ', et c\u2019est un volume \u2192 (' + puiss(da) + ')\u00b3 = '
+          + puiss(ea) + ' \u2192 \u00d7 ' + puiss(ea)));
+      lignes.push('<b>2.</b> le pont : ' + val
+        + (ea ? ' \u00d7 ' + puiss(ea) : '') + '\u00a0dm\u00b3, <b>donc autant de L</b>');
+      lignes.push('<b>3.</b> L \u2192 ' + b.t + ' : ' + (b.rang === 0
+        ? 'on y est déjà'
+        : nomPrefixe(b.rang) + ', rang ' + ent(b.rang) + ' \u2192 \u00d7 '
+          + puiss(-eb)));
+    }
+    pas('Suivre la route, case par case.</b>'
+      + '<span class="calc">' + lignes.join('<br>') + '</span>');
+
+    pas('Rassembler : les puissances de dix s\u2019ajoutent.</b>'
+      + '<span class="calc">' + (meme ? puiss(n)
+        : puiss(ea) + ' \u00d7 ' + puiss(-eb) + ' = ' + puiss(n))
+      + '<br>' + val + '\u00a0' + a.t + ' = ' + val + ' \u00d7 ' + puiss(n)
+      + ' = <b>' + sci(r) + '\u00a0' + b.t + '</b></span>');
+
+    controle(a.t, b.t, n, true);
   }
 
   function duree(v, r, a, b){
@@ -578,6 +605,20 @@ l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe
     }
 
     controle(a.t, b.t, a.k > b.k ? 1 : -1, true);
+  }
+
+  // Les conversions qui ont leur propre onglet ne sont jamais redémontrées ici :
+  // on donne l'équivalence, et on renvoie vers l'onglet.
+  var VOLUMES = ['m\u00b3', 'dm\u00b3', 'cm\u00b3', 'mm\u00b3', 'L', 'dL', 'cL', 'mL'];
+  function onglet(u){
+    if(VOLUMES.indexOf(u) >= 0) return 'Capacités';
+    if(['ms', '\u00b5s', 'ns'].indexOf(u) >= 0) return 'Temps';
+    return null;
+  }
+  function renvoi(u){
+    var o = onglet(u);
+    return o ? ' <em>Le détail de cette conversion est dans l\u2019onglet <b>'
+               + o + '</b>.</em>' : '';
   }
 
   // Trois étapes, pas une de plus : mettre en fraction, convertir en haut et

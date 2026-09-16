@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "8",
+ "cle": "ch08",
+ "etiquette": "Chapitre 8",
  "titre": "Corrosion, risques chimiques et acoustiques",
  "niveau": "BTS CRSA",
  "prerequis": [

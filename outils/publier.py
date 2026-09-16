@@ -91,16 +91,16 @@ def entrainement(site, fil, ch, num):
     out = []
     if data.get("prerequis"):
         out.append(("qcm", "Prérequis — se tester avant",
-                    f"entrainement/qcm.html?f={fil}&ch={num}&type=prerequis",
+                    f"entrainement/qcm.html?f={fil}&ch={ch}&type=prerequis",
                     f"{len(data['prerequis'])} questions pour vérifier les acquis "
                     "avant d'ouvrir le chapitre."))
     if data.get("bilan"):
         out.append(("qcm", "Bilan — se tester après",
-                    f"entrainement/qcm.html?f={fil}&ch={num}&type=bilan",
+                    f"entrainement/qcm.html?f={fil}&ch={ch}&type=bilan",
                     f"{len(data['bilan'])} questions sur tout le chapitre."))
     if data.get("cartes"):
         out.append(("cartes", "Cartes de révision",
-                    f"entrainement/cartes.html?f={fil}&ch={num}",
+                    f"entrainement/cartes.html?f={fil}&ch={ch}",
                     f"{len(data['cartes'])} cartes recto-verso. Une question, on répond "
                     "dans sa tête, on retourne."))
     return out
@@ -125,7 +125,8 @@ def bloc(site):
                 for a in anims:
                     if a.get("avant") == doc:
                         entrees.append(dict(rubrique=forcee or a["rubrique"],
-                                            type="animation", titre=a["titre"],
+                                            type=a.get("type", "animation"),
+                                            titre=a["titre"],
                                             fichier=a["fichier"], description=a["description"],
                                             trouve=a.get("trouve"),
                                             motscles=a.get("motscles") or info["motscles"]))
@@ -138,7 +139,8 @@ def bloc(site):
                                     motscles=info["motscles"]))
             for a in anims:
                 if a.get("avant") is None:
-                    entrees.append(dict(rubrique=forcee or a["rubrique"], type="animation",
+                    entrees.append(dict(rubrique=forcee or a["rubrique"],
+                                        type=a.get("type", "animation"),
                                         titre=a["titre"], fichier=a["fichier"],
                                         description=a["description"], trouve=a.get("trouve"),
                                         motscles=a.get("motscles") or info["motscles"]))
