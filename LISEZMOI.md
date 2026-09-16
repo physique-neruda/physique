@@ -573,3 +573,37 @@ Les cinq animations livrées avec ces archives portaient de nouveau un niveau da
 leur lien « Toutes les animations », conformément à la règle posée le 10 septembre.
 
 **Le site** : 660 entrées au catalogue, 466 PDF, 16 animations, 1101 questions, 840 cartes.
+
+
+### Les cartes de l'ADM viennent du paquet, pas du cours
+
+Le chapitre ADM 1 est livré avec un paquet Anki de **51 cartes écrites à la main** : un symbole
+normalisé au recto, le nom de l'appareil, son intérêt, son fonctionnement et une photo du
+matériel réel au verso. Les refabriquer depuis le cours donnerait autre chose. `cartes_anki.py`
+lit donc le `.apkg` — une archive zip contenant une base SQLite et ses médias numérotés — et
+recopie les cartes telles quelles, images comprises :
+
+```sh
+python3 outils/cartes_anki.py <paquet.apkg> bts-et adm01 entrainement \
+        ../docs/bts-et/adm01/symboles-anki.apkg
+```
+
+Les 86 images sont déposées dans `entrainement/media/adm01/`. Le fichier de données reçoit
+`cartes_figees: true` : `construire.py` et `refaire_cartes.py` respectent ce drapeau et ne
+reconstruisent plus les cartes de ce chapitre. Et le bouton de la page cartes ne fabrique plus
+un texte tabulé — il donne **le paquet lui-même**, qui seul emporte les images.
+
+Ce sont donc exactement les mêmes cartes des deux côtés : sur le site pour réviser au doigt,
+dans Anki pour la répétition espacée.
+
+### Une panne silencieuse corrigée
+
+Les liens de la rubrique *S'entraîner* étaient construits sur le **numéro** du chapitre. Au
+CRSA et en STI2D, numéro et clé coïncident ; au BTS ET, `Cours 1` et `TP 1` portent tous deux
+le numéro 1, et l'adresse cherchait `qcm-bts-et-ch01.js`, qui n'existe pas. **Toute la rubrique
+S'entraîner du BTS ET était morte**, sans message d'erreur visible dans le catalogue.
+
+`publier.py` passe désormais la **clé** du chapitre (`ch=c01`, `ch=adm01`), et `qcm.html` comme
+`cartes.html` l'acceptent — les anciennes adresses numérotées restent valides. Les fichiers de
+données portent en plus une `etiquette` (« Cours 1 », « ADM 1 ») affichée en en-tête à la place
+de « Chapitre 1 ».

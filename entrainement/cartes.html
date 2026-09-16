@@ -64,6 +64,9 @@ header .genre{margin:6px 0 0;color:var(--gris);font-size:.9rem}
 .bouton.second:hover{background:#E4EDF4}
 .bouton.su{background:var(--juste)}      .bouton.su:hover{background:#0A5C38}
 .bouton.pas{background:var(--orange)}  .bouton.pas:hover{background:#B2600F}
+.face img,.dos img{max-width:100%;height:auto;display:block;margin:10px auto;background:#fff;
+  border-radius:6px;padding:4px}
+.face .sujet,.dos .sujet{display:block;font-size:.9rem;color:var(--gris);margin-bottom:6px}
 .aide{max-width:34em;margin:14px auto 0;font-size:.92rem;line-height:1.5;text-align:center}
 
 .score{background:var(--panneau);border:1px solid var(--bord);border-top:5px solid var(--orange);
@@ -194,15 +197,24 @@ table th{background:#E4EDF4;color:var(--bleu)}
     var l = creer('a','bouton second','Faire le bilan du chapitre');
     l.href = 'qcm.html?f=' + fil + '&ch=' + cle + '&type=bilan';
     act2.appendChild(l);
-    var b3 = creer('button','bouton second','Télécharger pour Anki');
-    b3.type='button'; b3.onclick = anki;
-    act2.appendChild(b3);
+    if(chap.anki_paquet){
+      var a3 = creer('a','bouton second','Télécharger le paquet Anki');
+      a3.href = chap.anki_paquet;
+      act2.appendChild(a3);
+    }else{
+      var b3 = creer('button','bouton second','Télécharger pour Anki');
+      b3.type='button'; b3.onclick = anki;
+      act2.appendChild(b3);
+    }
     zone.appendChild(act2);
     zone.appendChild(creer('p','vide aide',
-      'Le fichier téléchargé s\u2019ouvre dans Anki par <em>Fichier &rsaquo; '
-      + 'Importer</em>. Les cartes arrivent dans un paquet au nom du chapitre. '
-      + 'Rien n\u2019est envoyé nulle part : le fichier se fabrique dans le '
-      + 'téléphone.'));
+      chap.anki_paquet
+        ? 'Ce sont les mêmes cartes que sur cette page, avec leurs images. Le '
+          + 'fichier s\u2019ouvre directement dans Anki, qui l\u2019importe tout seul.'
+        : 'Le fichier téléchargé s\u2019ouvre dans Anki par <em>Fichier &rsaquo; '
+          + 'Importer</em>. Les cartes arrivent dans un paquet au nom du chapitre. '
+          + 'Rien n\u2019est envoyé nulle part : le fichier se fabrique dans le '
+          + 'téléphone.'));
   }
 
   // ------------------------------------------------------------- export Anki

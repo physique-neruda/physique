@@ -55,6 +55,8 @@ def refaire(chemin):
     j = brut.rindex("}") + 1
     d = json.loads(brut[i:j])
     avant = len(d.get("cartes") or [])
+    if d.get("cartes_figees"):
+        return avant, avant          # cartes venues d'un paquet : on n'y touche pas
 
     cartes, vus = [], set()
 

@@ -888,7 +888,7 @@ const DOCUMENTS = [
     chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=adm01",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "51 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
   },
 
