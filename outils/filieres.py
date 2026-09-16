@@ -80,6 +80,8 @@ DOCUMENTS = {
          "L'activité de découverte, à faire en salle de TP."),
         ("activite_anim",     "TP",    "Activité sur animation",
          "La même étude, menée sur une animation : aucun matériel nécessaire."),
+        ("activite_banc",     "TP",    "Activité sur banc",
+         "La même étude menée sur le banc du laboratoire, avec le matériel réel."),
         ("ccf",               "TP",    "Situation type CCF",
          "Un sujet d'entraînement au format de l'évaluation en cours de formation."),
         ("oral",              "TP",    "Oral — sujet d'entraînement",
@@ -145,11 +147,14 @@ DOCUMENTS = {
     ],
 }
 
+# Le fil ADM n'a pas de sujet type E4 : l'ADM est une épreuve pratique, et la
+# situation U51 en tient lieu. Ses documents sont les mêmes, la rubrique change.
+
 # Chapitres dont TOUS les documents basculent dans une autre rubrique que
 # celle déclarée ci-dessus. Le fil « TP élec » du BTS ET est un fil complet
 # de chapitres : ses documents sont les mêmes, la rubrique change.
 RUBRIQUE_DU_CHAPITRE = {
-    "bts-et": {"tp01": "TP", "tp02": "TP", "ch09": "TP"},
+    "bts-et": {"tp01": "TP", "tp02": "TP", "ch09": "TP", "adm01": "ADM"},
 }
 
 # Titre affiché différent pour un document précis d'un chapitre précis.
@@ -204,6 +209,43 @@ ANIMATIONS = {
          "trouve": "e = −N·dΦ/dt",
          "motscles": ["electromagnetisme", "flux magnetique", "induction", "reluctance",
                       "circuit magnetique"]},
+        {"chapitre": "tp02", "rubrique": "TP", "avant": "activite",
+         "titre": "Le relevé de caractéristiques",
+         "fichier": "animations/caracteristiques.html",
+         "description": "Le montage ne change jamais, c'est le dipôle qu'on remplace : "
+                        "résistance, lampe à filament, diode, pile réelle. Le curseur déplace "
+                        "le point de fonctionnement, les appareils affichent le couple (U ; I), "
+                        "et un bouton range chaque point dans un tableau. La diode peut être "
+                        "inversée.",
+         "trouve": "Une caractéristique n'est droite que pour un conducteur ohmique.",
+         "motscles": ["dipole", "caracteristique", "resistance", "lampe", "diode", "pile",
+                      "point de fonctionnement", "ohm"]},
+        {"chapitre": "adm01", "rubrique": "ADM", "avant": "activite",
+         "titre": "Le contacteur", "fichier": "animations/contacteur.html",
+         "description": "Une coupe animée du contacteur : bobine, armature mobile, trois pôles "
+                        "de puissance et deux contacts auxiliaires. Tension de bobine réglable ; "
+                        "tous les contacts basculent ensemble et le ressort ramène tout au repos.",
+         "trouve": "Le fonctionnement tout ou rien, et la différence pôles / contacts auxiliaires.",
+         "motscles": ["contacteur", "bobine", "electro-aimant", "armature", "ressort",
+                      "contact auxiliaire", "pole", "tout ou rien"]},
+        {"chapitre": "adm01", "rubrique": "ADM", "avant": "exercices",
+         "titre": "Le démarrage direct", "fichier": "animations/demarrage-direct.html",
+         "description": "Les huit solutions du départ-moteur, de l'interrupteur nu au schéma "
+                        "complet. On appuie sur marche et arrêt, on coupe le réseau, on frappe "
+                        "l'arrêt d'urgence, on provoque une surcharge : les conducteurs sous "
+                        "tension s'allument en rouge.",
+         "trouve": "L'automaintien, la priorité à l'arrêt, et ce que disent les voyants.",
+         "motscles": ["demarrage direct", "automaintien", "bouton poussoir", "arret d'urgence",
+                      "relais thermique", "sectionneur", "voyant", "schema de commande"]},
+        {"chapitre": "adm01", "rubrique": "ADM", "avant": "u51",
+         "titre": "Le démarrage étoile-triangle", "fichier": "animations/etoile-triangle.html",
+         "description": "Les trois contacteurs, la temporisation réglable et le temps mort. La "
+                        "courbe trace le courant absorbé ; on peut supprimer le verrouillage "
+                        "pour voir ce qui se passe quand étoile et triangle se ferment ensemble.",
+         "trouve": "Pourquoi le courant de démarrage est divisé par trois, et à quoi sert le "
+                   "verrouillage.",
+         "motscles": ["etoile triangle", "couplage", "temporisation", "verrouillage",
+                      "temps mort", "courant de demarrage", "moteur asynchrone"]},
         {"chapitre": "c02", "rubrique": "Cours", "avant": "a3_circuit",
          "titre": "Le circuit magnétique", "fichier": "animations/reluctance.html",
          "description": "Un circuit ferromagnétique avec entrefer réglable : on voit la "
@@ -233,6 +275,16 @@ ANIMATIONS = {
          "trouve": "Une mesure ne se conclut qu'en comparant un intervalle à une tolérance.",
          "motscles": ["pied a coulisse", "vernier", "mesure", "incertitude", "tolerance",
                       "dispersion"]},
+        {"chapitre": "ch05", "rubrique": "TP", "avant": "activite_anim",
+         "titre": "Viscosimètre capillaire virtuel",
+         "fichier": "animations/viscosimetre.html",
+         "description": "Une huile inconnue, un tube capillaire, un bain thermostaté : on "
+                        "chronomètre l'écoulement, on remonte à la viscosité cinématique, et "
+                        "on identifie le grade ISO VG du bidon. Ni banc, ni solvant, ni "
+                        "nettoyage.",
+         "trouve": "La viscosité chute vite avec la température : un grade ne se lit qu'à 40 °C.",
+         "motscles": ["viscosite", "viscosimetre", "capillaire", "iso vg", "huile",
+                      "temperature", "ecoulement"]},
         {"chapitre": "ch02", "rubrique": "TP", "avant": None,
          "titre": "Treuil virtuel 24 V", "fichier": "animations/treuil.html",
          "description": "Un treuil lève une masse réglable : voltmètre, ampèremètre et "
@@ -295,4 +347,4 @@ SOURCES = {
 
 # Correspondance clé du site -> dossier dans la collection ET.
 DOSSIERS_ET = {"ch00": "ch00", "ch09": "ch09", "c01": "C1", "c02": "C2",
-               "tp01": "TP1", "tp02": "TP2"}
+               "tp01": "TP1", "tp02": "TP2", "adm01": "ADM1"}

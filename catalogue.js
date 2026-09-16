@@ -664,6 +664,16 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "TP",
     chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "animation", titre: "Le relevé de caractéristiques",
+    fichier: "animations/caracteristiques.html",
+    description: "Le montage ne change jamais, c'est le dipôle qu'on remplace : résistance, lampe à filament, diode, pile réelle. Le curseur déplace le point de fonctionnement, les appareils affichent le couple (U ; I), et un bouton range chaque point dans un tableau. La diode peut être inversée.",
+    trouve: "Une caractéristique n'est droite que pour un conducteur ohmique.",
+    motscles: ["dipole", "caracteristique", "resistance", "lampe", "diode", "pile", "point de fonctionnement", "ohm"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
     type: "pdf", titre: "Activité documentaire",
     fichier: "docs/bts-et/tp02/activite.pdf",
     description: "Exploitation de documents techniques, après le cours.",
@@ -749,6 +759,127 @@ const DOCUMENTS = [
     fichier: "entrainement/cartes.html?f=bts-et&ch=2",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/adm01/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/adm01/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/adm01/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "animation", titre: "Le contacteur",
+    fichier: "animations/contacteur.html",
+    description: "Une coupe animée du contacteur : bobine, armature mobile, trois pôles de puissance et deux contacts auxiliaires. Tension de bobine réglable ; tous les contacts basculent ensemble et le ressort ramène tout au repos.",
+    trouve: "Le fonctionnement tout ou rien, et la différence pôles / contacts auxiliaires.",
+    motscles: ["contacteur", "bobine", "electro-aimant", "armature", "ressort", "contact auxiliaire", "pole", "tout ou rien"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/adm01/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "animation", titre: "Le démarrage direct",
+    fichier: "animations/demarrage-direct.html",
+    description: "Les huit solutions du départ-moteur, de l'interrupteur nu au schéma complet. On appuie sur marche et arrêt, on coupe le réseau, on frappe l'arrêt d'urgence, on provoque une surcharge : les conducteurs sous tension s'allument en rouge.",
+    trouve: "L'automaintien, la priorité à l'arrêt, et ce que disent les voyants.",
+    motscles: ["demarrage direct", "automaintien", "bouton poussoir", "arret d'urgence", "relais thermique", "sectionneur", "voyant", "schema de commande"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/adm01/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "animation", titre: "Le démarrage étoile-triangle",
+    fichier: "animations/etoile-triangle.html",
+    description: "Les trois contacteurs, la temporisation réglable et le temps mort. La courbe trace le courant absorbé ; on peut supprimer le verrouillage pour voir ce qui se passe quand étoile et triangle se ferment ensemble.",
+    trouve: "Pourquoi le courant de démarrage est divisé par trois, et à quoi sert le verrouillage.",
+    motscles: ["etoile triangle", "couplage", "temporisation", "verrouillage", "temps mort", "courant de demarrage", "moteur asynchrone"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/adm01/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/adm01/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=101&type=prerequis",
+    description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=101&type=bilan",
+    description: "16 questions sur tout le chapitre.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=101",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
   },
 
 
@@ -2924,6 +3055,15 @@ const DOCUMENTS = [
   {
     filiere: "bts-tsma", rubrique: "TP",
     chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Activité sur banc",
+    fichier: "docs/bts-tsma/ch03/activite_banc.pdf",
+    description: "La même étude menée sur le banc du laboratoire, avec le matériel réel.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
     type: "pdf", titre: "Situation type CCF",
     fichier: "docs/bts-tsma/ch03/ccf.pdf",
     description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
@@ -3024,6 +3164,15 @@ const DOCUMENTS = [
   {
     filiere: "bts-tsma", rubrique: "TP",
     chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Activité sur banc",
+    fichier: "docs/bts-tsma/ch04/activite_banc.pdf",
+    description: "La même étude menée sur le banc du laboratoire, avec le matériel réel.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
     type: "pdf", titre: "Situation type CCF",
     fichier: "docs/bts-tsma/ch04/ccf.pdf",
     description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
@@ -3118,6 +3267,34 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch05/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "animation", titre: "Viscosimètre capillaire virtuel",
+    fichier: "animations/viscosimetre.html",
+    description: "Une huile inconnue, un tube capillaire, un bain thermostaté : on chronomètre l'écoulement, on remonte à la viscosité cinématique, et on identifie le grade ISO VG du bidon. Ni banc, ni solvant, ni nettoyage.",
+    trouve: "La viscosité chute vite avec la température : un grade ne se lit qu'à 40 °C.",
+    motscles: ["viscosite", "viscosimetre", "capillaire", "iso vg", "huile", "temperature", "ecoulement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Activité sur animation",
+    fichier: "docs/bts-tsma/ch05/activite_anim.pdf",
+    description: "La même étude, menée sur une animation : aucun matériel nécessaire.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Activité sur banc",
+    fichier: "docs/bts-tsma/ch05/activite_banc.pdf",
+    description: "La même étude menée sur le banc du laboratoire, avec le matériel réel.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
   },
 

@@ -380,8 +380,11 @@ sert partout. Deux animations pour commencer :
   deux. Le signe arrive en dernier, donné par la taille des unités.
   Trois cas particuliers y sont traités :
   - **aires et volumes** : `2 rangs → 10²`, puis `(10²)² = 10⁴` ;
-  - **capacités** : le passage L ↔ m³ par le seul pont à retenir, `1 L = 1 dm³`, le cube de
-    10 cm de côté ;
+  - **capacités** : le pont `1 L = 1 dm³` n'est pas un décor, c'est la **route**. Un schéma
+    en trois cases montre le chemin — `cL → L = dm³ → mm³` — et chaque unité est située par
+    rapport au pont, jamais par rapport au mètre cube, qui n'apparaît que s'il est lui-même
+    demandé. Quand les deux unités sont de la même famille, le schéma le dit et on ne
+    traverse pas ;
   - **unités composées** (m/s, L/min, g/cm³) : **trois étapes, pas une de plus**. Mettre sous
     forme de fraction — « 72 km pour 1 h, une seule » ; convertir le haut et le bas, une ligne
     chacun ; diviser. Quand les deux conversions sont des puissances de dix, la dernière étape
@@ -393,9 +396,11 @@ sert partout. Deux animations pour commencer :
 
   - **durées** : un onglet à part, parce qu'il le faut. Le préambule le dit sans détour —
     *au-dessus de la seconde, on n'est plus dans le système décimal* : plus de rang, plus de
-    puissance de dix, on multiplie ou on divise par 60, puis par 60, puis par 24. La seconde
-    est le point de passage obligé, comme `1 L = 1 dm³` l'est pour les capacités. Sous la
-    seconde, la méthode des rangs reprend ses droits et l'animation le dit. Le piège du
+    puissance de dix. On écrit alors l'équivalence entre **les deux unités demandées**
+    (`1 h = 60 min`, `1 j = 24 h`, `1 min = 60 000 ms`) et on conclut par un **tableau de
+    proportionnalité** à quatre cases. La seconde n'est plus un passage obligé : on n'y passe
+    que si on la demande. Sous la seconde, la méthode des rangs reprend ses droits et
+    l'animation le dit. Le piège du
     `51,15 min` y a son étape à lui : on lit 51,15, on écrit *51 min 15 s*, c'est faux —
     `0,15 min × 60 = 9 s`, donc **51 min 9 s**. L'afficheur montre les deux écritures du même
     instant côte à côte, et l'entraînement redonne la forme h-min-s à la correction.
@@ -537,3 +542,34 @@ Un seul fichier, deux rattachements.
 L'activité `docs/1sti2d/ch01/activite.pdf` a été remplacée par sa nouvelle version (les cinq
 parties A à E, la comparaison 1/10 contre 1/50, la décision de conformité). Le corrigé n'est
 pas publié, conformément à la liste blanche.
+
+
+---
+
+## Mise à jour du 16 septembre 2026
+
+**BTS TSMA, collection v3.** Les 18 chapitres redéposés (146 PDF). Quatre documents nouveaux :
+les **activités sur banc** des chapitres 3, 4 et 5, adossées au matériel Jeulin et Eurosmart,
+et une seconde activité sur animation au chapitre 5. Le type `activite_banc` est entré dans la
+liste blanche de `outils/filieres.py`, avec son propre libellé — il ne remplace pas
+`activite`, les deux coexistent. Nouvelle animation : `viscosimetre.html`, rattachée au
+chapitre 5, qui remplace le banc capillaire et ses bains thermostatés.
+
+**BTS ET, collection v2.** Redéposée, plus l'animation `caracteristiques.html` rattachée à
+l'activité du TP 2 — un montage unique où l'on remplace le dipôle, et un tableau de points
+(U ; I) qu'on remplit soi-même.
+
+**Le fil ADM entre sur le site.** Le chapitre *ADM 1 — Schémas électriques et appareillage de
+commande* est publié dans sa rubrique **ADM**, distincte de *Cours* et de *TP* : sept PDF
+(prérequis, cours et cours à compléter, activité, exercices, bilan, situation U51) et trois
+animations — `contacteur.html`, `demarrage-direct.html`, `etoile-triangle.html` — placées
+respectivement avant l'activité, avant les exercices et avant la situation U51. Pas de sujet
+type E4 : l'ADM est une épreuve pratique, la situation U51 en tient lieu. Son questionnaire de
+prérequis (six questions) est dans `outils/prerequis_et.py` avec les autres ; son bilan et ses
+quatorze cartes sortent de la collection comme partout ailleurs.
+
+Les cinq animations livrées avec ces archives portaient de nouveau un niveau dans leur titre
+(« BTS TSMA ch.5 », « TP 2 (BTS Électrotechnique) »). Elles ont été neutralisées et ont reçu
+leur lien « Toutes les animations », conformément à la règle posée le 10 septembre.
+
+**Le site** : 660 entrées au catalogue, 466 PDF, 16 animations, 1101 questions, 840 cartes.

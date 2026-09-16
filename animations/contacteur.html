@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le contacteur — paillasse virtuelle</title>
+<style>
+:root{--fond:#EDF1F4;--panneau:#FFFFFF;--bord:#C9D3DB;--encre:#16232D;--gris:#5C6C79;
+--bleu:#1B4E7D;--orange:#DD7A18;--rouge:#C0392B;--vert:#2E8B57;
+--lcd:#182530;--lcdtexte:#E9F3E6;--lcdvert:#7FD98A;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);font-size:16px;
+line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.1rem}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.25rem;color:var(--lcdvert)}
+.reglage{margin:14px 0 0}.reglage:first-child{margin-top:0}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:72px;min-height:44px;font:inherit;font-size:.86rem;
+border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.note{font-size:.85rem;color:var(--gris);margin:10px 0 0}
+.retour{display:inline-block;margin:14px 0 6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
+
+<h1>Le contacteur</h1>
+<p class="sous">Une coupe animée : la bobine, l'armature, les pôles de puissance et les contacts auxiliaires.</p>
+
+<div class="bloc">
+<canvas id="cv" width="660" height="450"></canvas>
+</div>
+
+<div class="bloc">
+<h2>Commande de la bobine</h2>
+<div class="choix">
+  <button id="bAlim" aria-pressed="false">Alimenter la bobine</button>
+</div>
+<div class="reglage">
+  <div class="ligne"><span>Tension appliquée à la bobine</span><b id="vU">0 V</b></div>
+  <input type="range" id="rU" min="0" max="30" step="1" value="24">
+</div>
+<p class="note">Le contacteur colle à partir d'environ 17 V et retombe en dessous d'environ 10 V : il n'existe aucune position intermédiaire stable. C'est le fonctionnement en <b>tout ou rien</b>.</p>
+</div>
+
+<div class="bloc">
+<h2>État des contacts</h2>
+<div class="lcd">
+  <div><div class="nom">Bobine A1-A2</div><div class="val" id="oB">0 V</div></div>
+  <div><div class="nom">Pôles 1-2 / 3-4 / 5-6</div><div class="val" id="oP">ouverts</div></div>
+  <div><div class="nom">Auxiliaire 13-14 (NO)</div><div class="val" id="oNO">ouvert</div></div>
+  <div><div class="nom">Auxiliaire 21-22 (NF)</div><div class="val" id="oNF">fermé</div></div>
+  <div class="large"><div class="nom">Moteur</div><div class="val" id="oM">à l'arrêt</div></div>
+</div>
+</div>
+
+<script>
+const cv=document.getElementById('cv'),cx=cv.getContext('2d');
+let alim=false,U=24,colle=false,y=0,cible=0;
+const bAlim=document.getElementById('bAlim'),rU=document.getElementById('rU');
+bAlim.onclick=()=>{alim=!alim;bAlim.setAttribute('aria-pressed',alim);bAlim.textContent=alim?'Couper la bobine':'Alimenter la bobine';};
+rU.oninput=()=>{U=+rU.value;document.getElementById('vU').textContent=U+' V';};
+document.getElementById('vU').textContent=U+' V';
+
+function logique(){
+  const u=alim?U:0;
+  if(!colle && u>=17) colle=true;
+  if(colle && u<10) colle=false;
+  cible=colle?18:0;
+  y+=(cible-y)*0.35;
+  document.getElementById('oB').textContent=u+' V';
+  document.getElementById('oP').textContent=colle?'FERMÉS':'ouverts';
+  document.getElementById('oNO').textContent=colle?'FERMÉ':'ouvert';
+  document.getElementById('oNF').textContent=colle?'OUVERT':'fermé';
+  document.getElementById('oM').textContent=colle?'tourne':"à l'arrêt";
+}
+function fil(x1,y1,x2,y2,ep,col){cx.beginPath();cx.lineWidth=ep;cx.strokeStyle=col;
+  cx.lineCap='round';cx.moveTo(x1,y1);cx.lineTo(x2,y2);cx.stroke();}
+function txt(t,x,yy,s,col,al){cx.font=(s||12)+'px '+getComputedStyle(document.body).fontFamily;
+  cx.fillStyle=col||'#16232D';cx.textAlign=al||'center';cx.fillText(t,x,yy);}
+
+function dessine(){
+  cx.clearRect(0,0,660,450);
+  const sous=alim&&U>0, actif=colle?'#C0392B':'#5C6C79';
+  // --- bobine (electro-aimant)
+  cx.strokeStyle=sous?'#C0392B':'#5C6C79';cx.lineWidth=2;
+  cx.strokeRect(40,150,70,110);
+  for(let i=0;i<5;i++) fil(40,162+i*22,110,162+i*22,2,sous?'#C0392B':'#5C6C79');
+  txt('bobine',75,282,13,'#16232D');
+  txt('A1',30,160,11,'#5C6C79'); txt('A2',30,258,11,'#5C6C79');
+  fil(75,150,75,120,1.5,sous?'#C0392B':'#5C6C79');
+  fil(75,260,75,290,1.5,sous?'#C0392B':'#5C6C79');
+  if(sous){txt(U+' V ~',75,112,13,'#C0392B');}
+  // --- champ magnetique
+  if(colle){
+    cx.setLineDash([4,4]);cx.strokeStyle='#DD7A18';cx.lineWidth=1.5;
+    cx.beginPath();cx.ellipse(75,205,48,78,0,0,6.3);cx.stroke();cx.setLineDash([]);
+    txt('électro-aimant',75,308,12,'#DD7A18');
+  }
+  // --- armature mobile
+  const ya=120+y;
+  fil(50,ya,620,ya,7,actif);
+  txt('armature mobile',330,ya-14,13,actif);
+  // --- ressort
+  cx.strokeStyle='#5C6C79';cx.lineWidth=2;cx.beginPath();
+  for(let i=0;i<=16;i++){const yy=60+i*(ya-60-8)/16;cx.lineTo(150+(i%2?10:-10),yy);}
+  cx.stroke();
+  fil(150,52,150,60,2,'#5C6C79');
+  txt('ressort de rappel',150,44,12,'#5C6C79');
+  // --- contacts : x, libelle, NO ? , puissance ?
+  const ouv = 1 - y/18;              // 0 = armature en bas, 1 = au repos
+  const cts=[[250,'1-2',1,1],[300,'3-4',1,1],[350,'5-6',1,1],[450,'13-14',1,0],[545,'21-22',0,0]];
+  cts.forEach(([x,lab,no,puiss])=>{
+    const ferme = no? colle : !colle;
+    const ec = no? ouv : 1-ouv;      // écartement de la lame
+    const ep = puiss?4:2.5;
+    const col = ferme? (puiss?'#C0392B':'#1B4E7D') : '#9AA8B2';
+    fil(x,ya+8,x,300,1,'#C9D3DB');                     // liaison à l'armature
+    cx.setLineDash([3,3]); fil(x,300,x,336,1,'#5C6C79'); cx.setLineDash([]);
+    fil(x,336,x,352,ep,col);                            // partie fixe
+    fil(x,400,x+ec*17,352+ec*13,ep,col);                // lame mobile
+    fil(x,404,x,414,ep,col);
+    txt(lab,x,428,11,'#5C6C79');
+    txt(ferme?'fermé':'ouvert',x,328,11,ferme?col:'#9AA8B2');
+  });
+  txt('pôles de puissance',300,52,13,'#16232D');
+  fil(250,58,350,58,1,'#C9D3DB');
+  txt('contacts auxiliaires',500,52,13,'#16232D');
+  fil(450,58,545,58,1,'#C9D3DB');
+}
+function boucle(){logique();dessine();requestAnimationFrame(boucle);}
+boucle();
+</script>
+</body>
+</html>
