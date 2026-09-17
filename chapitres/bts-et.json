@@ -55,5 +55,22 @@
    "source",
    "caracteristique"
   ]
+ },
+ "adm01": {
+  "num": "101",
+  "titre": "ADM 1 — Schémas électriques et appareillage de commande",
+  "motscles": [
+   "schema electrique",
+   "contacteur",
+   "relais",
+   "demarrage direct",
+   "etoile triangle",
+   "automaintien",
+   "sectionneur",
+   "relais thermique",
+   "u51",
+   "adm",
+   "appareillage"
+  ]
  }
 }

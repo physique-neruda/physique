@@ -380,14 +380,36 @@ sert partout. Deux animations pour commencer :
   deux. Le signe arrive en dernier, donné par la taille des unités.
   Trois cas particuliers y sont traités :
   - **aires et volumes** : `2 rangs → 10²`, puis `(10²)² = 10⁴` ;
-  - **capacités** : le passage L ↔ m³ par le seul pont à retenir, `1 L = 1 dm³`, le cube de
-    10 cm de côté ;
-  - **unités composées** (m/s, L/min, g/cm³) : l'unité se lit à voix haute — « nombre de
-    mètres pour **une seule** seconde » — s'écrit en fraction, et on convertit le haut, puis
-    le bas, en rappelant qu'une puissance de dix qui remonte du dénominateur change de signe.
+  - **capacités** : le pont `1 L = 1 dm³` n'est pas un décor, c'est la **route**. Un schéma
+    en trois cases montre le chemin — `cL → L = dm³ → mm³` — et chaque unité est située par
+    rapport au pont, jamais par rapport au mètre cube, qui n'apparaît que s'il est lui-même
+    demandé. Quand les deux unités sont de la même famille, le schéma le dit et on ne
+    traverse pas ;
+  - **unités composées** (m/s, L/min, g/cm³) : **trois étapes, pas une de plus**. Mettre sous
+    forme de fraction — « 72 km pour 1 h, une seule » ; convertir le haut et le bas, une ligne
+    chacun ; diviser. Quand les deux conversions sont des puissances de dix, la dernière étape
+    est une simple soustraction d'exposants : `10⁻³ ÷ 10⁻⁶ = 10³`. Sinon, la puissance de dix
+    s'applique d'abord, le facteur ensuite (`30 × 10⁻³ = 3 × 10⁻²`, puis `÷ 60`) — jamais de
+    décimal intermédiaire à rallonge. Les conversions qui ont leur propre onglet ne sont
+    **pas** redémontrées : `1 cm³ = 10⁻⁶ m³` est donné tel quel, avec un renvoi vers
+    *Capacités* ; `1 h = 3600 s` est simplement rappelé.
 
-  Résultats en écriture scientifique, saisie acceptant `2,5 × 10^3` comme `2,5e3`, et dix
-  conversions au hasard pour s'entraîner.
+  - **durées** : un onglet à part, parce qu'il le faut. Le préambule le dit sans détour —
+    *au-dessus de la seconde, on n'est plus dans le système décimal* : plus de rang, plus de
+    puissance de dix. On écrit alors l'équivalence entre **les deux unités demandées**
+    (`1 h = 60 min`, `1 j = 24 h`, `1 min = 60 000 ms`) et on conclut par un **tableau de
+    proportionnalité** à quatre cases. La seconde n'est plus un passage obligé : on n'y passe
+    que si on la demande. Sous la seconde, la méthode des rangs reprend ses droits et
+    l'animation le dit. Le piège du
+    `51,15 min` y a son étape à lui : on lit 51,15, on écrit *51 min 15 s*, c'est faux —
+    `0,15 min × 60 = 9 s`, donc **51 min 9 s**. L'afficheur montre les deux écritures du même
+    instant côte à côte, et l'entraînement redonne la forme h-min-s à la correction.
+
+  Les gammes sont étendues : `GW MW kW W mW µW nW`, `MV kV V mV µV nV`, `MA kA A mA µA nA`,
+  `km … mm µm nm`, `kg … mg µg ng`, et un onglet **Condensateurs** `F mF µF nF pF` — le seul
+  endroit où le pico serve. Il s'appelle ainsi, et non « Capacité », pour ne pas être confondu
+  avec l'onglet des litres et des mètres cubes. Résultats en écriture scientifique, saisie acceptant
+  `2,5 × 10^3` comme `2,5e3`, et dix conversions au hasard pour s'entraîner.
 - `animations/transformer-formule.html` — douze relations du programme, une lettre à isoler,
   et **deux colonnes côte à côte** : la méthode « équation » (multiplier ou diviser les deux
   côtés, avec les simplifications barrées) et la méthode « produit en croix » (chaque lettre
@@ -520,3 +542,87 @@ Un seul fichier, deux rattachements.
 L'activité `docs/1sti2d/ch01/activite.pdf` a été remplacée par sa nouvelle version (les cinq
 parties A à E, la comparaison 1/10 contre 1/50, la décision de conformité). Le corrigé n'est
 pas publié, conformément à la liste blanche.
+
+
+---
+
+## Mise à jour du 16 septembre 2026
+
+**BTS TSMA, collection v3.** Les 18 chapitres redéposés (146 PDF). Quatre documents nouveaux :
+les **activités sur banc** des chapitres 3, 4 et 5, adossées au matériel Jeulin et Eurosmart,
+et une seconde activité sur animation au chapitre 5. Le type `activite_banc` est entré dans la
+liste blanche de `outils/filieres.py`, avec son propre libellé — il ne remplace pas
+`activite`, les deux coexistent. Nouvelle animation : `viscosimetre.html`, rattachée au
+chapitre 5, qui remplace le banc capillaire et ses bains thermostatés.
+
+**BTS ET, collection v2.** Redéposée, plus l'animation `caracteristiques.html` rattachée à
+l'activité du TP 2 — un montage unique où l'on remplace le dipôle, et un tableau de points
+(U ; I) qu'on remplit soi-même.
+
+**Le fil ADM entre sur le site.** Le chapitre *ADM 1 — Schémas électriques et appareillage de
+commande* est publié dans sa rubrique **ADM**, distincte de *Cours* et de *TP* : sept PDF
+(prérequis, cours et cours à compléter, activité, exercices, bilan, situation U51) et trois
+animations — `contacteur.html`, `demarrage-direct.html`, `etoile-triangle.html` — placées
+respectivement avant l'activité, avant les exercices et avant la situation U51. Pas de sujet
+type E4 : l'ADM est une épreuve pratique, la situation U51 en tient lieu. Son questionnaire de
+prérequis (six questions) est dans `outils/prerequis_et.py` avec les autres ; son bilan et ses
+quatorze cartes sortent de la collection comme partout ailleurs.
+
+Les cinq animations livrées avec ces archives portaient de nouveau un niveau dans leur titre
+(« BTS TSMA ch.5 », « TP 2 (BTS Électrotechnique) »). Elles ont été neutralisées et ont reçu
+leur lien « Toutes les animations », conformément à la règle posée le 10 septembre.
+
+**Le site** : 660 entrées au catalogue, 466 PDF, 16 animations, 1101 questions, 840 cartes.
+
+
+### Les cartes de l'ADM viennent du paquet, pas du cours
+
+Le chapitre ADM 1 est livré avec un paquet Anki de **51 cartes écrites à la main** : un symbole
+normalisé au recto, le nom de l'appareil, son intérêt, son fonctionnement et une photo du
+matériel réel au verso. Les refabriquer depuis le cours donnerait autre chose. `cartes_anki.py`
+lit donc le `.apkg` — une archive zip contenant une base SQLite et ses médias numérotés — et
+recopie les cartes telles quelles, images comprises :
+
+```sh
+python3 outils/cartes_anki.py <paquet.apkg> bts-et adm01 entrainement \
+        ../docs/bts-et/adm01/symboles-anki.apkg
+```
+
+Les 86 images sont déposées dans `entrainement/media/adm01/`. Le fichier de données reçoit
+`cartes_figees: true` : `construire.py` et `refaire_cartes.py` respectent ce drapeau et ne
+reconstruisent plus les cartes de ce chapitre. Et le bouton de la page cartes ne fabrique plus
+un texte tabulé — il donne **le paquet lui-même**, qui seul emporte les images.
+
+Ce sont donc exactement les mêmes cartes des deux côtés : sur le site pour réviser au doigt,
+dans Anki pour la répétition espacée.
+
+### Une panne silencieuse corrigée
+
+Les liens de la rubrique *S'entraîner* étaient construits sur le **numéro** du chapitre. Au
+CRSA et en STI2D, numéro et clé coïncident ; au BTS ET, `Cours 1` et `TP 1` portent tous deux
+le numéro 1, et l'adresse cherchait `qcm-bts-et-ch01.js`, qui n'existe pas. **Toute la rubrique
+S'entraîner du BTS ET était morte**, sans message d'erreur visible dans le catalogue.
+
+`publier.py` passe désormais la **clé** du chapitre (`ch=c01`, `ch=adm01`), et `qcm.html` comme
+`cartes.html` l'acceptent — les anciennes adresses numérotées restent valides. Les fichiers de
+données portent en plus une `etiquette` (« Cours 1 », « ADM 1 ») affichée en en-tête à la place
+de « Chapitre 1 ».
+
+
+---
+
+## Mise à jour du 17 septembre 2026 — ADM 1 en version 15
+
+Le chapitre *ADM 1 — Schémas électriques et appareillage de commande* est redéposé dans sa
+version 15 : les sept PDF publiés (les trois corrigés et le corrigé U51 restent hors ligne),
+les trois animations, et le paquet Anki de 51 cartes. Tous les fichiers ont changé — la
+collection a été recompilée de bout en bout.
+
+Le questionnaire de bilan (16 questions) est relu depuis la nouvelle source. Les prérequis
+restent ceux de `outils/prerequis_et.py`, que `construire.py` ne touche pas. Les cartes du
+chapitre sont réinjectées depuis le `.apkg` de la v15, avec ses 86 images.
+
+Les trois animations arrivaient sans mention de niveau — la règle du 10 septembre est passée
+dans la chaîne amont. Il n'y restait qu'à poser le lien « Toutes les animations ».
+
+**Le site** : 661 entrées, 466 PDF, 16 animations, 1101 questions, 877 cartes.

@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "16",
+ "cle": "ch16",
+ "etiquette": "Chapitre 16",
  "titre": "Conditionnement du signal",
  "niveau": "BTS CRSA",
  "prerequis": [

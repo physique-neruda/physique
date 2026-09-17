@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "6",
+ "cle": "ch06",
+ "etiquette": "Chapitre 6",
  "titre": "Viscosité et pertes de charge",
  "niveau": "BTS CRSA",
  "prerequis": [

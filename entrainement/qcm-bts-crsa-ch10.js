@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "10",
+ "cle": "ch10",
+ "etiquette": "Chapitre 10",
  "titre": "Les redresseurs",
  "niveau": "BTS CRSA",
  "prerequis": [

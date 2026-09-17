@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-et",
  "num": "0",
+ "cle": "ch00",
+ "etiquette": "Chapitre 0",
  "titre": "Outils mathématiques",
  "niveau": "BTS ET",
  "prerequis": [],
@@ -264,5 +266,6 @@ window.CHAPITRE = {
    "verso": "<strong>trois</strong> — Les zéros de tête ne comptent pas ; seuls 2, 8 et 4 sont significatifs.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

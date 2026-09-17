@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-et",
  "num": "2",
+ "cle": "c02",
+ "etiquette": "Cours 2",
  "titre": "Électromagnétisme",
  "niveau": "BTS ET",
  "prerequis": [
@@ -289,5 +291,6 @@ window.CHAPITRE = {
    "verso": "<strong>le nombre de spires par mètre</strong> — n = N/ est une densité de spires, en spires par mètre. C'est la distinction la plus souvent manquée du chapitre.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

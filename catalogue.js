@@ -95,7 +95,7 @@ const DOCUMENTS = [
     chapitre: "Unités, conversions et puissances de dix",
     type: "animation", titre: "Convertir avec les puissances de dix",
     fichier: "animations/conversion-unites.html",
-    description: "Aucune virgule ne se déplace : chaque unité porte son rang, on compte l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe. Les aires et les volumes élèvent la puissance de dix, et elle seule, au carré ou au cube. Les capacités passent par 1 L = 1 dm3, les unités composées (m/s, L/min, g/cm3) s'écrivent en fraction. Dix conversions au hasard pour s'entraîner.",
+    description: "Aucune virgule ne se déplace : chaque unité porte son rang, on compte l'écart entre les deux rangs, et c'est la taille des unités qui donne le signe. Douze onglets, du nanomètre au gigawatt : les aires et les volumes élèvent la puissance de dix au carré ou au cube, les capacités passent par 1 L = 1 dm3, les unités composées (m/s, L/min, g/cm3) s'écrivent en fraction, et les durées quittent le decimal au-dessus de la seconde. Dix conversions au hasard pour s'entraîner.",
     trouve: "L'écart des rangs donne le nombre, le sens donne le signe.",
     motscles: ["unites", "conversion", "prefixes", "puissances de dix", "kilo", "milli", "aire", "volume", "ordre de grandeur"]
   },
@@ -154,7 +154,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils mathématiques",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=0&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=ch00&type=bilan",
     description: "16 questions sur tout le chapitre.",
     motscles: ["outils", "puissances de dix", "unites", "conversions", "chiffres significatifs", "proportionnalite"]
   },
@@ -163,7 +163,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils mathématiques",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-et&ch=0",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=ch00",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["outils", "puissances de dix", "unites", "conversions", "chiffres significatifs", "proportionnalite"]
   },
@@ -317,7 +317,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=1&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=c01&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
@@ -326,7 +326,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=1&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=c01&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
@@ -335,7 +335,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-et&ch=1",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=c01",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
@@ -492,7 +492,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "Cours 2 — Électromagnétisme",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=2&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=c02&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
   },
@@ -501,7 +501,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "Cours 2 — Électromagnétisme",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=2&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=c02&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
   },
@@ -510,7 +510,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "Cours 2 — Électromagnétisme",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-et&ch=2",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=c02",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
   },
@@ -610,7 +610,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "TP 1 — Notions fondamentales d'électricité",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=1&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp01&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
   },
@@ -619,7 +619,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "TP 1 — Notions fondamentales d'électricité",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=1&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp01&type=bilan",
     description: "14 questions sur tout le chapitre.",
     motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
   },
@@ -628,7 +628,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "TP 1 — Notions fondamentales d'électricité",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-et&ch=1",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=tp01",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
   },
@@ -659,6 +659,16 @@ const DOCUMENTS = [
     fichier: "docs/bts-et/tp02/cours.pdf",
     description: "La même chose, tout écrit. À relire après la séance.",
     motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "animation", titre: "Le relevé de caractéristiques",
+    fichier: "animations/caracteristiques.html",
+    description: "Le montage ne change jamais, c'est le dipôle qu'on remplace : résistance, lampe à filament, diode, pile réelle. Le curseur déplace le point de fonctionnement, les appareils affichent le couple (U ; I), et un bouton range chaque point dans un tableau. La diode peut être inversée.",
+    trouve: "Une caractéristique n'est droite que pour un conducteur ohmique.",
+    motscles: ["dipole", "caracteristique", "resistance", "lampe", "diode", "pile", "point de fonctionnement", "ohm"]
   },
 
   {
@@ -728,7 +738,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "TP 2 — Dipôles passifs et actifs",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=2&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp02&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
   },
@@ -737,7 +747,7 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "TP 2 — Dipôles passifs et actifs",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=2&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp02&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
   },
@@ -746,9 +756,140 @@ const DOCUMENTS = [
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "TP 2 — Dipôles passifs et actifs",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-et&ch=2",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=tp02",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/adm01/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/adm01/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/adm01/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "animation", titre: "Le contacteur",
+    fichier: "animations/contacteur.html",
+    description: "Une coupe animée du contacteur : bobine, armature mobile, trois pôles de puissance et deux contacts auxiliaires. Tension de bobine réglable ; tous les contacts basculent ensemble et le ressort ramène tout au repos.",
+    trouve: "Le fonctionnement tout ou rien, et la différence pôles / contacts auxiliaires.",
+    motscles: ["contacteur", "bobine", "electro-aimant", "armature", "ressort", "contact auxiliaire", "pole", "tout ou rien"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/adm01/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "animation", titre: "Le démarrage direct",
+    fichier: "animations/demarrage-direct.html",
+    description: "Les huit solutions du départ-moteur, de l'interrupteur nu au schéma complet. On appuie sur marche et arrêt, on coupe le réseau, on frappe l'arrêt d'urgence, on provoque une surcharge : les conducteurs sous tension s'allument en rouge.",
+    trouve: "L'automaintien, la priorité à l'arrêt, et ce que disent les voyants.",
+    motscles: ["demarrage direct", "automaintien", "bouton poussoir", "arret d'urgence", "relais thermique", "sectionneur", "voyant", "schema de commande"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/adm01/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "animation", titre: "Le démarrage étoile-triangle",
+    fichier: "animations/etoile-triangle.html",
+    description: "Les trois contacteurs, la temporisation réglable et le temps mort. La courbe trace le courant absorbé ; on peut supprimer le verrouillage pour voir ce qui se passe quand étoile et triangle se ferment ensemble.",
+    trouve: "Pourquoi le courant de démarrage est divisé par trois, et à quoi sert le verrouillage.",
+    motscles: ["etoile triangle", "couplage", "temporisation", "verrouillage", "temps mort", "courant de demarrage", "moteur asynchrone"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/adm01/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/adm01/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "anki", titre: "Les symboles — paquet Anki",
+    fichier: "docs/bts-et/adm01/symboles-anki.apkg",
+    description: "Quarante cartes à installer dans Anki : au recto le symbole normalisé, au verso le nom de l'appareil, son rôle, son fonctionnement et une photo du matériel réel. Fichier à ouvrir avec Anki, qui l'importe tout seul.",
+    trouve: "Un symbole se reconnaît d'un coup d'œil, ou il ne sert à rien.",
+    motscles: ["symbole", "anki", "cartes", "appareillage", "contacteur", "sectionneur", "relais thermique", "bouton poussoir"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "qcm", titre: "Prérequis — se tester avant",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=adm01&type=prerequis",
+    description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=adm01&type=bilan",
+    description: "16 questions sur tout le chapitre.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=adm01",
+    description: "51 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
   },
 
 
@@ -794,7 +935,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=0&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch00&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["outils", "puissances de dix", "unites", "conversions", "chiffres significatifs", "proportionnalite"]
   },
@@ -803,7 +944,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=0",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch00",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["outils", "puissances de dix", "unites", "conversions", "chiffres significatifs", "proportionnalite"]
   },
@@ -913,7 +1054,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Énergie, puissance, rendement",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=1&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch01&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
   },
@@ -922,7 +1063,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Énergie, puissance, rendement",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=1&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch01&type=bilan",
     description: "14 questions sur tout le chapitre.",
     motscles: ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
   },
@@ -931,7 +1072,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Énergie, puissance, rendement",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=1",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch01",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
   },
@@ -1022,7 +1163,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Conversion et stockage de l'énergie",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=2&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch02&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
   },
@@ -1031,7 +1172,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Conversion et stockage de l'énergie",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=2&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch02&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
   },
@@ -1040,7 +1181,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Conversion et stockage de l'énergie",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=2",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch02",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
   },
@@ -1131,7 +1272,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Énergie thermique",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=3&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch03&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
@@ -1140,7 +1281,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Énergie thermique",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=3&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch03&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
@@ -1149,7 +1290,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Énergie thermique",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=3",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch03",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
@@ -1240,7 +1381,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Mécanique du solide",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=4&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch04&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["mecanique", "solide", "force", "moment", "couple", "travail", "rotation"]
   },
@@ -1249,7 +1390,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Mécanique du solide",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=4&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch04&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["mecanique", "solide", "force", "moment", "couple", "travail", "rotation"]
   },
@@ -1258,7 +1399,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Mécanique du solide",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=4",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch04",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["mecanique", "solide", "force", "moment", "couple", "travail", "rotation"]
   },
@@ -1349,7 +1490,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Statique et dynamique des fluides",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=5&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch05&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
   },
@@ -1358,7 +1499,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Statique et dynamique des fluides",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=5&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch05&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
   },
@@ -1367,7 +1508,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Statique et dynamique des fluides",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=5",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch05",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
   },
@@ -1458,7 +1599,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — Viscosité et pertes de charge",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=6&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch06&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite", "pompe"]
   },
@@ -1467,7 +1608,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — Viscosité et pertes de charge",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=6&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch06&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite", "pompe"]
   },
@@ -1476,7 +1617,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — Viscosité et pertes de charge",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=6",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch06",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite", "pompe"]
   },
@@ -1567,7 +1708,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Distribution triphasée",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=7&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch07&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
   },
@@ -1576,7 +1717,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Distribution triphasée",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=7&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch07&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
   },
@@ -1585,7 +1726,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Distribution triphasée",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=7",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch07",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
   },
@@ -1676,7 +1817,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=8&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch08&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["corrosion", "oxydoreduction", "risque chimique", "bruit", "acoustique", "protection"]
   },
@@ -1685,7 +1826,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=8&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch08&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["corrosion", "oxydoreduction", "risque chimique", "bruit", "acoustique", "protection"]
   },
@@ -1694,7 +1835,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=8",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch08",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["corrosion", "oxydoreduction", "risque chimique", "bruit", "acoustique", "protection"]
   },
@@ -1785,7 +1926,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Le transformateur",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=9&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch09&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
   },
@@ -1794,7 +1935,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Le transformateur",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=9&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch09&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
   },
@@ -1803,7 +1944,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Le transformateur",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=9",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch09",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
   },
@@ -1894,7 +2035,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Les redresseurs",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=10&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch10&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["redressement", "diode", "pont", "filtrage", "ondulation", "valeur moyenne"]
   },
@@ -1903,7 +2044,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Les redresseurs",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=10&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch10&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["redressement", "diode", "pont", "filtrage", "ondulation", "valeur moyenne"]
   },
@@ -1912,7 +2053,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Les redresseurs",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=10",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch10",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["redressement", "diode", "pont", "filtrage", "ondulation", "valeur moyenne"]
   },
@@ -2003,7 +2144,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Hacheur série et onduleur",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=11&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch11&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["hacheur", "onduleur", "rapport cyclique", "mli", "variation de vitesse"]
   },
@@ -2012,7 +2153,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Hacheur série et onduleur",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=11&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch11&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["hacheur", "onduleur", "rapport cyclique", "mli", "variation de vitesse"]
   },
@@ -2021,7 +2162,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Hacheur série et onduleur",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=11",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch11",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["hacheur", "onduleur", "rapport cyclique", "mli", "variation de vitesse"]
   },
@@ -2112,7 +2253,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Machine à courant continu",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=12&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch12&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["machine a courant continu", "mcc", "couple", "force electromotrice", "vitesse", "rendement"]
   },
@@ -2121,7 +2262,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Machine à courant continu",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=12&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch12&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["machine a courant continu", "mcc", "couple", "force electromotrice", "vitesse", "rendement"]
   },
@@ -2130,7 +2271,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Machine à courant continu",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=12",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch12",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["machine a courant continu", "mcc", "couple", "force electromotrice", "vitesse", "rendement"]
   },
@@ -2221,7 +2362,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Machines alternatives",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=13&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch13&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
   },
@@ -2230,7 +2371,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Machines alternatives",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=13&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch13&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
   },
@@ -2239,7 +2380,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Machines alternatives",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=13",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch13",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
   },
@@ -2330,7 +2471,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Les capteurs",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=14&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch14&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["capteur", "etendue de mesure", "sensibilite", "linearite", "tor", "analogique"]
   },
@@ -2339,7 +2480,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Les capteurs",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=14&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch14&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["capteur", "etendue de mesure", "sensibilite", "linearite", "tor", "analogique"]
   },
@@ -2348,7 +2489,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Les capteurs",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=14",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch14",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["capteur", "etendue de mesure", "sensibilite", "linearite", "tor", "analogique"]
   },
@@ -2439,7 +2580,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Analyse du signal",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=15&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch15&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
   },
@@ -2448,7 +2589,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Analyse du signal",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=15&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch15&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
   },
@@ -2457,7 +2598,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Analyse du signal",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=15",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch15",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
   },
@@ -2548,7 +2689,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Conditionnement du signal",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=16&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch16&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["conditionnement", "diviseur de tension", "pont de wheatstone", "amplification", "comparateur"]
   },
@@ -2557,7 +2698,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Conditionnement du signal",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-crsa&ch=16&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch16&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["conditionnement", "diviseur de tension", "pont de wheatstone", "amplification", "comparateur"]
   },
@@ -2566,7 +2707,7 @@ const DOCUMENTS = [
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Conditionnement du signal",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-crsa&ch=16",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch16",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["conditionnement", "diviseur de tension", "pont de wheatstone", "amplification", "comparateur"]
   },
@@ -2614,7 +2755,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=0&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch00&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
   },
@@ -2623,7 +2764,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=0",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch00",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
   },
@@ -2724,7 +2865,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=1&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch01&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
   },
@@ -2733,7 +2874,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=1&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch01&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
   },
@@ -2742,7 +2883,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=1",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch01",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
   },
@@ -2843,7 +2984,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Énergie, puissance, rendement",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=2&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch02&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
   },
@@ -2852,7 +2993,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Énergie, puissance, rendement",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=2&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch02&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
   },
@@ -2861,7 +3002,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Énergie, puissance, rendement",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=2",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch02",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
   },
@@ -2924,6 +3065,15 @@ const DOCUMENTS = [
   {
     filiere: "bts-tsma", rubrique: "TP",
     chapitre: "Chapitre 3 — Statique des fluides",
+    type: "pdf", titre: "Activité sur banc",
+    fichier: "docs/bts-tsma/ch03/activite_banc.pdf",
+    description: "La même étude menée sur le banc du laboratoire, avec le matériel réel.",
+    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
     type: "pdf", titre: "Situation type CCF",
     fichier: "docs/bts-tsma/ch03/ccf.pdf",
     description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
@@ -2943,7 +3093,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Statique des fluides",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=3&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch03&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
   },
@@ -2952,7 +3102,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Statique des fluides",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=3&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch03&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
   },
@@ -2961,7 +3111,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Statique des fluides",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=3",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch03",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
   },
@@ -3024,6 +3174,15 @@ const DOCUMENTS = [
   {
     filiere: "bts-tsma", rubrique: "TP",
     chapitre: "Chapitre 4 — Dynamique des fluides",
+    type: "pdf", titre: "Activité sur banc",
+    fichier: "docs/bts-tsma/ch04/activite_banc.pdf",
+    description: "La même étude menée sur le banc du laboratoire, avec le matériel réel.",
+    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 4 — Dynamique des fluides",
     type: "pdf", titre: "Situation type CCF",
     fichier: "docs/bts-tsma/ch04/ccf.pdf",
     description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
@@ -3043,7 +3202,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Dynamique des fluides",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=4&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch04&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
   },
@@ -3052,7 +3211,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Dynamique des fluides",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=4&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch04&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
   },
@@ -3061,7 +3220,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Dynamique des fluides",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=4",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch04",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
   },
@@ -3124,6 +3283,34 @@ const DOCUMENTS = [
   {
     filiere: "bts-tsma", rubrique: "TP",
     chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "animation", titre: "Viscosimètre capillaire virtuel",
+    fichier: "animations/viscosimetre.html",
+    description: "Une huile inconnue, un tube capillaire, un bain thermostaté : on chronomètre l'écoulement, on remonte à la viscosité cinématique, et on identifie le grade ISO VG du bidon. Ni banc, ni solvant, ni nettoyage.",
+    trouve: "La viscosité chute vite avec la température : un grade ne se lit qu'à 40 °C.",
+    motscles: ["viscosite", "viscosimetre", "capillaire", "iso vg", "huile", "temperature", "ecoulement"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Activité sur animation",
+    fichier: "docs/bts-tsma/ch05/activite_anim.pdf",
+    description: "La même étude, menée sur une animation : aucun matériel nécessaire.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
+    type: "pdf", titre: "Activité sur banc",
+    fichier: "docs/bts-tsma/ch05/activite_banc.pdf",
+    description: "La même étude menée sur le banc du laboratoire, avec le matériel réel.",
+    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
     type: "pdf", titre: "Situation type CCF",
     fichier: "docs/bts-tsma/ch05/ccf.pdf",
     description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
@@ -3143,7 +3330,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Viscosité et pertes de charge",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=5&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch05&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
   },
@@ -3152,7 +3339,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Viscosité et pertes de charge",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=5&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch05&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
   },
@@ -3161,7 +3348,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Viscosité et pertes de charge",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=5",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch05",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
   },
@@ -3243,7 +3430,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — La réaction chimique",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=6&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch06&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
   },
@@ -3252,7 +3439,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — La réaction chimique",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=6&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch06&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
   },
@@ -3261,7 +3448,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — La réaction chimique",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=6",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch06",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
   },
@@ -3343,7 +3530,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Combustions et carburants",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=7&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch07&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
   },
@@ -3352,7 +3539,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Combustions et carburants",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=7&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch07&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
   },
@@ -3361,7 +3548,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Combustions et carburants",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=7",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch07",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
   },
@@ -3443,7 +3630,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=8&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch08&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
   },
@@ -3452,7 +3639,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=8&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch08&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
   },
@@ -3461,7 +3648,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=8",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch08",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
   },
@@ -3543,7 +3730,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=9&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch09&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
   },
@@ -3552,7 +3739,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=9&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch09&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
   },
@@ -3561,7 +3748,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=9",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch09",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
   },
@@ -3643,7 +3830,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Machines thermiques",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=10&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch10&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["machine thermique", "moteur", "cycle", "rendement"]
   },
@@ -3652,7 +3839,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Machines thermiques",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=10&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch10&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["machine thermique", "moteur", "cycle", "rendement"]
   },
@@ -3661,7 +3848,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Machines thermiques",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=10",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch10",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["machine thermique", "moteur", "cycle", "rendement"]
   },
@@ -3743,7 +3930,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=11&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch11&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
   },
@@ -3752,7 +3939,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=11&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch11&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
   },
@@ -3761,7 +3948,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=11",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch11",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
   },
@@ -3843,7 +4030,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Analyse du signal",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=12&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch12&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["signal", "frequence", "spectre", "periode"]
   },
@@ -3852,7 +4039,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Analyse du signal",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=12&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch12&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["signal", "frequence", "spectre", "periode"]
   },
@@ -3861,7 +4048,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Analyse du signal",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=12",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch12",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["signal", "frequence", "spectre", "periode"]
   },
@@ -3943,7 +4130,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Oscillations et résonance",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=13&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch13&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["oscillation", "resonance", "vibration", "amortissement"]
   },
@@ -3952,7 +4139,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Oscillations et résonance",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=13&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch13&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["oscillation", "resonance", "vibration", "amortissement"]
   },
@@ -3961,7 +4148,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Oscillations et résonance",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=13",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch13",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["oscillation", "resonance", "vibration", "amortissement"]
   },
@@ -4043,7 +4230,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Ondes acoustiques et protection",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=14&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch14&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
   },
@@ -4052,7 +4239,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Ondes acoustiques et protection",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=14&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch14&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
   },
@@ -4061,7 +4248,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Ondes acoustiques et protection",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=14",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch14",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
   },
@@ -4143,7 +4330,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=15&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch15&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
   },
@@ -4152,7 +4339,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=15&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch15&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
   },
@@ -4161,7 +4348,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=15",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch15",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
   },
@@ -4243,7 +4430,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=16&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch16&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
   },
@@ -4252,7 +4439,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=16&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch16&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
   },
@@ -4261,7 +4448,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=16",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch16",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
   },
@@ -4343,7 +4530,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 17 — Distribution électrique et sécurité",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=17&type=prerequis",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch17&type=prerequis",
     description: "6 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["distribution electrique", "securite", "habilitation", "courant"]
   },
@@ -4352,7 +4539,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 17 — Distribution électrique et sécurité",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-tsma&ch=17&type=bilan",
+    fichier: "entrainement/qcm.html?f=bts-tsma&ch=ch17&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["distribution electrique", "securite", "habilitation", "courant"]
   },
@@ -4361,7 +4548,7 @@ const DOCUMENTS = [
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 17 — Distribution électrique et sécurité",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-tsma&ch=17",
+    fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch17",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["distribution electrique", "securite", "habilitation", "courant"]
   },
@@ -4427,7 +4614,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base en physique-chimie",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=0&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch00&type=prerequis",
     description: "10 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["base", "chimie", "outils", "physique"]
   },
@@ -4436,7 +4623,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base en physique-chimie",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=0&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch00&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["base", "chimie", "outils", "physique"]
   },
@@ -4445,7 +4632,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base en physique-chimie",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=0",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch00",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["base", "chimie", "outils", "physique"]
   },
@@ -4519,7 +4706,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Mesure et incertitudes",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=1&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch01&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["incertitudes", "mesure"]
   },
@@ -4528,7 +4715,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Mesure et incertitudes",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=1&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch01&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["incertitudes", "mesure"]
   },
@@ -4537,7 +4724,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Mesure et incertitudes",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=1",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch01",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["incertitudes", "mesure"]
   },
@@ -4601,7 +4788,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Énergie, puissance, chaînes",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=2&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch02&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["chaines", "energie", "puissance"]
   },
@@ -4610,7 +4797,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Énergie, puissance, chaînes",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=2&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch02&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["chaines", "energie", "puissance"]
   },
@@ -4619,7 +4806,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 2 — Énergie, puissance, chaînes",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=2",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch02",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["chaines", "energie", "puissance"]
   },
@@ -4683,7 +4870,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Courant continu",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=3&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch03&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["continu", "courant"]
   },
@@ -4692,7 +4879,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Courant continu",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=3&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch03&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["continu", "courant"]
   },
@@ -4701,7 +4888,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Courant continu",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=3",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch03",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["continu", "courant"]
   },
@@ -4765,7 +4952,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Grandeurs périodiques",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=4&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch04&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["grandeurs", "periodiques"]
   },
@@ -4774,7 +4961,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Grandeurs périodiques",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=4&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch04&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["grandeurs", "periodiques"]
   },
@@ -4783,7 +4970,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Grandeurs périodiques",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=4",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch04",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["grandeurs", "periodiques"]
   },
@@ -4847,7 +5034,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Puissance, énergie électriques, loi d'Ohm",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=5&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch05&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["electriques", "energie", "puissance"]
   },
@@ -4856,7 +5043,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Puissance, énergie électriques, loi d'Ohm",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=5&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch05&type=bilan",
     description: "15 questions sur tout le chapitre.",
     motscles: ["electriques", "energie", "puissance"]
   },
@@ -4865,7 +5052,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Puissance, énergie électriques, loi d'Ohm",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=5",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch05",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["electriques", "energie", "puissance"]
   },
@@ -4929,7 +5116,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — Cinématique",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=6&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch06&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["cinematique"]
   },
@@ -4938,7 +5125,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — Cinématique",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=6&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch06&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["cinematique"]
   },
@@ -4947,7 +5134,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — Cinématique",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=6",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch06",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["cinematique"]
   },
@@ -5011,7 +5198,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Forces et principe d'inertie",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=7&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch07&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["forces", "inertie", "principe"]
   },
@@ -5020,7 +5207,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Forces et principe d'inertie",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=7&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch07&type=bilan",
     description: "14 questions sur tout le chapitre.",
     motscles: ["forces", "inertie", "principe"]
   },
@@ -5029,7 +5216,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Forces et principe d'inertie",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=7",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch07",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["forces", "inertie", "principe"]
   },
@@ -5093,7 +5280,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Travail et énergies mécaniques",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=8&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch08&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["energies", "mecaniques", "travail"]
   },
@@ -5102,7 +5289,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Travail et énergies mécaniques",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=8&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch08&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["energies", "mecaniques", "travail"]
   },
@@ -5111,7 +5298,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Travail et énergies mécaniques",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=8",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch08",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energies", "mecaniques", "travail"]
   },
@@ -5175,7 +5362,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Énergie interne et transferts thermiques",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=9&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch09&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
@@ -5184,7 +5371,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Énergie interne et transferts thermiques",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=9&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch09&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
@@ -5193,7 +5380,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Énergie interne et transferts thermiques",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=9",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch09",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
@@ -5257,7 +5444,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Énergie chimique",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=10&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch10&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["chimique", "energie"]
   },
@@ -5266,7 +5453,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Énergie chimique",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=10&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch10&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["chimique", "energie"]
   },
@@ -5275,7 +5462,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Énergie chimique",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=10",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch10",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["chimique", "energie"]
   },
@@ -5339,7 +5526,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Énergie transportée par la lumière",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=11&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch11&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["energie", "lumiere", "transportee"]
   },
@@ -5348,7 +5535,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Énergie transportée par la lumière",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=11&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch11&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["energie", "lumiere", "transportee"]
   },
@@ -5357,7 +5544,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Énergie transportée par la lumière",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=11",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch11",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "lumiere", "transportee"]
   },
@@ -5421,7 +5608,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Matériaux et organisation de la matière",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=12&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch12&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["materiaux", "matiere", "organisation"]
   },
@@ -5430,7 +5617,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Matériaux et organisation de la matière",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=12&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch12&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["materiaux", "matiere", "organisation"]
   },
@@ -5439,7 +5626,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Matériaux et organisation de la matière",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=12",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch12",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["materiaux", "matiere", "organisation"]
   },
@@ -5503,7 +5690,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Combustions et carburants",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=13&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch13&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["carburants", "combustions"]
   },
@@ -5512,7 +5699,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Combustions et carburants",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=13&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch13&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["carburants", "combustions"]
   },
@@ -5521,7 +5708,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Combustions et carburants",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=13",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch13",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["carburants", "combustions"]
   },
@@ -5585,7 +5772,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Solutions aqueuses",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=14&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch14&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["aqueuses", "solutions"]
   },
@@ -5594,7 +5781,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Solutions aqueuses",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=14&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch14&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["aqueuses", "solutions"]
   },
@@ -5603,7 +5790,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Solutions aqueuses",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=14",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch14",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["aqueuses", "solutions"]
   },
@@ -5667,7 +5854,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Oxydoréduction, corrosion et piles",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=15&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch15&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["corrosion", "oxydoreduction", "piles"]
   },
@@ -5676,7 +5863,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Oxydoréduction, corrosion et piles",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=15&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch15&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["corrosion", "oxydoreduction", "piles"]
   },
@@ -5685,7 +5872,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Oxydoréduction, corrosion et piles",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=15",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch15",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["corrosion", "oxydoreduction", "piles"]
   },
@@ -5749,7 +5936,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Notion d'onde et information",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=16&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch16&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["information", "notion", "onde"]
   },
@@ -5758,7 +5945,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Notion d'onde et information",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=16&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch16&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["information", "notion", "onde"]
   },
@@ -5767,7 +5954,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Notion d'onde et information",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=16",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch16",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["information", "notion", "onde"]
   },
@@ -5831,7 +6018,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 17 — Ondes sonores",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=17&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch17&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["ondes", "sonores"]
   },
@@ -5840,7 +6027,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 17 — Ondes sonores",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=17&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch17&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["ondes", "sonores"]
   },
@@ -5849,7 +6036,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 17 — Ondes sonores",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=17",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch17",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["ondes", "sonores"]
   },
@@ -5913,7 +6100,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 18 — Ondes électromagnétiques",
     type: "qcm", titre: "Prérequis — se tester avant",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=18&type=prerequis",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch18&type=prerequis",
     description: "7 questions pour vérifier les acquis avant d'ouvrir le chapitre.",
     motscles: ["electromagnetiques", "ondes"]
   },
@@ -5922,7 +6109,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 18 — Ondes électromagnétiques",
     type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=1sti2d&ch=18&type=bilan",
+    fichier: "entrainement/qcm.html?f=1sti2d&ch=ch18&type=bilan",
     description: "12 questions sur tout le chapitre.",
     motscles: ["electromagnetiques", "ondes"]
   },
@@ -5931,7 +6118,7 @@ const DOCUMENTS = [
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 18 — Ondes électromagnétiques",
     type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=1sti2d&ch=18",
+    fichier: "entrainement/cartes.html?f=1sti2d&ch=ch18",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["electromagnetiques", "ondes"]
   },

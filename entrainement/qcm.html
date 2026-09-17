@@ -137,7 +137,7 @@ table th{background:#E4EDF4;color:var(--bleu)}
 (function(){
   "use strict";
   var par = new URLSearchParams(location.search);
-  var ch  = (par.get('ch') || '').replace(/[^0-9]/g,'');
+  var ch  = (par.get('ch') || '').replace(/[^0-9a-zA-Z]/g,'');
   // La filiere fait partie de l'adresse : le chapitre 1 de la 1re STI2D et
   // le cours 1 du BTS ET sont deux choses differentes, et leurs fichiers de
   // donnees comme leur progression enregistree doivent rester separes.
@@ -155,11 +155,12 @@ table th{background:#E4EDF4;color:var(--bleu)}
     "chapitre. Passe par la page des ressources plutôt que de taper " +
     "l'adresse à la main."); return; }
 
-  // Les fichiers sont numerotes sur deux chiffres (qcm-1sti2d-ch07.js)
-  // alors que le catalogue peut passer ch=7 : on complete.
-  var deux = ch.length < 2 ? '0' + ch : ch;
+  // Le catalogue passe la CLE du chapitre : ch07, mais aussi c01, tp01, adm01.
+  // Les anciennes adresses numerotees (ch=7) restent valides : on les complete.
+  var cle = /^[0-9]+$/.test(ch) ? 'ch' + (ch.length < 2 ? '0' + ch : ch) : ch;
+  var deux = cle;
   var s = document.createElement('script');
-  s.src = 'qcm-' + fil + '-ch' + deux + '.js';
+  s.src = 'qcm-' + fil + '-' + cle + '.js';
   s.onerror = function(){ erreur('Le chapitre ' + ch +
     " n'a pas encore de questionnaire."); };
   s.onload = function(){ demarrer(window.CHAPITRE); };
@@ -191,7 +192,7 @@ table th{background:#E4EDF4;color:var(--bleu)}
 
   function demarrer(donnees){
     chap = donnees;
-    document.getElementById('chap').textContent = 'Chapitre ' + chap.num;
+    document.getElementById('chap').textContent = (chap.etiquette || ('Chapitre ' + chap.num));
     document.getElementById('titre').textContent = chap.titre;
     document.getElementById('genre').textContent =
       (typ === 'bilan' ? 'Bilan du chapitre' : 'Vérifier ses prérequis')
@@ -286,13 +287,13 @@ table th{background:#E4EDF4;color:var(--bleu)}
     d.appendChild(creer('p','chiffre', bons +
       ' <small>bonnes réponses sur ' + jeu.length + '</small>'));
 
-    var cle = 'neruda.qcm.' + fil + '.ch' + chap.num + '.' + typ;
-    var avant = relire(cle);
+    var cleStock = 'neruda.qcm.' + fil + '.' + cle + '.' + typ;
+    var avant = relire(cleStock);
     if(avant !== null){
       d.appendChild(creer('p','vide','Essai précédent : ' + avant +
         ' sur ' + jeu.length + '.'));
     }
-    memoriser(cle, String(bons));
+    memoriser(cleStock, String(bons));
 
     if(faux.length){
       d.appendChild(creer('h2', null, 'Les questions à reprendre'));
@@ -316,7 +317,7 @@ table th{background:#E4EDF4;color:var(--bleu)}
     rj.type = 'button'; rj.onclick = lancer;
     act.appendChild(rj);
     var lien = creer('a','bouton second','Réviser les cartes');
-    lien.href = 'cartes.html?f=' + fil + '&ch=' + chap.num;
+    lien.href = 'cartes.html?f=' + fil + '&ch=' + cle;
     act.appendChild(lien);
     zone.appendChild(act);
     rj.focus({preventScroll:true});

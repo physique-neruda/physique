@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "1",
+ "cle": "ch01",
+ "etiquette": "Chapitre 1",
  "titre": "Énergie, puissance, rendement",
  "niveau": "BTS CRSA",
  "prerequis": [

@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-et",
  "num": "1",
+ "cle": "c01",
+ "etiquette": "Cours 1",
  "titre": "Énergie interne et transferts thermiques",
  "niveau": "BTS ET",
  "prerequis": [
@@ -289,5 +291,6 @@ window.CHAPITRE = {
    "verso": "<strong>35 K</strong> — Un écart est le même dans les deux échelles : le décalage de 273 disparaît dans la soustraction. C'est pour cela que Q = m c Δθ accepte indifféremment les degrés Celsius et les kelvins.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

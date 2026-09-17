@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "5",
+ "cle": "ch05",
+ "etiquette": "Chapitre 5",
  "titre": "Statique et dynamique des fluides",
  "niveau": "BTS CRSA",
  "prerequis": [

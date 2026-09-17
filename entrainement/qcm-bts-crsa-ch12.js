@@ -5,6 +5,8 @@
 window.CHAPITRE = {
  "filiere": "bts-crsa",
  "num": "12",
+ "cle": "ch12",
+ "etiquette": "Chapitre 12",
  "titre": "Machine à courant continu",
  "niveau": "BTS CRSA",
  "prerequis": [

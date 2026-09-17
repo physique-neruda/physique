@@ -206,20 +206,27 @@ def construire(filiere, racine, sortie):
         # les prérequis sont écrits à la main (prerequis_<filiere>.py) : on les
         # relit dans le fichier existant plutôt que de les effacer
         cible = os.path.join(sortie, f"qcm-{filiere}-{ch}.js")
-        anciens = []
+        anciens, figees = [], None
         if os.path.exists(cible):
             vieux = open(cible, encoding="utf-8").read()
             m = "window.CHAPITRE = "
             if m in vieux:
                 try:
-                    anciens = json.loads(
-                        vieux[vieux.index(m) + len(m): vieux.rindex("}") + 1]
-                    ).get("prerequis") or []
+                    vieilles = json.loads(
+                        vieux[vieux.index(m) + len(m): vieux.rindex("}") + 1])
+                    anciens = vieilles.get("prerequis") or []
+                    if vieilles.get("cartes_figees"):
+                        figees = vieilles.get("cartes")
                 except ValueError:
                     anciens = []
-        data = {"filiere": filiere, "num": info["num"], "titre": titre,
+        # des cartes figées viennent d'ailleurs (un paquet Anki, par exemple) :
+        # on ne les reconstruit pas depuis le cours
+        data = {"filiere": filiere, "num": info["num"],
+                "cle": ch, "etiquette": info["titre"].split("\u2014")[0].strip(),
+                "titre": titre,
                 "niveau": NIVEAUX[filiere], "prerequis": anciens,
-                "bilan": bilan, "cartes": cartes}
+                "bilan": bilan, "cartes": figees or cartes,
+                "cartes_figees": bool(figees)}
         entete = (f"/* Engendré par outils/construire.py — ne pas éditer à la main.\n"
                   f"   {NIVEAUX[filiere]} · {info['titre']}\n"
                   f"   Le bilan vient de {os.path.basename(fb)}, les cartes des \\trou{{}} de\n"

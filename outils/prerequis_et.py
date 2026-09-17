@@ -96,6 +96,43 @@ DATA = {
     "(1/2)² = 1/4. Le carré double l'effet de toute variation."),
  ],
 
+ "adm01": [
+  Q("Deux interrupteurs en série alimentent une lampe. Combien doivent être fermés pour "
+    "qu'elle s'allume ?",
+    ["les deux", "un seul suffit", "aucun", "cela dépend de l'ordre"], 0,
+    "En série, le courant n'a qu'un chemin : il faut que tous les contacts soient fermés. "
+    "C'est exactement le principe de la chaîne de sécurité d'un circuit de commande."),
+  Q("Les deux mêmes interrupteurs sont maintenant en parallèle. Combien suffit-il d'en "
+    "fermer ?",
+    ["un seul", "les deux", "aucun", "cela dépend de leur calibre"], 0,
+    "En parallèle, chaque contact ouvre un chemin à lui seul. C'est ce qui permet à un "
+    "contact auxiliaire de doubler un bouton poussoir — l'automaintien."),
+  Q("Un fil est coupé au milieu d'une branche alimentée en 24 V, le reste étant intact. "
+    "La tension aux bornes de la coupure vaut :",
+    ["24 V", "0 V", "12 V", "cela dépend du courant"], 0,
+    "Aucun courant ne circule, donc aucune chute de tension ailleurs : toute la tension du "
+    "générateur se retrouve aux bornes de la coupure. C'est pour cela qu'un contact ouvert "
+    "reste dangereux."),
+  Q("Un appareil de résistance quasi nulle est traversé par un courant. La tension à ses "
+    "bornes vaut :",
+    ["environ 0 V", "la tension du réseau", "la moitié de la tension du réseau",
+     "cela dépend de sa longueur"], 0,
+    "U = R I avec R proche de zéro donne une tension presque nulle. Ouvert, c'est l'inverse : "
+    "il prend toute la tension. Un contact est donc soit sous tension, soit parcouru par le "
+    "courant, jamais les deux."),
+  Q("Un moteur porte sur sa plaque : 400 V, 12 A, 5,5 kW. Que représente le 12 A ?",
+    ["le courant nominal, à ne pas dépasser en régime établi", "le courant de démarrage",
+     "le courant maximal admissible en permanence par le câble",
+     "le calibre du disjoncteur à installer"], 0,
+    "C'est le courant absorbé à pleine charge. Le dépasser durablement échauffe les "
+    "enroulements : c'est précisément ce que surveille le relais thermique."),
+  Q("Dans un réseau 400 V entre phases et 230 V entre phase et neutre, le nombre qui relie "
+    "ces deux valeurs est :",
+    ["√3 ≈ 1,73", "2", "√2 ≈ 1,41", "1,60"], 0,
+    "400/230 = 1,74, soit √3. C'est le nombre du triphasé — il reviendra à chaque calcul de "
+    "puissance et au couplage étoile-triangle."),
+ ],
+
  "tp02": [
   Q("Un générateur de 12 V alimente R₁ = 150 Ω et R₂ = 250 Ω en série. Le courant vaut :",
     ["30 mA", "80 mA", "48 mA", "3,0 mA"], 0,

@@ -64,6 +64,9 @@ header .genre{margin:6px 0 0;color:var(--gris);font-size:.9rem}
 .bouton.second:hover{background:#E4EDF4}
 .bouton.su{background:var(--juste)}      .bouton.su:hover{background:#0A5C38}
 .bouton.pas{background:var(--orange)}  .bouton.pas:hover{background:#B2600F}
+.face img,.dos img{max-width:100%;height:auto;display:block;margin:10px auto;background:#fff;
+  border-radius:6px;padding:4px}
+.face .sujet,.dos .sujet{display:block;font-size:.9rem;color:var(--gris);margin-bottom:6px}
 .aide{max-width:34em;margin:14px auto 0;font-size:.92rem;line-height:1.5;text-align:center}
 
 .score{background:var(--panneau);border:1px solid var(--bord);border-top:5px solid var(--orange);
@@ -99,7 +102,7 @@ table th{background:#E4EDF4;color:var(--bleu)}
 (function(){
   "use strict";
   var par = new URLSearchParams(location.search);
-  var ch  = (par.get('ch') || '').replace(/[^0-9]/g,'');
+  var ch  = (par.get('ch') || '').replace(/[^0-9a-zA-Z]/g,'');
   // La filiere fait partie de l'adresse : le chapitre 1 de la 1re STI2D et
   // le cours 1 du BTS ET sont deux choses differentes, et leurs fichiers de
   // donnees comme leur progression enregistree doivent rester separes.
@@ -115,11 +118,12 @@ table th{background:#E4EDF4;color:var(--bleu)}
   if(!ch || !fil){ erreur("L'adresse ne précise pas la filière et le " +
     "chapitre."); return; }
 
-  // Les fichiers sont numerotes sur deux chiffres (qcm-1sti2d-ch07.js)
-  // alors que le catalogue peut passer ch=7 : on complete.
-  var deux = ch.length < 2 ? '0' + ch : ch;
+  // Le catalogue passe la CLE du chapitre : ch07, mais aussi c01, tp01, adm01.
+  // Les anciennes adresses numerotees (ch=7) restent valides : on les complete.
+  var cle = /^[0-9]+$/.test(ch) ? 'ch' + (ch.length < 2 ? '0' + ch : ch) : ch;
+  var deux = cle;
   var s = document.createElement('script');
-  s.src = 'qcm-' + fil + '-ch' + deux + '.js';
+  s.src = 'qcm-' + fil + '-' + cle + '.js';
   s.onerror = function(){ erreur('Le chapitre ' + ch +
     " n'a pas encore de cartes."); };
   s.onload = function(){ demarrer(window.CHAPITRE); };
@@ -143,12 +147,12 @@ table th{background:#E4EDF4;color:var(--bleu)}
   function ecrire(cle,v){ try{ localStorage.setItem(cle,JSON.stringify(v)); }
     catch(e){} }
 
-  var chap, cle, pile, pos, revoir, su, total;
+  var chap, cleStock, pile, pos, revoir, su, total;
 
   function demarrer(d){
     chap = d;
-    cle = 'neruda.cartes.' + fil + '.ch' + chap.num;
-    document.getElementById('chap').textContent = 'Chapitre ' + chap.num;
+    cleStock = 'neruda.cartes.' + fil + '.' + cle;
+    document.getElementById('chap').textContent = (chap.etiquette || ('Chapitre ' + chap.num));
     document.getElementById('titre').textContent = chap.titre;
     document.getElementById('genre').textContent = 'Cartes de révision · '
       + chap.niveau;
@@ -160,7 +164,7 @@ table th{background:#E4EDF4;color:var(--bleu)}
   }
 
   function accueil(){
-    var acquises = lire(cle);
+    var acquises = lire(cleStock);
     var reste = chap.cartes.filter(function(c,i){
       return acquises.indexOf(i) < 0; });
     zone.innerHTML = '';
@@ -191,17 +195,26 @@ table th{background:#E4EDF4;color:var(--bleu)}
 
     var act2 = creer('div','actions');
     var l = creer('a','bouton second','Faire le bilan du chapitre');
-    l.href = 'qcm.html?f=' + fil + '&ch=' + chap.num + '&type=bilan';
+    l.href = 'qcm.html?f=' + fil + '&ch=' + cle + '&type=bilan';
     act2.appendChild(l);
-    var b3 = creer('button','bouton second','Télécharger pour Anki');
-    b3.type='button'; b3.onclick = anki;
-    act2.appendChild(b3);
+    if(chap.anki_paquet){
+      var a3 = creer('a','bouton second','Télécharger le paquet Anki');
+      a3.href = chap.anki_paquet;
+      act2.appendChild(a3);
+    }else{
+      var b3 = creer('button','bouton second','Télécharger pour Anki');
+      b3.type='button'; b3.onclick = anki;
+      act2.appendChild(b3);
+    }
     zone.appendChild(act2);
     zone.appendChild(creer('p','vide aide',
-      'Le fichier téléchargé s\u2019ouvre dans Anki par <em>Fichier &rsaquo; '
-      + 'Importer</em>. Les cartes arrivent dans un paquet au nom du chapitre. '
-      + 'Rien n\u2019est envoyé nulle part : le fichier se fabrique dans le '
-      + 'téléphone.'));
+      chap.anki_paquet
+        ? 'Ce sont les mêmes cartes que sur cette page, avec leurs images. Le '
+          + 'fichier s\u2019ouvre directement dans Anki, qui l\u2019importe tout seul.'
+        : 'Le fichier téléchargé s\u2019ouvre dans Anki par <em>Fichier &rsaquo; '
+          + 'Importer</em>. Les cartes arrivent dans un paquet au nom du chapitre. '
+          + 'Rien n\u2019est envoyé nulle part : le fichier se fabrique dans le '
+          + 'téléphone.'));
   }
 
   // ------------------------------------------------------------- export Anki
@@ -221,7 +234,7 @@ table th{background:#E4EDF4;color:var(--bleu)}
       '#html:true',
       '#notetype:Basic',
       '#deck:Physique::' + nom,
-      '#tags:physique ' + fil + ' ch' + chap.num,
+      '#tags:physique ' + fil + ' ' + cle,
       '#columns:Recto\tVerso'
     ];
     for(var i=0;i<chap.cartes.length;i++){
@@ -233,15 +246,14 @@ table th{background:#E4EDF4;color:var(--bleu)}
       {type:'text/plain;charset=utf-8'}));
     var a = document.createElement('a');
     a.href = url;
-    a.download = 'anki-' + fil + '-ch' + (chap.num.length<2?'0':'') +
-      chap.num + '.txt';
+    a.download = 'anki-' + fil + '-' + cle + '.txt';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
   }
 
   function lancer(tout){
-    var acquises = tout ? [] : lire(cle);
-    if(tout) ecrire(cle, []);
+    var acquises = tout ? [] : lire(cleStock);
+    if(tout) ecrire(cleStock, []);
     pile = melange(chap.cartes.map(function(c,i){ return i; })
       .filter(function(i){ return acquises.indexOf(i) < 0; }));
     pos = 0; revoir = []; su = 0; total = pile.length;
@@ -289,15 +301,15 @@ table th{background:#E4EDF4;color:var(--bleu)}
     ok.type='button';
     ok.onclick = function(){
       su++;
-      var a = lire(cle); if(a.indexOf(idx)<0){ a.push(idx); ecrire(cle,a); }
+      var a = lire(cleStock); if(a.indexOf(idx)<0){ a.push(idx); ecrire(cleStock,a); }
       suivante();
     };
     var ko = creer('button','bouton pas','À revoir');
     ko.type='button';
     ko.onclick = function(){
       revoir.push(idx);
-      var a = lire(cle).filter(function(x){ return x !== idx; });
-      ecrire(cle, a);
+      var a = lire(cleStock).filter(function(x){ return x !== idx; });
+      ecrire(cleStock, a);
       suivante();
     };
     act.appendChild(ok); act.appendChild(ko);
@@ -321,7 +333,7 @@ table th{background:#E4EDF4;color:var(--bleu)}
     d.appendChild(creer('h2',null,'Séance terminée'));
     d.appendChild(creer('p','chiffre', su + ' <small>cartes sues sur '
       + total + '</small>'));
-    var reste = chap.cartes.length - lire(cle).length;
+    var reste = chap.cartes.length - lire(cleStock).length;
     d.appendChild(creer('p','vide', reste
       ? 'Il te reste ' + reste + ' carte' + (reste>1?'s':'')
         + ' à revoir la prochaine fois.'
@@ -334,7 +346,7 @@ table th{background:#E4EDF4;color:var(--bleu)}
     b.type='button'; b.onclick = accueil;
     act.appendChild(b);
     var l = creer('a','bouton second','Faire le bilan');
-    l.href = 'qcm.html?f=' + fil + '&ch=' + chap.num + '&type=bilan';
+    l.href = 'qcm.html?f=' + fil + '&ch=' + cle + '&type=bilan';
     act.appendChild(l);
     zone.appendChild(act);
     b.focus({preventScroll:true});
