@@ -626,3 +626,22 @@ Les trois animations arrivaient sans mention de niveau — la règle du 10 septe
 dans la chaîne amont. Il n'y restait qu'à poser le lien « Toutes les animations ».
 
 **Le site** : 661 entrées, 466 PDF, 16 animations, 1101 questions, 877 cartes.
+
+
+---
+
+## Mise à jour du 20 septembre 2026 — 1re STI2D en version 5
+
+Les 19 chapitres redéposés (114 PDF). L'activité du **chapitre 2** est refondue : partie A
+construite sur une facture d'électricité et sur la nouvelle animation, partie B refaite sur la
+chaîne de la lampe — transformateur puis ampoule, deux maillons réellement consécutifs, au lieu
+du sèche-cheveux dont le moteur et la résistance sont en parallèle. Six figures de rappel ont
+quitté la feuille d'exercices, où elles donnaient la réponse avant l'énoncé, et le prix du kWh
+est unifié à 0,28 € partout.
+
+Nouvelle animation : `wattmetre-de-prise.html`, rattachée au chapitre 2 juste avant l'activité.
+Dix appareils d'élève, la puissance réellement appelée, une durée d'usage quotidien, et
+l'énergie qui s'en déduit. Elle arrivait sans mention de niveau — il n'y restait qu'à poser le
+lien « Toutes les animations ».
+
+**Le site** : 662 entrées, 466 PDF, 17 animations, 1101 questions, 877 cartes.

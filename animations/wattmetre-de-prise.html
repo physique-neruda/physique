@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le wattmètre de prise</title>
+<style>
+:root{
+  --paillasse:#e4e7e9;
+  --paillasse2:#d5dade;
+  --encre:#1c2226;
+  --encre-doux:#5a666e;
+  --boitier:#39424a;
+  --boitier-clair:#4d5861;
+  --lcd:#c3d194;
+  --lcd-encre:#243016;
+  --bleu:#1d5a9e;
+  --orange:#e08a1e;
+  --rouge:#b6372c;
+  --trait:#b6bec4;
+  --carte:#ffffff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paillasse:#1a1f23; --paillasse2:#15191c; --encre:#e8ecee; --encre-doux:#9aa6ad;
+    --trait:#39434a; --carte:#222a30; --bleu:#5f9fdc; --orange:#e8a144;
+  }
+}
+:root[data-theme="dark"]{
+  --paillasse:#1a1f23; --paillasse2:#15191c; --encre:#e8ecee; --encre-doux:#9aa6ad;
+  --trait:#39434a; --carte:#222a30; --bleu:#5f9fdc; --orange:#e8a144;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; background:var(--paillasse); color:var(--encre);
+  font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.5;
+}
+.page{max-width:1080px;margin:0 auto;padding:22px 18px 48px}
+h1{font-size:1.6rem;font-weight:650;letter-spacing:-.01em;margin:0 0 6px}
+.chapeau{margin:0 0 22px;color:var(--encre-doux);max-width:64ch}
+h2{font-size:1.02rem;font-weight:650;margin:0 0 12px;display:flex;align-items:baseline;gap:10px}
+h2 .num{
+  display:inline-grid;place-items:center;width:1.55em;height:1.55em;flex:0 0 auto;
+  border-radius:50%;background:var(--bleu);color:#fff;font-size:.78rem;font-weight:700;
+}
+section{background:var(--carte);border:1px solid var(--trait);border-radius:10px;padding:18px;margin-bottom:18px}
+
+/* --- banc --- */
+.banc{
+  display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:nowrap;
+  background:linear-gradient(var(--paillasse2),var(--paillasse));
+  border-radius:8px;padding:18px 10px;overflow-x:auto;
+}
+.cordon{flex:0 0 34px;height:4px;background:var(--boitier);border-radius:2px}
+.prise{flex:0 0 auto;text-align:center}
+.prise svg{width:74px;height:74px;display:block}
+.prise small,.appareil small{display:block;font-size:.74rem;color:var(--encre-doux);margin-top:4px}
+
+.wattmetre{
+  flex:0 0 auto;background:var(--boitier);border-radius:12px;padding:12px;
+  box-shadow:inset 0 -3px 0 rgba(0,0,0,.25);min-width:186px;
+}
+.lcd{
+  background:var(--lcd);border-radius:5px;padding:9px 12px 7px;color:var(--lcd-encre);
+  font-variant-numeric:tabular-nums;text-align:right;
+}
+.lcd .val{font-size:2rem;font-weight:700;letter-spacing:.02em;line-height:1.05}
+.lcd .val .u{font-size:.95rem;font-weight:600;margin-left:3px}
+.lcd .sec{display:flex;justify-content:space-between;font-size:.72rem;margin-top:5px;opacity:.85}
+.wattmetre .marque{color:#aeb9c2;font-size:.68rem;letter-spacing:.06em;margin-top:7px;text-align:center}
+
+.appareil{flex:0 0 auto;text-align:center;min-width:112px}
+.appareil svg{width:88px;height:74px;display:block;margin:0 auto}
+.appareil .nom{font-size:.8rem;font-weight:600;max-width:130px;margin:2px auto 0}
+
+/* --- commandes --- */
+.commandes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.legende{font-size:.78rem;color:var(--encre-doux);margin:0 0 7px}
+.choix{display:flex;flex-wrap:wrap;gap:7px}
+.puce{
+  border:1.5px solid var(--trait);background:transparent;color:inherit;font:inherit;font-size:.85rem;
+  border-radius:20px;padding:5px 12px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.puce:hover{border-color:var(--bleu)}
+.puce:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.puce[aria-pressed="true"]{border-color:var(--bleu);background:var(--bleu);color:#fff}
+.interrupteur{margin-top:14px;display:flex;align-items:center;gap:12px}
+.bascule{
+  width:60px;height:31px;border-radius:16px;border:1.5px solid var(--trait);background:transparent;
+  position:relative;cursor:pointer;padding:0;flex:0 0 auto;
+}
+.bascule::after{
+  content:"";position:absolute;top:2px;left:2px;width:23px;height:23px;border-radius:50%;
+  background:var(--encre-doux);transition:transform .18s,background .18s;
+}
+.bascule[aria-pressed="true"]{border-color:#2e7d4f;background:rgba(46,125,79,.14)}
+.bascule[aria-pressed="true"]::after{transform:translateX(29px);background:#2e7d4f}
+.bascule:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+/* --- résultats --- */
+.calcul{
+  margin-top:16px;border-left:3px solid var(--orange);padding:10px 0 10px 14px;
+  font-variant-numeric:tabular-nums;
+}
+.calcul .ligne{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;margin:0 0 6px}
+.calcul .ligne:last-child{margin-bottom:0}
+.calcul .etq{font-size:.8rem;color:var(--encre-doux);min-width:11.5em}
+.calcul .res{font-weight:650}
+.gros{font-size:1.25rem}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.bouton{
+  border:none;border-radius:7px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer;
+  background:var(--bleu);color:#fff;
+}
+.bouton.secondaire{background:transparent;color:var(--bleu);border:1.5px solid var(--bleu)}
+.bouton:disabled{opacity:.45;cursor:not-allowed}
+.bouton:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--trait);padding:7px 8px;text-align:right}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:.76rem;color:var(--encre-doux);font-weight:600}
+.vide{color:var(--encre-doux);font-size:.9rem;margin:0}
+.remarque{margin:14px 0 0;font-size:.9rem;background:rgba(224,138,30,.12);border-radius:7px;padding:10px 12px}
+.remarque:empty{display:none}
+@media (max-width:760px){
+  .commandes{grid-template-columns:1fr}
+  .banc{justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.retour{display:inline-block;margin:14px 0 6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
+
+
+<h1>Le wattmètre de prise</h1>
+<p class="chapeau">Un wattmètre de prise se glisse entre la prise murale et l'appareil : il affiche la puissance réellement appelée. Branchez un appareil, relevez sa puissance, puis choisissez la durée pendant laquelle vous l'utilisez chaque jour : l'énergie consommée s'en déduit par <strong>E = P × Δt</strong>.</p>
+
+<section>
+  <h2><span class="num">1</span>Mesurer la puissance</h2>
+  <div class="banc">
+    <div class="prise">
+      <svg viewBox="0 0 74 74" aria-hidden="true">
+        <rect x="6" y="6" width="62" height="62" rx="9" fill="#cfd5d9" stroke="#8b959c" stroke-width="2"/>
+        <circle cx="37" cy="37" r="22" fill="#b9c1c7" stroke="#8b959c" stroke-width="2"/>
+        <circle cx="26" cy="41" r="4.4" fill="#525d64"/>
+        <circle cx="48" cy="41" r="4.4" fill="#525d64"/>
+        <rect x="33" y="19" width="8" height="12" rx="2" fill="#7d878e" stroke="#525d64" stroke-width="1.5"/>
+      </svg>
+      <small>prise secteur</small>
+    </div>
+    <div class="cordon"></div>
+    <div class="wattmetre">
+      <div class="lcd">
+        <div class="val"><span id="lecture">0,0</span><span class="u">W</span></div>
+        <div class="sec"><span id="etat">appareil éteint</span><span>230 V</span></div>
+      </div>
+      <div class="marque">WATTMÈTRE DE PRISE</div>
+    </div>
+    <div class="cordon"></div>
+    <div class="appareil">
+      <div id="dessin"></div>
+      <div class="nom" id="nomAppareil">Console PlayStation 5</div>
+      <small id="sousTitre">en cours de jeu</small>
+    </div>
+  </div>
+
+  <div class="commandes">
+    <div>
+      <p class="legende">Appareil branché sur le wattmètre</p>
+      <div class="choix" id="choixAppareils"></div>
+      <div class="interrupteur">
+        <button class="bascule" id="bascule" aria-pressed="false" aria-label="Mettre l'appareil en marche"></button>
+        <span id="libelleBascule">Mettre en marche</span>
+      </div>
+    </div>
+    <div>
+      <p class="legende">Durée de fonctionnement</p>
+      <div class="choix" id="choixDurees"></div>
+      <p class="remarque" id="remarque"></p>
+    </div>
+  </div>
+
+  <div class="calcul" id="calcul" hidden>
+    <p class="ligne"><span class="etq">Énergie consommée</span><span class="res gros" id="eWh"></span></p>
+    <p class="ligne"><span class="etq">soit, en kilowattheures</span><span class="res" id="ekWh"></span></p>
+    <p class="ligne"><span class="etq">soit, en joules</span><span class="res" id="eJ"></span></p>
+  </div>
+
+  <div class="actions">
+    <button class="bouton" id="ajouter" disabled>Ajouter au relevé</button>
+    <button class="bouton secondaire" id="vider">Vider le relevé</button>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">2</span>Relevé</h2>
+  <p class="vide" id="videReleve">Aucune mesure pour l'instant. Mettez un appareil en marche, choisissez une durée, puis ajoutez la mesure au relevé.</p>
+  <table id="tableau" hidden>
+    <thead><tr><th>Appareil</th><th>P (W)</th><th>Δt (h)</th><th>E (Wh)</th><th>E (J)</th></tr></thead>
+    <tbody id="corps"></tbody>
+  </table>
+</section>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var dessins = {
+    lampe: '<svg viewBox="0 0 88 74" aria-hidden="true"><path d="M44 16 L66 46 H22 Z" fill="#f2d98a" stroke="#8b959c" stroke-width="2" stroke-linejoin="round"/><rect x="40" y="46" width="8" height="18" fill="#8b959c"/><rect x="26" y="64" width="36" height="6" rx="3" fill="#525d64"/></svg>',
+    console: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="22" y="10" width="20" height="54" rx="4" fill="#e8ebed" stroke="#8b959c" stroke-width="2"/><rect x="44" y="10" width="20" height="54" rx="4" fill="#39424a" stroke="#22292e" stroke-width="2"/><rect x="48" y="18" width="12" height="3" rx="1.5" fill="#6f7b84"/><circle cx="54" cy="56" r="3" fill="#4a90d9"/></svg>',
+    portable: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="20" y="16" width="48" height="30" rx="5" fill="#b6372c" stroke="#8b2f26" stroke-width="2"/><rect x="28" y="22" width="32" height="18" rx="3" fill="#20303a"/><circle cx="26" cy="52" r="7" fill="#4a90d9"/><circle cx="62" cy="52" r="7" fill="#b6372c"/><rect x="34" y="48" width="20" height="8" rx="4" fill="#8b959c"/></svg>',
+    pc: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="8" y="14" width="24" height="48" rx="3" fill="#39424a" stroke="#22292e" stroke-width="2"/><circle cx="20" cy="26" r="5" fill="#4a90d9"/><rect x="13" y="40" width="14" height="3" fill="#6f7b84"/><rect x="13" y="47" width="14" height="3" fill="#6f7b84"/><rect x="38" y="18" width="44" height="28" rx="3" fill="#cfd5d9" stroke="#8b959c" stroke-width="2"/><rect x="42" y="22" width="36" height="20" rx="2" fill="#20303a"/><rect x="54" y="46" width="12" height="10" fill="#8b959c"/><rect x="44" y="56" width="32" height="5" rx="2.5" fill="#525d64"/></svg>',
+    tv: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="6" y="10" width="76" height="44" rx="3" fill="#39424a" stroke="#22292e" stroke-width="2"/><rect x="10" y="14" width="68" height="36" rx="2" fill="#4a6c8c"/><rect x="38" y="54" width="12" height="8" fill="#525d64"/><rect x="26" y="62" width="36" height="5" rx="2.5" fill="#525d64"/></svg>',
+    telephone: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="32" y="8" width="26" height="48" rx="5" fill="#39424a" stroke="#22292e" stroke-width="2"/><rect x="35" y="13" width="20" height="36" rx="2" fill="#7fb069"/><path d="M45 20 l-5 9 h5 l-3 8 7 -10 h-5 Z" fill="#fff"/><path d="M45 56 v6 q0 4 6 4 h12" fill="none" stroke="#525d64" stroke-width="3"/></svg>',
+    lisseur: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="12" y="26" width="52" height="9" rx="4.5" fill="#39424a" transform="rotate(-8 38 30)"/><rect x="12" y="36" width="52" height="9" rx="4.5" fill="#525d64" transform="rotate(-2 38 40)"/><rect x="14" y="30" width="16" height="12" rx="3" fill="#b6372c"/><path d="M64 40 q10 2 10 12" fill="none" stroke="#525d64" stroke-width="3"/></svg>',
+    seche: '<svg viewBox="0 0 88 74" aria-hidden="true"><path d="M20 20 h30 a14 14 0 0 1 0 28 H20 a14 14 0 0 1 0 -28 Z" fill="#cfd5d9" stroke="#8b959c" stroke-width="2"/><path d="M50 26 l18 -6 v28 l-18 -6 Z" fill="#b9c1c7" stroke="#8b959c" stroke-width="2" stroke-linejoin="round"/><path d="M26 48 l-6 18 h12 Z" fill="#525d64"/><path d="M74 26 h6 M74 34 h8 M74 42 h6" stroke="#e08a1e" stroke-width="2.5" stroke-linecap="round"/></svg>',
+    compresseur: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="10" y="34" width="66" height="24" rx="12" fill="#cfd5d9" stroke="#8b959c" stroke-width="2"/><rect x="18" y="58" width="7" height="9" fill="#525d64"/><rect x="61" y="58" width="7" height="9" fill="#525d64"/><rect x="24" y="14" width="30" height="20" rx="3" fill="#4a6c8c" stroke="#33526b" stroke-width="2"/><path d="M30 14 v-5 h18 v5" fill="none" stroke="#525d64" stroke-width="3"/><circle cx="66" cy="24" r="7" fill="#e8ebed" stroke="#8b959c" stroke-width="2"/><path d="M66 24 l4 -4" stroke="#b6372c" stroke-width="2"/></svg>'
+  };
+
+  var appareils = [
+    {id:"ps5", court:"PS5", nom:"Console PlayStation 5", sous:"en cours de jeu",
+     p:200, duree:3, dessin:"console",
+     mot:"En veille, la même console consomme encore environ 1,5 W — jour et nuit."},
+    {id:"switch", court:"Switch 2", nom:"Nintendo Switch 2", sous:"sur son dock, jeu en cours",
+     p:20, duree:2, dessin:"portable",
+     mot:"Dix fois moins qu'une console de salon : la console portable est conçue pour une batterie."},
+    {id:"pc", court:"PC gaming", nom:"PC gaming et son écran", sous:"jeu en cours",
+     p:450, duree:3, dessin:"pc",
+     mot:"L'appareil le plus gourmand de la maison après ceux qui chauffent."},
+    {id:"tv", court:"Télévision", nom:"Télévision LCD 55 pouces", sous:"allumée",
+     p:110, duree:3, dessin:"tv", mot:""},
+    {id:"telephone", court:"Téléphone", nom:"Téléphone en charge", sous:"batterie vide au départ",
+     p:8, duree:2, dessin:"telephone",
+     mot:"Le chargeur laissé branché sans téléphone consomme encore 0,3 W, mais 24 h sur 24."},
+    {id:"lisseur", court:"Lisseur", nom:"Lisseur à cheveux", sous:"plaques chaudes",
+     p:45, duree:0.25, dessin:"lisseur", mot:""},
+    {id:"seche", court:"Sèche-cheveux", nom:"Sèche-cheveux", sous:"position chaude",
+     p:1800, duree:0.25, dessin:"seche",
+     mot:"Très puissant, mais utilisé quelques minutes : regardez l'énergie avant de conclure."},
+    {id:"halogene", court:"Lampe halogène", nom:"Lampe de bureau halogène", sous:"12 V – 50 W inscrit sur le culot",
+     p:55, duree:6, dessin:"lampe",
+     mot:"La lampe porte « 50 W » sur son culot, et le wattmètre en lit 55 : le transformateur de la lampe consomme lui aussi au passage."},
+    {id:"led", court:"Lampe LED", nom:"Lampe de bureau à LED", sous:"éclaire autant que l'halogène",
+     p:9, duree:6, dessin:"lampe",
+     mot:"Même éclairage que l'halogène, pour six fois moins de puissance."},
+    {id:"compresseur", court:"Compresseur", nom:"Compresseur d'atelier", sous:"cuve de 50 L",
+     p:2200, duree:3, dessin:"compresseur",
+     mot:"Forte puissance et longue durée : c'est la combinaison des deux qui fait la facture."}
+  ];
+
+  var durees = [
+    {t:0.25, lib:"15 min"}, {t:0.5, lib:"30 min"}, {t:1, lib:"1 h"}, {t:2, lib:"2 h"},
+    {t:3, lib:"3 h"}, {t:5, lib:"5 h"}, {t:6, lib:"6 h"}, {t:24, lib:"24 h"}
+  ];
+
+
+
+  var $ = function(id){ return document.getElementById(id); };
+  var courant = appareils[0], dureeH = 3, enMarche = false, anim = null;
+  var reduit = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function fr(x, dec){
+    return x.toFixed(dec).replace(".", ",");
+  }
+  function nombre(x){
+    if (x >= 1000) return fr(x, 0);
+    if (x >= 100) return fr(x, 0);
+    if (x >= 10) return fr(x, 1);
+    if (x >= 1) return fr(x, 1);
+    return fr(x, 2);
+  }
+  function joules(wh){
+    var j = wh * 3600, e = Math.floor(Math.log10(j)), m = j / Math.pow(10, e);
+    return fr(m, 1) + " × 10<sup>" + e + "</sup> J";
+  }
+
+  /* --- le banc --- */
+  function dessineAppareil(){
+    $("dessin").innerHTML = dessins[courant.dessin];
+    $("nomAppareil").textContent = courant.nom;
+    $("sousTitre").textContent = courant.sous;
+    $("dessin").style.opacity = (enMarche || courant.id === "chargeur") ? "1" : "0.55";
+  }
+
+  function afficheLecture(valeur){
+    $("lecture").textContent = nombre(valeur);
+  }
+
+  function anime(vers){
+    if (anim) cancelAnimationFrame(anim);
+    if (reduit){ afficheLecture(vers); return; }
+    var debut = null, duree = 550, depart = 0;
+    function pas(t){
+      if (debut === null) debut = t;
+      var k = Math.min(1, (t - debut) / duree);
+      afficheLecture(depart + (vers - depart) * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) anim = requestAnimationFrame(pas);
+    }
+    anim = requestAnimationFrame(pas);
+  }
+
+  function majResultats(){
+    var visible = enMarche;
+    $("calcul").hidden = !visible;
+    $("ajouter").disabled = !visible;
+    if (!visible) return;
+    var wh = courant.p * dureeH;
+    $("eWh").innerHTML = nombre(courant.p) + " × " + fr(dureeH, 1) + " = <strong>" + nombre(wh) + " Wh</strong>";
+    $("ekWh").textContent = fr(wh / 1000, 3) + " kWh";
+    $("eJ").innerHTML = joules(wh);
+  }
+
+  function maj(){
+    $("etat").textContent = enMarche ? "en fonctionnement" : "appareil éteint";
+    $("bascule").setAttribute("aria-pressed", enMarche ? "true" : "false");
+    $("libelleBascule").textContent = enMarche ? "Arrêter" : "Mettre en marche";
+    $("remarque").textContent = enMarche ? (courant.mot || "") : "";
+    anime(enMarche ? courant.p : 0);
+    dessineAppareil();
+    majResultats();
+  }
+
+  var zoneA = $("choixAppareils");
+  appareils.forEach(function(a){
+    var b = document.createElement("button");
+    b.className = "puce"; b.type = "button"; b.textContent = a.court;
+    b.setAttribute("aria-pressed", a.id === courant.id ? "true" : "false");
+    b.addEventListener("click", function(){
+      courant = a;
+      dureeH = a.duree;
+      Array.prototype.forEach.call(zoneA.children, function(c){ c.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+      majDurees();
+      maj();
+    });
+    zoneA.appendChild(b);
+  });
+
+  var zoneD = $("choixDurees");
+  durees.forEach(function(d){
+    var b = document.createElement("button");
+    b.className = "puce"; b.type = "button"; b.textContent = d.lib;
+    b.dataset.t = d.t;
+    b.addEventListener("click", function(){
+      dureeH = d.t; majDurees(); majResultats();
+    });
+    zoneD.appendChild(b);
+  });
+  function majDurees(){
+    Array.prototype.forEach.call(zoneD.children, function(c){
+      c.setAttribute("aria-pressed", parseFloat(c.dataset.t) === dureeH ? "true" : "false");
+    });
+  }
+
+  $("bascule").addEventListener("click", function(){ enMarche = !enMarche; maj(); });
+
+  /* --- le relevé --- */
+  $("ajouter").addEventListener("click", function(){
+    var wh = courant.p * dureeH;
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td>" + courant.nom + "</td><td>" + nombre(courant.p) + "</td><td>" +
+      fr(dureeH, 1) + "</td><td>" + nombre(wh) + "</td><td>" + joules(wh) + "</td>";
+    $("corps").appendChild(tr);
+    $("tableau").hidden = false;
+    $("videReleve").hidden = true;
+  });
+  $("vider").addEventListener("click", function(){
+    $("corps").innerHTML = "";
+    $("tableau").hidden = true;
+    $("videReleve").hidden = false;
+  });
+
+  majDurees();
+  maj();
+})();
+</script>
+</body>
+</html>

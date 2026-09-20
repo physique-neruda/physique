@@ -306,6 +306,16 @@ ANIMATIONS = {
     ],
 
     "1sti2d": [
+        {"chapitre": "ch02", "rubrique": "TP", "avant": "activite",
+         "titre": "Le wattmètre de prise",
+         "fichier": "animations/wattmetre-de-prise.html",
+         "description": "L'appareil qui se glisse entre la prise murale et l'appareil : on "
+                        "branche l'un des dix appareils proposés, on lit la puissance "
+                        "réellement appelée, on choisit une durée d'usage quotidien et "
+                        "l'énergie se déduit. C'est la partie A de l'activité.",
+         "trouve": "La puissance d'une plaque de la facture n'est pas celle du chargeur.",
+         "motscles": ["wattmetre", "puissance", "energie", "kwh", "facture",
+                      "consommation", "veille", "prise"]},
         {"chapitre": "ch01", "rubrique": "TP", "avant": "activite",
          "titre": "Pied à coulisse virtuel", "fichier": "animations/pied-a-coulisse.html",
          "description": "Un pied à coulisse au 1/50 (résolution 0,02 mm) avec une loupe "
