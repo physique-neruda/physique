@@ -19,5 +19,20 @@
    "calcul litteral",
    "transformation"
   ]
+ },
+ "ou03": {
+  "num": "3",
+  "titre": "Utiliser un tableur",
+  "motscles": [
+   "tableur",
+   "excel",
+   "calculer",
+   "tracer",
+   "graphique",
+   "modeliser",
+   "courbe de tendance",
+   "regression",
+   "nuage de points"
+  ]
  }
 }

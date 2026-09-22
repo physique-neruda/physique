@@ -547,6 +547,5 @@ window.CHAPITRE = {
    "origine": "BTS ET::ADM 1 — Ne pas confondre les appareils"
   }
  ],
- "cartes_figees": true,
- "anki_paquet": "../docs/bts-et/adm01/symboles-anki.apkg"
+ "cartes_figees": true
 };

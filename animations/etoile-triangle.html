@@ -48,6 +48,12 @@ border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius
 <div class="bloc"><canvas id="cv" width="660" height="300"></canvas></div>
 
 <div class="bloc">
+<h2>Le montage, en direct</h2>
+<canvas id="cv2" width="660" height="430"></canvas>
+<p class="note">Les trois contacteurs sont tracés comme sur le schéma du cours : contact <b>ouvert</b>, lame écartée ; contact <b>fermé</b>, lame qui croise la barre du contact fixe. Les conducteurs sous tension sont colorés selon le couplage en cours — <span style="color:#0E7C7B;font-weight:600">étoile</span> ou <span style="color:#DD7A18;font-weight:600">triangle</span>.</p>
+</div>
+
+<div class="bloc">
 <h2>Conduite</h2>
 <div class="choix">
   <button id="bGo">Marche</button>
@@ -142,7 +148,110 @@ function dessine(){
     cx.beginPath();cx.roundRect(x-52,66,104,30,6);cx.fill();cx.stroke();
     txt(l,x,86,14,s?'#FFF':'#8FA3B0');});
 }
-function boucle(now){const dt=Math.min(0.05,(now-last)/1000);last=now;pas(dt);dessine();
+
+/* ===================================================================
+   LE MONTAGE ÉTOILE-TRIANGLE, en direct
+   KM1 amène les phases sur U1-V1-W1 ; KM2 relie U2-V2-W2 (point étoile) ;
+   KM3 relie U1-W2, V1-U2, W1-V2 (triangle). Contacts tracés selon la norme.
+   =================================================================== */
+const cx2=$('cv2').getContext('2d');
+function f2(x1,y1,x2,y2,e,c,tir){cx2.beginPath();cx2.lineWidth=e;cx2.strokeStyle=c;cx2.lineCap='round';
+  if(tir)cx2.setLineDash([5,3]); cx2.moveTo(x1,y1);cx2.lineTo(x2,y2);cx2.stroke();cx2.setLineDash([]);}
+function t2(s,x,y,sz,c,a,g){cx2.font=(g?'600 ':'')+(sz||11)+'px '+getComputedStyle(document.body).fontFamily;
+  cx2.fillStyle=c||'#16232D';cx2.textAlign=a||'center';cx2.fillText(s,x,y);}
+function pt2(x,y,c){cx2.beginPath();cx2.arc(x,y,3.2,0,6.3);cx2.fillStyle=c;cx2.fill();}
+/* contact de puissance vertical : hauteur h = 8 M, coussinet de contacteur */
+function pole(x,yt,h,ferme,col){
+  const M=h/8, y1=yt+2*M, y2=yt+6*M;
+  f2(x,yt,x,y1,3,col); f2(x,y2,x,yt+h,3,col);
+  if(ferme){ f2(x,y1,x+2*M,y1,3,col); f2(x,y2,x+M,y1-M,3,col); }
+  else       f2(x,y2,x-2*M,y1,3,'#9AA8B2');
+  cx2.beginPath();cx2.arc(x,y1-M/2,M/2,1.5708,4.7124);cx2.lineWidth=2;cx2.strokeStyle=col;cx2.stroke();
+}
+/* enroulement : rectangle entre ses deux bornes */
+function enroulement(x,ya,yb,col,rempli){
+  f2(x,ya,x,ya+10,3,col); f2(x,yb-10,x,yb,3,col);
+  cx2.lineWidth=2.4;cx2.strokeStyle=col;
+  if(rempli){cx2.fillStyle=rempli;cx2.fillRect(x-8,ya+10,16,yb-ya-20);}
+  cx2.strokeRect(x-8,ya+10,16,yb-ya-20);
+}
+function dessineMontage(){
+  const W=660,H=430; cx2.clearRect(0,0,W,H);
+  const G='#9AA8B2', N='#16232D', RE='#C0392B', TEAL='#0E7C7B', OR='#DD7A18';
+  // état affiché ; en cas de défaut on fige la configuration fautive
+  const k1 = defaut ? 1 : km1, k2 = defaut ? 1 : km2, k3 = defaut ? 1 : km3;
+  const cc = defaut ? RE : (k2 ? TEAL : (k3 ? OR : RE));   // couleur du couplage
+  const P=[80,125,170];                                     // U, V, W
+  const yL=26, yK1=46, hK=64, yTap=[124,134,144], yEnrH=158, yEnrB=248;
+  const yRet=[262,274,286], yK2=300, yEt=382;
+  const xK3=[330,390,450], yK3=172;
+  // ---- réseau
+  ['L1','L2','L3'].forEach((l,i)=>{ cx2.beginPath();cx2.arc(P[i],yL,4,0,6.3);
+    cx2.strokeStyle=N;cx2.lineWidth=2;cx2.stroke(); t2(l,P[i],14,11,N); });
+  P.forEach(x=>f2(x,yL+4,x,yK1,3,N));
+  // ---- KM1 ligne
+  P.forEach(x=>pole(x,yK1,hK,k1,k1?RE:N));
+  f2(P[0]-10,yK1+hK/2,P[2]-10,yK1+hK/2,1,N,true);
+  t2('KM1',P[0]-30,yK1+hK/2+4,13,N,'right',true);
+  t2('ligne',P[0]-30,yK1+hK/2+18,10,'#5C6C79','right');
+  const cPh = k1 ? RE : G;                                  // phases en aval de KM1
+  P.forEach(x=>f2(x,yK1+hK,x,yEnrH,3,cPh));
+  // ---- enroulements
+  const actif = k1 && (k2||k3);
+  const cEnr = actif ? cc : G;
+  const fond = actif ? (cc===TEAL?'rgba(14,124,123,0.12)':(cc===OR?'rgba(221,122,24,0.14)':'rgba(192,57,43,0.14)')) : null;
+  ['U','V','W'].forEach((l,i)=>{
+    enroulement(P[i],yEnrH,yEnrB,cEnr,fond);
+    t2(l+'1',P[i]+12,yEnrH+8,10,N,'left'); t2(l+'2',P[i]+12,yEnrB-2,10,N,'left'); });
+  // tension par enroulement
+  const uEnr = !k1 ? '0 V' : (k2&&!k3 ? '230 V' : (k3&&!k2 ? '400 V' : (defaut?'—':'0 V')));
+
+  // ---- KM3 triangle : prises sur U1-V1-W1, retours vers W2-U2-V2
+  const cK3 = (k1&&k3) ? (defaut?RE:OR) : G;
+  const cible=[2,0,1];                                      // U1-W2, V1-U2, W1-V2
+  xK3.forEach((x,i)=>{
+    f2(P[i],yTap[i],x,yTap[i],2.4,cK3); pt2(P[i],yTap[i],k1?RE:N);
+    f2(x,yTap[i],x,yK3,2.4,cK3);
+    pole(x,yK3,hK,k3,k3&&k1?cK3:N);
+    const j=cible[i];
+    f2(x,yK3+hK,x,yRet[j],2.4,cK3);
+    f2(x,yRet[j],P[j],yRet[j],2.4,cK3); pt2(P[j],yRet[j],N);
+  });
+  f2(xK3[0]-10,yK3+hK/2,xK3[2]-10,yK3+hK/2,1,N,true);
+  t2('KM3',xK3[2]+34,yK3+hK/2+4,13,OR,'left',true);
+  t2('triangle',xK3[2]+34,yK3+hK/2+18,10,OR,'left');
+  // ---- KM2 étoile : W2-U2-V2 réunis
+  const cK2 = (k1&&k2) ? (defaut?RE:TEAL) : G;
+  P.forEach(x=>{ f2(x,yEnrB,x,yK2,3,(k1&&(k2||k3))?cc:G); pole(x,yK2,hK,k2,k2&&k1?cK2:N);
+                 f2(x,yK2+hK,x,yEt,3,cK2); pt2(x,yEt,cK2); });
+  f2(P[0],yEt,P[2],yEt,3,cK2);
+  f2(P[0]-10,yK2+hK/2,P[2]-10,yK2+hK/2,1,N,true);
+  t2('KM2',P[0]-30,yK2+hK/2+4,13,TEAL,'right',true);
+  t2('étoile',P[0]-30,yK2+hK/2+18,10,TEAL,'right');
+  t2('point étoile',P[2]+14,yEt+4,10,cK2,'left');
+  // ---- cartouche de l'état
+  let titre, sous, colT;
+  if(defaut){ titre='COURT-CIRCUIT'; colT=RE;
+    sous='KM2 et KM3 fermés ensemble : les phases sont reliées entre elles par le point étoile.'; }
+  else if(k1&&k2){ titre='COUPLAGE ÉTOILE'; colT=TEAL;
+    sous='KM1 et KM2 fermés, KM3 ouvert. Chaque enroulement reçoit 400/√3 ≈ 230 V.'; }
+  else if(k1&&k3){ titre='COUPLAGE TRIANGLE'; colT=OR;
+    sous='KM1 et KM3 fermés, KM2 ouvert. Chaque enroulement reçoit 400 V.'; }
+  else if(k1){ titre='TEMPS MORT'; colT='#5C6C79';
+    sous='KM2 vient de s\u2019ouvrir, KM3 pas encore fermé : aucun couplage, aucun courant.'; }
+  else { titre='ARRÊT'; colT='#5C6C79'; sous='Les trois contacteurs sont ouverts.'; }
+  cx2.fillStyle=colT; cx2.globalAlpha=0.10; cx2.fillRect(300,300,340,96); cx2.globalAlpha=1;
+  cx2.strokeStyle=colT; cx2.lineWidth=1.5; cx2.strokeRect(300,300,340,96);
+  t2(titre,470,326,16,colT,'center',true);
+  // texte sur deux lignes
+  const mots=sous.split(' '); let l1='',l2='';
+  mots.forEach(m=>{ if((l1+' '+m).length<46 && !l2) l1=(l1?l1+' ':'')+m; else l2=(l2?l2+' ':'')+m; });
+  t2(l1,470,352,11.5,N); t2(l2,470,370,11.5,N);
+  t2('KM1 '+(k1?'fermé':'ouvert')+'  ·  KM2 '+(k2?'fermé':'ouvert')+'  ·  KM3 '+(k3?'fermé':'ouvert'),
+     470,389,10,'#5C6C79');
+}
+
+function boucle(now){const dt=Math.min(0.05,(now-last)/1000);last=now;pas(dt);dessine();dessineMontage();
  requestAnimationFrame(boucle);}
 requestAnimationFrame(boucle);
 </script>

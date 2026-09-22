@@ -645,3 +645,30 @@ l'énergie qui s'en déduit. Elle arrivait sans mention de niveau — il n'y res
 lien « Toutes les animations ».
 
 **Le site** : 662 entrées, 466 PDF, 17 animations, 1101 questions, 877 cartes.
+
+
+---
+
+## Mise à jour du 21 septembre 2026
+
+**Un troisième outil transversal : le tableur.** `animations/tableur.html` — *Calculer, tracer
+et modéliser avec un tableur* — est un tutoriel pas à pas sur Excel : saisir un tableau de
+mesures, écrire une formule et la recopier, tracer un nuage de points, ajouter une courbe de
+tendance et lire son équation. Il ouvre la rubrique **Mesure** de la filière Outils, restée
+vide jusqu'ici, sous un chapitre `ou03` « Utiliser un tableur ».
+
+**BTS ET, collection v5.** Seul le **TP 2** a changé : ses dix documents publiés sont
+remplacés. Son bilan est relu depuis la nouvelle source ; la feuille de prérequis a gardé les
+mêmes questions, le questionnaire en ligne reste donc aligné. Les animations du fil Cours sont
+identiques à celles du site au lien de retour près — les versions du site, qui pointent vers
+la racine, sont conservées.
+
+**ADM 1, v16.** Seule l'animation `etoile-triangle.html` a changé ; elle est remplacée. PDF et
+paquet Anki identiques à la v15, les 51 cartes figées restent en place.
+
+**1re STI2D.** L'animation `wattmetre-de-prise.html` du chapitre 2 passe en v5.
+
+Les trois animations remplacées arrivaient sans mention de niveau ; le lien « Toutes les
+animations » y a été posé.
+
+**Le site** : 663 entrées, 466 PDF, 18 animations, 1101 questions, 877 cartes.

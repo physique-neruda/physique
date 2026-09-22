@@ -112,6 +112,17 @@ const DOCUMENTS = [
   },
 
 
+  {
+    filiere: "outils", rubrique: "Mesure",
+    chapitre: "Utiliser un tableur",
+    type: "animation", titre: "Calculer, tracer et modéliser avec un tableur",
+    fichier: "animations/tableur.html",
+    description: "Un tutoriel pas à pas sur Excel : saisir un tableau de mesures, écrire une formule et la recopier, tracer un nuage de points, puis ajouter une courbe de tendance et lire son équation. Chaque étape se rejoue autant qu'il faut : le mieux est de la reproduire en même temps sur son propre ordinateur.",
+    trouve: "Une modélisation, c'est une courbe de tendance qu'on sait lire, pas qu'on sait afficher.",
+    motscles: ["tableur", "excel", "formule", "recopier", "graphique", "nuage de points", "courbe de tendance", "modeliser"]
+  },
+
+
 
   /* ---------------- BTS Électrotechnique ---------------- */
   {

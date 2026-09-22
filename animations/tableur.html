@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tableur : calculer, tracer, modéliser</title>
+<style>
+:root{
+  --bleu:#1F4E79; --bleu-clair:#E6EEF7; --orange:#D9701E; --orange-clair:#FCEBDD;
+  --encre:#1B2430; --gris:#5A6675; --fond:#F4F7FB; --carte:#FFFFFF; --filet:#D3DCE7;
+  --vert:#217346;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bleu:#8DB8E8; --bleu-clair:#1C2B3D; --orange:#F0A060; --orange-clair:#3A2718;
+    --encre:#E6EBF1; --gris:#A5B0BE; --fond:#11161D; --carte:#1A212B; --filet:#2E3947;
+  }
+}
+:root[data-theme="dark"]{
+  --bleu:#8DB8E8; --bleu-clair:#1C2B3D; --orange:#F0A060; --orange-clair:#3A2718;
+  --encre:#E6EBF1; --gris:#A5B0BE; --fond:#11161D; --carte:#1A212B; --filet:#2E3947;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--fond);color:var(--encre);
+  font-family:"Segoe UI Variable Text","Segoe UI",Aptos,Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.5}
+header.page{max-width:1320px;margin:0 auto;padding:22px 20px 10px}
+header.page h1{margin:0;font-size:1.65rem;line-height:1.2;color:var(--bleu);font-weight:700;letter-spacing:-.01em}
+header.page p{margin:.35rem 0 0;color:var(--gris);font-size:.98rem;max-width:70ch}
+.layout{max-width:1320px;margin:0 auto;padding:10px 20px 24px;display:grid;
+  grid-template-columns:minmax(0,1fr) 380px;gap:20px;align-items:start}
+@media (max-width:1000px){.layout{grid-template-columns:minmax(0,1fr)}}
+.viewer{min-width:0}
+#wrap{position:relative;width:100%;max-width:960px;border-radius:8px;overflow:hidden;
+  box-shadow:0 0 0 1px var(--filet),0 10px 28px rgba(20,40,70,.16);background:#fff}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;max-width:960px}
+.controls button,.controls select{font:inherit;font-size:.95rem;border-radius:6px;border:1px solid var(--filet);
+  background:var(--carte);color:var(--encre);padding:7px 14px;cursor:pointer}
+.controls button:hover{border-color:var(--bleu)}
+.controls button.main{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+:root[data-theme="dark"] .controls button.main{color:#10202F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .controls button.main{color:#10202F}}
+.controls button:disabled{opacity:.4;cursor:default}
+.controls .grow{flex:1}
+.controls label{font-size:.9rem;color:var(--gris);display:flex;align-items:center;gap:6px}
+button:focus-visible,select:focus-visible,.steplist button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.progress{height:4px;background:var(--filet);border-radius:2px;margin-top:10px;max-width:960px;overflow:hidden}
+.progress>div{height:100%;width:0;background:var(--orange);transition:width .3s}
+
+.panel{background:var(--carte);border:1px solid var(--filet);border-radius:8px;padding:18px 20px}
+.panel .part{color:var(--orange);font-weight:600;font-size:.9rem}
+.panel h2{margin:.1rem 0 .6rem;font-size:1.3rem;line-height:1.25;color:var(--bleu)}
+#stepText p{margin:.55rem 0}
+#stepText ul{margin:.4rem 0;padding-left:1.2rem}
+#stepText li{margin:.25rem 0}
+#stepText code,#stepText kbd{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:.92em}
+#stepText code{background:var(--bleu-clair);padding:1px 5px;border-radius:4px;white-space:nowrap}
+#stepText kbd{border:1px solid var(--filet);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--fond);white-space:nowrap}
+.tip,.warn{margin:.8rem 0;padding:.6rem .8rem;border-radius:6px;font-size:.95rem}
+.tip{background:var(--bleu-clair);border-left:4px solid var(--bleu)}
+.warn{background:var(--orange-clair);border-left:4px solid var(--orange)}
+.tip b:first-child,.warn b:first-child{display:block;margin-bottom:.15rem}
+.eq{font-size:1.15rem;text-align:center;margin:.7rem 0;padding:.5rem;border:1px dashed var(--filet);border-radius:6px}
+.steplist{margin-top:16px;border-top:1px solid var(--filet);padding-top:12px}
+.steplist h3{font-size:.85rem;color:var(--gris);font-weight:600;margin:.6rem 0 .25rem}
+.steplist button{display:flex;gap:8px;width:100%;text-align:left;font:inherit;font-size:.92rem;background:none;border:0;
+  color:var(--encre);padding:4px 6px;border-radius:5px;cursor:pointer}
+.steplist button span.n{color:var(--gris);min-width:1.4em;text-align:right}
+.steplist button:hover{background:var(--fond)}
+.steplist button.on{background:var(--bleu-clair);color:var(--bleu);font-weight:600}
+.steplist button.done span.n{color:var(--orange)}
+footer.page{max-width:1320px;margin:0 auto;padding:6px 20px 28px;color:var(--gris);font-size:.85rem;text-align:center}
+
+/* ============ Maquette du tableur (reste claire, comme une capture) ============ */
+#stage{position:absolute;left:0;top:0;width:960px;height:600px;transform-origin:0 0;background:#fff;
+  font-family:"Segoe UI",Calibri,Arial,sans-serif;font-size:12px;color:#222;overflow:hidden;user-select:none}
+.xl-title{position:absolute;left:0;top:0;width:960px;height:30px;background:var(--vert);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:12px}
+.xl-title .dots{position:absolute;right:12px;top:9px;display:flex;gap:18px}
+.xl-title .dots i{width:10px;height:10px;border:1.5px solid #fff;display:block;opacity:.85}
+.xl-title .dots i:first-child{border-width:0 0 1.5px 0;height:6px}
+.xl-tabs{position:absolute;left:0;top:30px;width:960px;height:26px;background:#F3F3F3;display:flex;align-items:flex-end;padding-left:6px}
+.xl-tab{padding:0 12px;height:24px;line-height:22px;color:#333;border-bottom:2px solid transparent}
+.xl-tab.file{background:var(--vert);color:#fff;height:26px;line-height:26px;border:0;margin-right:4px}
+.xl-tab.on{border-bottom-color:var(--vert);color:var(--vert);font-weight:600}
+.xl-ribbon{position:absolute;left:0;top:56px;width:960px;height:72px;background:#F3F3F3;border-bottom:1px solid #D4D4D4;display:flex;padding:4px 6px 0}
+.rgroup{display:flex;flex-direction:column;border-right:1px solid #DADADA;padding:0 8px;height:64px}
+.rgroup .btns{flex:1;display:flex;gap:4px;align-items:flex-start}
+.rgroup .gname{text-align:center;font-size:10.5px;color:#666;height:14px}
+.rbtn{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;width:52px;font-size:10px;color:#333;text-align:center;line-height:1.1;padding-top:2px;border:1px solid transparent;border-radius:2px}
+.rbtn svg{margin-bottom:2px}
+.rbtn.small{width:30px;height:24px;padding:2px}
+.rbtn.hot{background:#C5E0CF;border-color:#8FC0A1}
+.xl-fbar{position:absolute;left:0;top:128px;width:960px;height:28px;border-bottom:1px solid #D4D4D4;display:flex;align-items:center;background:#fff}
+.namebox{width:86px;height:22px;margin-left:4px;border:1px solid #C6C6C6;padding:2px 6px;font-size:12px;line-height:16px}
+.fx{width:44px;text-align:center;color:#666;font-style:italic;font-family:"Times New Roman",serif;font-size:14px;border-right:1px solid #DDD;margin-right:8px}
+.ftext{flex:1;font-size:13px;white-space:pre;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.ftext .r1{color:#2F5FC4}.ftext .r2{color:#C0392B}
+.ftext .caret,.cell .caret{display:inline-block;width:1px;height:14px;background:#000;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+#grid{position:absolute;left:0;top:156px;width:960px;height:398px;background:#fff}
+.ch,.rh{position:absolute;background:#EFEFEF;color:#444;text-align:center;border-right:1px solid #D4D4D4;border-bottom:1px solid #D4D4D4;font-size:11px}
+.ch{height:20px;line-height:19px}
+.rh{width:34px;line-height:21px}
+.ch.hl,.rh.hl{background:#D2D2D2;color:var(--vert);font-weight:600;border-bottom-color:var(--vert)}
+.rh.hl{border-bottom-color:#D4D4D4;border-right-color:var(--vert)}
+.cell{position:absolute;height:22px;border-right:1px solid #E1E1E1;border-bottom:1px solid #E1E1E1;padding:0 4px;line-height:21px;
+  font-family:Calibri,"Segoe UI",Arial,sans-serif;font-size:13px;white-space:nowrap;overflow:hidden}
+.cell.num{text-align:right}
+.cell.edit{overflow:visible;z-index:3;background:#fff;text-align:left}
+.corner{position:absolute;left:0;top:0;width:34px;height:20px;background:#EFEFEF;border-right:1px solid #D4D4D4;border-bottom:1px solid #D4D4D4}
+.xl-sheets{position:absolute;left:0;top:554px;width:960px;height:24px;background:#F3F3F3;border-top:1px solid #D4D4D4;display:flex;align-items:stretch;padding-left:40px}
+.xl-sheets span{background:#fff;color:var(--vert);font-weight:600;padding:0 16px;line-height:22px;border-bottom:2px solid var(--vert)}
+.xl-status{position:absolute;left:0;top:578px;width:960px;height:22px;background:#F3F3F3;border-top:1px solid #E0E0E0;font-size:11px;color:#555;padding:0 10px;line-height:21px;display:flex;justify-content:space-between}
+
+/* surcouches */
+#selRange{position:absolute;border:2px solid var(--vert);background:rgba(33,115,70,.07);pointer-events:none;z-index:4;display:none}
+#selRange .h{position:absolute;right:-5px;bottom:-5px;width:7px;height:7px;background:var(--vert);border:1px solid #fff}
+.refbox{position:absolute;border:2px solid;pointer-events:none;z-index:4;display:none}
+.refbox.r1{border-color:#2F5FC4;background:rgba(47,95,196,.06)}
+.refbox.r2{border-color:#C0392B;background:rgba(192,57,43,.06)}
+#chart{position:absolute;left:348px;top:198px;width:352px;height:300px;background:#fff;border:1px solid #BFBFBF;z-index:6;display:none}
+#chart.sel{outline:1px solid #8A8A8A}
+#chart.sel::before{content:"";position:absolute;inset:-4px;border:1px solid #8A8A8A;pointer-events:none}
+#chart svg{display:block}
+.cbtn{position:absolute;left:356px;width:22px;height:22px;background:#fff;border:1px solid #A8A8A8;display:none;align-items:center;justify-content:center;font-size:16px;color:#217346;font-weight:600}
+#cmenu,#elpop,#scatMenu{position:absolute;background:#fff;border:1px solid #B5B5B5;box-shadow:2px 3px 8px rgba(0,0,0,.2);z-index:9;display:none;font-size:12px}
+#cmenu div,#elpop div{padding:4px 22px 4px 26px;white-space:nowrap;position:relative}
+#cmenu div.hot,#elpop div.hot{background:#DDEEE4}
+#cmenu hr{border:0;border-top:1px solid #E2E2E2;margin:3px 0}
+#elpop .ttl{font-weight:600;padding:6px 10px;border-bottom:1px solid #E2E2E2}
+#elpop .ck{position:absolute;left:8px;top:6px;width:11px;height:11px;border:1px solid #777;background:#fff}
+#elpop .ck.on{background:#217346;border-color:#217346}
+#elpop .ck.on::after,.pane .box.on::after{content:"";position:absolute;left:3px;top:0;width:3px;height:7px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+#scatMenu{padding:8px;width:212px}
+#scatMenu .ttl{font-weight:600;margin-bottom:6px}
+#scatMenu .row{display:flex;gap:6px;margin-bottom:6px}
+#scatMenu .th{width:44px;height:38px;border:1px solid #D0D0D0;display:flex;align-items:center;justify-content:center}
+#scatMenu .th.hot{border-color:#217346;background:#E3F1E8}
+#tooltip{position:absolute;background:#fff;border:1px solid #999;padding:3px 7px;font-size:11px;z-index:12;display:none;box-shadow:1px 1px 4px rgba(0,0,0,.2);max-width:200px}
+.pane{position:absolute;left:706px;top:156px;width:254px;height:398px;background:#fff;border-left:1px solid #C8C8C8;z-index:8;display:none;padding:10px 12px;font-size:12px}
+.pane .ptitle{font-size:15px;color:#333;margin-bottom:10px;display:flex;justify-content:space-between}
+.pane .ptitle span.x{font-size:14px;color:#666;padding:0 4px}
+.pane .sec{font-weight:600;color:#444;margin:8px 0 4px;border-bottom:1px solid #EEE;padding-bottom:3px}
+.pane .opt{display:flex;align-items:center;gap:7px;padding:3px 2px}
+.pane .rad{width:12px;height:12px;border:1px solid #777;border-radius:50%;position:relative;flex:none}
+.pane .rad.on::after{content:"";position:absolute;left:2px;top:2px;width:6px;height:6px;border-radius:50%;background:#333}
+.pane .box{width:12px;height:12px;border:1px solid #777;position:relative;flex:none;background:#fff}
+.pane .box.on{background:#217346;border-color:#217346}
+.pane .val{margin-left:auto;border:1px solid #BBB;padding:0 6px;min-width:44px;text-align:right;color:#999}
+.pane .val.on{color:#222}
+.pane .opt.hot{background:#E3F1E8}
+.pane .mini{display:inline-block;width:26px;height:14px}
+/* pointeur, clic, touche, bulles */
+#cursor{position:absolute;left:0;top:0;z-index:30;pointer-events:none;will-change:transform}
+#cursor .plus{display:none}
+#cursor.fill .arrow{display:none}#cursor.fill .plus{display:block}
+.ripple{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:3px solid #E07A1F;z-index:29;pointer-events:none;animation:rip .5s ease-out forwards}
+.ripple.right{border-color:#2F5FC4}
+@keyframes rip{from{transform:scale(.3);opacity:1}to{transform:scale(1.4);opacity:0}}
+#keybadge{position:absolute;left:14px;bottom:30px;z-index:31;background:#1F2A37;color:#fff;border-radius:6px;padding:6px 12px;font-size:14px;
+  font-weight:600;display:none;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.note{position:absolute;z-index:28;background:#FFF4E8;border:2px solid #D9701E;color:#3A2410;border-radius:6px;padding:5px 9px;
+  font-size:13px;line-height:1.35;max-width:250px;box-shadow:0 3px 10px rgba(0,0,0,.15);animation:noteIn .25s ease-out}
+@keyframes noteIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.pop{animation:pop .35s ease-out both}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.pop,.note,.ripple{animation:none}.ripple{display:none}}
+.retour{display:inline-block;margin:14px 0 6px 18px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
+
+<header class="page">
+  <h1>Calculer, tracer et modéliser avec un tableur</h1>
+  <p>Animation pas à pas sur Excel. Chaque étape se rejoue autant de fois que nécessaire : le mieux est de la reproduire en même temps sur son propre ordinateur.</p>
+</header>
+
+<main class="layout">
+  <section class="viewer">
+    <div id="wrap"><div id="stage"></div></div>
+    <div class="progress"><div id="prog"></div></div>
+    <div class="controls">
+      <button id="bPrev" aria-label="Étape précédente">◀ Précédente</button>
+      <button id="bReplay">Rejouer l'étape</button>
+      <button id="bNext" class="main">Étape suivante ▶</button>
+      <span class="grow"></span>
+      <label><input type="checkbox" id="auto"> Enchaîner</label>
+      <label>Vitesse
+        <select id="speed"><option value="0.6">lente</option><option value="1" selected>normale</option><option value="1.8">rapide</option></select>
+      </label>
+    </div>
+  </section>
+  <aside class="panel" aria-live="polite">
+    <div class="part" id="partLbl"></div>
+    <h2 id="stepTitle"></h2>
+    <div id="stepText"></div>
+    <nav class="steplist" id="stepList" aria-label="Liste des étapes"></nav>
+  </aside>
+</main>
+<footer class="page">M. Cronenberger</footer>
+
+<script>
+(function(){
+"use strict";
+/* ---------------- Données ---------------- */
+const I_mA=[21.4,42.3,64.0,85.1,106.8,127.5,149.2,170.1];
+const U_V =[1.08,1.93,3.10,3.91,5.12,5.87,7.13,7.92];
+const X=I_mA.map(v=>v*1e-3), N=X.length;
+const fit=(()=>{const mx=X.reduce((a,b)=>a+b)/N,my=U_V.reduce((a,b)=>a+b)/N;
+  let sxy=0,sxx=0;for(let i=0;i<N;i++){sxy+=(X[i]-mx)*(U_V[i]-my);sxx+=(X[i]-mx)**2}
+  const a=sxy/sxx,b=my-a*mx;let r=0,t=0;for(let i=0;i<N;i++){r+=(U_V[i]-a*X[i]-b)**2;t+=(U_V[i]-my)**2}
+  let p=0,q=0;for(let i=0;i<N;i++){p+=X[i]*U_V[i];q+=X[i]*X[i]}const a0=p/q;let r0=0,t0=0;
+  for(let i=0;i<N;i++){r0+=(U_V[i]-a0*X[i])**2;t0+=U_V[i]**2}
+  return {a,b,r2:1-r/t,a0,r20:1-r0/t0};})();
+const fr=(v,d)=>v.toFixed(d).replace('.',',');
+const A0=fr(fit.a0,3), A0r=fr(fit.a0,1);
+
+/* ---------------- Géométrie ---------------- */
+const COLS="ABCDEFGHIJKL".split(""), NR=17, RHW=34, CW=77, CHH=20, RH=22, GTOP=156;
+const ci=c=>COLS.indexOf(c);
+const parse=ref=>({c:ref.match(/[A-Z]+/)[0],r:+ref.match(/\d+/)[0]});
+function rectOf(ref){const p=parse(ref);return {x:RHW+ci(p.c)*CW,y:GTOP+CHH+(p.r-1)*RH,w:CW,h:RH}}
+function centerOf(ref){const r=rectOf(ref);return {x:r.x+r.w/2,y:r.y+r.h/2}}
+const CH={x:348,y:198,w:352,h:300,L:58,R:336,T:44,B:246,xmax:0.18,ymax:9};
+const px=x=>CH.L+(CH.R-CH.L)*x/CH.xmax, py=y=>CH.B-(CH.B-CH.T)*y/CH.ymax;
+
+/* ---------------- Construction de la maquette ---------------- */
+const stage=document.getElementById('stage'), wrap=document.getElementById('wrap');
+const ico={
+ paste:'<svg width="24" height="26"><rect x="4" y="3" width="16" height="21" rx="2" fill="#E8D7B5" stroke="#8B7550"/><rect x="8" y="1" width="8" height="5" rx="1" fill="#fff" stroke="#666"/><rect x="9" y="9" width="12" height="14" fill="#fff" stroke="#666"/></svg>',
+ tbl:'<svg width="24" height="24"><rect x="2" y="3" width="20" height="18" fill="#fff" stroke="#666"/><rect x="2" y="3" width="20" height="5" fill="#217346"/><path d="M2 13h20M2 17h20M9 8v13M15 8v13" stroke="#999"/></svg>',
+ pic:'<svg width="24" height="24"><rect x="2" y="4" width="20" height="16" fill="#fff" stroke="#666"/><path d="M4 18l6-7 4 4 3-3 4 6z" fill="#5B9BD5"/><circle cx="16" cy="8" r="2" fill="#F2B233"/></svg>',
+ reco:'<svg width="24" height="24"><rect x="3" y="12" width="4" height="9" fill="#5B9BD5"/><rect x="9" y="6" width="4" height="15" fill="#5B9BD5"/><rect x="15" y="9" width="4" height="12" fill="#ED7D31"/><path d="M18 2l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#F2B233"/></svg>',
+ col:'<svg width="22" height="22"><rect x="3" y="10" width="4" height="10" fill="#5B9BD5"/><rect x="9" y="4" width="4" height="16" fill="#5B9BD5"/><rect x="15" y="12" width="4" height="8" fill="#5B9BD5"/></svg>',
+ line:'<svg width="22" height="22"><path d="M2 18l6-7 5 4 7-10" fill="none" stroke="#5B9BD5" stroke-width="2"/></svg>',
+ pie:'<svg width="22" height="22"><circle cx="11" cy="11" r="8" fill="#5B9BD5"/><path d="M11 11V3a8 8 0 0 1 7 11z" fill="#ED7D31"/></svg>',
+ scat:'<svg width="22" height="22"><path d="M3 2v17h17" fill="none" stroke="#777"/><circle cx="7" cy="15" r="1.8" fill="#5B9BD5"/><circle cx="10" cy="11" r="1.8" fill="#5B9BD5"/><circle cx="14" cy="9" r="1.8" fill="#5B9BD5"/><circle cx="17" cy="5" r="1.8" fill="#5B9BD5"/></svg>',
+ bold:'<b style="font-family:serif;font-size:14px">G</b>'
+};
+function rbtn(id,icon,label,small){return `<div class="rbtn${small?' small':''}" id="${id}">${icon}${label?'<span>'+label+'</span>':''}</div>`}
+const ribbons={
+ Accueil:`<div class="rgroup"><div class="btns">${rbtn('r1',ico.paste,'Coller')}</div><div class="gname">Presse-papiers</div></div>
+  <div class="rgroup" style="width:190px"><div class="btns" style="flex-direction:column;gap:3px;padding-top:3px">
+   <div style="display:flex;gap:4px"><div style="border:1px solid #C6C6C6;background:#fff;width:110px;padding:1px 4px">Calibri</div><div style="border:1px solid #C6C6C6;background:#fff;width:34px;padding:1px 4px">11</div></div>
+   <div style="display:flex;gap:10px;padding-left:4px"><b>G</b><i style="font-family:serif">I</i><u>S</u></div></div><div class="gname">Police</div></div>
+  <div class="rgroup" style="width:130px"><div class="btns"></div><div class="gname">Alignement</div></div>
+  <div class="rgroup" style="width:130px"><div class="btns" style="padding-top:4px"><div style="border:1px solid #C6C6C6;background:#fff;width:100px;padding:1px 4px">Standard</div></div><div class="gname">Nombre</div></div>
+  <div class="rgroup" style="width:150px"><div class="btns"></div><div class="gname">Styles</div></div>`,
+ Insertion:`<div class="rgroup"><div class="btns">${rbtn('r2',ico.tbl,'Tableau')}</div><div class="gname">Tableaux</div></div>
+  <div class="rgroup"><div class="btns">${rbtn('r3',ico.pic,'Images')}</div><div class="gname">Illustrations</div></div>
+  <div class="rgroup"><div class="btns">${rbtn('r4',ico.reco,'Graphiques recommandés')}
+   <div style="display:grid;grid-template-columns:repeat(3,30px);gap:2px;padding-top:2px">
+    ${rbtn('g1',ico.col,'',1)}${rbtn('g2',ico.line,'',1)}${rbtn('g3',ico.pie,'',1)}
+    <span></span>${rbtn('btnScatter',ico.scat,'',1)}<span></span></div></div><div class="gname">Graphiques</div></div>
+  <div class="rgroup" style="width:120px"><div class="btns"></div><div class="gname">Graphiques sparkline</div></div>
+  <div class="rgroup" style="width:110px"><div class="btns"></div><div class="gname">Texte</div></div>`
+};
+const tabs=['Accueil','Insertion','Mise en page','Formules','Données','Révision','Affichage'];
+let html=`<div class="xl-title">Mesures.xlsx – Excel<div class="dots"><i></i><i></i><i></i></div></div>
+<div class="xl-tabs"><div class="xl-tab file">Fichier</div>${tabs.map(t=>`<div class="xl-tab" data-tab="${t}">${t}</div>`).join('')}</div>
+<div class="xl-ribbon" id="ribbon"></div>
+<div class="xl-fbar"><div class="namebox" id="namebox">A1</div><div class="fx">fx</div><div class="ftext" id="ftext"></div></div>
+<div id="grid"><div class="corner"></div>`;
+COLS.forEach((c,i)=>{html+=`<div class="ch" id="ch${c}" style="left:${RHW+i*CW}px;top:0;width:${CW}px">${c}</div>`});
+for(let r=1;r<=NR;r++){html+=`<div class="rh" id="rh${r}" style="left:0;top:${CHH+(r-1)*RH}px;height:${RH}px">${r}</div>`;
+  COLS.forEach((c,i)=>{html+=`<div class="cell" id="c${c}${r}" style="left:${RHW+i*CW}px;top:${CHH+(r-1)*RH}px;width:${CW}px"></div>`})}
+html+=`</div>
+<div class="xl-sheets"><span>Feuil1</span></div>
+<div class="xl-status"><span>Prêt</span><span id="statR"></span></div>
+<div id="selRange"><div class="h"></div></div>
+<div class="refbox r1" id="ref1"></div><div class="refbox r2" id="ref2"></div>
+<div id="chart"></div>
+<div class="cbtn" id="btnPlus" style="top:198px">+</div>
+<div class="cbtn" id="btnBrush" style="top:224px"><svg width="12" height="14"><path d="M8 1l3 3-5 5-3-3z" fill="#217346"/><path d="M3 7l3 3-2 3H1z" fill="#217346"/></svg></div>
+<div class="cbtn" id="btnFilter" style="top:250px"><svg width="12" height="12"><path d="M1 1h10L7 6v5L5 10V6z" fill="#217346"/></svg></div>
+<div id="elpop" style="left:734px;top:198px;width:200px"><div class="ttl" style="padding-left:10px">Éléments de graphique</div>
+ <div id="el0"><span class="ck on"></span>Axes</div><div id="elAxes"><span class="ck" id="ckAxes"></span>Titres des axes</div>
+ <div id="el2"><span class="ck on"></span>Titre du graphique</div><div id="el3"><span class="ck"></span>Étiquettes de données</div>
+ <div id="el4"><span class="ck"></span>Barres d'erreur</div><div id="el5"><span class="ck on"></span>Quadrillage</div>
+ <div id="el6"><span class="ck"></span>Légende</div><div id="el7"><span class="ck"></span>Courbe de tendance</div></div>
+<div id="scatMenu"><div class="ttl">Nuage de points</div>
+ <div class="row"><div class="th" id="th0"><svg width="36" height="30"><path d="M3 2v25h31" fill="none" stroke="#888"/><g fill="#5B9BD5"><circle cx="9" cy="22" r="2"/><circle cx="15" cy="17" r="2"/><circle cx="21" cy="13" r="2"/><circle cx="28" cy="7" r="2"/></g></svg></div>
+  <div class="th"><svg width="36" height="30"><path d="M3 2v25h31" fill="none" stroke="#888"/><path d="M9 22C14 16 20 16 28 7" fill="none" stroke="#5B9BD5" stroke-width="1.5"/><g fill="#5B9BD5"><circle cx="9" cy="22" r="2"/><circle cx="28" cy="7" r="2"/></g></svg></div>
+  <div class="th"><svg width="36" height="30"><path d="M3 2v25h31" fill="none" stroke="#888"/><path d="M9 22C14 16 20 16 28 7" fill="none" stroke="#5B9BD5" stroke-width="1.5"/></svg></div>
+  <div class="th"><svg width="36" height="30"><path d="M3 2v25h31" fill="none" stroke="#888"/><path d="M9 22L15 17 21 13 28 7" fill="none" stroke="#5B9BD5" stroke-width="1.5"/><g fill="#5B9BD5"><circle cx="15" cy="17" r="2"/><circle cx="21" cy="13" r="2"/></g></svg></div></div>
+ <div class="row"><div class="th"><svg width="36" height="30"><path d="M3 2v25h31" fill="none" stroke="#888"/><path d="M9 22L15 17 21 13 28 7" fill="none" stroke="#5B9BD5" stroke-width="1.5"/></svg></div>
+  <div class="th"><svg width="36" height="30"><path d="M3 2v25h31" fill="none" stroke="#888"/><g fill="#5B9BD5" opacity=".7"><circle cx="10" cy="20" r="4"/><circle cx="21" cy="12" r="6"/></g></svg></div></div></div>
+<div id="tooltip"></div>
+<div id="cmenu" style="width:250px">
+ <div id="cm0">Supprimer</div><div id="cm1">Rétablir le style d'origine</div><hr>
+ <div id="cm2">Modifier le type de graphique de série…</div><div id="cm3">Sélectionner des données…</div><hr>
+ <div id="cm4">Ajouter des étiquettes de données</div><div id="cmTrend">Ajouter une courbe de tendance…</div>
+ <div id="cm6">Mettre en forme la série de données…</div></div>
+<div class="pane" id="pane"></div>
+<div id="keybadge"></div>
+<div id="cursor"><svg width="26" height="26" style="overflow:visible">
+ <g class="arrow"><path d="M0 0 L0 18 L4.5 14 L7.5 21 L10.5 19.7 L7.5 12.8 L13 12.8 Z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></g>
+ <g class="plus"><path d="M-8 0H8M0 -8V8" stroke="#fff" stroke-width="4"/><path d="M-7 0H7M0 -7V7" stroke="#000" stroke-width="1.6"/></g></svg></div>`;
+stage.innerHTML=html;
+const $=id=>document.getElementById(id);
+
+/* ---------------- État ---------------- */
+let S;
+function freshState(){return {cells:{},act:'A1',sel:null,editing:null,tab:'Accueil',hot:null,
+  chart:{on:false,sel:false,pop:false,title:'U (V)',axisT:false,xT:"Titre de l'axe",yT:"Titre de l'axe",edit:null,
+    trend:null,eq:false,r2:false,hiEq:false},
+  pane:{open:false,zero:false,eq:false,r2:false,hot:null},
+  scat:false,el:false,cm:null,tip:null}}
+
+function setRaw(ref,raw){
+  if(raw==null||raw===''){delete S.cells[ref];return}
+  if(raw[0]==='='){S.cells[ref]={f:raw}}
+  else{const n=raw.replace(',','.');S.cells[ref]=(/^-?\d+(\.\d+)?$/.test(n))?{v:+n}:{t:raw}}
+}
+function val(ref){const c=S.cells[ref];if(!c)return 0;return c.t!=null?NaN:(c.v||0)}
+function recalc(){for(let k=0;k<3;k++)for(const ref in S.cells){const c=S.cells[ref];if(c.f){
+  try{const e=c.f.slice(1).replace(/\$?([A-Z])\$?(\d+)/g,(m,a,b)=>'('+val(a+b)+')').replace(/\^/g,'**');c.v=Function('return '+e)()}catch(_){c.v=NaN}}}}
+function shiftF(f,dr){return f.replace(/(\$?)([A-Z])(\$?)(\d+)/g,(m,d1,c,d2,r)=>d1+c+d2+(d2?r:(+r+dr)))}
+function fmt(v){if(typeof v!=='number'||isNaN(v))return '#VALEUR!';if(Math.abs(v)<1e-12)return '0';
+  return String(Number(v.toPrecision(10))).replace('.',',')}
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function colorF(f){let k=0;const seen={};return esc(f).replace(/\$?[A-Z]\$?\d+/g,m=>{if(!(m in seen))seen[m]=++k;return `<span class="r${Math.min(seen[m],2)}">${m}</span>`})}
+function refsIn(f){const out=[];(f.match(/[A-Z]\d+/g)||[]).forEach(r=>{if(!out.includes(r))out.push(r)});return out}
+
+/* ---------------- Rendu ---------------- */
+function render(){
+  // cellules
+  for(let r=1;r<=NR;r++)COLS.forEach(c=>{const ref=c+r,el=$('c'+ref),cell=S.cells[ref];
+    if(S.editing&&S.editing.ref===ref){el.className='cell edit';el.innerHTML=esc(S.editing.buf)+'<span class="caret"></span>';return}
+    if(!cell){el.className='cell';el.textContent='';return}
+    if(cell.t!=null){el.className='cell';el.textContent=cell.t}
+    else{el.className='cell num';el.textContent=fmt(cell.v)}});
+  // barre de formule
+  const ft=$('ftext');
+  if(S.editing){ft.innerHTML=colorF(S.editing.buf)+'<span class="caret"></span>'}
+  else if(S.chart.sel){ft.textContent=''}
+  else{const c=S.cells[S.act];ft.textContent=c?(c.f||(c.t!=null?c.t:fmt(c.v))):''}
+  $('namebox').textContent=S.chart.sel?'Graphique 1':S.act;
+  // références colorées
+  ['ref1','ref2'].forEach(id=>$(id).style.display='none');
+  if(S.editing&&S.editing.buf[0]==='='){refsIn(S.editing.buf).slice(0,2).forEach((r,i)=>{const q=rectOf(r),b=$('ref'+(i+1));
+    Object.assign(b.style,{display:'block',left:q.x-1+'px',top:q.y-1+'px',width:q.w+1+'px',height:q.h+1+'px'})})}
+  // sélection
+  const sr=$('selRange');
+  COLS.forEach(c=>$('ch'+c).classList.remove('hl'));for(let r=1;r<=NR;r++)$('rh'+r).classList.remove('hl');
+  if(!S.chart.sel){const a=parse(S.sel?S.sel[0]:S.act),b=parse(S.sel?S.sel[1]:S.act);
+    const c1=Math.min(ci(a.c),ci(b.c)),c2=Math.max(ci(a.c),ci(b.c)),r1=Math.min(a.r,b.r),r2=Math.max(a.r,b.r);
+    Object.assign(sr.style,{display:'block',left:RHW+c1*CW-1+'px',top:GTOP+CHH+(r1-1)*RH-1+'px',width:(c2-c1+1)*CW+1+'px',height:(r2-r1+1)*RH+1+'px'});
+    sr.style.background=(c1===c2&&r1===r2)?'transparent':'rgba(33,115,70,.07)';
+    sr.querySelector('.h').style.display=S.editing?'none':'block';
+    for(let k=c1;k<=c2;k++)$('ch'+COLS[k]).classList.add('hl');for(let r=r1;r<=r2;r++)$('rh'+r).classList.add('hl');
+    // somme d'état
+    if(!(c1===c2&&r1===r2)){let n=0;for(let k=c1;k<=c2;k++)for(let r=r1;r<=r2;r++){if(S.cells[COLS[k]+r])n++}
+      $('statR').textContent=n?('Nombre : '+n):''}else $('statR').textContent=''}
+  else{sr.style.display='none';$('statR').textContent=''}
+  // onglets / ruban
+  document.querySelectorAll('.xl-tab[data-tab]').forEach(t=>t.classList.toggle('on',t.dataset.tab===S.tab));
+  const rb=$('ribbon');if(rb.dataset.t!==S.tab){rb.innerHTML=ribbons[S.tab]||'';rb.dataset.t=S.tab}
+  document.querySelectorAll('.rbtn').forEach(b=>b.classList.toggle('hot',b.id===S.hot));
+  // menus
+  $('scatMenu').style.display=S.scat?'block':'none';
+  if(S.scat){const p=relPos($('btnScatter'));Object.assign($('scatMenu').style,{left:p.l-4+'px',top:p.t+p.h+4+'px'})}
+  document.querySelectorAll('#scatMenu .th').forEach(t=>t.classList.toggle('hot',t.id===S.hot));
+  $('elpop').style.display=S.el?'block':'none';
+  document.querySelectorAll('#elpop>div[id]').forEach(d=>d.classList.toggle('hot',d.id===S.hot));
+  $('ckAxes').classList.toggle('on',S.chart.axisT);
+  $('cmenu').style.display=S.cm?'block':'none';
+  if(S.cm)Object.assign($('cmenu').style,{left:S.cm.x+'px',top:S.cm.y+'px'});
+  document.querySelectorAll('#cmenu div').forEach(d=>d.classList.toggle('hot',d.id===S.hot));
+  const tt=$('tooltip');if(S.tip){tt.style.display='block';tt.innerHTML=S.tip.html;tt.style.left=S.tip.x+'px';tt.style.top=S.tip.y+'px'}else tt.style.display='none';
+  renderChart();renderPane();
+}
+function relPos(el){const r=el.getBoundingClientRect(),s=stage.getBoundingClientRect();
+  return {l:(r.left-s.left)/scale,t:(r.top-s.top)/scale,w:r.width/scale,h:r.height/scale}}
+function renderChart(){
+  const C=S.chart,el=$('chart');
+  el.style.display=C.on?'block':'none';el.classList.toggle('sel',C.sel);
+  ['btnPlus','btnBrush','btnFilter'].forEach(id=>{$(id).style.display=C.sel?'flex':'none';$(id).style.left=(CH.x+CH.w+6)+'px'});
+  if(!C.on)return;
+  let s=`<svg width="${CH.w}" height="${CH.h}" viewBox="0 0 ${CH.w} ${CH.h}" font-family="Calibri,Segoe UI,Arial,sans-serif">`;
+  for(let k=0;k<=9;k++){const y=py(k);s+=`<line x1="${CH.L}" x2="${CH.R}" y1="${y}" y2="${y}" stroke="#D9D9D9"/><text x="${CH.L-6}" y="${y+4}" font-size="10" fill="#595959" text-anchor="end">${k}</text>`}
+  for(let k=0;k<=9;k++){const x=px(k*0.02);s+=`<text x="${x}" y="${CH.B+14}" font-size="9.5" fill="#595959" text-anchor="middle">${fmt(+(k*0.02).toFixed(2))}</text>`}
+  s+=`<line x1="${CH.L}" x2="${CH.R}" y1="${CH.B}" y2="${CH.B}" stroke="#BFBFBF"/>`;
+  s+=`<text x="${CH.w/2}" y="24" font-size="14" fill="#404040" text-anchor="middle">${esc(C.edit==='title'?C.editBuf:C.title)}${C.edit==='title'?'|':''}</text>`;
+  if(C.axisT){
+    s+=`<text x="${(CH.L+CH.R)/2}" y="${CH.h-12}" font-size="11" font-weight="600" fill="#595959" text-anchor="middle">${esc(C.edit==='x'?C.editBuf:C.xT)}${C.edit==='x'?'|':''}</text>`;
+    s+=`<text transform="translate(16 ${(CH.T+CH.B)/2}) rotate(-90)" font-size="11" font-weight="600" fill="#595959" text-anchor="middle">${esc(C.edit==='y'?C.editBuf:C.yT)}${C.edit==='y'?'|':''}</text>`;
+  }
+  if(C.trend){const a=C.trend==='zero'?fit.a0:fit.a,b=C.trend==='zero'?0:fit.b,x1=X[0],x2=X[N-1];
+    s+=`<line x1="${px(x1)}" y1="${py(a*x1+b)}" x2="${px(x2)}" y2="${py(a*x2+b)}" stroke="#4472C4" stroke-width="1.6" stroke-dasharray="4 3"/>`}
+  X.forEach((x,i)=>{s+=`<circle class="${C.pop?'pop':''}" style="transform-origin:${px(x)}px ${py(U_V[i])}px;animation-delay:${i*90}ms" cx="${px(x)}" cy="${py(U_V[i])}" r="3.6" fill="#4472C4"/>`});
+  if(C.eq||C.r2){const lines=[];
+    if(C.eq)lines.push(C.trend==='zero'?`y = ${A0}x`:`y = ${fr(fit.a,3)}x + ${fr(fit.b,4)}`);
+    if(C.r2)lines.push(`R² = ${fr(C.trend==='zero'?fit.r20:fit.r2,4)}`);
+    const x0=CH.L+14,y0=CH.T+18;
+    if(C.hiEq)s+=`<rect x="${x0-6}" y="${y0-15}" width="118" height="${lines.length*16+10}" rx="4" fill="#FFF4E8" stroke="#D9701E" stroke-width="2"/>`;
+    lines.forEach((l,k)=>{s+=`<text x="${x0}" y="${y0+k*16}" font-size="12.5" fill="#404040">${l}</text>`})}
+  s+='</svg>';el.innerHTML=s;C.pop=false;
+}
+function renderPane(){
+  const P=S.pane,el=$('pane');el.style.display=P.open?'block':'none';if(!P.open)return;
+  const line=(id,cls,on,label,extra='')=>`<div class="opt${P.hot===id?' hot':''}" id="${id}"><span class="${cls}${on?' on':''}"></span>${label}${extra}</div>`;
+  const mini=d=>`<svg class="mini" viewBox="0 0 26 14"><path d="${d}" fill="none" stroke="#4472C4" stroke-width="1.6"/></svg>`;
+  el.innerHTML=`<div class="ptitle">Format de courbe de tendance<span class="x" id="paneX">✕</span></div>
+   <div class="sec">Options de courbe de tendance</div>
+   ${line('pExp','rad',false,mini('M1 13C10 13 18 10 25 1')+' Exponentielle')}
+   ${line('pLin','rad',true,mini('M1 13L25 1')+' Linéaire')}
+   ${line('pLog','rad',false,mini('M1 13C4 4 12 2 25 1')+' Logarithmique')}
+   ${line('pPol','rad',false,mini('M1 3C8 15 16 15 25 3')+' Polynomiale')}
+   ${line('pPui','rad',false,mini('M1 13C12 12 20 7 25 1')+' Puissance')}
+   <div class="sec" style="margin-top:12px">Options</div>
+   ${line('pZero','box',P.zero,'Définir l\'intersection =',`<span class="val${P.zero?' on':''}">0,0</span>`)}
+   ${line('pEq','box',P.eq,'Afficher l\'équation sur le graphique')}
+   ${line('pR2','box',P.r2,'Afficher le coefficient de détermination (R²) sur le graphique')}`;
+}
+
+/* ---------------- Mise à l'échelle ---------------- */
+let scale=1;
+function fitStage(){scale=Math.min(1,wrap.clientWidth/960);stage.style.transform=`scale(${scale})`;wrap.style.height=600*scale+'px'}
+window.addEventListener('resize',fitStage);fitStage();
+
+/* ---------------- Pointeur et contexte d'animation ---------------- */
+const cur=$('cursor');let cx=480,cy=300;
+function cursorTo(x,y,ms){cur.style.transition=ms?`transform ${ms}ms cubic-bezier(.45,.05,.3,1)`:'none';cur.style.transform=`translate(${x}px,${y}px)`;cx=x;cy=y}
+let TOKEN=0,SPEED=1;const CANCEL={};
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function mk(tok,anim){
+  const chk=()=>{if(tok!==TOKEN)throw CANCEL};
+  const c={anim,
+    async wait(ms){chk();if(anim&&ms>0){await new Promise(r=>setTimeout(r,ms/SPEED));chk()}},
+    async move(p,ms=650){chk();const d=Math.hypot(p.x-cx,p.y-cy);const t=Math.min(ms,180+d*1.1);cursorTo(p.x,p.y,anim?t/SPEED:0);await c.wait(t+60)},
+    ripple(right){if(!anim||reduced)return;const r=document.createElement('div');r.className='ripple'+(right?' right':'');r.style.left=cx+'px';r.style.top=cy+'px';stage.appendChild(r);setTimeout(()=>r.remove(),600)},
+    async click(p,right){if(p)await c.move(p);c.ripple(right);await c.wait(220)},
+    center(el){const q=relPos(typeof el==='string'?$(el):el);return {x:q.l+q.w/2,y:q.t+q.h/2}},
+    async clickEl(id){await c.click(c.center(id))},
+    async hoverEl(id,hot){await c.move(c.center(id));S.hot=hot||id;render();await c.wait(250)},
+    async clickCell(ref){await c.click(centerOf(ref));S.act=ref;S.sel=null;S.chart.sel=false;render()},
+    async type(ref,text,sp=95){if(!(S.editing&&S.editing.ref===ref&&text.startsWith(S.editing.buf)))S.editing={ref,buf:''};
+      render();for(const ch of text.slice(S.editing.buf.length)){S.editing.buf+=ch;if(anim)render();await c.wait(sp)}render()},
+    async key(label,ms=750){chk();if(anim){const b=$('keybadge');b.textContent=label;b.style.display='block'}
+      if(S.editing){setRaw(S.editing.ref,S.editing.buf);const p=parse(S.editing.ref);S.editing=null;recalc();
+        if(label.includes('Entrée'))S.act=p.c+(p.r+1);S.sel=null}
+      render();await c.wait(ms);$('keybadge').style.display='none'},
+    badge(label){if(!anim)return;const b=$('keybadge');b.textContent=label;b.style.display='block'},
+    unbadge(){$('keybadge').style.display='none'},
+    async note(where,text,place='below',hold=2400){chk();if(!anim)return;
+      stage.querySelectorAll('.note').forEach(o=>o.remove());const n=document.createElement('div');n.className='note';n.innerHTML=text;
+      let x,y;if(typeof where==='string'){const r=rectOf(where);
+        if(place==='right'){x=r.x+r.w+10;y=r.y-4}else if(place==='left'){x=r.x-10;y=r.y-4;n.style.transform='translateX(-100%)'}else if(place==='above'){x=r.x;y=r.y-8;n.style.transform='translateY(-100%)'}else{x=r.x;y=r.y+r.h+8}}
+      else{x=where.x;y=where.y}
+      n.style.left=x+'px';n.style.top=y+'px';stage.appendChild(n);await c.wait(hold)},
+    async fill(src,last,mode){const p=parse(src),r=rectOf(src);S.act=src;S.sel=null;render();
+      await c.move({x:r.x+r.w-1,y:r.y+r.h-1});cur.classList.add('fill');await c.wait(350);
+      if(mode==='drag'){c.badge('Glisser vers le bas');for(let k=p.r+1;k<=last;k++){S.sel=[src,p.c+k];render();await c.move({x:r.x+r.w-1,y:rectOf(p.c+k).y+RH-1},170)}}
+      else{c.badge('Double-clic');c.ripple();await c.wait(140);c.ripple();await c.wait(200)}
+      const f=S.cells[src].f;for(let k=p.r+1;k<=last;k++)S.cells[p.c+k]={f:shiftF(f,k-p.r)};recalc();S.sel=[src,p.c+last];render();
+      await c.wait(600);c.unbadge();cur.classList.remove('fill')},
+    async dragSel(a,b){const pa=parse(a),pb=parse(b);await c.move(centerOf(a));S.act=a;S.sel=[a,a];render();c.badge('Glisser');await c.wait(200);
+      for(let k=pa.r;k<=pb.r;k++){S.sel=[a,pb.c+k];render();await c.move(centerOf(pb.c+k),150)}
+      S.sel=[a,b];render();await c.wait(400);c.unbadge()},
+    async typeChart(field,text){S.chart.edit=field;S.chart.editBuf='';render();for(const ch of text){S.chart.editBuf+=ch;if(anim)render();await c.wait(80)}
+      S.chart[field==='title'?'title':field+'T']=text;S.chart.edit=null;render();await c.wait(250)}
+  };return c}
+
+/* ---------------- Étapes ---------------- */
+function base(){S.cells={};setRaw('A1','I (mA)');setRaw('C1','U (V)');
+  I_mA.forEach((v,i)=>setRaw('A'+(i+2),String(v)));U_V.forEach((v,i)=>setRaw('C'+(i+2),String(v)))}
+const chartPt=i=>({x:CH.x+px(X[i]),y:CH.y+py(U_V[i])});
+const STEPS=[
+{part:'Calculer',title:'Le tableau de mesures',
+ text:`<p>On part des mesures faites sur un résistor : l'intensité <b>I</b>, relevée en milliampères, et la tension <b>U</b> à ses bornes, en volts.</p>
+<p>Deux règles pour que le tableur puisse calculer :</p>
+<ul><li>une colonne par grandeur, avec son nom et son unité sur la première ligne, par exemple <code>I (mA)</code> ;</li>
+<li>dans les cellules, des nombres seuls, <b>sans unité</b> : le tableur ne sait pas calculer avec « 21,4 mA ».</li></ul>
+<div class="tip"><b>La colonne B est vide exprès</b>On va y calculer l'intensité en ampères.</div>`,
+ async run(c){base();S.act='A1';render();await c.wait(300);
+  await c.move(centerOf('A1'));await c.note('A1','Le nom de la grandeur<br>et son unité entre parenthèses','below',2600);
+  await c.move(centerOf('A4'));await c.note('A4','Des nombres seuls,<br>sans unité','right',2400);
+  await c.move(centerOf('B1'));await c.note('B1','Colonne à calculer','below',1800);}},
+{part:'Calculer',title:'Écrire une formule',
+ text:`<p>But : convertir l'intensité en ampères. Comme 1 mA = 10<sup>−3</sup> A, on multiplie la valeur en milliampères par 10<sup>−3</sup>.</p>
+<p>En <b>B1</b>, écrire l'en-tête <code>I (A)</code>. En <b>B2</b>, taper <code>=A2*10^-3</code> puis <kbd>Entrée</kbd>.</p>
+<ul><li><code>=</code> annonce une formule : sans lui, le tableur écrit simplement du texte ;</li>
+<li><code>A2</code> est l'adresse de la cellule qui contient la mesure ; on peut aussi cliquer sur A2 au lieu de taper son nom ;</li>
+<li><code>*</code> multiplie, <code>/</code> divise, <code>^</code> élève à une puissance.</li></ul>
+<div class="warn"><b>Écrire A2, pas 21,4</b>Avec l'adresse, le résultat se met à jour tout seul si la mesure change, et la formule pourra être recopiée.</div>`,
+ async run(c){await c.clickCell('B1');await c.type('B1','I (A)');await c.key('⏎ Entrée');
+  await c.clickCell('B2');await c.type('B2','=',200);await c.note('B2','= : « ceci est une formule »','right',1500);
+  await c.type('B2','=A2*10^-3',110);await c.note({x:520,y:132},'Le tableur encadre en bleu<br>la cellule utilisée (A2)','below',2200);
+  await c.key('⏎ Entrée',400);await c.note('B2','21,4 × 10<sup>−3</sup> = 0,0214','right',2000);}},
+{part:'Calculer',title:'Recopier la formule vers le bas',
+ text:`<p>Inutile de réécrire la formule sur chaque ligne. Sélectionner B2, puis placer le pointeur sur le petit carré en bas à droite de la cellule, la <b>poignée de recopie</b> : le pointeur devient une croix fine. Glisser jusqu'à la ligne 9.</p>
+<p>En cliquant ensuite sur B6, la barre de formule affiche <code>=A6*10^-3</code> : en descendant de 4 lignes, le tableur a décalé l'adresse de 4 lignes. C'est une <b>référence relative</b>.</p>
+<div class="tip"><b>Garder une adresse fixe</b>Pour qu'une adresse ne bouge pas à la recopie (une constante rangée dans une cellule, par exemple), on la bloque avec des <code>$</code> : <code>$F$1</code>. La touche <kbd>F4</kbd> les ajoute pendant la saisie.</div>`,
+ async run(c){await c.clickCell('B2');await c.note('B2','Poignée de recopie ↘','right',1500);
+  await c.fill('B2',9,'drag');await c.clickCell('B6');
+  await c.note({x:150,y:132},'A2 est devenu A6 :<br>l\'adresse suit la ligne','below',2800);}},
+{part:'Calculer',title:'Calculer à partir de deux colonnes',
+ text:`<p>Une formule peut utiliser plusieurs cellules. La puissance reçue par le résistor vaut P = U × I, avec I en ampères : en <b>D2</b>, taper <code>=B2*C2</code>.</p>
+<p>Autre façon de recopier : un <b>double-clic</b> sur la poignée remplit automatiquement jusqu'à la dernière ligne du tableau.</p>
+<div class="warn"><b>Choisir la bonne colonne</b>On multiplie par B2 (en ampères) et non par A2 (en milliampères) : sinon le résultat serait 1 000 fois trop grand.</div>`,
+ async run(c){await c.clickCell('D1');await c.type('D1','P (W)');await c.key('⏎ Entrée');
+  await c.clickCell('D2');await c.type('D2','=B2*C2',120);await c.note({x:520,y:132},'Deux cellules utilisées :<br>B2 en bleu, C2 en rouge','below',2200);
+  await c.key('⏎ Entrée',400);await c.clickCell('D2');await c.fill('D2',9,'dbl');
+  await c.note('D9','Rempli jusqu\'à la dernière<br>ligne du tableau','right',2200);}},
+{part:'Tracer',title:'Sélectionner les données à tracer',
+ text:`<p>On veut tracer U en fonction de I : U en ordonnée, I en abscisse. Glisser de <b>B1</b> à <b>C9</b> pour sélectionner les deux colonnes, <b>en-têtes compris</b>.</p>
+<div class="tip"><b>Qui va sur quel axe ?</b>Pour un nuage de points, le tableur place la colonne de gauche en abscisse et celle de droite en ordonnée. C'est pour cela que I (A) a été calculée juste à gauche de U.</div>
+<p>Pour deux colonnes qui ne se touchent pas : sélectionner la première, puis maintenir <kbd>Ctrl</kbd> en sélectionnant la seconde.</p>`,
+ async run(c){await c.dragSel('B1','C9');
+  await c.note('B9','Abscisses (x)','below',1400);await c.note('C9','Ordonnées (y)','right',2200);}},
+{part:'Tracer',title:'Insérer un nuage de points',
+ text:`<p>Onglet <b>Insertion</b>, groupe Graphiques : cliquer sur l'icône <b>Nuage de points</b>, puis sur le premier modèle (points seuls).</p>
+<div class="warn"><b>Pas le graphique « Courbe »</b>Il place les points à intervalles réguliers (1, 2, 3…) sans tenir compte des valeurs de I. En sciences, on trace un nuage de points.</div>
+<p>On ne relie pas les points entre eux : chaque mesure a son incertitude, c'est le modèle qui dira quelle courbe passe au plus près de l'ensemble.</p>`,
+ async run(c){await c.clickEl(document.querySelector('.xl-tab[data-tab="Insertion"]'));S.tab='Insertion';render();await c.wait(300);
+  await c.hoverEl('btnScatter');S.tip={x:c.center('btnScatter').x-10,y:c.center('btnScatter').y+18,html:'<b>Insérer un graphique en nuage de points (X, Y)</b>'};render();await c.wait(900);
+  S.tip=null;c.ripple();S.scat=true;S.hot=null;render();await c.wait(400);
+  await c.hoverEl('th0');const p=c.center('th0');S.tip={x:p.x+26,y:p.y+10,html:'Nuage de points'};render();await c.wait(800);
+  c.ripple();S.tip=null;S.scat=false;S.hot=null;S.chart.on=true;S.chart.sel=true;S.chart.pop=true;render();await c.wait(1100);
+  await c.note({x:120,y:440},'Chaque ligne du tableau<br>donne un point (I ; U)','below',2400);}},
+{part:'Tracer',title:'Titrer le graphique et les axes',
+ text:`<p>Cliquer sur le graphique, puis sur le bouton <b>+</b> (Éléments de graphique) et cocher <b>Titres des axes</b>. Cliquer ensuite dans chaque titre pour le remplacer.</p>
+<p>Un graphique scientifique complet porte un titre et, sur chaque axe, le nom de la grandeur <b>avec son unité</b>.</p>`,
+ async run(c){S.tab='Insertion';S.chart.on=true;S.chart.sel=true;render();
+  await c.clickEl('btnPlus');S.el=true;render();await c.wait(400);
+  await c.hoverEl('elAxes');c.ripple();S.chart.axisT=true;render();await c.wait(700);S.el=false;S.hot=null;render();
+  await c.click({x:CH.x+(CH.L+CH.R)/2,y:CH.y+CH.h-16});await c.typeChart('x','I (A)');
+  await c.click({x:CH.x+16,y:CH.y+(CH.T+CH.B)/2});await c.typeChart('y','U (V)');
+  await c.click({x:CH.x+CH.w/2,y:CH.y+20});await c.typeChart('title','Caractéristique U = f(I)');
+  await c.note({x:CH.x+CH.w+40,y:CH.y+150},'Grandeur et unité<br>sur chaque axe','below',2200);}},
+{part:'Modéliser',title:'Ajouter une courbe de tendance',
+ text:`<p>Faire un <b>clic droit sur l'un des points</b>, puis choisir <b>Ajouter une courbe de tendance…</b>. Le tableur trace la droite qui passe au plus près de tous les points et ouvre le volet de réglages.</p>
+<div class="tip"><b>Sur un Mac</b>Sans clic droit : <kbd>Ctrl</kbd> + clic.</div>`,
+ async run(c){S.tab='Insertion';S.chart.on=true;S.chart.sel=true;render();
+  const p=chartPt(4);await c.move(p);c.badge('Clic droit');c.ripple(true);await c.wait(300);
+  S.cm={x:p.x+6,y:p.y-150};render();await c.wait(500);c.unbadge();
+  await c.hoverEl('cm3');await c.hoverEl('cmTrend');c.ripple();await c.wait(200);
+  S.cm=null;S.hot=null;S.chart.trend='free';S.pane.open=true;render();await c.wait(900);
+  await c.note({x:CH.x-230,y:CH.y+170},'Linéaire est coché<br>par défaut','below',2200);}},
+{part:'Modéliser',title:'Choisir le modèle',
+ text:`<p>Les points sont alignés : on garde le modèle <b>Linéaire</b>. Cocher <b>Afficher l'équation sur le graphique</b>.</p>
+<p>Le tableur propose d'abord une équation de la forme y = a x + b. Or la loi d'Ohm prévoit U = R × I : une <b>proportionnalité</b>, donc une droite qui passe par l'origine (si I = 0, alors U = 0). On coche <b>Définir l'intersection</b> à 0.</p>
+<p>Enfin, afficher le <b>coefficient de détermination R²</b> (rien à voir avec la résistance R) : plus il est proche de 1, plus les points sont proches de la droite.</p>
+<div class="warn"><b>Le modèle se choisit avec la physique</b>On ne force le passage par l'origine que si la loi étudiée l'impose, pas parce que « ça fait plus joli ».</div>`,
+ async run(c){S.tab='Insertion';S.chart.on=true;S.chart.sel=true;S.chart.trend='free';S.pane.open=true;render();await c.wait(300);
+  await c.hoverEl('pEq');c.ripple();S.pane.eq=true;S.chart.eq=true;render();await c.wait(400);
+  await c.note({x:CH.x+20,y:CH.y+CH.h+8},'y = a x + b : la droite ne passe<br>pas exactement par l\'origine','below',2800);
+  S.hot=null;await c.hoverEl('pZero');c.ripple();S.pane.zero=true;S.chart.trend='zero';render();await c.wait(400);
+  await c.note({x:CH.x+20,y:CH.y+CH.h+8},'y = a x : modèle proportionnel,<br>la droite passe par l\'origine','below',2600);
+  S.hot=null;await c.hoverEl('pR2');c.ripple();S.pane.r2=true;S.chart.r2=true;S.hot=null;render();await c.wait(1200);}},
+{part:'Modéliser',title:'Exploiter l\'équation',
+ text:`<p>Le tableur écrit l'équation avec x et y. Il faut la <b>traduire</b> avec les grandeurs physiques :</p>
+<div class="eq">y = ${A0} x&nbsp;&nbsp;⟶&nbsp;&nbsp;U = ${A0} × I</div>
+<p>Le coefficient directeur a pour unité celle de U divisée par celle de I : V/A, c'est-à-dire l'ohm. Donc <b>R ≈ ${A0r} Ω</b> (on garde un nombre de chiffres significatifs cohérent avec les mesures).</p>
+<p>Rédaction attendue : « Le nuage de points est modélisé par une droite passant par l'origine : U est proportionnelle à I, de coefficient R = ${A0r} Ω. »</p>`,
+ async run(c){S.tab='Insertion';S.chart.on=true;S.chart.sel=true;render();
+  if(S.pane.open){await c.clickEl('paneX');}S.pane.open=false;S.chart.sel=false;S.chart.hiEq=true;render();await c.wait(500);
+  await c.move({x:CH.x+CH.L+135,y:CH.y+CH.T+30});
+  await c.note({x:CH.x+20,y:CH.y+CH.h+8},'y ↔ U&nbsp;&nbsp;et&nbsp;&nbsp;x ↔ I','below',2200);
+  await c.note({x:CH.x+20,y:CH.y+CH.h+8},`U = ${A0} × I&nbsp;&nbsp;donc&nbsp;&nbsp;R ≈ ${A0r} Ω`,'below',3000);}},
+{part:'Bilan',title:'À retenir',
+ text:`<ul><li>Une colonne par grandeur, l'unité dans l'en-tête, des nombres seuls dans les cellules.</li>
+<li>Une formule commence par <code>=</code> et utilise des adresses de cellules (<code>A2</code>), pas des valeurs recopiées.</li>
+<li>La poignée de recopie décale les adresses ligne par ligne ; <code>$</code> bloque une adresse.</li>
+<li>Graphique : toujours un <b>nuage de points</b>, abscisse à gauche, ordonnée à droite ; titre et axes avec unités.</li>
+<li>Modélisation : clic droit sur un point, courbe de tendance, équation et R² ; le modèle est choisi d'après la loi physique.</li>
+<li>L'équation se traduit ensuite en grandeurs physiques, avec l'unité du coefficient.</li></ul>`,
+ async run(c){S.chart.on=true;S.chart.sel=false;S.chart.hiEq=false;S.pane.open=false;render();await c.wait(200)}}
+];
+// Les étapes rejouées en instantané doivent laisser l'état final complet
+const FINAL_FIX=[null,null,null,null,null,null,null,null,null,
+  ()=>{S.pane.open=false},null];
+
+/* ---------------- Navigation ---------------- */
+let cur_i=0,running=false;const done=new Set();
+function clearNotes(){stage.querySelectorAll('.note,.ripple').forEach(n=>n.remove());$('keybadge').style.display='none';cur.classList.remove('fill')}
+async function go(k){
+  k=Math.max(0,Math.min(STEPS.length-1,k));cur_i=k;const tok=++TOKEN;
+  clearNotes();S=freshState();
+  showText(k);
+  try{
+    for(let i=0;i<k;i++){await STEPS[i].run(mk(tok,false));S.hot=null;S.tip=null;S.cm=null;S.scat=false;S.el=false;if(FINAL_FIX[i])FINAL_FIX[i]()}
+    render();running=true;
+    await STEPS[k].run(mk(tok,!0));
+    running=false;done.add(k);showList();
+    if($('auto').checked&&k<STEPS.length-1){await mk(tok,true).wait(2200);go(k+1)}
+  }catch(e){if(e!==CANCEL)console.error(e)}
+}
+function showText(k){const s=STEPS[k];
+  $('partLbl').textContent=(s.part==='Bilan'?'Bilan':'Partie '+(['Calculer','Tracer','Modéliser'].indexOf(s.part)+1)+' : '+s.part);
+  $('stepTitle').textContent=`${k+1}. ${s.title}`;$('stepText').innerHTML=s.text;
+  $('bPrev').disabled=k===0;$('bNext').disabled=k===STEPS.length-1;
+  $('prog').style.width=((k+1)/STEPS.length*100)+'%';showList()}
+function showList(){let h='',part='';STEPS.forEach((s,i)=>{if(s.part!==part){part=s.part;h+=`<h3>${part}</h3>`}
+  h+=`<button data-i="${i}" class="${i===cur_i?'on':''} ${done.has(i)?'done':''}"><span class="n">${i+1}</span>${s.title}</button>`});
+  $('stepList').innerHTML=h}
+$('stepList').addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(b)go(+b.dataset.i)});
+$('bPrev').onclick=()=>go(cur_i-1);$('bNext').onclick=()=>go(cur_i+1);$('bReplay').onclick=()=>go(cur_i);
+$('speed').onchange=e=>{SPEED=+e.target.value};
+document.addEventListener('keydown',e=>{if(e.target.closest('select,input'))return;
+  if(e.key==='ArrowRight')go(cur_i+1);else if(e.key==='ArrowLeft')go(cur_i-1)});
+S=freshState();render();cursorTo(480,300,0);
+go(0);
+})();
+</script>
+</body>
+</html>

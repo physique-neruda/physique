@@ -103,6 +103,14 @@ section{background:var(--carte);border:1px solid var(--trait);border-radius:10px
 .bascule[aria-pressed="true"]::after{transform:translateX(29px);background:#2e7d4f}
 .bascule:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
 
+.groupe{margin:0 0 9px}
+.groupe-titre{font-size:.72rem;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:var(--encre-doux);margin:0 0 5px}
+.aide{margin-top:14px;border:1.5px dashed var(--bleu);border-radius:8px;padding:11px 13px}
+.aide h3{font-size:.9rem;margin:0 0 6px;color:var(--bleu)}
+.aide p{font-size:.86rem;margin:0 0 8px}
+.aide p:last-child{margin-bottom:0}
+.aide .bilan{font-variant-numeric:tabular-nums}
+
 /* --- résultats --- */
 .calcul{
   margin-top:16px;border-left:3px solid var(--orange);padding:10px 0 10px 14px;
@@ -188,6 +196,13 @@ thead th{font-size:.76rem;color:var(--encre-doux);font-weight:600}
     <div>
       <p class="legende">Durée de fonctionnement</p>
       <div class="choix" id="choixDurees"></div>
+      <div class="aide" id="aideAmi" hidden>
+        <h3>Estimer la recharge du jour</h3>
+        <p>Branchée sur une prise domestique, l'Ami récupère environ <strong>20 km d'autonomie par heure de charge</strong> (batterie de 5,5 kWh, environ 70 km d'autonomie, pleine charge en 3 h 30).</p>
+        <p class="legende">Mon trajet de la journée, aller et retour</p>
+        <div class="choix" id="choixKm"></div>
+        <p class="bilan" id="bilanAmi"></p>
+      </div>
       <p class="remarque" id="remarque"></p>
     </div>
   </div>
@@ -228,36 +243,68 @@ thead th{font-size:.76rem;color:var(--encre-doux);font-weight:600}
     telephone: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="32" y="8" width="26" height="48" rx="5" fill="#39424a" stroke="#22292e" stroke-width="2"/><rect x="35" y="13" width="20" height="36" rx="2" fill="#7fb069"/><path d="M45 20 l-5 9 h5 l-3 8 7 -10 h-5 Z" fill="#fff"/><path d="M45 56 v6 q0 4 6 4 h12" fill="none" stroke="#525d64" stroke-width="3"/></svg>',
     lisseur: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="12" y="26" width="52" height="9" rx="4.5" fill="#39424a" transform="rotate(-8 38 30)"/><rect x="12" y="36" width="52" height="9" rx="4.5" fill="#525d64" transform="rotate(-2 38 40)"/><rect x="14" y="30" width="16" height="12" rx="3" fill="#b6372c"/><path d="M64 40 q10 2 10 12" fill="none" stroke="#525d64" stroke-width="3"/></svg>',
     seche: '<svg viewBox="0 0 88 74" aria-hidden="true"><path d="M20 20 h30 a14 14 0 0 1 0 28 H20 a14 14 0 0 1 0 -28 Z" fill="#cfd5d9" stroke="#8b959c" stroke-width="2"/><path d="M50 26 l18 -6 v28 l-18 -6 Z" fill="#b9c1c7" stroke="#8b959c" stroke-width="2" stroke-linejoin="round"/><path d="M26 48 l-6 18 h12 Z" fill="#525d64"/><path d="M74 26 h6 M74 34 h8 M74 42 h6" stroke="#e08a1e" stroke-width="2.5" stroke-linecap="round"/></svg>',
+    xbox: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="28" y="8" width="32" height="58" rx="4" fill="#22292e" stroke="#11161a" stroke-width="2"/><circle cx="44" cy="17" r="9" fill="#11161a" stroke="#3a444c" stroke-width="1.5"/><circle cx="44" cy="17" r="5" fill="#1f7a3a"/><rect x="34" y="54" width="20" height="3" rx="1.5" fill="#3a444c"/></svg>',
+    laptop: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="18" y="12" width="52" height="34" rx="3" fill="#39424a" stroke="#22292e" stroke-width="2"/><rect x="22" y="16" width="44" height="26" rx="2" fill="#4a6c8c"/><path d="M8 50 h72 l-6 9 H14 Z" fill="#b9c1c7" stroke="#8b959c" stroke-width="2" stroke-linejoin="round"/><rect x="38" y="52" width="12" height="3" rx="1.5" fill="#8b959c"/></svg>',
+    enceinte: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="10" y="22" width="68" height="32" rx="16" fill="#e08a1e" stroke="#b86d12" stroke-width="2"/><circle cx="24" cy="38" r="11" fill="#39424a"/><circle cx="64" cy="38" r="11" fill="#39424a"/><circle cx="24" cy="38" r="4" fill="#6f7b84"/><circle cx="64" cy="38" r="4" fill="#6f7b84"/><rect x="38" y="30" width="12" height="16" rx="3" fill="#fff" opacity=".85"/></svg>',
+    psp: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="6" y="22" width="76" height="32" rx="16" fill="#22292e" stroke="#11161a" stroke-width="2"/><rect x="26" y="26" width="36" height="24" rx="2" fill="#4a6c8c"/><path d="M13 36 h8 M17 32 v8" stroke="#8b959c" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="33" r="2.2" fill="#8b959c"/><circle cx="74" cy="38" r="2.2" fill="#8b959c"/><circle cx="66" cy="38" r="2.2" fill="#8b959c"/><circle cx="70" cy="43" r="2.2" fill="#8b959c"/></svg>',
+    vr: '<svg viewBox="0 0 88 74" aria-hidden="true"><path d="M14 36 q-10 -14 30 -16 q40 2 30 16" fill="none" stroke="#525d64" stroke-width="4"/><rect x="12" y="30" width="64" height="28" rx="12" fill="#e8ebed" stroke="#8b959c" stroke-width="2"/><rect x="22" y="40" width="10" height="7" rx="3.5" fill="#39424a"/><rect x="39" y="40" width="10" height="7" rx="3.5" fill="#39424a"/><rect x="56" y="40" width="10" height="7" rx="3.5" fill="#39424a"/></svg>',
+    boucleur: '<svg viewBox="0 0 88 74" aria-hidden="true"><g transform="rotate(-20 44 38)"><rect x="8" y="33" width="20" height="10" rx="5" fill="#b6372c"/><rect x="26" y="34" width="52" height="8" rx="4" fill="#525d64"/><rect x="28" y="28" width="40" height="5" rx="2.5" fill="#8b959c"/></g><path d="M12 48 q-4 10 6 16" fill="none" stroke="#525d64" stroke-width="3"/></svg>',
+    ami: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="16" y="14" width="56" height="40" rx="9" fill="#e8ebed" stroke="#8b959c" stroke-width="2"/><rect x="22" y="19" width="44" height="17" rx="4" fill="#4a6c8c"/><rect x="16" y="40" width="56" height="6" fill="#e08a1e"/><circle cx="28" cy="56" r="7" fill="#39424a"/><circle cx="60" cy="56" r="7" fill="#39424a"/><path d="M72 30 h6 q4 0 4 6 v20" fill="none" stroke="#525d64" stroke-width="3"/></svg>',
     compresseur: '<svg viewBox="0 0 88 74" aria-hidden="true"><rect x="10" y="34" width="66" height="24" rx="12" fill="#cfd5d9" stroke="#8b959c" stroke-width="2"/><rect x="18" y="58" width="7" height="9" fill="#525d64"/><rect x="61" y="58" width="7" height="9" fill="#525d64"/><rect x="24" y="14" width="30" height="20" rx="3" fill="#4a6c8c" stroke="#33526b" stroke-width="2"/><path d="M30 14 v-5 h18 v5" fill="none" stroke="#525d64" stroke-width="3"/><circle cx="66" cy="24" r="7" fill="#e8ebed" stroke="#8b959c" stroke-width="2"/><path d="M66 24 l4 -4" stroke="#b6372c" stroke-width="2"/></svg>'
   };
 
   var appareils = [
-    {id:"ps5", court:"PS5", nom:"Console PlayStation 5", sous:"en cours de jeu",
+    {g:"Consoles et jeux", id:"ps5", court:"PS5", nom:"Console PlayStation 5", sous:"en cours de jeu",
      p:200, duree:3, dessin:"console",
      mot:"En veille, la même console consomme encore environ 1,5 W — jour et nuit."},
-    {id:"switch", court:"Switch 2", nom:"Nintendo Switch 2", sous:"sur son dock, jeu en cours",
+    {g:"Consoles et jeux", id:"xbox", court:"Xbox Series X", nom:"Console Xbox Series X", sous:"en cours de jeu",
+     p:170, duree:3, dessin:"xbox",
+     mot:"Laissée en mode « démarrage instantané », elle consomme encore une dizaine de watts une fois éteinte."},
+    {g:"Consoles et jeux", id:"switch2", court:"Switch 2", nom:"Nintendo Switch 2", sous:"sur son dock, jeu en cours",
      p:20, duree:2, dessin:"portable",
-     mot:"Dix fois moins qu'une console de salon : la console portable est conçue pour une batterie."},
-    {id:"pc", court:"PC gaming", nom:"PC gaming et son écran", sous:"jeu en cours",
+     mot:"Dix fois moins qu'une console de salon : la console hybride est conçue pour fonctionner sur batterie."},
+    {g:"Consoles et jeux", id:"switch1", court:"Switch 1", nom:"Nintendo Switch (premier modèle)", sous:"sur son dock, jeu en cours",
+     p:12, duree:2, dessin:"portable", mot:""},
+    {g:"Consoles et jeux", id:"psp", court:"PSP", nom:"Console portable PSP", sous:"branchée sur son chargeur",
+     p:5, duree:2, dessin:"psp", mot:""},
+    {g:"Consoles et jeux", id:"quest", court:"Meta Quest 3", nom:"Casque de réalité virtuelle Meta Quest 3", sous:"en charge",
+     p:18, duree:2, dessin:"vr",
+     mot:"Le casque fonctionne sur batterie : la prise ne voit que la recharge."},
+
+    {g:"Écrans, ordinateurs et son", id:"pc", court:"PC gaming", nom:"PC gaming et son écran", sous:"jeu en cours",
      p:450, duree:3, dessin:"pc",
      mot:"L'appareil le plus gourmand de la maison après ceux qui chauffent."},
-    {id:"tv", court:"Télévision", nom:"Télévision LCD 55 pouces", sous:"allumée",
+    {g:"Écrans, ordinateurs et son", id:"portable", court:"PC portable", nom:"PC portable Lenovo d'entrée de gamme", sous:"en charge, écran allumé",
+     p:40, duree:3, dessin:"laptop",
+     mot:"Plus de dix fois moins qu'un PC gaming pour faire ses devoirs."},
+    {g:"Écrans, ordinateurs et son", id:"tv", court:"Télévision", nom:"Télévision LCD 55 pouces", sous:"allumée",
      p:110, duree:3, dessin:"tv", mot:""},
-    {id:"telephone", court:"Téléphone", nom:"Téléphone en charge", sous:"batterie vide au départ",
+    {g:"Écrans, ordinateurs et son", id:"telephone", court:"Téléphone", nom:"Téléphone en charge", sous:"batterie vide au départ",
      p:8, duree:2, dessin:"telephone",
      mot:"Le chargeur laissé branché sans téléphone consomme encore 0,3 W, mais 24 h sur 24."},
-    {id:"lisseur", court:"Lisseur", nom:"Lisseur à cheveux", sous:"plaques chaudes",
+    {g:"Écrans, ordinateurs et son", id:"enceinte", court:"Enceinte JBL", nom:"Enceinte Bluetooth JBL", sous:"en charge",
+     p:10, duree:2, dessin:"enceinte",
+     mot:"Pendant l'écoute elle tourne sur sa batterie : à la prise, on ne mesure que la recharge."},
+
+    {g:"Cheveux", id:"lisseur", court:"Lisseur", nom:"Lisseur à cheveux", sous:"plaques chaudes",
      p:45, duree:0.25, dessin:"lisseur", mot:""},
-    {id:"seche", court:"Sèche-cheveux", nom:"Sèche-cheveux", sous:"position chaude",
+    {g:"Cheveux", id:"boucleur", court:"Boucleur", nom:"Fer à boucler", sous:"tube chaud",
+     p:50, duree:0.25, dessin:"boucleur", mot:""},
+    {g:"Cheveux", id:"seche", court:"Sèche-cheveux", nom:"Sèche-cheveux", sous:"position chaude",
      p:1800, duree:0.25, dessin:"seche",
      mot:"Très puissant, mais utilisé quelques minutes : regardez l'énergie avant de conclure."},
-    {id:"halogene", court:"Lampe halogène", nom:"Lampe de bureau halogène", sous:"12 V – 50 W inscrit sur le culot",
+
+    {g:"Se déplacer", id:"ami", court:"Citroën Ami", nom:"Voiture électrique Citroën Ami", sous:"en charge sur une prise domestique",
+     p:1800, duree:1, dessin:"ami",
+     mot:"Même puissance que le sèche-cheveux, mais pendant des heures : c'est la durée de charge qui fait la facture."},
+
+    {g:"Laboratoire et atelier", id:"halogene", court:"Lampe halogène", nom:"Lampe de bureau halogène", sous:"12 V – 50 W inscrit sur le culot",
      p:55, duree:6, dessin:"lampe",
      mot:"La lampe porte « 50 W » sur son culot, et le wattmètre en lit 55 : le transformateur de la lampe consomme lui aussi au passage."},
-    {id:"led", court:"Lampe LED", nom:"Lampe de bureau à LED", sous:"éclaire autant que l'halogène",
+    {g:"Laboratoire et atelier", id:"led", court:"Lampe LED", nom:"Lampe de bureau à LED", sous:"éclaire autant que l'halogène",
      p:9, duree:6, dessin:"lampe",
      mot:"Même éclairage que l'halogène, pour six fois moins de puissance."},
-    {id:"compresseur", court:"Compresseur", nom:"Compresseur d'atelier", sous:"cuve de 50 L",
+    {g:"Laboratoire et atelier", id:"compresseur", court:"Compresseur", nom:"Compresseur d'atelier", sous:"cuve de 50 L",
      p:2200, duree:3, dessin:"compresseur",
      mot:"Forte puissance et longue durée : c'est la combinaison des deux qui fait la facture."}
   ];
@@ -277,11 +324,16 @@ thead th{font-size:.76rem;color:var(--encre-doux);font-weight:600}
     return x.toFixed(dec).replace(".", ",");
   }
   function nombre(x){
+    if (Math.abs(x - Math.round(x)) < 1e-9) return String(Math.round(x));
     if (x >= 1000) return fr(x, 0);
     if (x >= 100) return fr(x, 0);
     if (x >= 10) return fr(x, 1);
     if (x >= 1) return fr(x, 1);
     return fr(x, 2);
+  }
+  function duree(x){
+    var t = fr(x, 2).replace(/0+$/, "").replace(/,$/, "");
+    return t;
   }
   function joules(wh){
     var j = wh * 3600, e = Math.floor(Math.log10(j)), m = j / Math.pow(10, e);
@@ -319,7 +371,7 @@ thead th{font-size:.76rem;color:var(--encre-doux);font-weight:600}
     $("ajouter").disabled = !visible;
     if (!visible) return;
     var wh = courant.p * dureeH;
-    $("eWh").innerHTML = nombre(courant.p) + " × " + fr(dureeH, 1) + " = <strong>" + nombre(wh) + " Wh</strong>";
+    $("eWh").innerHTML = nombre(courant.p) + " × " + duree(dureeH) + " = <strong>" + nombre(wh) + " Wh</strong>";
     $("ekWh").textContent = fr(wh / 1000, 3) + " kWh";
     $("eJ").innerHTML = joules(wh);
   }
@@ -335,20 +387,58 @@ thead th{font-size:.76rem;color:var(--encre-doux);font-weight:600}
   }
 
   var zoneA = $("choixAppareils");
+  var groupes = {};
   appareils.forEach(function(a){
+    if (!groupes[a.g]){
+      var bloc = document.createElement("div");
+      bloc.className = "groupe";
+      var titre = document.createElement("p");
+      titre.className = "groupe-titre"; titre.textContent = a.g;
+      var ligne = document.createElement("div");
+      ligne.className = "choix";
+      bloc.appendChild(titre); bloc.appendChild(ligne);
+      zoneA.appendChild(bloc);
+      groupes[a.g] = ligne;
+    }
     var b = document.createElement("button");
     b.className = "puce"; b.type = "button"; b.textContent = a.court;
+    b.setAttribute("data-app", a.id);
     b.setAttribute("aria-pressed", a.id === courant.id ? "true" : "false");
     b.addEventListener("click", function(){
       courant = a;
-      dureeH = a.duree;
-      Array.prototype.forEach.call(zoneA.children, function(c){ c.setAttribute("aria-pressed","false"); });
+      dureeH = (a.id === "ami") ? kmAmi / 20 : a.duree;
+      Array.prototype.forEach.call(zoneA.querySelectorAll(".puce"), function(c){ c.setAttribute("aria-pressed","false"); });
       b.setAttribute("aria-pressed","true");
+      majAide();
       majDurees();
       maj();
     });
-    zoneA.appendChild(b);
+    groupes[a.g].appendChild(b);
   });
+
+  /* --- aide a l'estimation de la recharge de l'Ami --- */
+  var kmAmi = 20;
+  var zoneK = $("choixKm");
+  [5, 10, 20, 30, 40, 60].forEach(function(k){
+    var b = document.createElement("button");
+    b.className = "puce"; b.type = "button"; b.textContent = k + " km";
+    b.dataset.km = k;
+    b.addEventListener("click", function(){
+      kmAmi = k; dureeH = k / 20;
+      majAide(); majDurees(); majResultats();
+    });
+    zoneK.appendChild(b);
+  });
+  function majAide(){
+    var visible = courant.id === "ami";
+    $("aideAmi").hidden = !visible;
+    if (!visible) return;
+    Array.prototype.forEach.call(zoneK.children, function(c){
+      c.setAttribute("aria-pressed", parseFloat(c.dataset.km) === kmAmi ? "true" : "false");
+    });
+    $("bilanAmi").innerHTML = "Pour " + kmAmi + " km, il faut environ <strong>" + duree(kmAmi / 20) +
+      " h</strong> de charge (" + kmAmi + " km ÷ 20 km par heure). Cette durée est reportée dans le calcul ci-dessous.";
+  }
 
   var zoneD = $("choixDurees");
   durees.forEach(function(d){
@@ -373,7 +463,7 @@ thead th{font-size:.76rem;color:var(--encre-doux);font-weight:600}
     var wh = courant.p * dureeH;
     var tr = document.createElement("tr");
     tr.innerHTML = "<td>" + courant.nom + "</td><td>" + nombre(courant.p) + "</td><td>" +
-      fr(dureeH, 1) + "</td><td>" + nombre(wh) + "</td><td>" + joules(wh) + "</td>";
+      duree(dureeH) + "</td><td>" + nombre(wh) + "</td><td>" + joules(wh) + "</td>";
     $("corps").appendChild(tr);
     $("tableau").hidden = false;
     $("videReleve").hidden = true;
@@ -384,6 +474,7 @@ thead th{font-size:.76rem;color:var(--encre-doux);font-weight:600}
     $("videReleve").hidden = false;
   });
 
+  majAide();
   majDurees();
   maj();
 })();
