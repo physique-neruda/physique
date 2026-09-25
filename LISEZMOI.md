@@ -672,8 +672,6 @@ Les trois animations remplacées arrivaient sans mention de niveau ; le lien « 
 animations » y a été posé.
 
 **Le site** : 663 entrées, 466 PDF, 18 animations, 1101 questions, 877 cartes.
-<<<<<<< Updated upstream
-=======
 
 
 ---
@@ -736,4 +734,3 @@ animations » y a été posé.
   (9 cartes par chapitre) et écrase les 14 cartes enrichies. Après l'avoir lancé, remettre les
   cartes de la version précédente (c'est ce qui a été fait ici), ou relancer la chaîne
   d'enrichissement des cartes.
->>>>>>> Stashed changes

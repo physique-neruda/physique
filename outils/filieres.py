@@ -359,8 +359,6 @@ ANIMATIONS = {
     ],
 
     "outils": [
-<<<<<<< Updated upstream
-=======
         {"chapitre": "ou04", "rubrique": "Mesure", "avant": None,
          "titre": "Acquérir, calculer et modéliser avec LatisPro",
          "fichier": "animations/latispro.html",
@@ -374,7 +372,6 @@ ANIMATIONS = {
                    "on demande au logiciel les paramètres.",
          "motscles": ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul",
                       "courbe", "modelisation", "regression", "parametres"]},
->>>>>>> Stashed changes
         {"chapitre": "ou03", "rubrique": "Mesure", "avant": None,
          "titre": "Calculer, tracer et modéliser avec un tableur",
          "fichier": "animations/tableur.html",

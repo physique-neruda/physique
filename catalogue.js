@@ -123,8 +123,6 @@ const DOCUMENTS = [
   },
 
 
-<<<<<<< Updated upstream
-=======
   {
     filiere: "outils", rubrique: "Mesure",
     chapitre: "Acquérir, calculer et modéliser avec LatisPro",
@@ -136,7 +134,6 @@ const DOCUMENTS = [
   },
 
 
->>>>>>> Stashed changes
 
   /* ---------------- BTS Électrotechnique ---------------- */
   {
