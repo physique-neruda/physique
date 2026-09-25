@@ -91,66 +91,66 @@ window.CHAPITRE = {
    "q": "Au cours d'une transformation chimique :",
    "choix": [
     "des atomes disparaissent",
-    "des atomes se créent",
     "les atomes sont conservés et réorganisés",
+    "des atomes se créent",
     "les atomes changent de nature"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": ""
   },
   {
    "q": "Pour équilibrer une équation, on modifie :",
    "choix": [
-    "les indices dans les formules",
     "les coefficients devant les formules",
+    "les indices dans les formules",
     "la nature des produits",
     "rien du tout"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "on ne touche jamais aux indices"
   },
   {
    "q": "Dans une combustion, on équilibre l'oxygène <strong>en dernier</strong> parce que :",
    "choix": [
     "il est le plus lourd",
-    "O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres",
     "il n'apparaît qu'une fois",
+    "O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres",
     "c'est un produit"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "L'équation CH₄ + O₂ → CO₂ + H₂O équilibrée s'écrit :",
    "choix": [
     "CH₄ + O₂ → CO₂ + H₂O",
-    "CH₄ + 2 O₂ → CO₂ + 2 H₂O",
+    "2 CH₄ + O₂ → 2 CO₂ + H₂O",
     "CH₄ + 2 O₂ → CO₂ + H₂O",
-    "2 CH₄ + O₂ → 2 CO₂ + H₂O"
+    "CH₄ + 2 O₂ → CO₂ + 2 H₂O"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "La molécule C₄H₈ appartient à la famille des :",
    "choix": [
     "alcanes",
-    "alcènes",
     "alcools",
+    "alcènes",
     "acides"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "C<sub>n</sub>H<sub>2n</sub> avec n = 4"
   },
   {
    "q": "Le groupe caractéristique des alcools est :",
    "choix": [
     "-COOH",
-    "-OH",
+    "-CH₃",
     "C=C",
-    "-CH₃"
+    "-OH"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -167,23 +167,23 @@ window.CHAPITRE = {
   {
    "q": "0,5 mol de molécules, cela représente :",
    "choix": [
-    "presque rien",
-    "environ 3 molécules",
     "3,01 × 10²³ molécules",
+    "environ 3 molécules",
+    "presque rien",
     "1,2 × 10²⁴ molécules"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "la moitié de 6,02 × 10²³"
   },
   {
    "q": "La masse molaire du dioxyde de carbone CO₂ vaut :",
    "choix": [
-    "28 g/mol",
     "44 g/mol",
+    "28 g/mol",
     "32 g/mol",
     "12 g/mol"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "12 + 2 × 16 = 44"
   },
   {
@@ -201,22 +201,22 @@ window.CHAPITRE = {
    "q": "Le <strong>réactif limitant</strong> est celui qui :",
    "choix": [
     "est présent en plus grande quantité",
-    "s'épuise le premier",
+    "a la plus grande masse molaire",
     "reste à la fin",
-    "a la plus grande masse molaire"
+    "s'épuise le premier"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Une combustion <strong>incomplète</strong> se produit lorsque :",
    "choix": [
     "le combustible est limitant",
-    "le dioxygène est limitant",
     "la température est trop élevée",
+    "le dioxygène est limitant",
     "il n'y a pas d'énergie d'activation"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   }
  ],

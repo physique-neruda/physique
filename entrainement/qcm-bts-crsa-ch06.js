@@ -87,7 +87,7 @@ window.CHAPITRE = {
     "sans unité"
    ],
    "bonne": 1,
-   "expl": "ν= µ/ρ. La réponse a est l'unité de la viscosité dynamique µ : les deux se confondent facilement."
+   "expl": "ν= µ/ρ. La réponse « Pa·s » est l'unité de la viscosité dynamique µ : les deux se confondent facilement."
   },
   {
    "q": "Quand la température d'une huile diminue, sa viscosité :",
@@ -307,5 +307,6 @@ window.CHAPITRE = {
    "verso": "<strong>le long des conduites droites</strong> — Les coudes et les vannes relèvent des pertes singulières.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

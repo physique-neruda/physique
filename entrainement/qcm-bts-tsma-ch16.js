@@ -79,91 +79,91 @@ window.CHAPITRE = {
   {
    "q": "Dans une chaîne de mesure, l'ordre des maillons est :",
    "choix": [
-    "capteur, conditionneur, convertisseur, calculateur",
     "conditionneur, capteur, calculateur, convertisseur",
+    "capteur, conditionneur, convertisseur, calculateur",
     "convertisseur, capteur, conditionneur, calculateur"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "la grandeur physique traverse les quatre maillons dans cet ordre, et aucun n'améliore ce que le précédent lui donne : chacun ne fait que traduire. Retenir cette phrase règle la moitié des questions du chapitre. 3pt"
   },
   {
    "q": "Un capteur qui se contente de faire varier sa résistance est :",
    "choix": [
     "actif",
-    "passif",
-    "défectueux"
-   ],
-   "bonne": 1,
-   "expl": "un capteur passif ne délivre rien par lui-même, il faut l'alimenter et le monter. Le thermocouple, lui, produit une tension à partir de la seule différence de température : c'est le type même du capteur actif. La jauge de contrainte et la CTN sont passives. 3pt"
-  },
-  {
-   "q": "Parmi ces capteurs, le seul actif est :",
-   "choix": [
-    "la CTN",
-    "la jauge de contrainte",
-    "le thermocouple"
+    "défectueux",
+    "passif"
    ],
    "bonne": 2,
    "expl": "un capteur passif ne délivre rien par lui-même, il faut l'alimenter et le monter. Le thermocouple, lui, produit une tension à partir de la seule différence de température : c'est le type même du capteur actif. La jauge de contrainte et la CTN sont passives. 3pt"
   },
   {
-   "q": "La sensibilité d'un capteur de pression délivrant 0,50 V à 0 bar et 4,50 V à 250 bar vaut :",
+   "q": "Parmi ces capteurs, le seul actif est :",
    "choix": [
-    "16 mV/bar",
-    "18 mV/bar",
-    "0,50 V/bar"
+    "le thermocouple",
+    "la jauge de contrainte",
+    "la CTN"
    ],
    "bonne": 0,
-   "expl": "(4,50 - 0,50)/250 = 0,016 V/bar. La réponse b vient d'un oubli du décalage de 0,50 V (on aurait divisé 4,50 par 250). Ce décalage est volontaire : il permet de distinguer une pression nulle d'un capteur débranché. 3pt"
+   "expl": "un capteur passif ne délivre rien par lui-même, il faut l'alimenter et le monter. Le thermocouple, lui, produit une tension à partir de la seule différence de température : c'est le type même du capteur actif. La jauge de contrainte et la CTN sont passives. 3pt"
+  },
+  {
+   "q": "La sensibilité d'un capteur de pression délivrant 0,50 V à 0 bar et 4,50 V à 250 bar vaut :",
+   "choix": [
+    "18 mV/bar",
+    "16 mV/bar",
+    "0,50 V/bar"
+   ],
+   "bonne": 1,
+   "expl": "(4,50 - 0,50)/250 = 0,016 V/bar. La réponse « 18 mV/bar » vient d'un oubli du décalage de 0,50 V (on aurait divisé 4,50 par 250). Ce décalage est volontaire : il permet de distinguer une pression nulle d'un capteur débranché. 3pt"
   },
   {
    "q": "Une CTN a un coefficient de température négatif : quand la température augmente, sa résistance :",
    "choix": [
     "augmente",
-    "diminue",
-    "ne change pas"
+    "ne change pas",
+    "diminue"
    ],
-   "bonne": 1,
-   "expl": "CTN veut dire coefficient de température négatif. Et le diviseur ne fabrique aucune information : il traduit la variation de résistance en variation de tension, sur une plage choisie. La réponse a est le contresens central du chapitre — un conditionneur rend un capteur commode, jamais plus juste. 3pt"
+   "bonne": 2,
+   "expl": "CTN veut dire coefficient de température négatif. Et le diviseur ne fabrique aucune information : il traduit la variation de résistance en variation de tension, sur une plage choisie. La réponse « ne change pas » est le contresens central du chapitre — un conditionneur rend un capteur commode, jamais plus juste. 3pt"
   },
   {
    "q": "Le rôle d'un montage diviseur placé après une CTN est de :",
    "choix": [
-    "rendre le capteur plus juste",
     "transformer la variation de résistance en variation de tension",
+    "rendre le capteur plus juste",
     "augmenter la sensibilité du capteur lui-même"
    ],
-   "bonne": 1,
-   "expl": "CTN veut dire coefficient de température négatif. Et le diviseur ne fabrique aucune information : il traduit la variation de résistance en variation de tension, sur une plage choisie. La réponse a est le contresens central du chapitre — un conditionneur rend un capteur commode, jamais plus juste. 3pt"
+   "bonne": 0,
+   "expl": "CTN veut dire coefficient de température négatif. Et le diviseur ne fabrique aucune information : il traduit la variation de résistance en variation de tension, sur une plage choisie. La réponse « rendre le capteur plus juste » est le contresens central du chapitre — un conditionneur rend un capteur commode, jamais plus juste. 3pt"
   },
   {
    "q": "Le quantum d'un convertisseur 10 bits de pleine échelle 5,00 V vaut :",
    "choix": [
-    "0,50 mV",
     "4,9 mV",
+    "0,50 mV",
     "10 mV"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "q = 5,00/1024 = 4,9 mV, pour 2¹⁰ = 1024 valeurs numérotées de 0 à 1023. Deux bits de plus multiplient le nombre de valeurs par quatre, donc divisent le quantum par quatre. 3pt"
   },
   {
    "q": "Un convertisseur 10 bits peut coder :",
    "choix": [
     "10 valeurs",
-    "100 valeurs",
-    "1024 valeurs"
+    "1024 valeurs",
+    "100 valeurs"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "q = 5,00/1024 = 4,9 mV, pour 2¹⁰ = 1024 valeurs numérotées de 0 à 1023. Deux bits de plus multiplient le nombre de valeurs par quatre, donc divisent le quantum par quatre. 3pt"
   },
   {
    "q": "Passer de 10 à 12 bits divise le quantum par :",
    "choix": [
     "2",
-    "4",
-    "12"
+    "12",
+    "4"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "q = 5,00/1024 = 4,9 mV, pour 2¹⁰ = 1024 valeurs numérotées de 0 à 1023. Deux bits de plus multiplient le nombre de valeurs par quatre, donc divisent le quantum par quatre. 3pt"
   },
   {
@@ -180,20 +180,20 @@ window.CHAPITRE = {
    "q": "Pour améliorer réellement la précision de cette chaîne, il faut agir sur :",
    "choix": [
     "le convertisseur",
-    "le capteur",
-    "le logiciel d'affichage"
+    "le logiciel d'affichage",
+    "le capteur"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "et c'est le cœur du chapitre. Le convertisseur distingue 0,15 °C, mais le capteur ignore 1,8 °C : la vraie température est quelque part dans un intervalle douze fois plus large que le dixième affiché. La résolution n'est pas la précision. Pour améliorer la chaîne, on améliore son maillon le plus faible — ici le capteur : tolérance plus serrée, ou étalonnage individuel de l'exemplaire monté. 3pt"
   },
   {
    "q": "Un signal à 120 Hz est échantillonné à 100 Hz. On observera :",
    "choix": [
-    "le signal, un peu dégradé",
     "une oscillation à 20 Hz qui n'existe pas",
+    "le signal, un peu dégradé",
     "rien du tout"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "c'est le repliement : 120 - 100 = 20 Hz. On n'obtient pas un signal dégradé, on obtient un autre signal, plus lent, qui n'a jamais existé. Le plus dangereux est que rien dans les données ne le signale : un technicien pourrait chercher longtemps une cause mécanique à cette oscillation. Remède, dans cet ordre : filtrer avant de convertir, puis échantillonner plus vite. tcolorbox"
   }
  ],

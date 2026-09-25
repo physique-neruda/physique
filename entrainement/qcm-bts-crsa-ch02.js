@@ -164,7 +164,7 @@ window.CHAPITRE = {
     "on ne peut pas la calculer"
    ],
    "bonne": 1,
-   "expl": "E = U × Q = 12 × 40 = 480 W·h. La réponse d est le piège inverse : on peut la calculer, à condition de ne pas oublier la tension."
+   "expl": "E = U × Q = 12 × 40 = 480 W·h. La réponse « on ne peut pas la calculer » est le piège inverse : on peut la calculer, à condition de ne pas oublier la tension."
   },
   {
    "q": "L'ampère-heure est une unité :",
@@ -186,7 +186,7 @@ window.CHAPITRE = {
     "29 J"
    ],
    "bonne": 1,
-   "expl": "1/2CU² = 0,5×4,7×144 = 338 J. La réponse c, 677 J, est l'énergie fournie par la source pendant la charge : la moitié part en chaleur dans la résistance."
+   "expl": "1/2CU² = 0,5×4,7×144 = 338 J. La réponse « 677 J », 677 J, est l'énergie fournie par la source pendant la charge : la moitié part en chaleur dans la résistance."
   },
   {
    "q": "Un stockage dont le rendement vaut 90 % à la charge et 90 % à la décharge a un rendement de cycle de :",
@@ -307,5 +307,6 @@ window.CHAPITRE = {
    "verso": "<strong>de charge électrique</strong> — C'est une charge. Multipliée par une tension, elle donne une énergie.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

@@ -91,22 +91,22 @@ window.CHAPITRE = {
    "q": "Le travail d'une force constante s'écrit :",
    "choix": [
     "W = F/d",
-    "W = F × d × cos α",
     "W = 1/2Fd²",
+    "W = F × d × cos α",
     "W = F + d"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "Le travail d'une force perpendiculaire au déplacement est :",
    "choix": [
-    "maximal",
-    "négatif",
     "nul",
+    "négatif",
+    "maximal",
     "égal à F × d"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "(cos 90° = 0)"
   },
   {
@@ -124,33 +124,33 @@ window.CHAPITRE = {
    "q": "Le travail du poids lors d'une montée de hauteur h vaut :",
    "choix": [
     "+mgh",
-    "-mgh",
+    "1/2mgh",
     "mg/h",
-    "1/2mgh"
+    "-mgh"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "(résistant à la montée)"
   },
   {
    "q": "La puissance moyenne se calcule par :",
    "choix": [
-    "P = W × Δt",
     "P = W/Δt",
+    "P = W × Δt",
     "P = Δt/W",
     "P = W + Δt"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "L'énergie cinétique d'un solide en translation vaut :",
    "choix": [
     "mv",
-    "1/2mv",
     "1/2mv²",
+    "1/2mv",
     "mgh"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": ""
   },
   {
@@ -158,21 +158,21 @@ window.CHAPITRE = {
    "choix": [
     "3",
     "6",
-    "9",
-    "1,7"
+    "1,7",
+    "9"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "(3² = 9)"
   },
   {
    "q": "Le théorème de l'énergie cinétique s'énonce :",
    "choix": [
-    "ΔE<sub>c</sub> = ΣW",
-    "ΔE<sub>c</sub> = 0 toujours",
     "E<sub>c</sub> = mgh",
+    "ΔE<sub>c</sub> = 0 toujours",
+    "ΔE<sub>c</sub> = ΣW",
     "ΣW = 0 toujours"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": ""
   },
   {
@@ -190,11 +190,11 @@ window.CHAPITRE = {
    "q": "Pour calculer une énergie potentielle de pesanteur, il faut d'abord :",
    "choix": [
     "connaître la vitesse",
-    "choisir une référence des altitudes",
+    "connaître la raideur",
     "mesurer le temps",
-    "connaître la raideur"
+    "choisir une référence des altitudes"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -211,12 +211,12 @@ window.CHAPITRE = {
   {
    "q": "En présence de frottements, l'énergie mécanique d'un solide :",
    "choix": [
-    "augmente",
-    "reste constante",
     "diminue, l'énergie partant sous forme thermique",
+    "reste constante",
+    "augmente",
     "devient nulle immédiatement"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": ""
   }
  ],

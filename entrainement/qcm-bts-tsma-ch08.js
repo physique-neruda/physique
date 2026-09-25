@@ -80,10 +80,10 @@ window.CHAPITRE = {
    "q": "Parmi ces grandeurs, laquelle est intensive ?",
    "choix": [
     "le volume",
-    "la pression",
-    "l'énergie interne"
+    "l'énergie interne",
+    "la pression"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le test : je coupe le système en deux. La pression ne change pas (intensive) ; le volume et l'énergie interne sont divisés par deux (extensives). 3pt"
   },
   {
@@ -99,11 +99,11 @@ window.CHAPITRE = {
   {
    "q": "Un pneu affiche 2,0 au manomètre. La pression à employer dans pV = nRT est :",
    "choix": [
-    "2,0",
     "3,0",
+    "2,0",
     "1,0"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "deux conversions oubliées à chaque devoir. La température doit être absolue : une valeur en degrés Celsius donne un résultat absurde, parfois négatif. Et le manomètre affiche une pression relative : il faut ajouter le bar atmosphérique, ce qui change ici le résultat d'un tiers. 3pt"
   },
   {
@@ -120,60 +120,60 @@ window.CHAPITRE = {
    "q": "Une transformation sans échange de chaleur est dite :",
    "choix": [
     "isotherme",
-    "adiabatique",
-    "isochore"
+    "isochore",
+    "adiabatique"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "chaque nom dit ce qui ne bouge pas : iso-chore le volume, iso-bare la pression, iso-therme la température. L'adiabatique fait exception : elle ne fixe aucune variable d'état, elle interdit tout échange de chaleur. Et comme ΔU ne dépend que de T pour un gaz parfait, une transformation isotherme donne ΔU = 0, donc Q = -W. 3pt"
   },
   {
    "q": "Un gaz reçoit 500 J de chaleur et fournit 200 J de travail. Sa variation d'énergie interne vaut :",
    "choix": [
-    "700 J",
     "300 J",
+    "700 J",
     "-300 J"
    ],
-   "bonne": 1,
-   "expl": "convention du banquier : Q = +500 J (reçu), W = -200 J (fourni), donc ΔU = 500 - 200 = 300 J. La réponse a correspond à une erreur de signe sur le travail. 3pt"
+   "bonne": 0,
+   "expl": "convention du banquier : Q = +500 J (reçu), W = -200 J (fourni), donc ΔU = 500 - 200 = 300 J. La réponse « 700 J » correspond à une erreur de signe sur le travail. 3pt"
   },
   {
    "q": "Dans une transformation isochore, le travail vaut :",
    "choix": [
-    "W = -p ΔV",
     "W = 0",
+    "W = -p ΔV",
     "W = ΔU"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "sans variation de volume, aucune paroi ne se déplace : le gaz ne peut ni recevoir ni fournir de travail. C'est pourquoi l'isochore est le cas le plus simple : ΔU = Q. 3pt"
   },
   {
    "q": "Pour un gaz parfait subissant une transformation isotherme :",
    "choix": [
-    "ΔU = 0",
+    "W = 0",
     "Q = 0",
-    "W = 0"
+    "ΔU = 0"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "chaque nom dit ce qui ne bouge pas : iso-chore le volume, iso-bare la pression, iso-therme la température. L'adiabatique fait exception : elle ne fixe aucune variable d'état, elle interdit tout échange de chaleur. Et comme ΔU ne dépend que de T pour un gaz parfait, une transformation isotherme donne ΔU = 0, donc Q = -W. 3pt"
   },
   {
    "q": "La première loi de Joule affirme que, pour un gaz parfait, ΔU dépend :",
    "choix": [
-    "uniquement de la température",
     "de la température et du volume",
+    "uniquement de la température",
     "du chemin suivi"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "c'est le cœur du chapitre. U est une fonction d'état : elle ne dépend que de l'état, jamais du chemin. W et Q, eux, en dépendent — c'est pourquoi on ne dit jamais qu'un système « contient de la chaleur ». L'exercice 5 le montre par le calcul : même ΔU, mais deux valeurs de Q différant de 249 J. 3pt"
   },
   {
    "q": "Deux chemins différents mènent du même état initial au même état final. Sont identiques :",
    "choix": [
-    "W et Q",
     "ΔU seulement",
+    "W et Q",
     "les trois"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "c'est le cœur du chapitre. U est une fonction d'état : elle ne dépend que de l'état, jamais du chemin. W et Q, eux, en dépendent — c'est pourquoi on ne dit jamais qu'un système « contient de la chaleur ». L'exercice 5 le montre par le calcul : même ΔU, mais deux valeurs de Q différant de 249 J. 3pt"
   },
   {
@@ -190,10 +190,10 @@ window.CHAPITRE = {
    "q": "L'énergie nécessaire pour fondre une masse m de glace s'écrit :",
    "choix": [
     "Q = m c Δθ",
-    "Q = m L_f",
-    "Q = n C_v,m ΔT"
+    "Q = n C_v,m ΔT",
+    "Q = m L_f"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "pendant un changement d'état, la température ne bouge pas : toute l'énergie sert à rompre les liaisons entre molécules, pas à les agiter. La formule m c Δθ ne s'applique donc que hors palier ; sur le palier, c'est m L. Confondre les deux est l'erreur la plus fréquente des bilans calorimétriques. tcolorbox"
   }
  ],

@@ -82,55 +82,55 @@ window.CHAPITRE = {
    "q": "Sur un réseau 230 /400 V, la tension de 230 V est mesurée :",
    "choix": [
     "entre deux phases",
-    "entre une phase et le neutre",
+    "aux bornes du disjoncteur",
     "entre le neutre et la terre",
-    "aux bornes du disjoncteur"
+    "entre une phase et le neutre"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "Un réseau se nomme « simple / composée », dans cet ordre."
   },
   {
    "q": "La relation entre tension composée et tension simple est :",
    "choix": [
     "U = 3 V",
-    "U = V/√3",
     "U = √3 V",
+    "U = V/√3",
     "U = V√2"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "√3 est le côté du triangle équilatéral des trois tensions simples."
   },
   {
    "q": "En couplage étoile, chaque récepteur est soumis à :",
    "choix": [
     "la tension composée U",
-    "la tension simple V",
     "U/3",
+    "la tension simple V",
     "V√3"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "En étoile, un récepteur est branché entre une phase et le point neutre : il voit V."
   },
   {
    "q": "Trois résistances de tension nominale 400 V sont branchées sur un réseau 230 /400 V. Le couplage à réaliser est :",
    "choix": [
-    "étoile",
     "triangle",
+    "étoile",
     "indifférent",
     "étoile avec neutre"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "400 V est ici la tension composée : seul le triangle l'applique à chaque récepteur."
   },
   {
    "q": "Passer du couplage étoile au couplage triangle, sur le même réseau, multiplie la puissance absorbée par :",
    "choix": [
-    "√3",
     "3",
+    "√3",
     "9",
     "1 : elle ne change pas"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "La tension est multipliée par √3 et la puissance varie comme son carré : (√3)² = 3. C'est le facteur qui détruit un moteur mal couplé."
   },
   {
@@ -138,10 +138,10 @@ window.CHAPITRE = {
    "choix": [
     "la puissance apparente S",
     "la puissance réactive Q",
-    "la puissance active P",
-    "la somme P+Q"
+    "la somme P+Q",
+    "la puissance active P"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "Le fournisseur facture l'énergie active. La puissance apparente, elle, ne sert qu'au dimensionnement."
   },
   {
@@ -192,22 +192,22 @@ window.CHAPITRE = {
    "q": "Après installation d'une batterie de condensateurs correctement dimensionnée, la puissance active absorbée par l'installation :",
    "choix": [
     "diminue de 30 % environ",
-    "ne change pas",
+    "devient nulle",
     "augmente",
-    "devient nulle"
+    "ne change pas"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "Un condensateur n'absorbe aucune puissance active. Ce qui diminue, c'est le courant, donc les pertes en ligne et le calibre nécessaire — pas la facture d'énergie active."
   },
   {
    "q": "Le courant en ligne d'une installation passe de 40 à 28 A. Les pertes par effet Joule dans le câble d'alimentation sont divisées par environ :",
    "choix": [
-    "1,4",
     "2",
+    "1,4",
     "2,9",
     "4"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Les pertes varient en I² : (40/28)² = 2,04, soit environ 2. Le piège consiste à répondre 1,4, qui est le rapport des courants et non celui des pertes. enumerate tcolorbox"
   }
  ],
@@ -309,5 +309,6 @@ window.CHAPITRE = {
    "verso": "<strong>ne change pas</strong> — Un condensateur n'absorbe aucune puissance active. Ce qui diminue, c'est le courant, donc les pertes en ligne et le calibre nécessaire — pas la facture d'énergie active.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

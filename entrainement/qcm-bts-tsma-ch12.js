@@ -79,32 +79,32 @@ window.CHAPITRE = {
   {
    "q": "Un signal a une période de 4,0 ms. Sa fréquence vaut :",
    "choix": [
-    "4 Hz",
     "250 Hz",
+    "4 Hz",
     "4000 Hz"
    ],
-   "bonne": 1,
-   "expl": "f = 1/(4,0×10⁻³) = 250 Hz. La réponse a vient d'un oubli de conversion des millisecondes, la c d'une inversion. Repère utile : 20 ms 50 Hz, le réseau. 3pt"
+   "bonne": 0,
+   "expl": "f = 1/(4,0×10⁻³) = 250 Hz. La réponse « 4 Hz » vient d'un oubli de conversion des millisecondes, la réponse « 4000 Hz » d'une inversion. Repère utile : 20 ms 50 Hz, le réseau. 3pt"
   },
   {
    "q": "La valeur moyenne d'un signal est ce qu'affiche un multimètre en position :",
    "choix": [
-    "continu",
     "alternatif",
+    "continu",
     "ohmmètre"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "position continu : la valeur moyenne. En position alternatif, le multimètre retire la composante continue et ne mesure plus que l'ondulation. 3pt"
   },
   {
    "q": "Un hacheur alimenté sous 24 V est réglé à α= 0,60. La valeur moyenne vaut :",
    "choix": [
-    "14,4 V",
+    "24 V",
     "18,6 V",
-    "24 V"
+    "14,4 V"
    ],
-   "bonne": 0,
-   "expl": "u_moy = αU = 0,60 × 24 = 14,4 V ; la réponse b est la valeur efficace (24√(0,60)), qui existe bien mais répond à une autre question. Et c'est la valeur moyenne qui fixe la vitesse : un moteur à courant continu ne répond qu'à la composante continue. Le hacheur fait tourner le moteur comme s'il était sous 14,4 V, mais il chauffe les câbles comme s'il était sous 18,6 V. 3pt"
+   "bonne": 2,
+   "expl": "u_moy = αU = 0,60 × 24 = 14,4 V ; la réponse « 18,6 V » est la valeur efficace (24√(0,60)), qui existe bien mais répond à une autre question. Et c'est la valeur moyenne qui fixe la vitesse : un moteur à courant continu ne répond qu'à la composante continue. Le hacheur fait tourner le moteur comme s'il était sous 14,4 V, mais il chauffe les câbles comme s'il était sous 18,6 V. 3pt"
   },
   {
    "q": "Pour ce même hacheur, la grandeur qui fixe la vitesse du moteur est :",
@@ -114,17 +114,17 @@ window.CHAPITRE = {
     "l'amplitude"
    ],
    "bonne": 1,
-   "expl": "u_moy = αU = 0,60 × 24 = 14,4 V ; la réponse b est la valeur efficace (24√(0,60)), qui existe bien mais répond à une autre question. Et c'est la valeur moyenne qui fixe la vitesse : un moteur à courant continu ne répond qu'à la composante continue. Le hacheur fait tourner le moteur comme s'il était sous 14,4 V, mais il chauffe les câbles comme s'il était sous 18,6 V. 3pt"
+   "expl": "u_moy = αU = 0,60 × 24 = 14,4 V ; la réponse « la valeur moyenne » est la valeur efficace (24√(0,60)), qui existe bien mais répond à une autre question. Et c'est la valeur moyenne qui fixe la vitesse : un moteur à courant continu ne répond qu'à la composante continue. Le hacheur fait tourner le moteur comme s'il était sous 14,4 V, mais il chauffe les câbles comme s'il était sous 18,6 V. 3pt"
   },
   {
    "q": "La valeur efficace se définit comme :",
    "choix": [
-    "la moyenne des valeurs absolues",
     "la tension continue qui produirait le même échauffement",
+    "la moyenne des valeurs absolues",
     "la moitié de la valeur crête à crête"
    ],
-   "bonne": 1,
-   "expl": "la définition est énergétique, pas géométrique. Et pour un créneau symétrique, la tension vaut toujours 6 V en valeur absolue : elle chauffe donc exactement comme une continue de 6 V. La réponse b applique le √2 de la sinusoïde à un signal qui n'en est pas une — l'erreur la plus fréquente du chapitre. 3pt"
+   "bonne": 0,
+   "expl": "la définition est énergétique, pas géométrique. Et pour un créneau symétrique, la tension vaut toujours 6 V en valeur absolue : elle chauffe donc exactement comme une continue de 6 V. La réponse « la moyenne des valeurs absolues » applique le √2 de la sinusoïde à un signal qui n'en est pas une — l'erreur la plus fréquente du chapitre. 3pt"
   },
   {
    "q": "Un créneau symétrique d'amplitude 6,0 V a pour valeur efficace :",
@@ -134,16 +134,16 @@ window.CHAPITRE = {
     "6,0 V"
    ],
    "bonne": 2,
-   "expl": "la définition est énergétique, pas géométrique. Et pour un créneau symétrique, la tension vaut toujours 6 V en valeur absolue : elle chauffe donc exactement comme une continue de 6 V. La réponse b applique le √2 de la sinusoïde à un signal qui n'en est pas une — l'erreur la plus fréquente du chapitre. 3pt"
+   "expl": "la définition est énergétique, pas géométrique. Et pour un créneau symétrique, la tension vaut toujours 6 V en valeur absolue : elle chauffe donc exactement comme une continue de 6 V. La réponse « 4,2 V » applique le √2 de la sinusoïde à un signal qui n'en est pas une — l'erreur la plus fréquente du chapitre. 3pt"
   },
   {
    "q": "Un signal a une valeur moyenne de 3,0 V et une composante alternative de valeur efficace 0,57 V. Sa valeur efficace totale vaut :",
    "choix": [
-    "3,57 V",
     "3,05 V",
+    "3,57 V",
     "2,43 V"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "√(3,0² + 0,57²) = 3,05 V, et non 3,0 + 0,57. Ce sont les carrés qui s'ajoutent, et c'est pourquoi une ondulation cinq fois plus petite ne pèse que 4 % en énergie. 3pt"
   },
   {
@@ -160,20 +160,20 @@ window.CHAPITRE = {
    "q": "Le temps de montée d'un signal se mesure entre :",
    "choix": [
     "0 et 100 % de la valeur finale",
-    "10 et 90 % de la valeur finale",
-    "deux tensions fixées en volts"
+    "deux tensions fixées en volts",
+    "10 et 90 % de la valeur finale"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "les seuils du temps de montée sont des pourcentages de la valeur finale, jamais des volts : changer l'amplitude ne change pas la durée. Et un harmonique de rang n est à n f, soit ici 5 × 200 = 1000 Hz — jamais à f/n, jamais décalé d'une constante. 3pt"
   },
   {
    "q": "Un harmonique de rang 5 d'un signal à 200 Hz se trouve à :",
    "choix": [
-    "40 Hz",
+    "1000 Hz",
     "205 Hz",
-    "1000 Hz"
+    "40 Hz"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "les seuils du temps de montée sont des pourcentages de la valeur finale, jamais des volts : changer l'amplitude ne change pas la durée. Et un harmonique de rang n est à n f, soit ici 5 × 200 = 1000 Hz — jamais à f/n, jamais décalé d'une constante. 3pt"
   },
   {
@@ -189,11 +189,11 @@ window.CHAPITRE = {
   {
    "q": "On reconstitue une valeur efficace à partir des cinq premières raies d'un spectre. Le résultat obtenu est :",
    "choix": [
-    "forcément inférieur à la valeur réelle",
+    "tantôt l'un, tantôt l'autre",
     "forcément supérieur à la valeur réelle",
-    "tantôt l'un, tantôt l'autre"
+    "forcément inférieur à la valeur réelle"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "et c'est la question la plus utile de la feuille. La série des harmoniques est infinie, et les carrés ne font que s'ajouter : en s'arrêtant à cinq raies, on ne peut que sous-estimer. C'est le seul écart de toute l'année dont le signe soit connu avant la première mesure — et il se réduit en ajoutant une raie, non en retouchant le montage. tcolorbox"
   }
  ],

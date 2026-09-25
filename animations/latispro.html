@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LatisPro : acquérir, calculer, tracer, modéliser</title>
+<style>
+:root{
+  --bleu:#1F4E79; --bleu-clair:#E6EEF7; --orange:#D9701E; --orange-clair:#FCEBDD;
+  --encre:#1B2430; --gris:#5A6675; --fond:#F4F7FB; --carte:#FFFFFF; --filet:#D3DCE7;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bleu:#8DB8E8; --bleu-clair:#1C2B3D; --orange:#F0A060; --orange-clair:#3A2718;
+    --encre:#E6EBF1; --gris:#A5B0BE; --fond:#11161D; --carte:#1A212B; --filet:#2E3947;}
+}
+:root[data-theme="dark"]{
+  --bleu:#8DB8E8; --bleu-clair:#1C2B3D; --orange:#F0A060; --orange-clair:#3A2718;
+  --encre:#E6EBF1; --gris:#A5B0BE; --fond:#11161D; --carte:#1A212B; --filet:#2E3947;}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--fond);color:var(--encre);
+  font-family:"Segoe UI Variable Text","Segoe UI",Aptos,Roboto,"Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.5}
+header.page{max-width:1320px;margin:0 auto;padding:22px 20px 10px}
+header.page h1{margin:0;font-size:1.65rem;line-height:1.2;color:var(--bleu);font-weight:700;letter-spacing:-.01em}
+header.page p{margin:.35rem 0 0;color:var(--gris);font-size:.98rem;max-width:72ch}
+.layout{max-width:1320px;margin:0 auto;padding:10px 20px 24px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px;align-items:start}
+@media (max-width:1000px){.layout{grid-template-columns:minmax(0,1fr)}}
+.viewer{min-width:0}
+#wrap{position:relative;width:100%;max-width:960px;border-radius:8px;overflow:hidden;
+  box-shadow:0 0 0 1px var(--filet),0 10px 28px rgba(20,40,70,.16);background:#D6D2CA}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;max-width:960px}
+.controls button,.controls select{font:inherit;font-size:.95rem;border-radius:6px;border:1px solid var(--filet);
+  background:var(--carte);color:var(--encre);padding:7px 14px;cursor:pointer}
+.controls button:hover{border-color:var(--bleu)}
+.controls button.main{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+:root[data-theme="dark"] .controls button.main{color:#10202F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .controls button.main{color:#10202F}}
+.controls button:disabled{opacity:.4;cursor:default}
+.controls .grow{flex:1}
+.controls label{font-size:.9rem;color:var(--gris);display:flex;align-items:center;gap:6px}
+button:focus-visible,select:focus-visible,.steplist button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.progress{height:4px;background:var(--filet);border-radius:2px;margin-top:10px;max-width:960px;overflow:hidden}
+.progress>div{height:100%;width:0;background:var(--orange);transition:width .3s}
+.panel{background:var(--carte);border:1px solid var(--filet);border-radius:8px;padding:18px 20px}
+.panel .part{color:var(--orange);font-weight:600;font-size:.9rem}
+.panel h2{margin:.1rem 0 .6rem;font-size:1.3rem;line-height:1.25;color:var(--bleu)}
+#stepText p{margin:.55rem 0}
+#stepText ul{margin:.4rem 0;padding-left:1.2rem}
+#stepText li{margin:.25rem 0}
+#stepText code,#stepText kbd{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:.92em}
+#stepText code{background:var(--bleu-clair);padding:1px 5px;border-radius:4px}
+#stepText kbd{border:1px solid var(--filet);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--fond);white-space:nowrap}
+.tip,.warn{margin:.8rem 0;padding:.6rem .8rem;border-radius:6px;font-size:.95rem}
+.tip{background:var(--bleu-clair);border-left:4px solid var(--bleu)}
+.warn{background:var(--orange-clair);border-left:4px solid var(--orange)}
+.tip b:first-child,.warn b:first-child{display:block;margin-bottom:.15rem}
+.eq{font-size:1.05rem;text-align:center;margin:.7rem 0;padding:.5rem;border:1px dashed var(--filet);border-radius:6px}
+.steplist{margin-top:16px;border-top:1px solid var(--filet);padding-top:12px}
+.steplist h3{font-size:.85rem;color:var(--gris);font-weight:600;margin:.6rem 0 .25rem}
+.steplist button{display:flex;gap:8px;width:100%;text-align:left;font:inherit;font-size:.92rem;background:none;border:0;color:var(--encre);padding:4px 6px;border-radius:5px;cursor:pointer}
+.steplist button span.n{color:var(--gris);min-width:1.4em;text-align:right}
+.steplist button:hover{background:var(--fond)}
+.steplist button.on{background:var(--bleu-clair);color:var(--bleu);font-weight:600}
+.steplist button.done span.n{color:var(--orange)}
+footer.page{max-width:1320px;margin:0 auto;padding:6px 20px 28px;color:var(--gris);font-size:.85rem;text-align:center}
+
+/* ============ maquette LatisPro ============ */
+#stage{position:absolute;left:0;top:0;width:960px;height:600px;transform-origin:0 0;background:#6E7B8B;overflow:hidden;
+  font-family:"Segoe UI",Tahoma,Arial,sans-serif;font-size:11.5px;color:#000;user-select:none}
+#app{position:absolute;inset:0;background:#D6D2CA}
+.tbar{position:absolute;left:0;top:0;width:960px;height:22px;background:linear-gradient(#3F7CC4,#1F4F96);color:#fff;
+  display:flex;align-items:center;padding:0 5px;font-size:11.5px}
+.tbar b{flex:1;font-weight:600}
+.tbar i{width:16px;height:14px;background:#D6D2CA;border:1px outset #F0EDE6;font-style:normal;font-size:9px;line-height:12px;text-align:center;margin-left:2px;color:#000}
+#menubar{position:absolute;left:0;top:22px;width:960px;height:22px;background:#D6D2CA;display:flex;align-items:center;padding-left:3px}
+#menubar span{padding:2px 8px}
+#menubar span u{text-decoration:underline}
+#menubar span.on{background:#0A246A;color:#fff}
+#toolbar{position:absolute;left:0;top:44px;width:960px;height:30px;background:#D6D2CA;border-bottom:1px solid #A9A599;display:flex;align-items:center;gap:2px;padding:0 5px}
+.tbtn{width:24px;height:22px;border:1px solid transparent;display:flex;align-items:center;justify-content:center}
+.tbtn.on{border:1px inset #fff;background:#C8C4BB}
+.tsep{width:1px;height:18px;background:#A9A599;margin:0 3px}
+#desk{position:absolute;left:0;top:74px;width:960px;height:504px;background:#5F6B7A}
+#status{position:absolute;left:0;top:578px;width:960px;height:22px;background:#D6D2CA;border-top:1px solid #F0EDE6;padding:3px 6px;display:flex;gap:6px}
+#status span{border:1px inset #BEBAB2;padding:0 8px;font-size:11px}
+#status span:first-child{width:200px}
+.win{position:absolute;background:#D6D2CA;border:2px outset #F0EDE6;box-shadow:2px 2px 7px rgba(0,0,0,.4)}
+.wtitle{background:linear-gradient(#3F7CC4,#1F4F96);color:#fff;height:18px;line-height:18px;font-size:11px;padding:0 3px;display:flex;align-items:center}
+.wtitle.inact{background:linear-gradient(#A6A6A6,#848484)}
+.wtitle b{flex:1;font-weight:600}
+.wtitle i{width:14px;height:13px;background:#D6D2CA;border:1px outset #F0EDE6;font-style:normal;font-size:9px;line-height:11px;text-align:center;margin-left:2px;color:#000}
+.wbody{position:relative;height:calc(100% - 18px);padding:4px;overflow:hidden}
+/* boîte de paramétrage */
+#param{left:4px;top:78px;width:252px;height:486px}
+#ptabs{display:flex;gap:3px;margin-bottom:5px}
+#ptabs div{width:78px;height:26px;border:2px outset #F0EDE6;background:#D6D2CA;display:flex;align-items:center;justify-content:center}
+#ptabs div.on{border-style:inset;background:#C8C4BB}
+.sec{margin-bottom:5px;border:1px solid #A9A599;background:#D6D2CA}
+.sec>.h{background:linear-gradient(#C9D4E4,#A9BAD2);font-weight:600;padding:1px 5px;display:flex;justify-content:space-between;font-size:11px}
+.sec>.b{padding:5px 6px}
+.ea{height:20px;border:2px outset #F0EDE6;background:#D6D2CA;border-radius:9px;text-align:center;line-height:16px;font-size:11px}
+.ea.on{border-style:inset;background:#B9D9C1;font-weight:600}
+.ea.hot{outline:1px dotted #333;outline-offset:1px}
+.tabs3{display:flex;margin-bottom:6px}
+.tabs3 div{padding:1px 8px;border:1px solid #A9A599;border-bottom:0;background:#C8C4BB;font-size:11px}
+.tabs3 div.on{background:#fff}
+.fld{border:1px inset #BEBAB2;background:#fff;padding:0 4px;display:inline-block;min-width:56px;height:17px;line-height:16px}
+.cbo{border:1px inset #BEBAB2;background:#fff;padding:0 2px 0 4px;display:inline-flex;justify-content:space-between;align-items:center;width:110px;height:17px}
+.cbo b{font-weight:400}
+.cbo i{font-style:normal;width:14px;height:13px;border:1px outset #F0EDE6;background:#D6D2CA;text-align:center;line-height:11px;font-size:8px}
+.box,.rad{width:12px;height:12px;border:1px inset #9D9A93;background:#fff;display:inline-block;position:relative;vertical-align:-2px;margin-right:4px}
+.rad{border-radius:50%}
+.box.on::after{content:"";position:absolute;left:3px;top:0;width:3px;height:7px;border:solid #000;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.rowf{display:flex;align-items:center;gap:6px;margin:3px 0}
+.rowf span.l{width:52px}
+.btn{border:2px outset #F0EDE6;background:#D6D2CA;padding:1px 8px;display:inline-block;text-align:center;font-size:11px}
+.btn.hot{border-style:inset;background:#C8C4BB}
+/* liste des courbes */
+.cl{background:#fff;border:1px inset #BEBAB2;height:410px;padding:4px 5px;overflow:hidden}
+.cl h4{margin:0 0 4px;font-size:12px;text-decoration:underline}
+.cl .cv{font-weight:700;display:flex;align-items:center;gap:5px}
+.cl .cv span{width:8px;height:8px;display:inline-block}
+.cl .sub{margin:0 0 4px 13px;color:#444;font-size:10.5px}
+.cl .cv.sel{background:#0A246A;color:#fff}
+/* graphe */
+#graph{left:262px;top:78px;width:468px;height:276px}
+#graph .wbody{padding:2px;background:#D6D2CA}
+/* fenêtres */
+#calc{left:300px;top:400px;width:470px;height:152px;z-index:9}
+#calc .code{border:1px inset #BEBAB2;background:#fff;height:74px;padding:3px 6px;font-family:Consolas,"Courier New",monospace;font-size:12px;white-space:pre}
+#tabl{left:286px;top:362px;width:470px;height:200px}
+#tabl .mini{display:flex;gap:8px;font-size:11px;border-bottom:1px solid #A9A599;padding-bottom:2px;margin-bottom:3px}
+#tabl table{border-collapse:collapse;background:#fff;width:100%;font-size:11px}
+#tabl td,#tabl th{border:1px solid #BEBAB2;padding:0 4px;height:15px;text-align:left}
+#tabl th{background:#D6D2CA;text-align:center;font-weight:600}
+#tabl td.n{width:22px;background:#D6D2CA;text-align:center}
+#model{left:150px;top:344px;width:760px;height:232px}
+#model .drop{border:1px inset #BEBAB2;background:#fff;height:20px;line-height:19px;text-align:center;color:#777}
+#model .drop.full{color:#000}
+#model .coef{border:1px solid #A9A599;background:#fff;height:88px;font-size:11px}
+#model .coef .hd{display:flex;background:#D6D2CA;border-bottom:1px solid #A9A599}
+#model .coef .hd span,#model .coef .rw span{padding:0 5px}
+#model .coef .rw{display:flex;border-bottom:1px solid #EAEAEA}
+#model .out{border:1px inset #BEBAB2;background:#fff;height:17px;line-height:16px;padding:0 5px;margin-top:3px;font-family:Consolas,"Courier New",monospace}
+#model .stat{border:1px inset #BEBAB2;background:#fff;height:17px;line-height:16px;padding:0 5px;font-size:11px}
+/* menus, popups, dialogues */
+.pop{position:absolute;background:#D6D2CA;border:2px outset #F0EDE6;box-shadow:2px 2px 6px rgba(0,0,0,.35);z-index:22;display:none;font-size:11.5px;padding:2px 0}
+.pop div{padding:2px 20px 2px 22px;white-space:nowrap;display:flex;justify-content:space-between;gap:24px}
+.pop div.hot{background:#0A246A;color:#fff}
+.pop div.head{font-weight:600;background:#C8C4BB;color:#000}
+.pop hr{border:0;border-top:1px solid #A9A599;margin:2px}
+.dlg{position:absolute;z-index:24;display:none}
+#dlgCourbe{left:330px;top:180px;width:300px;height:118px}
+#dlgVar{left:286px;top:170px;width:392px;height:146px}
+#tooltip{position:absolute;background:#FFFFE1;border:1px solid #767676;padding:1px 5px;font-size:11px;z-index:26;display:none}
+#ghost{position:absolute;z-index:26;background:#fff;border:1px solid #444;padding:1px 6px;font-size:11px;display:none;pointer-events:none}
+#cursor{position:absolute;left:0;top:0;z-index:30;pointer-events:none;will-change:transform}
+#cursor .cross{display:none}
+#cursor.cross .arrow{display:none}#cursor.cross .cross{display:block}
+.ripple{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:3px solid #E07A1F;z-index:29;pointer-events:none;animation:rip .5s ease-out forwards}
+.ripple.r2{border-color:#2F5FC4}
+@keyframes rip{from{transform:scale(.3);opacity:1}to{transform:scale(1.4);opacity:0}}
+#keybadge{position:absolute;left:14px;bottom:28px;z-index:31;background:#1F2A37;color:#fff;border-radius:6px;padding:6px 12px;font-size:14px;font-weight:600;display:none;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.note{position:absolute;z-index:28;background:#FFF4E8;border:2px solid #D9701E;color:#3A2410;border-radius:6px;padding:5px 9px;font-size:13px;line-height:1.35;max-width:260px;box-shadow:0 3px 10px rgba(0,0,0,.25);animation:noteIn .25s ease-out}
+@keyframes noteIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.caret{display:inline-block;width:1px;height:12px;background:#000;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.note,.ripple{animation:none}.ripple{display:none}}
+
+/* ---- correctifs d'après captures d'écran ---- */
+.tbar{background:linear-gradient(#EDEFF3,#C9CFD9 55%,#B4BCC9);color:#2A3646;height:24px;justify-content:center;border-bottom:1px solid #8E97A5}
+.tbar .logo{font-weight:700;letter-spacing:.06em;color:#4A5568;background:linear-gradient(#FDFDFE,#DDE2EA);border:1px solid #AEB6C2;border-radius:9px;padding:0 16px;font-size:12px}
+.tbar .wb{position:absolute;right:6px;display:flex;gap:3px}
+.tbar .wb i{width:15px;height:13px;background:linear-gradient(#F4F6F9,#D2D8E1);border:1px solid #9AA3B1;border-radius:2px;font-style:normal;font-size:8px;line-height:11px;text-align:center;color:#3C4655}
+#menubar,#toolbar,#status,.wbody,.win{background:#E9ECF1}
+#menubar{border-bottom:1px solid #C3C9D3}
+#toolbar{background:linear-gradient(#F2F4F7,#DEE3EA);border-bottom:1px solid #B9C0CB;height:34px}
+.tbtn{width:26px;height:26px;border-radius:3px}
+.tbtn.on{border:1px solid #7F93B5;background:#CBD8EC}
+.deco{display:flex;align-items:center;gap:5px;border:1px solid #B9C0CB;background:#EDEFF3;padding:2px 8px;border-radius:3px;font-size:11px}
+.digit{margin-left:8px;background:#000;color:#3AA0FF;font-family:Consolas,"Courier New",monospace;font-size:15px;letter-spacing:1px;padding:2px 8px;border:1px solid #444;border-radius:3px}
+#desk{background:#F4F5F8}
+#status{display:flex;align-items:center;gap:0;padding:2px 4px;background:linear-gradient(#F2F4F7,#DEE3EA)}
+#status .stl{border:1px inset #C3C9D3;background:#E9ECF1;width:330px;padding:0 6px;font-size:11px;margin-right:6px}
+#status .wtab{padding:1px 14px;font-size:11px;border:1px solid #B9C0CB;border-bottom:0;background:#DDE2EA;margin-right:2px}
+#status .wtab.on{background:#4A6EA9;color:#fff;border-color:#3A5989}
+/* boîte de paramétrage */
+#param{left:4px;top:78px;width:250px;height:492px;border:1px solid #B9C0CB;box-shadow:none}
+.sec>.b{padding:4px 6px}
+.rowf{margin:2px 0}
+.eagrid{gap:4px 2px}
+.ea{height:19px;line-height:17px}
+#ptabs div{height:28px}
+.wtitle{background:linear-gradient(#DCE1E9,#C3CAD6);color:#2A3646;border-bottom:1px solid #AEB6C2}
+.wtitle b{font-weight:400}
+.wtitle i{background:linear-gradient(#F4F6F9,#D2D8E1);border:1px solid #9AA3B1;border-radius:2px;color:#3C4655}
+#ptabs div{width:110px;height:30px;border:1px solid #AEB6C2;border-radius:14px;background:linear-gradient(#FBFCFD,#DCE1E9)}
+#ptabs div.on{background:linear-gradient(#CBD8EC,#A9BEDD);border-color:#7F93B5}
+.band{background:linear-gradient(#DCE1E9,#C3CAD6);border:1px solid #AEB6C2;text-align:center;padding:1px;margin:4px 0;font-size:11.5px;color:#2A3646}
+.sec{border:1px solid #C3C9D3;background:#EFF1F5}
+.sec>.h{background:linear-gradient(#DCE1E9,#C6CDD8);color:#2A3646;font-weight:400}
+.dif{text-align:center;margin-bottom:5px;font-size:11px}
+.eagrid{display:grid;grid-template-columns:1fr 16px 1fr;gap:5px 2px;align-items:center}
+.ea{border:1px solid #AEB6C2;border-radius:11px;background:linear-gradient(#FBFCFD,#DCE1E9);height:21px;line-height:19px}
+.ea.on{background:linear-gradient(#C9E9D2,#9FD3AE);border-color:#6FA37E;font-weight:600}
+.tabs3 div{background:linear-gradient(#EAEDF2,#D5DBE4);border-color:#B9C0CB}
+.tabs3 div.on{background:#fff;font-weight:600}
+.fld,.cbo{border:1px solid #AEB6C2;background:#fff;border-radius:2px}
+.btn{border:1px solid #AEB6C2;border-radius:3px;background:linear-gradient(#FBFCFD,#DCE1E9);padding:2px 10px}
+.btn.hot{background:linear-gradient(#CBD8EC,#A9BEDD);border-color:#7F93B5}
+.btn.off{color:#9AA3B1}
+/* liste des courbes */
+.cl{border:1px solid #C3C9D3;background:#fff;height:auto;min-height:330px}
+.cl h4{font-size:12.5px}
+.cl .cv{font-weight:700;padding:1px 3px}
+.cl .cv span.sq{width:8px;height:8px;display:inline-block;margin-right:5px}
+.cl .sub{margin-left:14px;color:#555;font-size:10.5px;font-weight:400}
+.cl .sep{border-top:1px solid #C3C9D3;margin:14px 0 10px}
+.cl .fct{font-family:"Times New Roman",serif;font-size:14px;padding-left:6px}
+/* fenêtre graphique (fille MDI, à plat) */
+#graph{position:absolute;left:260px;top:78px;width:696px;height:478px;border:1px solid #B9C0CB;background:#fff;box-shadow:none;z-index:2}
+#graph .mtitle{height:18px;line-height:17px;background:linear-gradient(#EDEFF3,#D8DDE6);border-bottom:1px solid #C3C9D3;font-size:11px;padding:0 5px;display:flex;justify-content:space-between;color:#4A5568}
+#graph .gb{padding:3px;background:#fff}
+/* tableur */
+#tabl{left:300px;top:170px;width:580px;height:268px;z-index:9}
+#tabl .tmenu{display:flex;gap:2px;font-size:11.5px;margin-bottom:3px}
+#tabl .tmenu span{padding:1px 8px}
+#tabl .tmenu span.on{background:#4A6EA9;color:#fff}
+#tabl .ttool{display:flex;align-items:center;gap:3px;border-bottom:1px solid #C3C9D3;padding-bottom:3px;margin-bottom:3px}
+#tabl .ttool .ti{width:24px;height:22px;border:1px solid #C3C9D3;border-radius:3px;background:linear-gradient(#FBFCFD,#DCE1E9);display:flex;align-items:center;justify-content:center;font-size:10px}
+#tabl .ttool .fxf{flex:1;border:1px solid #AEB6C2;background:#fff;height:20px}
+#tabl th,#tabl td{border:1px solid #D2D8E1;height:16px}
+#tabl th{background:linear-gradient(#EDEFF3,#DCE1E9);font-weight:400}
+#tabl td.n{background:linear-gradient(#EDEFF3,#DCE1E9);text-align:center;width:26px}
+/* modélisation */
+#model{left:300px;top:200px;height:262px;z-index:9}
+#model .mband{background:linear-gradient(#4A6EA9,#37568A);color:#fff;font-size:11px;padding:1px 6px;margin-top:4px}
+#model .drop{border:1px solid #AEB6C2;background:linear-gradient(#FBFCFD,#E6EAF0);height:22px;line-height:21px;text-align:center;color:#6B7684;font-size:11px}
+#model .drop.full{color:#000}
+#model .mbox{border:1px solid #AEB6C2;background:#EFF1F5;padding:6px;display:flex;gap:6px;align-items:center;justify-content:center;min-height:44px}
+#model .out{border:1px solid #AEB6C2;background:#fff;height:19px;line-height:18px;padding:0 5px;margin-top:3px;font-family:Consolas,"Courier New",monospace;font-size:11.5px}
+#model .stat{border:1px solid #AEB6C2;background:#fff;height:19px;line-height:18px;padding:0 5px;font-size:11px}
+#model .coef{border:1px solid #AEB6C2;background:#EFF1F5;height:104px;font-size:11px;padding:4px 6px}
+#model .coef .hd{display:flex;color:#2A3646;margin-bottom:3px}
+#model .coef .rw{display:flex;align-items:center;margin-bottom:3px}
+/* sélection de modèle */
+#selmod{position:absolute;z-index:23;display:none;width:260px;height:250px}
+#selmod .lst{height:206px;overflow:hidden;position:relative;border:1px solid #AEB6C2;background:#EFF1F5}
+#selmod .it{display:flex;align-items:center;gap:6px;padding:3px 4px}
+#selmod .it .th{width:56px;height:26px;border:1px solid #C3C9D3;background:#fff}
+#selmod .it .bt{flex:1;border:1px solid #AEB6C2;border-radius:3px;background:linear-gradient(#FBFCFD,#DCE1E9);text-align:center;font-size:11px;padding:2px}
+#selmod .it .bt.hot{background:linear-gradient(#CBD8EC,#A9BEDD);border-color:#7F93B5}
+#selmod .sb{position:absolute;right:4px;top:22px;width:14px;bottom:4px;background:#E2E6EC;border:1px solid #AEB6C2}
+#selmod .sb i{position:absolute;left:0;width:12px;height:12px;background:linear-gradient(#FBFCFD,#DCE1E9);border:1px solid #AEB6C2;font-style:normal;font-size:8px;text-align:center;line-height:10px}
+/* dialogues */
+#dlgVar{left:330px;top:210px;width:400px;height:170px}
+#dlgCourbe{left:360px;top:200px;width:320px;height:130px}
+.pop{background:linear-gradient(#F2F4F7,#E4E8EE);border:1px solid #AEB6C2;border-radius:3px}
+.pop div.hot{background:#4A6EA9}
+
+
+/* ---- v5 : habillage de la version complète (capture de référence) ---- */
+.tbar{background:linear-gradient(#4E86C6,#1D4F93 45%,#17427E);color:#fff;justify-content:flex-start;height:22px;padding:0 4px}
+.tbar b{font-weight:400;font-size:11.5px;flex:1}
+.tbar .wb i{background:linear-gradient(#EFF1F5,#C8CDD6);border:1px solid #2A4B7C;color:#16223C}
+#menubar,#toolbar,#status,.win,.wbody{background:#D6D2CA}
+#menubar{background:#E4E1DA;border-bottom:1px solid #B5B1A8}
+#toolbar{background:linear-gradient(#F2F0EB,#DAD6CE);border-bottom:1px solid #B5B1A8;height:32px}
+.tbtn{width:26px;height:26px;border:1px solid transparent;border-radius:2px}
+.tbtn.on{border:1px solid #6E86AE;background:#CBD8EC}
+.tsep{background:#B5B1A8}
+.deco{background:#E4E1DA;border-color:#B5B1A8}
+#desk{background:#5F6B7A}
+#status{background:#E4E1DA}
+#status .stl{background:#F2F0EB;border:1px inset #B5B1A8}
+#status .wtab{background:#D6D2CA;border-color:#B5B1A8}
+#status .wtab.on{background:#1D4F93;border-color:#16427E}
+.win{border:1px solid #9C988F;box-shadow:2px 2px 6px rgba(0,0,0,.35)}
+.wtitle{background:linear-gradient(#4E86C6,#1D4F93);color:#fff}
+.wtitle b{font-weight:600}
+.wtitle i{background:linear-gradient(#EFF1F5,#C8CDD6);border:1px solid #2A4B7C;color:#16223C}
+#param{background:#E4E1DA;border:1px solid #9C988F}
+#ptabs{gap:4px}
+#ptabs div{width:74px;height:30px;border:2px outset #F4F2ED;border-radius:0;background:#E4E1DA}
+#ptabs div.on{border-style:inset;background:#CBD8EC}
+.band{background:linear-gradient(#C9D4E4,#A9BAD2);border:1px solid #8FA0BA;color:#16223C}
+.sec{border:1px solid #B5B1A8;background:#E4E1DA}
+.sec>.h{background:linear-gradient(#C9D4E4,#A9BAD2);color:#16223C}
+.ea{border:2px outset #F4F2ED;background:#E4E1DA;border-radius:10px}
+.ea.on{border-style:inset;background:#A9D8B4}
+.btn{border:2px outset #F4F2ED;border-radius:0;background:#E4E1DA}
+.btn.hot{border-style:inset;background:#CBD8EC}
+.fld,.cbo{border:1px inset #B5B1A8;background:#fff;border-radius:0}
+.tabs3 div{background:#D6D2CA;border-color:#B5B1A8}
+.cl{border:1px inset #B5B1A8;background:#fff}
+#graph{border:1px solid #9C988F}
+#graph .mtitle{background:linear-gradient(#DDE6F3,#C2CEE0);border-bottom:1px solid #9FA9B8;color:#16223C}
+/* tableur : grille complète, cellules vides visibles */
+#tabl{width:600px;height:288px}
+#tabl .ttool .ti{border:2px outset #F4F2ED;border-radius:0;background:#E4E1DA}
+#tabl .fxf{border:1px inset #B5B1A8}
+#tabl table{table-layout:fixed;width:100%}
+#tabl th,#tabl td{border:1px solid #B9B5AD;height:15px;font-size:10.5px;overflow:hidden;white-space:nowrap}
+#tabl th{background:#D6D2CA;font-weight:600;font-size:10.5px}
+#tabl td.n{background:#D6D2CA;width:22px;text-align:center}
+#tabl .grid{border:1px inset #B5B1A8;background:#fff;height:196px;overflow:hidden}
+#model .mband{background:linear-gradient(#4E86C6,#1D4F93)}
+#model .drop{border:1px inset #B5B1A8;background:#fff}
+#model .mbox,#model .coef{border:1px solid #B5B1A8;background:#E4E1DA}
+#model .out,#model .stat{border:1px inset #B5B1A8;background:#fff}
+#selmod .lst{border:1px inset #B5B1A8;background:#E4E1DA}
+#selmod .it .bt{border:2px outset #F4F2ED;border-radius:0;background:#E4E1DA}
+#selmod .it .bt.hot{border-style:inset;background:#CBD8EC}
+.pop{background:#E4E1DA;border:2px outset #F4F2ED;border-radius:0}
+
+
+#tabl{left:290px;top:112px;width:610px;height:336px}
+#tabl .grid{height:auto!important}
+#tabl .gridwrap{display:flex;gap:3px}
+#tabl .grid{flex:1;border:1px solid #8E97A5;background:#fff;overflow:hidden}
+#tabl table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:11px}
+#tabl th,#tabl td{border:1px solid #A9B1BD;height:17px;padding:0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+#tabl th{background:linear-gradient(#DDE5F1,#BCCBE2);font-weight:700;color:#1B2C4A}
+#tabl tr.u th{font-weight:400}
+#tabl td.n,#tabl th.n{width:30px;background:linear-gradient(#DDE5F1,#BCCBE2);font-weight:700;color:#1B2C4A;text-align:left}
+#tabl th.sel{outline:2px solid #1B2C4A;outline-offset:-2px}
+#tabl td.sel{border-left:2px solid #1B2C4A;border-right:2px solid #1B2C4A}
+#tabl .cst{width:22px;border:1px solid #8E97A5;background:linear-gradient(90deg,#E4E9F1,#CDD6E4);position:relative;overflow:hidden}
+#tabl .cst span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg);white-space:nowrap;font-size:10.5px}
+#tabl .fxf{font-family:Consolas,monospace;font-size:11.5px;padding:1px 4px}
+#dlgCourbe{left:300px;top:170px;width:420px;height:196px}
+.cl .sca{margin-top:12px}
+#cursor .tgt{display:none}
+#cursor.target .arrow{display:none}#cursor.target .tgt{display:block}
+#calc{left:290px;top:360px;width:560px;height:190px}
+#calc .cmenu{display:flex;gap:2px;font-size:11.5px;margin-bottom:2px}
+#calc .cmenu span{padding:1px 8px}
+#calc .cols{display:flex;gap:3px;height:128px}
+#calc .code{flex:1;height:100%}
+#calc .res{width:170px;border:1px solid #AEB6C2;background:#fff;font-family:Consolas,monospace;font-size:12px;padding:3px 6px;white-space:pre}
+
+/* boutons de la boîte de paramétrage, d'après la capture */
+#ptabs{display:flex;justify-content:space-between;padding:3px 8px 5px;margin-bottom:4px;border-bottom:1px solid #C3C9D3}
+#ptabs div{width:62px!important;height:24px!important;border:1px solid #8A9BB5!important;border-radius:4px!important;
+  background:linear-gradient(#FFFFFF,#E9EEF4)!important;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 #fff}
+#ptabs div.on{background:linear-gradient(#DCE8F7,#B3CAE8)!important;border-color:#6F87AD!important;box-shadow:inset 0 1px 2px rgba(40,70,120,.25)}
+</style>
+</head>
+<body>
+<header class="page">
+  <h1>Acquérir, calculer, tracer et modéliser avec LatisPro</h1>
+  <p>Animation pas à pas. Exemple suivi de bout en bout : la charge d'un condensateur à travers un conducteur ohmique, mesurée avec une carte d'acquisition.</p>
+</header>
+<main class="layout">
+  <section class="viewer">
+    <div id="wrap"><div id="stage"></div></div>
+    <div class="progress"><div id="prog"></div></div>
+    <div class="controls">
+      <button id="bPrev">◀ Précédente</button>
+      <button id="bReplay">Rejouer l'étape</button>
+      <button id="bNext" class="main">Étape suivante ▶</button>
+      <span class="grow"></span>
+      <label><input type="checkbox" id="auto"> Enchaîner</label>
+      <label>Vitesse
+        <select id="speed"><option value="0.6">lente</option><option value="1" selected>normale</option><option value="1.8">rapide</option></select>
+      </label>
+    </div>
+  </section>
+  <aside class="panel" aria-live="polite">
+    <div class="part" id="partLbl"></div>
+    <h2 id="stepTitle"></h2>
+    <div id="stepText"></div>
+    <nav class="steplist" id="stepList" aria-label="Liste des étapes"></nav>
+  </aside>
+</main>
+<footer class="page">M. Cronenberger</footer>
+<script>
+(function(){
+"use strict";
+/* ---------- données simulées ---------- */
+const R=10e3,C=1e-6,TAU=R*C,E=5.0,DUREE=0.05,NP=201;
+const hash=i=>{const s=Math.sin(i*127.1)*43758.5453;return s-Math.floor(s)-.5};
+const T=[],UC=[],UG=[];
+for(let i=0;i<NP;i++){const t=i*DUREE/(NP-1);T.push(t);
+  UC.push(E*(1-Math.exp(-t/TAU))+0.05*hash(i));UG.push(E+0.05*hash(i+500))}
+UC[0]=Math.abs(UC[0]);
+const II=T.map((t,i)=>(UG[i]-UC[i])/R);
+const fit=(()=>{let best={e:1e9};
+  for(let k=0;k<600;k++){const tau=0.005+k*(0.010/600);
+    let n=0,d=0;for(let i=0;i<NP;i++){const f=1-Math.exp(-T[i]/tau);n+=f*UC[i];d+=f*f}
+    const A=n/d;let e=0;for(let i=0;i<NP;i++)e+=(UC[i]-A*(1-Math.exp(-T[i]/tau)))**2;
+    if(e<best.e)best={e,tau,A}}
+  const res=Math.sqrt(best.e/NP);
+  const mod=T.map(t=>best.A*(1-Math.exp(-t/best.tau)));
+  const m1=UC.reduce((a,b)=>a+b)/NP,m2=mod.reduce((a,b)=>a+b)/NP;
+  let sxy=0,sx=0,sy=0;for(let i=0;i<NP;i++){sxy+=(UC[i]-m1)*(mod[i]-m2);sx+=(UC[i]-m1)**2;sy+=(mod[i]-m2)**2}
+  return{A:best.A,tau:best.tau,ec:res,r:sxy/Math.sqrt(sx*sy)}})();
+const PP=UC.map((u,k)=>u*II[k]);
+const DATA={EA0:UC,EA1:UG,i:II,P:PP};
+const UNIT={EA0:'V',EA1:'V',i:'A',U:'V',P:'W'};
+const fr=(v,d)=>v.toFixed(d).replace('.',',');
+// affichage « à la LatisPro » : point décimal et notation E
+function lp(v,u){if(v===0)return '0'+(u?' '+u:'');const a=Math.abs(v);
+  const f=x=>x.toFixed(3).replace('.',',');
+  if(a<1&&a>=1e-3)return f(v*1e3)+'E-3'+(u?' '+u:'');
+  if(a<1e-3)return f(v*1e6)+'E-6'+(u?' '+u:'');
+  return f(v)+(u?' '+u:'')}
+const lpv=v=>v.toFixed(3).replace('.',',');
+const TAUms=fr(fit.tau*1000,1), AV=fr(fit.A,2);
+
+/* ---------- maquette ---------- */
+const stage=document.getElementById('stage'),wrap=document.getElementById('wrap');
+const GW={x:260,y:78,w:696,h:478};                 // fenêtre graphique
+const GP={L:56,R:660,T:26,B:408};                  // zone de tracé
+const gx=t=>GP.L+(GP.R-GP.L)*t/DUREE, gy=u=>GP.B-(GP.B-GP.T)*u/6;
+const sx=t=>GW.x+3+gx(t), sy=u=>GW.y+18+3+gy(u);   // coordonnées scène
+const MENUS=['Fichier','Traitements','Edition','Outils','Exécuter','Fenêtres','Aide'];
+const TB=[   // ordre de la notice : Nouveau, Ouvrir, Enregistrer, Imprimer, AVI, Tableur, Modélisation, Mesures auto, Acquisition, Afficheurs, Notes, Mosaïque, Aide
+ ['tNew','<path d="M4 2h8l3 3v11H4z" fill="#fff" stroke="#6B7684"/><path d="M12 2v3h3" fill="#E6E9EE" stroke="#6B7684"/>'],
+ ['tOpen','<path d="M2 5h5l1.5 2H15v8H2z" fill="#F1C24E" stroke="#94761C"/><path d="M4 8h12.5l-2 7H2z" fill="#F8DC8A" stroke="#94761C"/><path d="M11 2l3 2-3 2" fill="#3FA34D"/>'],
+ ['tSave','<rect x="2.5" y="2.5" width="13" height="13" rx="1" fill="#2D57B8" stroke="#1B3775"/><rect x="5" y="2.5" width="8" height="5" fill="#E9EEF8"/><rect x="4.5" y="10" width="9" height="5.5" fill="#1B3775"/>'],
+ ['tPrint','<rect x="5" y="2" width="8" height="5" fill="#fff" stroke="#6B7684"/><path d="M2 7h14v6H2z" fill="#8C95A3" stroke="#555E6B"/><rect x="5" y="11" width="8" height="5" fill="#fff" stroke="#6B7684"/><path d="M6 13h6M6 14.6h4" stroke="#9AA3B1"/>'],
+ ['tAvi','<circle cx="9" cy="9" r="6.8" fill="#F4F6F9" stroke="#6B7684"/><path d="M9 2.2A6.8 6.8 0 0 1 15.8 9H9z" fill="#E74C3C"/><path d="M15.8 9A6.8 6.8 0 0 1 9 15.8V9z" fill="#F1C40F"/><path d="M9 15.8A6.8 6.8 0 0 1 2.2 9H9z" fill="#27AE60"/><circle cx="9" cy="9" r="2" fill="#fff" stroke="#6B7684"/>'],
+ ['tTab','<rect x="2" y="3" width="14" height="12" fill="#fff" stroke="#3A63A8"/><rect x="2" y="3" width="14" height="3" fill="#3A63A8"/><path d="M2 9h14M2 12h14M6.5 6v9" stroke="#8FA7CC"/>'],
+ ['tMod','<path d="M2.5 15.5C5 3 13 3 15.5 15.5" fill="none" stroke="#2A3F75" stroke-width="1.8"/>'],
+ ['tMes','<path d="M3 13c2-6 4 2 6-4" fill="none" stroke="#7D3C98" stroke-width="1.5"/><path d="M4 15l10-10" stroke="#C0392B" stroke-width="1.2"/><path d="M14 5l-3 .3 2.7 2.7z" fill="#C0392B"/>'],
+ ['tAcq','<path d="M5 15C10 15 10 7 17 7" fill="none" stroke="#C0392B" stroke-width="1.4"/><path d="M2 3l6.5 6.5-2.8.4 2 2.6-1.9 1.1-2-2.6L2 13z" fill="#C0392B"/><circle cx="12" cy="10" r="2.2" fill="none" stroke="#C0392B"/>'],
+ ['tAff','<rect x="3" y="2" width="12" height="14" rx="1" fill="#10151E" stroke="#000"/><path d="M7 5h4l-1 4h-4zM6 10h4l-.5 4h-4z" fill="none" stroke="#3AA0FF" stroke-width="1.2"/>'],
+ ['tNotes','<path d="M3 3l9-1 3 11-9 2z" fill="#F4F1E6" stroke="#8A8270"/><path d="M5 6l6-.7M5.5 8.5l6-.7M6 11l5-.6" stroke="#9E9684"/><path d="M11 13l4-9 1.5.7-4 9z" fill="#5B6B85"/>'],
+ ['tMos','<rect x="2" y="2" width="14" height="14" fill="#fff" stroke="#3A63A8"/><rect x="2" y="2" width="7" height="14" fill="#3A63A8"/><path d="M9 9h7" stroke="#3A63A8"/>'],
+ ['tHelp','<text x="9" y="15.5" font-size="16" font-family="Georgia,Times" font-weight="700" fill="#D22B2B" text-anchor="middle">?</text>']];
+stage.innerHTML=`
+<div id="app">
+ <div class="tbar"><svg width="13" height="13" style="margin-right:5px"><rect x="1" y="2" width="11" height="9" fill="#EDEFF3" stroke="#2A3646"/><path d="M1 5h11" stroke="#2A3646"/></svg><b>LatisPro – C:\\Users\\Documents\\Lycee\\TP_condensateur.ltp</b><span class="wb"><i>_</i><i>□</i><i>✕</i></span></div>
+ <div id="menubar">${MENUS.map(m=>`<span data-m="${m}">${m}</span>`).join('')}</div>
+ <div id="toolbar">${TB.map(t=>t[0]==='sep'?'<div class="tsep"></div>':
+   `<div class="tbtn" id="${t[0]}"><svg width="18" height="18">${t[1]}</svg></div>`).join('')}
+   <div style="flex:1"></div>
+   <div class="deco"><span class="box on"></span>Décompte</div><div class="digit">00:00:00:00</div></div>
+ <div id="desk"></div>
+ <div id="status"><span class="stl" id="st1">AUCUNE CENTRALE</span>
+   <span class="wtab on">Fenêtre n°1</span><span class="wtab" id="wtabTab">Tableur</span></div>
+</div>
+<div class="win" id="param"><div class="wtitle"><b>Paramètres</b><i>«</i></div>
+ <div class="wbody" style="padding:4px"><div id="ptabs">
+   <div id="tabCourbes" title="Liste des courbes"><svg width="26" height="18" viewBox="0 0 26 18">
+     <path d="M3 9.5C5 1.5 8 1.5 10 9.5S15 17.5 17 9.5 21 1.5 23 5" fill="none" stroke="#4CC25A" stroke-width="1.45" stroke-linecap="round"/></svg></div>
+   <div id="tabAcq" title="Paramétrage de l'acquisition"><svg width="26" height="18" viewBox="0 0 26 18">
+     <path d="M3.5 7.5L9 14.2L17.2 5.6" fill="none" stroke="#D7262E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+     <circle cx="19.4" cy="4.6" r="3.3" fill="#FBE3E3" stroke="#D7262E" stroke-width="1.4"/>
+     <path d="M17.6 4.6h3.6M19.4 2.8v3.6" stroke="#D7262E" stroke-width="1"/></svg></div>
+   <div id="tabEmi" title="Paramétrage de l'émission"><svg width="26" height="18" viewBox="0 0 26 18">
+     <path d="M3 10.2L7 8.4L10.2 12.2L19.6 1.8L22.4 4.2L10.4 17L3 10.2Z" fill="#1F6A36" stroke="#154C27" stroke-width=".8" stroke-linejoin="round"/>
+     <path d="M10.3 12.4L19.7 2.6L21.4 4" fill="none" stroke="#5DA86F" stroke-width=".9"/></svg></div>
+ </div><div id="pbody"></div></div></div>
+<div id="graph"><div class="mtitle"><span>Fenêtre n°1</span><span>□</span></div><div class="gb" id="gbody"></div></div>
+<div class="win" id="calc"><div class="wtitle"><b>Feuille de calculs</b><i>_</i><i>□</i><i>✕</i></div>
+ <div class="wbody" id="calcBody"></div></div>
+<div class="win" id="tabl"><div class="wtitle"><b>Tableur</b><i>□</i></div>
+ <div class="wbody" id="tablBody"></div></div>
+<div class="win" id="model"><div class="wtitle"><b>Modélisation</b><i>□</i></div>
+ <div class="wbody" id="modelBody"></div></div>
+<div class="win" id="selmod"><div class="wtitle"><b>Sélectionner un modèle...</b><i>□</i></div>
+ <div class="wbody" id="selmodBody" style="padding:3px"></div></div>
+<div class="win dlg" id="dlgCourbe"><div class="wtitle"><b id="dcTitle">Propriétés</b><i>✕</i></div>
+ <div class="wbody" id="dlgCourbeBody"></div></div>
+<div class="win dlg" id="dlgVar"><div class="wtitle"><b>Propriétés de Var</b><i>□</i></div>
+ <div class="wbody" id="dlgVarBody"></div></div>
+<div class="pop" id="popMenu"></div>
+<div class="pop" id="popCtx"></div>
+<div id="tooltip"></div><div id="ghost"></div><div id="keybadge"></div>
+<div id="cursor"><svg width="26" height="26" style="overflow:visible">
+ <g class="arrow"><path d="M0 0 L0 18 L4.5 14 L7.5 21 L10.5 19.7 L7.5 12.8 L13 12.8 Z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></g>
+ <g class="cross"><path d="M-9 0H9M0 -9V9" stroke="#fff" stroke-width="4"/><path d="M-8 0H8M0 -8V8" stroke="#000" stroke-width="1.4"/></g><g class="tgt"><circle r="7" fill="none" stroke="#fff" stroke-width="3.5"/><circle r="7" fill="none" stroke="#D00" stroke-width="1.6"/><path d="M-12 0H-4M4 0H12M0 -12V-4M0 4V12" stroke="#D00" stroke-width="1.6"/></g></svg></div>`;
+const $=id=>document.getElementById(id);
+
+/* ---------- état ---------- */
+let S;
+function freshState(){return{
+ menu:null,hot:null,tip:null,
+ pane:'acq',
+ acq:{ea:{},add:true,perm:false,mode:'Temporelle',pts:'',te:'',tot:'',src:'',sens:'',seuil:'',pre:''},
+ curves:[],          // {k,n,c}
+ series:[],          // clés affichées en ordonnée
+ abscisse:'Temps',
+ win:{graph:true,calc:false,tabl:false,model:false},
+ ctx:null,dlg:null,dlgBuf:'',
+ retic:null,
+ calc:{txt:'',done:false},
+ tabl:{cols:[],menu:null},
+ model:{drop:null,dest:false,mod:null,done:false,dev:false,pop:false,scroll:0,zone:null}}}
+const COL={EA0:'#0000FF',EA1:'#1E8449',i:'#C0392B',U:'#7D3C98',P:'#D4238A'};
+const nameOf=k=>{const c=S.curves.find(c=>c.k===k);return c?c.n:k};
+
+/* ---------- rendu ---------- */
+function render(){
+  document.querySelectorAll('#menubar span').forEach(s=>s.classList.toggle('on',s.dataset.m===S.menu));
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.toggle('on',b.id===S.hot));
+  ['tabCourbes','tabAcq','tabEmi'].forEach((id,k)=>$(id).classList.toggle('on',['courbes','acq','emi'][k]===S.pane));
+  for(const k in S.win)$(k).style.display=S.win[k]?'block':'none';
+  renderPane();renderGraph();renderCalc();renderTabl();renderModel();renderPops();renderDlg();
+}
+function renderPane(){
+  const A=S.acq;
+  if(S.pane==='acq'){
+   $('pbody').innerHTML=`
+   <div class="band">Acquisition</div>
+   <div class="sec"><div class="h"><span>Entrées Analogiques</span><span>▲</span></div><div class="b">
+     <div class="dif">Mode différentiel</div>
+     <div class="eagrid">
+      ${[1,2,3,4].map(k=>`<div class="ea ${A.ea['EA'+k]?'on':''} ${S.hot==='ea'+k?'hot':''}" id="ea${k}">${k}</div>
+        <span class="box"></span>
+        <div class="ea ${A.ea['EA'+(k+4)]?'on':''}" id="ea${k+4}">${k+4}</div>`).join('')}
+     </div>
+     <div style="margin-top:7px"><span class="box ${A.add?'on':''}"></span>Ajouter les courbes</div>
+   </div></div>
+   <div class="sec"><div class="h"><span>Acquisition</span><span>▲</span></div><div class="b">
+     <div class="tabs3">${['Temporelle','Pas à pas','XY'].map(m=>`<div class="${A.mode===m?'on':''}" id="md${m.replace(/ /g,'')}">${m}</div>`).join('')}</div>
+     <div class="rowf"><span class="l">Points</span><span class="fld" id="fPts">${A.pts}</span></div>
+     <div class="rowf"><span class="l">Te</span><span class="fld" id="fTe">${A.te}</span></div>
+     <div class="rowf"><span class="l">Total</span><span class="fld" id="fTot">${A.tot}</span></div>
+     <div style="margin-top:6px"><span class="box"></span>Périodique
+       <span style="margin-left:6px;color:#9AA3B1">Nb périodes <span class="fld" style="min-width:32px;color:#9AA3B1">3</span></span></div>
+     <div style="margin-top:5px"><span class="box ${A.perm?'on':''}" id="bPerm"></span>Mode permanent</div>
+   </div></div>
+   <div class="sec"><div class="h"><span>Déclenchement</span><span>▲</span></div><div class="b">
+     <div class="rowf"><span class="l">Source</span><span class="cbo" id="fSrc"><b>${A.src}</b><i>▼</i></span></div>
+     <div class="rowf"><span class="l">Sens</span><span class="cbo" id="fSens"><b>${A.sens}</b><i>▼</i></span></div>
+     <div class="rowf"><span class="l">Seuil</span><span class="fld" id="fSeuil">${A.seuil}</span></div>
+     <div class="rowf"><span class="l">Pré-Trigger</span><span class="fld" id="fPre">${A.pre}</span></div>
+   </div></div>`;
+  }else{
+   const items=S.curves.map(c=>`<div class="cv" id="cv_${c.k}"><span class="sq" style="background:${COL[c.k]||'#555'}"></span>${c.n}</div>`+
+      (c.k==='MOD'?'<div class="sub">fct(Temps)</div>':'')).join('');
+   const fct=S.series.length?`${nameOf(S.series[0])} = fct(Temps)`:'';
+   $('pbody').innerHTML=`<div class="cl"><h4>Courbes</h4>${items}
+     ${S.curves.length?'<div class="cv" id="cv_Temps" style="font-weight:400;color:#333"><span class="sq" style="background:#9AA3B1"></span>Temps</div>':''}
+     ${S.calc.done?'<div class="sca"><h4>Scalaires</h4><div style="padding-left:10px">R = 10E3</div></div>':''}
+     <div class="sep"></div><div class="fct">${fct}</div></div>`;
+  }
+}
+function renderGraph(){
+  const w=GW.w-8,h=GW.h-18-8;
+  let s=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="background:#fff" font-family="Segoe UI,Arial">`;
+  for(let k=0;k<=6;k++){const y=gy(k);
+    if(k)s+=`<line x1="${GP.L}" x2="${GP.R}" y1="${y}" y2="${y}" stroke="#A8A8A8" stroke-width=".7" stroke-dasharray="1 4"/>`;
+    s+=`<text x="${GP.L-6}" y="${y+4}" font-size="10" fill="#333" text-anchor="end">${k}</text>`}
+  for(let k=1;k<=5;k++){const x=gx(k*0.01);
+    s+=`<line x1="${x}" x2="${x}" y1="${GP.T}" y2="${GP.B}" stroke="#A8A8A8" stroke-width=".7" stroke-dasharray="1 4"/>`}
+  for(let k=0;k<=5;k++){const x=gx(k*0.01);
+    s+=`<text x="${x}" y="${GP.B+15}" font-size="10.5" fill="#333" text-anchor="middle">${k*10}</text>`}
+  // axes : trait plein vertical, zéro en tirets, flèches
+  s+=`<line x1="${GP.L}" x2="${GP.L}" y1="${GP.T-14}" y2="${GP.B}" stroke="#000" stroke-dasharray="6 3"/>
+      <path d="M${GP.L} ${GP.T-22} l-4 8 h8 z" fill="#000"/>
+      <line x1="${GP.L-14}" x2="${GP.R+16}" y1="${GP.B}" y2="${GP.B}" stroke="#000" stroke-dasharray="6 3"/>
+      <path d="M${GP.R+24} ${GP.B} l-8 -4 v8 z" fill="#000"/>
+      <text x="${GP.R+18}" y="${GP.B-7}" font-size="10.5" fill="#333" text-anchor="end">t en s</text>
+      <text x="${GP.R+22}" y="${GP.B+32}" font-size="12" fill="#C0392B" font-weight="700" text-anchor="end">x10<tspan font-size="9" dy="-5">-3</tspan></text>`;
+  // noms des ordonnées, en haut à gauche, dans la couleur de la courbe
+  let off=0;
+  S.series.forEach(k=>{s+=`<text id="lbl_${k}" x="${GP.L+6+off}" y="${GP.T-12}" font-size="10.5" fill="${COL[k]}">${nameOf(k)} en ${UNIT[k]}</text>`;off+=76});
+  if(S.model.done&&S.win.model)s+=`<text x="${GP.L+6+off}" y="${GP.T-12}" font-size="10.5" fill="#B0308E">Modèle de ${nameOf('EA0')} en V</text>`;
+  const path=(arr,col)=>{let d='';T.forEach((t,i)=>{d+=(i?'L':'M')+gx(t).toFixed(1)+' '+gy(arr[i]).toFixed(1)});
+    return `<path d="${d}" fill="none" stroke="${col}" stroke-width="1.1"/>`};
+  S.series.forEach(k=>{s+=path(DATA[k],COL[k])});
+  const Z=S.model.zone;
+  if(Z&&S.win.model){let d='';T.forEach((t,i)=>{if(t>=Z.t1&&t<=Z.t2)d+=(d?'L':'M')+gx(t).toFixed(1)+' '+gy(UC[i]).toFixed(1)});
+    if(Z.t2>Z.t1)s+=`<path d="${d}" fill="none" stroke="#FFC400" stroke-opacity=".75" stroke-width="7" stroke-linecap="round"/>`;
+    [Z.t1,Z.t2].forEach(t=>{const i=Math.round(t/DUREE*(NP-1));s+=`<circle cx="${gx(t)}" cy="${gy(UC[i])}" r="5" fill="#1B2C4A"/>`})}
+  if(S.model.done&&S.win.model){const t1=Z?Z.t1:0,t2=Z?Z.t2:DUREE;let d='';
+    for(let q=0;q<=140;q++){const t=t1+q*(t2-t1)/140;
+      d+=(q?'L':'M')+gx(t).toFixed(1)+' '+gy(fit.A*(1-Math.exp(-t/fit.tau))).toFixed(1)}
+    s+=`<path d="${d}" fill="none" stroke="#B0308E" stroke-width="1.2"/>`}
+  if(S.retic!=null){const t=S.retic,i=Math.round(t/DUREE*(NP-1)),v=UC[i];
+    const bx=gx(t)+120>GP.R?gx(t)-122:gx(t)+6,by=Math.max(GP.T,gy(v)-28);
+    s+=`<line x1="${gx(t)}" x2="${gx(t)}" y1="${GP.T-6}" y2="${GP.B}" stroke="#B08000"/>
+        <line x1="${GP.L}" x2="${GP.R}" y1="${gy(v)}" y2="${gy(v)}" stroke="#B08000"/>
+        <rect x="${bx}" y="${by}" width="116" height="26" fill="#FFFBE6" stroke="#B08000"/>
+        <text x="${bx+5}" y="${by+11}" font-size="10.5">t = ${lp(t,'s')}</text>
+        <text x="${bx+5}" y="${by+22}" font-size="10.5">${nameOf('EA0')} = ${lpv(v)} V</text>`}
+  $('gbody').innerHTML=s+'</svg>';
+}
+function renderCalc(){
+  const res=S.calc.done?'R = 10E3\n[1000]':'';
+  $('calcBody').innerHTML=`<div class="cmenu"><span>Edition</span><span>Calcul</span><span>Aide</span></div>
+   <div class="cols"><div class="code" id="codeZone">${S.calc.txt.replace(/&/g,'&amp;').replace(/</g,'&lt;')}<span class="caret"></span></div>
+   <div class="res">${res}</div></div>`;
+}
+function renderTabl(){
+  const cols=S.tabl.cols,NC=7,NR=12,T2=S.tabl;
+  const name=c=>c==='Temps'?'Temps ('+nameOf(S.series[0]||'EA0')+')':nameOf(c);
+  const unit=c=>c==='Temps'?'s':(UNIT[c]||'');
+  const val=(c,i)=>{if(!c)return '';if(c==='Temps')return lp(T[i],'s');
+    if(c==='P')return T2.pDone?(T2.showF?'=uC*i':lp(DATA.P[i],'W')):'';
+    return DATA[c]?lp(DATA[c][i],UNIT[c]):''};
+  let h1='<tr><th class="n"></th>',h2='<tr class="u"><th class="n"></th>';
+  for(let k=0;k<NC;k++){const c=cols[k];const sel=T2.selCol&&c===T2.selCol?' sel':'';
+    h1+=`<th id="${c?'col_'+c:'colv'+k}" class="${sel}">${c?name(c):''}</th>`;h2+=`<th class="${sel}">${c?unit(c):''}</th>`}
+  let body='';for(let r=0;r<NR;r++){const i=r*16;
+    body+=`<tr><td class="n">${r}</td>`;
+    for(let k=0;k<NC;k++){const c=cols[k];const sel=T2.selCol&&c===T2.selCol?' class="sel"':'';body+=`<td${sel}>${val(c,i)}</td>`}
+    body+='</tr>'}
+  $('tablBody').innerHTML=`
+    <div class="tmenu">${['Edition','Variables','Aide'].map(m=>`<span id="tm${m}" class="${T2.menu===m?'on':''}">${m}</span>`).join('')}</div>
+    <div class="ttool">
+      <div class="ti"><svg width="14" height="12"><rect x="1" y="4" width="12" height="6" fill="#8C95A3"/><rect x="3" y="1" width="8" height="3" fill="#fff" stroke="#777"/></svg></div>
+      <div class="ti"><svg width="12" height="12"><rect x="1" y="1" width="8" height="9" fill="#fff" stroke="#3A63A8"/><rect x="3" y="3" width="8" height="9" fill="#DDE7F5" stroke="#3A63A8"/></svg></div>
+      <div class="ti"><svg width="12" height="12"><circle cx="3" cy="9" r="2" fill="none" stroke="#333"/><circle cx="9" cy="9" r="2" fill="none" stroke="#333"/><path d="M4 7l5-6M8 7L3 1" stroke="#333"/></svg></div>
+      <div class="ti"><svg width="12" height="12"><rect x="2" y="1" width="8" height="10" fill="#F1C24E" stroke="#94761C"/><rect x="4" y="3" width="7" height="8" fill="#fff" stroke="#777"/></svg></div>
+      <div class="ti"><svg width="12" height="14"><rect x="1" y="1" width="10" height="12" fill="#DDE7F5" stroke="#3A63A8"/><path d="M1 4h10M1 7h10M1 10h10" stroke="#8FA7CC"/></svg></div>
+      <div class="ti" style="width:34px;${T2.showF?'':'background:linear-gradient(#CBD8EC,#A9BEDD)'}" id="b348">3.48</div>
+      <div class="ti" style="width:30px;${T2.showF?'background:linear-gradient(#CBD8EC,#A9BEDD)':''}" id="bFx">Fx</div>
+      <span style="font-style:italic;font-family:serif;padding:0 4px">fx</span>
+      <div class="fxf" id="fxField">${T2.fx||''}${T2.fxEdit?'<span class="caret"></span>':''}</div></div>
+    <div class="gridwrap"><div class="grid"><table>${h1}</tr>${h2}</tr>${body}</table></div>
+      <div class="cst"><span>Constante(s)</span></div></div>`;
+}
+const MODELES=['Constante','Linéaire','Affine','Polynôme','Parabole','Puissance','Exponentiel en X',
+  'Exponentiel en 1/X','Exponentiel croissant','Exponentiel décroissant','Sinusoïde','Gaussienne'];
+const MTH={ 'Constante':'M4 14H52','Linéaire':'M4 24L52 4','Affine':'M4 8L52 22','Polynôme':'M4 20C16 2 32 24 52 6',
+  'Parabole':'M4 4C16 30 40 30 52 4','Puissance':'M4 24C28 24 44 14 52 4','Exponentiel en X':'M4 24C30 24 44 16 52 4',
+  'Exponentiel en 1/X':'M4 4C10 22 18 24 52 24','Exponentiel croissant':'M4 24C22 24 26 6 52 5',
+  'Exponentiel décroissant':'M4 5C30 5 34 23 52 24','Sinusoïde':'M4 14C10 2 16 26 24 14C32 2 40 26 52 14',
+  'Gaussienne':'M4 24C18 24 20 4 28 4C36 4 38 24 52 24'};
+function renderModel(){
+  const M=S.model;
+  const eq1=M.mod==='Exponentiel croissant'?'uC=A*(1-exp(-t/tau))':(M.mod==='Linéaire'?'uC=a*t':'');
+  const eq2=M.done?`uC=${lpv(fit.A)}*(1-exp(-t/${lp(fit.tau)}))`:'';
+  $('model').style.width=(M.dev?500:236)+'px';$('model').style.height=(M.dev?344:262)+'px';$('model').style.top=(M.dev?196:220)+'px';
+  $('modelBody').innerHTML=`<div style="display:flex;gap:7px">
+   <div style="width:218px">
+    <div class="mband">Courbe à modéliser</div>
+    <div class="drop ${M.drop?'full':''}" id="drop">${M.drop||'Glisser la courbe source ici...'}</div>
+    <div class="mband">Courbe modèle</div>
+    <div class="drop ${M.drop?'full':''}">${M.drop?'Modèle de '+nameOf('EA0'):'Glisser la courbe destination ici...'}</div>
+    <div class="mband">Modèles :</div>
+    <div class="mbox">${M.mod?
+      `<svg width="56" height="28" style="border:1px solid #C3C9D3;background:#fff"><path d="${MTH[M.mod]}" fill="none" stroke="#C0392B" stroke-width="1.4" transform="translate(0,1)"/></svg>
+       <span class="btn ${S.hot==='bChoose'?'hot':''}" id="bChoose" style="flex:1">${M.mod}</span>`:
+      `<span class="btn ${M.drop?'':'off'} ${S.hot==='bChoose'?'hot':''}" id="bChoose" style="width:150px">Choisir un modèle</span>`}</div>
+    <div style="margin-top:8px"><span class="btn" style="display:block">Nouveau Modèle</span></div>
+    <div style="display:flex;gap:6px;margin-top:5px">
+     <span class="btn ${M.mod?'':'off'} ${S.hot==='bCalcMod'?'hot':''}" id="bCalcMod" style="flex:1">Calculer le modèle</span>
+     <span class="btn ${S.hot==='bDev'?'hot':''}" id="bDev">${M.dev?'&lt;&lt;':'&gt;&gt;'}</span></div>
+   </div>
+   ${M.dev?`<div style="flex:1">
+    <div class="mband" style="text-align:center">Coefficient :</div>
+    <div class="coef">
+      <div class="hd"><span style="width:44px">Nom</span><span style="flex:1">Valeur</span><span style="width:40px;text-align:right">Actif</span></div>
+      ${M.done?`<div class="rw"><span style="width:44px;text-align:center">A</span>
+         <span style="flex:1"><span class="fld" style="min-width:118px">${lpv(fit.A)}</span></span>
+         <span style="width:40px;text-align:right"><span class="box on"></span></span></div>
+       <div class="rw"><span style="width:44px;text-align:center">tau</span>
+         <span style="flex:1"><span class="fld" style="min-width:118px">${lp(fit.tau)}</span></span>
+         <span style="width:40px;text-align:right"><span class="box on"></span></span></div>`:''}
+    </div>
+    <div style="margin-top:5px"><span class="btn" style="display:block">Copier le résultat vers le presse-papier</span></div>
+    <div style="text-align:right;margin-top:5px"><span class="btn">Estimer une valeur</span></div>
+   </div>`:''}</div>
+   ${M.dev?`<div class="out">${eq1}</div><div class="out">${eq2}</div>
+   <div style="display:flex;gap:6px;margin-top:4px">
+     <div class="stat" style="flex:1">Ecart Type = ${M.done?lp(fit.ec):''}</div>
+     <div class="stat" style="width:86px">Erreur en X</div><div class="stat" style="width:86px">Erreur en Y</div></div>
+   <div style="display:flex;gap:6px;margin-top:3px">
+     <div class="stat" style="flex:1">Coefficient de Corrélation = ${M.done?fit.r.toFixed(4).replace('.',','):''}</div>
+     <div class="stat" style="width:86px">0 s</div><div class="stat" style="width:86px">0 V</div></div>`:''}`;
+  // fenêtre « Sélectionner un modèle... »
+  const sm=$('selmod');sm.style.display=M.pop?'block':'none';
+  if(M.pop){const p=relPos($('model'));sm.style.left=(p.l+50)+'px';sm.style.top='96px';
+    $('selmodBody').innerHTML=`<div class="lst"><div style="position:absolute;left:0;right:20px;top:${-M.scroll*34}px">
+      ${MODELES.map((m,k)=>`<div class="it" id="mo${k}">
+        <svg class="th" viewBox="0 0 56 28"><path d="M28 2V26M4 14H52" stroke="#C9CDD4" stroke-dasharray="2 2"/><path d="${MTH[m]}" fill="none" stroke="#C0392B" stroke-width="1.4"/></svg>
+        <span class="bt ${S.hot==='mo'+k?'hot':''}">${m}</span></div>`).join('')}</div>
+      <div class="sb"><i id="moUp" style="top:0">▲</i><i id="moDown" style="bottom:0">▼</i>
+        <div style="position:absolute;left:0;top:${16+M.scroll*12}px;width:12px;height:40px;background:linear-gradient(#FBFCFD,#DCE1E9);border:1px solid #AEB6C2"></div></div></div>`}
+}
+function renderPops(){
+  const pm=$('popMenu');
+  if(S.menu==='Traitements'){pm.style.display='block';pm.style.left='55px';pm.style.top='44px';
+    pm.innerHTML=[['mFdc','Feuille de calculs','F3'],['mTab','Tableur','F11'],['sep'],['mMod','Modélisation',''],
+      ['mDer','Dérivée',''],['mFou','Analyse de Fourier','']]
+      .map(x=>x[0]==='sep'?'<hr>':`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span><span>${x[2]}</span></div>`).join('')}
+  else if(S.menu==='Exécuter'){pm.style.display='block';pm.style.left='232px';pm.style.top='44px';
+    pm.innerHTML=[['xAcq','Acquisition','F10'],['xStop','Arrêt','Échap']]
+      .map(x=>`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span><span>${x[2]}</span></div>`).join('')}
+  else if(S.menu==='Outils'){pm.style.display='block';pm.style.left='168px';pm.style.top='44px';
+    pm.innerHTML=[['oMes','Mesures automatiques',''],['oLis','Lissage','']]
+      .map(x=>`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span><span>${x[2]}</span></div>`).join('')}
+  else if(S.tabl.menu==='Variables'&&S.win.tabl){const q=relPos($('tmVariables'));
+    pm.style.display='block';pm.style.left=q.l+'px';pm.style.top=(q.t+q.h+2)+'px';
+    pm.innerHTML=[['vTout','✗ Tout enlever'],['vNouv','Nouvelle'],['vRampe','Remplir avec une rampe'],['vTrier','Trier']]
+      .map(x=>`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span></div>`).join('')}
+  else pm.style.display='none';
+  const pc=$('popCtx');
+  if(S.ctx){pc.style.display='block';pc.style.left=S.ctx.x+'px';pc.style.top=S.ctx.y+'px';
+    const items=S.ctx.type==='ord'
+      ?[['cH',nameOf(S.ctx.k),'head'],['cRet','Retirer'],['cProp','Propriétés'],['cAxe','Passer sur l\'autre ordonnée']]
+      :[['gCal','Calibrage'],['gAnn','Annuler calibrage'],['sep'],['gRet','Réticule'],['gPoi','Pointeur'],
+        ['gLp','Loupe +'],['gLm','Loupe -'],['sep'],['gOrt','Repère orthonormé'],['gFle','Créer Flèche'],
+        ['gCom','Créer Commentaire'],['gTan','Tangente'],['sep'],['gAll','Retirer toutes les courbes']];
+    pc.innerHTML=items.map(x=>x[0]==='sep'?'<hr>':
+      `<div id="${x[0]}" class="${x[2]==='head'?'head':''} ${S.hot===x[0]?'hot':''}"><span>${x[1]}</span></div>`).join('')}
+  else pc.style.display='none';
+  const tt=$('tooltip');
+  if(S.tip){tt.style.display='block';tt.textContent=S.tip.t;tt.style.left=S.tip.x+'px';tt.style.top=S.tip.y+'px'}else tt.style.display='none';
+}
+function renderDlg(){
+  $('dlgCourbe').style.display=S.dlg==='courbe'?'block':'none';
+  $('dlgVar').style.display=S.dlg==='var'?'block':'none';
+  if(S.dlg==='courbe'){$('dcTitle').textContent='Propriétés de '+(S.dlgOld||'');
+   $('dlgCourbeBody').innerHTML=`
+    <div style="display:flex;gap:12px">
+     <div style="flex:1">
+      <div>Nom de l'ordonnée :</div><span class="fld" id="dcNom" style="display:block;height:19px">${S.dlgBuf}<span class="caret"></span></span>
+      <div style="margin-top:6px">Nom de l'abscisse :</div><span class="fld" style="display:block;height:19px">Temps</span>
+      <div class="sec" style="margin-top:8px"><div class="h"><span>Affichage</span></div>
+       <div class="b" style="display:flex;gap:12px;align-items:center;padding:6px 8px">Style
+        <svg width="26" height="14"><path d="M1 12C8 12 10 2 25 2" fill="none" stroke="#C0392B"/></svg>
+        Couleur <span style="width:56px;height:14px;background:${COL[S.dlgKey]||'#00F'};border:1px solid #9AA3B1"></span></div></div>
+     </div>
+     <div style="width:136px">
+      <div>Unité de l'ordonnée :</div><span class="cbo" style="width:100%"><b>Volt (V)</b><i>▼</i></span>
+      <div style="margin-top:6px">Unité de l'abscisse :</div><span class="cbo" style="width:100%"><b>Seconde (s)</b><i>▼</i></span>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:14px">
+       <span class="btn ${S.hot==='dcOK'?'hot':''}" id="dcOK">Valider</span><span class="btn">Annuler</span></div>
+     </div></div>`;}
+  if(S.dlg==='var')$('dlgVarBody').innerHTML=`
+    <div style="display:flex;gap:14px">
+     <div style="flex:1"><div>Nom de l'ordonnée :</div><span class="fld" id="dvNom" style="display:block;height:20px;background:${S.dlgBuf?'#fff':'#4A6EA9'};color:${S.dlgBuf?'#000':'#fff'}">${S.dlgBuf||'Var'}<span class="caret"></span></span></div>
+     <div style="width:150px"><div>Unité de l'ordonnée :</div><span class="cbo" style="width:100%"><b>${S.dlgUnit||''}</b><i>▼</i></span></div></div>
+    <div style="display:flex;gap:10px;margin-top:22px;align-items:flex-start">
+     <div class="sec" style="flex:1"><div class="h"><span>Affichage</span></div>
+      <div class="b" style="display:flex;gap:14px;align-items:center;padding:10px 8px">
+       <span>Style</span><svg width="30" height="16" id="dvStyle"><path d="M1 13C8 13 10 2 29 2" fill="none" stroke="#C0392B"/></svg>
+       <span>Couleur</span><span style="width:64px;height:15px;background:#7D3C98;border:1px solid #9AA3B1"></span></div></div>
+     <div style="width:108px;display:flex;flex-direction:column;gap:7px;padding-top:4px">
+       <span class="btn ${S.hot==='dvOK'?'hot':''}" id="dvOK">OK</span>
+       <span class="btn">Annuler</span></div></div>`;
+}
+function relPos(el){const r=el.getBoundingClientRect(),s=stage.getBoundingClientRect();
+  return{l:(r.left-s.left)/scale,t:(r.top-s.top)/scale,w:r.width/scale,h:r.height/scale}}
+
+/* ---------- échelle ---------- */
+let scale=1;
+function fitStage(){scale=Math.min(1,wrap.clientWidth/960);stage.style.transform=`scale(${scale})`;wrap.style.height=600*scale+'px'}
+window.addEventListener('resize',fitStage);fitStage();
+
+/* ---------- pointeur / contexte d'animation ---------- */
+const cur=$('cursor'),ghost=$('ghost');let cx=480,cy=300;
+function cursorTo(x,y,ms){cur.style.transition=ms?`transform ${ms}ms cubic-bezier(.45,.05,.3,1)`:'none';
+  cur.style.transform=`translate(${x}px,${y}px)`;
+  if(ghost.style.display==='block'){ghost.style.transition=cur.style.transition;ghost.style.transform=`translate(${x+14}px,${y+12}px)`}
+  cx=x;cy=y}
+let TOKEN=0,SPEED=1;const CANCEL={};
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function mk(tok,anim){
+  const chk=()=>{if(tok!==TOKEN)throw CANCEL};
+  const c={anim,
+    async wait(ms){chk();if(anim&&ms>0){await new Promise(r=>setTimeout(r,ms/SPEED));chk()}},
+    async move(p,ms=650){chk();const d=Math.hypot(p.x-cx,p.y-cy),t=Math.min(ms,170+d*1.05);
+      cursorTo(p.x,p.y,anim?t/SPEED:0);await c.wait(t+40)},
+    ripple(r2){if(!anim||reduced)return;const r=document.createElement('div');r.className='ripple'+(r2?' r2':'');
+      r.style.left=cx+'px';r.style.top=cy+'px';stage.appendChild(r);setTimeout(()=>r.remove(),600)},
+    center(el){const q=relPos(typeof el==='string'?$(el):el);return{x:q.l+q.w/2,y:q.t+q.h/2}},
+    async click(p){if(p)await c.move(p);c.ripple();await c.wait(200)},
+    async clickEl(id){await c.click(c.center(id))},
+    async hover(id,ms=240){await c.move(c.center(id));S.hot=id;render();await c.wait(ms)},
+    async press(id,ms=240){await c.hover(id,ms);c.ripple();await c.wait(180);S.hot=null;render()},
+    badge(l){if(!anim)return;const b=$('keybadge');b.textContent=l;b.style.display='block'},
+    unbadge(){$('keybadge').style.display='none'},
+    async key(l,ms=800){chk();c.badge(l);await c.wait(ms);c.unbadge()},
+    async type(set,text,sp=75){for(let k=1;k<=text.length;k++){set(text.slice(0,k));if(anim)render();await c.wait(sp)}render()},
+    async menu(name,items){await c.click(c.center(document.querySelector(`#menubar span[data-m="${name}"]`)));
+      S.menu=name;render();await c.wait(320);
+      for(let k=0;k<items.length;k++){await c.hover(items[k],k===items.length-1?380:200)}
+      c.ripple();S.menu=null;S.hot=null;render();await c.wait(200)},
+    async ctx(type,p,k,items){await c.move(p);c.badge('Clic droit');c.ripple(true);await c.wait(260);
+      S.ctx={type,k,x:Math.min(p.x+4,760),y:p.y+4};render();await c.wait(400);c.unbadge();
+      for(let q=0;q<items.length;q++)await c.hover(items[q],q===items.length-1?360:200);
+      c.ripple();S.ctx=null;S.hot=null;render();await c.wait(200)},
+    async note(where,text,hold=2400){chk();if(!anim)return;
+      stage.querySelectorAll('.note').forEach(o=>o.remove());
+      const n=document.createElement('div');n.className='note';n.innerHTML=text;
+      n.style.left=where.x+'px';n.style.top=where.y+'px';stage.appendChild(n);await c.wait(hold)},
+    async drag(fromId,to,label){await c.move(c.center(fromId));c.badge('Glisser-déposer');
+      if(anim){ghost.textContent=label;ghost.style.display='block';ghost.style.transition='none';
+        ghost.style.transform=`translate(${cx+14}px,${cy+12}px)`}
+      await c.wait(240);await c.move(to,900);await c.wait(180);ghost.style.display='none';c.unbadge()}
+  };return c}
+
+/* ---------- étapes ---------- */
+const acqReady=()=>{S.pane='acq';S.acq={ea:{EA1:true,EA2:true},add:true,perm:false,mode:'Temporelle',pts:'1000',te:'50 µs',tot:'50 ms',src:'EA2',sens:'Montant',seuil:'1 V',pre:'5 %'}};
+const acquired=()=>{acqReady();S.pane='courbes';S.win.graph=true;
+  S.curves=[{k:'EA0',n:'EA1'},{k:'EA1',n:'EA2'}];S.series=['EA0','EA1']};
+const renamed=()=>{acquired();S.curves=[{k:'EA0',n:'uC'},{k:'EA1',n:'uG'}]};
+const withI=()=>{renamed();S.curves.push({k:'i',n:'i'});S.calc={txt:'R=10E3\ni=(uG-uC)/R',done:true}};
+
+const STEPS=[
+{part:'Acquisition',title:'Choisir les voies d\'acquisition',
+ text:`<p>Le circuit est branché sur la carte : la tension aux bornes du condensateur sur la <b>voie 1</b>, celle du générateur sur la <b>voie 2</b>, toutes les masses reliées à celle du boîtier.</p>
+<p>Dans la <b>boîte de paramétrage</b>, ouvrir l'onglet d'acquisition (le bouton à la flèche rouge), puis cliquer sur les voies utilisées : elles deviennent vertes. Les voies sélectionnées sont automatiquement placées en ordonnée du graphique, sous les noms EA1, EA2…</p>
+<div class="tip"><b>Deux onglets</b>Le premier bouton donne la liste des courbes, le second le paramétrage de l'acquisition. Les cases entre les deux colonnes de voies servent au mode différentiel, qui associe deux entrées pour mesurer une tension sans masse commune.</div>`,
+ async run(c){S.pane='courbes';render();await c.wait(300);
+  await c.press('tabAcq',300);S.pane='acq';render();await c.wait(400);
+  await c.press('ea1');S.acq.ea.EA1=true;render();await c.press('ea2');S.acq.ea.EA2=true;render();await c.wait(400);
+  await c.note({x:266,y:150},'Voies actives : elles deviennent<br>les courbes EA1 et EA2',2400);}},
+{part:'Acquisition',title:'Régler le mode temporel',
+ text:`<p>Trois modes sont proposés : <b>Temporelle</b> (le cas courant), <b>Pas à pas</b>, où l'abscisse est saisie au clavier — pratique pour un dosage — et <b>XY</b>, qui trace une voie en fonction d'une autre.</p>
+<p>En mode temporel, on saisit le <b>nombre de points</b> et la <b>durée totale</b> ; le logiciel en déduit la période d'échantillonnage Te = 50 ms ÷ 1000 = 50 µs. Une case <b>Périodique</b> permet d'indiquer un nombre de périodes à enregistrer, et le <b>mode permanent</b> relance l'acquisition en boucle, ce qui transforme le logiciel en oscilloscope.</p>
+<div class="tip"><b>Choisir la durée</b>On vise 3 à 5 constantes de temps. Avec R = 10 kΩ et C = 1 µF, τ = RC = 10 ms : 50 ms conviennent.</div>
+<p>Méthode commode : cocher d'abord <b>Mode permanent</b> pour vérifier le câblage et les niveaux de tension en direct, arrêter par <kbd>Échap</kbd>, puis le décocher avant l'enregistrement définitif.</p>`,
+ async run(c){S.pane='acq';S.acq.ea={EA1:true,EA2:true};render();await c.wait(300);
+  await c.click(c.center('mdTemporelle'));S.acq.mode='Temporelle';render();await c.wait(350);
+  await c.click(c.center('fPts'));await c.type(v=>S.acq.pts=v,'1000',95);
+  await c.click(c.center('fTot'));await c.type(v=>S.acq.tot=v,'50 ms',95);
+  S.acq.te='50 µs';render();
+  await c.note({x:266,y:300},'Te se met à jour tout seul :<br>50 ms ÷ 1000 = 50 µs',2600);
+  await c.click(c.center('bPerm'));S.acq.perm=true;render();await c.wait(600);
+  await c.note({x:266,y:330},'Mode permanent : on vérifie<br>le montage en direct…',2000);
+  await c.click(c.center('bPerm'));S.acq.perm=false;render();
+  await c.note({x:266,y:330},'…puis on le décoche pour<br>l\'enregistrement',2000);}},
+{part:'Acquisition',title:'Déclencher, puis lancer avec F10',
+ text:`<p>Sans déclenchement, l'enregistrement démarre au moment du clic et le début du phénomène est perdu. On règle donc <b>Source</b> = EA2, <b>Sens</b> = Montant, <b>Seuil</b> = 1 V : après appui sur <kbd>F10</kbd>, l'acquisition attend que EA2 franchisse 1 V en montant, c'est-à-dire le début de la charge.</p>
+<p>Un <b>pré-trigger</b> de quelques pour cent fait conserver le court instant qui précède le déclenchement : on voit ainsi l'état initial, condensateur déchargé.</p>
+<p>Lancer ensuite par <kbd>F10</kbd> (ou menu Exécuter). Le décompte, en haut à droite, affiche la durée restante. Les courbes s'affichent et les variables EA1 et EA2 rejoignent la liste des courbes.</p>
+<div class="tip"><b>Si rien ne se passe</b>Le logiciel attend le déclenchement : vérifier que le signal franchit le seuil, ou l'abaisser. <kbd>Échap</kbd> interrompt l'attente.</div>`,
+ async run(c){acqReady();S.acq.src='';S.acq.sens='';S.acq.seuil='';S.acq.pre='';render();await c.wait(300);
+  await c.click(c.center('fSrc'));S.acq.src='EA2';render();await c.wait(350);
+  await c.click(c.center('fSens'));S.acq.sens='Montant';render();await c.wait(350);
+  await c.click(c.center('fSeuil'));await c.type(v=>S.acq.seuil=v,'1 V',110);
+  await c.click(c.center('fPre'));await c.type(v=>S.acq.pre=v,'5 %',110);
+  await c.note({x:266,y:380},'Départ au début de la charge,<br>avec 5 % d\'enregistrement avant',2200);
+  await c.menu('Exécuter',['xAcq']);await c.key('F10',800);
+  acquired();render();await c.wait(900);
+  await c.note({x:266,y:370},'Deux courbes enregistrées,<br>affichées en fonction du temps',2400);}},
+{part:'Courbes',title:'Renommer les courbes',
+ text:`<p>EA1 et EA2 ne disent rien de la physique. On renomme chaque courbe par un <b>clic droit sur son nom, en haut de l'axe des ordonnées</b>, puis <b>Propriétés</b>. La boîte « Propriétés de EA1 » permet de changer le <b>nom de l'ordonnée</b> (uC, uG, uR…), son unité, le nom et l'unité de l'abscisse, le style de tracé et la couleur. On termine par <b>Valider</b>.</p>
+<p>Deux autres chemins mènent à la même boîte : un <b>double-clic sur le nom</b> de la courbe dans la liste des courbes, ou un <b>clic droit sur le bouton de la voie</b> dans le paramétrage de l'acquisition, puis « Propriétés de la courbe ».</p>
+<p>Le même menu contextuel propose <b>Retirer</b> pour enlever la courbe du graphe et <b>Passer sur l'autre ordonnée</b>, utile quand deux grandeurs ont des ordres de grandeur très différents.</p>
+<div class="warn"><b>Le faire tout de suite</b>Ces noms servent ensuite dans la feuille de calculs, le tableur et la modélisation : un renommage tardif oblige à reprendre les formules.</div>`,
+ async run(c){acquired();render();await c.wait(300);
+  await c.ctx('ord',{x:sx(0)+26,y:GW.y+18+3+GP.T-16},'EA0',['cRet','cProp']);
+  S.dlg='courbe';S.dlgOld='EA1';S.dlgKey='EA0';S.dlgBuf='EA1';render();await c.wait(400);
+  await c.click(c.center('dcNom'));S.dlgBuf='';render();await c.type(v=>S.dlgBuf=v,'uC',140);
+  await c.press('dcOK',300);S.curves[0].n='uC';S.dlg=null;render();await c.wait(500);
+  await c.ctx('ord',{x:sx(0)+102,y:GW.y+18+3+GP.T-16},'EA1',['cProp']);
+  S.dlg='courbe';S.dlgOld='EA2';S.dlgKey='EA1';S.dlgBuf='EA2';render();await c.wait(300);
+  await c.click(c.center('dcNom'));S.dlgBuf='';render();await c.type(v=>S.dlgBuf=v,'uG',140);
+  await c.press('dcOK',300);S.curves[1].n='uG';S.dlg=null;render();await c.wait(400);
+  await c.press('tabCourbes',260);S.pane='courbes';render();
+  await c.note({x:16,y:520},'Dans la liste : uC, avec son<br>abscisse fct(Temps)',2400);}},
+{part:'Courbes',title:'Afficher, retirer, changer l\'abscisse',
+ text:`<p>L'affichage se fait par <b>glisser-déposer</b> depuis la liste des courbes vers la fenêtre graphique. Déposer la courbe sur le graphe la place en ordonnée ; la déposer <b>sous l'axe des abscisses</b> la place en abscisse, ce qui permet de tracer par exemple uC = f(i).</p>
+<p>Pour l'enlever : clic droit sur son nom, puis <b>Retirer</b>. La touche <kbd>Suppr</kbd>, elle, supprime la courbe <b>et la variable</b> : à éviter.</p>
+<div class="tip"><b>fct(Temps)</b>Une courbe notée uC fct(Temps) a déjà le temps en abscisse. Une variable sans mention d'abscisse ne peut pas être tracée telle quelle.</div>
+<p>Pour deux grandeurs d'ordres de grandeur différents — une tension en volts et une intensité en milliampères, par exemple — déposer la seconde <b>à droite du graphe</b> crée un second axe. Un double-clic sur un axe permet d'en régler l'échelle, et de faire coïncider les deux zéros.</p>`,
+ async run(c){renamed();S.series=['EA0'];render();await c.wait(400);
+  await c.note({x:16,y:520},'Seule uC est affichée',1600);
+  await c.drag('cv_EA1',{x:sx(0.025),y:sy(3)},'uG');S.series=['EA0','EA1'];render();await c.wait(700);
+  await c.note({x:266,y:370},'uG reste à 5 V : c\'est l\'échelon<br>qui charge le condensateur',2600);}},
+{part:'Courbes',title:'Calibrer et mesurer sur le graphe',
+ text:`<p>Un clic droit sur le graphe ouvre le menu des outils graphiques : <b>Calibrage</b> (bornes des axes), <b>Réticule</b>, <b>Pointeur</b>, loupes, <b>Tangente</b>, création de flèches et de commentaires.</p>
+<p>On peut aussi agir directement sur les axes : au-delà de la ligne médiane d'un axe on modifie l'échelle, en deçà on déplace l'origine.</p>
+<p>Le <b>réticule</b> donne les coordonnées d'un point : ici uC ≈ 3,2 V à t = 10 ms, soit 63 % de 5 V — on retrouve la constante de temps.</p>
+<div class="tip"><b>Mesures automatiques</b>Le menu Outils affiche mini, maxi, valeur moyenne, période, fréquence et valeur efficace d'une courbe périodique.</div>`,
+ async run(c){renamed();render();await c.wait(300);
+  await c.ctx('graph',{x:sx(0.03),y:sy(2)},null,['gCal','gRet']);
+  cur.classList.add('cross');
+  await c.move({x:sx(0.004),y:sy(1.5)});S.retic=0.004;render();await c.wait(500);
+  await c.move({x:sx(0.01),y:sy(3.2)},900);S.retic=0.01;render();await c.wait(800);
+  await c.note({x:266,y:370},'t = 10 ms → uC ≈ 3,2 V,<br>soit 63 % de 5 V',2800);
+  await c.move({x:sx(0.042),y:sy(5)},900);S.retic=0.042;render();cur.classList.remove('cross');await c.wait(600);
+  await c.note({x:266,y:370},'Après 4 à 5 τ, la charge<br>est terminée',2200);}},
+{part:'Tableur',title:'Créer une grandeur par le calcul',
+ text:`<p><b>Traitements ▸ Feuille de calculs</b> (<kbd>F3</kbd>) permet de déclarer des constantes et de créer des grandeurs à partir de celles qui ont été acquises. Une ligne par calcul (on passe à la ligne avec <kbd>Entrée</kbd>), puis <b>Calcul ▸ Exécuter</b> ou <kbd>F2</kbd>.</p>
+<p>Ici l'intensité n'est pas mesurée ; on la calcule à partir de la tension aux bornes du conducteur ohmique, en déclarant d'abord la résistance comme constante :</p>
+<div class="eq">R=10E3<br>i=(uG-uC)/R</div>
+<p><code>10E3</code> vaut 10 × 10<sup>3</sup> Ω. Des fonctions sont disponibles : <code>Exp(x)</code>, <code>Sqrt(x)</code>, <code>Deriv(C;N)</code> pour une dérivée…</p>
+<p>La colonne de droite donne le résultat de chaque ligne : la valeur d'une constante (<code>R = 10E3</code>), ou <code>[1000]</code> pour une grandeur calculée en 1000 points. La constante apparaît aussi dans la liste des courbes, sous <b>Scalaires</b>.</p>
+<div class="warn"><b>« i = ? » dans la colonne de droite</b>La formule est incalculable : vérifier les noms des courbes, les parenthèses, et ne pas oublier les <code>*</code> (écrire <code>m*g*z</code>, pas <code>mgz</code> ; <code>v^2</code>, pas <code>v²</code>). Pas d'unité dans la feuille de calculs.</div>`,
+ async run(c){renamed();render();await c.wait(200);
+  await c.menu('Traitements',['mTab','mFdc']);S.win.calc=true;render();await c.wait(500);
+  await c.click(c.center('codeZone'));
+  await c.type(v=>S.calc.txt=v,'R=10E3\ni=(uG-uC)/R',70);
+  await c.key('F2',900);S.calc.done=true;S.curves.push({k:'i',n:'i'});render();await c.wait(600);
+  await c.note({x:590,y:320},'Résultats : R = 10E3,<br>i calculée en 1000 points',2400);
+  await c.note({x:16,y:520},'R est rangée dans Scalaires,<br>i rejoint la liste des courbes',2400);}},
+{part:'Tableur',title:'Lire des valeurs, en saisir à la main',
+ text:`<p><b>Traitements ▸ Tableur</b> (<kbd>F11</kbd>). Pour afficher une grandeur, on la fait glisser depuis la liste des courbes vers une colonne ; l'abscisse s'obtient en glissant <b>Temps</b> de la même façon. Un clic droit sur une colonne, puis <b>Retirer</b>, l'enlève du tableur sans supprimer la variable.</p>
+<p>Pour afficher le temps, on fait glisser la mention <b>fct(Temps)</b> associée à une courbe — ou, plus simplement, on double-clique sur l'en-tête de la colonne de cette courbe. Les lignes sont numérotées à partir de 0 ; la bande <b>Constante(s)</b>, à droite, s'ouvre pour afficher les constantes.</p>
+<div class="tip"><b>Puissances de dix</b>À la saisie, <code>E</code> remplace « × 10 puissance » : <code>2,2E-3</code> vaut 2,2 × 10<sup>−3</sup>.</div>`,
+ async run(c){withI();render();await c.wait(200);
+  await c.menu('Traitements',['mTab']);S.win.tabl=true;render();await c.wait(500);
+  await c.drag('cv_i',{x:430,y:400},'i');S.tabl.cols=['i'];render();await c.wait(500);
+  await c.drag('cv_Temps',{x:520,y:400},'Temps');S.tabl.cols=['i','Temps'];render();await c.wait(600);
+  await c.note({x:560,y:470},'Les valeurs de i, invisibles<br>dans la feuille de calculs, apparaissent',2600);}},
+{part:'Tableur',title:'Créer une variable dans le tableur',
+ text:`<p>On veut la puissance reçue par le condensateur, p = uC × i. Menu du tableur <b>Variables ▸ Nouvelle</b> : la boîte « Propriétés de Var » demande le <b>nom de l'ordonnée</b> et son <b>unité</b>. Après validation, une colonne vide apparaît.</p>
+<p>On <b>sélectionne la colonne</b> en cliquant sur la case qui porte son nom — la formule s'appliquera ainsi à toutes les cellules — puis on tape la formule dans la case <b>fx</b> et on valide :</p>
+<div class="eq">=uC*i</div>
+<div class="warn"><b>Toute formule commence par « = »</b>Sans lui, le tableur prend la saisie pour du texte. Pour éviter les fautes de frappe, on peut faire glisser les noms des variables depuis la liste des courbes jusque dans la case fx.</div>
+<p>Les boutons <b>3.48</b> et <b>Fx</b> basculent l'affichage entre les valeurs et les formules. Sans carte d'acquisition, c'est la même démarche : on crée ses variables, on tape les mesures au clavier, puis on trace et on modélise.</p>`,
+ async run(c){withI();S.win.tabl=true;S.tabl.cols=['i','Temps'];render();await c.wait(300);
+  await c.click(c.center('tmVariables'));S.tabl.menu='Variables';render();await c.wait(450);
+  await c.hover('vTout',220);await c.hover('vNouv',380);c.ripple();
+  S.tabl.menu=null;S.hot=null;S.dlg='var';S.dlgBuf='';S.dlgUnit='';render();await c.wait(500);
+  await c.type(v=>S.dlgBuf=v,'P',160);S.dlgUnit='Watt (W)';render();await c.wait(400);await c.press('dvOK',300);
+  S.dlg=null;S.curves.push({k:'P',n:'P'});S.tabl.cols.push('P');render();await c.wait(500);
+  await c.click(c.center('col_P'));S.tabl.selCol='P';render();await c.wait(400);
+  await c.note({x:560,y:470},'Colonne sélectionnée : la formule<br>vaudra pour toutes ses cellules',2200);
+  await c.click(c.center('fxField'));S.tabl.fxEdit=true;render();
+  await c.type(v=>S.tabl.fx=v,'=uC*i',140);
+  await c.key('⏎ Entrée',600);S.tabl.fxEdit=false;S.tabl.pDone=true;render();await c.wait(500);
+  await c.note({x:560,y:470},'Les valeurs de P sont calculées<br>ligne par ligne',2400);}},
+{part:'Modélisation',title:'Ouvrir la modélisation',
+ text:`<p><b>Traitements ▸ Modélisation</b>. On fait glisser la courbe à modéliser depuis la liste des courbes vers la zone <b>Glisser la courbe source ici…</b> : la zone <b>Courbe modèle</b> se remplit toute seule avec « Modèle de uC », courbe qui viendra se superposer aux points.</p>
+<div class="warn"><b>Une courbe, pas une variable</b>Il faut déposer une courbe de la forme y = fct(x), par exemple uC fct(Temps). Une variable sans abscisse ne peut pas être modélisée : il faut d'abord lui en donner une dans une fenêtre graphique.</div>`,
+ async run(c){withI();render();await c.wait(200);
+  await c.menu('Traitements',['mFdc','mMod']);S.win.model=true;render();await c.wait(500);
+  await c.drag('cv_EA0',c.center('drop'),'uC');S.model.drop='uC fct(Temps)';render();await c.wait(700);
+  await c.note({x:170,y:300},'La courbe source est déposée',1800);}},
+{part:'Modélisation',title:'Choisir le modèle et calculer',
+ text:`<p>Le bouton <b>Choisir un modèle</b>, actif seulement une fois la courbe déposée, ouvre la fenêtre « Sélectionner un modèle… » : Constante, <b>Linéaire</b> (y = ax, la droite qui passe par l'origine), <b>Affine</b> (y = ax + b), Polynôme, Parabole, Puissance, Exponentiel en X, Exponentiel en 1/X, puis, en faisant défiler, les exponentielles croissante et décroissante, la sinusoïde…</p>
+<p>Le choix se fait d'après la <b>physique</b>, pas d'après l'allure la plus flatteuse : proportionnalité → Linéaire ; charge ou décharge d'un condensateur → exponentielle ; régime sinusoïdal → sinusoïde. Ici uC = E(1 − e<sup>−t/τ</sup>) : <b>Exponentiel croissant</b>.</p>
+<p>Il reste à <b>délimiter la zone à modéliser</b> : fenêtre de modélisation ouverte, le pointeur devient une <b>cible rouge</b> au-dessus du graphe. Un clic sur le premier point, un clic sur le dernier : la portion retenue passe en surbrillance, encadrée de deux gros points. On exclut ainsi ce qui ne relève pas de la loi étudiée, par exemple l'instant qui précède la fermeture de l'interrupteur.</p>
+<p>Cliquer ensuite sur <b>Calculer le modèle</b>, puis sur <b>&gt;&gt;</b> pour développer la fenêtre et accéder aux coefficients.</p>
+<div class="tip"><b>Si le modèle ne converge pas</b>Déplacer les bornes, puis relancer le calcul.</div>`,
+ async run(c){withI();S.win.model=true;S.model.drop='uC fct(Temps)';S.model.scroll=0;render();await c.wait(300);
+  await c.press('bChoose',300);S.model.pop=true;render();await c.wait(450);
+  await c.hover('mo1',260);await c.hover('mo5',220);
+  await c.hover('moDown',200);c.ripple();S.model.scroll=2;render();await c.wait(260);
+  c.ripple();S.model.scroll=4;render();await c.wait(300);
+  await c.hover('mo8',420);c.ripple();
+  S.model.pop=false;S.model.mod='Exponentiel croissant';S.hot=null;render();await c.wait(500);
+  await c.note({x:170,y:300},'Le modèle se choisit<br>d\'après la loi physique',2200);
+  cur.classList.add('target');
+  await c.click({x:sx(0.001),y:sy(0.1)});S.model.zone={t1:0.001,t2:0.001};render();await c.wait(300);
+  await c.click({x:sx(0.049),y:sy(4.97)});S.model.zone={t1:0.001,t2:0.049};render();await c.wait(400);
+  cur.classList.remove('target');
+  await c.note({x:266,y:250},'Portion retenue : en surbrillance,<br>encadrée de deux gros points',2400);
+  await c.press('bCalcMod',320);S.model.done=true;render();await c.wait(900);
+  await c.note({x:170,y:300},'La courbe modèle se superpose<br>aux points de mesure',2400);
+  await c.press('bDev',300);S.model.dev=true;render();await c.wait(900);}},
+{part:'Modélisation',title:'Exploiter les coefficients',
+ text:`<p>Le bouton <b>&gt;&gt;</b> développe la fenêtre : elle donne l'équation littérale, l'équation avec les valeurs, le tableau des <b>coefficients</b> (que l'on peut désactiver ou imposer avec la case Actif), et deux indicateurs de validité, l'<b>Ecart Type</b> et le <b>Coefficient de Corrélation</b>, d'autant meilleur qu'il est proche de 1. Le bouton <b>Copier le résultat vers le presse-papier</b> permet de coller tout cela dans un compte rendu.</p>
+<div class="eq">uC = A (1 − e<sup>−t/τ</sup>)&nbsp;&nbsp;avec&nbsp;&nbsp;A = ${AV} V&nbsp;&nbsp;et&nbsp;&nbsp;τ = ${TAUms} ms</div>
+<p>Il reste à traduire : <b>A</b> est la tension finale, celle du générateur ; <b>τ</b> est la constante de temps. La valeur théorique vaut RC = 10 kΩ × 1 µF = 10 ms. Un écart de quelques pour cent est normal — la tolérance d'un condensateur atteint couramment 10 à 20 %.</p>
+<p>Rédaction attendue : « La modélisation donne τ = ${TAUms} ms, cohérente avec RC = 10 ms calculée à partir des valeurs nominales. »</p>
+<div class="warn"><b>Un bon coefficient ne valide pas tout</b>Un modèle mal choisi peut coller aux points sur une portion réduite. On vérifie que la courbe modèle suit les points sur tout l'enregistrement.</div>`,
+ async run(c){withI();S.win.model=true;S.model={drop:'uC fct(Temps)',mod:'Exponentiel croissant',done:true,dev:true,pop:false,scroll:4,zone:{t1:0.001,t2:0.049}};render();await c.wait(400);
+  await c.move({x:700,y:420});
+  await c.note({x:150,y:300},`A = ${AV} V : la tension finale`,2200);
+  await c.move({x:700,y:440});
+  await c.note({x:150,y:300},`τ = ${TAUms} ms, à comparer<br>à RC = 10 ms`,2600);}},
+{part:'Bilan',title:'À retenir',
+ text:`<ul><li>Boîte de paramétrage : voies EA0, EA1…, mode temporel, nombre de points et durée totale (Te s'en déduit).</li>
+<li>Déclenchement : source, sens, seuil — sinon le début du phénomène est perdu. Lancement par <kbd>F10</kbd>.</li>
+<li>Renommer les courbes par clic droit sur le nom en ordonnée, puis Propriétés, avant tout calcul.</li>
+<li>Glisser-déposer : depuis la liste des courbes vers le graphe (ordonnée), sous l'axe (abscisse) ou vers une colonne du tableur.</li>
+<li>Feuille de calculs (<kbd>F3</kbd>, exécution par <kbd>F2</kbd>) pour les grandeurs non mesurées ; leurs valeurs ne s'affichent que dans le tableur ou sur un graphe.</li>
+<li>Tableur (<kbd>F11</kbd>) : glisser les courbes vers les colonnes ; Variables ▸ Nouvelle, sélection de la colonne, puis formule commençant par « = » dans la case fx.</li>
+<li>Modélisation : glisser la courbe, choisir le modèle d'après la loi physique, délimiter la zone par deux clics, calculer, développer, puis traduire les coefficients en grandeurs physiques avec leurs unités.</li></ul>`,
+ async run(c){withI();S.win.model=true;S.model={drop:'uC fct(Temps)',mod:'Exponentiel croissant',done:true,dev:true,pop:false,scroll:4,zone:{t1:0.001,t2:0.049}};render();await c.wait(200)}}
+];
+
+/* ---------- navigation ---------- */
+let cur_i=0;const done=new Set();
+function clearFx(){stage.querySelectorAll('.note,.ripple').forEach(n=>n.remove());
+  $('keybadge').style.display='none';ghost.style.display='none';cur.classList.remove('cross');cur.classList.remove('target')}
+async function go(k){
+  k=Math.max(0,Math.min(STEPS.length-1,k));cur_i=k;const tok=++TOKEN;clearFx();S=freshState();showText(k);
+  try{
+    for(let i=0;i<k;i++){await STEPS[i].run(mk(tok,false));S.hot=null;S.menu=null;S.ctx=null;S.dlg=null;S.tabl.menu=null;S.model.pop=false}
+    S.win={graph:true,calc:false,tabl:false,model:false};S.retic=null;render();
+    await STEPS[k].run(mk(tok,true));
+    done.add(k);showList();
+    if($('auto').checked&&k<STEPS.length-1){await mk(tok,true).wait(2200);go(k+1)}
+  }catch(e){if(e!==CANCEL)console.error(e)}
+}
+function showText(k){const s=STEPS[k],parts=['Acquisition','Courbes','Tableur','Modélisation'];
+  $('partLbl').textContent=s.part==='Bilan'?'Bilan':'Partie '+(parts.indexOf(s.part)+1)+' : '+s.part;
+  $('stepTitle').textContent=`${k+1}. ${s.title}`;$('stepText').innerHTML=s.text;
+  $('bPrev').disabled=k===0;$('bNext').disabled=k===STEPS.length-1;
+  $('prog').style.width=((k+1)/STEPS.length*100)+'%';showList()}
+function showList(){let h='',part='';STEPS.forEach((s,i)=>{if(s.part!==part){part=s.part;h+=`<h3>${part}</h3>`}
+  h+=`<button data-i="${i}" class="${i===cur_i?'on':''} ${done.has(i)?'done':''}"><span class="n">${i+1}</span>${s.title}</button>`});
+  $('stepList').innerHTML=h}
+$('stepList').addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(b)go(+b.dataset.i)});
+$('bPrev').onclick=()=>go(cur_i-1);$('bNext').onclick=()=>go(cur_i+1);$('bReplay').onclick=()=>go(cur_i);
+$('speed').onchange=e=>{SPEED=+e.target.value};
+document.addEventListener('keydown',e=>{if(e.target.closest('select,input'))return;
+  if(e.key==='ArrowRight')go(cur_i+1);else if(e.key==='ArrowLeft')go(cur_i-1)});
+S=freshState();render();cursorTo(480,300,0);go(0);
+})();
+</script>
+</body>
+</html>

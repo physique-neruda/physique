@@ -307,5 +307,6 @@ window.CHAPITRE = {
    "verso": "<strong>triangle</strong>",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

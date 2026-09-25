@@ -41,7 +41,7 @@ window.CHAPITRE = {
     "3,8"
    ],
    "bonne": 0,
-   "expl": "0,95 × 40 = 38. Les 95 % d'une variation, c'est le repère du temps de réponse d'un capteur."
+   "expl": "0,95 × 40 = 38. Les 95 % d'une variation, c'est le repère du temps de réponse « 3,8 »'un capteur."
   },
   {
    "q": "Une Pt100 suit R = 100 (1 + 3,85×10⁻³ θ). À 60 °C, sa résistance vaut :",
@@ -109,7 +109,7 @@ window.CHAPITRE = {
     "il ne nécessite aucune alimentation"
    ],
    "bonne": 1,
-   "expl": "Sa sortie est une impédance — résistance, capacité ou inductance. Attention au piège des réponses a et d : c'est le capteur passif qui a besoin d'une alimentation extérieure, pas l'actif. Le vocabulaire dit exactement le contraire de l'intuition."
+   "expl": "Sa sortie est une impédance — résistance, capacité ou inductance. Attention au piège des réponses « il ne consomme aucune énergie » et « il ne nécessite aucune alimentation » : c'est le capteur passif qui a besoin d'une alimentation extérieure, pas l'actif. Le vocabulaire dit exactement le contraire de l'intuition."
   },
   {
    "q": "Parmi ces capteurs, lequel est actif ?",
@@ -175,7 +175,7 @@ window.CHAPITRE = {
     "75 °C"
    ],
    "bonne": 1,
-   "expl": "La variation vaut 75 - 15 = 60, dont 95 % font 57, à ajouter à la valeur initiale : 15 + 57 = 72 °C. La réponse a (71,25 °C) est le piège : elle prend 95 % de la valeur finale. La réponse c oublie d'ajouter la valeur de départ."
+   "expl": "La variation vaut 75 - 15 = 60, dont 95 % font 57, à ajouter à la valeur initiale : 15 + 57 = 72 °C. La réponse « 71,25 °C » (71,25 °C) est le piège : elle prend 95 % de la valeur finale. La réponse « 57 °C » oublie d'ajouter la valeur de départ."
   },
   {
    "q": "La sortie d'un détecteur de fin de course est un signal :",
@@ -306,5 +306,6 @@ window.CHAPITRE = {
    "verso": "<strong>linéaire</strong>",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

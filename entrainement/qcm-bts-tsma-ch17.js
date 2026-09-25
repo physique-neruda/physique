@@ -84,36 +84,36 @@ window.CHAPITRE = {
     "entre le neutre et la terre"
    ],
    "bonne": 1,
-   "expl": "la composée se mesure entre deux phases, et U = √3 × 230 = 400 V. La réponse a de la question 2 vient d'une division au lieu d'une multiplication : contrôler que la composée est toujours la plus grande des deux suffit à écarter l'erreur. 3pt"
+   "expl": "la composée se mesure entre deux phases, et U = √3 × 230 = 400 V. La réponse « entre deux phases » de la question 2 vient d'une division au lieu d'une multiplication : contrôler que la composée est toujours la plus grande des deux suffit à écarter l'erreur. 3pt"
   },
   {
    "q": "Sur un réseau où V = 230 V, la tension composée vaut :",
    "choix": [
-    "133 V",
     "400 V",
+    "133 V",
     "690 V"
    ],
-   "bonne": 1,
-   "expl": "la composée se mesure entre deux phases, et U = √3 × 230 = 400 V. La réponse a de la question 2 vient d'une division au lieu d'une multiplication : contrôler que la composée est toujours la plus grande des deux suffit à écarter l'erreur. 3pt"
+   "bonne": 0,
+   "expl": "la composée se mesure entre deux phases, et U = √3 × 230 = 400 V. La réponse « 133 V » de la question 2 vient d'une division au lieu d'une multiplication : contrôler que la composée est toujours la plus grande des deux suffit à écarter l'erreur. 3pt"
   },
   {
    "q": "En couplage étoile, chaque récepteur est soumis à :",
    "choix": [
-    "la tension simple",
+    "la moitié de la tension composée",
     "la tension composée",
-    "la moitié de la tension composée"
+    "la tension simple"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "en étoile, chaque récepteur voit la tension simple. Un moteur 230 /400 V a des enroulements prévus pour 230 V : sur un réseau 400 V entre phases, seul le couplage étoile leur donne les 231 V attendus. Le coupler en triangle triple la puissance appelée et le détruit en quelques minutes. 3pt"
   },
   {
    "q": "Un moteur 230 /400 V est branché sur un réseau 400 V entre phases. Il faut le coupler en :",
    "choix": [
-    "triangle",
     "étoile",
+    "triangle",
     "peu importe"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "en étoile, chaque récepteur voit la tension simple. Un moteur 230 /400 V a des enroulements prévus pour 230 V : sur un réseau 400 V entre phases, seul le couplage étoile leur donne les 231 V attendus. Le coupler en triangle triple la puissance appelée et le détruit en quelques minutes. 3pt"
   },
   {
@@ -139,11 +139,11 @@ window.CHAPITRE = {
   {
    "q": "On relève le facteur de puissance d'une installation de 0,74 à 0,93. La puissance active :",
    "choix": [
-    "augmente",
+    "ne change pas",
     "diminue",
-    "ne change pas"
+    "augmente"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "et c'est le cœur du chapitre. Relever le facteur de puissance ne change rien à la puissance active : le moteur fournit le même travail et la facture d'énergie active ne bouge pas. Ce qui baisse, c'est le courant — et comme les pertes varient en I², une baisse de 20 % du courant en fait une de 36 % sur les pertes. Le bénéfice est réel, mais il n'est pas là où on l'attend. 3pt"
   },
   {
@@ -160,30 +160,30 @@ window.CHAPITRE = {
    "q": "Ce qui rend un contact électrique mortel, c'est :",
    "choix": [
     "la tension",
-    "le courant qui traverse le corps",
-    "la puissance de l'installation"
+    "la puissance de l'installation",
+    "le courant qui traverse le corps"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "ce n'est pas la tension qui tue, c'est le courant, et quelques dizaines de milliampères suffisent. C'est précisément pourquoi la « basse tension » est le domaine le plus meurtrier : elle est partout, et on s'en méfie moins. 3pt"
   },
   {
    "q": "Un dispositif différentiel déclenche quand :",
    "choix": [
-    "le courant dépasse son calibre",
     "le courant aller et le courant retour diffèrent",
+    "le courant dépasse son calibre",
     "la tension chute"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "le différentiel ne mesure aucune intensité en valeur absolue : il compare l'aller et le retour, et coupe si du courant s'échappe. Le disjoncteur, lui, coupe sur surintensité et protège les câbles, donc les biens. Les deux ne se remplacent pas, et sans prise de terre le différentiel ne voit presque rien. 3pt"
   },
   {
    "q": "Le disjoncteur protège avant tout :",
    "choix": [
     "les personnes",
-    "les biens",
-    "le fournisseur d'électricité"
+    "le fournisseur d'électricité",
+    "les biens"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le différentiel ne mesure aucune intensité en valeur absolue : il compare l'aller et le retour, et coupe si du courant s'échappe. Le disjoncteur, lui, coupe sur surintensité et protège les câbles, donc les biens. Les deux ne se remplacent pas, et sans prise de terre le différentiel ne voit presque rien. 3pt"
   },
   {

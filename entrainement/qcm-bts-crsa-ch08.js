@@ -303,5 +303,6 @@ window.CHAPITRE = {
    "verso": "<strong>une oxydation</strong>",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

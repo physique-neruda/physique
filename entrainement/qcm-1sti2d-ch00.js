@@ -123,34 +123,34 @@ window.CHAPITRE = {
   {
    "q": "On convertit une longueur des mètres vers les millimètres. Le nombre obtenu :",
    "choix": [
-    "augmente, car le mm est un découpage plus petit",
-    "diminue, car le mm est un découpage plus petit",
     "augmente, car le mm est un découpage plus grand",
+    "diminue, car le mm est un découpage plus petit",
+    "augmente, car le mm est un découpage plus petit",
     "ne change pas"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "plus le découpage est fin, plus il en faut"
   },
   {
    "q": "Le produit (4 × 10⁻³) × (5 × 10⁸) vaut :",
    "choix": [
-    "20 × 10⁻²⁴",
     "2 × 10⁶",
+    "20 × 10⁻²⁴",
     "2 × 10⁵",
     "9 × 10⁵"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "4 × 5 = 20 et 10⁻³⁺⁸ = 10⁵, soit 20 × 10⁵ = 2 × 10⁶"
   },
   {
    "q": "Sur la réglette des rangs, combien de crans séparent le milli du micro ?",
    "choix": [
     "1 cran",
-    "2 crans",
     "3 crans",
+    "2 crans",
     "6 crans"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "micro est trois crans après milli"
   },
   {
@@ -158,98 +158,98 @@ window.CHAPITRE = {
    "choix": [
     "2500 A",
     "0,25 A",
-    "2,5 × 10⁻³ A",
-    "2,5 × 10⁻⁶ A"
+    "2,5 × 10⁻⁶ A",
+    "2,5 × 10⁻³ A"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Une aire de 1 cm² vaut, en mètres carrés :",
    "choix": [
     "10⁻¹ m²",
-    "10⁻² m²",
     "10⁻⁴ m²",
+    "10⁻² m²",
     "10⁻⁶ m²"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "on élève 10⁻² au carré"
   },
   {
    "q": "Une durée de 2,5 h correspond à :",
    "choix": [
     "2 h 5 min",
-    "2 h 30 min",
+    "2 h 25 min",
     "2 h 50 min",
-    "2 h 25 min"
+    "2 h 30 min"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "0,5 × 60 = 30"
   },
   {
    "q": "144 km/h valent, en mètres par seconde :",
    "choix": [
-    "40 m/s",
-    "51,8 m/s",
     "518 m/s",
+    "51,8 m/s",
+    "40 m/s",
     "400 m/s"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "144 ÷ 3,6 = 40"
   },
   {
    "q": "Deux grandeurs sont proportionnelles si :",
    "choix": [
-    "leur différence est constante",
     "leur quotient est constant",
+    "leur différence est constante",
     "leur somme est constante",
     "elles augmentent toutes les deux"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Sur un graphique, la proportionnalité se reconnaît à :",
    "choix": [
-    "une droite quelconque",
     "une droite passant par l'origine",
+    "une droite quelconque",
     "une courbe croissante",
     "une droite horizontale"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "la droite <em>et</em> l'origine"
   },
   {
    "q": "Une machine produit 45 pièces en 3 h. En 7 h, au même rythme, elle en produit :",
    "choix": [
     "90",
-    "105",
     "115",
+    "105",
     "135"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "15 pièces par heure, donc 15 × 7"
   },
   {
    "q": "À partir de Q = m × c × Δθ, on peut écrire :",
    "choix": [
-    "m = Q/(c × Δθ)",
+    "m = Q - c - Δθ",
     "m = Q × c × Δθ",
     "m = (c × Δθ)/Q",
-    "m = Q - c - Δθ"
+    "m = Q/(c × Δθ)"
    ],
-   "bonne": 0,
+   "bonne": 3,
    "expl": "on divise les deux membres par c × Δθ"
   },
   {
    "q": "Pour isoler R dans E - R × I = U, la première étape est :",
    "choix": [
     "diviser les deux membres par I",
-    "faire un produit en croix",
     "déplacer U et E pour obtenir E - U = R × I",
+    "faire un produit en croix",
     "multiplier les deux membres par E"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "tant qu'une somme subsiste, on ne peut ni diviser proprement ni croiser"
   }
  ],

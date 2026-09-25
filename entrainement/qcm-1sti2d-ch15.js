@@ -90,12 +90,12 @@ window.CHAPITRE = {
   {
    "q": "Un <strong>réducteur</strong> est une espèce qui :",
    "choix": [
-    "capte des électrons et est réduite",
     "cède des électrons et est oxydée",
+    "capte des électrons et est réduite",
     "cède des protons",
     "ne réagit pas"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -113,11 +113,11 @@ window.CHAPITRE = {
    "q": "Les électrons circulent toujours :",
    "choix": [
     "de l'oxydant vers le réducteur",
-    "du réducteur vers l'oxydant",
+    "du solvant vers le soluté",
     "dans les deux sens",
-    "du solvant vers le soluté"
+    "du réducteur vers l'oxydant"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -146,55 +146,55 @@ window.CHAPITRE = {
    "q": "On ajoute des ions H+ dans les demi-équations parce que :",
    "choix": [
     "ils catalysent la réaction",
-    "le milieu est supposé acide, ils y sont donc déjà abondants",
     "ils apportent de l'oxygène",
+    "le milieu est supposé acide, ils y sont donc déjà abondants",
     "c'est une convention arbitraire"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "Dans une demi-équation, la dernière étape consiste à équilibrer :",
    "choix": [
-    "les atomes d'oxygène",
     "les charges, avec des électrons",
+    "les atomes d'oxygène",
     "les atomes d'hydrogène",
     "la masse totale"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "atomes d'abord, charges en dernier"
   },
   {
    "q": "Pour combiner deux demi-équations, il faut d'abord :",
    "choix": [
     "les additionner telles quelles",
-    "égaliser le nombre d'électrons",
+    "inverser l'une des deux",
     "supprimer l'eau",
-    "inverser l'une des deux"
+    "égaliser le nombre d'électrons"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "sans quoi les électrons ne se simplifient pas"
   },
   {
    "q": "La rouille progresse en profondeur, contrairement à l'oxyde d'aluminium, parce qu'elle est :",
    "choix": [
     "compacte et adhérente",
-    "poreuse et friable",
+    "conductrice",
     "colorée",
-    "conductrice"
+    "poreuse et friable"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Pour protéger une coque en acier, on y fixe un métal qui doit être :",
    "choix": [
-    "moins réducteur que le fer",
     "plus réducteur que le fer",
+    "moins réducteur que le fer",
     "plus dur que le fer",
     "plus léger que le fer"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "un métal moins réducteur, comme le cuivre, <em>aggraverait</em> la corrosion"
   },
   {
@@ -212,11 +212,11 @@ window.CHAPITRE = {
    "q": "Le <strong>pont salin</strong> d'une pile sert à :",
    "choix": [
     "mélanger les deux solutions",
-    "fermer le circuit en laissant circuler les ions",
     "conduire les électrons",
+    "fermer le circuit en laissant circuler les ions",
     "augmenter la tension"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   }
  ],

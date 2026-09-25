@@ -79,7 +79,7 @@ window.CHAPITRE = {
     "9,6"
    ],
    "bonne": 0,
-   "expl": "a = (15,0-5,4)/(8,0-2,0) = 1,6 ; la réponse c oublie de diviser par l'écart des abscisses. Et comme l'ordonnée à l'origine vaut 2,2, la droite ne passe pas par l'origine : la règle de trois donnerait un résultat faux, et plausible — c'est ce qui la rend dangereuse. 3pt"
+   "expl": "a = (15,0-5,4)/(8,0-2,0) = 1,6 ; la réponse « 9,6 » oublie de diviser par l'écart des abscisses. Et comme l'ordonnée à l'origine vaut 2,2, la droite ne passe pas par l'origine : la règle de trois donnerait un résultat faux, et plausible — c'est ce qui la rend dangereuse. 3pt"
   },
   {
    "q": "Pour cette même droite, la règle de trois est :",
@@ -89,7 +89,7 @@ window.CHAPITRE = {
     "valable si x est petit"
    ],
    "bonne": 1,
-   "expl": "a = (15,0-5,4)/(8,0-2,0) = 1,6 ; la réponse c oublie de diviser par l'écart des abscisses. Et comme l'ordonnée à l'origine vaut 2,2, la droite ne passe pas par l'origine : la règle de trois donnerait un résultat faux, et plausible — c'est ce qui la rend dangereuse. 3pt"
+   "expl": "a = (15,0-5,4)/(8,0-2,0) = 1,6 ; la réponse « valable si x est petit » oublie de diviser par l'écart des abscisses. Et comme l'ordonnée à l'origine vaut 2,2, la droite ne passe pas par l'origine : la règle de trois donnerait un résultat faux, et plausible — c'est ce qui la rend dangereuse. 3pt"
   },
   {
    "q": "cosφ= 0,80. Alors tanφ vaut :",
@@ -99,7 +99,7 @@ window.CHAPITRE = {
     "1,25"
    ],
    "bonne": 1,
-   "expl": "φ= (0,80) = 36,9 °, donc tanφ= 0,75. La réponse a est le sinus, la c l'inverse du cosinus. 3pt"
+   "expl": "φ= (0,80) = 36,9 °, donc tanφ= 0,75. La réponse « 0,60 » est le sinus, la réponse « 1,25 » l'inverse du cosinus. 3pt"
   },
   {
    "q": "Le nombre 1200, écrit tel quel, comporte :",
@@ -226,5 +226,6 @@ window.CHAPITRE = {
    "verso": "<strong>3,1</strong> — dans 0,00450, les zéros de gauche ne comptent pas, celui de droite si : trois chiffres significatifs. Et le quotient garde le nombre de chiffres de la donnée la moins précise, ici deux.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

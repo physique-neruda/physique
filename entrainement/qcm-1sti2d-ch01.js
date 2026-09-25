@@ -92,10 +92,10 @@ window.CHAPITRE = {
    "choix": [
     "une valeur seule",
     "une valeur et une unité",
-    "une valeur, une incertitude et une unité",
-    "une valeur et une incertitude"
+    "une valeur et une incertitude",
+    "une valeur, une incertitude et une unité"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -112,23 +112,23 @@ window.CHAPITRE = {
   {
    "q": "Répéter les mesures et faire la moyenne permet de réduire :",
    "choix": [
-    "les erreurs systématiques",
     "les erreurs aléatoires",
+    "les erreurs systématiques",
     "les deux à la fois",
     "aucune des deux"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "la moyenne compense les écarts aléatoires, jamais un décalage systématique"
   },
   {
    "q": "Des mesures très groupées mais toutes décalées de la valeur vraie sont :",
    "choix": [
     "justes et fidèles",
-    "fidèles mais pas justes",
     "justes mais pas fidèles",
+    "fidèles mais pas justes",
     "ni justes ni fidèles"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
@@ -146,77 +146,77 @@ window.CHAPITRE = {
    "q": "Le produit 12,4 × 3,0 doit s'écrire :",
    "choix": [
     "37,2",
-    "37",
+    "40",
     "37,20",
-    "40"
+    "37"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "le facteur 3,0 n'a que 2 chiffres significatifs"
   },
   {
    "q": "Dans une série de mesures, l'écart-type s mesure :",
    "choix": [
     "la valeur moyenne",
-    "la dispersion des valeurs",
     "le nombre de mesures",
+    "la dispersion des valeurs",
     "l'erreur systématique"
-   ],
-   "bonne": 1,
-   "expl": ""
-  },
-  {
-   "q": "L'incertitude-type sur la moyenne se calcule par :",
-   "choix": [
-    "u = s",
-    "u = s√n",
-    "u = s/√n",
-    "u = s/n"
    ],
    "bonne": 2,
    "expl": ""
   },
   {
+   "q": "L'incertitude-type sur la moyenne se calcule par :",
+   "choix": [
+    "u = s/√n",
+    "u = s√n",
+    "u = s",
+    "u = s/n"
+   ],
+   "bonne": 0,
+   "expl": ""
+  },
+  {
    "q": "On effectue <strong>une seule</strong> mesure avec un instrument dont la notice indique ± 0,02 mm. L'incertitude-type vaut :",
    "choix": [
-    "0,02 mm",
     "0,012 mm",
+    "0,02 mm",
     "0,035 mm",
     "on ne peut pas la calculer"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "mesure unique, donc type B : 0,02/√3 = 0,012 mm"
   },
   {
    "q": "Pour diviser l'incertitude-type par 2, il faut multiplier le nombre de mesures par :",
    "choix": [
     "2",
-    "4",
+    "16",
     "8",
-    "16"
+    "4"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "u varie en 1/√n"
   },
   {
    "q": "L'incertitude doit être arrondie à :",
    "choix": [
-    "un chiffre significatif",
     "deux chiffres significatifs",
+    "un chiffre significatif",
     "trois décimales",
     "autant de chiffres que la calculatrice en affiche"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": ""
   },
   {
    "q": "Deux résultats sont déclarés compatibles lorsque l'écart normalisé E<sub>n</sub> vérifie :",
    "choix": [
     "E<sub>n</sub> > 2",
-    "E<sub>n</sub> < 2",
     "E<sub>n</sub> = 0 exactement",
+    "E<sub>n</sub> < 2",
     "E<sub>n</sub> > 1"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   }
  ],

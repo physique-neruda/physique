@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L'énergie d'un combustible — paillasse virtuelle</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd .val small{font-size:.62em;color:#9DB4C0;margin-left:2px}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.45rem;color:var(--lcdvert)}
+.reglage{margin:14px 0 0}
+.reglage:first-child{margin-top:0}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:70px;min-height:42px;font:inherit;font-size:.84rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+label.bascule{display:flex;align-items:center;gap:10px;font-size:.9rem;margin-top:14px;min-height:44px}
+label.bascule input{width:22px;height:22px;accent-color:var(--bleu)}
+#relever{background:var(--orange);border-color:var(--orange);color:#fff;width:100%;
+  min-height:52px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;border:1px solid var(--orange)}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:10px}
+th,td{padding:5px 3px;text-align:right;border-bottom:1px solid var(--bord);font-variant-numeric:tabular-nums}
+th{color:var(--gris);font-weight:600;font-size:.72rem}
+td.essai{font-family:var(--mono);color:var(--orange)}
+.vide{color:var(--gris);font-size:.85rem;margin:10px 0 0}
+.lienbas{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.lienbas button{font:inherit;font-size:.85rem;background:none;border:none;color:var(--bleu);
+  text-decoration:underline;padding:8px 0}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+.retour:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.alerte{margin-top:8px;padding:8px 10px;border-radius:7px;font-size:.88rem}
+.alerte.mal{background:#FBE6E3;color:#8E2419}
+.alerte.neutre{background:#EEF2F5;color:#40505C}
+td.g{text-align:left}
+</style>
+</head>
+<body>
+
+<a class="retour" href="index.html">&larr;&nbsp; Toutes les animations</a>
+
+<h1>L'énergie d'un combustible</h1>
+<p class="sous">On brûle une petite quantité de combustible sous un récipient d'eau, et on mesure ce que l'eau a reçu. La balance indique la masse de combustible réellement brûlée.</p>
+
+<div class="bloc">
+  <canvas id="scene" width="620" height="330"></canvas>
+  <div class="lcd">
+    <div><div class="nom">Combustible brûlé</div><div class="val" id="vM">1,00<small>g</small></div></div>
+    <div><div class="nom" id="nomV">Soit en volume (gaz, 20 °C)</div><div class="val" id="vV">—</div></div>
+    <div><div class="nom">Température de l'eau</div><div class="val" id="vT">—</div></div>
+    <div><div class="nom">Élévation Δθ</div><div class="val" id="vD">—</div></div>
+    <div class="large"><div class="nom">Énergie reçue par l'eau (m·c·Δθ)</div><div class="val" id="vE">—</div></div>
+  </div>
+  <div class="alerte neutre" id="msg" style="display:none"></div>
+</div>
+
+<div class="bloc">
+  <h2>Réglages</h2>
+  <div class="reglage">
+    <div class="ligne"><span>Combustible</span></div>
+    <div class="choix" id="choixF"></div>
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Masse de combustible brûlée</span><b id="lM">1,00 g</b></div>
+    <input type="range" id="rM" min="0.25" max="6" step="0.25" value="1">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Masse d'eau dans le récipient</span><b id="lE">1,00 kg</b></div>
+    <input type="range" id="rE" min="0.25" max="3" step="0.25" value="1">
+  </div>
+  <label class="bascule"><input type="checkbox" id="iso" checked>
+    Récipient parfaitement isolé : toute l'énergie libérée va dans l'eau</label>
+</div>
+
+<div class="bloc">
+  <h2>Vos mesures</h2>
+  <button id="relever">Relever la mesure</button>
+  <p class="aide" style="margin-top:12px">Colonne d'essai : cherchez le calcul qui donne toujours le même nombre pour un même combustible.</p>
+  <div class="choix" id="choixE"></div>
+  <div id="zoneTable"><p class="vide">Aucune mesure pour l'instant.</p></div>
+  <div class="lienbas"><span class="aide">Une seule chose change à la fois.</span>
+    <button id="effacer">Tout effacer</button></div>
+</div>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const fr=(x,n)=>x.toFixed(n).replace(".",",");
+const C_EAU=4180, VM=24.0, TH0=20.0, REND_LIBRE=0.40;
+// pouvoir calorifique inférieur en kJ/g (= MJ/kg), masse molaire en g/mol, gaz ou non
+const COMB=[
+  {nom:"méthane",    f:"CH₄",    pci:50.0, M:16,  gaz:true},
+  {nom:"propane",    f:"C₃H₈",   pci:46.4, M:44,  gaz:true},
+  {nom:"butane",     f:"C₄H₁₀",  pci:45.7, M:58,  gaz:true},
+  {nom:"dihydrogène",f:"H₂",     pci:120,  M:2,   gaz:true},
+  {nom:"éthanol",    f:"C₂H₆O",  pci:26.8, M:46,  gaz:false},
+  {nom:"paraffine",  f:"bougie", pci:43.0, M:352, gaz:false}
+];
+let fi=0, m=1.0, me=1.0, iso=true, essai=0, mesures=[];
+
+function calc(){
+  const c=COMB[fi];
+  const E=m*c.pci*1000*(iso?1:REND_LIBRE);        // J reçus par l'eau
+  let d=E/(me*C_EAU), bout=false;
+  if(TH0+d>100){bout=true;}
+  const V=c.gaz? m/c.M*VM : null;                  // litres
+  return {E,d,bout,V};
+}
+function boutons(zone,liste,actif,cb){
+  zone.innerHTML="";
+  liste.forEach(([v,txt])=>{const b=document.createElement("button");
+    b.textContent=txt;b.setAttribute("aria-pressed",v===actif());
+    b.onclick=()=>{cb(v);boutons(zone,liste,actif,cb);};zone.appendChild(b);});
+}
+boutons($("choixF"),COMB.map((c,i)=>[i,c.nom+(c.f==="bougie"?" (bougie)":" "+c.f)]),()=>fi,v=>{fi=v;maj();});
+boutons($("choixE"),[[0,"aucune"],[1,"E / m"],[2,"E / V"],[3,"E / Δθ"]],()=>essai,v=>{essai=v;affTable();});
+$("rM").oninput=e=>{m=+e.target.value;maj();};
+$("rE").oninput=e=>{me=+e.target.value;maj();};
+$("iso").onchange=e=>{iso=e.target.checked;maj();};
+$("relever").onclick=()=>{const r=calc(); if(r.bout) return;
+  mesures.push({n:mesures.length+1,fi,m,me,iso,E:r.E,d:r.d,V:r.V});affTable();};
+$("effacer").onclick=()=>{mesures=[];affTable();};
+
+function maj(){
+  const r=calc(), c=COMB[fi];
+  $("lM").textContent=fr(m,2)+" g"; $("lE").textContent=fr(me,2)+" kg";
+  $("vM").innerHTML=fr(m,2)+'<small>g</small>';
+  $("vV").innerHTML= c.gaz? fr(r.V,2)+'<small>L</small>' : '<span style="font-size:.8em">liquide ou solide</span>';
+  const msg=$("msg");
+  if(r.bout){
+    $("vT").innerHTML='100<small>°C</small>'; $("vD").innerHTML='—'; $("vE").innerHTML='—';
+    msg.style.display="block"; msg.className="alerte mal";
+    msg.textContent="L'eau atteint 100 °C et se met à bouillir : la mesure n'est plus exploitable. Ajoutez de l'eau ou brûlez moins de combustible.";
+  } else {
+    $("vT").innerHTML=fr(TH0+r.d,1)+'<small>°C</small>';
+    $("vD").innerHTML=fr(r.d,1)+'<small>°C</small>';
+    $("vE").innerHTML=fr(r.E/1000,1)+'<small>kJ</small>';
+    msg.style.display="none";
+  }
+  $("relever").disabled=r.bout; $("relever").style.opacity=r.bout?0.5:1;
+  dessine(r);
+}
+
+const cs=$("scene"),ctx=cs.getContext("2d");
+function dessine(r){
+  const W=cs.width,H=cs.height, f=getComputedStyle(document.body).fontFamily;
+  ctx.clearRect(0,0,W,H);
+  const c=COMB[fi];
+  // isolation
+  const px=150, py=70, pw=190, ph=150;
+  if(iso){ctx.fillStyle="#E9D7B8";ctx.fillRect(px-22,py-22,pw+44,ph+44+70);
+    ctx.fillStyle="#8A7550";ctx.font="13px "+f;ctx.textAlign="center";ctx.fillText("enceinte isolée",px+pw/2,py-30);}
+  // récipient et eau
+  const niveau=Math.min(ph-10, 30+me*38);
+  ctx.fillStyle="#C9D3DB";ctx.fillRect(px,py,pw,ph);
+  const t=r.bout?100:TH0+r.d, k=Math.min(1,(t-20)/80);
+  ctx.fillStyle="rgb("+Math.round(110+120*k)+","+Math.round(170-60*k)+","+Math.round(225-150*k)+")";
+  ctx.fillRect(px+4,py+ph-niveau,pw-8,niveau-4);
+  ctx.strokeStyle="#4A5A66";ctx.lineWidth=3;ctx.strokeRect(px,py,pw,ph);
+  ctx.fillStyle="#fff";ctx.font="600 15px "+f;ctx.textAlign="center";
+  ctx.fillText(fr(me,2)+" kg d'eau",px+pw/2,py+ph-niveau/2+5);
+  // thermomètre
+  ctx.fillStyle="#D1352B";ctx.fillRect(px+pw-30,py-40,6,ph+10);
+  // brûleur et flamme
+  const bx=px+pw/2, by=py+ph+62;
+  ctx.fillStyle="#5C6C79";ctx.fillRect(bx-28,by,56,14);
+  const hf=30+Math.min(40,m*9);
+  const bleue=(c.nom!=="paraffine");
+  ctx.fillStyle=bleue?"#6FA6DA":"#E8B21C";
+  ctx.beginPath();ctx.moveTo(bx,by);ctx.bezierCurveTo(bx-22,by-hf*0.4,bx-10,by-hf*0.8,bx,by-hf);ctx.bezierCurveTo(bx+10,by-hf*0.8,bx+22,by-hf*0.4,bx,by);ctx.fill();
+  if(!iso){ // pertes
+    ctx.strokeStyle="rgba(221,122,24,.8)";ctx.lineWidth=3;
+    for(const s of [-1,1]){ctx.beginPath();ctx.moveTo(bx+s*30,by-20);ctx.bezierCurveTo(bx+s*70,by-40,bx+s*95,by-10,bx+s*135,by-30);ctx.stroke();}
+    ctx.fillStyle="#DD7A18";ctx.font="13px "+f;ctx.textAlign="center";ctx.fillText("énergie perdue dans l'air",bx,by+32);
+  }
+  // balance
+  const sx=W-165, sy=H-95;
+  ctx.fillStyle="#28323A";ctx.beginPath();ctx.roundRect(sx,sy,140,62,8);ctx.fill();
+  ctx.fillStyle="#0F1A22";ctx.fillRect(sx+12,sy+12,116,30);
+  ctx.fillStyle="#7FD98A";ctx.font="600 17px "+f;ctx.textAlign="center";
+  ctx.fillText("− "+fr(m,2)+" g",sx+70,sy+33);
+  ctx.fillStyle="#5C6C79";ctx.font="13px "+f;ctx.fillText("masse brûlée",sx+70,sy+78);
+  ctx.fillStyle="#1B4E7D";ctx.font="600 16px "+f;ctx.fillText(c.nom,sx+70,sy-18);
+}
+function affTable(){
+  const z=$("zoneTable");
+  if(!mesures.length){z.innerHTML='<p class="vide">Aucune mesure pour l\'instant.</p>';return;}
+  const nomEssai=["","E/m (kJ/g)","E/V (kJ/L)","E/Δθ (kJ/°C)"][essai];
+  let h='<table><thead><tr><th>n°</th><th class="g">comb.</th><th>m (g)</th><th>eau (kg)</th><th>isolé</th><th>Δθ (°C)</th><th>E (kJ)</th>'
+       +(essai?'<th>'+nomEssai+'</th>':'')+'</tr></thead><tbody>';
+  mesures.forEach(r=>{
+    h+='<tr><td>'+r.n+'</td><td class="g">'+COMB[r.fi].nom+'</td><td>'+fr(r.m,2)+'</td><td>'+fr(r.me,2)+'</td><td>'+(r.iso?"oui":"non")
+      +'</td><td>'+fr(r.d,1)+'</td><td>'+fr(r.E/1000,1)+'</td>';
+    if(essai){let v="—";
+      if(essai===1) v=fr(r.E/1000/r.m,1);
+      if(essai===2 && r.V) v=fr(r.E/1000/r.V,1);
+      if(essai===3) v=fr(r.E/1000/r.d,2);
+      h+='<td class="essai">'+v+'</td>';}
+    h+='</tr>';});
+  z.innerHTML=h+'</tbody></table>';
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){
+  CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){
+    this.moveTo(x+r,y);this.arcTo(x+w,y,x+w,y+h,r);this.arcTo(x+w,y+h,x,y+h,r);
+    this.arcTo(x,y+h,x,y,r);this.arcTo(x,y,x+w,y,r);this.closePath();return this;};
+}
+maj();affTable();
+</script>
+</body>
+</html>

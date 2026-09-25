@@ -91,11 +91,11 @@ window.CHAPITRE = {
    "q": "Une onde électromagnétique :",
    "choix": [
     "a besoin d'un milieu matériel",
-    "se propage dans le vide",
+    "ne transporte pas d'énergie",
     "est une onde mécanique",
-    "ne transporte pas d'énergie"
+    "se propage dans le vide"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -112,12 +112,12 @@ window.CHAPITRE = {
   {
    "q": "La célérité de la lumière dans le vide vaut environ :",
    "choix": [
-    "3,00×10⁶ m/s",
     "3,00×10⁸ m/s",
+    "3,00×10⁶ m/s",
     "340 m/s",
     "1500 m/s"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -157,11 +157,11 @@ window.CHAPITRE = {
    "q": "Le domaine visible s'étend environ de :",
    "choix": [
     "40 nm à 80 nm",
-    "400 nm à 800 nm",
+    "4 mm à 8 mm",
     "400 µm à 800 µm",
-    "4 mm à 8 mm"
+    "400 nm à 800 nm"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -169,21 +169,21 @@ window.CHAPITRE = {
    "choix": [
     "une onde radio",
     "un infrarouge",
-    "un ultraviolet",
-    "un rayon γ"
+    "un rayon γ",
+    "un ultraviolet"
    ],
-   "bonne": 3,
+   "bonne": 2,
    "expl": "plus on va vers les γ, plus λ est petite"
   },
   {
    "q": "Le four à micro-ondes et le WiFi utilisent des ondes appartenant au domaine :",
    "choix": [
     "des ondes radio",
-    "des micro-ondes",
+    "des rayons X",
     "de l'infrarouge",
-    "des rayons X"
+    "des micro-ondes"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -201,22 +201,22 @@ window.CHAPITRE = {
    "q": "Un laser est dangereux pour l'œil principalement parce que :",
    "choix": [
     "il émet des ultrasons",
-    "son faisceau reste concentré sur une très petite surface",
     "il chauffe l'air",
+    "son faisceau reste concentré sur une très petite surface",
     "il se propage plus vite que la lumière ordinaire"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "La lumière du Soleil met environ, pour parvenir jusqu'à la Terre :",
    "choix": [
-    "8 s",
     "8 min",
+    "8 s",
     "8 h",
     "aucun temps, c'est instantané"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "500 s, soit 8 min 20 s"
   }
  ],

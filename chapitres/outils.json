@@ -34,5 +34,23 @@
    "regression",
    "nuage de points"
   ]
+<<<<<<< Updated upstream
+=======
+ },
+ "ou04": {
+  "num": "4",
+  "titre": "Acquérir, calculer et modéliser avec LatisPro",
+  "motscles": [
+   "latispro",
+   "latis pro",
+   "sysam",
+   "acquisition",
+   "tableur",
+   "courbe",
+   "modelisation",
+   "regression",
+   "mesure"
+  ]
+>>>>>>> Stashed changes
  }
 }

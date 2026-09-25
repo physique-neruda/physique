@@ -80,50 +80,50 @@ window.CHAPITRE = {
    "q": "La pression est :",
    "choix": [
     "une force",
-    "une force divisée par une surface",
-    "une force multipliée par une surface"
+    "une force multipliée par une surface",
+    "une force divisée par une surface"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "p = F/S."
   },
   {
    "q": "1 bar vaut :",
    "choix": [
-    "1×10³ Pa",
     "1×10⁵ Pa",
+    "1×10³ Pa",
     "1×10⁶ Pa"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "1 bar = 1×10⁵ Pa = 0,1 MPa."
   },
   {
    "q": "Une section de 25 cm² vaut, en m² :",
    "choix": [
     "0,25",
-    "2,5×10⁻³",
-    "2,5×10⁻⁴"
+    "2,5×10⁻⁴",
+    "2,5×10⁻³"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "une aire se convertit en e-4 : c'est le piège numéro un du chapitre. 3pt"
   },
   {
    "q": "Dans un liquide au repos, la pression au fond dépend :",
    "choix": [
-    "de la hauteur de liquide et de sa masse volumique",
     "du volume de liquide contenu",
+    "de la hauteur de liquide et de sa masse volumique",
     "de la forme du récipient"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "c'est le paradoxe hydrostatique : ni la forme, ni le volume n'interviennent. Attention, la force sur le fond dépend en revanche de l'aire de ce fond (F = p S) : pression et force ne se confondent pas. 3pt"
   },
   {
    "q": "Deux cuves de même hauteur de liquide, l'une cylindrique, l'autre évasée. La pression au fond est :",
    "choix": [
     "plus grande dans l'évasée",
-    "identique",
-    "plus grande dans la cylindrique"
+    "plus grande dans la cylindrique",
+    "identique"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "c'est le paradoxe hydrostatique : ni la forme, ni le volume n'interviennent. Attention, la force sur le fond dépend en revanche de l'aire de ce fond (F = p S) : pression et force ne se confondent pas. 3pt"
   },
   {
@@ -140,10 +140,10 @@ window.CHAPITRE = {
    "q": "Un manomètre d'atelier affiche :",
    "choix": [
     "la pression absolue",
-    "la pression relative",
-    "la pression atmosphérique"
+    "la pression atmosphérique",
+    "la pression relative"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le manomètre lit une pression relative ; on ajoute l'atmosphère pour obtenir l'absolue, indispensable dès qu'un gaz intervient. 3pt"
   },
   {
@@ -170,30 +170,30 @@ window.CHAPITRE = {
    "q": "Dans ce même vérin, le gros piston se déplace, par rapport au petit :",
    "choix": [
     "20 fois plus",
-    "autant",
-    "20 fois moins"
+    "20 fois moins",
+    "autant"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "le volume d'huile chassé est le volume reçu : S₁ d₁ = S₂ d₂. On échange de la course contre de la force ; l'énergie se conserve. 3pt"
   },
   {
    "q": "On trace p = f(h) dans un liquide, h en mètres. La pente de la droite vaut :",
    "choix": [
     "ρ",
-    "ρg",
-    "ρg h"
+    "ρg h",
+    "ρg"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "p = ρg h est de la forme y = a x avec a = ρg. D'où ρ= a/g, la méthode centrale de l'activité et du CCF. 3pt"
   },
   {
    "q": "Une mesure donne ρ= (890 ± 30) kg/m³ et la référence vaut 870. On conclut que :",
    "choix": [
-    "la mesure est fausse, l'écart est de 20",
     "la mesure est compatible avec la référence",
+    "la mesure est fausse, l'écart est de 20",
     "on ne peut rien conclure sans refaire la mesure"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "l'intervalle [860 ;920] contient 870. Comparer deux nombres ne suffit jamais : il faut construire l'intervalle, dire si la référence y appartient, puis conclure par une phrase. C'est exactement ce qu'évalue la compétence Valider. tcolorbox"
   }
  ],

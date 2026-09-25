@@ -175,6 +175,18 @@ def lire_bilan(src, filiere):
 
 
 # ------------------------------------------------------------- assemblage
+def sans_hors_programme(tex):
+    """Retire du cours ce qui est signalé hors programme, pour qu'aucune carte de révision
+    n'en soit tirée : les environnements horsprogramme, les méthodes étiquetées \\horsprog,
+    et les paragraphes dont le titre porte « (hors programme) », jusqu'au paragraphe suivant."""
+    tex = re.sub(r"\\begin\{horsprogramme\}.*?\\end\{horsprogramme\}", "", tex, flags=re.S)
+    tex = re.sub(r"\\begin\{(methode|exemple)\}\[[^\]]*\\horsprog[^\]]*\].*?\\end\{\1\}", "",
+                 tex, flags=re.S)
+    tex = re.sub(r"\\section\{[^}]*\(hors programme\)\}.*?(?=\\section\{|\\begin\{essentiel\}|\\end\{document\})",
+                 "", tex, flags=re.S)
+    return tex
+
+
 def _fichiers(filiere, racine, ch):
     """(bilan.tex, cours.tex) pour un chapitre, ou (None, None)."""
     if filiere == "bts-crsa":
@@ -201,6 +213,7 @@ def construire(filiere, racine, sortie):
         print(f"  {ch}")
         bilan = lire_bilan(open(fb, encoding="utf-8").read(), filiere)
         cours = open(fc, encoding="utf-8").read() if fc else ""
+        cours = sans_hors_programme(cours)
         cartes = fabriquer_cartes(cours, bilan=bilan)
         titre = info["titre"].split("—", 1)[-1].strip()
         # les prérequis sont écrits à la main (prerequis_<filiere>.py) : on les
@@ -231,6 +244,8 @@ def construire(filiere, racine, sortie):
                   f"   {NIVEAUX[filiere]} · {info['titre']}\n"
                   f"   Le bilan vient de {os.path.basename(fb)}, les cartes des \\trou{{}} de\n"
                   f"   {os.path.basename(fc) if fc else '—'}. */\n")
+        from renvois import nettoyer
+        nettoyer(data)
         with open(cible, "w", encoding="utf-8") as f:
             f.write(entete + "window.CHAPITRE = "
                     + json.dumps(data, ensure_ascii=False, indent=1) + ";\n")

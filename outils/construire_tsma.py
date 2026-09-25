@@ -282,6 +282,8 @@ def construire(racine, sortie):
                   f"   BTS TSMA · chapitre {ch[2:]} · {TITRES[ch]}\n"
                   f"   Le bilan vient de {ch}_bilan.tex, les cartes des \\trou{{}} de\n"
                   f"   {ch}_cours.tex, les prérequis de outils/prerequis_tsma.py. */\n")
+        from renvois import nettoyer
+        nettoyer(data)
         js = entete + 'window.CHAPITRE = ' + json.dumps(data, ensure_ascii=False, indent=1) + ';\n'
         open(f'{sortie}/qcm-bts-tsma-{ch}.js', 'w').write(js)
         resume.append((ch, len(prereq), len(bilan), len(cartes)))

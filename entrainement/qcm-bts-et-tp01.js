@@ -81,11 +81,11 @@ window.CHAPITRE = {
   {
    "q": "Pour mesurer le courant absorbé par un moteur, l'ampèremètre se branche :",
    "choix": [
-    "aux bornes du moteur",
     "en série avec le moteur",
+    "aux bornes du moteur",
     "entre une phase et la terre"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Le courant traverse : l'appareil doit être inséré dans la branche. Branché aux bornes, il constitue un court-circuit — c'est la seule erreur de branchement dangereuse."
   },
   {
@@ -101,11 +101,11 @@ window.CHAPITRE = {
   {
    "q": "Deux points M et N sont reliés par un simple fil. La tension U_MN vaut :",
    "choix": [
-    "0 V",
+    "on ne peut pas savoir",
     "la tension d'alimentation",
-    "on ne peut pas savoir"
+    "0 V"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "Un fil idéal impose le même potentiel à ses deux extrémités : V_M = V_N, donc U_MN = 0 V. C'est ce qui permet de dire que deux points reliés par un fil ne forment qu'un seul et même nœud, même s'ils sont dessinés loin l'un de l'autre."
   },
   {
@@ -122,40 +122,40 @@ window.CHAPITRE = {
    "q": "En convention récepteur, on mesure U = 9 V et I = -2 A. Le dipôle :",
    "choix": [
     "reçoit 18 W",
-    "fournit 18 W",
-    "ne transfère aucune puissance"
+    "ne transfère aucune puissance",
+    "fournit 18 W"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "P = 9×(-2) = -18 W. En convention récepteur, une puissance négative signifie que le dipôle fournit en réalité de la puissance. Ce n'est pas une erreur de calcul : c'est un résultat à interpréter."
   },
   {
    "q": "Trois branches se rejoignent en un nœud. Deux courants entrants valent 7 A et 4 A. Le courant sortant vaut :",
    "choix": [
-    "3 A",
     "11 A",
+    "3 A",
     "28 A"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Loi des nœuds : 7+4 = 11 A. Un nœud n'accumule rien."
   },
   {
    "q": "Deux résistances de 100 Ω et 300 Ω sont en parallèle. La résistance équivalente vaut :",
    "choix": [
-    "400 Ω",
+    "75 Ω",
     "200 Ω",
-    "75 Ω"
+    "400 Ω"
    ],
-   "bonne": 2,
-   "expl": "(100× 300)/400 = 75 Ω. Contrôle immédiat : le résultat doit être inférieur à la plus petite des deux, ici 100 Ω. La réponse a est celle du groupement série, la réponse b n'est la moyenne de rien."
+   "bonne": 0,
+   "expl": "(100× 300)/400 = 75 Ω. Contrôle immédiat : le résultat doit être inférieur à la plus petite des deux, ici 100 Ω. La réponse « 400 Ω » est celle du groupement série, la réponse « 200 Ω » n'est la moyenne de rien."
   },
   {
    "q": "La formule du diviseur de tension U₂ = U R₂/(R₁+R₂) n'est valable que si :",
    "choix": [
     "R₁ = R₂",
-    "aucun courant ne sort du point milieu",
-    "la tension U est continue"
+    "la tension U est continue",
+    "aucun courant ne sort du point milieu"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Dès qu'une charge est branchée au point milieu, un courant en sort et la formule surestime la tension. Elle donne pourtant un résultat plausible, ce qui la rend particulièrement traîtresse — voir l'exercice du capteur de niveau."
   },
   {
@@ -166,7 +166,7 @@ window.CHAPITRE = {
     "4×10⁻² meter²"
    ],
    "bonne": 1,
-   "expl": "Une surface se convertit au carré : 1 mmeter² = (1×10⁻³)² = 1×10⁻⁶ meter². La réponse a est l'erreur la plus fréquente de toute la formation, et elle intervient dès le premier calcul de résistance de câble."
+   "expl": "Une surface se convertit au carré : 1 mmeter² = (1×10⁻³)² = 1×10⁻⁶ meter². La réponse « 4×10⁻³ meter² » est l'erreur la plus fréquente de toute la formation, et elle intervient dès le premier calcul de résistance de câble."
   },
   {
    "q": "À longueur et section égales, un conducteur en aluminium comparé à un conducteur en cuivre :",
@@ -181,32 +181,32 @@ window.CHAPITRE = {
   {
    "q": "Les pertes par effet Joule dans un conducteur de résistance R parcouru par I valent :",
    "choix": [
-    "R I",
     "R I²",
+    "R I",
     "R² I"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "P_J = R I². En remplaçant U par R I dans P = U I, on obtient bien un courant au carré."
   },
   {
    "q": "On divise par deux le courant dans une ligne. Les pertes en ligne sont :",
    "choix": [
     "divisées par 2",
-    "divisées par 4",
-    "inchangées"
+    "inchangées",
+    "divisées par 4"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Les pertes varient comme le carré du courant : (1/2)² = 1/4. Ce raisonnement commandera tout le chapitre sur la distribution de l'énergie, et il justifie à lui seul le transport en haute tension."
   },
   {
    "q": "Un appareil de 2 kW fonctionne 5 h. L'énergie consommée vaut :",
    "choix": [
     "10 kW",
-    "10 kW·h",
-    "0,4 kW·h"
+    "0,4 kW·h",
+    "10 kW·h"
    ],
-   "bonne": 1,
-   "expl": "W = P× t = 2× 5 = 10 kW·h. La réponse a confond puissance et énergie : le kilowatt est un débit, le kilowattheure une quantité."
+   "bonne": 2,
+   "expl": "W = P× t = 2× 5 = 10 kW·h. La réponse « 10 kW » confond puissance et énergie : le kilowatt est un débit, le kilowattheure une quantité."
   },
   {
    "q": "En monophasé, pour calculer les pertes d'une liaison, il faut tenir compte :",

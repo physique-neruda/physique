@@ -131,7 +131,7 @@ window.CHAPITRE = {
     "9425 rad/s"
    ],
    "bonne": 1,
-   "expl": "Ω= 2πn/60 = 2π× 1500/60 = 157 rad/s. La réponse d correspond à un oubli de la division par 60."
+   "expl": "Ω= 2πn/60 = 2π× 1500/60 = 157 rad/s. La réponse « 9425 rad/s » correspond à un oubli de la division par 60."
   },
   {
    "q": "Au démarrage, le courant d'un moteur à courant continu vaut :",
@@ -153,7 +153,7 @@ window.CHAPITRE = {
     "RI²"
    ],
    "bonne": 3,
-   "expl": "p_J = RI². La réponse c confond puissance et tension."
+   "expl": "p_J = RI². La réponse « RI » confond puissance et tension."
   },
   {
    "q": "La puissance électromagnétique peut se calculer par :",
@@ -208,7 +208,7 @@ window.CHAPITRE = {
     "10 %"
    ],
    "bonne": 1,
-   "expl": "Les rendements se multiplient : 0,90 × 0,80 = 0,72. La réponse a serait la moyenne, qui n'a aucun sens physique ici. enumerate"
+   "expl": "Les rendements se multiplient : 0,90 × 0,80 = 0,72. La réponse « 85 % » serait la moyenne, qui n'a aucun sens physique ici. enumerate"
   }
  ],
  "cartes": [
@@ -309,5 +309,6 @@ window.CHAPITRE = {
    "verso": "<strong>une droite descendante</strong>",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

@@ -164,7 +164,7 @@ window.CHAPITRE = {
     "inchangée"
    ],
    "bonne": 1,
-   "expl": "La section varie comme le carré du diamètre : S = πd²/4. La réponse a est l'erreur la plus fréquente du chapitre."
+   "expl": "La section varie comme le carré du diamètre : S = πd²/4. La réponse « doublée » est l'erreur la plus fréquente du chapitre."
   },
   {
    "q": "Dans un rétrécissement de conduite horizontale, la pression :",
@@ -306,5 +306,6 @@ window.CHAPITRE = {
    "verso": "<strong>zéro</strong> — La pression relative se compte à partir de la pression atmosphérique.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

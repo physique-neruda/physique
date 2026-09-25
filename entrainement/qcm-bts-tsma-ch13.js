@@ -79,21 +79,21 @@ window.CHAPITRE = {
   {
    "q": "Un système écarté puis lâché, sans excitation extérieure, effectue des oscillations :",
    "choix": [
-    "libres",
     "forcées",
+    "libres",
     "résonantes"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur. La résonance, elle, n'est pas un troisième type d'oscillation : c'est ce qui arrive aux oscillations forcées dans un cas particulier. 3pt"
   },
   {
    "q": "En régime forcé établi, le système oscille à :",
    "choix": [
-    "sa fréquence propre",
     "la fréquence de l'excitateur",
+    "sa fréquence propre",
     "la moyenne des deux"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur. La résonance, elle, n'est pas un troisième type d'oscillation : c'est ce qui arrive aux oscillations forcées dans un cas particulier. 3pt"
   },
   {
@@ -109,71 +109,71 @@ window.CHAPITRE = {
   {
    "q": "La fréquence propre d'un système masse-ressort vaut f₀ = 1/2π√(k/m). Si on quadruple la masse, f₀ est :",
    "choix": [
-    "divisée par 2",
     "divisée par 4",
+    "divisée par 2",
     "multipliée par 2"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "f₀ varie en 1/√m : quadrupler m divise f₀ par √4 = 2. La racine carrée écrase les variations : pour diviser une fréquence propre par deux, il ne suffit pas de doubler la masse. 3pt"
   },
   {
    "q": "Les amplitudes successives d'un système amorti valent 42,0, 34,0, 27,6, 22,3 mm. La décroissance est :",
    "choix": [
     "linéaire",
-    "géométrique, de rapport voisin de 0,81",
-    "sans loi identifiable"
+    "sans loi identifiable",
+    "géométrique, de rapport voisin de 0,81"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "les rapports successifs valent 0,810, 0,812, 0,808 : ils sont constants, ce qui est la signature d'une décroissance géométrique, donc exponentielle. L'amplitude ne perd pas une quantité fixe, elle est multipliée par un facteur fixe. En revanche, la pseudo-période ne bouge pratiquement pas : le système garde son rythme en perdant son ampleur — ce qui permet de mesurer une fréquence propre sur un système amorti. 3pt"
   },
   {
    "q": "Lorsqu'on augmente l'amortissement d'un système, la pseudo-période :",
    "choix": [
-    "change beaucoup",
     "change très peu",
+    "change beaucoup",
     "devient infinie"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "les rapports successifs valent 0,810, 0,812, 0,808 : ils sont constants, ce qui est la signature d'une décroissance géométrique, donc exponentielle. L'amplitude ne perd pas une quantité fixe, elle est multipliée par un facteur fixe. En revanche, la pseudo-période ne bouge pratiquement pas : le système garde son rythme en perdant son ampleur — ce qui permet de mesurer une fréquence propre sur un système amorti. 3pt"
   },
   {
    "q": "Il y a résonance lorsque la fréquence d'excitation :",
    "choix": [
-    "est très élevée",
     "est voisine de la fréquence propre",
+    "est très élevée",
     "est très faible"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "la résonance ne dépend ni du niveau d'excitation, ni de la valeur absolue de la fréquence, mais de la coïncidence entre l'excitation et la fréquence propre. Et moins il y a d'amortissement, plus le pic est haut et étroit — c'est précisément pourquoi un système peu amorti est dangereux : il monte très haut, mais dans une plage si étroite qu'on peut la manquer au balayage. 3pt"
   },
   {
    "q": "Plus l'amortissement est faible, plus le pic de résonance est :",
    "choix": [
-    "haut et étroit",
     "bas et large",
+    "haut et étroit",
     "décalé vers les hautes fréquences"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "la résonance ne dépend ni du niveau d'excitation, ni de la valeur absolue de la fréquence, mais de la coïncidence entre l'excitation et la fréquence propre. Et moins il y a d'amortissement, plus le pic est haut et étroit — c'est précisément pourquoi un système peu amorti est dangereux : il monte très haut, mais dans une plage si étroite qu'on peut la manquer au balayage. 3pt"
   },
   {
    "q": "Un rotor tourne à 900 1/min. Il excite la structure à :",
    "choix": [
-    "15 Hz",
+    "54000 Hz",
     "900 Hz",
-    "54000 Hz"
+    "15 Hz"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "900/60 = 15 Hz : un régime se convertit en fréquence en divisant par 60, premier geste de tout diagnostic. Et un pic exactement à la fréquence de rotation désigne un balourd ; c'est un pic au double qui orienterait vers un désalignement. On ne cherche pas d'où vient le bruit, on cherche à quelle fréquence il se produit. 3pt"
   },
   {
    "q": "Un pic vibratoire mesuré exactement à la fréquence de rotation oriente vers :",
    "choix": [
-    "un balourd",
     "un désalignement",
+    "un balourd",
     "un défaut de roulement"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "900/60 = 15 Hz : un régime se convertit en fréquence en divisant par 60, premier geste de tout diagnostic. Et un pic exactement à la fréquence de rotation désigne un balourd ; c'est un pic au double qui orienterait vers un désalignement. On ne cherche pas d'où vient le bruit, on cherche à quelle fréquence il se produit. 3pt"
   },
   {
@@ -189,11 +189,11 @@ window.CHAPITRE = {
   {
    "q": "On cherche un maximum de résonance en balayant par pas de 0,50 Hz, et l'on conclut que f_rés est compatible avec f₀. Cette conclusion :",
    "choix": [
-    "prouve que les deux fréquences sont égales",
     "ne prouve rien : le protocole était trop grossier pour détecter un écart",
+    "prouve que les deux fréquences sont égales",
     "est invalide car on ne peut pas comparer deux mesures"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "et c'est la question la plus importante de la feuille. Avec un pas de 0,50 Hz, l'incertitude sur la position du maximum atteint 0,3 Hz, soit 7 % : un tel protocole aurait conclu « compatible » même si l'écart réel avait été énorme. Un protocole aveugle conclut toujours à la compatibilité, et sa conclusion ne vaut rien. La précision ne vient pas ici de la qualité de l'appareil, mais du pas de balayage — c'est-à-dire d'un choix. tcolorbox"
   }
  ],

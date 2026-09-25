@@ -81,57 +81,57 @@ window.CHAPITRE = {
   {
    "q": "Un capteur passif délivre une résistance. Le rôle du diviseur de tension est de :",
    "choix": [
-    "l'amplifier",
     "la transformer en tension",
+    "l'amplifier",
     "la comparer à un seuil",
     "la filtrer"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "C'est la fonction même du conditionnement : tout ce qui suit le capteur — amplificateur, convertisseur, automate — travaille sur des tensions."
   },
   {
    "q": "Dans un diviseur R₁--R₂ alimenté sous E, la tension aux bornes de R₂ vaut :",
    "choix": [
     "E R₁/(R₁+R₂)",
-    "E R₂/(R₁+R₂)",
+    "E R₂/R₁",
     "E (R₁+R₂)/R₂",
-    "E R₂/R₁"
+    "E R₂/(R₁+R₂)"
    ],
-   "bonne": 1,
-   "expl": "La tension prélevée est proportionnelle à la résistance à ses bornes, divisée par la résistance totale. La réponse a est le piège : elle inverse le numérateur."
+   "bonne": 3,
+   "expl": "La tension prélevée est proportionnelle à la résistance à ses bornes, divisée par la résistance totale. La réponse « E R₁/(R₁+R₂) » est le piège : elle inverse le numérateur."
   },
   {
    "q": "Cette tension peut-elle dépasser E ?",
    "choix": [
     "oui, si R₂ > R₁",
-    "oui, si R₁ est très petite",
     "non, jamais",
+    "oui, si R₁ est très petite",
     "oui, à la mise sous tension"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "Jamais. La fraction R₂/(R₁+R₂) est toujours inférieure à 1 : la tension prélevée est une part de E. C'est le contrôle de vraisemblance à faire systématiquement."
   },
   {
    "q": "Un pont de Wheatstone est essentiellement :",
    "choix": [
     "un amplificateur à quatre entrées",
-    "la différence de deux diviseurs de tension",
     "un filtre passe-bas",
+    "la différence de deux diviseurs de tension",
     "un comparateur à deux seuils"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Deux diviseurs côte à côte dont on mesure la différence des points milieux. C'est de là que vient tout son intérêt : les deux branches produisent le même décalage, qui disparaît dans la différence."
   },
   {
    "q": "Un pont est dit équilibré lorsque :",
    "choix": [
     "ses quatre résistances sont égales",
-    "sa tension de sortie est nulle",
     "son courant d'alimentation est nul",
+    "sa tension de sortie est nulle",
     "sa sensibilité est maximale"
    ],
-   "bonne": 1,
-   "expl": "Sa tension de sortie est nulle. La réponse a décrit un cas particulier d'équilibre, pas sa définition — un pont peut être équilibré avec des résistances différentes, pourvu que les deux rapports soient égaux."
+   "bonne": 2,
+   "expl": "Sa tension de sortie est nulle. La réponse « ses quatre résistances sont égales » décrit un cas particulier d'équilibre, pas sa définition — un pont peut être équilibré avec des résistances différentes, pourvu que les deux rapports soient égaux."
   },
   {
    "q": "On choisit un pont plutôt qu'un diviseur lorsque :",
@@ -160,43 +160,43 @@ window.CHAPITRE = {
    "choix": [
     "le volt",
     "le volt par volt",
-    "il n'en a pas",
-    "l'ohm"
+    "l'ohm",
+    "il n'en a pas"
    ],
-   "bonne": 2,
-   "expl": "Il n'en a pas : c'est un rapport de deux tensions, les volts se simplifient. La réponse b est le piège de la fausse unité."
+   "bonne": 3,
+   "expl": "Il n'en a pas : c'est un rapport de deux tensions, les volts se simplifient. La réponse « le volt par volt » est le piège de la fausse unité."
   },
   {
    "q": "Une caractéristique de transfert décroissante correspond à un amplificateur :",
    "choix": [
-    "saturé",
     "inverseur",
+    "saturé",
     "non inverseur",
     "défectueux"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Quand l'entrée augmente, la sortie diminue : l'amplificateur est inverseur et son coefficient est négatif. C'est le cas du sujet 2019, avec A_v = -40."
   },
   {
    "q": "Un amplificateur saturé :",
    "choix": [
     "amplifie davantage",
-    "ne suit plus les variations de l'entrée",
+    "consomme moins",
     "inverse le signe",
-    "consomme moins"
+    "ne suit plus les variations de l'entrée"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "Sa sortie reste bloquée quoi qu'il arrive en entrée : il ne mesure plus rien. C'est pourquoi un coefficient trop grand rend l'appareil aveugle en haut de l'étendue de mesure."
   },
   {
    "q": "La sortie d'un comparateur est un signal :",
    "choix": [
     "analogique",
-    "logique",
     "numérique sur 8 bits",
+    "logique",
     "sinusoïdal"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Deux valeurs seulement, sans état intermédiaire : c'est un signal logique, au sens du chapitre 15. Le comparateur ne mesure plus, il décide."
   },
   {
@@ -308,5 +308,6 @@ window.CHAPITRE = {
    "verso": "<strong>inverseur</strong>",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

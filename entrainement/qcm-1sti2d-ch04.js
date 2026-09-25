@@ -90,34 +90,34 @@ window.CHAPITRE = {
   {
    "q": "Le courant du secteur est sinusoïdal notamment parce que :",
    "choix": [
-    "c'est plus économique à produire en usine",
     "l'alternateur le produit naturellement ainsi",
+    "c'est plus économique à produire en usine",
     "les appareils ne fonctionnent qu'en sinusoïdal",
     "cela évite tout échauffement"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Un transformateur ne fonctionne pas en courant continu parce que :",
    "choix": [
     "la tension y est trop faible",
-    "il exige une tension <strong>variable</strong>",
+    "le courant continu est trop dangereux",
     "il chaufferait trop",
-    "le courant continu est trop dangereux"
+    "il exige une tension <strong>variable</strong>"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Le <strong>motif</strong> d'un signal périodique est :",
    "choix": [
     "sa valeur maximale",
-    "le morceau de courbe qui se répète",
     "sa valeur moyenne",
+    "le morceau de courbe qui se répète",
     "le nombre de répétitions par seconde"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
@@ -135,11 +135,11 @@ window.CHAPITRE = {
    "q": "La fréquence est :",
    "choix": [
     "la durée d'un motif",
-    "le nombre de motifs contenus dans une seconde",
+    "l'inverse de la tension",
     "la hauteur du signal",
-    "l'inverse de la tension"
+    "le nombre de motifs contenus dans une seconde"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -156,12 +156,12 @@ window.CHAPITRE = {
   {
    "q": "Un signal a une fréquence f = 250 Hz. Sa période vaut :",
    "choix": [
-    "250 ms",
     "4,0 ms",
+    "250 ms",
     "25 ms",
     "0,25 ms"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "1/250 = 4,0 × 10⁻³ s"
   },
   {
@@ -178,12 +178,12 @@ window.CHAPITRE = {
   {
    "q": "La valeur moyenne d'une tension sinusoïdale vaut :",
    "choix": [
-    "U<sub>max</sub>",
-    "U<sub>max</sub>/√2",
     "zéro",
+    "U<sub>max</sub>/√2",
+    "U<sub>max</sub>",
     "U<sub>max</sub>/2"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "les deux alternances se compensent"
   },
   {
@@ -201,22 +201,22 @@ window.CHAPITRE = {
    "q": "Pour une tension sinusoïdale, la valeur efficace vaut :",
    "choix": [
     "U<sub>max</sub> × √2",
-    "(U<sub>max</sub>)/√2",
     "(U<sub>max</sub>)/2",
+    "(U<sub>max</sub>)/√2",
     "U<sub>max</sub>"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "et pour une sinusoïde <em>seulement</em>"
   },
   {
    "q": "Devant un signal rectangulaire, un voltmètre <strong>ordinaire</strong> en position alternative :",
    "choix": [
     "donne toujours la valeur exacte",
-    "se trompe, car il suppose le signal sinusoïdal",
+    "affiche la valeur maximale",
     "affiche zéro",
-    "affiche la valeur maximale"
+    "se trompe, car il suppose le signal sinusoïdal"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "seul un voltmètre <strong>TRUE RMS</strong> reste juste sur un signal non sinusoïdal"
   }
  ],

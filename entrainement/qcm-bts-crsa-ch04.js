@@ -87,51 +87,51 @@ window.CHAPITRE = {
     "égale à son poids"
    ],
    "bonne": 1,
-   "expl": "Vitesse constante accélération nulle somme des forces nulle. La réponse a est le contresens central du chapitre."
+   "expl": "Vitesse constante accélération nulle somme des forces nulle. La réponse « dirigée vers l'avant » est le contresens central du chapitre."
   },
   {
    "q": "Le principe fondamental de la dynamique impose :",
    "choix": [
     "la vitesse du solide",
-    "son accélération",
+    "son énergie",
     "sa position",
-    "son énergie"
+    "son accélération"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "Il relie les forces à l'accélération, pas à la vitesse."
   },
   {
    "q": "Une force perpendiculaire au déplacement a un travail :",
    "choix": [
-    "positif",
-    "négatif",
     "nul",
+    "négatif",
+    "positif",
     "égal à F× d"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "cos90 = 0. C'est le cas de la réaction du support sur un déplacement horizontal : une force de moins à compter dans le bilan."
   },
   {
    "q": "En rotation, la grandeur qui joue le rôle de la masse est :",
    "choix": [
     "le couple",
-    "le moment d'inertie",
     "la vitesse angulaire",
+    "le moment d'inertie",
     "le rayon"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Le moment d'inertie J, en kg·meter²."
   },
   {
    "q": "Le principe fondamental appliqué à un solide en rotation s'écrit :",
    "choix": [
     "M = J ω",
-    "M = J domega/dt",
+    "M = m a",
     "F = J domega/dt",
-    "M = m a"
+    "M = J domega/dt"
    ],
-   "bonne": 1,
-   "expl": "Avec ω l'accélération angulaire. La réponse a confondrait vitesse et accélération."
+   "bonne": 3,
+   "expl": "Avec ω l'accélération angulaire. La réponse « M = J ω » confondrait vitesse et accélération."
   },
   {
    "q": "Une vitesse de 1200 1/min vaut, en rad/s, environ :",
@@ -147,12 +147,12 @@ window.CHAPITRE = {
   {
    "q": "L'énergie cinétique d'un solide en rotation vaut :",
    "choix": [
-    "1/2Jω",
     "1/2Jω²",
+    "1/2Jω",
     "Jω²",
     "1/2mv²"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Exactement transposée de 1/2mv²."
   },
   {
@@ -170,22 +170,22 @@ window.CHAPITRE = {
    "q": "Un chariot de 800 kg roule à 1,8 meter/s. Son énergie cinétique vaut :",
    "choix": [
     "720 J",
-    "1296 J",
     "1440 J",
+    "1296 J",
     "2592 J"
    ],
-   "bonne": 1,
-   "expl": "0,5×800×1,8² = 1296. La réponse c oublie le carré, la a oublie le facteur 1/2 et le carré."
+   "bonne": 2,
+   "expl": "0,5×800×1,8² = 1296. La réponse « 1440 J » oublie le carré, la réponse « 720 J » oublie le facteur 1/2 et le carré."
   },
   {
    "q": "Si la vitesse d'un chariot double, sa distance d'arrêt, à force de freinage constante :",
    "choix": [
     "double",
-    "est quadruplée",
+    "est divisée par deux",
     "ne change pas",
-    "est divisée par deux"
+    "est quadruplée"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "L'énergie cinétique varie comme le carré de la vitesse. C'est la raison des vitesses très basses imposées aux chariots en atelier."
   },
   {
@@ -202,12 +202,12 @@ window.CHAPITRE = {
   {
    "q": "On cherche la distance d'arrêt d'un chariot connaissant sa vitesse et la force de freinage. L'outil le plus direct est :",
    "choix": [
-    "le principe fondamental",
     "le théorème de l'énergie cinétique",
+    "le principe fondamental",
     "la conservation de l'énergie mécanique",
     "le moment d'inertie"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "La conservation de l'énergie mécanique est inutilisable ici : il y a des frottements, et l'énergie mécanique ne se conserve donc pas. enumerate tcolorbox"
   }
  ],
@@ -307,5 +307,6 @@ window.CHAPITRE = {
    "verso": "<strong>1/2Jω²</strong> — Exactement transposée de 1/2mv².",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

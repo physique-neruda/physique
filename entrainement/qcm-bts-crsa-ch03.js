@@ -120,7 +120,7 @@ window.CHAPITRE = {
     "on ne peut pas le savoir"
    ],
    "bonne": 0,
-   "expl": "Un écart de température vaut autant en kelvins qu'en degrés Celsius : les deux échelles ont le même pas. La réponse b confond écart et température."
+   "expl": "Un écart de température vaut autant en kelvins qu'en degrés Celsius : les deux échelles ont le même pas. La réponse « 313 K » confond écart et température."
   },
   {
    "q": "Pour une paroi de trois couches de résistances 0,20, 4,00 et 0,30, la résistance totale vaut :",
@@ -175,7 +175,7 @@ window.CHAPITRE = {
     "rien, la température ne change pas"
    ],
    "bonne": 1,
-   "expl": "L_f = 3,34×10⁵ J/kg. La réponse d est le piège : l'énergie est bien réelle, même si la température ne bouge pas."
+   "expl": "L_f = 3,34×10⁵ J/kg. La réponse « rien, la température ne change pas » est le piège : l'énergie est bien réelle, même si la température ne bouge pas."
   },
   {
    "q": "Vaporiser de l'eau coûte, par rapport à la faire fondre, environ :",
@@ -307,5 +307,6 @@ window.CHAPITRE = {
    "verso": "<strong>moins la chaleur passe</strong> — Un bon isolant est celui dont la résistance est grande — c'est l'inverse de l'intuition électrique.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

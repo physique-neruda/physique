@@ -109,7 +109,7 @@ window.CHAPITRE = {
     "I₂/I₁"
    ],
    "bonne": 2,
-   "expl": "m = U₂/U₁ = N₂/N₁ = I₁/I₂. Les réponses a et b sont les mêmes rapports à l'envers : c'est le piège habituel."
+   "expl": "m = U₂/U₁ = N₂/N₁ = I₁/I₂. Les réponses « N₁/N₂ » et « U₁/U₂ » sont les mêmes rapports à l'envers : c'est le piège habituel."
   },
   {
    "q": "Un transformateur 230 V / 24 V a un rapport de transformation d'environ :",
@@ -307,5 +307,6 @@ window.CHAPITRE = {
    "verso": "<strong>1,00 A</strong>",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

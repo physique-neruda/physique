@@ -90,12 +90,12 @@ window.CHAPITRE = {
   {
    "q": "L'<strong>irradiance</strong> est :",
    "choix": [
-    "l'énergie totale reçue par une surface",
     "la puissance lumineuse reçue par unité de surface",
+    "l'énergie totale reçue par une surface",
     "la puissance d'une source lumineuse",
     "la durée d'éclairement"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -103,10 +103,10 @@ window.CHAPITRE = {
    "choix": [
     "J",
     "W",
-    "W/m²",
-    "J/kg"
+    "J/kg",
+    "W/m²"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -124,88 +124,88 @@ window.CHAPITRE = {
    "q": "Dans ce chapitre, la lettre E désigne :",
    "choix": [
     "une énergie en joules",
-    "une irradiance en W/m²",
     "une puissance en watts",
+    "une irradiance en W/m²",
     "une tension en volts"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "c'est l'unité qui permet de trancher"
   },
   {
    "q": "La puissance reçue par une surface S vaut :",
    "choix": [
     "P = E / S",
-    "P = E × S",
     "P = S / E",
+    "P = E × S",
     "P = E + S"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "À irradiance constante, si l'on double la surface exposée, la puissance reçue :",
    "choix": [
-    "ne change pas",
     "double",
+    "ne change pas",
     "est divisée par deux",
     "est multipliée par quatre"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "P est proportionnelle à S"
   },
   {
    "q": "Lorsqu'une surface est <strong>inclinée</strong> par rapport aux rayons, l'irradiance qu'elle reçoit :",
    "choix": [
     "augmente",
-    "diminue",
+    "devient nulle",
     "ne change pas",
-    "devient nulle"
+    "diminue"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "la même puissance se répartit sur une surface plus grande"
   },
   {
    "q": "Par ciel dégagé, l'irradiance du Soleil au sol vaut environ :",
    "choix": [
     "10 W/m²",
-    "100 W/m²",
     "1000 W/m²",
+    "100 W/m²",
     "100 000 W/m²"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": ""
   },
   {
    "q": "Ce qui rend un laser dangereux, c'est avant tout :",
    "choix": [
-    "sa puissance élevée",
-    "sa couleur",
     "sa directivité, qui concentre la puissance sur une très petite surface",
+    "sa couleur",
+    "sa puissance élevée",
     "sa durée d'émission"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Le rendement d'un panneau photovoltaïque s'écrit :",
    "choix": [
     "η = (E × S)/(P<sub>élec</sub>)",
-    "η = (P<sub>élec</sub>)/(E × S)",
+    "η = (P<sub>élec</sub>)/E",
     "η = P<sub>élec</sub> × E × S",
-    "η = (P<sub>élec</sub>)/E"
+    "η = (P<sub>élec</sub>)/(E × S)"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "En pratique, le rendement d'un panneau photovoltaïque courant vaut environ :",
    "choix": [
     "1 à 2 %",
-    "15 à 20 %",
     "50 à 60 %",
+    "15 à 20 %",
     "plus de 90 %"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {

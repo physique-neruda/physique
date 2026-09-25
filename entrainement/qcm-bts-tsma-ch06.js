@@ -84,76 +84,76 @@ window.CHAPITRE = {
     "le litre"
    ],
    "bonne": 1,
-   "expl": "40,1 + 12,0 + 3×16,0 = 100,1. La réponse a correspond à un oubli du facteur 3 sur l'oxygène. 3pt"
+   "expl": "40,1 + 12,0 + 3×16,0 = 100,1. La réponse « le gramme » correspond à un oubli du facteur 3 sur l'oxygène. 3pt"
   },
   {
    "q": "La masse molaire de CaCO₃ vaut (Ca 40,1 ; C 12,0 ; O 16,0) :",
    "choix": [
     "68,1 g/mol",
-    "100,1 g/mol",
-    "116,1 g/mol"
+    "116,1 g/mol",
+    "100,1 g/mol"
    ],
-   "bonne": 1,
-   "expl": "40,1 + 12,0 + 3×16,0 = 100,1. La réponse a correspond à un oubli du facteur 3 sur l'oxygène. 3pt"
+   "bonne": 2,
+   "expl": "40,1 + 12,0 + 3×16,0 = 100,1. La réponse « 68,1 g/mol » correspond à un oubli du facteur 3 sur l'oxygène. 3pt"
   },
   {
    "q": "Dans Ca(OH)₂, le nombre d'atomes d'hydrogène est :",
    "choix": [
-    "1",
+    "4",
     "2",
-    "4"
+    "1"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "l'indice 2 porte sur tout le groupe (OH) : deux O et deux H. C'est le piège le plus fréquent du calcul de masse molaire. 3pt"
   },
   {
    "q": "Pour une espèce en solution, la quantité de matière se calcule par :",
    "choix": [
-    "n = m/M",
+    "n = C × V",
     "n = V/V_m",
-    "n = C × V"
+    "n = m/M"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "trois chemins vers n selon la forme de l'espèce. Le volume molaire ne dépend que de la température et de la pression : un même volume de dihydrogène et de dioxyde de carbone contient le même nombre de molécules, mais pas du tout la même masse. Et 0,240/24,0 = 0,010. 3pt"
   },
   {
    "q": "Le volume molaire d'un gaz dépend :",
    "choix": [
     "de la nature du gaz",
-    "de la température et de la pression",
-    "de la masse du gaz"
+    "de la masse du gaz",
+    "de la température et de la pression"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "trois chemins vers n selon la forme de l'espèce. Le volume molaire ne dépend que de la température et de la pression : un même volume de dihydrogène et de dioxyde de carbone contient le même nombre de molécules, mais pas du tout la même masse. Et 0,240/24,0 = 0,010. 3pt"
   },
   {
    "q": "0,240 L de gaz à V_m = 24,0 L/mol correspondent à :",
    "choix": [
-    "0,010 mol",
     "0,10 mol",
+    "0,010 mol",
     "5,76 mol"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "trois chemins vers n selon la forme de l'espèce. Le volume molaire ne dépend que de la température et de la pression : un même volume de dihydrogène et de dioxyde de carbone contient le même nombre de molécules, mais pas du tout la même masse. Et 0,240/24,0 = 0,010. 3pt"
   },
   {
    "q": "Pour ajuster une équation, on modifie :",
    "choix": [
     "les indices dans les formules",
-    "les coefficients devant les formules",
-    "les deux indifféremment"
+    "les deux indifféremment",
+    "les coefficients devant les formules"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "on n'agit que sur les coefficients : changer un indice, c'est changer d'espèce chimique. Pour le méthane, il faut deux O₂ pour fournir les quatre atomes d'oxygène de CO₂ et des deux H₂O. 3pt"
   },
   {
    "q": "L'équation ajustée de la combustion du méthane est :",
    "choix": [
-    "CH₄ + O₂ → CO₂ + H₂O",
     "CH₄ + 2 O₂ → CO₂ + 2 H₂O",
+    "CH₄ + O₂ → CO₂ + H₂O",
     "CH₄ + 3 O₂ → CO₂ + 2 H₂O"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "on n'agit que sur les coefficients : changer un indice, c'est changer d'espèce chimique. Pour le méthane, il faut deux O₂ pour fournir les quatre atomes d'oxygène de CO₂ et des deux H₂O. 3pt"
   },
   {
@@ -179,21 +179,21 @@ window.CHAPITRE = {
   {
    "q": "Un mélange stœchiométrique est un mélange dans lequel :",
    "choix": [
-    "les deux réactifs ont la même masse",
     "les deux réactifs disparaissent en même temps",
+    "les deux réactifs ont la même masse",
     "l'un des réactifs est en large excès"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "les quotients n/ν sont alors égaux et les deux réactifs s'épuisent ensemble, sans reste. Rien à voir avec l'égalité des masses. 3pt"
   },
   {
    "q": "Dans un dosage par dégagement gazeux, on place un réactif en excès afin que :",
    "choix": [
     "la réaction aille plus vite",
-    "l'espèce à doser soit le réactif limitant",
-    "le volume de gaz soit plus grand"
+    "le volume de gaz soit plus grand",
+    "l'espèce à doser soit le réactif limitant"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "c'est la raison d'être de l'excès, et la question tombe dans presque tous les sujets. Si l'espèce à doser n'était pas limitante, le volume de gaz renseignerait sur l'autre réactif et la mesure ne voudrait rien dire. Le sujet demande ensuite de vérifier par le calcul que l'excès est réel. tcolorbox"
   }
  ],

@@ -32,6 +32,19 @@
    "circuit magnetique"
   ]
  },
+ "c03": {
+  "num": "3",
+  "titre": "Cours 3 — Les combustions",
+  "motscles": [
+   "combustion",
+   "equation",
+   "pouvoir calorifique",
+   "pci",
+   "groupe electrogene",
+   "co2",
+   "chimie"
+  ]
+ },
  "tp01": {
   "num": "1",
   "titre": "TP 1 — Notions fondamentales d'électricité",
@@ -54,6 +67,33 @@
    "bobine",
    "source",
    "caracteristique"
+  ]
+ },
+ "tp03": {
+  "num": "3",
+  "titre": "TP 3 — Régime sinusoïdal monophasé",
+  "motscles": [
+   "sinusoidal",
+   "dephasage",
+   "fresnel",
+   "impedance",
+   "puissance active",
+   "puissance reactive",
+   "facteur de puissance",
+   "boucherot"
+  ]
+ },
+ "ch09": {
+  "num": "9",
+  "titre": "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+  "motscles": [
+   "distribution",
+   "ligne",
+   "chute de tension",
+   "compensation",
+   "facteur de puissance",
+   "harmoniques",
+   "cem"
   ]
  },
  "adm01": {

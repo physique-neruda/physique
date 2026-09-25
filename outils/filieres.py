@@ -126,6 +126,12 @@ DOCUMENTS = {
          "Le document à remplir pendant l'animation."),
         ("a3_circuit",        "Cours", "Activité 3 — Le circuit magnétique",
          "Le document à remplir pendant l'animation."),
+        ("a1_equation",       "Cours", "Activité 1 — L'équation de combustion",
+         "Le document à remplir pendant l'animation."),
+        ("a2_energie",        "Cours", "Activité 2 — L'énergie d'un combustible",
+         "Le document à remplir pendant l'animation."),
+        ("a3_groupe",         "Cours", "Activité 3 — Le groupe électrogène",
+         "Le document à remplir pendant l'animation."),
         ("cours_a_completer", "Cours", "Cours à compléter",
          "La version distribuée en séance, avec les passages à écrire."),
         ("cours",             "Cours", "Cours complet",
@@ -154,7 +160,7 @@ DOCUMENTS = {
 # celle déclarée ci-dessus. Le fil « TP élec » du BTS ET est un fil complet
 # de chapitres : ses documents sont les mêmes, la rubrique change.
 RUBRIQUE_DU_CHAPITRE = {
-    "bts-et": {"tp01": "TP", "tp02": "TP", "ch09": "TP", "adm01": "ADM"},
+    "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "ch09": "TP", "adm01": "ADM"},
 }
 
 # Titre affiché différent pour un document précis d'un chapitre précis.
@@ -209,6 +215,31 @@ ANIMATIONS = {
          "trouve": "e = −N·dΦ/dt",
          "motscles": ["electromagnetisme", "flux magnetique", "induction", "reluctance",
                       "circuit magnetique"]},
+        {"chapitre": "c03", "rubrique": "Cours", "avant": "a1_equation",
+         "titre": "L'équation de combustion", "fichier": "animations/combustion.html",
+         "description": "On place dans le brûleur des molécules de combustible et de dioxygène ; "
+                        "la flamme réarrange les atomes. Les atomes sont comptés avant et après, "
+                        "et un manque d'air fait apparaître le monoxyde de carbone.",
+         "trouve": "Les nombres de l'équation de combustion et la conservation des atomes.",
+         "motscles": ["combustion", "equation", "equilibrer", "atome", "molecule", "methane",
+                      "propane", "butane", "monoxyde de carbone", "dioxyde de carbone"]},
+        {"chapitre": "c03", "rubrique": "Cours", "avant": "a2_energie",
+         "titre": "L'énergie d'un combustible", "fichier": "animations/pouvoir-calorifique.html",
+         "description": "On brûle une petite masse de combustible sous un récipient d'eau et on "
+                        "mesure l'énergie reçue par l'eau. Une colonne d'essai permet de chercher "
+                        "le rapport constant.",
+         "trouve": "E = m·PCI et les ordres de grandeur des pouvoirs calorifiques.",
+         "motscles": ["pouvoir calorifique", "pci", "energie", "combustible", "gazole",
+                      "hydrogene", "calorimetre", "combustion"]},
+        {"chapitre": "c03", "rubrique": "Cours", "avant": "a3_groupe",
+         "titre": "Le groupe électrogène", "fichier": "animations/groupe-electrogene.html",
+         "description": "Un groupe diesel de 100 kW alimente une charge. Puissance demandée et "
+                        "durée réglables ; gazole consommé, énergie électrique fournie et CO₂ "
+                        "rejeté s'affichent.",
+         "trouve": "Le rendement d'un groupe, qui chute en sous-charge, et le CO₂ proportionnel "
+                   "au gazole brûlé.",
+         "motscles": ["groupe electrogene", "diesel", "rendement", "gazole", "co2",
+                      "sous-charge", "combustion"]},
         {"chapitre": "tp02", "rubrique": "TP", "avant": "activite",
          "titre": "Le relevé de caractéristiques",
          "fichier": "animations/caracteristiques.html",
@@ -328,6 +359,22 @@ ANIMATIONS = {
     ],
 
     "outils": [
+<<<<<<< Updated upstream
+=======
+        {"chapitre": "ou04", "rubrique": "Mesure", "avant": None,
+         "titre": "Acquérir, calculer et modéliser avec LatisPro",
+         "fichier": "animations/latispro.html",
+         "description": "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales "
+                        "d'acquisition Sysam : paramétrer une acquisition, calculer une "
+                        "nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis "
+                        "la modéliser et lire les paramètres du modèle. Chaque étape se "
+                        "rejoue ; le mieux est de la reproduire en même temps sur le poste "
+                        "du labo.",
+         "trouve": "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis "
+                   "on demande au logiciel les paramètres.",
+         "motscles": ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul",
+                      "courbe", "modelisation", "regression", "parametres"]},
+>>>>>>> Stashed changes
         {"chapitre": "ou03", "rubrique": "Mesure", "avant": None,
          "titre": "Calculer, tracer et modéliser avec un tableur",
          "fichier": "animations/tableur.html",
@@ -379,4 +426,5 @@ SOURCES = {
 
 # Correspondance clé du site -> dossier dans la collection ET.
 DOSSIERS_ET = {"ch00": "ch00", "ch09": "ch09", "c01": "C1", "c02": "C2",
-               "tp01": "TP1", "tp02": "TP2", "adm01": "ADM1"}
+               "tp01": "TP1", "tp02": "TP2", "adm01": "ADM1",
+               "c03": "C3", "tp03": "TP3"}

@@ -82,60 +82,60 @@ window.CHAPITRE = {
    "q": "Une température de 27 °C vaut, en kelvins :",
    "choix": [
     "27 K",
-    "300 K",
-    "246 K"
+    "246 K",
+    "300 K"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "T = 27+273 = 300 K."
   },
   {
    "q": "Un écart de température de 35 °C vaut, en kelvins :",
    "choix": [
-    "35 K",
     "308 K",
+    "35 K",
     "on ne peut pas convertir un écart"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "Un écart est le même dans les deux échelles : le décalage de 273 disparaît dans la soustraction. C'est pour cela que Q = m c Δθ accepte indifféremment les degrés Celsius et les kelvins."
   },
   {
    "q": "Le capteur le plus adapté à une régulation précise autour de 80 °C est :",
    "choix": [
-    "le thermocouple",
     "la Pt100",
+    "le thermocouple",
     "la CTN"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "La Pt100 est linéaire, stable et normalisée. Le thermocouple est fait pour les hautes températures et demande une électronique soignée ; la CTN est très sensible mais fortement non linéaire, ce qui la réserve aux seuils."
   },
   {
    "q": "L'énergie nécessaire pour élever de 30 °C la température de 4 kg d'eau vaut :",
    "choix": [
-    "502 kJ",
     "125 kJ",
+    "502 kJ",
     "16,7 kJ"
    ],
-   "bonne": 0,
-   "expl": "Q = 4× 4185× 30 = 502200 J, soit 502 kJ. La réponse b oublie un facteur, la réponse c divise au lieu de multiplier."
+   "bonne": 1,
+   "expl": "Q = 4× 4185× 30 = 502200 J, soit 502 kJ. La réponse « 125 kJ » oublie un facteur, la réponse « 16,7 kJ » divise au lieu de multiplier."
   },
   {
    "q": "Pendant un changement d'état à pression constante, la température :",
    "choix": [
-    "augmente plus vite",
     "reste constante",
+    "augmente plus vite",
     "diminue"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "L'énergie apportée sert à défaire les liaisons entre les particules, pas à augmenter leur agitation. C'est le palier de la courbe de chauffe."
   },
   {
    "q": "Le refroidissement d'une armoire par ventilateur relève principalement de :",
    "choix": [
     "la conduction",
-    "la convection",
-    "le rayonnement"
+    "le rayonnement",
+    "la convection"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Convection : c'est le déplacement de l'air qui emporte l'énergie. Appeler cela « conduction » est l'erreur la plus fréquente sur cette question."
   },
   {
@@ -162,20 +162,20 @@ window.CHAPITRE = {
    "q": "Dans une paroi composite, la couche qui commande le flux est celle qui a :",
    "choix": [
     "la plus grande épaisseur",
-    "le plus faible λ",
-    "la plus grande surface"
+    "la plus grande surface",
+    "le plus faible λ"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "C'est le matériau de plus faible conductivité qui impose presque toute la résistance. Dans une armoire tôle + isolant, l'isolant représente plus de 99 % de la résistance totale : la tôle ne compte pas."
   },
   {
    "q": "Dans la loi de Stefan P = εσS T⁴, la température doit être exprimée :",
    "choix": [
     "en °C",
-    "en K",
-    "indifféremment"
+    "indifféremment",
+    "en K"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "En kelvins, obligatoirement. C'est la seule formule du chapitre dans ce cas. Utiliser 60 °C au lieu de 333 K fausse le résultat d'un facteur 950, sans que rien dans le nombre obtenu ne le signale."
   },
   {
@@ -191,12 +191,12 @@ window.CHAPITRE = {
   {
    "q": "Un convertisseur de rendement 95 % absorbe 80 kW. La puissance qu'il faut évacuer du local sous forme de chaleur vaut :",
    "choix": [
-    "76 kW",
     "4 kW",
+    "76 kW",
     "0 kW"
    ],
-   "bonne": 1,
-   "expl": "P_pertes = 80×(1-0,95) = 4 kW. Ces 4 kW ne disparaissent pas : ils échauffent le local et doivent être évacués. La réponse a confond puissance utile et pertes."
+   "bonne": 0,
+   "expl": "P_pertes = 80×(1-0,95) = 4 kW. Ces 4 kW ne disparaissent pas : ils échauffent le local et doivent être évacués. La réponse « 76 kW » confond puissance utile et pertes."
   }
  ],
  "cartes": [
