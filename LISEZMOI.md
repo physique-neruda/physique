@@ -734,3 +734,32 @@ animations » y a été posé.
   (9 cartes par chapitre) et écrase les 14 cartes enrichies. Après l'avoir lancé, remettre les
   cartes de la version précédente (c'est ce qui a été fait ici), ou relancer la chaîne
   d'enrichissement des cartes.
+
+## Mise à jour du 25 septembre 2026 (v22) — CRSA ch.3
+
+- Nouvelle activité 2 (transferts thermiques) et deux animations reprises du BTS ET, placées
+  devant elle : `flux-thermique.html` et `rayonnement.html` (déclarées dans
+  `ANIMATIONS["bts-crsa"]`, titres dans `TITRES_PARTICULIERS`). Cours, exercices, bilan
+  redéposés ; questionnaire et cartes du chapitre régénérés.
+
+## Mise à jour du 26 septembre 2026 (v23)
+
+- 1re STI2D ch.3 et ch.5, BTS ET Cours 1 et TP 1, ADM 1, BTS CRSA ch.2 et ch.11 redéposés.
+- BTS ET Cours 1 : activités renommées `a2_flux` et `a3_rayonnement` (liste blanche et
+  animations de `filieres.py` suivent ; les anciens PDF `a2_rayonnement` et `a3_flux` sont retirés).
+
+
+## Mise à jour du 27 septembre 2026 (v24)
+
+- ADM 1 : nouveau symbole du disjoncteur magnétothermique — cours redéposé, paquet Anki
+  (`docs/bts-et/adm01/symboles-anki.apkg`) et image de la carte en ligne
+  (`entrainement/media/adm01/adm01-disj-3p.png`) remplacés.
+
+## Mise à jour du 29 septembre 2026 (v25)
+
+- **Tutoriel LatisPro** (`animations/latispro.html`) : nouvelle partie 5 « Capteur de pression »,
+  cinq étapes — brancher le capteur et passer en mode **Pas à pas** avec **Entrée clavier** (nom h,
+  unité m) ; acquérir point par point (F10, une profondeur tapée par point, Fin) ; tracer P = f(h)
+  en style Points ; modéliser par une **droite affine** ; exploiter la pente (ρ = a/g ≈ 997 kg/m³)
+  et l'ordonnée à l'origine (Patm). Bilan complété. Testé dans un navigateur : 18 étapes, aucune
+  erreur de script.

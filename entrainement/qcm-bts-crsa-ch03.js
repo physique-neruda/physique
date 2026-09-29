@@ -142,7 +142,7 @@ window.CHAPITRE = {
     "la paroi chauffe"
    ],
    "bonne": 1,
-   "expl": "Un bon isolant est celui dont la résistance est grande — c'est l'inverse de l'intuition électrique."
+   "expl": "Un bon isolant est celui dont la résistance est grande — comme en électricité, où une grande résistance laisse passer peu de courant."
   },
   {
    "q": "L'énergie nécessaire pour chauffer 2 kg d'eau de 10 °C se calcule par :",
@@ -214,20 +214,20 @@ window.CHAPITRE = {
  "cartes": [
   {
    "type": "retenir",
-   "recto": "Reconnaître le mode — qu'y a-t-il à retenir ?",
-   "verso": "La <strong>conduction</strong> se fait de proche en proche dans la matière, sans déplacement. La <strong>convection</strong> se fait par déplacement d'un fluide.",
-   "origine": "encadre du cours"
-  },
-  {
-   "type": "retenir",
-   "recto": "Les couches s'additionnent — qu'y a-t-il à retenir ?",
-   "verso": "Pour une paroi multicouche : R_tot = R₁ + R₂ + R₃. Et contrairement à l'intuition électrique, <strong>plus R est grand</strong>, moins la chaleur passe.",
-   "origine": "encadre du cours"
-  },
-  {
-   "type": "retenir",
    "recto": "Le bilan d'un calorimètre — qu'y a-t-il à retenir ?",
    "verso": "Dans une enceinte isolée, ce que l'un des corps cède, l'autre le reçoit : Q_i = 0. Écrire la somme nulle plutôt que « ce qui est cédé égale ce qui est reçu » évite les erreurs de signe.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Lire le diagramme — qu'y a-t-il à retenir ?",
+   "verso": "On repère la température en abscisse et la pression en ordonnée, puis on lit le domaine dans lequel tombe le point. Un point situé <em>sur</em> une courbe signifie que les deux états coexistent.",
+   "origine": "encadre du cours"
+  },
+  {
+   "type": "retenir",
+   "recto": "Reconnaître le mode — qu'y a-t-il à retenir ?",
+   "verso": "La <strong>conduction</strong> se fait de proche en proche dans la matière, sans déplacement. La <strong>convection</strong> se fait par déplacement d'un fluide.",
    "origine": "encadre du cours"
   },
   {
@@ -304,7 +304,7 @@ window.CHAPITRE = {
    "type": "question",
    "recto": "Plus la résistance thermique d'une paroi est grande ……",
    "rep": "moins la chaleur passe",
-   "verso": "<strong>moins la chaleur passe</strong> — Un bon isolant est celui dont la résistance est grande — c'est l'inverse de l'intuition électrique.",
+   "verso": "<strong>moins la chaleur passe</strong> — Un bon isolant est celui dont la résistance est grande — comme en électricité, où une grande résistance laisse passer peu de courant.",
    "origine": "bilan"
   }
  ],

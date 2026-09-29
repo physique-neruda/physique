@@ -118,11 +118,11 @@ DOCUMENTS = {
          "Le document à remplir pendant l'animation."),
         ("a1_flux",           "Cours", "Activité 1 — Le flux magnétique",
          "Le document à remplir pendant l'animation."),
-        ("a2_rayonnement",    "Cours", "Activité 2 — Le rayonnement",
+        ("a2_flux",           "Cours", "Activité 2 — Le flux à travers une paroi",
+         "Le document à remplir pendant l'animation."),
+        ("a3_rayonnement",    "Cours", "Activité 3 — Le rayonnement",
          "Le document à remplir pendant l'animation."),
         ("a2_induction",      "Cours", "Activité 2 — L'induction",
-         "Le document à remplir pendant l'animation."),
-        ("a3_flux",           "Cours", "Activité 3 — Le flux à travers une paroi",
          "Le document à remplir pendant l'animation."),
         ("a3_circuit",        "Cours", "Activité 3 — Le circuit magnétique",
          "Le document à remplir pendant l'animation."),
@@ -171,6 +171,12 @@ TITRES_PARTICULIERS = {
     ("bts-crsa", "ch01", "activite2"):
         ("Activité 2 — Rendement d'un panneau photovoltaïque",
          "L'activité expérimentale, avec le panneau et le luxmètre du laboratoire."),
+    ("bts-crsa", "ch03", "activite"):
+        ("Activité 1 — Chaleur latente de fusion de la glace",
+         "L'activité expérimentale, au calorimètre du laboratoire."),
+    ("bts-crsa", "ch03", "activite2"):
+        ("Activité 2 — Les transferts thermiques",
+         "Menée sur les deux animations ci-dessus : aucun matériel nécessaire."),
 }
 
 # ------------------------------------------------------------- animations
@@ -186,14 +192,14 @@ ANIMATIONS = {
                         "Q = m·c·Δθ et Q = m·L.",
          "motscles": ["calorimetre", "chaleur", "capacite thermique", "chaleur latente",
                       "changement d'etat", "palier", "fusion", "vaporisation", "energie"]},
-        {"chapitre": "c01", "rubrique": "Cours", "avant": "a2_rayonnement",
+        {"chapitre": "c01", "rubrique": "Cours", "avant": "a3_rayonnement",
          "titre": "Le rayonnement", "fichier": "animations/rayonnement.html",
          "description": "Une plaque chaude face à un capteur, sans aucun contact. Température, "
                         "surface et état de surface réglables, avec une colonne d'essai pour "
                         "chercher la loi. P = ε·σ·S·T⁴.",
          "motscles": ["rayonnement", "stefan", "emissivite", "camera thermique",
                       "thermographie", "kelvin", "infrarouge"]},
-        {"chapitre": "c01", "rubrique": "Cours", "avant": "a3_flux",
+        {"chapitre": "c01", "rubrique": "Cours", "avant": "a2_flux",
          "titre": "Le flux à travers une paroi", "fichier": "animations/flux-thermique.html",
          "description": "Une ou deux couches entre un local chauffé et l'extérieur. Matériau, "
                         "épaisseur, surface et températures réglables ; température d'interface "
@@ -305,6 +311,20 @@ ANIMATIONS = {
                         "la puissance absorbée se calculent. Le rendement varie avec la charge.",
          "trouve": "η = P utile / P absorbée, maximal à charge partielle.",
          "motscles": ["moteur", "courant continu", "mcc", "rendement", "couple", "puissance"]},
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite2",
+         "titre": "Le flux à travers une paroi", "fichier": "animations/flux-thermique.html",
+         "description": "Un fluxmètre posé sur une paroi : matériau, épaisseur, surface et "
+                        "températures se règlent, une deuxième couche s'ajoute. On change une "
+                        "seule chose à la fois.",
+         "trouve": "φ = S·Δθ/R, avec R = e/λ ; les résistances des couches s'additionnent.",
+         "motscles": ["flux thermique", "paroi", "isolant", "resistance thermique", "conduction"]},
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite2",
+         "titre": "Le rayonnement", "fichier": "animations/rayonnement.html",
+         "description": "Une plaque chaude devant un capteur : sa température, sa surface et son "
+                        "état de surface se règlent. Rien ne la touche, aucun air ne circule.",
+         "trouve": "La puissance rayonnée croît très vite avec la température et dépend de "
+                   "l'état de surface.",
+         "motscles": ["rayonnement", "transfert thermique", "four", "surface", "temperature"]},
     ],
 
     "bts-tsma": [
@@ -365,12 +385,14 @@ ANIMATIONS = {
          "description": "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales "
                         "d'acquisition Sysam : paramétrer une acquisition, calculer une "
                         "nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis "
-                        "la modéliser et lire les paramètres du modèle. Chaque étape se "
+                        "la modéliser et lire les paramètres du modèle. Une dernière partie "
+                        "montre la mesure point par point au capteur de pression (mode pas à "
+                        "pas, profondeur saisie au clavier) et la modélisation par une droite. Chaque étape se "
                         "rejoue ; le mieux est de la reproduire en même temps sur le poste "
                         "du labo.",
          "trouve": "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis "
                    "on demande au logiciel les paramètres.",
-         "motscles": ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul",
+         "motscles": ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier",
                       "courbe", "modelisation", "regression", "parametres"]},
         {"chapitre": "ou03", "rubrique": "Mesure", "avant": None,
          "titre": "Calculer, tracer et modéliser avec un tableur",

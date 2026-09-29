@@ -226,8 +226,8 @@ window.CHAPITRE = {
   },
   {
    "type": "retenir",
-   "recto": "On ne stocke pas l'électricité — qu'y a-t-il à retenir ?",
-   "verso": "L'électricité ne se conserve pas telle quelle : on la convertit en énergie chimique, électrostatique, mécanique, hydraulique, électromagnétique ou thermique, puis on refait le chemin inverse au moment de s'en servir.",
+   "recto": "Ne pas les confondre — qu'y a-t-il à retenir ?",
+   "verso": "<strong>Redresseur et gradateur</strong> reçoivent tous deux l'alternatif du réseau. Le redresseur rend un courant de <strong>sens constant</strong> : sa valeur moyenne n'est plus nulle, on peut alimenter un moteur à courant continu ou charger une batterie.",
    "origine": "encadre du cours"
   },
   {

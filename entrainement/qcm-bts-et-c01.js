@@ -227,7 +227,7 @@ window.CHAPITRE = {
   {
    "type": "retenir",
    "recto": "Trois activités au simulateur précèdent ce cours — qu'y a-t-il à retenir ?",
-   "verso": "Chacune fait <em>trouver</em> une loi avant qu'elle ne soit écrite ici, à partir de mesures relevées sur téléphone. L'<strong>activité 1</strong> donne E = P × t, puis Q = m c Δθ et Q = m L ; l'<strong>activité 2</strong> donne la loi de Stefan.",
+   "verso": "Chacune fait <em>trouver</em> une loi avant qu'elle ne soit écrite ici, à partir de mesures relevées sur téléphone. L'<strong>activité 1</strong> donne E = P × t, puis Q = m c Δθ et Q = m L.",
    "origine": "encadre du cours"
   },
   {

@@ -128,9 +128,9 @@ const DOCUMENTS = [
     chapitre: "Acquérir, calculer et modéliser avec LatisPro",
     type: "animation", titre: "Acquérir, calculer et modéliser avec LatisPro",
     fichier: "animations/latispro.html",
-    description: "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales d'acquisition Sysam : paramétrer une acquisition, calculer une nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis la modéliser et lire les paramètres du modèle. Chaque étape se rejoue ; le mieux est de la reproduire en même temps sur le poste du labo.",
+    description: "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales d'acquisition Sysam : paramétrer une acquisition, calculer une nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis la modéliser et lire les paramètres du modèle. Une dernière partie montre la mesure point par point au capteur de pression (mode pas à pas, profondeur saisie au clavier) et la modélisation par une droite. Chaque étape se rejoue ; le mieux est de la reproduire en même temps sur le poste du labo.",
     trouve: "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis on demande au logiciel les paramètres.",
-    motscles: ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "courbe", "modelisation", "regression", "parametres"]
+    motscles: ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier", "courbe", "modelisation", "regression", "parametres"]
   },
 
 
@@ -221,24 +221,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "Cours",
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "animation", titre: "Le rayonnement",
-    fichier: "animations/rayonnement.html",
-    description: "Une plaque chaude face à un capteur, sans aucun contact. Température, surface et état de surface réglables, avec une colonne d'essai pour chercher la loi. P = ε·σ·S·T⁴.",
-    motscles: ["rayonnement", "stefan", "emissivite", "camera thermique", "thermographie", "kelvin", "infrarouge"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "pdf", titre: "Activité 2 — Le rayonnement",
-    fichier: "docs/bts-et/c01/a2_rayonnement.pdf",
-    description: "Le document à remplir pendant l'animation.",
-    motscles: ["energie", "interne", "thermiques", "transferts"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
     type: "animation", titre: "Le flux à travers une paroi",
     fichier: "animations/flux-thermique.html",
     description: "Une ou deux couches entre un local chauffé et l'extérieur. Matériau, épaisseur, surface et températures réglables ; température d'interface affichée. Φ = λ·S·Δθ / e, puis la résistance thermique.",
@@ -248,8 +230,26 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "Cours",
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "pdf", titre: "Activité 3 — Le flux à travers une paroi",
-    fichier: "docs/bts-et/c01/a3_flux.pdf",
+    type: "pdf", titre: "Activité 2 — Le flux à travers une paroi",
+    fichier: "docs/bts-et/c01/a2_flux.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["energie", "interne", "thermiques", "transferts"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
+    type: "animation", titre: "Le rayonnement",
+    fichier: "animations/rayonnement.html",
+    description: "Une plaque chaude face à un capteur, sans aucun contact. Température, surface et état de surface réglables, avec une colonne d'essai pour chercher la loi. P = ε·σ·S·T⁴.",
+    motscles: ["rayonnement", "stefan", "emissivite", "camera thermique", "thermographie", "kelvin", "infrarouge"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
+    type: "pdf", titre: "Activité 3 — Le rayonnement",
+    fichier: "docs/bts-et/c01/a3_rayonnement.pdf",
     description: "Le document à remplir pendant l'animation.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
@@ -1641,9 +1641,38 @@ const DOCUMENTS = [
   {
     filiere: "bts-crsa", rubrique: "TP",
     chapitre: "Chapitre 3 — Énergie thermique",
-    type: "pdf", titre: "Activité expérimentale",
+    type: "pdf", titre: "Activité 1 — Chaleur latente de fusion de la glace",
     fichier: "docs/bts-crsa/ch03/activite.pdf",
-    description: "L'activité de découverte, à faire en salle de TP.",
+    description: "L'activité expérimentale, au calorimètre du laboratoire.",
+    motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 3 — Énergie thermique",
+    type: "animation", titre: "Le flux à travers une paroi",
+    fichier: "animations/flux-thermique.html",
+    description: "Un fluxmètre posé sur une paroi : matériau, épaisseur, surface et températures se règlent, une deuxième couche s'ajoute. On change une seule chose à la fois.",
+    trouve: "φ = S·Δθ/R, avec R = e/λ ; les résistances des couches s'additionnent.",
+    motscles: ["flux thermique", "paroi", "isolant", "resistance thermique", "conduction"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 3 — Énergie thermique",
+    type: "animation", titre: "Le rayonnement",
+    fichier: "animations/rayonnement.html",
+    description: "Une plaque chaude devant un capteur : sa température, sa surface et son état de surface se règlent. Rien ne la touche, aucun air ne circule.",
+    trouve: "La puissance rayonnée croît très vite avec la température et dépend de l'état de surface.",
+    motscles: ["rayonnement", "transfert thermique", "four", "surface", "temperature"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 3 — Énergie thermique",
+    type: "pdf", titre: "Activité 2 — Les transferts thermiques",
+    fichier: "docs/bts-crsa/ch03/activite2.pdf",
+    description: "Menée sur les deux animations ci-dessus : aucun matériel nécessaire.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
 
@@ -3271,7 +3300,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 0 — Outils de base",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch00",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
   },
 
@@ -3390,7 +3419,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch01",
-    description: "8 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
   },
 
@@ -3509,7 +3538,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 2 — Énergie, puissance, rendement",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch02",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
   },
 
@@ -3618,7 +3647,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 3 — Statique des fluides",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch03",
-    description: "6 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
   },
 
@@ -3727,7 +3756,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 4 — Dynamique des fluides",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch04",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
   },
 
@@ -3855,7 +3884,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 5 — Viscosité et pertes de charge",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch05",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
   },
 
@@ -3955,7 +3984,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 6 — La réaction chimique",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch06",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
   },
 
@@ -4055,7 +4084,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 7 — Combustions et carburants",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch07",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
   },
 
@@ -4155,7 +4184,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch08",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
   },
 
@@ -4255,7 +4284,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch09",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
   },
 
@@ -4355,7 +4384,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 10 — Machines thermiques",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch10",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["machine thermique", "moteur", "cycle", "rendement"]
   },
 
@@ -4455,7 +4484,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch11",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
   },
 
@@ -4555,7 +4584,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 12 — Analyse du signal",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch12",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["signal", "frequence", "spectre", "periode"]
   },
 
@@ -4655,7 +4684,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 13 — Oscillations et résonance",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch13",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["oscillation", "resonance", "vibration", "amortissement"]
   },
 
@@ -4755,7 +4784,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 14 — Ondes acoustiques et protection",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch14",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
   },
 
@@ -4855,7 +4884,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch15",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
   },
 
@@ -4955,7 +4984,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch16",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
   },
 
@@ -5055,7 +5084,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 17 — Distribution électrique et sécurité",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch17",
-    description: "9 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["distribution electrique", "securite", "habilitation", "courant"]
   },
 
