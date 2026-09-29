@@ -79,31 +79,31 @@ window.CHAPITRE = {
   {
    "q": "Le débit volumique s'exprime, dans le Système international, en :",
    "choix": [
-    "L/min",
     "m³/s",
+    "L/min",
     "kg/s"
    ],
-   "bonne": 1,
-   "expl": "le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse b de la question 2 correspond à un oubli du facteur 60. 3pt"
+   "bonne": 0,
+   "expl": "le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse « m³/s » de la question 2 correspond à un oubli du facteur 60. 3pt"
   },
   {
    "q": "60 L/min valent :",
    "choix": [
-    "1,0×10⁻³ m³/s",
     "60×10⁻³ m³/s",
+    "1,0×10⁻³ m³/s",
     "1,0 m³/s"
    ],
-   "bonne": 0,
-   "expl": "le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse b de la question 2 correspond à un oubli du facteur 60. 3pt"
+   "bonne": 1,
+   "expl": "le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse « 60×10⁻³ m³/s » de la question 2 correspond à un oubli du facteur 60. 3pt"
   },
   {
    "q": "Le débit massique se calcule par :",
    "choix": [
     "Q_m = Q_v / ρ",
-    "Q_m = ρQ_v",
-    "Q_m = ρ/ Q_v"
+    "Q_m = ρ/ Q_v",
+    "Q_m = ρQ_v"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Q_m = ρQ_v : une masse volumique multipliée par un volume par seconde donne bien des kg/s. Vérifier par les unités en cas de doute. 3pt"
   },
   {
@@ -120,50 +120,50 @@ window.CHAPITRE = {
    "q": "Une conduite passe de 40 mm à 20 mm de diamètre. La vitesse est multipliée par :",
    "choix": [
     "2",
-    "4",
-    "16"
+    "16",
+    "4"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "la continuité découle de la conservation de la masse (rien ne s'accumule), pas de l'énergie : c'est Bernoulli qui traduit l'énergie. Et comme S D², diviser le diamètre par deux divise la section par quatre, donc multiplie la vitesse par quatre. 3pt"
   },
   {
    "q": "Dans le théorème de Bernoulli, le terme 1/2ρv² représente :",
    "choix": [
-    "la pression statique",
     "la pression dynamique",
+    "la pression statique",
     "la pression de pesanteur"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "les trois termes de Bernoulli sont la pression statique p, la pression dynamique 1/2ρv² et la pression de pesanteur ρg z. Les hypothèses ne sont pas décoratives : « parfait » veut dire sans viscosité, donc sans pertes de charge. Dans un circuit horizontal, z₁ = z₂ et les termes ρg z s'éliminent de part et d'autre. 3pt"
   },
   {
    "q": "Le théorème de Bernoulli suppose que le fluide est :",
    "choix": [
-    "parfait, incompressible, en écoulement permanent",
     "visqueux et compressible",
+    "parfait, incompressible, en écoulement permanent",
     "au repos"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "les trois termes de Bernoulli sont la pression statique p, la pression dynamique 1/2ρv² et la pression de pesanteur ρg z. Les hypothèses ne sont pas décoratives : « parfait » veut dire sans viscosité, donc sans pertes de charge. Dans un circuit horizontal, z₁ = z₂ et les termes ρg z s'éliminent de part et d'autre. 3pt"
   },
   {
    "q": "Dans un circuit horizontal, quel terme de Bernoulli disparaît ?",
    "choix": [
-    "p",
+    "ρg z",
     "1/2ρv²",
-    "ρg z"
+    "p"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "les trois termes de Bernoulli sont la pression statique p, la pression dynamique 1/2ρv² et la pression de pesanteur ρg z. Les hypothèses ne sont pas décoratives : « parfait » veut dire sans viscosité, donc sans pertes de charge. Dans un circuit horizontal, z₁ = z₂ et les termes ρg z s'éliminent de part et d'autre. 3pt"
   },
   {
    "q": "Au col d'un venturi, par rapport à l'amont :",
    "choix": [
-    "la vitesse augmente et la pression diminue",
+    "la vitesse diminue et la pression augmente",
     "la vitesse et la pression augmentent",
-    "la vitesse diminue et la pression augmente"
+    "la vitesse augmente et la pression diminue"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "c'est l'effet Venturi. La continuité impose l'accélération ; la conservation de la somme impose alors la chute de pression statique. C'est aussi ce qui peut faire caviter une pompe dont la conduite d'aspiration est trop étroite. 3pt"
   },
   {
@@ -174,26 +174,26 @@ window.CHAPITRE = {
     "ρg h"
    ],
    "bonne": 0,
-   "expl": "v = √(2gh), indépendante de la masse volumique : de l'eau et du gazole sortent à la même vitesse sous la même hauteur. La réponse c est une pression, pas une vitesse — le contrôle des unités suffit à l'écarter. 3pt"
+   "expl": "v = √(2gh), indépendante de la masse volumique : de l'eau et du gazole sortent à la même vitesse sous la même hauteur. La réponse « ρg h » est une pression, pas une vitesse — le contrôle des unités suffit à l'écarter. 3pt"
   },
   {
    "q": "Dans un circuit de relevage à 185 bar avec 1,4 m de dénivelé, le terme ρg z représente :",
    "choix": [
     "environ 50 % du total",
-    "environ 6 % du total",
-    "moins de 0,1 % du total"
+    "moins de 0,1 % du total",
+    "environ 6 % du total"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "870×9,81×1,4 = 1,19×10⁴ Pa face à 1,85×10⁷ Pa, soit 0,064 %. En haute pression, le dénivelé et la vitesse ne comptent pas ; ils redeviennent déterminants en aspiration et sur les cuves. 3pt"
   },
   {
    "q": "Comparé au débit réel, un venturi exploité par la formule du fluide parfait donne un débit :",
    "choix": [
-    "légèrement surestimé",
+    "très largement sous-estimé",
     "exact",
-    "très largement sous-estimé"
+    "légèrement surestimé"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "la formule ignore la viscosité et la contraction du jet au col. Le venturi annonce donc un peu plus que la réalité, typiquement 25. On corrige par un coefficient de débit C_d voisin de 0,95, obtenu en comparant à un empotage. tcolorbox"
   }
  ],

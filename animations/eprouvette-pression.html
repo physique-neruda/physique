@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pression au fond d'une éprouvette</title>
+<style>
+:root{--bleu:#1F4E79;--bleu-clair:#E6EEF7;--orange:#D9701E;--rouge:#B03A2E;--encre:#1B2430;--gris:#5A6675;--fond:#F4F7FB;--carte:#FFFFFF;--filet:#D3DCE7;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bleu:#8DB8E6;--bleu-clair:#1E2C3C;--orange:#F0A060;--rouge:#E8877B;--encre:#E6EBF2;--gris:#A5B0BE;--fond:#121821;--carte:#1A222D;--filet:#2E3A48}}
+:root[data-theme="dark"]{--bleu:#8DB8E6;--bleu-clair:#1E2C3C;--orange:#F0A060;--rouge:#E8877B;--encre:#E6EBF2;--gris:#A5B0BE;--fond:#121821;--carte:#1A222D;--filet:#2E3A48}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fond);color:var(--encre);font-family:"Segoe UI",Roboto,Arial,sans-serif}
+header{padding:14px 18px 4px;max-width:1150px;margin:auto}
+h1{font-size:1.35rem;margin:0 0 4px;color:var(--bleu)}
+header p{margin:0;color:var(--gris);font-size:.93rem}
+.onglets{max-width:1150px;margin:10px auto 0;padding:0 18px;display:flex;gap:6px;flex-wrap:wrap}
+.onglets button{border:1px solid var(--filet);background:var(--carte);color:var(--encre);padding:7px 14px;border-radius:8px 8px 0 0;font-weight:600;cursor:pointer}
+.onglets button.on{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+main{max-width:1150px;margin:0 auto;padding:0 18px 20px;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px}
+@media (max-width:860px){main{grid-template-columns:1fr}}
+.carte{background:var(--carte);border:1px solid var(--filet);border-radius:10px;padding:12px}
+svg{width:100%;height:auto;display:block;color:var(--encre)}
+.ctrl{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.ctrl button{border:1px solid var(--filet);background:var(--bleu-clair);color:var(--encre);border-radius:7px;padding:6px 10px;font-weight:600;cursor:pointer}
+.ctrl button.on{background:var(--bleu);color:#fff}
+.ctrl button.act{background:var(--orange);color:#fff;border-color:var(--orange)}
+.lcd{font-family:Consolas,monospace;font-size:1.9rem;background:#0F1A12;color:#7CFF8A;border-radius:8px;padding:8px 12px;text-align:right}
+.lcd small{font-size:.9rem;color:#A8DDB0}
+.msg{min-height:2.6em;margin-top:8px;font-size:.92rem}
+.msg.warn{color:var(--rouge);font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin-top:6px}
+th,td{border:1px solid var(--filet);padding:3px 6px;text-align:center}
+th{background:var(--bleu-clair)}
+h2{font-size:1rem;margin:0 0 6px;color:var(--bleu)}
+.note{font-size:.85rem;color:var(--gris);margin-top:6px}
+footer{text-align:center;color:var(--gris);font-size:.8rem;padding:8px}
+.cache{display:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>Pression au fond d'une éprouvette</h1>
+  <p>Un tuyau souple, relié à un capteur de pression absolue, plonge dans une éprouvette de 50 cm. On choisit le liquide, on règle la profondeur h de l'extrémité du tuyau sous la surface libre, on relève la pression.</p>
+</header>
+<main id="vueM" style="margin-top:12px">
+  <section class="carte">
+    <svg id="dessin" viewBox="0 0 640 430" aria-label="Éprouvette"></svg>
+    <div class="ctrl" id="choixLiq"></div>
+    <div class="ctrl">
+      <button data-dh="0.05">descendre de 5 cm</button><button data-dh="0.01">de 1 cm</button>
+      <button data-dh="-0.01">remonter de 1 cm</button><button data-dh="-0.05">de 5 cm</button><button data-dh="0">sortir le tuyau</button>
+    </div>
+  </section>
+  <aside class="carte">
+    <h2>Capteur de pression absolue</h2>
+    <div class="lcd"><span id="lcd">1012,4</span> <small>hPa</small></div>
+    <p style="margin:8px 0 0">Profondeur lue à la règle : <b><span id="hlu">0,000</span> m</b></p>
+    <div class="msg" id="msg"></div>
+    <div class="ctrl"><button class="act" id="bRel">Relever le point</button><button id="bEff">Effacer le tableau</button></div>
+    <table><thead><tr><th>h (m)</th><th>p (hPa)</th></tr></thead><tbody id="tab"></tbody></table>
+    <svg id="graphe" viewBox="0 0 340 236" style="margin-top:8px"></svg>
+    <div class="note">Pour la masse volumique : saisir le tableau dans LatisPro (mode pas à pas, entrée clavier) ou au tableur, modéliser par une droite affine, puis ρ = pente / g — la pente étant convertie en Pa/m.</div>
+  </aside>
+</main>
+<footer>M. Cronenberger</footer>
+<script>
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const fr=(v,d)=>v.toFixed(d).replace('.',',');
+const PATM=1012.4,G=9.81;
+const LIQ={eau:{nom:'eau du robinet',rho:998,coul:'#9BC4E8'},huile:{nom:"huile du bidon d'atelier",rho:870,coul:'#E3C35A'}};
+let liq='eau',h=0,points=[],t0=0;
+const HMAX=0.40;
+function pression(){return PATM+LIQ[liq].rho*G*h/100}
+function lecture(){return pression()+0.12*Math.sin(t0*1.9)+0.08*Math.sin(t0*5.1)}
+function dessin(){const X=250,Y0=60,H=320,px=H/0.46,ys=Y0+0.04*px,yh=ys+h*px,c=LIQ[liq].coul,s=[];
+  s.push(`<rect x="${X-45}" y="${Y0}" width="90" height="${H}" rx="8" fill="none" stroke="#4A6B8A" stroke-width="3"/>`);
+  s.push(`<rect x="${X-42}" y="${ys}" width="84" height="${Y0+H-ys-3}" fill="${c}" opacity=".75"/>`);
+  s.push(`<rect x="${X-70}" y="${Y0+H}" width="140" height="14" rx="4" fill="#8A7F72"/>`);
+  for(let k=0;k<=45;k++){const y=ys+k*0.01*px;if(y>Y0+H-4)break;const L=k%5===0?16:8;
+    s.push(`<line x1="${X+45}" x2="${X+45+L}" y1="${y}" y2="${y}" stroke="currentColor" stroke-width="1"/>`);
+    if(k%5===0)s.push(`<text x="${X+66}" y="${y+4}" font-size="11" fill="currentColor">${k} cm</text>`)}
+  s.push(`<text x="${X+45}" y="${ys-8}" font-size="11" fill="currentColor">surface libre</text>`);
+  s.push(`<path d="M${X-10} ${Y0-30} V${yh}" fill="none" stroke="#333" stroke-width="5"/><path d="M${X-10} ${Y0-30} C ${X-10} ${Y0-60}, ${X+200} ${Y0-60}, ${X+230} ${Y0-20}" fill="none" stroke="#333" stroke-width="5"/>`);
+  s.push(`<rect x="${X+215}" y="${Y0-20}" width="80" height="44" rx="6" fill="#2D3A48"/><text x="${X+255}" y="${Y0+6}" font-size="12" fill="#fff" text-anchor="middle">capteur</text>`);
+  if(h>0){s.push(`<line x1="${X-60}" x2="${X-60}" y1="${ys}" y2="${yh}" stroke="#D9701E" stroke-width="2" marker-end="url(#fl)" marker-start="url(#fl2)"/><text x="${X-68}" y="${(ys+yh)/2+5}" font-size="16" fill="#D9701E" text-anchor="end" font-weight="700">h</text>`)}
+  s.unshift(`<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#D9701E"/></marker><marker id="fl2" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10 0L0 5L10 10z" fill="#D9701E"/></marker></defs>`);
+  s.push(`<text x="${X}" y="${Y0+H+34}" font-size="14" text-anchor="middle" fill="currentColor" font-weight="700">${LIQ[liq].nom}</text>`);
+  $('dessin').innerHTML=s.join('')}
+function graphe(){const L=46,R=330,T=14,B=196,gx=v=>L+(R-L)*v/HMAX,gy=p=>B-(B-T)*(p-1010)/40;
+  let s=`<rect x="${L}" y="${T}" width="${R-L}" height="${B-T}" fill="none" stroke="currentColor" stroke-opacity=".3"/>`;
+  for(let k=0;k<=4;k++){const p=1010+10*k;s+=`<text x="${L-4}" y="${gy(p)+4}" font-size="10" text-anchor="end" fill="currentColor">${p}</text>`}
+  for(let k=0;k<=4;k++){const v=HMAX*k/4;s+=`<text x="${gx(v)}" y="${B+14}" font-size="10" text-anchor="middle" fill="currentColor">${fr(v,2)}</text>`}
+  s+=`<text x="${R}" y="${B+30}" font-size="10" text-anchor="end" fill="currentColor">h en m</text><text x="${L}" y="${T-3}" font-size="10" fill="currentColor">p en hPa</text>`;
+  points.filter(q=>q.l===liq).forEach(q=>{const x=gx(q.h),y=gy(q.p);s+=`<path d="M${x-4} ${y-4}L${x+4} ${y+4}M${x-4} ${y+4}L${x+4} ${y-4}" stroke="#D9701E" stroke-width="2"/>`});
+  $('graphe').innerHTML=s}
+function tableau(){$('tab').innerHTML=points.filter(q=>q.l===liq).map(q=>`<tr><td>${fr(q.h,3)}</td><td>${fr(q.p,1)}</td></tr>`).join('')}
+function choix(){$('choixLiq').innerHTML=Object.keys(LIQ).map(k=>`<button data-l="${k}" class="${k===liq?'on':''}">${LIQ[k].nom}</button>`).join('')}
+function maj(){choix();dessin();graphe();tableau();$('hlu').textContent=fr(h,3);
+  $('msg').textContent=h===0?'Tuyau hors du liquide : le capteur lit la pression atmosphérique.':'Attendre que la valeur se stabilise avant de relever le point.'}
+$('choixLiq').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;liq=b.dataset.l;h=0;maj()});
+document.querySelectorAll('[data-dh]').forEach(b=>b.addEventListener('click',()=>{const d=+b.dataset.dh;h=d===0?0:Math.round(Math.max(0,Math.min(HMAX,h+d))*100)/100;maj()}));
+$('bRel').addEventListener('click',()=>{const p=lecture();points=points.filter(q=>!(q.l===liq&&q.h===h));points.push({l:liq,h:h,p:p});points.sort((a,b)=>a.h-b.h);tableau();graphe()});
+$('bEff').addEventListener('click',()=>{points=points.filter(q=>q.l!==liq);tableau();graphe()});
+setInterval(()=>{t0+=0.25;$('lcd').textContent=fr(lecture(),1)},250);
+maj();
+})();
+</script>
+</body>
+</html>

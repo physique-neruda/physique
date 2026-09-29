@@ -91,31 +91,31 @@ window.CHAPITRE = {
   {
    "q": "La commande est en 24 V alternatif parce que :",
    "choix": [
-    "les bobines ne supportent pas le 400 V",
     "cette tension n'est pas dangereuse pour les personnes",
+    "les bobines ne supportent pas le 400 V",
     "cela consomme moins d'énergie"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "En dessous de 25 V alternatif, la tension n'est pas mortelle même en milieu humide. Les bobines existent aussi en 230 V et en 400 V : ce n'est donc pas une contrainte de l'appareil, c'est un choix de sécurité."
   },
   {
    "q": "Quatre conducteurs se croisent en un point sans qu'aucun point ne soit dessiné. Cela signifie :",
    "choix": [
     "qu'ils sont reliés",
-    "qu'ils ne sont pas reliés",
-    "que le dessinateur a oublié le point"
+    "que le dessinateur a oublié le point",
+    "qu'ils ne sont pas reliés"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Pas de point = pas de connexion. Un croisement à quatre branches sans point est un simple croisement."
   },
   {
    "q": "Un schéma se lit toujours :",
    "choix": [
-    "machine en marche",
     "au repos, hors tension",
+    "machine en marche",
     "dans l'état où on l'a trouvée"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Le schéma représente l'état de repos : hors tension, ressorts détendus, personne n'agit. C'est la convention qui rend les schémas comparables entre eux."
   },
   {
@@ -132,30 +132,30 @@ window.CHAPITRE = {
    "q": "Ce qui ouvre les pôles d'un contacteur, c'est :",
    "choix": [
     "l'inversion du courant dans la bobine",
-    "un ressort de rappel, dès que la bobine n'est plus alimentée",
-    "le relais thermique"
+    "le relais thermique",
+    "un ressort de rappel, dès que la bobine n'est plus alimentée"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Rien n'ouvre activement : c'est l'absence de courant dans la bobine qui laisse le ressort agir. D'où le fait qu'une coupure d'alimentation arrête toujours la machine."
   },
   {
    "q": "Le trait tireté entre la bobine et les contacts représente :",
    "choix": [
     "un fil de faible section",
-    "une liaison mécanique",
-    "une liaison à la terre"
+    "une liaison à la terre",
+    "une liaison mécanique"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Aucun courant n'y circule. Ce trait dit « ces contacts appartiennent à cet appareil »."
   },
   {
    "q": "Un relais (contacteur auxiliaire) se distingue d'un contacteur moteur parce qu'il :",
    "choix": [
-    "n'a pas de bobine",
     "n'a pas de pôles de puissance",
+    "n'a pas de bobine",
     "fonctionne en continu seulement"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Même appareil, mêmes contacts auxiliaires, mais rien pour couper un fort courant."
   },
   {
@@ -182,40 +182,40 @@ window.CHAPITRE = {
    "q": "Le contact de précoupure d'un sectionneur s'ouvre :",
    "choix": [
     "en même temps que les pôles",
-    "avant les pôles",
-    "après les pôles"
+    "après les pôles",
+    "avant les pôles"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Il coupe d'abord la commande, le contacteur retombe, le courant devient nul — et le sectionneur ouvre alors à vide."
   },
   {
    "q": "L'automaintien est réalisé par :",
    "choix": [
-    "un contact NF en série avec la bobine",
     "un contact NO du contacteur, en parallèle sur le bouton marche",
+    "un contact NF en série avec la bobine",
     "un contact temporisé"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "En parallèle : il offre un second chemin au courant quand on relâche le bouton marche."
   },
   {
    "q": "Si l'on appuie en même temps sur marche et sur arrêt, le moteur :",
    "choix": [
     "démarre",
-    "ne démarre pas",
-    "démarre puis s'arrête"
+    "démarre puis s'arrête",
+    "ne démarre pas"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "L'arrêt est en série : il coupe le chemin quoi qu'il arrive. En série = condition obligatoire ; en parallèle = chemin possible."
   },
   {
    "q": "Un bouton d'arrêt d'urgence est câblé en NF parce que :",
    "choix": [
-    "c'est moins cher",
     "un fil coupé arrête alors la machine de lui-même",
+    "c'est moins cher",
     "il consomme moins"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Sécurité positive : toute défaillance doit conduire à l'état sûr. Un NO cassé ne se signale pas."
   },
   {
@@ -231,11 +231,11 @@ window.CHAPITRE = {
   {
    "q": "Le voyant « sous tension » est allumé, le voyant de surcharge est éteint, et le moteur ne démarre pas. On peut déjà affirmer que :",
    "choix": [
-    "le 24 V est présent et le thermique n'a pas déclenché",
     "la bobine est coupée",
+    "le 24 V est présent et le thermique n'a pas déclenché",
     "le sectionneur est ouvert"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "Les voyants sont le premier outil de diagnostic : ils écartent d'emblée toute la famille « alimentation de la commande » et toute la famille « surcharge ». La bobine reste une hypothèse parmi d'autres, à vérifier ensuite."
   }
  ],

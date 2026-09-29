@@ -91,33 +91,33 @@ window.CHAPITRE = {
    "q": "Le son est une onde :",
    "choix": [
     "électromagnétique",
-    "mécanique longitudinale",
+    "qui se propage dans le vide",
     "mécanique transversale",
-    "qui se propage dans le vide"
+    "mécanique longitudinale"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Dans une onde sonore, les tranches d'air :",
    "choix": [
-    "se déplacent de la source à l'oreille",
     "oscillent sur place, parallèlement à la propagation",
+    "se déplacent de la source à l'oreille",
     "oscillent sur place, perpendiculairement à la propagation",
     "restent immobiles"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "La célérité du son est la plus grande dans :",
    "choix": [
     "l'air",
-    "l'eau",
     "l'acier",
+    "l'eau",
     "le vide"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "le son va d'autant plus vite que le milieu est dense et rigide"
   },
   {
@@ -134,23 +134,23 @@ window.CHAPITRE = {
   {
    "q": "Un son de fréquence 12 Hz est :",
    "choix": [
-    "un infrason",
-    "un son audible",
     "un ultrason",
+    "un son audible",
+    "un infrason",
     "impossible"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "Le domaine audible de l'oreille humaine s'étend environ de :",
    "choix": [
-    "2 Hz à 2 kHz",
     "20 Hz à 20 kHz",
+    "2 Hz à 2 kHz",
     "200 Hz à 200 kHz",
     "20 kHz à 20 MHz"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -158,32 +158,32 @@ window.CHAPITRE = {
    "choix": [
     "son amplitude est grande",
     "sa période est grande",
-    "sa fréquence est grande",
-    "son intensité est grande"
+    "son intensité est grande",
+    "sa fréquence est grande"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Un signal a une période T = 4,0 ms. Sa fréquence vaut :",
    "choix": [
     "4 Hz",
-    "40 Hz",
     "250 Hz",
+    "40 Hz",
     "4000 Hz"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "f = 1/(4,0 × 10⁻³) = 250 Hz"
   },
   {
    "q": "Deux instruments jouent la même note. Ce qui permet de les distinguer est :",
    "choix": [
-    "la hauteur",
     "le timbre",
+    "la hauteur",
     "la période",
     "la célérité"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -201,22 +201,22 @@ window.CHAPITRE = {
    "q": "Une source rayonne dans toutes les directions. Si l'on <strong>double</strong> la distance à la source, l'intensité sonore reçue est :",
    "choix": [
     "divisée par 2",
-    "divisée par 4",
+    "inchangée",
     "multipliée par 2",
-    "inchangée"
+    "divisée par 4"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "la surface 4πd² est multipliée par 4"
   },
   {
    "q": "Des écouteurs de faible puissance peuvent être plus dangereux qu'un concert parce que :",
    "choix": [
     "leur fréquence est plus élevée",
-    "la puissance est concentrée sur une très petite surface",
     "ils émettent des ultrasons",
+    "la puissance est concentrée sur une très petite surface",
     "leur célérité est plus grande"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   }
  ],

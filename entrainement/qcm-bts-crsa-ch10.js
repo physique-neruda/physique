@@ -142,7 +142,7 @@ window.CHAPITRE = {
     "34,0 V"
    ],
    "bonne": 1,
-   "expl": "Attention au piège : 24 V est une valeur efficace. Il faut d'abord U_max = 24√2 = 34 V, puis u_s = 2 × 34/π= 21,6 V. La réponse d est l'erreur classique consistant à s'arrêter à U_max."
+   "expl": "Attention au piège : 24 V est une valeur efficace. Il faut d'abord U_max = 24√2 = 34 V, puis u_s = 2 × 34/π= 21,6 V. La réponse « 34,0 V » est l'erreur classique consistant à s'arrêter à U_max."
   },
   {
    "q": "Pour mesurer la valeur moyenne d'une tension redressée, le commutateur du voltmètre se place sur :",
@@ -208,7 +208,7 @@ window.CHAPITRE = {
     "ne produit aucun harmonique"
    ],
    "bonne": 2,
-   "expl": "C'est le principal avantage du montage triphasé : les harmoniques de rang 3 sont ceux qui s'additionnent dans le conducteur neutre au lieu de s'y compenser. Le PD3 en produit toujours d'autres (rangs 5, 7, 11, 13), d'où le rejet de la réponse d. enumerate"
+   "expl": "C'est le principal avantage du montage triphasé : les harmoniques de rang 3 sont ceux qui s'additionnent dans le conducteur neutre au lieu de s'y compenser. Le PD3 en produit toujours d'autres (rangs 5, 7, 11, 13), d'où le rejet de la réponse « ne produit aucun harmonique ». enumerate"
   }
  ],
  "cartes": [
@@ -306,5 +306,6 @@ window.CHAPITRE = {
    "verso": "<strong>une bobine en série</strong> — La bobine se monte en série : elle s'oppose aux variations du courant. Retenir la paire : C en parallèle pour la tension, L en série pour le courant.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

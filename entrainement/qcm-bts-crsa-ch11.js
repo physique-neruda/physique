@@ -94,21 +94,21 @@ window.CHAPITRE = {
    "choix": [
     "alternatif continu",
     "continu continu",
-    "continu alternatif",
-    "alternatif alternatif"
+    "alternatif alternatif",
+    "continu alternatif"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "L'onduleur fabrique de l'alternatif à partir du continu. Le a est le redresseur, le d le transformateur."
   },
   {
    "q": "Dans un variateur de vitesse pour moteur asynchrone, l'ordre des blocs est :",
    "choix": [
-    "onduleur, filtre, redresseur",
     "redresseur, filtre, onduleur",
+    "onduleur, filtre, redresseur",
     "hacheur, filtre, redresseur",
     "transformateur, hacheur, filtre"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "On redresse, on filtre, puis on ondule. C'est le schéma des sujets 2019 et 2022."
   },
   {
@@ -131,18 +131,18 @@ window.CHAPITRE = {
     "64 V"
    ],
    "bonne": 2,
-   "expl": "u_s = αU = 0,75 × 48 = 36 V. La réponse d est impossible : un hacheur série n'élève jamais la tension."
+   "expl": "u_s = αU = 0,75 × 48 = 36 V. La réponse « 64 V » est impossible : un hacheur série n'élève jamais la tension."
   },
   {
    "q": "Sur un chronogramme, le palier haut dure 3,0 divisions et le motif complet 5,0 divisions. Le rapport cyclique vaut :",
    "choix": [
     "0,30",
     "0,50",
-    "0,60",
-    "1,67"
+    "1,67",
+    "0,60"
    ],
-   "bonne": 2,
-   "expl": "α= 3,0/5,0 = 0,60. Inutile de convertir en secondes. La réponse d est le rapport inversé."
+   "bonne": 3,
+   "expl": "α= 3,0/5,0 = 0,60. Inutile de convertir en secondes. La réponse « 0,60 » est le rapport inversé."
   },
   {
    "q": "Un hacheur série peut délivrer une tension moyenne :",
@@ -158,12 +158,12 @@ window.CHAPITRE = {
   {
    "q": "Pendant que l'interrupteur d'un hacheur est ouvert, la diode de roue libre est :",
    "choix": [
-    "bloquée, et le courant s'annule",
-    "bloquée, et le courant décroît",
     "passante, et le courant décroît",
+    "bloquée, et le courant décroît",
+    "bloquée, et le courant s'annule",
     "passante, et le courant croît"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "La diode devient passante et offre au courant un chemin pour continuer de circuler ; il décroît sans s'annuler. C'est le régime de conduction continue."
   },
   {
@@ -175,17 +175,17 @@ window.CHAPITRE = {
     "doubler le rapport cyclique"
    ],
    "bonne": 2,
-   "expl": "L'ondulation est inversement proportionnelle au produit L f : doubler la fréquence la divise par deux, tout comme doubler l'inductance. Les réponses a et b l'augmenteraient au contraire."
+   "expl": "L'ondulation est inversement proportionnelle au produit L f : doubler la fréquence la divise par deux, tout comme doubler l'inductance. Les réponses « diviser l'inductance par deux » et « diviser la fréquence de découpage par deux » l'augmenteraient au contraire."
   },
   {
    "q": "Dans un onduleur en pont, fermer simultanément les deux interrupteurs d'un même bras :",
    "choix": [
-    "double la tension de sortie",
     "met la source en court-circuit",
+    "double la tension de sortie",
     "n'a aucun effet",
     "inverse le sens du courant"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Les deux interrupteurs d'un même bras relient les deux bornes de la source : c'est un court-circuit franc, destructeur. D'où le temps mort imposé par les commandes industrielles."
   },
   {
@@ -193,21 +193,21 @@ window.CHAPITRE = {
    "choix": [
     "0 V",
     "141 V",
-    "200 V",
-    "283 V"
+    "283 V",
+    "200 V"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "La tension vaut ±200 V en permanence : son carré vaut toujours 200², donc sa valeur efficace vaut 200 V. C'est le seul cas où amplitude et valeur efficace coïncident — le b serait la réponse pour une sinusoïde."
   },
   {
    "q": "Par rapport à la commande symétrique, la commande MLI :",
    "choix": [
     "supprime le fondamental",
-    "double le fondamental",
     "conserve le fondamental et repousse les harmoniques vers les hautes fréquences",
+    "double le fondamental",
     "conserve le fondamental et rapproche les harmoniques"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "La MLI ne change rien au fondamental : elle déplace les harmoniques très haut en fréquence, là où l'inductance du moteur les filtre naturellement. C'est pourquoi tous les variateurs industriels l'utilisent. enumerate"
   }
  ],
@@ -307,5 +307,6 @@ window.CHAPITRE = {
    "verso": "<strong>passante, et le courant décroît</strong> — La diode devient passante et offre au courant un chemin pour continuer de circuler ; il décroît sans s'annuler. C'est le régime de conduction continue.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

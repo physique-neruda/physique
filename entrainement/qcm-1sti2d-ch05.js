@@ -90,23 +90,23 @@ window.CHAPITRE = {
   {
    "q": "La loi d'Ohm s'écrit :",
    "choix": [
-    "U = R/I",
     "U = R × I",
+    "U = R/I",
     "U = R + I",
     "U = I/R"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "La caractéristique U(I) d'un conducteur ohmique est :",
    "choix": [
     "une courbe",
-    "une droite passant par l'origine",
     "une horizontale",
+    "une droite passant par l'origine",
     "une droite quelconque"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
@@ -114,21 +114,21 @@ window.CHAPITRE = {
    "choix": [
     "double",
     "est divisée par 2",
-    "ne change pas",
-    "devient nulle"
+    "devient nulle",
+    "ne change pas"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "R est une caractéristique du composant"
   },
   {
    "q": "La puissance d'un dipôle quelconque vaut :",
    "choix": [
-    "P = U × I",
     "P = U/I",
+    "P = U × I",
     "P = U + I",
     "P = R × U"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": ""
   },
   {
@@ -146,77 +146,77 @@ window.CHAPITRE = {
    "q": "Un appareil de 2000 W sous 230 V appelle une intensité de :",
    "choix": [
     "0,115 A",
-    "8,7 A",
+    "2000 A",
     "460 A",
-    "2000 A"
+    "8,7 A"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "2000/230"
   },
   {
    "q": "La puissance dissipée par effet Joule vaut :",
    "choix": [
-    "R × I",
     "R × I²",
+    "R × I",
     "R/I²",
     "R + I²"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Si l'on double l'intensité dans un câble, les pertes par effet Joule sont :",
    "choix": [
     "doublées",
-    "multipliées par 4",
     "divisées par 2",
+    "multipliées par 4",
     "inchangées"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "l'intensité intervient au carré"
   },
   {
    "q": "Pour un câble, une section plus grande donne une résistance :",
    "choix": [
-    "plus grande",
     "plus faible",
+    "plus grande",
     "inchangée",
     "nulle"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "On transporte l'électricité sous haute tension pour :",
    "choix": [
     "augmenter la puissance transportée",
-    "réduire l'intensité, donc les pertes",
     "réduire la tension chez l'usager",
+    "réduire l'intensité, donc les pertes",
     "éviter d'utiliser des transformateurs"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "Un moteur absorbe 1500 W et fournit 1275 W. Les pertes valent :",
    "choix": [
-    "225 W",
     "2775 W",
+    "225 W",
     "1275 W",
     "85 W"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "1500 - 1275"
   },
   {
    "q": "En convention récepteur, un dipôle pour lequel P = U × I < 0 :",
    "choix": [
     "reçoit de l'énergie",
-    "fournit de l'énergie",
+    "est en court-circuit",
     "ne consomme rien",
-    "est en court-circuit"
+    "fournit de l'énergie"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "P < 0 signale un dipôle qui <strong>fournit</strong>"
   },
   {
@@ -234,11 +234,11 @@ window.CHAPITRE = {
    "q": "Le disjoncteur <strong>différentiel</strong> protège les personnes en :",
    "choix": [
     "limitant la tension",
-    "comparant l'intensité aller et retour",
     "mesurant la puissance",
+    "comparant l'intensité aller et retour",
     "coupant au bout d'un temps fixe"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "une différence trahit une fuite de courant, seuil 30 mA"
   },
   {
@@ -246,10 +246,10 @@ window.CHAPITRE = {
    "choix": [
     "2,3 mA",
     "23 mA",
-    "230 mA",
-    "2300 mA"
+    "2300 mA",
+    "230 mA"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "230/1000 = 230 mA, très au-delà du seuil de fibrillation"
   }
  ],

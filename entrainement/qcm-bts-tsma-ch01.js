@@ -88,51 +88,51 @@ window.CHAPITRE = {
   {
    "q": "Un manomètre dont le zéro est décalé de 0,4 bar introduit une erreur :",
    "choix": [
-    "aléatoire",
     "systématique",
+    "aléatoire",
     "négligeable"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "moyenner ne corrige que l'aléatoire. Un zéro décalé se retrouve identique sur les mille mesures suivantes : seule la comparaison à une référence le révèle. 3pt"
   },
   {
    "q": "Une série de mesures très groupées prouve que la mesure est :",
    "choix": [
     "juste",
-    "fidèle",
-    "juste et fidèle"
+    "juste et fidèle",
+    "fidèle"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "des mesures groupées sont fidèles. Elles peuvent être parfaitement fausses : c'est le cas le plus dangereux, parce qu'il inspire confiance. 3pt"
   },
   {
    "q": "Pour une lecture unique sur un instrument de résolution d = 0,02 mm, l'incertitude-type vaut environ :",
    "choix": [
-    "0,02 mm",
     "0,006 mm",
+    "0,02 mm",
     "0,04 mm"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "u = d/(2√3) = 0,02/3,46 = 5,8×10⁻³ mm. Prendre u = d surestime d'un facteur 3,5. 3pt"
   },
   {
    "q": "Pour un appareil de classe, l'incertitude dépend :",
    "choix": [
     "de la valeur lue",
-    "du calibre utilisé",
-    "du nombre de mesures"
+    "du nombre de mesures",
+    "du calibre utilisé"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "u = c E/(100√3) : l'incertitude est constante sur toute l'échelle. D'où la règle : choisir le plus petit calibre compatible, pour lire dans le haut de l'échelle. 3pt"
   },
   {
    "q": "Dans une série de n mesures d'écart-type s, l'incertitude-type de répétabilité vaut :",
    "choix": [
     "s",
-    "s/n",
-    "s/√n"
+    "s/√n",
+    "s/n"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "u = s/√n, donc quadrupler n divise u par 2 seulement. Le rendement est décroissant : au-delà d'une dizaine de mesures, il vaut mieux chercher d'où vient la dispersion. 3pt"
   },
   {
@@ -149,10 +149,10 @@ window.CHAPITRE = {
    "q": "L'incertitude élargie U = 2u correspond à un niveau de confiance d'environ :",
    "choix": [
     "68 %",
-    "95 %",
-    "100 %"
+    "100 %",
+    "95 %"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "k = 2 correspond à environ 95 % de confiance. C'est la convention de tous les sujets de BTS ; k est toujours précisé dans l'énoncé. 3pt"
   },
   {
@@ -168,11 +168,11 @@ window.CHAPITRE = {
   {
    "q": "Dans la situation précédente, pour améliorer le résultat il faut d'abord agir sur :",
    "choix": [
-    "la pesée",
     "la mesure du volume",
+    "la pesée",
     "les deux également"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "√(0,00002² + 0,0060²) = 0,0060 : la contribution de la pesée est invisible. Améliorer la balance ne changerait rien ; tout se joue sur le volume. C'est le raisonnement que le référentiel désigne par « comparer le poids des différentes sources d'erreurs ». 3pt"
   },
   {
@@ -189,10 +189,10 @@ window.CHAPITRE = {
    "q": "Une mesure donne (4,820 ± 0,017) kPa et la référence vaut 4,80 kPa. On conclut :",
    "choix": [
     "l'écart est faible, la mesure est correcte",
-    "la référence est hors intervalle : erreur systématique probable",
-    "il faut refaire la série avant de se prononcer"
+    "il faut refaire la série avant de se prononcer",
+    "la référence est hors intervalle : erreur systématique probable"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "l'intervalle est [ 4,803 ; 4,837 ] et ne contient pas 4,80. Ce n'est pas « un petit écart » : l'écart dépasse l'incertitude, donc la dispersion aléatoire ne suffit pas à l'expliquer. Un biais systématique est en cause — probablement le zéro du capteur. tcolorbox"
   }
  ],

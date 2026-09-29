@@ -90,34 +90,34 @@ window.CHAPITRE = {
   {
    "q": "En un nœud, la loi des nœuds s'écrit :",
    "choix": [
-    "ΣI<sub>entrant</sub> = ΣI<sub>sortant</sub>",
-    "ΣU = 0",
     "I = U × R",
+    "ΣU = 0",
+    "ΣI<sub>entrant</sub> = ΣI<sub>sortant</sub>",
     "toutes les intensités sont égales"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "Un courant de 0,45 A arrive à un nœud d'où partent deux branches. L'une est parcourue par 0,30 A, l'autre par :",
    "choix": [
     "0,75 A",
-    "0,15 A",
+    "0,30 A",
     "0,45 A",
-    "0,30 A"
+    "0,15 A"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "0,45 - 0,30"
   },
   {
    "q": "Dans un circuit en série, l'intensité :",
    "choix": [
-    "se partage",
     "est la même partout",
+    "se partage",
     "diminue à chaque dipôle",
     "dépend de la position de l'ampèremètre"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "il n'y a aucun nœud en série"
   },
   {
@@ -134,12 +134,12 @@ window.CHAPITRE = {
   {
    "q": "En parcourant une maille entière et en revenant au point de départ, la somme des tensions rencontrées vaut :",
    "choix": [
-    "la tension du générateur",
     "zéro",
+    "la tension du générateur",
     "la somme des tensions des récepteurs",
     "toujours 12 V"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "on revient au même potentiel, donc au même point"
   },
   {
@@ -168,33 +168,33 @@ window.CHAPITRE = {
    "q": "Une pile qui débite dans un circuit se flèche en convention :",
    "choix": [
     "récepteur",
-    "générateur",
+    "aucune",
     "les deux",
-    "aucune"
+    "générateur"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Une <strong>tension</strong> se rapporte :",
    "choix": [
-    "à un seul fil",
     "à deux points du circuit",
+    "à un seul fil",
     "à l'ensemble du circuit",
     "au seul générateur"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "d'où la flèche tracée à côté du dipôle"
   },
   {
    "q": "L'ampèremètre se branche :",
    "choix": [
     "en dérivation",
-    "en série",
     "à la place du générateur",
+    "en série",
     "aux bornes de la pile"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "il doit être traversé par le courant"
   },
   {
@@ -212,11 +212,11 @@ window.CHAPITRE = {
    "q": "Aux bornes d'un simple fil de liaison (résistance négligeable), la tension vaut :",
    "choix": [
     "la tension du générateur",
-    "environ zéro",
+    "on ne peut pas savoir",
     "la moitié de la tension",
-    "on ne peut pas savoir"
+    "environ zéro"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "U = R I avec R ≈ 0"
   }
  ],

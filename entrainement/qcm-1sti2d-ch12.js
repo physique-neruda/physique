@@ -92,32 +92,32 @@ window.CHAPITRE = {
    "choix": [
     "métalliques",
     "organiques",
-    "minéraux",
-    "composites"
+    "composites",
+    "minéraux"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Un matériau <strong>composite</strong> est un matériau qui :",
    "choix": [
-    "contient uniquement des métaux",
     "associe au moins deux matériaux pour cumuler leurs avantages",
+    "contient uniquement des métaux",
     "est toujours transparent",
     "ne peut pas être recyclé"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "La <strong>masse volumique</strong> d'un matériau relève de ses propriétés :",
    "choix": [
     "optiques",
-    "mécaniques",
     "chimiques",
+    "mécaniques",
     "électriques"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
@@ -134,23 +134,23 @@ window.CHAPITRE = {
   {
    "q": "La résistance d'un conducteur s'écrit :",
    "choix": [
-    "R = ρS/L",
-    "R = ρ L S",
     "R = ρL/S",
+    "R = ρ L S",
+    "R = ρS/L",
     "R = L/(ρ S)"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Si l'on double la <strong>section</strong> d'un câble sans changer sa longueur, sa résistance :",
    "choix": [
     "double",
-    "est divisée par deux",
     "ne change pas",
+    "est divisée par deux",
     "est multipliée par quatre"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "R est inversement proportionnelle à S"
   },
   {
@@ -158,21 +158,21 @@ window.CHAPITRE = {
    "choix": [
     "R<sub>th</sub> = e × λ",
     "R<sub>th</sub> = λ/e",
-    "R<sub>th</sub> = e/λ",
-    "R<sub>th</sub> = e + λ"
+    "R<sub>th</sub> = e + λ",
+    "R<sub>th</sub> = e/λ"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "L'indice de réfraction d'un milieu se définit par :",
    "choix": [
-    "n = c/v",
     "n = v/c",
+    "n = c/v",
     "n = c × v",
     "n = c - v"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": ""
   },
   {
@@ -190,11 +190,11 @@ window.CHAPITRE = {
    "q": "Dans la molécule d'eau, l'atome d'oxygène porte :",
    "choix": [
     "aucun doublet non liant",
-    "un doublet non liant",
     "deux doublets non liants",
+    "un doublet non liant",
     "trois doublets non liants"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "6 électrons de valence, 2 servent aux liaisons, il reste 2 doublets"
   },
   {
@@ -211,12 +211,12 @@ window.CHAPITRE = {
   {
    "q": "Le groupe caractéristique -COOH identifie la famille des :",
    "choix": [
-    "alcools",
     "acides carboxyliques",
+    "alcools",
     "alcanes",
     "polymères"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   }
  ],

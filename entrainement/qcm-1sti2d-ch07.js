@@ -91,33 +91,33 @@ window.CHAPITRE = {
    "q": "Les quatre caractéristiques d'une force sont :",
    "choix": [
     "masse, poids, volume, densité",
-    "point d'application, direction, sens, valeur",
+    "vitesse, accélération, temps, distance",
     "longueur, largeur, hauteur, masse",
-    "vitesse, accélération, temps, distance"
+    "point d'application, direction, sens, valeur"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Parmi ces actions, laquelle est une action <strong>à distance</strong> ?",
    "choix": [
     "la poussée d'une main",
-    "le poids",
     "la force d'un ressort",
+    "le poids",
     "le frottement de l'air"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "les autres exigent un contact matériel"
   },
   {
    "q": "Le point d'application du <strong>poids</strong> d'un objet se place :",
    "choix": [
-    "au point de contact avec le sol",
     "au centre de gravité de l'objet",
+    "au point de contact avec le sol",
     "n'importe où sur l'objet",
     "au sommet de l'objet"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "le poids est une action à distance, il s'applique donc au centre de gravité"
   },
   {
@@ -135,33 +135,33 @@ window.CHAPITRE = {
    "q": "L'unité d'une force est :",
    "choix": [
     "le kilogramme",
-    "le newton",
+    "le pascal",
     "le joule",
-    "le pascal"
+    "le newton"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Le poids d'un corps de masse 250 kg vaut environ :",
    "choix": [
     "250 N",
-    "2452 N",
     "25 N",
+    "2452 N",
     "2,5 N"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "250 × 9,81"
   },
   {
    "q": "En passant de la Terre à la Lune, un objet conserve :",
    "choix": [
-    "son poids",
     "sa masse",
+    "son poids",
     "son poids et sa masse",
     "ni l'un ni l'autre"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "la masse est la même partout, le poids dépend de g"
   },
   {
@@ -179,22 +179,22 @@ window.CHAPITRE = {
    "q": "Le frottement fluide s'exerçant sur un objet en mouvement :",
    "choix": [
     "s'ajoute au mouvement",
-    "s'oppose au mouvement et croît avec la vitesse",
+    "ne dépend pas de la vitesse",
     "est toujours vertical",
-    "ne dépend pas de la vitesse"
+    "s'oppose au mouvement et croît avec la vitesse"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "La résultante de deux forces de 10 N opposées et de même droite d'action vaut :",
    "choix": [
-    "20 N",
     "0 N",
+    "20 N",
     "10 N",
     "100 N"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "on additionne des <strong>vecteurs</strong>, pas des intensités"
   },
   {
@@ -212,11 +212,11 @@ window.CHAPITRE = {
    "q": "Une voiture roule à vitesse constante sur une route droite. La résultante des forces qu'elle subit est :",
    "choix": [
     "dirigée vers l'avant",
-    "nulle",
     "dirigée vers l'arrière",
+    "nulle",
     "verticale"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "bien que la voiture avance"
   },
   {
@@ -234,11 +234,11 @@ window.CHAPITRE = {
    "q": "Une caisse est immobile sur un plan incliné. Son poids est :",
    "choix": [
     "dirigé le long de la pente",
-    "vertical",
     "perpendiculaire à la pente",
+    "vertical",
     "nul"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "l'erreur la plus fréquente du chapitre est de l'incliner le long de la pente"
   }
  ],

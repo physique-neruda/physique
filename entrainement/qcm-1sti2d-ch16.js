@@ -102,11 +102,11 @@ window.CHAPITRE = {
    "q": "Le <strong>son</strong> est une onde :",
    "choix": [
     "électromagnétique",
-    "mécanique",
+    "qui se propage dans le vide",
     "lumineuse",
-    "qui se propage dans le vide"
+    "mécanique"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -114,21 +114,21 @@ window.CHAPITRE = {
    "choix": [
     "une vague",
     "une onde sismique",
-    "le son",
-    "la lumière"
+    "la lumière",
+    "le son"
    ],
-   "bonne": 3,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "Dans une onde <strong>longitudinale</strong>, l'oscillation est :",
    "choix": [
-    "perpendiculaire à la propagation",
     "parallèle à la propagation",
+    "perpendiculaire à la propagation",
     "circulaire",
     "inexistante"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -146,22 +146,22 @@ window.CHAPITRE = {
    "q": "La relation entre célérité, longueur d'onde et fréquence est :",
    "choix": [
     "v = λ/f",
-    "v = λ × f",
+    "v = λ+ f",
     "v = f/λ",
-    "v = λ+ f"
+    "v = λ × f"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Quand une onde passe d'un milieu à un autre, la grandeur qui <strong>ne change pas</strong> est :",
    "choix": [
     "la célérité",
-    "la longueur d'onde",
     "la fréquence",
+    "la longueur d'onde",
     "l'amplitude"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "la fréquence est imposée par la source"
   },
   {
@@ -179,22 +179,22 @@ window.CHAPITRE = {
    "q": "À la frontière entre deux milieux, l'énergie d'une onde se répartit entre :",
    "choix": [
     "réflexion et transmission seulement",
-    "transmission, réflexion et absorption",
     "absorption seulement",
+    "transmission, réflexion et absorption",
     "aucune de ces possibilités"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "Un sonar reçoit un écho après une durée Δt. La distance à l'obstacle vaut :",
    "choix": [
     "d = v Δt",
-    "d = (v Δt)/2",
+    "d = Δt/v",
     "d = 2 v Δt",
-    "d = Δt/v"
+    "d = (v Δt)/2"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "l'onde fait l'aller-retour"
   },
   {
@@ -211,12 +211,12 @@ window.CHAPITRE = {
   {
    "q": "Pour qu'une information transmise par une onde soit comprise, il faut :",
    "choix": [
-    "une onde de forte amplitude",
-    "une onde de haute fréquence",
     "un code partagé entre émetteur et récepteur",
+    "une onde de haute fréquence",
+    "une onde de forte amplitude",
     "une onde mécanique"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": ""
   }
  ],

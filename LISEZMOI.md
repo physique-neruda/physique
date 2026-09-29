@@ -672,3 +672,114 @@ Les trois animations remplacées arrivaient sans mention de niveau ; le lien « 
 animations » y a été posé.
 
 **Le site** : 663 entrées, 466 PDF, 18 animations, 1101 questions, 877 cartes.
+
+
+---
+
+## Mise à jour du 24 septembre 2026 — BTS ET v10, CRSA ch.17, ch.0 des trois BTS
+
+- **BTS ET** : trois chapitres entrent sur le site — **Cours 3 (Les combustions)**, **TP 3
+  (Régime sinusoïdal monophasé)** et **ch.9 (Distribution et qualité de l'énergie électrique)**,
+  ce dernier rangé dans la rubrique TP. Le Cours 3 arrive avec ses trois animations
+  (`combustion.html`, `pouvoir-calorifique.html`, `groupe-electrogene.html`), placées devant
+  les feuilles d'activité correspondantes (`a1_equation`, `a2_energie`, `a3_groupe`, ajoutées
+  à la liste blanche). Déclarations : `chapitres/bts-et.json`, `DOSSIERS_ET`,
+  `RUBRIQUE_DU_CHAPITRE` et `ANIMATIONS` dans `outils/filieres.py`. L'ADM 1 est redéposé depuis
+  sa version 16.
+- **BTS CRSA** : le **ch.17 (Filtrage et conversion)** est ajouté (`chapitres/bts-crsa.json`).
+- **Ch.0 des trois BTS** redéposés : la phrase mnémotechnique après milli devient « Mille
+  Microbes Nagent Profondément », et les feuilles d'exercices TSMA et ET n'ont plus de figure
+  qui donne la réponse.
+- Questionnaires et cartes régénérés par `construire.py` pour le BTS ET et le CRSA : les
+  prérequis écrits à la main et les 51 cartes figées de l'ADM 1 sont conservés. **Les nouveaux
+  chapitres (Cours 3, TP 3, ch.9, CRSA ch.17) n'ont pas encore de prérequis en ligne** : ils
+  s'écrivent à la main dans `prerequis_et.py` et `prerequis_crsa.py`.
+- Aucun corrigé n'est en ligne (vérifié).
+
+**Le site** : 716 entrées, 508 PDF, 21 animations, 1151 questions, 933 cartes.
+
+
+---
+
+## Mise à jour du 25 septembre 2026 (v19)
+
+- **Outils** : nouvelle animation `animations/latispro.html` (tutoriel LatisPro : acquérir,
+  calculer, tracer, modéliser), déclarée comme `ou04` dans `chapitres/outils.json` et dans
+  `ANIMATIONS["outils"]`, rubrique Mesure. Elle ne mentionne ni classe ni chapitre et sert donc
+  à toutes les filières.
+- **BTS ET, Cours 2** : PDF redéposés (flux signalé hors programme, ferromagnétisme et champ
+  électrique ajoutés), bilan de 14 questions régénéré.
+- **`construire.py`** : nouvelle fonction `sans_hors_programme()` — ce qui est dans un encadré
+  `horsprogramme`, dans une méthode étiquetée `\horsprog` ou dans un paragraphe titré
+  « (hors programme) » ne produit plus aucune carte de révision.
+- **BTS CRSA, ch.3** : activité redéposée, avec les photos du calorimètre du labo.
+
+## Mise à jour du 25 septembre 2026, suite (v20)
+
+- Bilans redéposés et questionnaires en ligne régénérés pour le BTS ET (ch.0, TP 1, TP 2,
+  Cours 1, Cours 3, ch.9), l'ADM 1 et le CRSA (ch.1, 4, 16, 17) : les bonnes réponses ne sont
+  plus presque toutes en « b ».
+- CRSA ch.3 : activité redéposée avec l'identification du calorimètre (Sordalab CALORIM2).
+
+## Mise à jour du 25 septembre 2026, fin (v21)
+
+- **Bilans 1re STI2D et BTS TSMA** : propositions remises dans l'ordre du papier (dont les lettres
+  ont été redistribuées), PDF redéposés.
+- **Explications sans lettres** : le site mélange les propositions à chaque tirage, donc une
+  explication disant « la réponse a » ne voulait rien dire en ligne. Toutes les lettres des
+  explications (bilans et prérequis, toutes filières) sont remplacées par le texte de la
+  proposition : « la réponse « m²/s » est celle de la viscosité cinématique ». Nouveau module
+  `outils/renvois.py`, appelé par `construire.py` et `construire_tsma.py` à chaque écriture.
+- **ATTENTION `construire_tsma.py`** : il refabrique les cartes à partir du cours à compléter
+  (9 cartes par chapitre) et écrase les 14 cartes enrichies. Après l'avoir lancé, remettre les
+  cartes de la version précédente (c'est ce qui a été fait ici), ou relancer la chaîne
+  d'enrichissement des cartes.
+
+## Mise à jour du 25 septembre 2026 (v22) — CRSA ch.3
+
+- Nouvelle activité 2 (transferts thermiques) et deux animations reprises du BTS ET, placées
+  devant elle : `flux-thermique.html` et `rayonnement.html` (déclarées dans
+  `ANIMATIONS["bts-crsa"]`, titres dans `TITRES_PARTICULIERS`). Cours, exercices, bilan
+  redéposés ; questionnaire et cartes du chapitre régénérés.
+
+## Mise à jour du 26 septembre 2026 (v23)
+
+- 1re STI2D ch.3 et ch.5, BTS ET Cours 1 et TP 1, ADM 1, BTS CRSA ch.2 et ch.11 redéposés.
+- BTS ET Cours 1 : activités renommées `a2_flux` et `a3_rayonnement` (liste blanche et
+  animations de `filieres.py` suivent ; les anciens PDF `a2_rayonnement` et `a3_flux` sont retirés).
+
+
+## Mise à jour du 27 septembre 2026 (v24)
+
+- ADM 1 : nouveau symbole du disjoncteur magnétothermique — cours redéposé, paquet Anki
+  (`docs/bts-et/adm01/symboles-anki.apkg`) et image de la carte en ligne
+  (`entrainement/media/adm01/adm01-disj-3p.png`) remplacés.
+
+## Mise à jour du 29 septembre 2026 (v25)
+
+- **Tutoriel LatisPro** (`animations/latispro.html`) : nouvelle partie 5 « Capteur de pression »,
+  cinq étapes — brancher le capteur et passer en mode **Pas à pas** avec **Entrée clavier** (nom h,
+  unité m) ; acquérir point par point (F10, une profondeur tapée par point, Fin) ; tracer P = f(h)
+  en style Points ; modéliser par une **droite affine** ; exploiter la pente (ρ = a/g ≈ 997 kg/m³)
+  et l'ordonnée à l'origine (Patm). Bilan complété. Testé dans un navigateur : 18 étapes, aucune
+  erreur de script.
+
+## Mise à jour du 29 septembre 2026, suite (v26)
+
+- **Outils** : nouvelle animation `calculatrice-puissances.html` (ou05, rubrique Calcul) — quatre
+  calculatrices photographiées, cinq exercices joués touche par touche sur un écran simulé
+  (notation scientifique, produit, piège de la division, puissances, affichage SCI), encadré
+  « À retenir » propre à chaque modèle.
+- **BTS TSMA ch.3** : deux animations placées devant les activités —
+  `maquette-pression.html` (poste 2 de l'activité sur banc : trois pistons, valeurs des mesures
+  réelles, saturation du capteur, presse hydraulique) et `eprouvette-pression.html` (partie huile
+  de l'activité expérimentale). Activités redéposées.
+
+## Mise à jour du 29 septembre 2026, fin (v27)
+
+- **Tableur** (`animations/tableur.html`) : le tracé part désormais d'une **cellule vide** —
+  graphique en nuage de points vide, clic droit, **Sélectionner des données**, **Ajouter**, puis
+  la fenêtre « Modifier la série » remplie à la souris (nom : C1 ; valeurs X : B2:B9 ; valeurs Y :
+  effacer « ={1} », puis C2:C9). 13 étapes au lieu de 11, testé sans erreur.
+- **Calculatrices** : écrans aux couleurs de chaque modèle (blanc pour la TI-83 Premium CE,
+  cristaux liquides gris-vert pour les trois autres) au lieu d'un écran noir.

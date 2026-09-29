@@ -112,89 +112,89 @@ window.CHAPITRE = {
   {
    "q": "La <strong>trajectoire</strong> d'un point :",
    "choix": [
-    "est toujours une droite",
     "dépend du référentiel choisi",
+    "est toujours une droite",
     "ne dépend jamais du référentiel",
     "est toujours un cercle"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "une bille lâchée d'un chariot en marche décrit une droite vue du chariot, une courbe vue du sol"
   },
   {
    "q": "Dans une translation, tous les points du solide ont des trajectoires :",
    "choix": [
     "très différentes",
-    "superposables",
+    "toujours rectilignes",
     "toujours circulaires",
-    "toujours rectilignes"
+    "superposables"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Le modèle du <strong>point matériel</strong> consiste à remplacer le solide par un point placé :",
    "choix": [
     "à sa surface",
-    "en son centre de masse",
     "à son extrémité avant",
+    "en son centre de masse",
     "n'importe où"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "90 km/h correspondent à :",
    "choix": [
-    "25 m/s",
     "32 m/s",
+    "25 m/s",
     "324 m/s",
     "9 m/s"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "90/3,6"
   },
   {
    "q": "La vitesse instantanée est, mathématiquement :",
    "choix": [
-    "la moyenne des vitesses",
     "la dérivée de la position par rapport au temps",
+    "la moyenne des vitesses",
     "le produit de la distance et du temps",
     "la pente de la corde"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "c'est la définition de la dérivée"
   },
   {
    "q": "Sur un graphique x(t), la vitesse instantanée se lit comme :",
    "choix": [
     "l'ordonnée du point",
-    "la pente de la tangente",
+    "l'abscisse du point",
     "l'aire sous la courbe",
-    "l'abscisse du point"
+    "la pente de la tangente"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "L'accélération est la dérivée :",
    "choix": [
     "de la position",
-    "de la vitesse",
+    "du temps",
     "de la distance",
-    "du temps"
+    "de la vitesse"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Sur une chronophotographie, des positions de plus en plus espacées traduisent un mouvement :",
    "choix": [
     "uniforme",
-    "accéléré",
     "ralenti",
+    "accéléré",
     "circulaire"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "les espacements croissent"
   },
   {
@@ -211,12 +211,12 @@ window.CHAPITRE = {
   {
    "q": "Dans un mouvement <strong>circulaire uniforme</strong>, l'accélération est :",
    "choix": [
-    "nulle, puisque la vitesse est constante",
     "non nulle, car la direction de la vitesse change",
+    "nulle, puisque la vitesse est constante",
     "nulle seulement si le rayon est grand",
     "toujours dirigée vers l'avant"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "la vitesse est un <strong>vecteur</strong> : sa valeur est constante, sa direction non"
   }
  ],

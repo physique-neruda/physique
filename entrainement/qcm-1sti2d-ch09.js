@@ -91,11 +91,11 @@ window.CHAPITRE = {
    "q": "La température d'un corps traduit :",
    "choix": [
     "sa masse",
-    "l'agitation de ses constituants microscopiques",
+    "sa couleur",
     "son volume",
-    "sa couleur"
+    "l'agitation de ses constituants microscopiques"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -112,12 +112,12 @@ window.CHAPITRE = {
   {
    "q": "Un écart de température de 1 °C correspond à un écart de :",
    "choix": [
-    "274 K",
     "1 K",
+    "274 K",
     "273 K",
     "cela dépend de la température"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "(même pas d'échelle)"
   },
   {
@@ -134,67 +134,67 @@ window.CHAPITRE = {
   {
    "q": "L'unité de la capacité thermique massique c est :",
    "choix": [
-    "J",
-    "J/kg",
     "J/kg/K",
+    "J/kg",
+    "J",
     "W"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Pour élever de 10 K la température de 1 kg d'eau, il faut environ :",
    "choix": [
     "418 J",
-    "42 kJ",
     "4180 MJ",
+    "42 kJ",
     "10 J"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "(ΔU = 1 × 4180 × 10 ≈ 42 kJ)"
   },
   {
    "q": "Pendant un palier de changement d'état, la température du corps :",
    "choix": [
     "augmente",
-    "diminue",
     "reste constante",
+    "diminue",
     "oscille"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": ""
   },
   {
    "q": "L'énergie à fournir pour faire fondre 0,5 kg de glace à 0 °C vaut :",
    "choix": [
     "334 J",
-    "167 kJ",
+    "0 J",
     "668 kJ",
-    "0 J"
+    "167 kJ"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "(Q = 0,5 × 334 = 167 kJ)"
   },
   {
    "q": "Lorsqu'on met en contact un corps chaud et un corps froid, le transfert thermique va :",
    "choix": [
     "du froid vers le chaud",
-    "du chaud vers le froid",
+    "du plus lourd vers le plus léger",
     "dans aucun sens",
-    "du plus lourd vers le plus léger"
+    "du chaud vers le froid"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "À l'équilibre thermique, les deux corps ont :",
    "choix": [
-    "la même masse",
-    "la même énergie interne",
     "la même température",
+    "la même énergie interne",
+    "la même masse",
     "le même volume"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -212,11 +212,11 @@ window.CHAPITRE = {
    "q": "En physique, le mot « chaleur » désigne :",
    "choix": [
     "une grandeur contenue dans un corps chaud",
-    "la température d'un corps",
     "un transfert d'énergie thermique entre deux corps",
+    "la température d'un corps",
     "la masse d'un corps chaud"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": ""
   }
  ],

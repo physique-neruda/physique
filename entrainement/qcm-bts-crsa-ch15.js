@@ -83,11 +83,11 @@ window.CHAPITRE = {
    "choix": [
     "2 Hz",
     "50 Hz",
-    "500 Hz",
-    "2000 Hz"
+    "2000 Hz",
+    "500 Hz"
    ],
-   "bonne": 2,
-   "expl": "f = 1/T = 1/(2,0×10⁻³) = 500 Hz. La réponse a est le piège classique : oublier de convertir les millisecondes en secondes."
+   "bonne": 3,
+   "expl": "f = 1/T = 1/(2,0×10⁻³) = 500 Hz. La réponse « 2 Hz » est le piège classique : oublier de convertir les millisecondes en secondes."
   },
   {
    "q": "La composante continue d'un signal périodique, c'est :",
@@ -103,13 +103,13 @@ window.CHAPITRE = {
   {
    "q": "La valeur efficace d'un signal périodique est, par définition :",
    "choix": [
-    "l'amplitude divisée par √2",
-    "la moyenne des valeurs absolues",
     "la valeur de la tension continue qui dissiperait la même puissance",
+    "la moyenne des valeurs absolues",
+    "l'amplitude divisée par √2",
     "la moitié de la valeur crête à crête"
    ],
-   "bonne": 2,
-   "expl": "C'est la définition énergétique, la seule valable pour tout signal, et celle que le programme demande de savoir énoncer. La réponse a est un résultat, et seulement pour un sinusoïdal."
+   "bonne": 0,
+   "expl": "C'est la définition énergétique, la seule valable pour tout signal, et celle que le programme demande de savoir énoncer. La réponse « la valeur de la tension continue qui dissiperait la même puissance » est un résultat, et seulement pour un sinusoïdal."
   },
   {
    "q": "Un créneau varie entre 0 et 20 V avec un rapport cyclique α= 0,25. Sa valeur moyenne vaut :",
@@ -131,73 +131,73 @@ window.CHAPITRE = {
     "20 V"
    ],
    "bonne": 1,
-   "expl": "U_eff = U_max√(α) = 20 × √(0,25) = 20 × 0,5 = 10 V. La réponse a confond avec la valeur moyenne — c'est l'erreur la plus fréquente du chapitre : on écrit α au lieu de √(α)."
+   "expl": "U_eff = U_max√(α) = 20 × √(0,25) = 20 × 0,5 = 10 V. La réponse « 5 V » confond avec la valeur moyenne — c'est l'erreur la plus fréquente du chapitre : on écrit α au lieu de √(α)."
   },
   {
    "q": "La relation U_eff = U_max/√2 s'applique :",
    "choix": [
     "à tout signal périodique",
-    "aux seuls signaux sinusoïdaux",
+    "aux signaux de valeur moyenne nulle",
     "aux seuls créneaux",
-    "aux signaux de valeur moyenne nulle"
+    "aux seuls signaux sinusoïdaux"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "Uniquement pour un sinusoïdal. Appliquée à un créneau symétrique, où U_eff = U_max, elle donnerait une erreur de 30 %."
   },
   {
    "q": "Sur un spectre d'amplitude, la raie située à 0 Hz représente :",
    "choix": [
     "le fondamental",
-    "la composante continue",
     "le premier harmonique",
+    "la composante continue",
     "une erreur de mesure"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "La raie à fréquence nulle est la composante continue, et sa hauteur est la valeur moyenne. Le fondamental, lui, est la première raie de fréquence non nulle."
   },
   {
    "q": "Le fondamental d'un signal est à 50 Hz. L'harmonique de rang 7 est à :",
    "choix": [
-    "57 Hz",
-    "300 Hz",
     "350 Hz",
+    "300 Hz",
+    "57 Hz",
     "700 Hz"
    ],
-   "bonne": 2,
-   "expl": "f_n = n f₁ = 7 × 50 = 350 Hz. La réponse a ajoute au lieu de multiplier ; la réponse d confond le rang avec un facteur appliqué à la fréquence entière."
+   "bonne": 0,
+   "expl": "f_n = n f₁ = 7 × 50 = 350 Hz. La réponse « 350 Hz » ajoute au lieu de multiplier ; la réponse « 700 Hz » confond le rang avec un facteur appliqué à la fréquence entière."
   },
   {
    "q": "Un spectre ne comporte qu'une seule raie, à 100 Hz. Le signal est :",
    "choix": [
-    "continu",
     "sinusoïdal",
+    "continu",
     "en créneau",
     "triangulaire"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Une seule raie signifie une seule fréquence : le signal est une sinusoïde pure. Un créneau ou un triangle donneraient un fondamental et des harmoniques. Un signal continu n'aurait qu'une raie, mais à 0 Hz."
   },
   {
    "q": "Pour mesurer la valeur moyenne d'un signal, on utilise un voltmètre en position :",
    "choix": [
     "AC",
-    "DC",
+    "peu importe",
     "AC+DC",
-    "peu importe"
+    "DC"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "Position DC. En AC, la composante continue est bloquée et l'on mesurerait l'ondulation seule."
   },
   {
    "q": "Un signal a une valeur moyenne de 8 V et une composante alternative de valeur efficace 6 V. Sa valeur efficace totale vaut :",
    "choix": [
     "2 V",
-    "10 V",
     "14 V",
+    "10 V",
     "48 V"
    ],
-   "bonne": 1,
-   "expl": "Les valeurs efficaces s'ajoutent quadratiquement : U_eff = √(8² + 6²) = √(64 + 36) = √(100) = 10 V. La réponse c additionne directement, ce qui est faux."
+   "bonne": 2,
+   "expl": "Les valeurs efficaces s'ajoutent quadratiquement : U_eff = √(8² + 6²) = √(64 + 36) = √(100) = 10 V. La réponse « 10 V » additionne directement, ce qui est faux."
   },
   {
    "q": "Un voltmètre TRMS se distingue d'un voltmètre ordinaire parce qu'il :",
@@ -306,5 +306,6 @@ window.CHAPITRE = {
    "verso": "<strong>sinusoïdal</strong> — Une seule raie signifie une seule fréquence : le signal est une sinusoïde pure. Un créneau ou un triangle donneraient un fondamental et des harmoniques. Un signal continu n'aurait qu'une raie, mais à 0 Hz.",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

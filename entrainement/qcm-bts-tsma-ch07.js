@@ -80,10 +80,10 @@ window.CHAPITRE = {
    "q": "Dans un moteur thermique, le comburant est :",
    "choix": [
     "le gazole",
-    "le dioxygène de l'air",
-    "le dioxyde de carbone"
+    "le dioxyde de carbone",
+    "le dioxygène de l'air"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le carburant est le combustible, l'air apporte le comburant. Le troisième côté du triangle est l'énergie d'activation : étincelle en essence, compression en diesel. Supprimer un seul côté éteint le feu. 3pt"
   },
   {
@@ -99,31 +99,31 @@ window.CHAPITRE = {
   {
    "q": "Une combustion complète d'hydrocarbure produit :",
    "choix": [
-    "CO₂ et H₂O",
     "CO et H₂O",
+    "CO₂ et H₂O",
     "CO₂ et O₂"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "une combustion complète ne produit que CO₂ et H₂O. Pour l'octane, on compte 16 C et 36 H dans deux molécules, donc 16 CO₂ et 18 H₂O, soit 32 + 18 = 50 atomes d'oxygène à droite : 25 O₂. 3pt"
   },
   {
    "q": "L'équation ajustée de la combustion de l'octane est :",
    "choix": [
-    "C₈H₁₈ + 12 O₂ → 8 CO₂ + 9 H₂O",
     "2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O",
+    "C₈H₁₈ + 12 O₂ → 8 CO₂ + 9 H₂O",
     "C₈H₁₈ + 8 O₂ → 8 CO₂ + 9 H₂O"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "une combustion complète ne produit que CO₂ et H₂O. Pour l'octane, on compte 16 C et 36 H dans deux molécules, donc 16 CO₂ et 18 H₂O, soit 32 + 18 = 50 atomes d'oxygène à droite : 25 O₂. 3pt"
   },
   {
    "q": "Une combustion incomplète se produit quand :",
    "choix": [
     "le dioxygène est en excès",
-    "le dioxygène est en défaut",
-    "la température est trop élevée"
+    "la température est trop élevée",
+    "le dioxygène est en défaut"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le défaut de dioxygène empêche l'oxydation complète du carbone. CO est inodore, incolore et mortel : c'est lui qui tue quand un moteur tourne dans un local fermé. Il faut aussi savoir qu'une combustion incomplète libère moins d'énergie. 3pt"
   },
   {
@@ -139,11 +139,11 @@ window.CHAPITRE = {
   {
    "q": "Le PCI d'un combustible s'exprime en :",
    "choix": [
-    "MJ/kg",
     "MJ",
+    "MJ/kg",
     "kg/MJ"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "le PCI est une énergie par kilogramme. Le gaz naturel (50 MJ/kg) devance l'essence (44) et le gazole (42,7) ; le bioéthanol ferme la marche à 26,8. 3pt"
   },
   {
@@ -159,11 +159,11 @@ window.CHAPITRE = {
   {
    "q": "Un litre de gazole rejette environ :",
    "choix": [
-    "0,84 kg de CO₂",
     "2,6 kg de CO₂",
+    "0,84 kg de CO₂",
     "44 kg de CO₂"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "2,6 kg, soit plus de trois fois la masse du litre de gazole lui-même. L'oxygène du CO₂ provient de l'air, pas du carburant : c'est ce qui surprend, et c'est ce que le bilan de matière permet d'établir. 3pt"
   },
   {
@@ -180,20 +180,20 @@ window.CHAPITRE = {
    "q": "Un indice de cétane élevé signifie que le gazole :",
    "choix": [
     "résiste bien à l'auto-inflammation",
-    "s'enflamme facilement par compression",
-    "contient beaucoup de soufre"
+    "contient beaucoup de soufre",
+    "s'enflamme facilement par compression"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "l'indice de cétane mesure l'aptitude à s'enflammer, l'indice d'octane la résistance à l'auto-inflammation. Les deux vont en sens contraire : un excellent gazole serait un très mauvais carburant essence. 3pt"
   },
   {
    "q": "Chauffer de l'eau avec un brûleur et calculer Q/Δm donne :",
    "choix": [
-    "exactement le PCI du combustible",
     "le produit η× PCI, plus petit que le PCI",
+    "exactement le PCI du combustible",
     "le rendement du montage"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Q n'est que la part de l'énergie parvenue à l'eau ; le reste part par rayonnement et par les gaz chauds. On mesure donc un « PCI apparent » η× PCI. Pour s'affranchir de η, on fait le rapport de deux essais menés dans des conditions identiques. tcolorbox"
   }
  ],

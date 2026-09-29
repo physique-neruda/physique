@@ -91,22 +91,22 @@ window.CHAPITRE = {
    "q": "L'unité de l'énergie dans le système international est :",
    "choix": [
     "le watt",
-    "le joule",
     "le kilowattheure",
+    "le joule",
     "le newton"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "L'unité de la puissance est :",
    "choix": [
-    "le joule",
     "le watt",
+    "le joule",
     "le wattheure",
     "le kelvin"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -125,10 +125,10 @@ window.CHAPITRE = {
    "choix": [
     "60 J",
     "1000 J",
-    "3600 J",
-    "3,6×10⁶ J"
+    "3,6×10⁶ J",
+    "3600 J"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -146,11 +146,11 @@ window.CHAPITRE = {
    "q": "Dans une chaîne énergétique, un moteur électrique est :",
    "choix": [
     "un réservoir",
-    "un convertisseur",
     "un transfert",
+    "un convertisseur",
     "une perte"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
@@ -168,11 +168,11 @@ window.CHAPITRE = {
    "q": "Le rendement d'un convertisseur se calcule par :",
    "choix": [
     "η = (E<sub>absorbée</sub>)/(E<sub>utile</sub>)",
-    "η = (E<sub>utile</sub>)/(E<sub>absorbée</sub>)",
+    "η = E<sub>absorbée</sub> - E<sub>utile</sub>",
     "η = E<sub>utile</sub> × E<sub>absorbée</sub>",
-    "η = E<sub>absorbée</sub> - E<sub>utile</sub>"
+    "η = (E<sub>utile</sub>)/(E<sub>absorbée</sub>)"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
@@ -189,12 +189,12 @@ window.CHAPITRE = {
   {
    "q": "Un moteur absorbe 900 W et fournit 720 W. Son rendement vaut :",
    "choix": [
-    "125 %",
     "80 %",
+    "125 %",
     "20 %",
     "180 %"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "720/900 = 0,80"
   },
   {
@@ -213,10 +213,10 @@ window.CHAPITRE = {
    "choix": [
     "la puissance seulement",
     "la durée seulement",
-    "la puissance ou la durée",
-    "ni l'une ni l'autre"
+    "ni l'une ni l'autre",
+    "la puissance ou la durée"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "puisque E = P × Δt"
   }
  ],

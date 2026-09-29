@@ -80,51 +80,51 @@ window.CHAPITRE = {
    "q": "Le second principe de la thermodynamique :",
    "choix": [
     "interdit de créer de l'énergie",
-    "indique dans quel sens les transformations se produisent",
-    "remplace le premier principe"
+    "remplace le premier principe",
+    "indique dans quel sens les transformations se produisent"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "c'est le premier principe qui interdit de créer de l'énergie ; le second dit dans quel sens les choses se produisent. Les deux coexistent, aucun ne remplace l'autre : devant une machine impossible, il faut savoir dire lequel des deux est violé. 3pt"
   },
   {
    "q": "Parmi ces phénomènes, lequel n'est pas une cause d'irréversibilité ?",
    "choix": [
-    "les frottements",
+    "une compression infiniment lente dans un cylindre à température constante",
     "un transfert thermique sous un écart de 200 K",
-    "une compression infiniment lente dans un cylindre à température constante"
+    "les frottements"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "les trois causes d'irréversibilité sont les frottements, les transferts sous écart fini, les détentes brusques. Une compression infiniment lente à température constante est au contraire le seul cas réversible — et c'est précisément ce que fait le cycle de Carnot. 3pt"
   },
   {
    "q": "Un système reçoit 600 J d'un thermostat à 300 K. Sa variation d'entropie vaut :",
    "choix": [
-    "+2,00 J/K",
     "-2,00 J/K",
+    "+2,00 J/K",
     "+180000 J/K"
    ],
-   "bonne": 0,
-   "expl": "ΔS = Q/T = 600/300 = +2,00 J/K, le signe étant celui de Q. La réponse c vient d'une multiplication au lieu d'une division. Et pour l'ensemble système + entourage, ΔS_total ≥ 0 toujours : aucune conception, aussi soignée soit-elle, ne fait diminuer l'entropie totale. 3pt"
+   "bonne": 1,
+   "expl": "ΔS = Q/T = 600/300 = +2,00 J/K, le signe étant celui de Q. La réponse « +2,00 J/K » vient d'une multiplication au lieu d'une division. Et pour l'ensemble système + entourage, ΔS_total ≥ 0 toujours : aucune conception, aussi soignée soit-elle, ne fait diminuer l'entropie totale. 3pt"
   },
   {
    "q": "Pour un système et tout ce qui l'entoure, la variation d'entropie totale :",
    "choix": [
     "est toujours nulle",
-    "ne peut jamais être négative",
-    "peut être négative si la machine est bien conçue"
+    "peut être négative si la machine est bien conçue",
+    "ne peut jamais être négative"
    ],
-   "bonne": 1,
-   "expl": "ΔS = Q/T = 600/300 = +2,00 J/K, le signe étant celui de Q. La réponse c vient d'une multiplication au lieu d'une division. Et pour l'ensemble système + entourage, ΔS_total ≥ 0 toujours : aucune conception, aussi soignée soit-elle, ne fait diminuer l'entropie totale. 3pt"
+   "bonne": 2,
+   "expl": "ΔS = Q/T = 600/300 = +2,00 J/K, le signe étant celui de Q. La réponse « peut être négative si la machine est bien conçue » vient d'une multiplication au lieu d'une division. Et pour l'ensemble système + entourage, ΔS_total ≥ 0 toujours : aucune conception, aussi soignée soit-elle, ne fait diminuer l'entropie totale. 3pt"
   },
   {
    "q": "Sur un cycle complet d'une machine ditherme :",
    "choix": [
-    "ΔU = W + Q_c + Q_f",
     "W + Q_c + Q_f = 0",
+    "ΔU = W + Q_c + Q_f",
     "W = Q_c + Q_f"
    ],
-   "bonne": 1,
-   "expl": "sur un cycle, le fluide revient à son état de départ donc ΔU = 0, ce qui donne W + Q_c + Q_f = 0. La réponse a est le premier principe hors cycle ; la c oublie un signe. 3pt"
+   "bonne": 0,
+   "expl": "sur un cycle, le fluide revient à son état de départ donc ΔU = 0, ce qui donne W + Q_c + Q_f = 0. La réponse « ΔU = W + Q_c + Q_f » est le premier principe hors cycle ; la réponse « W = Q_c + Q_f » oublie un signe. 3pt"
   },
   {
    "q": "Dans un moteur, la chaleur cédée à la source froide :",
@@ -139,11 +139,11 @@ window.CHAPITRE = {
   {
    "q": "Un climatiseur d'efficacité 2,6 :",
    "choix": [
-    "viole le premier principe",
+    "ne viole rien du tout",
     "viole le second principe",
-    "ne viole rien du tout"
+    "viole le premier principe"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "une efficacité supérieure à 1 ne crée aucune énergie : la machine en déplace. Les joules retirés de la cabine existaient déjà. Et comme le condenseur rejette à la fois ce qui a été pris et le travail payé, Q_c = Q_f + |W|, d'où e_c = e_f + 1 — une pompe à chaleur « livre » toujours une unité de plus qu'un climatiseur ne « prend ». 3pt"
   },
   {
@@ -160,21 +160,21 @@ window.CHAPITRE = {
    "q": "Un moteur fonctionne entre 800 K et 320 K. Son rendement de Carnot vaut :",
    "choix": [
     "40 %",
-    "60 %",
-    "250 %"
+    "250 %",
+    "60 %"
    ],
-   "bonne": 1,
-   "expl": "η_C = 1 - 320/800 = 0,60. La réponse a correspond à l'oubli du « 1 moins », la c à un rapport inversé. Et ce nombre est un plafond : il dit ce qu'aucune machine ne dépassera entre ces températures, jamais ce qu'une machine donnée fera. Le moteur Stirling du TP en atteint 2 %, un bon diesel plus de la moitié. 3pt"
+   "bonne": 2,
+   "expl": "η_C = 1 - 320/800 = 0,60. La réponse « 250 % » correspond à l'oubli du « 1 moins », la réponse « 60 % » à un rapport inversé. Et ce nombre est un plafond : il dit ce qu'aucune machine ne dépassera entre ces températures, jamais ce qu'une machine donnée fera. Le moteur Stirling du TP en atteint 2 %, un bon diesel plus de la moitié. 3pt"
   },
   {
    "q": "Le rendement de Carnot est :",
    "choix": [
-    "le rendement que la machine atteindra",
     "une limite que la machine ne peut pas dépasser",
+    "le rendement que la machine atteindra",
     "une valeur moyenne des machines du commerce"
    ],
-   "bonne": 1,
-   "expl": "η_C = 1 - 320/800 = 0,60. La réponse a correspond à l'oubli du « 1 moins », la c à un rapport inversé. Et ce nombre est un plafond : il dit ce qu'aucune machine ne dépassera entre ces températures, jamais ce qu'une machine donnée fera. Le moteur Stirling du TP en atteint 2 %, un bon diesel plus de la moitié. 3pt"
+   "bonne": 0,
+   "expl": "η_C = 1 - 320/800 = 0,60. La réponse « le rendement que la machine atteindra » correspond à l'oubli du « 1 moins », la réponse « une valeur moyenne des machines du commerce » à un rapport inversé. Et ce nombre est un plafond : il dit ce qu'aucune machine ne dépassera entre ces températures, jamais ce qu'une machine donnée fera. Le moteur Stirling du TP en atteint 2 %, un bon diesel plus de la moitié. 3pt"
   },
   {
    "q": "Dans un diagramme entropique (T,S), l'aire enfermée par un cycle représente :",
@@ -190,10 +190,10 @@ window.CHAPITRE = {
    "q": "Un binôme mesure une efficacité de 12 sur une machine dont l'efficacité de Carnot vaut 10. On peut affirmer :",
    "choix": [
     "que la machine est excellente",
-    "qu'il y a une erreur, sans refaire le calcul",
-    "qu'il faut refaire la mesure avant de se prononcer"
+    "qu'il faut refaire la mesure avant de se prononcer",
+    "qu'il y a une erreur, sans refaire le calcul"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "et c'est la question la plus utile de la feuille. Une performance mesurée supérieure à celle de Carnot est impossible : le second principe permet d'invalider le résultat sans rien recalculer. C'est le seul endroit de l'année où un principe physique sert directement d'outil de contrôle. tcolorbox"
   }
  ],

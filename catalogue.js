@@ -117,9 +117,31 @@ const DOCUMENTS = [
     chapitre: "Utiliser un tableur",
     type: "animation", titre: "Calculer, tracer et modéliser avec un tableur",
     fichier: "animations/tableur.html",
-    description: "Un tutoriel pas à pas sur Excel : saisir un tableau de mesures, écrire une formule et la recopier, tracer un nuage de points, puis ajouter une courbe de tendance et lire son équation. Chaque étape se rejoue autant qu'il faut : le mieux est de la reproduire en même temps sur son propre ordinateur.",
+    description: "Un tutoriel pas à pas sur Excel : saisir un tableau de mesures, écrire une formule et la recopier, tracer un nuage de points en partant d'un graphique vide (Sélectionner des données, puis Ajouter la série : nom, valeurs X, valeurs Y), puis ajouter une courbe de tendance et lire son équation. Chaque étape se rejoue autant qu'il faut : le mieux est de la reproduire en même temps sur son propre ordinateur.",
     trouve: "Une modélisation, c'est une courbe de tendance qu'on sait lire, pas qu'on sait afficher.",
     motscles: ["tableur", "excel", "formule", "recopier", "graphique", "nuage de points", "courbe de tendance", "modeliser"]
+  },
+
+
+  {
+    filiere: "outils", rubrique: "Mesure",
+    chapitre: "Acquérir, calculer et modéliser avec LatisPro",
+    type: "animation", titre: "Acquérir, calculer et modéliser avec LatisPro",
+    fichier: "animations/latispro.html",
+    description: "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales d'acquisition Sysam : paramétrer une acquisition, calculer une nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis la modéliser et lire les paramètres du modèle. Une dernière partie montre la mesure point par point au capteur de pression (mode pas à pas, profondeur saisie au clavier) et la modélisation par une droite. Chaque étape se rejoue ; le mieux est de la reproduire en même temps sur le poste du labo.",
+    trouve: "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis on demande au logiciel les paramètres.",
+    motscles: ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier", "courbe", "modelisation", "regression", "parametres"]
+  },
+
+
+  {
+    filiere: "outils", rubrique: "Calcul",
+    chapitre: "La calculatrice et les puissances de dix",
+    type: "animation", titre: "La calculatrice et les puissances de dix",
+    fichier: "animations/calculatrice-puissances.html",
+    description: "Touche par touche, sur quatre calculatrices (TI-83 Premium CE, TI-83 Plus, Casio Graph 35+E, Casio fx-92 Collège) : écrire un nombre en notation scientifique, calculer avec, élever à une puissance, afficher le résultat en écriture scientifique — et le piège de la division qui fausse un résultat sans prévenir.",
+    trouve: "« × 10 puissance » s'écrit avec la touche EE ou ×10ˣ, jamais avec × 10 ^ ; l'exposant négatif se tape avec la touche de négation.",
+    motscles: ["calculatrice", "notation scientifique", "puissance de dix", "exposant", "ti", "casio"]
   },
 
 
@@ -210,24 +232,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "Cours",
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "animation", titre: "Le rayonnement",
-    fichier: "animations/rayonnement.html",
-    description: "Une plaque chaude face à un capteur, sans aucun contact. Température, surface et état de surface réglables, avec une colonne d'essai pour chercher la loi. P = ε·σ·S·T⁴.",
-    motscles: ["rayonnement", "stefan", "emissivite", "camera thermique", "thermographie", "kelvin", "infrarouge"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "pdf", titre: "Activité 2 — Le rayonnement",
-    fichier: "docs/bts-et/c01/a2_rayonnement.pdf",
-    description: "Le document à remplir pendant l'animation.",
-    motscles: ["energie", "interne", "thermiques", "transferts"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
     type: "animation", titre: "Le flux à travers une paroi",
     fichier: "animations/flux-thermique.html",
     description: "Une ou deux couches entre un local chauffé et l'extérieur. Matériau, épaisseur, surface et températures réglables ; température d'interface affichée. Φ = λ·S·Δθ / e, puis la résistance thermique.",
@@ -237,8 +241,26 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "Cours",
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "pdf", titre: "Activité 3 — Le flux à travers une paroi",
-    fichier: "docs/bts-et/c01/a3_flux.pdf",
+    type: "pdf", titre: "Activité 2 — Le flux à travers une paroi",
+    fichier: "docs/bts-et/c01/a2_flux.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["energie", "interne", "thermiques", "transferts"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
+    type: "animation", titre: "Le rayonnement",
+    fichier: "animations/rayonnement.html",
+    description: "Une plaque chaude face à un capteur, sans aucun contact. Température, surface et état de surface réglables, avec une colonne d'essai pour chercher la loi. P = ε·σ·S·T⁴.",
+    motscles: ["rayonnement", "stefan", "emissivite", "camera thermique", "thermographie", "kelvin", "infrarouge"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
+    type: "pdf", titre: "Activité 3 — Le rayonnement",
+    fichier: "docs/bts-et/c01/a3_rayonnement.pdf",
     description: "Le document à remplir pendant l'animation.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
@@ -513,7 +535,7 @@ const DOCUMENTS = [
     chapitre: "Cours 2 — Électromagnétisme",
     type: "qcm", titre: "Bilan — se tester après",
     fichier: "entrainement/qcm.html?f=bts-et&ch=c02&type=bilan",
-    description: "12 questions sur tout le chapitre.",
+    description: "14 questions sur tout le chapitre.",
     motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
   },
 
@@ -524,6 +546,172 @@ const DOCUMENTS = [
     fichier: "entrainement/cartes.html?f=bts-et&ch=c02",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/c03/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "animation", titre: "L'équation de combustion",
+    fichier: "animations/combustion.html",
+    description: "On place dans le brûleur des molécules de combustible et de dioxygène ; la flamme réarrange les atomes. Les atomes sont comptés avant et après, et un manque d'air fait apparaître le monoxyde de carbone.",
+    trouve: "Les nombres de l'équation de combustion et la conservation des atomes.",
+    motscles: ["combustion", "equation", "equilibrer", "atome", "molecule", "methane", "propane", "butane", "monoxyde de carbone", "dioxyde de carbone"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Activité 1 — L'équation de combustion",
+    fichier: "docs/bts-et/c03/a1_equation.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "animation", titre: "L'énergie d'un combustible",
+    fichier: "animations/pouvoir-calorifique.html",
+    description: "On brûle une petite masse de combustible sous un récipient d'eau et on mesure l'énergie reçue par l'eau. Une colonne d'essai permet de chercher le rapport constant.",
+    trouve: "E = m·PCI et les ordres de grandeur des pouvoirs calorifiques.",
+    motscles: ["pouvoir calorifique", "pci", "energie", "combustible", "gazole", "hydrogene", "calorimetre", "combustion"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Activité 2 — L'énergie d'un combustible",
+    fichier: "docs/bts-et/c03/a2_energie.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "animation", titre: "Le groupe électrogène",
+    fichier: "animations/groupe-electrogene.html",
+    description: "Un groupe diesel de 100 kW alimente une charge. Puissance demandée et durée réglables ; gazole consommé, énergie électrique fournie et CO₂ rejeté s'affichent.",
+    trouve: "Le rendement d'un groupe, qui chute en sous-charge, et le CO₂ proportionnel au gazole brûlé.",
+    motscles: ["groupe electrogene", "diesel", "rendement", "gazole", "co2", "sous-charge", "combustion"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Activité 3 — Le groupe électrogène",
+    fichier: "docs/bts-et/c03/a3_groupe.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/c03/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/c03/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/c03/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/c03/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/c03/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/c03/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/c03/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/c03/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 3 — Les combustions",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/c03/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "Cours 3 — Les combustions",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=c03&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "Cours 3 — Les combustions",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=c03",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
   },
 
 
@@ -770,6 +958,224 @@ const DOCUMENTS = [
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp02",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/tp03/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/tp03/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/tp03/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/tp03/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/tp03/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/tp03/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/tp03/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/tp03/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/tp03/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/tp03/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp03&type=bilan",
+    description: "14 questions sur tout le chapitre.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 3 — Régime sinusoïdal monophasé",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=tp03",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/ch09/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/ch09/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/ch09/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/ch09/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/ch09/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/ch09/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/ch09/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/ch09/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/ch09/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/ch09/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=ch09&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=ch09",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
   },
 
 
@@ -1246,9 +1652,38 @@ const DOCUMENTS = [
   {
     filiere: "bts-crsa", rubrique: "TP",
     chapitre: "Chapitre 3 — Énergie thermique",
-    type: "pdf", titre: "Activité expérimentale",
+    type: "pdf", titre: "Activité 1 — Chaleur latente de fusion de la glace",
     fichier: "docs/bts-crsa/ch03/activite.pdf",
-    description: "L'activité de découverte, à faire en salle de TP.",
+    description: "L'activité expérimentale, au calorimètre du laboratoire.",
+    motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 3 — Énergie thermique",
+    type: "animation", titre: "Le flux à travers une paroi",
+    fichier: "animations/flux-thermique.html",
+    description: "Un fluxmètre posé sur une paroi : matériau, épaisseur, surface et températures se règlent, une deuxième couche s'ajoute. On change une seule chose à la fois.",
+    trouve: "φ = S·Δθ/R, avec R = e/λ ; les résistances des couches s'additionnent.",
+    motscles: ["flux thermique", "paroi", "isolant", "resistance thermique", "conduction"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 3 — Énergie thermique",
+    type: "animation", titre: "Le rayonnement",
+    fichier: "animations/rayonnement.html",
+    description: "Une plaque chaude devant un capteur : sa température, sa surface et son état de surface se règlent. Rien ne la touche, aucun air ne circule.",
+    trouve: "La puissance rayonnée croît très vite avec la température et dépend de l'état de surface.",
+    motscles: ["rayonnement", "transfert thermique", "four", "surface", "temperature"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 3 — Énergie thermique",
+    type: "pdf", titre: "Activité 2 — Les transferts thermiques",
+    fichier: "docs/bts-crsa/ch03/activite2.pdf",
+    description: "Menée sur les deux animations ci-dessus : aucun matériel nécessaire.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
 
@@ -2724,6 +3159,106 @@ const DOCUMENTS = [
   },
 
 
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-crsa/ch17/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-crsa/ch17/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-crsa/ch17/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-crsa/ch17/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-crsa/ch17/bilan.pdf",
+    description: "Douze questions pour se tester, réponses en bas de page.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-crsa/ch17/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-crsa/ch17/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Devoir type E32",
+    fichier: "docs/bts-crsa/ch17/devoir.pdf",
+    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-crsa/ch17/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "S'entraîner",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch17&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "S'entraîner",
+    chapitre: "Chapitre 17 — Filtrage et conversion",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch17",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+
 
   /* ---------------- BTS TSMA ---------------- */
   {
@@ -3067,10 +3602,30 @@ const DOCUMENTS = [
   {
     filiere: "bts-tsma", rubrique: "TP",
     chapitre: "Chapitre 3 — Statique des fluides",
+    type: "animation", titre: "Pression au fond d'une éprouvette",
+    fichier: "animations/eprouvette-pression.html",
+    description: "Un tuyau souple relié à un capteur de pression absolue plonge dans une éprouvette d'eau ou d'huile ; on règle la profondeur et on relève la pression. C'est la partie « huile » de l'activité expérimentale.",
+    trouve: "La pente de p = f(h) vaut ρ g ; l'ordonnée à l'origine, la pression atmosphérique.",
+    motscles: ["pression", "profondeur", "masse volumique", "huile", "eprouvette", "capteur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch03/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
     motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "animation", titre: "La maquette pression-surface",
+    fichier: "animations/maquette-pression.html",
+    description: "La maquette du laboratoire en version simulée : trois pistons, des masses à poser, un capteur de pression absolue. Les valeurs reproduisent les mesures réelles, défauts compris ; un second onglet fait fonctionner une presse hydraulique. C'est le poste 2 de l'activité sur banc.",
+    trouve: "La pente de p = f(m) donne la section du piston ; l'ordonnée à l'origine contrôle le montage.",
+    motscles: ["pression", "piston", "seringue", "section", "presse hydraulique", "maquette"]
   },
 
   {

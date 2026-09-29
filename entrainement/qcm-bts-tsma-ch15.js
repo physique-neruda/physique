@@ -79,21 +79,21 @@ window.CHAPITRE = {
   {
    "q": "La valeur finale d'une réponse indicielle se lit :",
    "choix": [
-    "dans le régime transitoire",
     "dans le régime permanent",
+    "dans le régime transitoire",
     "à l'instant de l'échelon"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "la valeur finale se lit sur le palier, donc en régime permanent. Mais c'est le régime transitoire qui porte toute l'information : le permanent ne donne qu'un seul nombre. Et la transmittance statique est bien le rapport de ce qui sort à ce qui entre, avec son unité propre. 3pt"
   },
   {
    "q": "La transmittance statique d'un système vaut :",
    "choix": [
-    "K = Δs / Δe",
+    "K = s_∞ × Δe",
     "K = Δe / Δs",
-    "K = s_∞ × Δe"
+    "K = Δs / Δe"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "la valeur finale se lit sur le palier, donc en régime permanent. Mais c'est le régime transitoire qui porte toute l'information : le permanent ne donne qu'un seul nombre. Et la transmittance statique est bien le rapport de ce qui sort à ce qui entre, avec son unité propre. 3pt"
   },
   {
@@ -110,20 +110,20 @@ window.CHAPITRE = {
    "q": "À t = 3τ, la sortie d'un premier ordre vaut :",
    "choix": [
     "63 % de s_∞",
-    "95 % de s_∞",
-    "trois fois s_∞"
+    "trois fois s_∞",
+    "95 % de s_∞"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "ce sont les deux repères du premier ordre : 63 % à τ, 95 % à 3τ. Les retenir dans ce sens évite l'erreur symétrique, qui consiste à croire que la sortie atteint sa valeur finale à τ. 3pt"
   },
   {
    "q": "Parmi les trois méthodes de détermination de τ, la moins fiable est :",
    "choix": [
-    "la lecture à 63 %",
     "la tangente à l'origine",
+    "la lecture à 63 %",
     "la lecture à 95 %"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "et c'est un résultat expérimental, pas une opinion. La tangente à l'origine se trace à main levée, dans la zone la plus raide de la courbe : sur un même enregistrement, des binômes différents en tirent des valeurs distantes de près de 20 %, contre 2 % pour la lecture à 95 %. Cette dispersion vient de la méthode, pas du matériel — lire un graphique est une mesure, avec sa propre incertitude. 3pt"
   },
   {
@@ -149,41 +149,41 @@ window.CHAPITRE = {
   {
    "q": "Le temps de réponse à 5 % est l'instant où la sortie :",
    "choix": [
-    "entre pour la première fois dans la bande",
     "ne ressort plus de la bande",
+    "entre pour la première fois dans la bande",
     "atteint sa valeur finale"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "le temps de réponse se termine à la dernière sortie de la bande, pas à la première entrée : un système qui oscille peut y entrer très tôt et en ressortir plusieurs fois. Et moins il y a d'amortissement, plus le dépassement est grand. 3pt"
   },
   {
    "q": "Quand on diminue l'amortissement d'un second ordre, le dépassement :",
    "choix": [
-    "augmente",
+    "ne change pas",
     "diminue",
-    "ne change pas"
+    "augmente"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "le temps de réponse se termine à la dernière sortie de la bande, pas à la première entrée : un système qui oscille peut y entrer très tôt et en ressortir plusieurs fois. Et moins il y a d'amortissement, plus le dépassement est grand. 3pt"
   },
   {
    "q": "Trois réglages sont classés selon le temps de montée, puis selon le temps de réponse à 5 %. Les deux classements :",
    "choix": [
     "sont toujours identiques",
-    "peuvent être inversés",
-    "ne sont pas comparables"
+    "ne sont pas comparables",
+    "peuvent être inversés"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "et c'est la question la plus importante de la feuille. Le réglage le moins amorti monte le plus vite et se stabilise le plus lentement : les deux classements sont exactement inversés. Il n'existe donc pas de « réglage le plus rapide » dans l'absolu — cela dépend du critère retenu, et choisir ce critère est une décision d'ingénieur, pas un résultat de mesure. 3pt"
   },
   {
    "q": "Ce qui distingue une boucle fermée d'une boucle ouverte, c'est la présence :",
    "choix": [
-    "d'un actionneur plus puissant",
     "d'un capteur et d'un comparateur",
+    "d'un actionneur plus puissant",
     "d'une consigne"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "ni la puissance ni la qualité des composants ne distinguent les deux montages : c'est le capteur qui mesure la sortie et le comparateur qui en fait un écart. Sans eux, personne ne vérifie ce qui sort. 3pt"
   },
   {

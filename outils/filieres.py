@@ -118,13 +118,19 @@ DOCUMENTS = {
          "Le document à remplir pendant l'animation."),
         ("a1_flux",           "Cours", "Activité 1 — Le flux magnétique",
          "Le document à remplir pendant l'animation."),
-        ("a2_rayonnement",    "Cours", "Activité 2 — Le rayonnement",
+        ("a2_flux",           "Cours", "Activité 2 — Le flux à travers une paroi",
+         "Le document à remplir pendant l'animation."),
+        ("a3_rayonnement",    "Cours", "Activité 3 — Le rayonnement",
          "Le document à remplir pendant l'animation."),
         ("a2_induction",      "Cours", "Activité 2 — L'induction",
          "Le document à remplir pendant l'animation."),
-        ("a3_flux",           "Cours", "Activité 3 — Le flux à travers une paroi",
-         "Le document à remplir pendant l'animation."),
         ("a3_circuit",        "Cours", "Activité 3 — Le circuit magnétique",
+         "Le document à remplir pendant l'animation."),
+        ("a1_equation",       "Cours", "Activité 1 — L'équation de combustion",
+         "Le document à remplir pendant l'animation."),
+        ("a2_energie",        "Cours", "Activité 2 — L'énergie d'un combustible",
+         "Le document à remplir pendant l'animation."),
+        ("a3_groupe",         "Cours", "Activité 3 — Le groupe électrogène",
          "Le document à remplir pendant l'animation."),
         ("cours_a_completer", "Cours", "Cours à compléter",
          "La version distribuée en séance, avec les passages à écrire."),
@@ -154,7 +160,7 @@ DOCUMENTS = {
 # celle déclarée ci-dessus. Le fil « TP élec » du BTS ET est un fil complet
 # de chapitres : ses documents sont les mêmes, la rubrique change.
 RUBRIQUE_DU_CHAPITRE = {
-    "bts-et": {"tp01": "TP", "tp02": "TP", "ch09": "TP", "adm01": "ADM"},
+    "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "ch09": "TP", "adm01": "ADM"},
 }
 
 # Titre affiché différent pour un document précis d'un chapitre précis.
@@ -165,6 +171,12 @@ TITRES_PARTICULIERS = {
     ("bts-crsa", "ch01", "activite2"):
         ("Activité 2 — Rendement d'un panneau photovoltaïque",
          "L'activité expérimentale, avec le panneau et le luxmètre du laboratoire."),
+    ("bts-crsa", "ch03", "activite"):
+        ("Activité 1 — Chaleur latente de fusion de la glace",
+         "L'activité expérimentale, au calorimètre du laboratoire."),
+    ("bts-crsa", "ch03", "activite2"):
+        ("Activité 2 — Les transferts thermiques",
+         "Menée sur les deux animations ci-dessus : aucun matériel nécessaire."),
 }
 
 # ------------------------------------------------------------- animations
@@ -180,14 +192,14 @@ ANIMATIONS = {
                         "Q = m·c·Δθ et Q = m·L.",
          "motscles": ["calorimetre", "chaleur", "capacite thermique", "chaleur latente",
                       "changement d'etat", "palier", "fusion", "vaporisation", "energie"]},
-        {"chapitre": "c01", "rubrique": "Cours", "avant": "a2_rayonnement",
+        {"chapitre": "c01", "rubrique": "Cours", "avant": "a3_rayonnement",
          "titre": "Le rayonnement", "fichier": "animations/rayonnement.html",
          "description": "Une plaque chaude face à un capteur, sans aucun contact. Température, "
                         "surface et état de surface réglables, avec une colonne d'essai pour "
                         "chercher la loi. P = ε·σ·S·T⁴.",
          "motscles": ["rayonnement", "stefan", "emissivite", "camera thermique",
                       "thermographie", "kelvin", "infrarouge"]},
-        {"chapitre": "c01", "rubrique": "Cours", "avant": "a3_flux",
+        {"chapitre": "c01", "rubrique": "Cours", "avant": "a2_flux",
          "titre": "Le flux à travers une paroi", "fichier": "animations/flux-thermique.html",
          "description": "Une ou deux couches entre un local chauffé et l'extérieur. Matériau, "
                         "épaisseur, surface et températures réglables ; température d'interface "
@@ -209,6 +221,31 @@ ANIMATIONS = {
          "trouve": "e = −N·dΦ/dt",
          "motscles": ["electromagnetisme", "flux magnetique", "induction", "reluctance",
                       "circuit magnetique"]},
+        {"chapitre": "c03", "rubrique": "Cours", "avant": "a1_equation",
+         "titre": "L'équation de combustion", "fichier": "animations/combustion.html",
+         "description": "On place dans le brûleur des molécules de combustible et de dioxygène ; "
+                        "la flamme réarrange les atomes. Les atomes sont comptés avant et après, "
+                        "et un manque d'air fait apparaître le monoxyde de carbone.",
+         "trouve": "Les nombres de l'équation de combustion et la conservation des atomes.",
+         "motscles": ["combustion", "equation", "equilibrer", "atome", "molecule", "methane",
+                      "propane", "butane", "monoxyde de carbone", "dioxyde de carbone"]},
+        {"chapitre": "c03", "rubrique": "Cours", "avant": "a2_energie",
+         "titre": "L'énergie d'un combustible", "fichier": "animations/pouvoir-calorifique.html",
+         "description": "On brûle une petite masse de combustible sous un récipient d'eau et on "
+                        "mesure l'énergie reçue par l'eau. Une colonne d'essai permet de chercher "
+                        "le rapport constant.",
+         "trouve": "E = m·PCI et les ordres de grandeur des pouvoirs calorifiques.",
+         "motscles": ["pouvoir calorifique", "pci", "energie", "combustible", "gazole",
+                      "hydrogene", "calorimetre", "combustion"]},
+        {"chapitre": "c03", "rubrique": "Cours", "avant": "a3_groupe",
+         "titre": "Le groupe électrogène", "fichier": "animations/groupe-electrogene.html",
+         "description": "Un groupe diesel de 100 kW alimente une charge. Puissance demandée et "
+                        "durée réglables ; gazole consommé, énergie électrique fournie et CO₂ "
+                        "rejeté s'affichent.",
+         "trouve": "Le rendement d'un groupe, qui chute en sous-charge, et le CO₂ proportionnel "
+                   "au gazole brûlé.",
+         "motscles": ["groupe electrogene", "diesel", "rendement", "gazole", "co2",
+                      "sous-charge", "combustion"]},
         {"chapitre": "tp02", "rubrique": "TP", "avant": "activite",
          "titre": "Le relevé de caractéristiques",
          "fichier": "animations/caracteristiques.html",
@@ -274,9 +311,42 @@ ANIMATIONS = {
                         "la puissance absorbée se calculent. Le rendement varie avec la charge.",
          "trouve": "η = P utile / P absorbée, maximal à charge partielle.",
          "motscles": ["moteur", "courant continu", "mcc", "rendement", "couple", "puissance"]},
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite2",
+         "titre": "Le flux à travers une paroi", "fichier": "animations/flux-thermique.html",
+         "description": "Un fluxmètre posé sur une paroi : matériau, épaisseur, surface et "
+                        "températures se règlent, une deuxième couche s'ajoute. On change une "
+                        "seule chose à la fois.",
+         "trouve": "φ = S·Δθ/R, avec R = e/λ ; les résistances des couches s'additionnent.",
+         "motscles": ["flux thermique", "paroi", "isolant", "resistance thermique", "conduction"]},
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite2",
+         "titre": "Le rayonnement", "fichier": "animations/rayonnement.html",
+         "description": "Une plaque chaude devant un capteur : sa température, sa surface et son "
+                        "état de surface se règlent. Rien ne la touche, aucun air ne circule.",
+         "trouve": "La puissance rayonnée croît très vite avec la température et dépend de "
+                   "l'état de surface.",
+         "motscles": ["rayonnement", "transfert thermique", "four", "surface", "temperature"]},
     ],
 
     "bts-tsma": [
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite",
+         "titre": "Pression au fond d'une éprouvette",
+         "fichier": "animations/eprouvette-pression.html",
+         "description": "Un tuyau souple relié à un capteur de pression absolue plonge dans une "
+                        "éprouvette d'eau ou d'huile ; on règle la profondeur et on relève la "
+                        "pression. C'est la partie « huile » de l'activité expérimentale.",
+         "trouve": "La pente de p = f(h) vaut ρ g ; l'ordonnée à l'origine, la pression "
+                   "atmosphérique.",
+         "motscles": ["pression", "profondeur", "masse volumique", "huile", "eprouvette", "capteur"]},
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite_banc",
+         "titre": "La maquette pression-surface",
+         "fichier": "animations/maquette-pression.html",
+         "description": "La maquette du laboratoire en version simulée : trois pistons, des masses à "
+                        "poser, un capteur de pression absolue. Les valeurs reproduisent les mesures "
+                        "réelles, défauts compris ; un second onglet fait fonctionner une presse "
+                        "hydraulique. C'est le poste 2 de l'activité sur banc.",
+         "trouve": "La pente de p = f(m) donne la section du piston ; l'ordonnée à l'origine "
+                   "contrôle le montage.",
+         "motscles": ["pression", "piston", "seringue", "section", "presse hydraulique", "maquette"]},
         {"chapitre": "ch01", "rubrique": "TP", "avant": None,
          "titre": "Pied à coulisse virtuel", "fichier": "animations/pied-a-coulisse.html",
          "description": "Un pied à coulisse au 1/50 refermé sur un axe de piston : on lit "
@@ -328,11 +398,39 @@ ANIMATIONS = {
     ],
 
     "outils": [
+        {"chapitre": "ou05", "rubrique": "Calcul", "avant": None,
+         "titre": "La calculatrice et les puissances de dix",
+         "fichier": "animations/calculatrice-puissances.html",
+         "description": "Touche par touche, sur quatre calculatrices (TI-83 Premium CE, TI-83 Plus, "
+                        "Casio Graph 35+E, Casio fx-92 Collège) : écrire un nombre en notation "
+                        "scientifique, calculer avec, élever à une puissance, afficher le résultat en "
+                        "écriture scientifique — et le piège de la division qui fausse un résultat "
+                        "sans prévenir.",
+         "trouve": "« × 10 puissance » s'écrit avec la touche EE ou ×10ˣ, jamais avec × 10 ^ ; "
+                   "l'exposant négatif se tape avec la touche de négation.",
+         "motscles": ["calculatrice", "notation scientifique", "puissance de dix", "exposant", "ti", "casio"]},
+        {"chapitre": "ou04", "rubrique": "Mesure", "avant": None,
+         "titre": "Acquérir, calculer et modéliser avec LatisPro",
+         "fichier": "animations/latispro.html",
+         "description": "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales "
+                        "d'acquisition Sysam : paramétrer une acquisition, calculer une "
+                        "nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis "
+                        "la modéliser et lire les paramètres du modèle. Une dernière partie "
+                        "montre la mesure point par point au capteur de pression (mode pas à "
+                        "pas, profondeur saisie au clavier) et la modélisation par une droite. Chaque étape se "
+                        "rejoue ; le mieux est de la reproduire en même temps sur le poste "
+                        "du labo.",
+         "trouve": "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis "
+                   "on demande au logiciel les paramètres.",
+         "motscles": ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier",
+                      "courbe", "modelisation", "regression", "parametres"]},
         {"chapitre": "ou03", "rubrique": "Mesure", "avant": None,
          "titre": "Calculer, tracer et modéliser avec un tableur",
          "fichier": "animations/tableur.html",
          "description": "Un tutoriel pas à pas sur Excel : saisir un tableau de mesures, "
-                        "écrire une formule et la recopier, tracer un nuage de points, puis "
+                        "écrire une formule et la recopier, tracer un nuage de points en partant "
+                        "d'un graphique vide (Sélectionner des données, puis Ajouter la série : "
+                        "nom, valeurs X, valeurs Y), puis "
                         "ajouter une courbe de tendance et lire son équation. Chaque étape se "
                         "rejoue autant qu'il faut : le mieux est de la reproduire en même "
                         "temps sur son propre ordinateur.",
@@ -379,4 +477,5 @@ SOURCES = {
 
 # Correspondance clé du site -> dossier dans la collection ET.
 DOSSIERS_ET = {"ch00": "ch00", "ch09": "ch09", "c01": "C1", "c02": "C2",
-               "tp01": "TP1", "tp02": "TP2", "adm01": "ADM1"}
+               "tp01": "TP1", "tp02": "TP2", "adm01": "ADM1",
+               "c03": "C3", "tp03": "TP3"}

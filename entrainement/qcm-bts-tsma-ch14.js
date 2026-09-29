@@ -109,41 +109,41 @@ window.CHAPITRE = {
   {
    "q": "Ajouter 10 dB à un niveau, c'est multiplier l'intensité par :",
    "choix": [
-    "2",
     "10",
+    "2",
     "100"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "les deux seuls repères à connaître : +10 dB → × 10 et +3 dB → × 2, puisque 10log(2) = 3,0. Tout le reste s'en déduit. 3pt"
   },
   {
    "q": "Doubler l'intensité acoustique ajoute :",
    "choix": [
     "2 dB",
-    "3 dB",
-    "6 dB"
+    "6 dB",
+    "3 dB"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "les deux seuls repères à connaître : +10 dB → × 10 et +3 dB → × 2, puisque 10log(2) = 3,0. Tout le reste s'en déduit. 3pt"
   },
   {
    "q": "Deux machines produisent chacune 85 dB(A) au même poste. Ensemble, elles produisent :",
    "choix": [
-    "88 dB(A)",
     "170 dB(A)",
+    "88 dB(A)",
     "85 dB(A)"
    ],
-   "bonne": 0,
-   "expl": "deux sources identiques ajoutent trois décibels, jamais le double. La réponse b additionne des logarithmes comme s'il s'agissait de nombres ordinaires : c'est l'erreur de fond du chapitre. 3pt"
+   "bonne": 1,
+   "expl": "deux sources identiques ajoutent trois décibels, jamais le double. La réponse « 170 dB(A) » additionne des logarithmes comme s'il s'agissait de nombres ordinaires : c'est l'erreur de fond du chapitre. 3pt"
   },
   {
    "q": "Une source A donne 88 dB et une source B 82 dB. Supprimer B fait gagner environ :",
    "choix": [
-    "1 dB",
+    "82 dB",
     "6 dB",
-    "82 dB"
+    "1 dB"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "l'ensemble vaut 89,0 dB ; sans B il reste 88 dB, soit un décibel gagné, imperceptible. Sans A il resterait 82 dB, soit sept. On traite toujours la source dominante — et l'ordre des travaux en découle. 3pt"
   },
   {
@@ -159,11 +159,11 @@ window.CHAPITRE = {
   {
    "q": "Un opérateur est à 8 m d'une source. Reculer d'un mètre lui fait gagner :",
    "choix": [
-    "6 dB",
     "environ 1 dB",
+    "6 dB",
     "rien du tout"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "chaque doublement de distance retire 6 dB ; ce qui compte est le rapport des distances, jamais leur différence. De 8 à 9 m, le rapport ne vaut que 1,125, soit 1 dB à peine. Le même geste, très efficace près de la source, presque inutile loin d'elle. 3pt"
   },
   {
@@ -179,21 +179,21 @@ window.CHAPITRE = {
   {
    "q": "Au poste de conduite, le sonomètre indique 92 dB(A). Avec un casque de SNR 34, le niveau perçu serait de 58 dB(A). Ce choix est :",
    "choix": [
-    "le meilleur, car c'est le plus atténuant",
     "discutable : l'opérateur n'entendrait plus les signaux d'alerte",
+    "le meilleur, car c'est le plus atténuant",
     "interdit par la réglementation"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "et c'est la question la plus utile de la feuille. Les trois protections « fonctionnent » au sens où elles ramènent sous 85 dB(A) ; le casque lourd descend pourtant beaucoup trop bas. À 58 dB(A), l'opérateur n'entend plus l'alarme de recul, ni le bruit anormal de sa machine, ni ses collègues : la surprotection crée un autre risque. On vise entre 70 et 80 dB(A) sous protection. 3pt"
   },
   {
    "q": "Dans la hiérarchie des actions contre le bruit, l'EPI vient :",
    "choix": [
     "en premier, car c'est le plus rapide",
-    "en dernier, après l'action à la source et sur le trajet",
-    "à égalité avec les autres"
+    "à égalité avec les autres",
+    "en dernier, après l'action à la source et sur le trajet"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "la hiérarchie réglementaire est : à la source d'abord (silencieux, capotage, liaisons souples), sur le trajet ensuite (cabine isolée, écrans), et seulement en dernier recours sur l'opérateur. Un EPI ne protège que celui qui le porte, et seulement s'il le porte correctement — c'est la protection la moins fiable de toutes. tcolorbox"
   }
  ],

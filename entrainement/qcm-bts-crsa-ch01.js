@@ -81,23 +81,23 @@ window.CHAPITRE = {
   {
    "q": "L'unité de la puissance est :",
    "choix": [
-    "le joule",
     "le watt",
+    "le joule",
     "le kilowattheure",
     "le newton-mètre"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Le joule est l'unité d'énergie, le newton-mètre celle d'un couple."
   },
   {
    "q": "Le kilowattheure est une unité :",
    "choix": [
     "de puissance",
-    "d'énergie",
+    "de couple",
     "de rendement",
-    "de couple"
+    "d'énergie"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "Malgré son nom, c'est le produit d'une puissance par une durée."
   },
   {
@@ -109,7 +109,7 @@ window.CHAPITRE = {
     "6 J"
    ],
    "bonne": 1,
-   "expl": "E = P Δt = 2×3 = 6 kW·h. La réponse c est un piège d'unité : le résultat est une énergie, pas une puissance."
+   "expl": "E = P Δt = 2×3 = 6 kW·h. La réponse « 6 kW » est un piège d'unité : le résultat est une énergie, pas une puissance."
   },
   {
    "q": "1 kW·h vaut :",
@@ -125,23 +125,23 @@ window.CHAPITRE = {
   {
    "q": "Le principe de conservation de l'énergie appliqué à une machine s'écrit :",
    "choix": [
-    "P_a = P_u",
     "P_a = P_u + P_p",
+    "P_a = P_u",
     "P_u = P_a + P_p",
     "P_p = P_a × P_u"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Tout ce qui entre ressort : en partie utile, en partie perdu."
   },
   {
    "q": "Les « pertes » d'un moteur correspondent à de l'énergie :",
    "choix": [
     "qui disparaît",
-    "transférée en chaleur",
     "stockée dans le moteur",
+    "transférée en chaleur",
     "qui n'a jamais été absorbée"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Rien ne disparaît. C'est de l'énergie bien réelle, simplement transférée sous une forme dont on n'a que faire."
   },
   {
@@ -159,12 +159,12 @@ window.CHAPITRE = {
    "q": "Un rendement calculé vaut 1,25. On peut affirmer :",
    "choix": [
     "que la machine est très performante",
-    "qu'il y a une erreur de calcul",
+    "que les pertes sont négatives",
     "que c'est une pompe à chaleur",
-    "que les pertes sont négatives"
+    "qu'il y a une erreur de calcul"
    ],
-   "bonne": 1,
-   "expl": "Un rendement ne dépasse jamais 1. La réponse c est le piège : une pompe à chaleur a une efficacité supérieure à 1, pas un rendement."
+   "bonne": 3,
+   "expl": "Un rendement ne dépasse jamais 1. La réponse « que c'est une pompe à chaleur » est le piège : une pompe à chaleur a une efficacité supérieure à 1, pas un rendement."
   },
   {
    "q": "Une chaîne comporte trois éléments de rendements 0,95, 0,90 et 0,80. Le rendement total vaut :",
@@ -175,7 +175,7 @@ window.CHAPITRE = {
     "0,80"
    ],
    "bonne": 2,
-   "expl": "0,95×0,90×0,80 = 0,684. La réponse a additionne, la b fait une moyenne : ni l'une ni l'autre n'a de sens."
+   "expl": "0,95×0,90×0,80 = 0,684. La réponse « 2,65 » additionne, la réponse « 0,88 » fait une moyenne : ni l'une ni l'autre n'a de sens."
   },
   {
    "q": "Pour calculer la puissance absorbée à partir de la puissance utile et du rendement, il faut :",
@@ -191,12 +191,12 @@ window.CHAPITRE = {
   {
    "q": "Une pompe à chaleur d'efficacité 4 restitue 4 kW·h pour 1 kW·h consommé. Les 3 kW·h supplémentaires :",
    "choix": [
-    "sont créés par la machine",
     "proviennent de l'environnement extérieur",
+    "sont créés par la machine",
     "sont une erreur du constructeur",
     "viennent du réseau électrique"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Elle les prélève dehors et les transporte dedans. La conservation de l'énergie est respectée."
   },
   {
@@ -204,32 +204,32 @@ window.CHAPITRE = {
    "choix": [
     "100 W",
     "200 W",
-    "300 W",
-    "0 W"
+    "0 W",
+    "300 W"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "Tout ce qui entre ressort : 100 + 200 = 300 W. Un réfrigérateur réchauffe la pièce — il lui rend davantage qu'il ne lui prend."
   },
   {
    "q": "Pour une même machine frigorifique, l'efficacité en mode chauffage et l'efficacité en mode froid sont liées par :",
    "choix": [
     "e_chaud = e_froid",
-    "e_chaud = e_froid + 1",
+    "elles sont indépendantes",
     "e_chaud = 2 e_froid",
-    "elles sont indépendantes"
+    "e_chaud = e_froid + 1"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "L'électricité du compresseur se retrouve elle aussi du côté chaud : le numérateur du mode chauffage vaut celui du mode froid plus la puissance électrique."
   },
   {
    "q": "Dans une cellule, le four consomme 19 kW·h par jour et le convoyeur 10 kW·h. Pour réduire la facture, il faut agir en priorité :",
    "choix": [
     "sur le convoyeur, plus facile d'accès",
-    "sur le four",
     "indifféremment sur l'un ou l'autre",
+    "sur le four",
     "sur les deux à parts égales"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Le four pèse les deux tiers de la consommation. On optimise d'abord le poste dominant, pas le plus accessible — c'est le réflexe que l'épreuve attend. enumerate tcolorbox"
   }
  ],
@@ -326,5 +326,6 @@ window.CHAPITRE = {
    "verso": "<strong>6 kW·h</strong>",
    "origine": "bilan"
   }
- ]
+ ],
+ "cartes_figees": false
 };

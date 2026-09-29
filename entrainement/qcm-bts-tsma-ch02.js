@@ -80,20 +80,20 @@ window.CHAPITRE = {
    "q": "L'unité de l'énergie dans le Système international est :",
    "choix": [
     "le watt",
-    "le joule",
-    "le kilowattheure"
+    "le kilowattheure",
+    "le joule"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le joule est l'unité légale, le kilowattheure celle des factures : 1 kW·h = 1000 × 3600 = 3,6×10⁶ J. 3pt"
   },
   {
    "q": "1 kW·h vaut :",
    "choix": [
-    "1000 J",
+    "3,6 MJ",
     "3600 J",
-    "3,6 MJ"
+    "1000 J"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "le joule est l'unité légale, le kilowattheure celle des factures : 1 kW·h = 1000 × 3600 = 3,6×10⁶ J. 3pt"
   },
   {
@@ -109,11 +109,11 @@ window.CHAPITRE = {
   {
    "q": "La puissance transmise par un arbre en rotation s'écrit :",
    "choix": [
-    "P = C × N",
     "P = C × ω",
+    "P = C × N",
     "P = C / ω"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "ω= 2πN/60 = 56,5 rad/s. Employer N directement dans P = Cω fausse le résultat d'un facteur 9,55 : c'est l'erreur la plus fréquente du chapitre. 3pt"
   },
   {
@@ -124,46 +124,46 @@ window.CHAPITRE = {
     "135 kW"
    ],
    "bonne": 1,
-   "expl": "Q_v = 45/60 000 = 7,5×10⁻⁴ m³/s et p = 1,8×10⁷ Pa, d'où P = 1,35×10⁴ W. La réponse a correspond à un oubli de conversion de la pression, la c à un oubli sur le débit. 3pt"
+   "expl": "Q_v = 45/60 000 = 7,5×10⁻⁴ m³/s et p = 1,8×10⁷ Pa, d'où P = 1,35×10⁴ W. La réponse « 8,1 kW » correspond à un oubli de conversion de la pression, la réponse « 135 kW » à un oubli sur le débit. 3pt"
   },
   {
    "q": "Un rendement peut valoir :",
    "choix": [
     "1,25",
-    "0,72",
-    "72 W"
+    "72 W",
+    "0,72"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "un rendement est sans unité et toujours inférieur à 1. Trouver 1,25, c'est avoir inversé entrée et sortie ; l'exprimer en watts, c'est confondre rendement et puissance. 3pt"
   },
   {
    "q": "Un moteur absorbe 60,0 W et restitue 43,6 W. La puissance perdue vaut :",
    "choix": [
-    "16,4 W",
     "103,6 W",
+    "16,4 W",
     "0,73 W"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "la puissance perdue est la différence P_a - P_u, et elle part en chaleur : effet Joule, pertes fer, frottements. L'énergie se conserve toujours ; c'est sa qualité qui se dégrade. 3pt"
   },
   {
    "q": "Cette puissance perdue se manifeste principalement sous forme :",
    "choix": [
-    "de bruit",
     "de chaleur",
+    "de bruit",
     "de lumière"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "la puissance perdue est la différence P_a - P_u, et elle part en chaleur : effet Joule, pertes fer, frottements. L'énergie se conserve toujours ; c'est sa qualité qui se dégrade. 3pt"
   },
   {
    "q": "Trois étages de rendements 0,38, 0,88 et 0,75 donnent un rendement global de :",
    "choix": [
     "0,67",
-    "0,25",
-    "2,01"
+    "2,01",
+    "0,25"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "les rendements en série se multiplient, ils ne s'additionnent ni ne se moyennent. Et le bon étage à améliorer se détermine par le calcul : faire passer les pneus de 0,75 à 0,85 rapporte plus que faire passer le moteur de 0,38 à 0,42 — pour un coût sans commune mesure. 3pt"
   },
   {
@@ -180,20 +180,20 @@ window.CHAPITRE = {
    "q": "La consommation spécifique d'un moteur s'exprime en :",
    "choix": [
     "L/h",
-    "g/kW·h",
-    "kW"
+    "kW",
+    "g/kW·h"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "la consommation spécifique rapporte la masse de carburant à l'énergie mécanique produite. Contrairement à la consommation horaire, elle ne dépend pas de la charge : c'est le seul indicateur qui permette de comparer deux moteurs. 3pt"
   },
   {
    "q": "Le rendement d'un motoréducteur mesuré au banc est :",
    "choix": [
-    "constant quelle que soit la charge",
+    "faible à vide, maximal près de la charge nominale",
     "maximal à faible charge",
-    "faible à vide, maximal près de la charge nominale"
+    "constant quelle que soit la charge"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "à vide, les pertes fixes (frottements, pertes fer) représentent une fraction énorme de la puissance absorbée. Conséquence pratique : surdimensionner un entraînement dégrade son rendement. On dimensionne au plus près du besoin. tcolorbox"
   }
  ],

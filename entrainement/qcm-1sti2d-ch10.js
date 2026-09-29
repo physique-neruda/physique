@@ -91,33 +91,33 @@ window.CHAPITRE = {
    "q": "Le <strong>système chimique</strong>, c'est :",
    "choix": [
     "l'air qui entoure la réaction",
-    "l'ensemble des espèces qui réagissent et se forment",
     "le récipient dans lequel on travaille",
+    "l'ensemble des espèces qui réagissent et se forment",
     "la source de chaleur"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "L'<strong>effet thermique</strong> d'une transformation désigne :",
    "choix": [
-    "la température des réactifs",
     "le transfert d'énergie thermique qui l'accompagne",
+    "la température des réactifs",
     "la masse des produits formés",
     "la durée de la réaction"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Lors d'une transformation <strong>exothermique</strong>, l'énergie du système :",
    "choix": [
     "augmente",
-    "diminue",
+    "devient nulle",
     "reste constante",
-    "devient nulle"
+    "diminue"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "exo : le système <em>cède</em>, son énergie diminue"
   },
   {
@@ -134,12 +134,12 @@ window.CHAPITRE = {
   {
    "q": "Le <strong>triangle du feu</strong> réunit :",
    "choix": [
-    "combustible, comburant, énergie d'activation",
-    "chaleur, lumière, fumée",
     "oxygène, azote, carbone",
+    "chaleur, lumière, fumée",
+    "combustible, comburant, énergie d'activation",
     "combustible, eau, air"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": ""
   },
   {
@@ -157,66 +157,66 @@ window.CHAPITRE = {
    "q": "L'<strong>énergie d'activation</strong> sert à :",
    "choix": [
     "entretenir la combustion jusqu'à la fin",
-    "amorcer la réaction",
+    "augmenter le pouvoir calorifique",
     "refroidir les produits",
-    "augmenter le pouvoir calorifique"
+    "amorcer la réaction"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "amorcer (c'est l'auto-entretien qui prend le relais ensuite)"
   },
   {
    "q": "Une combustion <strong>s'auto-entretient</strong> parce que :",
    "choix": [
-    "elle n'a besoin d'aucun réactif",
     "l'énergie qu'elle libère porte le combustible voisin à sa température d'inflammation",
+    "elle n'a besoin d'aucun réactif",
     "le comburant se régénère",
     "la température du système diminue"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Le <strong>pouvoir calorifique</strong> s'exprime en :",
    "choix": [
     "MJ",
-    "MJ/kg",
     "W",
+    "MJ/kg",
     "kg/MJ"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "Un combustible a PC = 50 MJ/kg. L'énergie libérée par 3,0 kg vaut :",
    "choix": [
     "17 MJ",
-    "53 MJ",
     "150 MJ",
+    "53 MJ",
     "150 kJ"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "E = PC × m = 50 × 3,0 = 150 MJ"
   },
   {
    "q": "Une combustion <strong>incomplète</strong> produit, en plus de CO₂ et H₂O :",
    "choix": [
     "du dioxygène",
-    "du monoxyde de carbone CO et des suies",
+    "rien de particulier",
     "du diazote",
-    "rien de particulier"
+    "du monoxyde de carbone CO et des suies"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": ""
   },
   {
    "q": "Le monoxyde de carbone est particulièrement dangereux parce qu'il est :",
    "choix": [
-    "coloré et odorant",
     "incolore, inodore et toxique",
+    "coloré et odorant",
     "plus léger que l'air et inoffensif",
     "visible sous forme de fumée noire"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   }
  ],

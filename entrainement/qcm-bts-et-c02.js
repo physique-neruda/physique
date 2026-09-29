@@ -86,117 +86,137 @@ window.CHAPITRE = {
     "henrys"
    ],
    "bonne": 1,
-   "expl": "Le tesla (T) est l'unité du champ magnétique. Le weber est celle du flux, le henry celle de l'inductance : les trois grandeurs sont liées mais distinctes."
+   "expl": "Le tesla (T) est l'unité du champ magnétique. Le weber et le henry sont les unités d'autres grandeurs, liées mais distinctes."
   },
   {
    "q": "Dans la relation B = µ₀ n I, la grandeur n désigne :",
    "choix": [
-    "le nombre total de spires",
     "le nombre de spires par mètre",
+    "le nombre total de spires",
     "la longueur du solénoïde"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "n = N/ est une densité de spires, en spires par mètre. C'est la distinction la plus souvent manquée du chapitre."
   },
   {
    "q": "Une bobine de 600 spires mesure 20 cmeter. Le nombre de spires par mètre vaut :",
    "choix": [
     "30",
-    "3000",
-    "120"
+    "120",
+    "3000"
    ],
-   "bonne": 1,
-   "expl": "n = 600/0,20 = 3000 spires par mètre. La réponse a oublie de convertir les centimètres en mètres, ce qui fausse le champ d'un facteur cent."
+   "bonne": 2,
+   "expl": "n = 600/0,20 = 3000 spires par mètre. La réponse « 30 » oublie de convertir les centimètres en mètres, ce qui fausse le champ d'un facteur cent."
   },
   {
-   "q": "Dans Φ= B Scosα, l'angle α est celui entre le champ et :",
+   "q": "Pour le circuit magnétique d'un transformateur, on choisit un matériau ferromagnétique :",
    "choix": [
-    "le plan de la surface",
-    "la normale à la surface",
-    "l'axe de la bobine, quel qu'il soit"
+    "dur, pour qu'il garde son aimantation",
+    "doux, pour que son cycle soit étroit",
+    "non magnétique, pour éviter les pertes"
    ],
    "bonne": 1,
-   "expl": "Toujours la normale. Une spire dont le plan fait 30 ° avec le champ a une normale à 60 ° : le facteur est cos60 ° = 0,5 et non 0,87. Dessiner la normale avant de calculer règle la question."
+   "expl": "Un matériau doux a un cycle étroit : il s'aimante et se désaimante facilement, et perd peu d'énergie à chaque période. Un matériau dur, au cycle large, garde son aimantation : c'est celui des aimants permanents."
   },
   {
-   "q": "Une spire est placée parallèlement aux lignes de champ. Le flux qui la traverse vaut :",
+   "q": "On rapproche un aimant d'une bobine deux fois plus vite. La f.é.m. induite :",
    "choix": [
-    "B S",
-    "nul",
-    "B S/2"
+    "ne change pas",
+    "est divisée par deux",
+    "est multipliée par deux"
    ],
-   "bonne": 1,
-   "expl": "Si la spire est parallèle aux lignes de champ, sa normale leur est perpendiculaire : cos90 ° = 0, donc Φ= 0. Aucune ligne ne traverse la surface."
+   "bonne": 2,
+   "expl": "La f.é.m. dépend de la vitesse de la variation : deux fois plus vite, deux fois plus de tension. C'est pour cela qu'un alternateur donne plus de tension quand il tourne plus vite."
   },
   {
    "q": "Un aimant est immobile à l'intérieur d'une bobine reliée à un galvanomètre. Celui-ci indique :",
    "choix": [
-    "un courant constant",
     "un courant nul",
+    "un courant constant",
     "un courant alternatif"
    ],
-   "bonne": 1,
-   "expl": "Le flux ne varie plus, donc il n'y a plus de f.é.m., même si le flux reste important. Ce qui compte, c'est la variation — jamais la valeur."
+   "bonne": 0,
+   "expl": "Rien ne varie, donc il n'y a pas de f.é.m., même si l'aimant est puissant. Ce qui compte, c'est la variation — jamais la valeur."
   },
   {
    "q": "La loi de Lenz énonce que le courant induit :",
    "choix": [
-    "renforce la variation de flux",
-    "s'oppose à la variation de flux",
-    "est proportionnel au flux"
+    "renforce la variation qui lui donne naissance",
+    "est toujours nul dans un circuit fermé",
+    "s'oppose à la variation qui lui donne naissance"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "L'opposition est une conséquence de la conservation de l'énergie : si le courant induit renforçait la cause, le système s'emballerait et produirait de l'énergie à partir de rien."
   },
   {
-   "q": "Dans e = -N dΦ/dt, ce qui produit la f.é.m. est :",
+   "q": "Ce qui produit une f.é.m. dans une bobine, c'est :",
    "choix": [
-    "la valeur du flux",
-    "la variation du flux",
-    "le nombre de spires seul"
+    "la présence d'un champ magnétique",
+    "la variation du champ qui la traverse",
+    "le nombre de spires, à lui seul"
    ],
    "bonne": 1,
-   "expl": "C'est la dérivée du flux qui apparaît dans la formule. Le nombre de spires multiplie l'effet mais ne le crée pas : sans variation, N ne sert à rien."
+   "expl": "Sans variation, rien n'est induit. Le nombre de spires multiplie l'effet, mais ne le crée pas."
   },
   {
    "q": "La force de Laplace sur un conducteur parallèle au champ vaut :",
    "choix": [
     "B I",
-    "nulle",
-    "B I /2"
+    "B I /2",
+    "zéro"
    ],
-   "bonne": 1,
-   "expl": "F = B I α avec α= 0 donne F = 0. Attention à ne pas confondre avec le flux, qui lui utilise un cosinus : les deux formules n'emploient ni le même angle ni la même fonction."
+   "bonne": 2,
+   "expl": "F = B I α avec α= 0 donne F = 0 : un conducteur couché le long des lignes de champ ne subit aucune force."
   },
   {
-   "q": "Dans la relation d'Hopkinson N I = R Φ, la réluctance joue le rôle de :",
+   "q": "Le champ magnétique rémanent d'un matériau ferromagnétique, c'est :",
    "choix": [
-    "la tension",
-    "la résistance",
-    "le courant"
+    "le champ qui subsiste quand on annule le courant",
+    "le champ maximal, atteint à saturation",
+    "le champ créé par la bobine seule, sans le fer"
    ],
-   "bonne": 1,
-   "expl": "L'analogie est complète : N I joue le rôle de la tension, Φ celui du courant, R celui de la résistance. Et comme pour les résistances, les réluctances en série s'ajoutent."
+   "bonne": 0,
+   "expl": "Le champ rémanent est ce que le fer garde quand le courant est revenu à zéro. Pour l'effacer, il faut un courant de sens inverse : l'intensité de démagnétisation."
   },
   {
-   "q": "Dans un circuit magnétique comportant un entrefer de 1 mmeter et 40 cmeter de fer, la réluctance est majoritairement due :",
+   "q": "L'air sec devient conducteur vers 3 kV/mmeter. Entre deux pièces portées à 6 kV l'une de l'autre, l'air claque si la distance est inférieure à :",
    "choix": [
-    "au fer",
-    "à l'entrefer",
-    "aux deux à parts égales"
+    "0,5 mmeter",
+    "2 mmeter",
+    "18 mmeter"
    ],
    "bonne": 1,
-   "expl": "Avec µ_r de quelques milliers, 1 mmeter d'air « résiste » plusieurs fois plus que 40 cmeter de fer. C'est toujours l'entrefer qui commande, et c'est pourquoi on le réduit au minimum que la mécanique autorise."
+   "expl": "d = U/E = 6 kV/(3 kV/mmeter) = 2 mmeter. En dessous, l'air claque. Les distances d'isolement réelles prennent une large marge au-dessus de cette limite."
   },
   {
    "q": "On feuillette un circuit magnétique en tôles isolées afin de réduire :",
    "choix": [
     "les pertes par hystérésis",
     "les pertes par courants de Foucault",
-    "la réluctance"
+    "le champ rémanent"
    ],
    "bonne": 1,
    "expl": "Le feuilletage réduit la section des boucles de courant induites dans la masse du métal, donc les courants de Foucault. L'hystérésis est une propriété du matériau lui-même, que la géométrie ne modifie pas."
+  },
+  {
+   "q": "Au moment où un contacteur s'ouvre en charge, un arc apparaît entre ses contacts parce que :",
+   "choix": [
+    "les contacts, encore très proches, subissent un champ électrique qui dépasse la rigidité de l'air",
+    "la bobine du contacteur produit une étincelle",
+    "le courant devient plus fort à l'ouverture"
+   ],
+   "bonne": 0,
+   "expl": "Au tout début de l'ouverture, les contacts ne sont qu'à quelques centièmes de millimètre : même sous 400 V, le champ dépasse la rigidité de l'air, qui devient conducteur. D'où les chambres de coupure, qui allongent et refroidissent l'arc pour l'éteindre."
+  },
+  {
+   "q": "On augmente le courant dans une bobine à noyau de fer. Au-delà d'une certaine valeur, le champ n'augmente presque plus : c'est :",
+   "choix": [
+    "l'hystérésis",
+    "la rémanence",
+    "la saturation"
+   ],
+   "bonne": 2,
+   "expl": "C'est la saturation : le fer ne peut plus s'aimanter davantage. Au-delà, augmenter le courant chauffe la bobine sans renforcer le champ."
   }
  ],
  "cartes": [
@@ -214,14 +234,14 @@ window.CHAPITRE = {
   },
   {
    "type": "definition",
-   "recto": "Qu'appelle-t-on « Flux magnétique » ?",
-   "verso": "Le flux du champ B à travers une surface plane S mesure ce qui traverse effectivement cette surface :",
+   "recto": "Qu'appelle-t-on « Force de Laplace » ?",
+   "verso": "Un conducteur de longueur, parcouru par un courant I et placé dans un champ B, subit une force :",
    "origine": "definition du cours"
   },
   {
    "type": "definition",
-   "recto": "Qu'appelle-t-on « Loi de Faraday » ?",
-   "verso": "La force électromotrice induite dans un circuit est :",
+   "recto": "Qu'appelle-t-on « Matériau ferromagnétique » ?",
+   "verso": "Un matériau ferromagnétique canalise le champ magnétique et le renforce considérablement. Ce sont le fer, le nickel, le cobalt et leurs alliages : tôles de fer-silicium des transformateurs et des moteurs, ferrites de l'électronique de puissance.",
    "origine": "definition du cours"
   },
   {
@@ -244,16 +264,30 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "Un matériau ferromagnétique placé dans un champ le …….",
-   "rep": "canalise et l'amplifie considérablement",
-   "verso": "<strong>canalise et l'amplifie considérablement</strong>",
+   "recto": "Le champ magnétique est …… : une direction, un sens et une valeur.",
+   "rep": "une grandeur vectorielle définie en chaque point de l'espace",
+   "verso": "<strong>une grandeur vectorielle définie en chaque point de l'espace</strong>",
    "origine": "cours a completer"
   },
   {
    "type": "trou",
-   "recto": "Le champ magnétique est …… : une direction, un sens et une valeur.",
-   "rep": "une grandeur vectorielle définie en chaque point de l'espace",
-   "verso": "<strong>une grandeur vectorielle définie en chaque point de l'espace</strong>",
+   "recto": "Un matériau <strong>dur</strong> a un cycle …… : il garde son aimantation.",
+   "rep": "large",
+   "verso": "<strong>large</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Pour l'annuler, il faut un courant de ……, l'<strong>intensité de démagnétisation</strong> I_d.",
+   "rep": "sens inverse",
+   "verso": "<strong>sens inverse</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "trou",
+   "recto": "Le champ électrique est …… qui règne entre deux conducteurs portés à des potentiels différents.",
+   "rep": "une grandeur vectorielle",
+   "verso": "<strong>une grandeur vectorielle</strong>",
    "origine": "cours a completer"
   },
   {
@@ -264,24 +298,10 @@ window.CHAPITRE = {
    "origine": "cours a completer"
   },
   {
-   "type": "trou",
-   "recto": "Lorsqu'un circuit fermé voit le flux qui le traverse varier, il y apparaît un courant induit dont les effets …….",
-   "rep": "s'opposent à la cause qui lui a donné naissance",
-   "verso": "<strong>s'opposent à la cause qui lui a donné naissance</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
-   "recto": "La force électromotrice induite est une tension, en volts, que l'on mesure avec …… comme n'importe quelle autre.",
-   "rep": "un voltmètre",
-   "verso": "<strong>un voltmètre</strong>",
-   "origine": "cours a completer"
-  },
-  {
    "type": "question",
    "recto": "Le champ magnétique s'exprime en ……",
    "rep": "teslas",
-   "verso": "<strong>teslas</strong> — Le tesla (T) est l'unité du champ magnétique. Le weber est celle du flux, le henry celle de l'inductance : les trois grandeurs sont liées mais distinctes.",
+   "verso": "<strong>teslas</strong> — Le tesla (T) est l'unité du champ magnétique. Le weber et le henry sont les unités d'autres grandeurs, liées mais distinctes.",
    "origine": "bilan"
   },
   {

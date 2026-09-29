@@ -80,11 +80,11 @@ window.CHAPITRE = {
    "q": "Le flux thermique φ s'exprime en :",
    "choix": [
     "joules",
-    "watts",
-    "W/m²"
+    "W/m²",
+    "watts"
    ],
-   "bonne": 1,
-   "expl": "le flux est une puissance, donc des watts. La réponse a confond flux et énergie ; la c est la densité de flux, qui rapporte le flux à la surface. Les trois grandeurs sont différentes et les trois unités le disent. 3pt"
+   "bonne": 2,
+   "expl": "le flux est une puissance, donc des watts. La réponse « joules » confond flux et énergie ; la réponse « watts » est la densité de flux, qui rapporte le flux à la surface. Les trois grandeurs sont différentes et les trois unités le disent. 3pt"
   },
   {
    "q": "Un transfert thermique s'effectue spontanément :",
@@ -100,20 +100,20 @@ window.CHAPITRE = {
    "q": "Le seul mode de transfert qui fonctionne dans le vide est :",
    "choix": [
     "la conduction",
-    "la convection",
-    "le rayonnement"
+    "le rayonnement",
+    "la convection"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "le sens du transfert ne dépend jamais du matériau, seulement des températures. Et parmi les trois modes, seul le rayonnement se passe de support : c'est pourquoi l'énergie du Soleil traverse l'espace vide alors qu'aucun son n'y circule. 3pt"
   },
   {
    "q": "L'air soufflé par un ventilateur sur les ailettes d'un radiateur relève de :",
    "choix": [
     "la convection naturelle",
-    "la convection forcée",
-    "la conduction"
+    "la conduction",
+    "la convection forcée"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le mot « forcée » désigne le fait qu'un ventilateur ou une pompe impose la circulation. Sans lui, l'air se déplacerait quand même, mais bien plus lentement : c'est la convection naturelle, avec un h cinq fois plus petit. 3pt"
   },
   {
@@ -129,71 +129,71 @@ window.CHAPITRE = {
   {
    "q": "Un matériau isole d'autant mieux que sa conductivité λ est :",
    "choix": [
-    "grande",
     "petite",
+    "grande",
     "sans rapport avec le pouvoir isolant"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "dans R_th = e/(λS), l'épaisseur est au numérateur (plus c'est épais, plus ça résiste) et la conductivité au dénominateur (mieux ça conduit, moins ça résiste). D'où : un bon isolant a un petit λ. Le polystyrène (0,040) devance largement le verre (1,0) et l'acier (50). 3pt"
   },
   {
    "q": "Parmi ces matériaux, le plus isolant est :",
    "choix": [
-    "l'acier",
+    "le polystyrène",
     "le verre",
-    "le polystyrène"
+    "l'acier"
    ],
-   "bonne": 2,
+   "bonne": 0,
    "expl": "dans R_th = e/(λS), l'épaisseur est au numérateur (plus c'est épais, plus ça résiste) et la conductivité au dénominateur (mieux ça conduit, moins ça résiste). D'où : un bon isolant a un petit λ. Le polystyrène (0,040) devance largement le verre (1,0) et l'acier (50). 3pt"
   },
   {
    "q": "Trois couches successives sont traversées par le même flux. Leurs résistances thermiques :",
    "choix": [
-    "s'ajoutent",
     "se multiplient",
+    "s'ajoutent",
     "sont remplacées par la plus petite"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "même flux à travers des couches successives, écarts de température qui s'ajoutent : c'est la définition d'un montage en série, et les résistances s'additionnent. La conséquence pratique est la question 9 : c'est la plus grande résistance qui commande. Épaissir une tôle qui pèse trois millièmes de pour cent ne changerait rigoureusement rien. 3pt"
   },
   {
    "q": "Dans une paroi de cabine, la tôle apporte 0,003 % de la résistance et l'isolant 97,6 %. Pour réduire les pertes, il faut agir sur :",
    "choix": [
     "l'épaisseur de tôle",
-    "l'épaisseur d'isolant",
-    "indifféremment l'une ou l'autre"
+    "indifféremment l'une ou l'autre",
+    "l'épaisseur d'isolant"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "même flux à travers des couches successives, écarts de température qui s'ajoutent : c'est la définition d'un montage en série, et les résistances s'additionnent. La conséquence pratique est la question 9 : c'est la plus grande résistance qui commande. Épaissir une tôle qui pèse trois millièmes de pour cent ne changerait rigoureusement rien. 3pt"
   },
   {
    "q": "Les relations de ce chapitre supposent que l'on se place :",
    "choix": [
-    "en régime variable",
     "en régime permanent",
+    "en régime variable",
     "juste après la mise en chauffe"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "en régime variable, une partie du flux sert encore à échauffer la paroi elle-même. Mesurer trop tôt sous-estime l'écart de température, et donc la résistance : l'erreur est systématique, elle va toujours dans le même sens, et la répéter ne la corrige pas. 3pt"
   },
   {
    "q": "Un fluide de débit massique q_m voit sa température varier de ΔT. La puissance thermique qu'il emporte vaut :",
    "choix": [
-    "φ= q_m c ΔT",
     "φ= m c ΔT",
+    "φ= q_m c ΔT",
     "φ= h S ΔT"
    ],
-   "bonne": 0,
-   "expl": "q_m c ΔT est la relation m c Δθ du chapitre 8 écrite par seconde : on ne suit plus une masse fixe mais une masse qui défile. La réponse b donnerait une énergie, pas une puissance ; la c concerne l'échange entre un fluide et une paroi, pas ce que le fluide emporte. 3pt"
+   "bonne": 1,
+   "expl": "q_m c ΔT est la relation m c Δθ du chapitre 8 écrite par seconde : on ne suit plus une masse fixe mais une masse qui défile. La réponse « φ= m c ΔT » donnerait une énergie, pas une puissance ; la réponse « φ= h S ΔT » concerne l'échange entre un fluide et une paroi, pas ce que le fluide emporte. 3pt"
   },
   {
    "q": "Dans un échangeur, on mesure φ_chaud = 1,76 kW et φ_froid = 1,67 kW. Cet écart :",
    "choix": [
     "prouve une erreur de manipulation",
-    "est du signe attendu si l'appareil perd vers l'ambiance",
-    "est impossible physiquement"
+    "est impossible physiquement",
+    "est du signe attendu si l'appareil perd vers l'ambiance"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le circuit chaud cède toujours un peu plus que le froid ne reçoit, la différence partant vers l'ambiance. Un écart de ce signe est donc normal ; c'est l'écart inverse qui serait suspect. Attention toutefois : sur un seul essai, un écart de 4,8 % reste dans les incertitudes et ne prouve rien. Ce qui l'établit, c'est de le retrouver toujours dans le même sens d'un binôme à l'autre. tcolorbox"
   }
  ],

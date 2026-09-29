@@ -102,55 +102,55 @@ window.CHAPITRE = {
    "q": "Dans une solution, l'espèce dissoute s'appelle :",
    "choix": [
     "le solvant",
-    "le soluté",
+    "le filtrat",
     "le précipité",
-    "le filtrat"
+    "le soluté"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "le solvant est le liquide"
   },
   {
    "q": "Une solution est dite <strong>aqueuse</strong> lorsque :",
    "choix": [
     "le soluté est un solide",
-    "le solvant est l'eau",
     "elle est incolore",
+    "le solvant est l'eau",
     "elle conduit le courant"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": ""
   },
   {
    "q": "La concentration en quantité de matière vaut :",
    "choix": [
-    "c = n × V",
     "c = n/V",
+    "c = n × V",
     "c = V/n",
     "c = m/M"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Dans la formule c = n/V, le volume V est celui :",
    "choix": [
     "du solvant ajouté",
-    "de la solution obtenue",
     "du soluté seul",
+    "de la solution obtenue",
     "de la fiole vide"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "d'où le trait de jauge, que l'on complète <em>après</em> avoir introduit le soluté"
   },
   {
    "q": "Les deux concentrations sont liées par :",
    "choix": [
-    "c<sub>m</sub> = c/M",
     "c<sub>m</sub> = c × M",
+    "c<sub>m</sub> = c/M",
     "c<sub>m</sub> = c + M",
     "c<sub>m</sub> = c"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
@@ -168,11 +168,11 @@ window.CHAPITRE = {
    "q": "Pour préparer une solution par <strong>dissolution</strong>, on part :",
    "choix": [
     "d'une solution mère",
-    "d'un soluté solide que l'on pèse",
+    "d'un gaz",
     "d'eau distillée seule",
-    "d'un gaz"
+    "d'un soluté solide que l'on pèse"
    ],
-   "bonne": 1,
+   "bonne": 3,
    "expl": "par dilution, on partirait d'une solution mère"
   },
   {
@@ -189,23 +189,23 @@ window.CHAPITRE = {
   {
    "q": "La relation de dilution s'écrit :",
    "choix": [
-    "c₀ + V₀ = c + V",
     "c₀V₀ = cV",
+    "c₀ + V₀ = c + V",
     "c₀/V₀ = c/V",
     "c₀V = c V₀"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": ""
   },
   {
    "q": "Pour préparer une solution dont la concentration doit être précise, on utilise :",
    "choix": [
     "un bécher",
-    "une éprouvette graduée",
     "une fiole jaugée",
+    "une éprouvette graduée",
     "un erlenmeyer"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "le bécher et l'éprouvette sont imprécis"
   },
   {
@@ -213,10 +213,10 @@ window.CHAPITRE = {
    "choix": [
     "2",
     "10",
-    "20",
-    "200"
+    "200",
+    "20"
    ],
-   "bonne": 2,
+   "bonne": 3,
    "expl": "200/10 = 20"
   }
  ],

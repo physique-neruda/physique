@@ -13,10 +13,10 @@ window.CHAPITRE = {
    "q": "L'unité SI de la masse est :",
    "choix": [
     "le gramme",
-    "le kilogramme",
-    "la tonne"
+    "la tonne",
+    "le kilogramme"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "le kilogramme est l'unité de base, et c'est la seule dont le nom porte déjà un préfixe : il n'existe pas de « kilokilogramme ». Et « kilo » vaut toujours 1000, jamais 100. 3pt"
   },
   {
@@ -32,21 +32,21 @@ window.CHAPITRE = {
   {
    "q": "Le nombre 0,00450 comporte :",
    "choix": [
-    "2 chiffres significatifs",
     "3 chiffres significatifs",
+    "2 chiffres significatifs",
     "5 chiffres significatifs"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "dans 0,00450, les zéros de gauche ne comptent pas, celui de droite si : trois chiffres significatifs. Et le quotient garde le nombre de chiffres de la donnée la moins précise, ici deux. Recopier les huit décimales de la calculatrice est sanctionné au titre de Communiquer. 3pt"
   },
   {
    "q": "On calcule 12,3 / 4,0. Le résultat s'écrit :",
    "choix": [
-    "3,075",
     "3,1",
+    "3,075",
     "3"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "dans 0,00450, les zéros de gauche ne comptent pas, celui de droite si : trois chiffres significatifs. Et le quotient garde le nombre de chiffres de la donnée la moins précise, ici deux. Recopier les huit décimales de la calculatrice est sanctionné au titre de Communiquer. 3pt"
   },
   {
@@ -62,32 +62,32 @@ window.CHAPITRE = {
   {
    "q": "72 km/h valent :",
    "choix": [
-    "20 m/s",
+    "259 m/s",
     "26 m/s",
-    "259 m/s"
+    "20 m/s"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "on divise par 3,6. Contrôle : 72 km/h, c'est un peu plus de 1 km par minute, donc une vingtaine de mètres par seconde. 3pt"
   },
   {
    "q": "Une droite passe par les points (2,0 ; 5,4) et (8,0 ; 15,0). Sa pente vaut :",
    "choix": [
-    "1,6",
+    "9,6",
     "2,7",
-    "9,6"
+    "1,6"
    ],
-   "bonne": 0,
-   "expl": "a = (15,0-5,4)/(8,0-2,0) = 1,6 ; la réponse c oublie de diviser par l'écart des abscisses. Et comme l'ordonnée à l'origine vaut 2,2, la droite ne passe pas par l'origine : la règle de trois donnerait un résultat faux, et plausible — c'est ce qui la rend dangereuse. 3pt"
+   "bonne": 2,
+   "expl": "a = (15,0-5,4)/(8,0-2,0) = 1,6 ; la réponse « 1,6 » oublie de diviser par l'écart des abscisses. Et comme l'ordonnée à l'origine vaut 2,2, la droite ne passe pas par l'origine : la règle de trois donnerait un résultat faux, et plausible — c'est ce qui la rend dangereuse. 3pt"
   },
   {
    "q": "Pour cette même droite, la règle de trois est :",
    "choix": [
-    "valable, c'est une droite",
     "invalide : elle ne passe pas par l'origine",
+    "valable, c'est une droite",
     "valable si x est petit"
    ],
-   "bonne": 1,
-   "expl": "a = (15,0-5,4)/(8,0-2,0) = 1,6 ; la réponse c oublie de diviser par l'écart des abscisses. Et comme l'ordonnée à l'origine vaut 2,2, la droite ne passe pas par l'origine : la règle de trois donnerait un résultat faux, et plausible — c'est ce qui la rend dangereuse. 3pt"
+   "bonne": 0,
+   "expl": "a = (15,0-5,4)/(8,0-2,0) = 1,6 ; la réponse « valable si x est petit » oublie de diviser par l'écart des abscisses. Et comme l'ordonnée à l'origine vaut 2,2, la droite ne passe pas par l'origine : la règle de trois donnerait un résultat faux, et plausible — c'est ce qui la rend dangereuse. 3pt"
   },
   {
    "q": "cosφ= 0,80. Alors tanφ vaut :",
@@ -97,36 +97,36 @@ window.CHAPITRE = {
     "1,25"
    ],
    "bonne": 1,
-   "expl": "φ= (0,80) = 36,9 °, donc tanφ= 0,75. La réponse a est le sinus, la c l'inverse du cosinus. 3pt"
+   "expl": "φ= (0,80) = 36,9 °, donc tanφ= 0,75. La réponse « 0,60 » est le sinus, la réponse « 1,25 » l'inverse du cosinus. 3pt"
   },
   {
    "q": "Le nombre 1200, écrit tel quel, comporte :",
    "choix": [
     "deux chiffres significatifs",
-    "quatre chiffres significatifs",
-    "c'est ambigu : l'écriture ne permet pas de trancher"
+    "c'est ambigu : l'écriture ne permet pas de trancher",
+    "quatre chiffres significatifs"
    ],
-   "bonne": 2,
+   "bonne": 1,
    "expl": "rien ne dit si les deux zéros sont mesurés ou s'ils placent seulement la virgule. C'est précisément pour lever ce doute qu'on écrit 1,2×10³, 1,20×10³ ou 1,200×10³ selon la précision réelle : l'écriture scientifique est la seule qui dise à la fois la valeur et la précision. 3pt"
   },
   {
    "q": "Un moteur de 100 kW consommerait 0,5 L de gazole par heure. Ce résultat est :",
    "choix": [
-    "plausible",
     "aberrant, d'un facteur voisin de 50",
+    "plausible",
     "impossible à juger"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "un moteur de 100 kW consomme plutôt 25 L/h : le résultat proposé est cinquante fois trop faible. Le contrôle d'ordre de grandeur ne remplace jamais le calcul — il attrape les erreurs que le calcul, lui, ne signale pas, parce qu'une calculatrice ne se trompe jamais sur une donnée fausse. tcolorbox"
   },
   {
    "q": "Le contrôle d'ordre de grandeur sert à :",
    "choix": [
     "remplacer le calcul",
-    "attraper les erreurs que le calcul ne signale pas",
-    "gagner du temps"
+    "gagner du temps",
+    "attraper les erreurs que le calcul ne signale pas"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "un moteur de 100 kW consomme plutôt 25 L/h : le résultat proposé est cinquante fois trop faible. Le contrôle d'ordre de grandeur ne remplace jamais le calcul — il attrape les erreurs que le calcul, lui, ne signale pas, parce qu'une calculatrice ne se trompe jamais sur une donnée fausse. tcolorbox"
   }
  ],

@@ -82,11 +82,11 @@ window.CHAPITRE = {
    "q": "Un dipôle dont la caractéristique passe par l'origine est :",
    "choix": [
     "actif",
-    "passif",
-    "forcément ohmique"
+    "forcément ohmique",
+    "passif"
    ],
-   "bonne": 1,
-   "expl": "Passer par l'origine signifie qu'à tension nulle le courant est nul : sans générateur, il ne se passe rien. La réponse c est trop forte — une diode et une lampe passent par l'origine sans être ohmiques."
+   "bonne": 2,
+   "expl": "Passer par l'origine signifie qu'à tension nulle le courant est nul : sans générateur, il ne se passe rien. La réponse « forcément ohmique » est trop forte — une diode et une lampe passent par l'origine sans être ohmiques."
   },
   {
    "q": "Sur la caractéristique I(U) d'un conducteur ohmique, la pente vaut :",
@@ -111,51 +111,51 @@ window.CHAPITRE = {
   {
    "q": "La charge stockée par un condensateur de 100 µF sous 50 V vaut :",
    "choix": [
-    "5 mC",
+    "0,5 C",
     "2 µC",
-    "0,5 C"
+    "5 mC"
    ],
-   "bonne": 0,
+   "bonne": 2,
    "expl": "q = C u = 100×10⁻⁶× 50 = 5×10⁻³ C."
   },
   {
    "q": "En régime continu établi, un condensateur se comporte comme :",
    "choix": [
-    "un fil",
     "un interrupteur ouvert",
+    "un fil",
     "une résistance égale à 1/C"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "En régime établi, plus rien ne varie : du/dt = 0, donc i = C du/dt = 0. Aucun courant ne passe : c'est un interrupteur ouvert."
   },
   {
    "q": "En régime continu établi, une bobine idéale se comporte comme :",
    "choix": [
-    "un fil",
     "un interrupteur ouvert",
+    "un fil",
     "un générateur"
    ],
-   "bonne": 0,
+   "bonne": 1,
    "expl": "Symétriquement, di/dt = 0 donne u = 0 : la bobine idéale ne présente aucune tension, c'est un fil. Une bobine réelle conserve toutefois la résistance de son fil."
   },
   {
    "q": "L'énergie stockée dans une bobine de 0,20 H parcourue par 4,0 A vaut :",
    "choix": [
-    "0,80 J",
     "1,6 J",
+    "0,80 J",
     "3,2 J"
    ],
-   "bonne": 1,
-   "expl": "W = 1/2L i² = 1/2×0,20× 16 = 1,6 J. La réponse a oublie le facteur 1/2, la réponse c oublie de mettre le courant au carré."
+   "bonne": 0,
+   "expl": "W = 1/2L i² = 1/2×0,20× 16 = 1,6 J. La réponse « 0,80 J » oublie le facteur 1/2, la réponse « 3,2 J » oublie de mettre le courant au carré."
   },
   {
    "q": "Dans le modèle U = E - r I, la grandeur E correspond à :",
    "choix": [
     "la tension en charge",
-    "la tension à vide",
-    "la tension de court-circuit"
+    "la tension de court-circuit",
+    "la tension à vide"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "E est la tension obtenue pour I = 0, donc à vide. C'est l'ordonnée à l'origine de la caractéristique."
   },
   {
@@ -166,16 +166,16 @@ window.CHAPITRE = {
     "24 V"
    ],
    "bonne": 1,
-   "expl": "U = 24 - 0,5× 8 = 20 V. La réponse a se trompe de signe : une source réelle délivre moins que sa f.é.m. dès qu'elle débite."
+   "expl": "U = 24 - 0,5× 8 = 20 V. La réponse « 28 V » se trompe de signe : une source réelle délivre moins que sa f.é.m. dès qu'elle débite."
   },
   {
    "q": "Le point de fonctionnement d'un circuit générateur-récepteur est :",
    "choix": [
     "le maximum de la caractéristique du générateur",
-    "l'intersection des deux caractéristiques",
-    "le point où la puissance est nulle"
+    "le point où la puissance est nulle",
+    "l'intersection des deux caractéristiques"
    ],
-   "bonne": 1,
+   "bonne": 2,
    "expl": "Les deux dipôles sont branchés l'un sur l'autre : ils ont nécessairement la même tension et le même courant. Le seul couple qui satisfasse les deux caractéristiques est leur intersection."
   },
   {
@@ -191,11 +191,11 @@ window.CHAPITRE = {
   {
    "q": "Deux batteries de 12 V affichent la même tension à vide, mais l'une a une résistance interne trois fois plus grande. Un contrôle au voltmètre, batteries déconnectées :",
    "choix": [
-    "distingue les deux",
     "ne distingue pas les deux",
+    "distingue les deux",
     "affiche une tension plus basse pour la mauvaise"
    ],
-   "bonne": 1,
+   "bonne": 0,
    "expl": "Un contrôle à vide ne mesure que E, identique dans les deux cas. Il ne dit rien de r, qui est pourtant ce qui distingue une batterie saine d'une batterie fatiguée. Seule la mesure en charge révèle l'état réel — c'est tout l'objet de la situation d'évaluation de ce chapitre."
   }
  ],
@@ -215,13 +215,13 @@ window.CHAPITRE = {
   {
    "type": "definition",
    "recto": "Qu'appelle-t-on « Capacité » ?",
-   "verso": "Un condensateur stocke une charge q proportionnelle à la tension à ses bornes : q = C u, où C est la capacité, en farads (F).",
+   "verso": "Un condensateur stocke une charge q proportionnelle à la tension à ses bornes : q = C u, où C est la capacité, en farads (F). Les relations ci-dessous sont écrites en <strong>convention récepteur</strong> : flèches de u et de i opposées.",
    "origine": "definition du cours"
   },
   {
    "type": "definition",
    "recto": "Qu'appelle-t-on « Inductance » ?",
-   "verso": "Une bobine s'oppose aux variations du courant qui la traverse. La tension à ses bornes vaut u = L di/dt, où L est l'inductance, en henrys (H).",
+   "verso": "Une bobine s'oppose aux variations du courant qui la traverse. La tension à ses bornes vaut u = L di/dt, où L est l'inductance, en henrys (H), en <strong>convention récepteur</strong>.",
    "origine": "definition du cours"
   },
   {
@@ -258,13 +258,6 @@ window.CHAPITRE = {
   },
   {
    "type": "trou",
-   "recto": "La tension à ses bornes vaut ……, où L est l'inductance, en henrys (H).",
-   "rep": "u = L di/dt",
-   "verso": "<strong>u = L di/dt</strong>",
-   "origine": "cours a completer"
-  },
-  {
-   "type": "trou",
    "recto": "La source génère E I, en fournit U I à l'extérieur, et dissipe …… en interne.",
    "rep": "r I²",
    "verso": "<strong>r I²</strong>",
@@ -278,10 +271,17 @@ window.CHAPITRE = {
    "origine": "cours a completer"
   },
   {
+   "type": "trou",
+   "recto": "Le condensateur se comporte alors comme …… (i = 0) et la bobine comme un fil (u = 0).",
+   "rep": "un interrupteur ouvert",
+   "verso": "<strong>un interrupteur ouvert</strong>",
+   "origine": "cours a completer"
+  },
+  {
    "type": "question",
    "recto": "Un dipôle dont la caractéristique passe par l'origine est ……",
    "rep": "passif",
-   "verso": "<strong>passif</strong> — Passer par l'origine signifie qu'à tension nulle le courant est nul : sans générateur, il ne se passe rien. La réponse c est trop forte — une diode et une lampe passent par l'origine sans être ohmiques.",
+   "verso": "<strong>passif</strong> — Passer par l'origine signifie qu'à tension nulle le courant est nul : sans générateur, il ne se passe rien. La réponse b est trop forte — une diode et une lampe passent par l'origine sans être ohmiques.",
    "origine": "bilan"
   },
   {
