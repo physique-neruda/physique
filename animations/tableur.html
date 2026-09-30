@@ -127,6 +127,15 @@ footer.page{max-width:1320px;margin:0 auto;padding:6px 20px 28px;color:var(--gri
 #chart.sel::before{content:"";position:absolute;inset:-4px;border:1px solid #8A8A8A;pointer-events:none}
 #chart svg{display:block}
 .cbtn{position:absolute;left:356px;width:22px;height:22px;background:#fff;border:1px solid #A8A8A8;display:none;align-items:center;justify-content:center;font-size:16px;color:#217346;font-weight:600}
+#dlgs .dlg{position:absolute;background:#fff;border:1px solid #7A7A7A;box-shadow:3px 4px 12px rgba(0,0,0,.28);z-index:12;font-size:12px}
+#dlgs .dt{background:#F3F3F3;border-bottom:1px solid #D0D0D0;padding:5px 9px;font-weight:600}
+#dlgs .db{padding:9px 11px}
+#dlgs .fl{display:block;margin:7px 0 2px}
+#dlgs .fi{border:1px solid #9A9A9A;height:22px;padding:2px 5px;font-family:Consolas,monospace;font-size:12px;background:#fff}
+#dlgs .fi.on{border:2px solid #217346}
+#dlgs .bt{display:inline-block;border:1px solid #9A9A9A;background:#F3F3F3;padding:3px 14px;margin-left:6px}
+#dlgs .bt.hot,#dlgs .fi.hot{outline:2px solid #D9701E;outline-offset:1px}
+#dlgs .lst{border:1px solid #BDBDBD;height:78px;padding:3px 6px;margin-top:4px}
 #cmenu,#elpop,#scatMenu{position:absolute;background:#fff;border:1px solid #B5B5B5;box-shadow:2px 3px 8px rgba(0,0,0,.2);z-index:9;display:none;font-size:12px}
 #cmenu div,#elpop div{padding:4px 22px 4px 26px;white-space:nowrap;position:relative}
 #cmenu div.hot,#elpop div.hot{background:#DDEEE4}
@@ -293,6 +302,7 @@ html+=`</div>
  <div class="row"><div class="th"><svg width="36" height="30"><path d="M3 2v25h31" fill="none" stroke="#888"/><path d="M9 22L15 17 21 13 28 7" fill="none" stroke="#5B9BD5" stroke-width="1.5"/></svg></div>
   <div class="th"><svg width="36" height="30"><path d="M3 2v25h31" fill="none" stroke="#888"/><g fill="#5B9BD5" opacity=".7"><circle cx="10" cy="20" r="4"/><circle cx="21" cy="12" r="6"/></g></svg></div></div></div>
 <div id="tooltip"></div>
+<div id="dlgs"></div>
 <div id="cmenu" style="width:250px">
  <div id="cm0">Supprimer</div><div id="cm1">Rétablir le style d'origine</div><hr>
  <div id="cm2">Modifier le type de graphique de série…</div><div id="cm3">Sélectionner des données…</div><hr>
@@ -309,10 +319,11 @@ const $=id=>document.getElementById(id);
 /* ---------------- État ---------------- */
 let S;
 function freshState(){return {cells:{},act:'A1',sel:null,editing:null,tab:'Accueil',hot:null,
-  chart:{on:false,sel:false,pop:false,title:'U (V)',axisT:false,xT:"Titre de l'axe",yT:"Titre de l'axe",edit:null,
+  chart:{on:false,sel:false,pop:false,empty:false,ser:false,title:'U (V)',axisT:false,xT:"Titre de l'axe",yT:"Titre de l'axe",edit:null,
     trend:null,eq:false,r2:false,hiEq:false},
   pane:{open:false,zero:false,eq:false,r2:false,hot:null},
-  scat:false,el:false,cm:null,tip:null}}
+  scat:false,el:false,cm:null,tip:null,
+  dlg:{src:false,ser:false,field:null,nom:'',xs:'',ys:'',liste:[]}}}
 
 function setRaw(ref,raw){
   if(raw==null||raw===''){delete S.cells[ref];return}
@@ -375,8 +386,21 @@ function render(){
   if(S.cm)Object.assign($('cmenu').style,{left:S.cm.x+'px',top:S.cm.y+'px'});
   document.querySelectorAll('#cmenu div').forEach(d=>d.classList.toggle('hot',d.id===S.hot));
   const tt=$('tooltip');if(S.tip){tt.style.display='block';tt.innerHTML=S.tip.html;tt.style.left=S.tip.x+'px';tt.style.top=S.tip.y+'px'}else tt.style.display='none';
-  renderChart();renderPane();
+  renderChart();renderPane();renderDlgs();
 }
+function renderDlgs(){const D=S.dlg;let h='';const hot=id=>S.hot===id?' hot':'';
+  if(D.src)h+=`<div class="dlg" style="left:300px;top:150px;width:470px"><div class="dt">Sélectionner la source de données</div><div class="db">
+    <span class="fl">Plage de données du graphique :</span><div class="fi" style="background:#F6F6F6"></div>
+    <div style="display:flex;gap:12px;margin-top:10px"><div style="flex:1"><b>Entrées de légende (Séries)</b><div style="margin-top:4px"><span class="bt${hot('bAjout')}" id="bAjout" style="margin-left:0">＋ Ajouter</span><span class="bt">Modifier</span><span class="bt">✕ Supprimer</span></div>
+      <div class="lst">${D.liste.map(s=>'☑ '+s).join('<br>')}</div></div>
+      <div style="flex:1"><b>Étiquettes de l'axe horizontal (abscisses)</b><div style="margin-top:4px"><span class="bt" style="margin-left:0">Modifier</span></div><div class="lst"></div></div></div>
+    <div style="text-align:right;margin-top:10px"><span class="bt${hot('bOkSrc')}" id="bOkSrc">OK</span><span class="bt">Annuler</span></div></div></div>`;
+  if(D.ser)h+=`<div class="dlg" style="left:430px;top:215px;width:320px"><div class="dt">Modifier la série</div><div class="db">
+    <span class="fl">Nom de la série :</span><div class="fi${D.field==='nom'?' on':''}${hot('fNom')}" id="fNom">${D.nom}</div>
+    <span class="fl">Valeurs X de la série :</span><div class="fi${D.field==='xs'?' on':''}${hot('fX')}" id="fX">${D.xs}</div>
+    <span class="fl">Valeurs Y de la série :</span><div class="fi${D.field==='ys'?' on':''}${hot('fY')}" id="fY">${D.ys}</div>
+    <div style="text-align:right;margin-top:10px"><span class="bt${hot('bOkSer')}" id="bOkSer">OK</span><span class="bt">Annuler</span></div></div></div>`;
+  $('dlgs').innerHTML=h}
 function relPos(el){const r=el.getBoundingClientRect(),s=stage.getBoundingClientRect();
   return {l:(r.left-s.left)/scale,t:(r.top-s.top)/scale,w:r.width/scale,h:r.height/scale}}
 function renderChart(){
@@ -384,6 +408,7 @@ function renderChart(){
   el.style.display=C.on?'block':'none';el.classList.toggle('sel',C.sel);
   ['btnPlus','btnBrush','btnFilter'].forEach(id=>{$(id).style.display=C.sel?'flex':'none';$(id).style.left=(CH.x+CH.w+6)+'px'});
   if(!C.on)return;
+  if(C.empty&&!C.ser){el.innerHTML=`<svg width="${CH.w}" height="${CH.h}"><rect x="1" y="1" width="${CH.w-2}" height="${CH.h-2}" fill="#fff"/><text x="${CH.w/2}" y="${CH.h/2}" font-size="12" fill="#9A9A9A" text-anchor="middle" font-family="Calibri,Arial">graphique vide : ses données restent à choisir</text></svg>`;return}
   let s=`<svg width="${CH.w}" height="${CH.h}" viewBox="0 0 ${CH.w} ${CH.h}" font-family="Calibri,Segoe UI,Arial,sans-serif">`;
   for(let k=0;k<=9;k++){const y=py(k);s+=`<line x1="${CH.L}" x2="${CH.R}" y1="${y}" y2="${y}" stroke="#D9D9D9"/><text x="${CH.L-6}" y="${y+4}" font-size="10" fill="#595959" text-anchor="end">${k}</text>`}
   for(let k=0;k<=9;k++){const x=px(k*0.02);s+=`<text x="${x}" y="${CH.B+14}" font-size="9.5" fill="#595959" text-anchor="middle">${fmt(+(k*0.02).toFixed(2))}</text>`}
@@ -510,21 +535,44 @@ const STEPS=[
   await c.clickCell('D2');await c.type('D2','=B2*C2',120);await c.note({x:520,y:132},'Deux cellules utilisées :<br>B2 en bleu, C2 en rouge','below',2200);
   await c.key('⏎ Entrée',400);await c.clickCell('D2');await c.fill('D2',9,'dbl');
   await c.note('D9','Rempli jusqu\'à la dernière<br>ligne du tableau','right',2200);}},
-{part:'Tracer',title:'Sélectionner les données à tracer',
- text:`<p>On veut tracer U en fonction de I : U en ordonnée, I en abscisse. Glisser de <b>B1</b> à <b>C9</b> pour sélectionner les deux colonnes, <b>en-têtes compris</b>.</p>
-<div class="tip"><b>Qui va sur quel axe ?</b>Pour un nuage de points, le tableur place la colonne de gauche en abscisse et celle de droite en ordonnée. C'est pour cela que I (A) a été calculée juste à gauche de U.</div>
-<p>Pour deux colonnes qui ne se touchent pas : sélectionner la première, puis maintenir <kbd>Ctrl</kbd> en sélectionnant la seconde.</p>`,
- async run(c){await c.dragSel('B1','C9');
-  await c.note('B9','Abscisses (x)','below',1400);await c.note('C9','Ordonnées (y)','right',2200);}},
-{part:'Tracer',title:'Insérer un nuage de points',
- text:`<p>Onglet <b>Insertion</b>, groupe Graphiques : cliquer sur l'icône <b>Nuage de points</b>, puis sur le premier modèle (points seuls).</p>
-<div class="warn"><b>Pas le graphique « Courbe »</b>Il place les points à intervalles réguliers (1, 2, 3…) sans tenir compte des valeurs de I. En sciences, on trace un nuage de points.</div>
-<p>On ne relie pas les points entre eux : chaque mesure a son incertitude, c'est le modèle qui dira quelle courbe passe au plus près de l'ensemble.</p>`,
- async run(c){await c.clickEl(document.querySelector('.xl-tab[data-tab="Insertion"]'));S.tab='Insertion';render();await c.wait(300);
+{part:'Tracer',title:'Partir d\'une cellule vide',
+ text:`<p>On veut tracer U en fonction de I : U en ordonnée, I en abscisse. Plutôt que de laisser le tableur deviner quelles colonnes tracer, on part d'une <b>cellule vide</b>, à l'écart du tableau — ici <b>F2</b> — et c'est nous qui lui dirons, une à une, où sont les données.</p>
+<div class="tip"><b>Pourquoi une cellule vide ?</b>Si la cellule active est dans le tableau, le tableur sélectionne tout seul toutes les colonnes voisines : il tracerait aussi I (mA), ou prendrait la mauvaise colonne en abscisse. Partir de rien, c'est choisir soi-même chaque série.</div>`,
+ async run(c){await c.clickCell('F2');await c.note('F2','Cellule vide, hors du tableau','right',2200);}},
+{part:'Tracer',title:'Insérer un nuage de points vide',
+ text:`<p>Onglet <b>Insertion</b>, groupe Graphiques : cliquer sur l'icône <b>Nuage de points</b>, puis sur le premier modèle (points seuls). Comme aucune donnée n'est sélectionnée, le graphique apparaît <b>vide</b>.</p>
+<div class="warn"><b>Pas le graphique « Courbe »</b>Il place les points à intervalles réguliers (1, 2, 3…) sans tenir compte des valeurs de I. En sciences, on trace un nuage de points.</div>`,
+ async run(c){S.act='F2';await c.clickEl(document.querySelector('.xl-tab[data-tab="Insertion"]'));S.tab='Insertion';render();await c.wait(300);
   await c.hoverEl('btnScatter');S.tip={x:c.center('btnScatter').x-10,y:c.center('btnScatter').y+18,html:'<b>Insérer un graphique en nuage de points (X, Y)</b>'};render();await c.wait(900);
   S.tip=null;c.ripple();S.scat=true;S.hot=null;render();await c.wait(400);
   await c.hoverEl('th0');const p=c.center('th0');S.tip={x:p.x+26,y:p.y+10,html:'Nuage de points'};render();await c.wait(800);
-  c.ripple();S.tip=null;S.scat=false;S.hot=null;S.chart.on=true;S.chart.sel=true;S.chart.pop=true;render();await c.wait(1100);
+  c.ripple();S.tip=null;S.scat=false;S.hot=null;S.chart.on=true;S.chart.sel=true;S.chart.empty=true;S.chart.ser=false;S.chart.title='';render();await c.wait(700);
+  await c.note({x:CH.x+CH.w/2-60,y:CH.y+CH.h/2+30},'Un graphique vide :<br>on va lui donner ses données','below',2200);}},
+{part:'Tracer',title:'Ouvrir « Sélectionner des données »',
+ text:`<p><b>Clic droit</b> sur le graphique, puis <b>Sélectionner des données…</b> (on trouve aussi ce bouton dans l'onglet <b>Création de graphique</b>). La fenêtre <b>Sélectionner la source de données</b> s'ouvre : sa liste de séries est vide.</p>
+<p>Une <b>série</b>, c'est un ensemble de points : un nom, des valeurs en abscisse (X) et des valeurs en ordonnée (Y). On l'ajoute avec le bouton <b>Ajouter</b>.</p>`,
+ async run(c){S.chart={...S.chart,on:true,sel:true,empty:true,ser:false,title:''};render();
+  const p={x:CH.x+CH.w/2,y:CH.y+CH.h/2};await c.move(p);c.badge('Clic droit');await c.wait(350);c.unbadge();
+  S.cm={x:p.x+4,y:p.y-60};render();await c.wait(400);
+  await c.hoverEl('cm3');c.ripple();S.cm=null;S.hot=null;S.dlg.src=true;render();await c.wait(600);
+  await c.hoverEl('bAjout');{const q=c.center('bAjout');await c.note({x:q.x-40,y:q.y+14},'Une série = un nom,<br>des X et des Y','below',2400);}S.hot=null;render();}},
+{part:'Tracer',title:'Ajouter la série : nom, valeurs X, valeurs Y',
+ text:`<p><b>Ajouter</b> ouvre <b>Modifier la série</b>. On remplit ses trois cases en cliquant dedans, puis en <b>sélectionnant les cellules à la souris</b> dans la feuille — le tableur écrit lui-même la référence :</p>
+<p><b>Nom de la série</b> : un clic sur l'en-tête <b>C1</b>, « U (V) ».<br><b>Valeurs X</b> : glisser de <b>B2</b> à <b>B9</b> — les intensités en ampères, <b>sans l'en-tête</b>.<br><b>Valeurs Y</b> : effacer le « ={1} » proposé, puis glisser de <b>C2</b> à <b>C9</b>.</p>
+<div class="tip"><b>Les deux erreurs à éviter</b>Sélectionner l'en-tête avec les valeurs (le texte « I (A) » n'est pas un nombre), et oublier d'effacer le « ={1} » de la case Y. Vérifier enfin que X et Y ont bien le même nombre de cellules : 8 et 8.</div>
+<p><b>OK</b> dans les deux fenêtres : les points apparaissent.</p>`,
+ async run(c){S.chart={...S.chart,on:true,sel:true,empty:true,ser:false,title:''};S.dlg.src=true;render();
+  await c.clickEl('bAjout');S.dlg.ser=true;S.dlg.ys='={1}';render();await c.wait(400);
+  await c.clickEl('fNom');S.dlg.field='nom';render();await c.wait(250);
+  await c.clickCell('C1');S.sel=['C1','C1'];S.dlg.nom='=Feuil1!$C$1';render();await c.wait(500);
+  await c.clickEl('fX');S.dlg.field='xs';render();await c.wait(250);
+  await c.dragSel('B2','B9');S.dlg.xs='=Feuil1!$B$2:$B$9';render();await c.wait(300);
+  await c.note('B9','Valeurs X : I (A),<br>sans l\'en-tête','below',1800);
+  await c.clickEl('fY');S.dlg.field='ys';render();await c.wait(300);S.dlg.ys='';render();await c.wait(300);
+  await c.dragSel('C2','C9');S.dlg.ys='=Feuil1!$C$2:$C$9';render();await c.wait(300);
+  await c.note('C9','Valeurs Y : U (V)','right',1600);
+  await c.clickEl('bOkSer');S.dlg.ser=false;S.dlg.field=null;S.dlg.liste=['U (V)'];S.sel=null;render();await c.wait(500);
+  await c.clickEl('bOkSrc');S.dlg.src=false;S.chart.ser=true;S.chart.pop=true;S.chart.title='U (V)';render();await c.wait(1100);
   await c.note({x:120,y:440},'Chaque ligne du tableau<br>donne un point (I ; U)','below',2400);}},
 {part:'Tracer',title:'Titrer le graphique et les axes',
  text:`<p>Cliquer sur le graphique, puis sur le bouton <b>+</b> (Éléments de graphique) et cocher <b>Titres des axes</b>. Cliquer ensuite dans chaque titre pour le remplacer.</p>
@@ -576,7 +624,7 @@ const STEPS=[
  async run(c){S.chart.on=true;S.chart.sel=false;S.chart.hiEq=false;S.pane.open=false;render();await c.wait(200)}}
 ];
 // Les étapes rejouées en instantané doivent laisser l'état final complet
-const FINAL_FIX=[null,null,null,null,null,null,null,null,null,
+const FINAL_FIX=[null,null,null,null,null,null,null,null,null,null,null,
   ()=>{S.pane.open=false},null];
 
 /* ---------------- Navigation ---------------- */

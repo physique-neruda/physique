@@ -26,7 +26,7 @@ FILIERES = [
      "rubriques": ["Calcul", "Mesure"]},
     {"id": "bts-et", "nom": "BTS Électrotechnique",
      "sous_titre": "Physique appliquée",
-     "rubriques": ["Cours", "TP", "ADM", "S'entraîner"]},
+     "rubriques": ["Cours", "TP", "ADM", "TP systèmes", "S'entraîner"]},
     {"id": "bts-crsa", "nom": "BTS CRSA",
      "sous_titre": "Conception et Réalisation de Systèmes Automatiques",
      "rubriques": ["Cours", "TP", "S'entraîner"]},
@@ -112,6 +112,10 @@ DOCUMENTS = {
     ],
 
     "bts-et": [
+        ("tp_four",           "TP",    "TP — Le four industriel",
+         "Le sujet de TP sur le four du laboratoire : lecture du schéma, mesures, gradateur à train d'ondes."),
+        ("tp_banc",           "TP",    "TP — Le banc départ-moteur",
+         "Le sujet de TP sur le banc : plaque, schéma, câblage, mesures, démarrage direct, protections, diagnostic."),
         ("prerequis",         "Cours", "Prérequis",
          "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler."),
         ("a1_chauffage",      "Cours", "Activité 1 — Chauffer un corps",
@@ -160,7 +164,8 @@ DOCUMENTS = {
 # celle déclarée ci-dessus. Le fil « TP élec » du BTS ET est un fil complet
 # de chapitres : ses documents sont les mêmes, la rubrique change.
 RUBRIQUE_DU_CHAPITRE = {
-    "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "ch09": "TP", "adm01": "ADM"},
+    "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "ch09": "TP", "adm01": "ADM",
+               "adm02": "TP systèmes", "adm03": "TP systèmes"},
 }
 
 # Titre affiché différent pour un document précis d'un chapitre précis.
@@ -184,6 +189,22 @@ TITRES_PARTICULIERS = {
 # chapitre. None => à la fin de la rubrique.
 ANIMATIONS = {
     "bts-et": [
+        {"chapitre": "adm02", "rubrique": "TP systèmes", "avant": "tp_four",
+         "titre": "Le four industriel : lecture du schéma pas à pas",
+         "fichier": "animations/four-industriel.html",
+         "description": "Le schéma du four du laboratoire parcouru pas à pas, appareil par appareil, "
+                        "avec la photo de l'armoire : alimentation, protections, commande, "
+                        "gradateurs à train d'ondes et résistances chauffantes.",
+         "trouve": "Relier chaque symbole du schéma à l'appareil réel et à son rôle.",
+         "motscles": ["four", "schema", "gradateur", "train d'ondes", "armoire", "lecture de schema"]},
+        {"chapitre": "adm03", "rubrique": "TP systèmes", "avant": "tp_banc",
+         "titre": "Le banc départ-moteur : plans, câblage et fonctionnement",
+         "fichier": "animations/banc-depart-moteur.html",
+         "description": "Quarante étapes sur la face du banc et les cinq folios de son schéma : "
+                        "repérer les appareils, suivre le câblage, comprendre la mise en marche, "
+                        "l'arrêt et les protections du départ-moteur.",
+         "trouve": "Passer du plan au câblage réel, et d'un symptôme à l'appareil en cause.",
+         "motscles": ["depart moteur", "folio", "cablage", "contacteur", "relais thermique", "banc"]},
         {"chapitre": "c01", "rubrique": "Cours", "avant": "a1_chauffage",
          "titre": "Le chauffage", "fichier": "animations/calorimetre.html",
          "description": "Une résistance de puissance connue dans un récipient. Masse, matière, "
@@ -328,6 +349,25 @@ ANIMATIONS = {
     ],
 
     "bts-tsma": [
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite",
+         "titre": "Pression au fond d'une éprouvette",
+         "fichier": "animations/eprouvette-pression.html",
+         "description": "Un tuyau souple relié à un capteur de pression absolue plonge dans une "
+                        "éprouvette d'eau ou d'huile ; on règle la profondeur et on relève la "
+                        "pression. C'est la partie « huile » de l'activité expérimentale.",
+         "trouve": "La pente de p = f(h) vaut ρ g ; l'ordonnée à l'origine, la pression "
+                   "atmosphérique.",
+         "motscles": ["pression", "profondeur", "masse volumique", "huile", "eprouvette", "capteur"]},
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite_banc",
+         "titre": "La maquette pression-surface",
+         "fichier": "animations/maquette-pression.html",
+         "description": "La maquette du laboratoire en version simulée : trois pistons, des masses à "
+                        "poser, un capteur de pression absolue. Les valeurs reproduisent les mesures "
+                        "réelles, défauts compris ; un second onglet fait fonctionner une presse "
+                        "hydraulique. C'est le poste 2 de l'activité sur banc.",
+         "trouve": "La pente de p = f(m) donne la section du piston ; l'ordonnée à l'origine "
+                   "contrôle le montage.",
+         "motscles": ["pression", "piston", "seringue", "section", "presse hydraulique", "maquette"]},
         {"chapitre": "ch01", "rubrique": "TP", "avant": None,
          "titre": "Pied à coulisse virtuel", "fichier": "animations/pied-a-coulisse.html",
          "description": "Un pied à coulisse au 1/50 refermé sur un axe de piston : on lit "
@@ -379,6 +419,17 @@ ANIMATIONS = {
     ],
 
     "outils": [
+        {"chapitre": "ou05", "rubrique": "Calcul", "avant": None,
+         "titre": "La calculatrice et les puissances de dix",
+         "fichier": "animations/calculatrice-puissances.html",
+         "description": "Touche par touche, sur quatre calculatrices (TI-83 Premium CE, TI-83 Plus, "
+                        "Casio Graph 35+E, Casio fx-92 Collège) : écrire un nombre en notation "
+                        "scientifique, calculer avec, élever à une puissance, afficher le résultat en "
+                        "écriture scientifique — et le piège de la division qui fausse un résultat "
+                        "sans prévenir.",
+         "trouve": "« × 10 puissance » s'écrit avec la touche EE ou ×10ˣ, jamais avec × 10 ^ ; "
+                   "l'exposant négatif se tape avec la touche de négation.",
+         "motscles": ["calculatrice", "notation scientifique", "puissance de dix", "exposant", "ti", "casio"]},
         {"chapitre": "ou04", "rubrique": "Mesure", "avant": None,
          "titre": "Acquérir, calculer et modéliser avec LatisPro",
          "fichier": "animations/latispro.html",
@@ -398,7 +449,9 @@ ANIMATIONS = {
          "titre": "Calculer, tracer et modéliser avec un tableur",
          "fichier": "animations/tableur.html",
          "description": "Un tutoriel pas à pas sur Excel : saisir un tableau de mesures, "
-                        "écrire une formule et la recopier, tracer un nuage de points, puis "
+                        "écrire une formule et la recopier, tracer un nuage de points en partant "
+                        "d'un graphique vide (Sélectionner des données, puis Ajouter la série : "
+                        "nom, valeurs X, valeurs Y), puis "
                         "ajouter une courbe de tendance et lire son équation. Chaque étape se "
                         "rejoue autant qu'il faut : le mieux est de la reproduire en même "
                         "temps sur son propre ordinateur.",
@@ -445,5 +498,5 @@ SOURCES = {
 
 # Correspondance clé du site -> dossier dans la collection ET.
 DOSSIERS_ET = {"ch00": "ch00", "ch09": "ch09", "c01": "C1", "c02": "C2",
-               "tp01": "TP1", "tp02": "TP2", "adm01": "ADM1",
+               "tp01": "TP1", "tp02": "TP2", "adm01": "ADM1", "adm02": "ADM2", "adm03": "ADM3",
                "c03": "C3", "tp03": "TP3"}

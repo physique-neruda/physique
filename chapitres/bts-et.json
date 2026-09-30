@@ -112,5 +112,35 @@
    "adm",
    "appareillage"
   ]
+ },
+ "adm02": {
+  "num": "102",
+  "titre": "ADM 2 — Four industriel : schéma, mesures et gradateur à train d'ondes",
+  "motscles": [
+   "four",
+   "gradateur",
+   "train d'ondes",
+   "schema",
+   "wattmetre",
+   "puissance",
+   "automate",
+   "adm",
+   "tp systeme"
+  ]
+ },
+ "adm03": {
+  "num": "103",
+  "titre": "ADM 3 — Banc départ-moteur : démarrage direct, mesures et protections",
+  "motscles": [
+   "depart moteur",
+   "demarrage direct",
+   "relais thermique",
+   "moteur asynchrone",
+   "courant de demarrage",
+   "diagnostic",
+   "panne",
+   "adm",
+   "tp systeme"
+  ]
  }
 }

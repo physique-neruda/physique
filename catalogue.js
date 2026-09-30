@@ -117,7 +117,7 @@ const DOCUMENTS = [
     chapitre: "Utiliser un tableur",
     type: "animation", titre: "Calculer, tracer et modéliser avec un tableur",
     fichier: "animations/tableur.html",
-    description: "Un tutoriel pas à pas sur Excel : saisir un tableau de mesures, écrire une formule et la recopier, tracer un nuage de points, puis ajouter une courbe de tendance et lire son équation. Chaque étape se rejoue autant qu'il faut : le mieux est de la reproduire en même temps sur son propre ordinateur.",
+    description: "Un tutoriel pas à pas sur Excel : saisir un tableau de mesures, écrire une formule et la recopier, tracer un nuage de points en partant d'un graphique vide (Sélectionner des données, puis Ajouter la série : nom, valeurs X, valeurs Y), puis ajouter une courbe de tendance et lire son équation. Chaque étape se rejoue autant qu'il faut : le mieux est de la reproduire en même temps sur son propre ordinateur.",
     trouve: "Une modélisation, c'est une courbe de tendance qu'on sait lire, pas qu'on sait afficher.",
     motscles: ["tableur", "excel", "formule", "recopier", "graphique", "nuage de points", "courbe de tendance", "modeliser"]
   },
@@ -131,6 +131,17 @@ const DOCUMENTS = [
     description: "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales d'acquisition Sysam : paramétrer une acquisition, calculer une nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis la modéliser et lire les paramètres du modèle. Une dernière partie montre la mesure point par point au capteur de pression (mode pas à pas, profondeur saisie au clavier) et la modélisation par une droite. Chaque étape se rejoue ; le mieux est de la reproduire en même temps sur le poste du labo.",
     trouve: "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis on demande au logiciel les paramètres.",
     motscles: ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier", "courbe", "modelisation", "regression", "parametres"]
+  },
+
+
+  {
+    filiere: "outils", rubrique: "Calcul",
+    chapitre: "La calculatrice et les puissances de dix",
+    type: "animation", titre: "La calculatrice et les puissances de dix",
+    fichier: "animations/calculatrice-puissances.html",
+    description: "Touche par touche, sur quatre calculatrices (TI-83 Premium CE, TI-83 Plus, Casio Graph 35+E, Casio fx-92 Collège) : écrire un nombre en notation scientifique, calculer avec, élever à une puissance, afficher le résultat en écriture scientifique — et le piège de la division qui fausse un résultat sans prévenir.",
+    trouve: "« × 10 puissance » s'écrit avec la touche EE ou ×10ˣ, jamais avec × 10 ^ ; l'exposant négatif se tape avec la touche de négation.",
+    motscles: ["calculatrice", "notation scientifique", "puissance de dix", "exposant", "ti", "casio"]
   },
 
 
@@ -1296,6 +1307,46 @@ const DOCUMENTS = [
     fichier: "entrainement/cartes.html?f=bts-et&ch=adm01",
     description: "51 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 2 — Four industriel : schéma, mesures et gradateur à train d'ondes",
+    type: "animation", titre: "Le four industriel : lecture du schéma pas à pas",
+    fichier: "animations/four-industriel.html",
+    description: "Le schéma du four du laboratoire parcouru pas à pas, appareil par appareil, avec la photo de l'armoire : alimentation, protections, commande, gradateurs à train d'ondes et résistances chauffantes.",
+    trouve: "Relier chaque symbole du schéma à l'appareil réel et à son rôle.",
+    motscles: ["four", "schema", "gradateur", "train d'ondes", "armoire", "lecture de schema"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 2 — Four industriel : schéma, mesures et gradateur à train d'ondes",
+    type: "pdf", titre: "TP — Le four industriel",
+    fichier: "docs/bts-et/adm02/tp_four.pdf",
+    description: "Le sujet de TP sur le four du laboratoire : lecture du schéma, mesures, gradateur à train d'ondes.",
+    motscles: ["four", "gradateur", "train d'ondes", "schema", "wattmetre", "puissance", "automate", "adm", "tp systeme"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 3 — Banc départ-moteur : démarrage direct, mesures et protections",
+    type: "animation", titre: "Le banc départ-moteur : plans, câblage et fonctionnement",
+    fichier: "animations/banc-depart-moteur.html",
+    description: "Quarante étapes sur la face du banc et les cinq folios de son schéma : repérer les appareils, suivre le câblage, comprendre la mise en marche, l'arrêt et les protections du départ-moteur.",
+    trouve: "Passer du plan au câblage réel, et d'un symptôme à l'appareil en cause.",
+    motscles: ["depart moteur", "folio", "cablage", "contacteur", "relais thermique", "banc"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 3 — Banc départ-moteur : démarrage direct, mesures et protections",
+    type: "pdf", titre: "TP — Le banc départ-moteur",
+    fichier: "docs/bts-et/adm03/tp_banc.pdf",
+    description: "Le sujet de TP sur le banc : plaque, schéma, câblage, mesures, démarrage direct, protections, diagnostic.",
+    motscles: ["depart moteur", "demarrage direct", "relais thermique", "moteur asynchrone", "courant de demarrage", "diagnostic", "panne", "adm", "tp systeme"]
   },
 
 
@@ -3591,10 +3642,30 @@ const DOCUMENTS = [
   {
     filiere: "bts-tsma", rubrique: "TP",
     chapitre: "Chapitre 3 — Statique des fluides",
+    type: "animation", titre: "Pression au fond d'une éprouvette",
+    fichier: "animations/eprouvette-pression.html",
+    description: "Un tuyau souple relié à un capteur de pression absolue plonge dans une éprouvette d'eau ou d'huile ; on règle la profondeur et on relève la pression. C'est la partie « huile » de l'activité expérimentale.",
+    trouve: "La pente de p = f(h) vaut ρ g ; l'ordonnée à l'origine, la pression atmosphérique.",
+    motscles: ["pression", "profondeur", "masse volumique", "huile", "eprouvette", "capteur"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch03/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
     motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "TP",
+    chapitre: "Chapitre 3 — Statique des fluides",
+    type: "animation", titre: "La maquette pression-surface",
+    fichier: "animations/maquette-pression.html",
+    description: "La maquette du laboratoire en version simulée : trois pistons, des masses à poser, un capteur de pression absolue. Les valeurs reproduisent les mesures réelles, défauts compris ; un second onglet fait fonctionner une presse hydraulique. C'est le poste 2 de l'activité sur banc.",
+    trouve: "La pente de p = f(m) donne la section du piston ; l'ordonnée à l'origine contrôle le montage.",
+    motscles: ["pression", "piston", "seringue", "section", "presse hydraulique", "maquette"]
   },
 
   {

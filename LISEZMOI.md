@@ -763,3 +763,33 @@ animations » y a été posé.
   en style Points ; modéliser par une **droite affine** ; exploiter la pente (ρ = a/g ≈ 997 kg/m³)
   et l'ordonnée à l'origine (Patm). Bilan complété. Testé dans un navigateur : 18 étapes, aucune
   erreur de script.
+
+## Mise à jour du 29 septembre 2026, suite (v26)
+
+- **Outils** : nouvelle animation `calculatrice-puissances.html` (ou05, rubrique Calcul) — quatre
+  calculatrices photographiées, cinq exercices joués touche par touche sur un écran simulé
+  (notation scientifique, produit, piège de la division, puissances, affichage SCI), encadré
+  « À retenir » propre à chaque modèle.
+- **BTS TSMA ch.3** : deux animations placées devant les activités —
+  `maquette-pression.html` (poste 2 de l'activité sur banc : trois pistons, valeurs des mesures
+  réelles, saturation du capteur, presse hydraulique) et `eprouvette-pression.html` (partie huile
+  de l'activité expérimentale). Activités redéposées.
+
+## Mise à jour du 29 septembre 2026, fin (v27)
+
+- **Tableur** (`animations/tableur.html`) : le tracé part désormais d'une **cellule vide** —
+  graphique en nuage de points vide, clic droit, **Sélectionner des données**, **Ajouter**, puis
+  la fenêtre « Modifier la série » remplie à la souris (nom : C1 ; valeurs X : B2:B9 ; valeurs Y :
+  effacer « ={1} », puis C2:C9). 13 étapes au lieu de 11, testé sans erreur.
+- **Calculatrices** : écrans aux couleurs de chaque modèle (blanc pour la TI-83 Premium CE,
+  cristaux liquides gris-vert pour les trois autres) au lieu d'un écran noir.
+
+## Mise à jour du 30 septembre 2026 (v28)
+
+- **BTS ET — nouvelle rubrique « TP systèmes »**, à part de l'ADM 1 : ADM 2 (four industriel) et
+  ADM 3 (banc départ-moteur). Chapitres `adm02` et `adm03` dans `chapitres/bts-et.json`, rubrique
+  dans `FILIERES` et `RUBRIQUE_DU_CHAPITRE`, dossiers dans `DOSSIERS_ET` (`racine_site/ADM2`,
+  `racine_site/ADM3`), sujets `tp_four` et `tp_banc` dans la liste blanche (les corrigés restent
+  hors ligne), animations `four-industriel.html` et `banc-depart-moteur.html`.
+- **Calculatrices** : la touche à presser est entourée sur la photo du clavier, à chaque étape
+  (positions relevées pour les quatre modèles).
