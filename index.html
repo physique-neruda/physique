@@ -454,8 +454,8 @@ function verifier(fil, k){
 function importer(brut, exportable){
   return crypto.subtle.importKey("raw", brut, "AES-GCM", exportable, ["decrypt"]);
 }
-function deriver(fil, mot){
-  var a = ACCES[fil];
+function deriver(fil, mot){ return deriverAvec(ACCES[fil], mot); }
+function deriverAvec(a, mot){
   return crypto.subtle.importKey("raw", new TextEncoder().encode(mot), "PBKDF2", false, ["deriveBits"])
     .then(function(base){
       return crypto.subtle.deriveBits({name:"PBKDF2", hash:"SHA-256",
@@ -531,22 +531,57 @@ document.getElementById("mdp-form").addEventListener("submit", function(e){
   var btn = document.getElementById("mdp-ok"), err = document.getElementById("mdp-erreur");
   if(!mot) return;
   btn.disabled = true; btn.textContent = "Vérification…"; err.textContent = "";
+  function memoriser(f, bits){
+    var trace = JSON.stringify({sel: ACCES[f].sel, k: versB64(bits)});
+    ecrire(session(), "acces-" + f, trace);
+    if(garder) ecrire(memoire(), "acces-" + f, trace);
+  }
   deriver(fil, mot).then(function(bits){
     return importer(bits, false).then(function(k){
       return verifier(fil, k).then(function(ok){
-        if(!ok){ err.textContent = "Mot de passe incorrect."; return; }
-        CLES[fil] = k;
-        var trace = JSON.stringify({sel: ACCES[fil].sel, k: versB64(bits)});
-        ecrire(session(), "acces-" + fil, trace);
-        if(garder) ecrire(memoire(), "acces-" + fil, trace);
-        fermerDlg();
-        rendu();
-        avertir("Accès ouvert. Touchez le document pour l'ouvrir.");
+        if(ok){
+          CLES[fil] = k; memoriser(fil, bits);
+          fermerDlg(); rendu();
+          avertir("Accès ouvert. Touchez le document pour l'ouvrir.");
+          return;
+        }
+        /* pas le mot de passe de la classe : peut-être le code enseignant */
+        return essayerProf(mot, memoriser).then(function(okProf){
+          if(!okProf){ err.textContent = "Mot de passe incorrect."; return; }
+          fermerDlg(); rendu();
+          avertir("Accès enseignant : toutes les classes sont ouvertes.");
+        });
       });
     });
   }).catch(function(){ err.textContent = "Impossible de vérifier le mot de passe."; })
     .then(function(){ btn.disabled = false; btn.textContent = "Ouvrir"; });
 });
+
+/* Code enseignant : acces.js contient, chiffrée avec la clé du code
+   enseignant, la clé de chaque filière. Un seul code ouvre tout. */
+var PROF = window.ACCES_PROF || null;
+function essayerProf(mot, memoriser){
+  if(!PROF) return Promise.resolve(false);
+  return deriverAvec(PROF, mot).then(function(bits){
+    return importer(bits, false);
+  }).then(function(kp){
+    return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(PROF.iv)}, kp, deB64(PROF.temoin))
+      .then(function(t){ return new TextDecoder().decode(t) === "acces-ok:prof"; },
+            function(){ return false; })
+      .then(function(ok){
+        if(!ok) return false;
+        return Promise.all(Object.keys(PROF.cles).map(function(f){
+          if(!ACCES[f]) return null;
+          var e = PROF.cles[f];
+          return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(e.iv),
+                                        additionalData:new TextEncoder().encode(f)}, kp, deB64(e.cle))
+            .then(function(brut){
+              return importer(brut, false).then(function(k){ CLES[f] = k; memoriser(f, brut); });
+            });
+        })).then(function(){ return true; });
+      });
+  });
+}
 
 function avertir(t){
   var z = document.querySelector("#bandeau .acces span");

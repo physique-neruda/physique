@@ -23,6 +23,10 @@ filière sont rechiffrés, les anciens deviennent inutilisables, et les appareil
 qui avaient mémorisé l'accès redemandent le mot de passe. Pour imposer un mot de
 passe choisi : --nouveau 1sti2d --mot "mon-mot-de-passe".
 
+CODE ENSEIGNANT : un code unique (bloc "_prof" du fichier des mots de passe) ouvre
+toutes les filières d'un coup. Il se saisit dans la même fenêtre que le mot de passe
+de classe. Le changer : --nouveau prof (ou --nouveau prof --mot "…").
+
 Principe cryptographique (de quoi vérifier, rien à régler) :
   - clé de la filière  = PBKDF2-HMAC-SHA256(mot de passe, sel, 300 000 tours), 32 octets ;
   - chaque fichier     = "NRD1" + IV (12 octets) + AES-256-GCM(contenu),
@@ -113,15 +117,21 @@ def charger_cles(chemin, nouveau, mot_impose):
             cles[fil] = {"mot_de_passe": mot, "sel": b64(secrets.token_bytes(16)),
                          "tours": TOURS}
             print(f"  nouveau mot de passe pour {fil} : {mot}")
+    # code enseignant : ouvre toutes les filières (quatre mots, plus solide)
+    if "_prof" not in cles or "prof" in nouveau:
+        mot = mot_impose if (mot_impose and "prof" in nouveau) else (
+            "-".join(secrets.choice(MOTS) for _ in range(4)) + "-" + str(secrets.randbelow(90) + 10))
+        cles["_prof"] = {"mot_de_passe": mot, "sel": b64(secrets.token_bytes(16)), "tours": TOURS}
+        print(f"  nouveau code enseignant : {mot}")
     cles["_note"] = ("Fichier SECRET. Ne pas déposer sur GitHub. Un bloc par filière "
                      "protégée ; supprimer un bloc rend la filière publique.")
     with open(chemin, "w", encoding="utf-8") as f:
         json.dump(cles, f, ensure_ascii=False, indent=2)
-    return {k: v for k, v in cles.items() if not k.startswith("_")}
+    return {k: v for k, v in cles.items() if not k.startswith("_")}, cles["_prof"]
 
 
 # ------------------------------------------------------------ fabrication
-def fabriquer(atelier, sortie, cles):
+def fabriquer(atelier, sortie, cles, prof=None):
     atelier, sortie = os.path.abspath(atelier), os.path.abspath(sortie)
     if sortie.startswith(atelier + os.sep) or sortie == atelier:
         sys.exit("La sortie doit être un dossier À CÔTÉ de l'atelier, pas dedans.")
@@ -168,11 +178,31 @@ def fabriquer(atelier, sortie, cles):
         iv, t = temoin(k, fil)
         acces[fil] = {"sel": cles[fil]["sel"], "tours": cles[fil]["tours"],
                       "iv": b64(iv), "temoin": b64(t)}
+    # le code enseignant : chaque clé de filière, chiffrée avec la clé du code prof
+    acces_prof = None
+    if prof:
+        kp = cle(prof["mot_de_passe"], base64.b64decode(prof["sel"]), prof["tours"])
+        ivp, tp = temoin(kp, "prof")
+        env = {}
+        for fil, k in derivees.items():
+            iv = hmac.new(kp, ("enveloppe|" + fil + "|" + cles[fil]["sel"]).encode(),
+                          hashlib.sha256).digest()[:12]
+            env[fil] = {"iv": b64(iv), "cle": b64(AESGCM(kp).encrypt(iv, k, fil.encode()))}
+        acces_prof = {"sel": prof["sel"], "tours": prof["tours"], "iv": b64(ivp),
+                      "temoin": b64(tp), "cles": env}
     with open(os.path.join(sortie, "acces.js"), "w", encoding="utf-8") as f:
         f.write("/* acces.js — fabriqué par outils/chiffrer.py, ne pas modifier.\n"
                 "   Filières dont les documents sont chiffrés. Le mot de passe n'y\n"
                 "   figure pas : seulement le sel et un témoin pour le vérifier. */\n"
-                "window.ACCES = " + json.dumps(acces, indent=2) + ";\n")
+                "window.ACCES = " + json.dumps(acces, indent=2) + ";\n"
+                + ("window.ACCES_PROF = " + json.dumps(acces_prof, indent=2) + ";\n"
+                   if acces_prof else ""))
+
+    # garde-fou : un corrigé ne sort jamais dans une filière non protégée
+    for r, _, fs in os.walk(os.path.join(sortie, "docs")):
+        for n in fs:
+            if "corrige" in n.lower() and not n.endswith(".enc"):
+                sys.exit(f"ERREUR : corrigé en clair dans une filière non protégée : {os.path.join(r, n)}")
 
     # garde-fou : aucun PDF en clair ne doit subsister dans une filière protégée
     for fil in derivees:
@@ -196,7 +226,7 @@ if __name__ == "__main__":
         sys.exit("--mot s'emploie avec une seule filière après --nouveau.")
     if os.path.abspath(a.cles).startswith(os.path.abspath(a.atelier) + os.sep):
         sys.exit("Le fichier des mots de passe ne doit pas être dans le dossier du site.")
-    cles = charger_cles(a.cles, set(a.nouveau), a.mot)
-    clair, chiffre = fabriquer(a.atelier, a.sortie, cles)
+    cles, prof = charger_cles(a.cles, set(a.nouveau), a.mot)
+    clair, chiffre = fabriquer(a.atelier, a.sortie, cles, prof)
     print(f"{a.sortie} fabriqué : {clair} fichiers copiés tels quels, "
           + ", ".join(f"{n} chiffrés pour {f}" for f, n in chiffre.items()))

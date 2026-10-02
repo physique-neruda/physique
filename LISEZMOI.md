@@ -933,3 +933,40 @@ ni `NE_PAS_PUBLIER/`.
 **Au passage** : dans la liste des documents, le titre et la description d'un document
 s'affichaient collés sur une seule ligne (« PrérequisÀ faire avant… ») ; ils sont de nouveau
 sur deux lignes.
+
+
+---
+
+## Mise à jour du 2 octobre 2026 (v38) — code enseignant
+
+Un **code enseignant** ouvre d'un coup les documents des quatre classes. Il se tape dans la même
+fenêtre que le mot de passe de classe, sur n'importe quelle page de classe ; le site essaie
+d'abord le mot de passe de la classe, puis le code enseignant. Il est rangé dans
+`NE_PAS_PUBLIER/mots_de_passe.json` (bloc `_prof`) et n'est écrit nulle part dans le site :
+`acces.js` ne contient que les clés des classes, chiffrées avec lui.
+
+Changer de code : `chiffrer.py … --nouveau prof` (ou `--nouveau prof --mot "…"`). Changer le mot
+de passe d'une classe ne change pas le code enseignant, qui continue d'ouvrir cette classe.
+
+À ne saisir que sur ses propres appareils, ou en décochant « Se souvenir sur cet appareil » :
+un poste du lycée qui l'a mémorisé reste ouvert sur toutes les classes jusqu'à *Fermer l'accès*
+(à faire classe par classe).
+
+
+---
+
+## Mise à jour du 2 octobre 2026 (v39) — corrigés des séances
+
+Une rubrique **Corrigés** apparaît dans chaque classe. Elle porte, chapitre par chapitre, un
+**corrigé des séances** : la correction des seuls exercices et parties d'activité déjà traités en
+classe, d'après le classeur de pointage (cahier de textes v16 du 1er octobre). Ce qui est pointé
+« à finir », ou donné pour une échéance pas encore passée, n'y figure pas.
+
+C'est la seule exception au verrou « corrige » de `publier.py` (`AUTORISES`), et elle ne tient que
+parce que les documents des classes sont chiffrés : `chiffrer.py` s'arrête net s'il trouve un
+corrigé en clair dans une filière non protégée. Les corrigés complets, eux, ne sortent toujours pas.
+
+Les numéros d'exercices sont ceux de la feuille élève (un corrigé qui saute de l'exercice 4 au 6
+est normal). Le document est l'union des classes d'une même filière (CRSA 1re et 2e année
+ensemble, scolaires et apprentis ensemble en BTS ET) ; les versions par classe sont livrées à part.
+À refaire au fil de l'avancement, à partir du classeur à jour.

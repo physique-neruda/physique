@@ -44,8 +44,17 @@ def chapitres(fil):
         return json.load(f)
 
 
+# Seule exception au verrou : le corrigé des séances, qui ne contient que ce qui a
+# déjà été traité en classe. Il n'est acceptable QUE parce que les documents des
+# classes sont publiés chiffrés (outils/chiffrer.py refuse un corrigé dans une
+# filière non protégée).
+AUTORISES = ("corrige_seances",)
+
+
 def publiable(nom):
     n = nom.lower()
+    if n in AUTORISES:
+        return True
     return not any(mot in n for mot in INTERDITS)
 
 
@@ -133,7 +142,8 @@ def bloc(site):
                 if doc + ".pdf" not in presents or not publiable(doc):
                     continue
                 t, d = TITRES_PARTICULIERS.get((fil, ch, doc), (titre, desc))
-                entrees.append(dict(rubrique=forcee or rub, type="pdf", titre=t,
+                entrees.append(dict(rubrique=(rub if doc in AUTORISES else forcee or rub),
+                                    type="pdf", titre=t,
                                     fichier=f"docs/{fil}/{ch}/{doc}.pdf",
                                     description=d, trouve=None,
                                     motscles=info["motscles"]))

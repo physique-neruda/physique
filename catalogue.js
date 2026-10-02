@@ -56,28 +56,28 @@ const FILIERES = [
     id: "bts-et",
     nom: "BTS Électrotechnique",
     sous_titre: "Physique appliquée",
-    rubriques: ["Cours", "TP", "ADM", "S'entraîner"]
+    rubriques: ["Cours", "TP", "ADM", "S'entraîner", "Corrigés"]
   },
 
   {
     id: "bts-crsa",
     nom: "BTS CRSA",
     sous_titre: "Conception et Réalisation de Systèmes Automatiques",
-    rubriques: ["Cours", "TP", "S'entraîner"]
+    rubriques: ["Cours", "TP", "S'entraîner", "Corrigés"]
   },
 
   {
     id: "bts-tsma",
     nom: "BTS TSMA",
     sous_titre: "Techniques et Services en Matériels Agricoles",
-    rubriques: ["Cours", "TP", "S'entraîner"]
+    rubriques: ["Cours", "TP", "S'entraîner", "Corrigés"]
   },
 
   {
     id: "1sti2d",
     nom: "1re STI2D",
     sous_titre: "Physique-chimie et mathématiques",
-    rubriques: ["Cours", "TP", "S'entraîner"]
+    rubriques: ["Cours", "TP", "S'entraîner", "Corrigés"]
   }
 
 ];
@@ -343,6 +343,15 @@ const DOCUMENTS = [
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/c01/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["energie", "interne", "thermiques", "transferts"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Corrigés",
+    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/bts-et/c01/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
 
@@ -806,6 +815,15 @@ const DOCUMENTS = [
   },
 
   {
+    filiere: "bts-et", rubrique: "Corrigés",
+    chapitre: "TP 1 — Notions fondamentales d'électricité",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/bts-et/tp01/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
+    motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
+  },
+
+  {
     filiere: "bts-et", rubrique: "S'entraîner",
     chapitre: "TP 1 — Notions fondamentales d'électricité",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -930,6 +948,15 @@ const DOCUMENTS = [
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/tp02/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Corrigés",
+    chapitre: "TP 2 — Dipôles passifs et actifs",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/bts-et/tp02/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
     motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
   },
 
@@ -1617,6 +1644,15 @@ const DOCUMENTS = [
   },
 
   {
+    filiere: "bts-crsa", rubrique: "Corrigés",
+    chapitre: "Chapitre 1 — Énergie, puissance, rendement",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/bts-crsa/ch01/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
+    motscles: ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
+  },
+
+  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Énergie, puissance, rendement",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -1722,6 +1758,15 @@ const DOCUMENTS = [
     type: "pdf", titre: "Oral — sujet d'entraînement",
     fichier: "docs/bts-crsa/ch02/oral.pdf",
     description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Corrigés",
+    chapitre: "Chapitre 2 — Conversion et stockage de l'énergie",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/bts-crsa/ch02/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
     motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
   },
 
@@ -1870,6 +1915,15 @@ const DOCUMENTS = [
     type: "pdf", titre: "Oral — sujet d'entraînement",
     fichier: "docs/bts-crsa/ch03/oral.pdf",
     description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Corrigés",
+    chapitre: "Chapitre 3 — Énergie thermique",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/bts-crsa/ch03/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
 
@@ -3767,6 +3821,15 @@ const DOCUMENTS = [
   },
 
   {
+    filiere: "bts-tsma", rubrique: "Corrigés",
+    chapitre: "Chapitre 0 — Outils de base",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/bts-tsma/ch00/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
+    motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
+  },
+
+  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base",
     type: "qcm", titre: "Bilan — se tester après",
@@ -3863,6 +3926,15 @@ const DOCUMENTS = [
     type: "pdf", titre: "Oral — sujet d'entraînement",
     fichier: "docs/bts-tsma/ch01/oral.pdf",
     description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
+  },
+
+  {
+    filiere: "bts-tsma", rubrique: "Corrigés",
+    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/bts-tsma/ch01/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
     motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
   },
 
@@ -5646,6 +5718,15 @@ const DOCUMENTS = [
   },
 
   {
+    filiere: "1sti2d", rubrique: "Corrigés",
+    chapitre: "Chapitre 0 — Outils de base en physique-chimie",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/1sti2d/ch00/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
+    motscles: ["base", "chimie", "outils", "physique"]
+  },
+
+  {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 0 — Outils de base en physique-chimie",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -5738,6 +5819,15 @@ const DOCUMENTS = [
   },
 
   {
+    filiere: "1sti2d", rubrique: "Corrigés",
+    chapitre: "Chapitre 1 — Mesure et incertitudes",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/1sti2d/ch01/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
+    motscles: ["incertitudes", "mesure"]
+  },
+
+  {
     filiere: "1sti2d", rubrique: "S'entraîner",
     chapitre: "Chapitre 1 — Mesure et incertitudes",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -5826,6 +5916,15 @@ const DOCUMENTS = [
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/1sti2d/ch02/bilan.pdf",
     description: "Douze questions pour se tester, réponses en bas de page.",
+    motscles: ["chaines", "energie", "puissance"]
+  },
+
+  {
+    filiere: "1sti2d", rubrique: "Corrigés",
+    chapitre: "Chapitre 2 — Énergie, puissance, chaînes",
+    type: "pdf", titre: "Corrigé des séances",
+    fichier: "docs/1sti2d/ch02/corrige_seances.pdf",
+    description: "Les corrections des exercices et des parties d'activité déjà traités en classe.",
     motscles: ["chaines", "energie", "puissance"]
   },
 

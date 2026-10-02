@@ -26,16 +26,16 @@ FILIERES = [
      "rubriques": ["Calcul", "Mesure"]},
     {"id": "bts-et", "nom": "BTS Électrotechnique",
      "sous_titre": "Physique appliquée",
-     "rubriques": ["Cours", "TP", "ADM", "TP systèmes", "S'entraîner"]},
+     "rubriques": ["Cours", "TP", "ADM", "TP systèmes", "S'entraîner", "Corrigés"]},
     {"id": "bts-crsa", "nom": "BTS CRSA",
      "sous_titre": "Conception et Réalisation de Systèmes Automatiques",
-     "rubriques": ["Cours", "TP", "S'entraîner"]},
+     "rubriques": ["Cours", "TP", "S'entraîner", "Corrigés"]},
     {"id": "bts-tsma", "nom": "BTS TSMA",
      "sous_titre": "Techniques et Services en Matériels Agricoles",
-     "rubriques": ["Cours", "TP", "S'entraîner"]},
+     "rubriques": ["Cours", "TP", "S'entraîner", "Corrigés"]},
     {"id": "1sti2d", "nom": "1re STI2D",
      "sous_titre": "Physique-chimie et mathématiques",
-     "rubriques": ["Cours", "TP", "S'entraîner"]},
+     "rubriques": ["Cours", "TP", "S'entraîner", "Corrigés"]},
 ]
 
 # --------------------------------------------------------- listes blanches
@@ -63,6 +63,8 @@ DOCUMENTS = {
          "Les exercices du chapitre, sans les corrigés."),
         ("bilan",             "Cours", "Bilan de fin de chapitre",
          "Douze questions pour se tester, réponses en bas de page."),
+        ("corrige_seances",   "Corrigés", "Corrigé des séances",
+         "Les corrections des exercices et des parties d'activité déjà traités en classe."),
     ],
 
     "bts-tsma": [
@@ -86,6 +88,8 @@ DOCUMENTS = {
          "Un sujet d'entraînement au format de l'évaluation en cours de formation."),
         ("oral",              "TP",    "Oral — sujet d'entraînement",
          "Le format de l'épreuve orale, à préparer en autonomie."),
+        ("corrige_seances",   "Corrigés", "Corrigé des séances",
+         "Les corrections des exercices et des parties d'activité déjà traités en classe."),
     ],
 
     "bts-crsa": [
@@ -109,6 +113,8 @@ DOCUMENTS = {
          "Un devoir écrit au format de l'épreuve E32, pour s'entraîner."),
         ("oral",              "TP",    "Oral — sujet d'entraînement",
          "Le format de l'épreuve orale, à préparer en autonomie."),
+        ("corrige_seances",   "Corrigés", "Corrigé des séances",
+         "Les corrections des exercices et des parties d'activité déjà traités en classe."),
     ],
 
     "bts-et": [
@@ -154,6 +160,8 @@ DOCUMENTS = {
          "Les pages à rendre."),
         ("bilan",             "Cours", "Bilan de fin de chapitre",
          "Des questions pour se tester, réponses en bas de page."),
+        ("corrige_seances",   "Corrigés", "Corrigé des séances",
+         "Les corrections des exercices et des parties d'activité déjà traités en classe."),
     ],
 }
 
