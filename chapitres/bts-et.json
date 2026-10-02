@@ -1,0 +1,146 @@
+{
+ "ch00": {
+  "num": "0",
+  "titre": "Chapitre 0 — Outils mathématiques",
+  "motscles": [
+   "outils",
+   "puissances de dix",
+   "unites",
+   "conversions",
+   "chiffres significatifs",
+   "proportionnalite"
+  ]
+ },
+ "c01": {
+  "num": "1",
+  "titre": "Cours 1 — Énergie interne et transferts thermiques",
+  "motscles": [
+   "energie",
+   "interne",
+   "thermiques",
+   "transferts"
+  ]
+ },
+ "c02": {
+  "num": "2",
+  "titre": "Cours 2 — Électromagnétisme",
+  "motscles": [
+   "electromagnetisme",
+   "flux magnetique",
+   "induction",
+   "reluctance",
+   "circuit magnetique"
+  ]
+ },
+ "c03": {
+  "num": "3",
+  "titre": "Cours 3 — Les combustions",
+  "motscles": [
+   "combustion",
+   "equation",
+   "pouvoir calorifique",
+   "pci",
+   "groupe electrogene",
+   "co2",
+   "chimie"
+  ]
+ },
+ "tp01": {
+  "num": "1",
+  "titre": "TP 1 — Notions fondamentales d'électricité",
+  "motscles": [
+   "electricite",
+   "fondamentales",
+   "notions",
+   "potentiel",
+   "loi des mailles",
+   "diviseur de tension"
+  ]
+ },
+ "tp02": {
+  "num": "2",
+  "titre": "TP 2 — Dipôles passifs et actifs",
+  "motscles": [
+   "dipole",
+   "resistance",
+   "condensateur",
+   "bobine",
+   "source",
+   "caracteristique"
+  ]
+ },
+ "tp03": {
+  "num": "3",
+  "titre": "TP 3 — Régime sinusoïdal monophasé",
+  "motscles": [
+   "sinusoidal",
+   "dephasage",
+   "fresnel",
+   "impedance",
+   "puissance active",
+   "puissance reactive",
+   "facteur de puissance",
+   "boucherot"
+  ]
+ },
+ "ch09": {
+  "num": "9",
+  "titre": "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+  "motscles": [
+   "distribution",
+   "ligne",
+   "chute de tension",
+   "compensation",
+   "facteur de puissance",
+   "harmoniques",
+   "cem"
+  ]
+ },
+ "adm01": {
+  "num": "101",
+  "titre": "ADM 1 — Schémas électriques et appareillage de commande",
+  "motscles": [
+   "schema electrique",
+   "contacteur",
+   "relais",
+   "demarrage direct",
+   "etoile triangle",
+   "automaintien",
+   "sectionneur",
+   "relais thermique",
+   "u51",
+   "adm",
+   "appareillage"
+  ]
+ },
+ "adm02": {
+  "num": "102",
+  "titre": "ADM 2 — Four industriel : schéma, mesures et gradateur à train d'ondes",
+  "motscles": [
+   "four",
+   "gradateur",
+   "train d'ondes",
+   "schema",
+   "wattmetre",
+   "puissance",
+   "automate",
+   "adm",
+   "tp systeme"
+  ]
+ },
+ "adm03": {
+  "num": "103",
+  "titre": "ADM 3 — Banc départ-moteur : démarrage direct, mesures et protections",
+  "motscles": [
+   "depart moteur",
+   "demarrage direct",
+   "relais thermique",
+   "moteur asynchrone",
+   "courant de demarrage",
+   "diagnostic",
+   "panne",
+   "adm",
+   "tp systeme"
+  ]
+ }
+}
