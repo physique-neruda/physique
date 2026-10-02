@@ -1350,6 +1350,115 @@ const DOCUMENTS = [
   },
 
 
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/tp04/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/tp04/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/tp04/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/tp04/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/tp04/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/tp04/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/tp04/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/tp04/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/tp04/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 4 — Le triphasé",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/tp04/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 4 — Le triphasé",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp04&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 4 — Le triphasé",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=tp04",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
+  },
+
+
 
   /* ---------------- BTS CRSA ---------------- */
   {
@@ -1692,9 +1801,19 @@ const DOCUMENTS = [
   {
     filiere: "bts-crsa", rubrique: "TP",
     chapitre: "Chapitre 3 — Énergie thermique",
-    type: "pdf", titre: "Activité 1 — Chaleur latente de fusion de la glace",
+    type: "animation", titre: "Le chauffage",
+    fichier: "animations/calorimetre.html",
+    description: "Une résistance chauffante de puissance réglable plonge dans un récipient (eau, huile, aluminium, cuivre) : la courbe de chauffe se trace, glace comprise, en durée ou en énergie reçue. C'est la partie A de l'activité 1.",
+    trouve: "Q = m c Δθ hors changement d'état ; Q = m L pendant un palier.",
+    motscles: ["chauffage", "capacite thermique", "chaleur latente", "palier", "courbe de chauffe"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 3 — Énergie thermique",
+    type: "pdf", titre: "Activité 1 — Chauffer : la courbe, les deux formules, la chaleur latente",
     fichier: "docs/bts-crsa/ch03/activite.pdf",
-    description: "L'activité expérimentale, au calorimètre du laboratoire.",
+    description: "Sur l'animation « Le chauffage » (courbe de chauffe, Q = mcΔθ, Q = mL), puis au calorimètre du laboratoire.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
 
@@ -1721,9 +1840,9 @@ const DOCUMENTS = [
   {
     filiere: "bts-crsa", rubrique: "TP",
     chapitre: "Chapitre 3 — Énergie thermique",
-    type: "pdf", titre: "Activité 2 — Les transferts thermiques",
+    type: "pdf", titre: "Activité 2 — La conduction à travers une paroi",
     fichier: "docs/bts-crsa/ch03/activite2.pdf",
-    description: "Menée sur les deux animations ci-dessus : aucun matériel nécessaire.",
+    description: "Menée sur l'animation « Le flux à travers une paroi » ; le rayonnement en partie facultative.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
 
@@ -3296,6 +3415,316 @@ const DOCUMENTS = [
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch17",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
+  },
+
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-crsa/ch18/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-crsa/ch18/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-crsa/ch18/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-crsa/ch18/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-crsa/ch18/bilan.pdf",
+    description: "Douze questions pour se tester, réponses en bas de page.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-crsa/ch18/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-crsa/ch18/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Devoir type E32",
+    fichier: "docs/bts-crsa/ch18/devoir.pdf",
+    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-crsa/ch18/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "S'entraîner",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch18&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "S'entraîner",
+    chapitre: "Chapitre 18 — Transmission du signal",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch18",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
+  },
+
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-crsa/ch19/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-crsa/ch19/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-crsa/ch19/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-crsa/ch19/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-crsa/ch19/bilan.pdf",
+    description: "Douze questions pour se tester, réponses en bas de page.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-crsa/ch19/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-crsa/ch19/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Devoir type E32",
+    fichier: "docs/bts-crsa/ch19/devoir.pdf",
+    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-crsa/ch19/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "S'entraîner",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch19&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "S'entraîner",
+    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch19",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
+  },
+
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-crsa/ch20/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-crsa/ch20/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-crsa/ch20/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-crsa/ch20/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "Cours",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-crsa/ch20/bilan.pdf",
+    description: "Douze questions pour se tester, réponses en bas de page.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "animation", titre: "Régler une boucle de régulation",
+    fichier: "animations/regulation.html",
+    description: "Une étuve, sa sonde et son régulateur simulés : échelon de consigne, réglage du gain et du temps d'intégration d'un correcteur PI, ouverture de porte, puis comparaison avec un thermostat tout ou rien à hystérésis.",
+    trouve: "L'action proportionnelle donne la rapidité, l'action intégrale annule l'erreur ; forcer l'une ou l'autre mène à l'instabilité.",
+    motscles: ["regulation", "correcteur pi", "hysteresis", "thermostat", "stabilite"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Activité expérimentale",
+    fichier: "docs/bts-crsa/ch20/activite.pdf",
+    description: "L'activité de découverte, à faire en salle de TP.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Situation type CCF",
+    fichier: "docs/bts-crsa/ch20/ccf.pdf",
+    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Devoir type E32",
+    fichier: "docs/bts-crsa/ch20/devoir.pdf",
+    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "TP",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "pdf", titre: "Oral — sujet d'entraînement",
+    fichier: "docs/bts-crsa/ch20/oral.pdf",
+    description: "Le format de l'épreuve orale, à préparer en autonomie.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "S'entraîner",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-crsa&ch=ch20&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
+  },
+
+  {
+    filiere: "bts-crsa", rubrique: "S'entraîner",
+    chapitre: "Chapitre 20 — Systèmes asservis",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch20",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
   },
 
 

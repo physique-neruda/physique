@@ -1,0 +1,352 @@
+/* Genere par outils/construire.py — ne pas editer a la main.
+   1sti2d · chapitre 05 · Puissance, énergie électriques, loi d'Ohm
+   Les QCM viennent de ch05_prerequis.tex et ch05_bilan.tex,
+   les cartes de cartes/cartes-1sti2d-ch05.json. */
+window.CHAPITRE = {
+ "filiere": "1sti2d",
+ "num": "5",
+ "titre": "Puissance, énergie électriques, loi d'Ohm",
+ "niveau": "1re STI2D",
+ "prerequis": [
+  {
+   "q": "L'unité de la résistance électrique est :",
+   "choix": [
+    "le volt",
+    "l'ampère",
+    "l'ohm",
+    "le watt"
+   ],
+   "bonne": 2,
+   "expl": ""
+  },
+  {
+   "q": "Dans la relation P = U × I, l'intensité s'exprime par :",
+   "choix": [
+    "I = P × U",
+    "I = P/U",
+    "I = U/P",
+    "I = P - U"
+   ],
+   "bonne": 1,
+   "expl": ""
+  },
+  {
+   "q": "Le carré de 16 vaut :",
+   "choix": [
+    "32",
+    "64",
+    "256",
+    "160"
+   ],
+   "bonne": 2,
+   "expl": ""
+  },
+  {
+   "q": "Si une grandeur est <strong>doublée</strong> et qu'elle intervient au carré, le résultat est :",
+   "choix": [
+    "doublé",
+    "multiplié par 4",
+    "divisé par 2",
+    "inchangé"
+   ],
+   "bonne": 1,
+   "expl": "(2x)² = 4x² : c'est toute la clé de l'effet Joule"
+  },
+  {
+   "q": "Deux grandeurs sont proportionnelles si leur graphique est :",
+   "choix": [
+    "une droite quelconque",
+    "une droite passant par l'origine",
+    "une courbe",
+    "une horizontale"
+   ],
+   "bonne": 1,
+   "expl": ""
+  },
+  {
+   "q": "Le rendement d'un convertisseur se calcule par :",
+   "choix": [
+    "(P<sub>absorbée</sub>)/(P<sub>utile</sub>)",
+    "(P<sub>utile</sub>)/(P<sub>absorbée</sub>)",
+    "P<sub>utile</sub> × P<sub>absorbée</sub>",
+    "P<sub>absorbée</sub> - P<sub>utile</sub>"
+   ],
+   "bonne": 1,
+   "expl": ""
+  },
+  {
+   "q": "Convertir 2,5 mm² en mètres carrés :",
+   "choix": [
+    "2,5×10⁻³ m²",
+    "2,5×10⁻⁶ m²",
+    "2,5×10⁻² m²",
+    "2,5×10⁶ m²"
+   ],
+   "bonne": 1,
+   "expl": "1 mm vaut e-3 m, donc 1 mm² vaut e-6 m²"
+  }
+ ],
+ "bilan": [
+  {
+   "q": "La loi d'Ohm s'écrit :",
+   "choix": [
+    "U = R × I",
+    "U = R/I",
+    "U = R + I",
+    "U = I/R"
+   ],
+   "bonne": 0,
+   "expl": ""
+  },
+  {
+   "q": "La caractéristique U(I) d'un conducteur ohmique est :",
+   "choix": [
+    "une courbe",
+    "une horizontale",
+    "une droite passant par l'origine",
+    "une droite quelconque"
+   ],
+   "bonne": 2,
+   "expl": ""
+  },
+  {
+   "q": "Si l'on double la tension aux bornes d'une résistance, sa valeur R :",
+   "choix": [
+    "double",
+    "est divisée par 2",
+    "devient nulle",
+    "ne change pas"
+   ],
+   "bonne": 3,
+   "expl": "R est une caractéristique du composant"
+  },
+  {
+   "q": "La puissance d'un dipôle quelconque vaut :",
+   "choix": [
+    "P = U/I",
+    "P = U × I",
+    "P = U + I",
+    "P = R × U"
+   ],
+   "bonne": 1,
+   "expl": ""
+  },
+  {
+   "q": "Les écritures P = R I² et P = U²/R ne sont valables que pour :",
+   "choix": [
+    "tous les dipôles",
+    "un conducteur ohmique",
+    "un moteur",
+    "une pile"
+   ],
+   "bonne": 1,
+   "expl": ""
+  },
+  {
+   "q": "Un appareil de 2000 W sous 230 V appelle une intensité de :",
+   "choix": [
+    "0,115 A",
+    "2000 A",
+    "460 A",
+    "8,7 A"
+   ],
+   "bonne": 3,
+   "expl": "2000/230"
+  },
+  {
+   "q": "La puissance dissipée par effet Joule vaut :",
+   "choix": [
+    "R × I²",
+    "R × I",
+    "R/I²",
+    "R + I²"
+   ],
+   "bonne": 0,
+   "expl": ""
+  },
+  {
+   "q": "Si l'on double l'intensité dans un câble, les pertes par effet Joule sont :",
+   "choix": [
+    "doublées",
+    "divisées par 2",
+    "multipliées par 4",
+    "inchangées"
+   ],
+   "bonne": 2,
+   "expl": "l'intensité intervient au carré"
+  },
+  {
+   "q": "Pour un câble, une section plus grande donne une résistance :",
+   "choix": [
+    "plus faible",
+    "plus grande",
+    "inchangée",
+    "nulle"
+   ],
+   "bonne": 0,
+   "expl": ""
+  },
+  {
+   "q": "On transporte l'électricité sous haute tension pour :",
+   "choix": [
+    "augmenter la puissance transportée",
+    "réduire la tension chez l'usager",
+    "réduire l'intensité, donc les pertes",
+    "éviter d'utiliser des transformateurs"
+   ],
+   "bonne": 2,
+   "expl": ""
+  },
+  {
+   "q": "Un moteur absorbe 1500 W et fournit 1275 W. Les pertes valent :",
+   "choix": [
+    "2775 W",
+    "225 W",
+    "1275 W",
+    "85 W"
+   ],
+   "bonne": 1,
+   "expl": "1500 - 1275"
+  },
+  {
+   "q": "En convention récepteur, un dipôle pour lequel P = U × I < 0 :",
+   "choix": [
+    "reçoit de l'énergie",
+    "est en court-circuit",
+    "ne consomme rien",
+    "fournit de l'énergie"
+   ],
+   "bonne": 3,
+   "expl": "P < 0 signale un dipôle qui <strong>fournit</strong>"
+  },
+  {
+   "q": "Le rôle principal d'un disjoncteur <strong>magnétothermique</strong> est de protéger :",
+   "choix": [
+    "l'appareil branché",
+    "le câble de l'installation",
+    "les personnes",
+    "le compteur"
+   ],
+   "bonne": 1,
+   "expl": "il protège le <strong>câble</strong>, d'où l'importance d'accorder son calibre à la section"
+  },
+  {
+   "q": "Le disjoncteur <strong>différentiel</strong> protège les personnes en :",
+   "choix": [
+    "limitant la tension",
+    "mesurant la puissance",
+    "comparant l'intensité aller et retour",
+    "coupant au bout d'un temps fixe"
+   ],
+   "bonne": 2,
+   "expl": "une différence trahit une fuite de courant, seuil 30 mA"
+  },
+  {
+   "q": "Sous 230 V, une personne à la peau mouillée (R ≈ 1000 Ω) est traversée par :",
+   "choix": [
+    "2,3 mA",
+    "23 mA",
+    "2300 mA",
+    "230 mA"
+   ],
+   "bonne": 3,
+   "expl": "230/1000 = 230 mA, très au-delà du seuil de fibrillation"
+  }
+ ],
+ "cartes": [
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Loi d'Ohm » ?",
+   "verso": "Pour un conducteur ohmique, la tension à ses bornes est <strong>proportionnelle</strong> à l'intensité qui le traverse : [2]\\[ U = R × I, U en, R en, I en. \\] Le coefficient de proportionnalité R est la <strong>résistance</strong> du conducteur.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Convention de signe » ?",
+   "verso": "Lorsqu'un dipôle est fléché en <strong>convention récepteur</strong>, on calcule P = U × I et l'on interprète le <strong>signe</strong> du résultat : si P > 0, le dipôle <strong>reçoit</strong> de l'énergie ; si P < 0, il en <strong>fournit</strong>.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Effet Joule » ?",
+   "verso": "Un conducteur de résistance R parcouru par un courant d'intensité I dissipe une puissance thermique : [2]\\[ P_J = R × I². \\]",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Deux protections complémentaires » ?",
+   "verso": "Le <strong>disjoncteur magnétothermique</strong> surveille l'<strong>intensité</strong> qui circule et coupe en cas de surcharge ou de court-circuit : il protège le <strong>câble</strong>.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "trou",
+   "recto": "On flèche en convention récepteur, on calcule, et le …….",
+   "rep": "signe répond à notre place",
+   "verso": "<strong>signe répond à notre place</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "La loi d'Ohm s'écrit ……",
+   "rep": "U = R × I",
+   "verso": "<strong>U = R × I</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La caractéristique U(I) d'un conducteur ohmique est ……",
+   "rep": "une droite passant par l'origine",
+   "verso": "<strong>une droite passant par l'origine</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Si l'on double la tension aux bornes d'une résistance, sa valeur R ……",
+   "rep": "ne change pas",
+   "verso": "<strong>ne change pas</strong> — R est une caractéristique du composant",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La puissance d'un dipôle quelconque vaut ……",
+   "rep": "P = U × I",
+   "verso": "<strong>P = U × I</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Les écritures P = R I² et P = U²/R ne sont valables que pour ……",
+   "rep": "un conducteur ohmique",
+   "verso": "<strong>un conducteur ohmique</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un appareil de 2000 W sous 230 V appelle une intensité de ……",
+   "rep": "8,7 A",
+   "verso": "<strong>8,7 A</strong> — 2000/230",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La puissance dissipée par effet Joule vaut ……",
+   "rep": "R × I²",
+   "verso": "<strong>R × I²</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Si l'on double l'intensité dans un câble, les pertes par effet Joule sont ……",
+   "rep": "multipliées par 4",
+   "verso": "<strong>multipliées par 4</strong> — l'intensité intervient au carré",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour un câble, une section plus grande donne une résistance ……",
+   "rep": "plus faible",
+   "verso": "<strong>plus faible</strong>",
+   "origine": "bilan"
+  }
+ ]
+};

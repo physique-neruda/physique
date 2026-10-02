@@ -124,6 +124,12 @@ s'affiche encore, c'est le cache du navigateur : recharger en navigation privée
 visible et téléchargeable par n'importe qui, et indexable par les moteurs de recherche. Une
 adresse compliquée ne protège rien : il n'existe pas de « lien secret » sur GitHub Pages.
 
+**Depuis le 2 octobre 2026 (v37), les documents des quatre classes sont chiffrés** : seul le
+fichier `.enc` est publié, et il ne s'ouvre qu'avec le mot de passe de la classe (voir la mise à
+jour v37 en fin de notice). Le reste — catalogue, animations, questionnaires, outils — reste
+public. La règle ci-dessous tient toujours : un mot de passe partagé par une classe finit par
+circuler, il ne protège pas un sujet d'examen.
+
 Ne pas y mettre :
 
 - les **corrigés**, quels qu'ils soient. Le site ne contient que les versions élève, et le pied
@@ -793,3 +799,137 @@ animations » y a été posé.
   hors ligne), animations `four-industriel.html` et `banc-depart-moteur.html`.
 - **Calculatrices** : la touche à presser est entourée sur la photo du clavier, à chaque étape
   (positions relevées pour les quatre modèles).
+
+## Mise à jour du 30 septembre 2026, suite (v29)
+
+- 1re STI2D : feuilles d'exercices redéposées (quinze exercices renouvelés dans onze chapitres).
+
+## Mise à jour du 30 septembre 2026, fin (v30)
+
+- **LatisPro** : deux tutoriels nettement séparés — boutons « Tutoriel 1 / Tutoriel 2 » au-dessus
+  de la scène, liste des étapes en deux blocs titrés, numérotation et bilan propres à chacun
+  (13 et 6 étapes), nom du fichier dans la barre de titre (TP_condensateur.ltp / TP_pression.ltp).
+- **Calculatrices** : bouton « Touche précédente » et flèches ← → du clavier.
+- **BTS CRSA ch.3** : animation « Le chauffage » ajoutée devant l'activité 1 ; titres des deux
+  activités mis à jour ; PDF redéposés.
+
+## Mise à jour du 1er octobre 2026 (v31)
+
+- Quatre collections redéposées après l'audit : exercices renouvelés (CRSA, BTS ET, TSMA), QR codes
+  dans les activités sur animation, renvois activités/exercices dans les cours, ch.9 STI2D au
+  calorimètre Sordalab.
+
+## Mise à jour du 1er octobre 2026, suite (v32)
+
+- BTS TSMA : activités des ch.4, 5, 9, 10, 16 et 17 adaptées au matériel de Rostand, redéposées.
+
+## Mise à jour du 1er octobre 2026, fin (v33)
+
+- BTS CRSA : chapitre 18 « Transmission du signal » ajouté (documents, questionnaire et cartes de révision).
+
+## Mise à jour du 2 octobre 2026 (v34)
+
+- BTS ET : TP 4 « Le triphasé » ajouté (documents, questionnaire et cartes de révision).
+
+## Mise à jour du 2 octobre 2026, suite (v35)
+
+- BTS CRSA : chapitre 19 « Réponse des systèmes linéaires et résonance » ajouté (documents, questionnaire, cartes).
+
+## Mise à jour du 2 octobre 2026, fin (v36)
+
+- BTS CRSA : chapitre 20 « Systèmes asservis » et nouvelle animation `regulation.html` (correcteur PI, thermostat TOR).
+
+
+---
+
+## Mise à jour du 2 octobre 2026 (v37) — documents réservés aux élèves
+
+**Ce qui change pour les élèves.** Sur la page d'une classe, un bandeau dit que les documents sont
+réservés. Au premier document touché, le site demande le mot de passe de la classe ; il le vérifie
+dans le navigateur, puis le document s'ouvre (dans un nouvel onglet ; téléchargé sur Android).
+« Se souvenir sur cet appareil » évite de le retaper ; à décocher sur un ordinateur du lycée. Le
+bouton *Fermer l'accès* efface la mémorisation. Les **animations, questionnaires, cartes et
+outils restent libres**, sans mot de passe : ils servent à plusieurs classes et ne contiennent
+rien de nominatif.
+
+**Comment c'est protégé.** Ce n'est pas un simple masquage : chaque PDF (et le paquet Anki) est
+chiffré en AES-256 avant d'être déposé. Le dépôt ne contient plus que des fichiers `.enc`
+illisibles ; quelqu'un qui trouve l'adresse d'un document ou parcourt le dépôt GitHub n'obtient
+rien sans le mot de passe. La clé est dérivée du mot de passe dans le navigateur de l'élève
+(PBKDF2, 300 000 tours) ; le mot de passe n'est écrit nulle part dans le site. Aucun compte,
+aucune adresse mail, rien d'envoyé : toujours aucune question RGPD.
+
+**Limite à connaître.** C'est un mot de passe par classe. Un élève peut le donner à quelqu'un, et
+on ne peut pas retirer l'accès d'un seul élève : on change le mot de passe de toute la classe
+(une commande, voir plus bas). Chaque rentrée, en changer pour toutes les classes.
+
+### Deux dossiers désormais
+
+```
+site-physique/          L'ATELIER. PDF en clair, scripts, catalogue. On y travaille,
+                        on ne le publie plus.
+site-en-ligne/          CE QUI PART SUR GITHUB. Fabriqué par outils/chiffrer.py.
+NE_PAS_PUBLIER/
+   mots_de_passe.json   les mots de passe et les sels — SECRET, jamais sur GitHub
+```
+
+`index.html` est le même dans les deux : dans l'atelier (pas de fichier `acces.js`), les PDF
+s'ouvrent directement comme avant ; dans `site-en-ligne/`, `acces.js` active le verrou.
+
+### Fabriquer la version en ligne
+
+Après toute modification de l'atelier (nouveaux PDF, `publier.py`, etc.) :
+
+```sh
+python3 site-physique/outils/chiffrer.py site-physique site-en-ligne --cles NE_PAS_PUBLIER/mots_de_passe.json
+```
+
+Un PDF inchangé redonne exactement le même `.enc` : GitHub Desktop ne montre comme modifiés que
+les documents qui ont réellement changé. Le script s'arrête en erreur s'il reste un seul PDF en
+clair dans une filière protégée.
+
+### Changer un mot de passe
+
+```sh
+python3 site-physique/outils/chiffrer.py site-physique site-en-ligne --cles NE_PAS_PUBLIER/mots_de_passe.json --nouveau 1sti2d
+python3 site-physique/outils/chiffrer.py ... --nouveau 1sti2d --mot "mon-choix-perso"
+python3 site-physique/outils/chiffrer.py ... --nouveau 1sti2d bts-crsa bts-et bts-tsma   # rentrée
+```
+
+Tous les documents de la filière sont rechiffrés (tout est à renvoyer sur GitHub), l'ancien mot de
+passe ne marche plus, et les téléphones qui l'avaient mémorisé le redemandent.
+
+Rendre une filière publique : supprimer son bloc dans `mots_de_passe.json` et refabriquer.
+Les BTS ET scolaires et apprentis partagent le mot de passe `bts-et` ; les deux années de CRSA et
+de TSMA aussi.
+
+### Une fois pour toutes : effacer l'historique GitHub
+
+Jusqu'à la v36, les PDF ont été publiés **en clair**. Ils restent dans l'**historique** du dépôt :
+n'importe qui peut remonter un ancien commit et les télécharger. Déposer les `.enc` par-dessus ne
+suffit pas ; il faut repartir d'un dépôt neuf, à la même adresse (les QR codes continuent de
+marcher) :
+
+1. github.com → dépôt `physique` → **Settings** → tout en bas, **Delete this repository**.
+2. Sur le PC, dans GitHub Desktop : *Repository → Remove* sur `physique`, puis renommer le dossier
+   `Documents\GitHub\physique` en `physique-ancien` (à supprimer plus tard).
+3. Créer un dossier vide `Documents\GitHub\physique` et y copier **le contenu** de
+   `site-en-ligne/` (pas le dossier lui-même : `index.html` doit être à la racine).
+4. GitHub Desktop : *File → Add local repository* → ce dossier → *create a repository* →
+   *Create repository*, puis **Publish repository** sur le compte `physique-neruda`, en
+   **décochant « Keep this code private »** (GitHub Pages gratuit exige un dépôt public).
+5. github.com → nouveau dépôt `physique` → **Settings → Pages** → *Deploy from a branch*,
+   `main`, `/ (root)` → *Save*. Le site revient à la même adresse en une ou deux minutes.
+
+Ce qui a déjà été téléchargé ou archivé par des tiers avant aujourd'hui ne peut évidemment pas
+être rappelé.
+
+### Ensuite, à chaque mise à jour
+
+Copier le contenu de `site-en-ligne/` dans `Documents\GitHub\physique` (remplacer les fichiers),
+puis dans GitHub Desktop *Commit to main* et *Push origin*. Ne jamais y copier `site-physique/`
+ni `NE_PAS_PUBLIER/`.
+
+**Au passage** : dans la liste des documents, le titre et la description d'un document
+s'affichaient collés sur une seule ligne (« PrérequisÀ faire avant… ») ; ils sont de nouveau
+sur deux lignes.

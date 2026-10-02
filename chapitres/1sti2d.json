@@ -1,0 +1,165 @@
+{
+ "ch00": {
+  "num": "0",
+  "titre": "Chapitre 0 — Outils de base en physique-chimie",
+  "motscles": [
+   "base",
+   "chimie",
+   "outils",
+   "physique"
+  ]
+ },
+ "ch01": {
+  "num": "1",
+  "titre": "Chapitre 1 — Mesure et incertitudes",
+  "motscles": [
+   "incertitudes",
+   "mesure"
+  ]
+ },
+ "ch02": {
+  "num": "2",
+  "titre": "Chapitre 2 — Énergie, puissance, chaînes",
+  "motscles": [
+   "chaines",
+   "energie",
+   "puissance"
+  ]
+ },
+ "ch03": {
+  "num": "3",
+  "titre": "Chapitre 3 — Courant continu",
+  "motscles": [
+   "continu",
+   "courant"
+  ]
+ },
+ "ch04": {
+  "num": "4",
+  "titre": "Chapitre 4 — Grandeurs périodiques",
+  "motscles": [
+   "grandeurs",
+   "periodiques"
+  ]
+ },
+ "ch05": {
+  "num": "5",
+  "titre": "Chapitre 5 — Puissance, énergie électriques, loi d'Ohm",
+  "motscles": [
+   "electriques",
+   "energie",
+   "puissance"
+  ]
+ },
+ "ch06": {
+  "num": "6",
+  "titre": "Chapitre 6 — Cinématique",
+  "motscles": [
+   "cinematique"
+  ]
+ },
+ "ch07": {
+  "num": "7",
+  "titre": "Chapitre 7 — Forces et principe d'inertie",
+  "motscles": [
+   "forces",
+   "inertie",
+   "principe"
+  ]
+ },
+ "ch08": {
+  "num": "8",
+  "titre": "Chapitre 8 — Travail et énergies mécaniques",
+  "motscles": [
+   "energies",
+   "mecaniques",
+   "travail"
+  ]
+ },
+ "ch09": {
+  "num": "9",
+  "titre": "Chapitre 9 — Énergie interne et transferts thermiques",
+  "motscles": [
+   "energie",
+   "interne",
+   "thermiques",
+   "transferts"
+  ]
+ },
+ "ch10": {
+  "num": "10",
+  "titre": "Chapitre 10 — Énergie chimique",
+  "motscles": [
+   "chimique",
+   "energie"
+  ]
+ },
+ "ch11": {
+  "num": "11",
+  "titre": "Chapitre 11 — Énergie transportée par la lumière",
+  "motscles": [
+   "energie",
+   "lumiere",
+   "transportee"
+  ]
+ },
+ "ch12": {
+  "num": "12",
+  "titre": "Chapitre 12 — Matériaux et organisation de la matière",
+  "motscles": [
+   "materiaux",
+   "matiere",
+   "organisation"
+  ]
+ },
+ "ch13": {
+  "num": "13",
+  "titre": "Chapitre 13 — Combustions et carburants",
+  "motscles": [
+   "carburants",
+   "combustions"
+  ]
+ },
+ "ch14": {
+  "num": "14",
+  "titre": "Chapitre 14 — Solutions aqueuses",
+  "motscles": [
+   "aqueuses",
+   "solutions"
+  ]
+ },
+ "ch15": {
+  "num": "15",
+  "titre": "Chapitre 15 — Oxydoréduction, corrosion et piles",
+  "motscles": [
+   "corrosion",
+   "oxydoreduction",
+   "piles"
+  ]
+ },
+ "ch16": {
+  "num": "16",
+  "titre": "Chapitre 16 — Notion d'onde et information",
+  "motscles": [
+   "information",
+   "notion",
+   "onde"
+  ]
+ },
+ "ch17": {
+  "num": "17",
+  "titre": "Chapitre 17 — Ondes sonores",
+  "motscles": [
+   "ondes",
+   "sonores"
+  ]
+ },
+ "ch18": {
+  "num": "18",
+  "titre": "Chapitre 18 — Ondes électromagnétiques",
+  "motscles": [
+   "electromagnetiques",
+   "ondes"
+  ]
+ }
+}

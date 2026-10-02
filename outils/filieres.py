@@ -164,7 +164,7 @@ DOCUMENTS = {
 # celle déclarée ci-dessus. Le fil « TP élec » du BTS ET est un fil complet
 # de chapitres : ses documents sont les mêmes, la rubrique change.
 RUBRIQUE_DU_CHAPITRE = {
-    "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "ch09": "TP", "adm01": "ADM",
+    "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "tp04": "TP", "ch09": "TP", "adm01": "ADM",
                "adm02": "TP systèmes", "adm03": "TP systèmes"},
 }
 
@@ -177,11 +177,11 @@ TITRES_PARTICULIERS = {
         ("Activité 2 — Rendement d'un panneau photovoltaïque",
          "L'activité expérimentale, avec le panneau et le luxmètre du laboratoire."),
     ("bts-crsa", "ch03", "activite"):
-        ("Activité 1 — Chaleur latente de fusion de la glace",
-         "L'activité expérimentale, au calorimètre du laboratoire."),
+        ("Activité 1 — Chauffer : la courbe, les deux formules, la chaleur latente",
+         "Sur l'animation « Le chauffage » (courbe de chauffe, Q = mcΔθ, Q = mL), puis au calorimètre du laboratoire."),
     ("bts-crsa", "ch03", "activite2"):
-        ("Activité 2 — Les transferts thermiques",
-         "Menée sur les deux animations ci-dessus : aucun matériel nécessaire."),
+        ("Activité 2 — La conduction à travers une paroi",
+         "Menée sur l'animation « Le flux à travers une paroi » ; le rayonnement en partie facultative."),
 }
 
 # ------------------------------------------------------------- animations
@@ -324,6 +324,15 @@ ANIMATIONS = {
     ],
 
     "bts-crsa": [
+        {"chapitre": "ch20", "rubrique": "TP", "avant": "activite",
+         "titre": "Régler une boucle de régulation",
+         "fichier": "animations/regulation.html",
+         "description": "Une étuve, sa sonde et son régulateur simulés : échelon de consigne, "
+                        "réglage du gain et du temps d'intégration d'un correcteur PI, ouverture "
+                        "de porte, puis comparaison avec un thermostat tout ou rien à hystérésis.",
+         "trouve": "L'action proportionnelle donne la rapidité, l'action intégrale annule "
+                   "l'erreur ; forcer l'une ou l'autre mène à l'instabilité.",
+         "motscles": ["regulation", "correcteur pi", "hysteresis", "thermostat", "stabilite"]},
         {"chapitre": "ch01", "rubrique": "TP", "avant": "activite",
          "titre": "Banc d'essai d'un moteur à courant continu",
          "fichier": "animations/mcc-banc-essai.html",
@@ -332,6 +341,13 @@ ANIMATIONS = {
                         "la puissance absorbée se calculent. Le rendement varie avec la charge.",
          "trouve": "η = P utile / P absorbée, maximal à charge partielle.",
          "motscles": ["moteur", "courant continu", "mcc", "rendement", "couple", "puissance"]},
+        {"chapitre": "ch03", "rubrique": "TP", "avant": "activite",
+         "titre": "Le chauffage", "fichier": "animations/calorimetre.html",
+         "description": "Une résistance chauffante de puissance réglable plonge dans un récipient "
+                        "(eau, huile, aluminium, cuivre) : la courbe de chauffe se trace, glace "
+                        "comprise, en durée ou en énergie reçue. C'est la partie A de l'activité 1.",
+         "trouve": "Q = m c Δθ hors changement d'état ; Q = m L pendant un palier.",
+         "motscles": ["chauffage", "capacite thermique", "chaleur latente", "palier", "courbe de chauffe"]},
         {"chapitre": "ch03", "rubrique": "TP", "avant": "activite2",
          "titre": "Le flux à travers une paroi", "fichier": "animations/flux-thermique.html",
          "description": "Un fluxmètre posé sur une paroi : matériau, épaisseur, surface et "
@@ -498,5 +514,5 @@ SOURCES = {
 
 # Correspondance clé du site -> dossier dans la collection ET.
 DOSSIERS_ET = {"ch00": "ch00", "ch09": "ch09", "c01": "C1", "c02": "C2",
-               "tp01": "TP1", "tp02": "TP2", "adm01": "ADM1", "adm02": "ADM2", "adm03": "ADM3",
+               "tp01": "TP1", "tp02": "TP2", "tp04": "TP4", "adm01": "ADM1", "adm02": "ADM2", "adm03": "ADM3",
                "c03": "C3", "tp03": "TP3"}

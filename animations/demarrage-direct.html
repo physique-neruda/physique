@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Démarrage direct — paillasse virtuelle</title>
+<style>
+:root{--fond:#EDF1F4;--panneau:#FFFFFF;--bord:#C9D3DB;--encre:#16232D;--gris:#5C6C79;
+--bleu:#1B4E7D;--orange:#DD7A18;--rouge:#C0392B;--vert:#2E8B57;
+--lcd:#182530;--lcdtexte:#E9F3E6;--lcdvert:#7FD98A;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);font-size:16px;
+line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.05rem}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.2rem;color:var(--lcdvert)}
+.choix{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.choix button{flex:1 1 auto;min-width:64px;min-height:44px;font:inherit;font-size:.84rem;
+border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.choix button.danger[aria-pressed=true]{background:var(--rouge);border-color:var(--rouge)}
+.choix button.marche{background:#E8F5EC;border-color:#9ED2B2}
+.choix button.arret{background:#FBEAE8;border-color:#E4A9A2}
+.pb{font-size:.86rem;color:var(--rouge);margin:8px 0 0;min-height:2.6em}
+.note{font-size:.85rem;color:var(--gris);margin:10px 0 0}
+.retour{display:inline-block;margin:14px 0 6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
+
+<h1>Démarrage direct d'un moteur</h1>
+<p class="sous">Huit solutions, de la plus naïve à la seule qui tienne. Choisissez une solution, agissez sur la machine : les conducteurs sous tension s'affichent en rouge.</p>
+
+<div class="bloc">
+<h2>Solution étudiée</h2>
+<div class="choix" id="sel"></div>
+<p class="pb" id="pb"></p>
+</div>
+
+<div class="bloc">
+<canvas id="cv" width="660" height="470"></canvas>
+</div>
+
+<div class="bloc">
+<h2>Agir sur la machine</h2>
+<div class="choix">
+  <button id="bS1" class="marche">S1 · marche</button>
+  <button id="bS2" class="arret">S2 · arrêt</button>
+  <button id="bAU" class="danger" aria-pressed="false">Arrêt d'urgence</button>
+</div>
+<div class="choix">
+  <button id="bRes" class="danger" aria-pressed="false">Coupure d'alimentation</button>
+  <button id="bQ1" class="danger" aria-pressed="false">Ouvrir Q1</button>
+  <button id="bTh" class="danger" aria-pressed="false">Provoquer une surcharge</button>
+  <button id="bRaz">Tout réarmer</button>
+</div>
+<p class="note">Sur les solutions 1 à 4, S1 est un <b>commutateur</b> : il reste dans la position où on le laisse. À partir de la solution 5, c'est un <b>bouton poussoir</b> : il revient au repos dès qu'on le relâche.</p>
+<p class="note"><b>Coupure d'alimentation</b> : le réseau tombe, mais personne n'a touché à l'armoire — le sectionneur Q1 <b>reste fermé</b>, ses pôles ne sont simplement plus alimentés. <b>Ouvrir Q1</b> est une manœuvre volontaire : là, les pôles s'ouvrent pour de bon.</p>
+</div>
+
+<div class="bloc">
+<h2>État de l'installation</h2>
+<div class="lcd">
+  <div><div class="nom">24 V de commande</div><div class="val" id="o24">—</div></div>
+  <div><div class="nom">Bobine KM1</div><div class="val" id="oB">non alimentée</div></div>
+  <div><div class="nom">H1 sous tension</div><div class="val" id="oH1">—</div></div>
+  <div><div class="nom">H2 marche / H3 surcharge</div><div class="val" id="oH23">—</div></div>
+  <div class="large"><div class="nom">Moteur M1</div><div class="val" id="oM">à l'arrêt</div></div>
+</div>
+</div>
+
+<script>
+const PB=["","Les doigts de l'opérateur sont à quelques centimètres du 400 V, et il n'y a aucune protection.",
+"La commande est encore à la tension du réseau, donc dangereuse. Aucune protection, aucun sectionnement.",
+"Le 24 V n'est plus dangereux, mais il n'y a toujours ni protection ni sectionnement.",
+"Coupez puis rétablissez le réseau : le moteur redémarre tout seul.",
+"Il faut garder le doigt appuyé sur S1 pour que le moteur tourne.",
+"Essayez d'arrêter le moteur : plus rien ne le peut.",
+"Il manque encore la précoupure, l'arrêt d'urgence, le relais thermique et les voyants.",
+"Schéma complet : toutes les fonctions sont assurées."];
+let sol=1,S1=false,S2=false,AU=false,res=true,q1=true,th=false,km=false,S1latch=false;
+const $=i=>document.getElementById(i);
+const sel=$('sel');
+for(let i=1;i<=8;i++){const b=document.createElement('button');b.textContent=i;b.dataset.n=i;
+ b.onclick=()=>{sol=i;km=false;S1latch=false;majSel();};sel.appendChild(b);}
+function majSel(){[...sel.children].forEach(b=>b.setAttribute('aria-pressed',+b.dataset.n===sol));}
+majSel();
+function press(id,set){const b=$(id);
+ const on=e=>{e.preventDefault();set(true);},off=e=>{e.preventDefault();set(false);};
+ b.addEventListener('mousedown',on);b.addEventListener('mouseup',off);
+ b.addEventListener('mouseleave',off);b.addEventListener('touchstart',on,{passive:false});
+ b.addEventListener('touchend',off);}
+press('bS1',v=>{if(sol<5){if(v)S1latch=!S1latch;}else S1=v;});
+press('bS2',v=>{S2=v;});
+function tog(id,get,set){const b=$(id);b.onclick=()=>{set(!get());b.setAttribute('aria-pressed',get());};}
+tog('bAU',()=>AU,v=>AU=v); tog('bRes',()=>!res,v=>res=!v); tog('bTh',()=>th,v=>th=v);
+tog('bQ1',()=>!q1,v=>q1=!v);
+$('bRaz').onclick=()=>{th=false;AU=false;res=true;q1=true;km=false;S1latch=false;
+ ['bAU','bRes','bTh','bQ1'].forEach(i=>$(i).setAttribute('aria-pressed',false));};
+
+/* ---------- logique ---------- */
+let marche=false, cmdOn=false, aval=true;
+function logique(){
+  marche = (sol<5)? S1latch : S1;
+  // en aval de Q1 : il faut le réseau ET, à partir de la solution 4, Q1 fermé
+  aval = res && (sol<4 || q1);
+  cmdOn = aval && sol>=2;
+  if(sol<=1){ km = res && S1latch; }
+  else{
+    let ok = cmdOn;
+    if(sol>=8){ if(!q1) ok=false; if(AU) ok=false; if(th) ok=false; }
+    if(sol>=7){ if(S2) ok=false; }
+    if(sol<6){ km = ok && marche; }
+    else { if(!ok) km=false; else if(marche) km=true; }
+  }
+  $('o24').textContent = sol<2?'sans objet':(cmdOn?(sol>=3?'24 V présent':'400 V présent'):'absent');
+  $('bQ1').textContent = sol<4 ? 'Ouvrir Q1 (dès la sol. 4)' : (q1?'Ouvrir Q1':'Fermer Q1');
+  $('bRes').textContent = res?"Coupure d'alimentation":"Rétablir l'alimentation";
+  $('oB').textContent  = sol<2?'sans objet':(km?'ALIMENTÉE':'non alimentée');
+  $('oH1').textContent = sol>=8?(cmdOn?'allumé':'éteint'):'—';
+  $('oH23').textContent= sol>=8?((km?'H2 allumé':'H2 éteint')+' / '+(th?'H3 ALLUMÉ':'H3 éteint')):'—';
+  $('oM').textContent  = km?'tourne':"à l'arrêt";
+  let msg = (sol==8?'\u2713 ':'Problème : ')+PB[sol];
+  if(!res) msg = "Coupure d'alimentation : le sectionneur Q1 reste FERMÉ — personne ne l'a manœuvré. "
+                + "Ses pôles sont simplement hors tension.";
+  else if(!q1 && sol<4) msg = "Il n'y a pas encore de sectionneur dans cette solution : "
+                + "Q1 apparaît à la solution 4.";
+  else if(!q1) msg = sol>=8
+      ? "Q1 ouvert. Son contact de précoupure 23-24 s'est ouvert AVANT les pôles : KM1 est retombé, "
+      + "le courant était nul, et Q1 n'a eu qu'à ouvrir à vide."
+      : "Q1 ouvert : l'installation en aval est isolée et peut être condamnée par cadenas. "
+      + "Attention, sans contact de précoupure il vient d'ouvrir en charge !";
+  $('pb').textContent = msg;
+  $('bS1').textContent = (sol<5?'S1 · commutateur':'S1 · marche')+(((sol<5&&S1latch)||(sol>=5&&S1))?' \u25CF':'');
+}
+
+/* ---------- dessin ---------- */
+const cv=$('cv'),cx=cv.getContext('2d');
+const R='#C0392B', G='#9AA8B2', N='#16232D';
+const PH=[54,78,102];
+function fil(x1,y1,x2,y2,e,c){cx.beginPath();cx.lineWidth=e;cx.strokeStyle=c;cx.lineCap='round';
+ cx.moveTo(x1,y1);cx.lineTo(x2,y2);cx.stroke();}
+function txt(t,x,y,s,c,a){cx.font=(s||11)+'px '+getComputedStyle(document.body).fontFamily;
+ cx.fillStyle=c||N;cx.textAlign=a||'center';cx.fillText(t,x,y);}
+function dot(x,y,c){cx.beginPath();cx.arc(x,y,3,0,6.3);cx.fillStyle=c||N;cx.fill();}
+/* Contact vertical, tracé comme sur les schémas du cours (grille de module,
+   NF C 03-201 / 03-211). Hauteur totale h = 8 M : bornes de 2 M, écart de 4 M.
+   OUVERT  : la lame s'écarte de 2 M du contact fixe, vers la gauche.
+   FERMÉ   : barre de 2 M sur le contact fixe, et la lame la CROISE à 0,8 M de
+             l'axe puis la dépasse de 1 M — c'est le tracé normalisé du contact
+             fermé, qu'il s'agisse d'un NO refermé ou d'un NF au repos.
+   Un NF ouvert : la lame a basculé au-delà de la barre, vers la droite. */
+function contact(x,yt,h,ferme,ep,col,decor,nf){
+  const M=h/8, y1=yt+2*M, y2=yt+6*M, ym=yt+4*M;
+  fil(x,yt,x,y1,ep,col);                       // borne haute
+  fil(x,y2,x,yt+h,ep,col);                     // borne basse
+  let xs;
+  if(ferme){
+    fil(x,y1,x+2*M,y1,ep,col);                 // barre du contact fixe
+    fil(x,y2,x+M,y1-M,ep,col);                 // lame : croise la barre, +1 M
+    xs=x+0.5*M;
+  } else if(nf){
+    fil(x,y1,x+2*M,y1,ep,col);                 // la barre reste
+    fil(x,y2,x+3*M,y1-0.4*M,ep,G);             // lame basculée au-delà
+    xs=x+1.5*M;
+  } else {
+    fil(x,y2,x-2*M,y1,ep,G);                   // lame écartée de 2 M
+    xs=x-M;
+  }
+  if(decor==='pole'){                          // contacteur : demi-lune sur la borne
+    cx.beginPath();cx.arc(x,y1-M/2,M/2,1.5708,4.7124);
+    cx.lineWidth=ep;cx.strokeStyle=col;cx.stroke();}
+  if(decor==='sect'){ fil(x-M,y1,x+M,y1,ep,col); }
+  if(decor==='bp'||decor==='com'||decor==='au'||decor==='th'){
+    const xg = x-3*M;
+    if(decor!=='com'){ cx.save(); cx.setLineDash([5,3]);
+      fil(xg,ym,xs,ym,1.4,N); cx.restore(); }
+    else fil(xg,ym,xs,ym,1.6,N);
+    if(decor==='bp'){
+      fil(xg,ym-M,xg,ym+M,1.6,N);
+      fil(xg,ym-M,xg+M,ym-M,1.6,N);
+      fil(xg,ym+M,xg+M,ym+M,1.6,N);}
+    if(decor==='com'){                         // accrochage mécanique
+      cx.beginPath();cx.lineWidth=1.6;cx.strokeStyle=N;
+      cx.moveTo(xg-M,ym+M); cx.lineTo(xg,ym+M); cx.lineTo(xg,ym-M); cx.lineTo(xg+M,ym-M);
+      cx.stroke();}
+    if(decor==='au'){
+      fil(xg,ym-M,xg,ym+M,1.6,N);
+      cx.beginPath();cx.arc(xg,ym,M,1.5708,4.7124);cx.lineWidth=1.6;cx.strokeStyle=N;cx.stroke();}
+    if(decor==='th'){                          // bilame : le « S » carré
+      cx.beginPath();cx.lineWidth=1.6;cx.strokeStyle=N;
+      cx.moveTo(xg-M,ym-2*M); cx.lineTo(xg-M,ym-M); cx.lineTo(xg,ym-M);
+      cx.lineTo(xg,ym+M); cx.lineTo(xg-M,ym+M); cx.lineTo(xg-M,ym+2*M);
+      cx.stroke();}
+  }
+}
+function dessine(){
+  cx.clearRect(0,0,660,470);
+  const cAm = res? N : G;           // phases en amont de Q1
+  const cP  = aval? N : G;          // phases en aval de Q1
+  const vM  = km? R : cP;           // circuit moteur
+  /* ---- arrivée réseau ---- */
+  PH.forEach((x,k)=>{cx.beginPath();cx.arc(x,26,3.5,0,6.3);cx.strokeStyle=cAm;cx.lineWidth=2;cx.stroke();
+    txt(['L1','L2','L3'][k],x,16,10,res?N:'#9AA8B2');});
+  if(!res) txt('réseau hors tension',140,20,11,'#C0392B','left');
+  /* ---- appareils de puissance, de haut en bas ---- */
+  let y=30;
+  PH.forEach(x=>fil(x,30,x,sol>=4?58:96,3,cAm));
+  if(sol>=4){                       // Q1 sectionneur porte-fusibles
+    PH.forEach(x=>{cx.strokeStyle=cAm;cx.lineWidth=2;cx.strokeRect(x-6,58,12,26);
+      fil(x,84,x,94,3,cAm); contact(x,94,44,q1,3,q1?cAm:G,'sect',false);});
+    txt('Q1',44,110,12,q1?N:'#C0392B','right');
+    PH.forEach(x=>fil(x,138,x,178,3,cP));
+  } else PH.forEach(x=>fil(x,96,x,178,3,cP));
+  const yK=178;                     // KM1 (ou S1 en solution 1)
+  PH.forEach(x=>contact(x,yK,44,km,3,km?R:cP,sol<=1?'sect':'pole',false));
+  if(!(sol<=1)) { cx.setLineDash([3,3]);fil(PH[0]+14,yK+17,PH[2]+14,yK+17,1,N);cx.setLineDash([]); }
+  txt(sol<=1?'S1':'KM1',44,yK+26,12,N,'right');
+  let yEnd = yK+44;
+  if(sol>=8){                       // relais thermique F1
+    PH.forEach(x=>fil(x,yEnd,x,240,3,vM));
+    cx.setLineDash([3,3]);cx.strokeStyle=th?R:N;cx.lineWidth=1;
+    cx.strokeRect(42,240,72,40);cx.setLineDash([]);
+    PH.forEach(x=>{cx.strokeStyle=th?R:vM;cx.lineWidth=3;cx.beginPath();
+      cx.moveTo(x,240);cx.lineTo(x,250);cx.lineTo(x+7,250);cx.lineTo(x+7,270);
+      cx.lineTo(x,270);cx.lineTo(x,280);cx.stroke();});
+    txt('F1',36,266,12,th?R:N,'right'); yEnd=280;
+  }
+  /* ---- liaison au moteur ---- */
+  PH.forEach(x=>fil(x,yEnd,x,320,3,vM));
+  txt('U1',52,316,9,N,'right'); txt('V1',76,316,9,N,'right'); txt('W1',100,316,9,N,'right');
+  fil(54,320,59,330,3,vM); fil(102,320,97,330,3,vM);
+  cx.beginPath();cx.arc(78,350,30,0,6.3);cx.lineWidth=3;cx.strokeStyle=vM;cx.stroke();
+  txt('M',78,352,17,km?R:N); txt('3~',78,368,10,N); txt('M1',114,354,12,N,'left');
+  if(sol<=1){ txt("Solution 1 : pas de partie commande",420,240,14,'#5C6C79');
+    txt('Solution '+sol,330,460,13,'#1B4E7D'); return; }
+
+  /* ---- alimentation de la partie commande ---- */
+  const xR=292, xN=276, yH=60, yB=430;
+  if(sol>=3){                       // transformateur 400/24 V
+    fil(78,140,200,140,2,cP); dot(78,140,cP);
+    fil(102,168,200,168,2,cP); dot(102,168,cP);
+    cx.beginPath();cx.arc(200,154,14,0,6.3);cx.strokeStyle=cP;cx.lineWidth=2;cx.stroke();
+    cx.beginPath();cx.arc(224,154,14,0,6.3);cx.stroke();
+    txt('T1',212,131,11,N); txt('400 V',196,188,9,N); txt('24 V',232,188,9,N);
+    fil(224,140,xR,140,2,cmdOn?R:G); fil(xR,140,xR,yH,2,cmdOn?R:G);
+    fil(224,168,xN,168,2,cmdOn?R:G); fil(xN,168,xN,yB,2,cmdOn?R:G);
+  } else {                          // prise directe sur deux phases
+    fil(54,140,xR,140,2,cmdOn?R:G); dot(54,140,cP);
+    fil(xR,140,xR,yH,2,cmdOn?R:G);
+    fil(102,168,xN,168,2,cmdOn?R:G); dot(102,168,cP);
+    fil(xN,168,xN,yB,2,cmdOn?R:G);
+    txt('commande à la tension du réseau (400 V)',210,128,11,'#C0392B');
+  }
+  /* ---- rails ---- */
+  const xMax = sol>=8? 600 : 360;
+  fil(xR,yH,xMax,yH,2,cmdOn?R:G); fil(xN,yB,xMax,yB,2,cmdOn?R:G);
+  /* ---- branche de la bobine ---- */
+  const xb=360, xa=436;
+  let L=[];
+  if(sol>=8){ L.push(['Q1',q1,'pole',false]); L.push(['S3',!AU,'au',true]);
+              L.push(['F1',!th,'th',true]); }
+  L.push(['S1',marche,sol<5?'com':'bp',false]);
+  if(sol>=7) L.push(['S2',!S2,'bp',true]);
+  const n=L.length, H=44, top=72, bot=352;
+  const pitch = n>1? Math.min(66,(bot-top-H)/(n-1)) : 0;
+  let courant = cmdOn, yPrev=yH;
+  L.forEach(([lab,ferme,dec,nf],i)=>{
+    const yt = top + i*pitch;
+    fil(xb,yPrev,xb,yt,2,courant?R:G);
+    const estS1 = (lab==='S1');
+    const passe = estS1 ? (ferme || (sol>=6 && km)) : ferme;
+    contact(xb,yt,H,ferme,2,(courant&&ferme)?R:G,dec,nf);
+    if(estS1 && sol>=6){            // contact d'automaintien, en parallèle
+      fil(xb,yt,xa,yt,2,courant?R:G);
+      contact(xa,yt,H,km,2,(courant&&km)?R:G,'pole',false);
+      fil(xb,yt+H,xa,yt+H,2,(courant&&passe)?R:G);
+      dot(xb,yt,courant?R:N); dot(xb,yt+H,(courant&&passe)?R:N);
+      txt('KM1',xa+26,yt+22,11,N,'left'); txt('13-14',xa+26,yt+34,9,'#5C6C79','left');
+    }
+    txt(lab,xb-30,yt+26,12,N,'right');
+    courant = courant && passe; yPrev = yt+H;
+  });
+  fil(xb,yPrev,xb,370,2,courant?R:G);
+  cx.strokeStyle=courant?R:N;cx.lineWidth=2;cx.strokeRect(xb-22,370,44,36);
+  txt('KM1',xb-30,392,12,N,'right'); txt(sol>=3?'24V':'400V',xb,392,9,'#5C6C79');
+  fil(xb,406,xb,yB,2,courant?R:G);
+  dot(xb,yH,cmdOn?R:N); dot(xb,yB,cmdOn?R:N);
+  /* ---- voyants ---- */
+  if(sol>=8){
+    const V=[[460,'H1',cmdOn,'#FBF3C0',null,null],
+             [530,'H2',km,'#2E8B57','KM1',km],
+             [600,'H3',th,'#DD7A18','F1',th]];
+    V.forEach(([x,lab,on,col,ct,ferme])=>{
+      if(ct){ fil(x,yH,x,90,2,cmdOn?R:G);
+              contact(x,90,44,ferme,2,(cmdOn&&ferme)?R:G,ct==='F1'?'th':'pole',false);
+              txt(ct,x-30,116,11,N,'right');
+              fil(x,134,x,376,2,(cmdOn&&ferme)?R:G); }
+      else  { fil(x,yH,x,376,2,cmdOn?R:G); }
+      cx.beginPath();cx.arc(x,392,16,0,6.3);cx.fillStyle=on?col:'#FFF';cx.fill();
+      cx.strokeStyle=N;cx.lineWidth=2;cx.stroke();
+      fil(x-11,381,x+11,403,2,N); fil(x-11,403,x+11,381,2,N);
+      fil(x,408,x,yB,2,cmdOn?R:G);
+      txt(lab,x-22,396,12,N,'right');
+      if(x<600) dot(x,yH,cmdOn?R:N);
+    });
+    txt('sous tension',460,450,10,'#5C6C79');
+    txt('marche',530,450,10,'#5C6C79');
+    txt('surcharge',600,450,10,'#5C6C79');
+  }
+  txt('Solution '+sol,330,462,13,'#1B4E7D');
+}
+function boucle(){logique();dessine();requestAnimationFrame(boucle);}
+boucle();
+</script>
+</body>
+</html>

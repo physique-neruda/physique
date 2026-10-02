@@ -53,7 +53,7 @@ footer{text-align:center;color:var(--gris);font-size:.8rem;padding:8px}
       <p id="consigne" style="margin:0 0 8px"></p>
       <div class="lcd" id="ecran" style="text-align:left;min-height:88px;font-size:1.25rem;line-height:1.5;border:3px solid #6B7280"><div id="ecran1">&nbsp;</div><div id="ecran2" style="text-align:right">&nbsp;</div></div>
       <div id="touches" style="margin:12px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:center"></div>
-      <div class="ctrl"><button class="act" id="bSuiv">Touche suivante</button><button id="bTout">Tout jouer</button><button id="bZero">Recommencer</button></div>
+      <div class="ctrl"><button id="bPrec">◀ Touche précédente</button><button class="act" id="bSuiv">Touche suivante ▶</button><button id="bTout">Tout jouer</button><button id="bZero">Recommencer</button></div>
       <div class="msg" id="expl"></div>
     </div>
   </section>
@@ -147,6 +147,8 @@ $('modeles').addEventListener('click',e=>{const b=e.target.closest('button');if(
 $('exos').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;ex=+b.dataset.e;pos=0;afficher()});
 $('bSuiv').addEventListener('click',()=>{const n=exos(M[mod])[ex].k.length;if(pos<n)pos++;afficher()});
 $('bZero').addEventListener('click',()=>{pos=0;afficher()});
+$('bPrec').addEventListener('click',()=>{if(pos>0)pos--;afficher()});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')$('bSuiv').click();if(e.key==='ArrowLeft')$('bPrec').click()});
 $('bTout').addEventListener('click',()=>{pos=0;afficher();const n=exos(M[mod])[ex].k.length;const id=setInterval(()=>{pos++;afficher();if(pos>=n)clearInterval(id)},550)});
 afficher();
 })();

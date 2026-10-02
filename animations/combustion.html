@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L'équation de combustion — paillasse virtuelle</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd .val small{font-size:.62em;color:#9DB4C0;margin-left:2px}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.45rem;color:var(--lcdvert)}
+.reglage{margin:14px 0 0}
+.reglage:first-child{margin-top:0}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:70px;min-height:42px;font:inherit;font-size:.84rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+label.bascule{display:flex;align-items:center;gap:10px;font-size:.9rem;margin-top:14px;min-height:44px}
+label.bascule input{width:22px;height:22px;accent-color:var(--bleu)}
+#relever{background:var(--orange);border-color:var(--orange);color:#fff;width:100%;
+  min-height:52px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;border:1px solid var(--orange)}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:10px}
+th,td{padding:5px 3px;text-align:right;border-bottom:1px solid var(--bord);font-variant-numeric:tabular-nums}
+th{color:var(--gris);font-weight:600;font-size:.72rem}
+td.essai{font-family:var(--mono);color:var(--orange)}
+.vide{color:var(--gris);font-size:.85rem;margin:10px 0 0}
+.lienbas{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.lienbas button{font:inherit;font-size:.85rem;background:none;border:none;color:var(--bleu);
+  text-decoration:underline;padding:8px 0}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+.retour:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+.alerte{margin-top:8px;padding:8px 10px;border-radius:7px;font-size:.88rem}
+.alerte.ok{background:#E6F4E8;color:#1E5E26}
+.alerte.mal{background:#FBE6E3;color:#8E2419}
+.alerte.neutre{background:#EEF2F5;color:#40505C}
+td.g{text-align:left}
+</style>
+</head>
+<body>
+
+<a class="retour" href="index.html">&larr;&nbsp; Toutes les animations</a>
+
+<h1>L'équation de combustion</h1>
+<p class="sous">On met dans le brûleur des molécules de combustible et des molécules de dioxygène. La flamme réarrange les atomes : elle n'en crée aucun et n'en détruit aucun.</p>
+
+<div class="bloc">
+  <canvas id="scene" width="620" height="380"></canvas>
+  <div class="lcd">
+    <div><div class="nom">Atomes avant</div><div class="val" id="vAv" style="font-size:1.05rem">—</div></div>
+    <div><div class="nom">Atomes après</div><div class="val" id="vAp" style="font-size:1.05rem">—</div></div>
+    <div class="large"><div class="nom">Ce qui sort du brûleur</div><div class="val" id="vPr" style="font-size:1.05rem">—</div></div>
+  </div>
+  <div class="alerte neutre" id="msg"></div>
+</div>
+
+<div class="bloc">
+  <h2>Réglages</h2>
+  <div class="reglage">
+    <div class="ligne"><span>Combustible</span></div>
+    <div class="choix" id="choixF"></div>
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Molécules de combustible</span><b id="lF">1</b></div>
+    <input type="range" id="rF" min="1" max="4" step="1" value="1">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Molécules de dioxygène O₂</span><b id="lO">1</b></div>
+    <input type="range" id="rO" min="1" max="20" step="1" value="1">
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Vos mesures</h2>
+  <button id="relever">Relever le résultat</button>
+  <div id="zoneTable"><p class="vide">Aucun relevé pour l'instant.</p></div>
+  <div class="lienbas"><span class="aide">On cherche les plus petits nombres qui ne laissent rien de trop.</span>
+    <button id="effacer">Tout effacer</button></div>
+</div>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+// combustibles : nom, formule affichée, nombres d'atomes C, H, O
+const COMB=[
+  {id:"CH4",  nom:"méthane",     f:"CH₄",    C:1,H:4, O:0},
+  {id:"C3H8", nom:"propane",     f:"C₃H₈",   C:3,H:8, O:0},
+  {id:"C4H10",nom:"butane",      f:"C₄H₁₀",  C:4,H:10,O:0},
+  {id:"C2H6O",nom:"éthanol",     f:"C₂H₆O",  C:2,H:6, O:1},
+  {id:"H2",   nom:"dihydrogène", f:"H₂",     C:0,H:2, O:0}
+];
+let fi=0, nF=1, nO2=1, mesures=[];
+
+function bilan(){
+  const c=COMB[fi];
+  const C=c.C*nF, H=c.H*nF, O=c.O*nF+2*nO2;
+  let r={C,H,O,CO2:0,H2O:0,CO:0,suie:0,O2:0,H2:0,isole:0};
+  let reste=O;
+  // l'hydrogène d'abord : il donne de l'eau
+  const eauMax=H/2;
+  if(reste>=eauMax){ r.H2O=eauMax; reste-=eauMax; }
+  else { r.H2O=reste; r.H2=(H-2*reste)/2; reste=0; }
+  // le carbone ensuite
+  if(reste>=2*C){ r.CO2=C; reste-=2*C; }
+  else if(reste>=C){ r.CO2=reste-C; r.CO=2*C-reste; reste=0; }
+  else { r.CO=reste; r.suie=C-reste; reste=0; }
+  // l'oxygène restant repart en O2
+  r.O2=Math.floor(reste/2); r.isole=reste%2;
+  return r;
+}
+function verdict(r){
+  if(r.isole) return {cl:"mal",t:"Un atome d'oxygène se retrouve seul : c'est impossible. Essayez de doubler tous les nombres."};
+  if(r.H2>0)  return {cl:"mal",t:"Pas assez de dioxygène : du combustible sort sans avoir brûlé."};
+  if(r.suie>0)return {cl:"mal",t:"Très peu d'air : il sort de la suie (carbone) et du monoxyde de carbone CO, gaz toxique."};
+  if(r.CO>0)  return {cl:"mal",t:"Combustion incomplète : il sort du monoxyde de carbone CO, gaz toxique et inodore."};
+  if(r.O2>0)  return {cl:"neutre",t:"Combustion complète, mais du dioxygène ressort sans avoir servi."};
+  return {cl:"ok",t:"Combustion complète, et rien de trop : ni combustible, ni dioxygène ne reste."};
+}
+
+function boutons(){
+  const z=$("choixF"); z.innerHTML="";
+  COMB.forEach((c,i)=>{const b=document.createElement("button");
+    b.textContent=c.nom+" "+c.f; b.setAttribute("aria-pressed",i===fi);
+    b.onclick=()=>{fi=i;boutons();maj();}; z.appendChild(b);});
+}
+$("rF").oninput=e=>{nF=+e.target.value;maj();};
+$("rO").oninput=e=>{nO2=+e.target.value;maj();};
+$("relever").onclick=()=>{const r=bilan();mesures.push({n:mesures.length+1,fi,nF,nO2,r});affTable();};
+$("effacer").onclick=()=>{mesures=[];affTable();};
+
+function txtProduits(r){
+  const p=[];
+  if(r.CO2) p.push(r.CO2+" CO₂");
+  if(r.H2O) p.push(r.H2O+" H₂O");
+  if(r.CO)  p.push(r.CO+" CO");
+  if(r.suie)p.push(r.suie+" C (suie)");
+  if(r.H2)  p.push(r.H2+" H₂ imbrûlé");
+  if(r.O2)  p.push(r.O2+" O₂ en trop");
+  if(r.isole)p.push("1 O isolé");
+  return p.length?p.join(" + "):"rien";
+}
+function maj(){
+  const r=bilan(), c=COMB[fi];
+  $("lF").textContent=nF; $("lO").textContent=nO2;
+  $("vAv").textContent="C"+r.C+"  H"+r.H+"  O"+r.O;
+  // après : on recompte à partir des produits
+  const Ca=r.CO2+r.CO+r.suie, Ha=2*r.H2O+2*r.H2, Oa=2*r.CO2+r.H2O+r.CO+2*r.O2+r.isole;
+  $("vAp").textContent="C"+Ca+"  H"+Ha+"  O"+Oa;
+  $("vPr").textContent=txtProduits(r);
+  const v=verdict(r); const m=$("msg"); m.className="alerte "+v.cl; m.textContent=v.t;
+  dessine(r);
+}
+
+// ---------------- dessin ----------------
+const cs=$("scene"),ctx=cs.getContext("2d");
+const COUL={C:"#3A3F44",H:"#F2F4F6",O:"#D1352B"};
+function boule(x,y,r,el){
+  const g=ctx.createRadialGradient(x-r*0.35,y-r*0.35,r*0.15,x,y,r);
+  g.addColorStop(0,"#FFFFFF"); g.addColorStop(0.35,COUL[el]); g.addColorStop(1,COUL[el]);
+  ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,r,0,2*Math.PI); ctx.fill();
+  ctx.strokeStyle="rgba(0,0,0,.35)"; ctx.lineWidth=1; ctx.stroke();
+}
+// dessine une molécule "type" centrée en (x,y), taille s
+function molecule(t,x,y,s){
+  const R=s*0.26, r=s*0.16;
+  if(t==="O2"){boule(x-R*0.8,y,R,"O");boule(x+R*0.8,y,R,"O");}
+  else if(t==="CO2"){boule(x-R*1.6,y,R,"O");boule(x+R*1.6,y,R,"O");boule(x,y,R*1.05,"C");}
+  else if(t==="CO"){boule(x+R*0.8,y,R,"O");boule(x-R*0.8,y,R*1.05,"C");}
+  else if(t==="H2O"){boule(x-R*1.0,y+R*0.7,r,"H");boule(x+R*1.0,y+R*0.7,r,"H");boule(x,y,R,"O");}
+  else if(t==="H2"){boule(x-r*0.9,y,r,"H");boule(x+r*0.9,y,r,"H");}
+  else if(t==="suie"){boule(x,y,R*1.05,"C");}
+  else if(t==="Oiso"){boule(x,y,R,"O");ctx.strokeStyle="#D1352B";ctx.lineWidth=2;ctx.beginPath();ctx.arc(x,y,R+4,0,2*Math.PI);ctx.stroke();}
+  else { // combustible
+    const c=COMB[fi];
+    if(c.id==="H2"){boule(x-r*0.9,y,r,"H");boule(x+r*0.9,y,r,"H");return;}
+    const n=c.C, L=R*1.7*(n-1);
+    // hydrogènes répartis autour de la chaîne
+    let hs=c.H, k=0;
+    for(let i=0;i<n;i++){
+      const cx=x-L/2+R*1.7*i;
+      const nh = (i===0||i===n-1) ? (n===1?4:3) : 2;
+      const pos = n===1 ? [[-1,-1],[1,-1],[-1,1],[1,1]] : (i===0?[[-1,-1],[-1,1],[-1.4,0]]:(i===n-1?[[1,-1],[1,1],[1.4,0]]:[[0,-1.3],[0,1.3]]));
+      for(let j=0;j<nh && hs>0;j++){ if(c.O && i===n-1 && j===2) continue;
+        boule(cx+pos[j][0]*R*0.95,y+pos[j][1]*R*0.95,r,"H");hs--;k++;}
+    }
+    for(let i=0;i<n;i++) boule(x-L/2+R*1.7*i,y,R*1.05,"C");
+    if(c.O){ const ox=x+L/2+R*1.9; boule(ox,y,R,"O"); boule(ox+R*1.2,y-R*0.6,r,"H"); }
+  }
+}
+function largeur(t,s){
+  if(t==="comb"){const c=COMB[fi]; return c.id==="H2"?s*0.6:s*(0.9+0.45*(c.C-1)+(c.O?0.55:0));}
+  if(t==="CO2") return s*1.05; if(t==="O2") return s*0.75; return s*0.7;
+}
+function hauteurGrille(liste,w,s){
+  let x=0, lignes=1;
+  for(const t of liste){const lw=largeur(t,s)+8; if(x+lw>w){x=0;lignes++;} x+=lw;}
+  return lignes*s*0.95;
+}
+function grille(liste,x0,y0,w,s){
+  let x=x0, y=y0;
+  for(const t of liste){
+    const lw=largeur(t,s)+8;
+    if(x+lw>x0+w){x=x0;y+=s*0.95;}
+    molecule(t,x+lw/2,y,s); x+=lw;
+  }
+}
+function dessine(r){
+  const W=cs.width,H=cs.height; ctx.clearRect(0,0,W,H);
+  const f=getComputedStyle(document.body).fontFamily;
+  ctx.fillStyle="#F7F9FB"; ctx.fillRect(8,8,262,H-16); ctx.fillRect(350,8,262,H-16);
+  ctx.fillStyle="#5C6C79"; ctx.font="600 15px "+f; ctx.textAlign="center";
+  ctx.fillText("avant",139,30); ctx.fillText("après",481,30);
+  const avant=[]; for(let i=0;i<nF;i++) avant.push("comb"); for(let i=0;i<nO2;i++) avant.push("O2");
+  const apres=[];
+  const add=(t,n)=>{for(let i=0;i<n;i++) apres.push(t);};
+  add("CO2",r.CO2); add("H2O",r.H2O); add("CO",r.CO); add("suie",r.suie); add("H2",r.H2); add("O2",r.O2); if(r.isole) apres.push("Oiso");
+  let s=60; const hdispo=H-120;
+  while(s>18 && (hauteurGrille(avant,246,s)>hdispo || hauteurGrille(apres,246,s)>hdispo)) s-=2;
+  grille(avant,16,50+s*0.45,246,s);
+  grille(apres,358,50+s*0.45,246,s);
+  // flamme
+  const v=verdict(r), bleue=(v.cl!=="mal");
+  const fx=310, fy=H/2+20;
+  ctx.fillStyle= bleue? "#6FA6DA" : "#E8B21C";
+  ctx.beginPath(); ctx.moveTo(fx,fy+40); ctx.bezierCurveTo(fx-26,fy+10,fx-12,fy-30,fx,fy-55); ctx.bezierCurveTo(fx+12,fy-30,fx+26,fy+10,fx,fy+40); ctx.fill();
+  ctx.fillStyle= bleue? "#BBD6F0" : "#E0661B";
+  ctx.beginPath(); ctx.moveTo(fx,fy+36); ctx.bezierCurveTo(fx-12,fy+16,fx-6,fy-4,fx,fy-18); ctx.bezierCurveTo(fx+6,fy-4,fx+12,fy+16,fx,fy+36); ctx.fill();
+  ctx.fillStyle="#5C6C79"; ctx.fillRect(fx-16,fy+42,32,10);
+  ctx.strokeStyle="#DD7A18"; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(282,fy-80); ctx.lineTo(338,fy-80); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(330,fy-88); ctx.lineTo(340,fy-80); ctx.lineTo(330,fy-72); ctx.fillStyle="#DD7A18"; ctx.fill();
+  // légende des couleurs
+  ctx.font="13px "+f; ctx.textAlign="left"; ctx.fillStyle="#5C6C79";
+  const ly=H-18;
+  boule(24,ly-4,7,"C"); ctx.fillStyle="#5C6C79"; ctx.fillText("carbone",36,ly);
+  boule(112,ly-4,7,"H"); ctx.fillStyle="#5C6C79"; ctx.fillText("hydrogène",124,ly);
+  boule(215,ly-4,7,"O"); ctx.fillStyle="#5C6C79"; ctx.fillText("oxygène",227,ly);
+}
+
+function affTable(){
+  const z=$("zoneTable");
+  if(!mesures.length){z.innerHTML='<p class="vide">Aucun relevé pour l\'instant.</p>';return;}
+  let h='<table><thead><tr><th>n°</th><th class="g">combustible</th><th>nb</th><th>O₂</th><th>CO₂</th><th>H₂O</th><th>CO</th><th>suie</th><th>O₂ trop</th></tr></thead><tbody>';
+  mesures.forEach(m=>{const r=m.r;
+    h+='<tr><td>'+m.n+'</td><td class="g">'+COMB[m.fi].f+'</td><td>'+m.nF+'</td><td>'+m.nO2+'</td><td>'+r.CO2+'</td><td>'+r.H2O
+      +'</td><td>'+(r.CO||"")+'</td><td>'+(r.suie||"")+'</td><td>'+(r.O2||"")+(r.isole?" +½":"")+'</td></tr>';});
+  z.innerHTML=h+'</tbody></table>';
+}
+boutons(); maj(); affTable();
+</script>
+</body>
+</html>

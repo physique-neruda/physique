@@ -1,0 +1,202 @@
+# -*- coding: utf-8 -*-
+"""
+chiffrer.py — fabrique la version EN LIGNE du site, où les documents des
+classes ne s'ouvrent qu'avec le mot de passe de la filière.
+
+    python3 outils/chiffrer.py site-physique site-en-ligne --cles mots_de_passe.json
+
+  site-physique/        l'atelier : PDF en clair, catalogue, outils. Ne se publie PLUS.
+  site-en-ligne/        ce qui part sur GitHub : copie de l'atelier où chaque fichier
+                        de docs/<filière>/ protégée est remplacé par sa version
+                        chiffrée (<nom>.enc), plus le fichier acces.js.
+  mots_de_passe.json    les mots de passe et les sels. Ne JAMAIS le mettre dans
+                        site-physique/ ni dans site-en-ligne/, ni sur GitHub.
+
+Si le fichier de mots de passe n'existe pas, il est créé avec un mot de passe
+tiré au hasard pour chaque filière protégée.
+
+CHANGER UN MOT DE PASSE (chaque rentrée, ou si un mot de passe circule) :
+    python3 outils/chiffrer.py site-physique site-en-ligne --cles mots_de_passe.json \\
+            --nouveau 1sti2d
+Un nouveau mot de passe ET un nouveau sel sont tirés : tous les fichiers de la
+filière sont rechiffrés, les anciens deviennent inutilisables, et les appareils
+qui avaient mémorisé l'accès redemandent le mot de passe. Pour imposer un mot de
+passe choisi : --nouveau 1sti2d --mot "mon-mot-de-passe".
+
+Principe cryptographique (de quoi vérifier, rien à régler) :
+  - clé de la filière  = PBKDF2-HMAC-SHA256(mot de passe, sel, 300 000 tours), 32 octets ;
+  - chaque fichier     = "NRD1" + IV (12 octets) + AES-256-GCM(contenu),
+                         avec le chemin du fichier en clair (docs/…/cours.pdf) comme
+                         donnée authentifiée : un fichier ne peut pas en remplacer un autre ;
+  - IV                 = HMAC-SHA256(clé, chemin + empreinte du contenu), 12 premiers octets.
+    Un PDF inchangé donne donc exactement le même fichier chiffré d'une fois sur
+    l'autre : GitHub ne voit pas de modification, il n'y a rien à renvoyer.
+  - acces.js contient, par filière, le sel, le nombre de tours et un petit texte
+    témoin chiffré qui permet à la page de dire « mot de passe incorrect ».
+    Le mot de passe lui-même n'est écrit nulle part dans le site.
+"""
+import argparse, base64, hashlib, hmac, json, os, secrets, shutil, sys
+
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+TOURS = 300_000
+MAGIC = b"NRD1"
+PROTEGEES_PAR_DEFAUT = ["1sti2d", "bts-crsa", "bts-et", "bts-tsma"]
+CHIFFRES = (".pdf", ".apkg")          # ce qui est chiffré dans docs/<filière>/
+TEMOIN = "acces-ok:"                  # texte témoin, suivi de l'id de filière
+NE_PAS_COPIER = {".git", "__pycache__", ".DS_Store", "Thumbs.db", "desktop.ini"}
+
+MOTS = """
+    abeille acier aimant algue alpage ancre anneau arbre arche argent ascenseur atelier
+    aurore avion bague balcon baleine bambou banane barque bassin bateau berger biscuit
+    blason bobine bocal bougie boussole branche brique brouette bruine buffet bureau
+    cabane cactus cadran caillou camion canard canon cargo carotte cascade castor
+    cerise chalet chameau chandail chapeau chariot chateau chemin cheval chiffre cigale
+    citron clairon clocher cobalt colline comete compas concert copeau corail cornet
+    coton crayon criquet cuivre cyclone dauphin delta diamant domino dragon dune eclair
+    ecluse ecorce ecureuil enclume epice escargot etoile falaise fanfare farine faucon
+    fenetre fougere fourmi fromage fusee galet gazelle geyser girafe glacier gland gong
+    goudron grenier griffon guitare hamac hangar harpe hibou horloge hublot igloo ile
+    jardin jonque kayak koala lagune lampion lanterne lapin laurier lavande levier
+    lezard licorne lierre loutre lune lynx manege marmotte marteau melon meteore meule
+    mouette moulin muguet nacelle navire neige noisette nuage oasis ocean olive orage
+    orange ortie ourson outil palmier panda papillon parapluie pelican perle phare
+    piano pigeon pinceau piolet pirogue plage plume poivre pollen pommier pont potager
+    poulie prairie puits quartz radeau rameau raquette recif renard requin riviere
+    robot rocher roseau rubis sablier sapin saumon savane sentier serpe silex sirene
+    soleil sorbet source sphinx tambour tapis tempete tigre tonneau torrent tortue
+    toupie tracteur train trefle tulipe turbine vague vallee vapeur velo verger viaduc
+    violon volcan wagon yacht zebre zephyr""".split()
+
+
+def b64(b):
+    return base64.b64encode(b).decode("ascii")
+
+
+def tirer_mot_de_passe():
+    """Trois mots courants et deux chiffres : facile à dicter et à taper sur un
+    téléphone, environ un milliard de combinaisons."""
+    m = [secrets.choice(MOTS) for _ in range(3)]
+    return "-".join(m) + "-" + str(secrets.randbelow(90) + 10)
+
+
+def cle(mot, sel, tours=TOURS):
+    return hashlib.pbkdf2_hmac("sha256", mot.encode("utf-8"), sel, tours, dklen=32)
+
+
+def chiffrer(k, chemin, contenu):
+    empreinte = hashlib.sha256(contenu).digest()
+    iv = hmac.new(k, b"iv|" + chemin.encode("utf-8") + b"|" + empreinte,
+                  hashlib.sha256).digest()[:12]
+    return MAGIC + iv + AESGCM(k).encrypt(iv, contenu, chemin.encode("utf-8"))
+
+
+def temoin(k, fil):
+    iv = hmac.new(k, b"temoin|" + fil.encode(), hashlib.sha256).digest()[:12]
+    return iv, AESGCM(k).encrypt(iv, (TEMOIN + fil).encode(), None)
+
+
+# ------------------------------------------------------------ mots de passe
+def charger_cles(chemin, nouveau, mot_impose):
+    if os.path.exists(chemin):
+        with open(chemin, encoding="utf-8") as f:
+            cles = json.load(f)
+    else:
+        cles = {}
+    for fil in PROTEGEES_PAR_DEFAUT:
+        cles.setdefault(fil, None)
+    for fil in list(cles):
+        if fil.startswith("_"):
+            continue
+        if cles[fil] is None or fil in nouveau:
+            mot = mot_impose if (mot_impose and fil in nouveau) else tirer_mot_de_passe()
+            cles[fil] = {"mot_de_passe": mot, "sel": b64(secrets.token_bytes(16)),
+                         "tours": TOURS}
+            print(f"  nouveau mot de passe pour {fil} : {mot}")
+    cles["_note"] = ("Fichier SECRET. Ne pas déposer sur GitHub. Un bloc par filière "
+                     "protégée ; supprimer un bloc rend la filière publique.")
+    with open(chemin, "w", encoding="utf-8") as f:
+        json.dump(cles, f, ensure_ascii=False, indent=2)
+    return {k: v for k, v in cles.items() if not k.startswith("_")}
+
+
+# ------------------------------------------------------------ fabrication
+def fabriquer(atelier, sortie, cles):
+    atelier, sortie = os.path.abspath(atelier), os.path.abspath(sortie)
+    if sortie.startswith(atelier + os.sep) or sortie == atelier:
+        sys.exit("La sortie doit être un dossier À CÔTÉ de l'atelier, pas dedans.")
+    if not os.path.exists(os.path.join(atelier, "catalogue.js")):
+        sys.exit(f"{atelier} ne ressemble pas au dossier du site (pas de catalogue.js).")
+
+    derivees = {fil: cle(c["mot_de_passe"], base64.b64decode(c["sel"]), c["tours"])
+                for fil, c in cles.items()}
+
+    if os.path.exists(sortie):
+        for nom in os.listdir(sortie):          # on garde un éventuel .git de la sortie
+            if nom == ".git":
+                continue
+            p = os.path.join(sortie, nom)
+            shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
+    os.makedirs(sortie, exist_ok=True)
+
+    nb_clair, nb_chiffre = 0, {f: 0 for f in cles}
+    for racine, dossiers, fichiers in os.walk(atelier):
+        dossiers[:] = [d for d in dossiers if d not in NE_PAS_COPIER]
+        rel = os.path.relpath(racine, atelier)
+        cible = os.path.join(sortie, rel)
+        os.makedirs(cible, exist_ok=True)
+        parts = rel.replace("\\", "/").split("/")
+        fil = parts[1] if len(parts) >= 2 and parts[0] == "docs" else None
+        for nom in fichiers:
+            if nom in NE_PAS_COPIER or nom.lower().startswith("mots_de_passe"):
+                continue
+            src = os.path.join(racine, nom)
+            if fil in derivees and nom.lower().endswith(CHIFFRES):
+                chemin = "/".join(p for p in (parts + [nom]) if p != ".")
+                with open(src, "rb") as f:
+                    donnees = f.read()
+                with open(os.path.join(cible, nom + ".enc"), "wb") as f:
+                    f.write(chiffrer(derivees[fil], chemin, donnees))
+                nb_chiffre[fil] += 1
+            else:
+                shutil.copy2(src, os.path.join(cible, nom))
+                nb_clair += 1
+
+    # acces.js : de quoi dériver la clé et vérifier le mot de passe, rien de plus
+    acces = {}
+    for fil, k in derivees.items():
+        iv, t = temoin(k, fil)
+        acces[fil] = {"sel": cles[fil]["sel"], "tours": cles[fil]["tours"],
+                      "iv": b64(iv), "temoin": b64(t)}
+    with open(os.path.join(sortie, "acces.js"), "w", encoding="utf-8") as f:
+        f.write("/* acces.js — fabriqué par outils/chiffrer.py, ne pas modifier.\n"
+                "   Filières dont les documents sont chiffrés. Le mot de passe n'y\n"
+                "   figure pas : seulement le sel et un témoin pour le vérifier. */\n"
+                "window.ACCES = " + json.dumps(acces, indent=2) + ";\n")
+
+    # garde-fou : aucun PDF en clair ne doit subsister dans une filière protégée
+    for fil in derivees:
+        d = os.path.join(sortie, "docs", fil)
+        for r, _, fs in os.walk(d):
+            for n in fs:
+                if n.lower().endswith(CHIFFRES):
+                    sys.exit(f"ERREUR : fichier en clair restant : {os.path.join(r, n)}")
+    return nb_clair, nb_chiffre
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
+    ap.add_argument("atelier")
+    ap.add_argument("sortie")
+    ap.add_argument("--cles", required=True, help="fichier des mots de passe (hors site)")
+    ap.add_argument("--nouveau", nargs="*", default=[], help="filières à qui changer le mot de passe")
+    ap.add_argument("--mot", default=None, help="mot de passe imposé avec --nouveau (une filière)")
+    a = ap.parse_args()
+    if a.mot and len(a.nouveau) != 1:
+        sys.exit("--mot s'emploie avec une seule filière après --nouveau.")
+    if os.path.abspath(a.cles).startswith(os.path.abspath(a.atelier) + os.sep):
+        sys.exit("Le fichier des mots de passe ne doit pas être dans le dossier du site.")
+    cles = charger_cles(a.cles, set(a.nouveau), a.mot)
+    clair, chiffre = fabriquer(a.atelier, a.sortie, cles)
+    print(f"{a.sortie} fabriqué : {clair} fichiers copiés tels quels, "
+          + ", ".join(f"{n} chiffrés pour {f}" for f, n in chiffre.items()))

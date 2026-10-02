@@ -142,5 +142,21 @@
    "adm",
    "tp systeme"
   ]
+ },
+ "tp04": {
+  "num": "4",
+  "titre": "TP 4 — Le triphasé",
+  "motscles": [
+   "triphase",
+   "tension simple",
+   "tension composee",
+   "racine de 3",
+   "etoile",
+   "triangle",
+   "couplage",
+   "plaque signaletique",
+   "deux wattmetres",
+   "puissance"
+  ]
  }
 }

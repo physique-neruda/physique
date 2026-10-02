@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le chauffage — paillasse virtuelle</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --bleuclair:#3E8FD0; --orange:#DD7A18;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu);letter-spacing:-.01em}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;
+  padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+
+/* afficheur type multimètre */
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .case{min-width:0}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd .val small{font-size:.62em;color:#9DB4C0;margin-left:2px}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.05rem;color:var(--lcdvert);white-space:normal}
+.etat{grid-column:1/-1;font-size:.85rem;color:#B9CCD6;border-top:1px solid #2C3D4C;padding-top:7px}
+.etat b{color:#fff;font-weight:600}
+
+/* réglages */
+.reglage{margin:14px 0 0}
+.reglage:first-child{margin-top:0}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;
+  font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:72px;min-height:42px;font:inherit;font-size:.86rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.commandes{display:flex;gap:8px;margin-top:14px}
+.commandes button{flex:1;min-height:50px;font:inherit;font-size:1rem;font-weight:600;
+  border-radius:8px;border:1px solid var(--bord);background:#F5F8FA;color:var(--encre)}
+#marche{background:var(--bleu);border-color:var(--bleu);color:#fff}
+#relever{background:var(--orange);border-color:var(--orange);color:#fff;
+  width:100%;min-height:52px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:10px}
+th,td{padding:5px 4px;text-align:right;border-bottom:1px solid var(--bord);
+  font-variant-numeric:tabular-nums}
+th{color:var(--gris);font-weight:600;font-size:.74rem;text-align:right}
+th:first-child,td:first-child{text-align:left}
+td.etatc{text-align:left;color:var(--gris);font-size:.78rem}
+.vide{color:var(--gris);font-size:.85rem;margin:10px 0 0}
+.lienbas{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.lienbas button{font:inherit;font-size:.85rem;background:none;border:none;color:var(--bleu);
+  text-decoration:underline;padding:8px 0}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+.retour:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<a class="retour" href="../index.html#bts-et">&larr;&nbsp; Toutes les animations</a>
+
+<h1>Le chauffage</h1>
+<p class="sous">Une résistance chauffante plonge dans un récipient. Elle délivre une puissance connue pendant une durée mesurée.</p>
+
+<div class="bloc">
+  <canvas id="scene" width="620" height="330"></canvas>
+  <div class="lcd">
+    <div class="case"><div class="nom">Température</div><div class="val" id="vT">20,0<small>°C</small></div></div>
+    <div class="case"><div class="nom">Durée de chauffe</div><div class="val" id="vt">0<small>s</small></div></div>
+    <div class="large"><div class="nom">Énergie fournie par la résistance</div><div class="val" id="vE">P × t = 0 J</div></div>
+    <div class="etat">État du contenu : <b id="vEtat">liquide</b></div>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Contenu du récipient</h2>
+  <div class="choix" id="choixSub"></div>
+  <div class="reglage">
+    <div class="ligne"><span>Masse</span><b id="lm">200 g</b></div>
+    <input type="range" id="rm" min="50" max="1000" step="25" value="200">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Température de départ</span><b id="lT0">20 °C</b></div>
+    <input type="range" id="rT0" min="-20" max="40" step="5" value="20">
+  </div>
+  <h2 style="margin-top:18px">Résistance chauffante</h2>
+  <div class="reglage">
+    <div class="ligne"><span>Puissance</span><b id="lP">500 W</b></div>
+    <input type="range" id="rP" min="100" max="1500" step="50" value="500">
+  </div>
+  <div class="reglage">
+    <div class="ligne"><span>Vitesse de la simulation</span><b id="lV">×10</b></div>
+    <div class="choix" id="choixV"></div>
+  </div>
+  <div class="commandes">
+    <button id="marche">Chauffer</button>
+    <button id="raz">Remettre à zéro</button>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Température en fonction de l'énergie reçue</h2>
+  <canvas id="graphe" width="620" height="330"></canvas>
+  <div class="choix" id="choixX" style="margin-top:8px"></div>
+</div>
+
+<div class="bloc">
+  <h2>Vos mesures</h2>
+  <button id="relever">Relever la mesure</button>
+  <div id="zoneTable"><p class="vide">Aucune mesure. Réglez, chauffez, puis relevez.</p></div>
+  <div class="lienbas"><span class="aide">Le tableau reste tant que la page est ouverte.</span>
+    <button id="effacer">Tout effacer</button></div>
+</div>
+
+<script>
+"use strict";
+const SUBS = {
+  eau: {nom:"Eau", couleur:"#3E8FD0", solide:"#CFE6F5", T0min:-20, T0max:40,
+    segs:[{t:"c",c:2100,T1:-40,T2:0,e:"glace"},
+          {t:"L",L:334e3,T:0,e:"glace + eau liquide"},
+          {t:"c",c:4180,T1:0,T2:100,e:"eau liquide"},
+          {t:"L",L:2260e3,T:100,e:"eau liquide + vapeur"},
+          {t:"c",c:2000,T1:100,T2:400,e:"vapeur"}]},
+  huile:{nom:"Huile", couleur:"#D8B438", solide:"#EBD98F", T0min:0, T0max:40,
+    segs:[{t:"c",c:1900,T1:-20,T2:300,e:"liquide"}]},
+  alu:  {nom:"Aluminium", couleur:"#AEB8BF", solide:"#AEB8BF", T0min:0, T0max:40,
+    segs:[{t:"c",c:900,T1:-20,T2:600,e:"solide"}]},
+  cuivre:{nom:"Cuivre", couleur:"#C07A4B", solide:"#C07A4B", T0min:0, T0max:40,
+    segs:[{t:"c",c:385,T1:-20,T2:600,e:"solide"}]}
+};
+
+let sub="eau", m=0.200, P=500, T0=20, vitesse=10, axeX="E";
+let H=0, Hdep=0, temps=0, marche=false, mesures=[], trace=[];
+
+const dH = (s)=> s.t==="c" ? m*s.c*(s.T2-s.T1) : m*s.L;
+
+function HdeT(T){
+  let h=0;
+  for(const s of SUBS[sub].segs){
+    if(s.t==="c"){
+      if(T>=s.T2){h+=dH(s);} else if(T>s.T1){return h+m*s.c*(T-s.T1);} else {return h;}
+    } else { if(T>s.T){h+=dH(s);} else {return h;} }
+  }
+  return h;
+}
+function etatDeH(h){
+  let r=h;
+  for(const s of SUBS[sub].segs){
+    const d=dH(s);
+    if(r<=d || s===SUBS[sub].segs[SUBS[sub].segs.length-1]){
+      if(s.t==="c") return {T:Math.min(s.T2,s.T1+r/(m*s.c)), e:s.e, f:1, fin:r>d};
+      return {T:s.T, e:s.e, f:Math.max(0,Math.min(1,r/d)), palier:true};
+    }
+    r-=d;
+  }
+  return {T:0,e:"—",f:1};
+}
+
+/* ------- interface ------- */
+const $=id=>document.getElementById(id);
+function boutons(zone, liste, actif, cb){
+  zone.innerHTML="";
+  liste.forEach(([v,txt])=>{
+    const b=document.createElement("button");
+    b.textContent=txt; b.setAttribute("aria-pressed", v===actif());
+    b.onclick=()=>{cb(v); boutons(zone,liste,actif,cb);};
+    zone.appendChild(b);
+  });
+}
+boutons($("choixSub"), Object.keys(SUBS).map(k=>[k,SUBS[k].nom]), ()=>sub, v=>{
+  sub=v; const s=SUBS[v];
+  $("rT0").min=s.T0min; $("rT0").max=s.T0max;
+  if(T0<s.T0min||T0>s.T0max){T0=Math.min(s.T0max,Math.max(s.T0min,T0)); $("rT0").value=T0;}
+  $("lT0").textContent=T0+" °C";
+  raz();
+});
+boutons($("choixV"), [[1,"×1"],[10,"×10"],[60,"×60"]], ()=>vitesse, v=>{vitesse=v;$("lV").textContent="×"+v;});
+boutons($("choixX"), [["E","Énergie reçue en abscisse"],["t","Durée en abscisse"]], ()=>axeX, v=>{axeX=v;dessineGraphe();});
+
+$("rm").oninput=e=>{m=+e.target.value/1000; $("lm").textContent=e.target.value+" g"; raz();};
+$("rT0").oninput=e=>{T0=+e.target.value; $("lT0").textContent=T0+" °C"; raz();};
+$("rP").oninput=e=>{P=+e.target.value; $("lP").textContent=P+" W"; raz();};
+$("marche").onclick=()=>{marche=!marche; $("marche").textContent=marche?"Pause":"Chauffer";};
+$("raz").onclick=raz;
+
+function raz(){
+  marche=false; $("marche").textContent="Chauffer";
+  temps=0; Hdep=HdeT(T0); H=Hdep; trace=[];
+  maj(); dessineGraphe();
+}
+
+function maj(){
+  const s=etatDeH(H), E=P*temps;
+  $("vT").innerHTML=s.T.toFixed(1).replace(".",",")+'<small>°C</small>';
+  $("vt").innerHTML=temps<600? temps.toFixed(0)+'<small>s</small>'
+      : (temps/60).toFixed(1).replace(".",",")+'<small>min</small>';
+  const aff = E<1000 ? E.toFixed(0)+" J"
+            : E<1e6  ? (E/1000).toFixed(1).replace(".",",")+" kJ"
+                     : (E/1e6).toFixed(2).replace(".",",")+" MJ";
+  $("vE").textContent = P+" W × "+temps.toFixed(0)+" s = "+aff;
+  $("vEtat").textContent = s.palier ? s.e+" ("+Math.round(s.f*100)+" % transformé)" : s.e;
+  dessineScene(s);
+}
+
+/* ------- scène ------- */
+const cs=$("scene"), ctx=cs.getContext("2d");
+function dessineScene(s){
+  const W=cs.width,Hc=cs.height;
+  ctx.clearRect(0,0,W,Hc);
+  const S=SUBS[sub];
+  // bécher
+  const bx=60,by=55,bw=250,bh=210;
+  ctx.lineWidth=5; ctx.strokeStyle="#9FB0BC";
+  ctx.beginPath();ctx.moveTo(bx,by);ctx.lineTo(bx,by+bh);ctx.lineTo(bx+bw,by+bh);ctx.lineTo(bx+bw,by);ctx.stroke();
+  // contenu
+  const niv=0.72, ch=bh*niv, cy=by+bh-ch;
+  const vap = s.e.indexOf("vapeur")>=0;
+  ctx.fillStyle = s.palier&&s.e.indexOf("glace")>=0 ? S.solide
+                 : (s.e==="glace"||s.e==="solide") ? S.solide : S.couleur;
+  ctx.globalAlpha = vap&&s.f>0.9 ? 0.25 : 0.85;
+  ctx.fillRect(bx+3,cy,bw-6,ch); ctx.globalAlpha=1;
+  // glaçons pendant la fusion
+  if(sub==="eau" && (s.e==="glace"||s.e.indexOf("glace")>=0)){
+    const n = s.palier ? Math.round(5*(1-s.f))+1 : 6;
+    ctx.fillStyle="#F2FAFF"; ctx.strokeStyle="#B6D8EC"; ctx.lineWidth=2;
+    for(let i=0;i<n;i++){
+      const gx=bx+22+((i*57)%(bw-70)), gy=cy+14+((i*41)%(ch-60));
+      ctx.fillRect(gx,gy,36,26); ctx.strokeRect(gx,gy,36,26);
+    }
+  }
+  // bulles pendant la vaporisation
+  if(s.palier && s.e.indexOf("vapeur")>=0){
+    ctx.fillStyle="rgba(255,255,255,.85)";
+    for(let i=0;i<14;i++){
+      const px=bx+20+((i*79)%(bw-40));
+      const py=by+bh-20-((i*53+performance.now()*0.06)%(ch-20));
+      ctx.beginPath();ctx.arc(px,py,4+ (i%3),0,7);ctx.fill();
+    }
+  }
+  // résistance chauffante
+  const rx=bx+40, ry=by+bh-42;
+  const chaud=Math.min(1,P/1500);
+  ctx.strokeStyle = marche ? "rgb("+(210+40*chaud)+","+(90-60*chaud)+",30)" : "#8A99A4";
+  ctx.lineWidth=7; ctx.lineCap="round"; ctx.beginPath();
+  ctx.moveTo(rx,ry-46); ctx.lineTo(rx,ry);
+  for(let i=0;i<6;i++){ctx.lineTo(rx+(i+1)*(bw-80)/6, ry + (i%2?0:16));}
+  ctx.lineTo(rx+bw-80,ry-46); ctx.stroke(); ctx.lineCap="butt";
+  // thermomètre
+  const tx=400, ty=50, th=230;
+  ctx.strokeStyle="#9FB0BC"; ctx.lineWidth=3;
+  ctx.beginPath();ctx.roundRect(tx,ty,34,th,17);ctx.stroke();
+  ctx.beginPath();ctx.arc(tx+17,ty+th+6,22,0,7);ctx.fillStyle="#E4EAEF";ctx.fill();ctx.stroke();
+  const Tmin=-25,Tmax=125, fr=Math.max(0,Math.min(1,(s.T-Tmin)/(Tmax-Tmin)));
+  ctx.fillStyle="#D2392B";
+  ctx.beginPath();ctx.arc(tx+17,ty+th+6,17,0,7);ctx.fill();
+  ctx.fillRect(tx+8, ty+th-fr*(th-10), 18, fr*(th-10)+6);
+  ctx.font="14px "+getComputedStyle(document.body).fontFamily;
+  ctx.fillStyle="#5C6C79"; ctx.textAlign="left";
+  [[0,"0 °C"],[100,"100 °C"]].forEach(([v,lab])=>{
+    const y=ty+th-((v-Tmin)/(Tmax-Tmin))*(th-10);
+    ctx.strokeStyle="#C9D3DB";ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(tx+36,y);ctx.lineTo(tx+52,y);ctx.stroke();
+    ctx.fillText(lab,tx+58,y+5);
+  });
+  ctx.font="600 17px "+getComputedStyle(document.body).fontFamily;
+  ctx.fillStyle="#16232D"; ctx.fillText(S.nom+" — "+Math.round(m*1000)+" g", bx, 34);
+}
+
+/* ------- graphe ------- */
+const cg=$("graphe"), gx=cg.getContext("2d");
+function dessineGraphe(){
+  const W=cg.width,Hc=cg.height,ml=58,mb=44,mt=16,mr=16;
+  gx.clearRect(0,0,W,Hc);
+  gx.fillStyle="#5C6C79"; gx.font="14px "+getComputedStyle(document.body).fontFamily;
+  const xs = trace.map(p=> axeX==="E" ? p.E/1000 : p.t);
+  const xmax = Math.max(1, ...xs)*1.08;
+  const ys = trace.map(p=>p.T);
+  const ymin = Math.min(T0, ...ys)-4, ymax=Math.max(T0+10, ...ys)+8;
+  const X=v=>ml+(v/xmax)*(W-ml-mr), Y=v=>Hc-mb-((v-ymin)/(ymax-ymin))*(Hc-mb-mt);
+  // grille
+  gx.strokeStyle="#DCE4EA"; gx.lineWidth=1;
+  for(let i=0;i<=5;i++){
+    const y=Hc-mb-i*(Hc-mb-mt)/5, val=ymin+i*(ymax-ymin)/5;
+    gx.beginPath();gx.moveTo(ml,y);gx.lineTo(W-mr,y);gx.stroke();
+    gx.textAlign="right"; gx.fillText(val.toFixed(0),ml-8,y+5);
+    const x=ml+i*(W-ml-mr)/5, xv=i*xmax/5;
+    gx.beginPath();gx.moveTo(x,mt);gx.lineTo(x,Hc-mb);gx.stroke();
+    gx.textAlign="center"; gx.fillText(xv.toFixed(xmax<10?1:0),x,Hc-mb+20);
+  }
+  gx.strokeStyle="#8FA0AC";gx.lineWidth=2;
+  gx.beginPath();gx.moveTo(ml,mt);gx.lineTo(ml,Hc-mb);gx.lineTo(W-mr,Hc-mb);gx.stroke();
+  gx.textAlign="center"; gx.fillStyle="#16232D";
+  gx.fillText(axeX==="E"?"énergie reçue (kJ)":"durée (s)",(ml+W-mr)/2,Hc-8);
+  gx.save();gx.translate(16,(Hc-mb+mt)/2);gx.rotate(-Math.PI/2);
+  gx.fillText("température (°C)",0,0);gx.restore();
+  if(trace.length<2) return;
+  gx.strokeStyle="#D2392B"; gx.lineWidth=3; gx.beginPath();
+  trace.forEach((p,i)=>{const x=X(axeX==="E"?p.E/1000:p.t), y=Y(p.T); i?gx.lineTo(x,y):gx.moveTo(x,y);});
+  gx.stroke();
+  // points relevés
+  gx.fillStyle="#DD7A18";
+  mesures.forEach(r=>{ if(r.sub!==sub) return;
+    const x=X(axeX==="E"?r.E/1000:r.t), y=Y(r.T);
+    if(x<=W-mr&&y>=mt){gx.beginPath();gx.arc(x,y,5,0,7);gx.fill();}});
+}
+
+/* ------- tableau ------- */
+$("relever").onclick=()=>{
+  const s=etatDeH(H);
+  mesures.push({n:mesures.length+1, sub, nom:SUBS[sub].nom, m:m*1000, P, t:temps,
+                E:P*temps, T:s.T, e:s.palier? s.e+" ("+Math.round(s.f*100)+" %)" : s.e});
+  affTable(); dessineGraphe();
+};
+$("effacer").onclick=()=>{mesures=[];affTable();dessineGraphe();};
+function affTable(){
+  const z=$("zoneTable");
+  if(!mesures.length){z.innerHTML='<p class="vide">Aucune mesure. Réglez, chauffez, puis relevez.</p>';return;}
+  let h='<table><thead><tr><th>Contenu</th><th>m (g)</th><th>P (W)</th><th>t (s)</th>'
+       +'<th>E (kJ)</th><th>θ (°C)</th></tr></thead><tbody>';
+  mesures.forEach(r=>{
+    h+='<tr><td>'+r.nom+'</td><td>'+r.m.toFixed(0)+'</td><td>'+r.P+'</td><td>'+r.t.toFixed(0)
+      +'</td><td>'+(r.E/1000).toFixed(1).replace(".",",")+'</td><td>'+r.T.toFixed(1).replace(".",",")+'</td></tr>'
+      +'<tr><td class="etatc" colspan="6">'+r.e+'</td></tr>';
+  });
+  z.innerHTML=h+'</tbody></table>';
+}
+
+/* ------- boucle ------- */
+let last=performance.now();
+function boucle(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  if(marche){
+    const dts=dt*vitesse;
+    const s0=etatDeH(H);
+    if(!s0.fin){
+      temps+=dts; H+=P*dts;
+      const s=etatDeH(H);
+      if(trace.length===0 || P*temps-trace[trace.length-1].E > 200 || temps-trace[trace.length-1].t>0.5)
+        trace.push({E:P*temps,t:temps,T:s.T});
+      if(trace.length>4000) trace=trace.filter((_,i)=>i%2===0);
+      dessineGraphe();
+    } else { marche=false; $("marche").textContent="Chauffer"; }
+    maj();
+  } else dessineScene(etatDeH(H));
+  requestAnimationFrame(boucle);
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){
+  CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){
+    this.moveTo(x+r,y);this.arcTo(x+w,y,x+w,y+h,r);this.arcTo(x+w,y+h,x,y+h,r);
+    this.arcTo(x,y+h,x,y,r);this.arcTo(x,y,x+w,y,r);this.closePath();return this;};
+}
+raz(); affTable(); requestAnimationFrame(boucle);
+</script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+/* Genere par outils/construire.py — ne pas editer a la main.
+   1sti2d · chapitre 13 · Combustions et carburants
+   Les QCM viennent de ch13_prerequis.tex et ch13_bilan.tex,
+   les cartes de cartes/cartes-1sti2d-ch13.json. */
+window.CHAPITRE = {
+ "filiere": "1sti2d",
+ "num": "13",
+ "titre": "Combustions et carburants",
+ "niveau": "1re STI2D",
+ "prerequis": [
+  {
+   "q": "Dans une combustion, le <strong>comburant</strong> est en général :",
+   "choix": [
+    "le dioxyde de carbone CO₂",
+    "le dioxygène O₂",
+    "le diazote N₂",
+    "la vapeur d'eau"
+   ],
+   "bonne": 1,
+   "expl": ""
+  },
+  {
+   "q": "Combien d'atomes au total la molécule C₃H₈ contient-elle ?",
+   "choix": [
+    "3",
+    "8",
+    "11",
+    "24"
+   ],
+   "bonne": 2,
+   "expl": "3 carbones et 8 hydrogènes, soit 11 atomes"
+  },
+  {
+   "q": "Dans une molécule, l'atome de carbone forme :",
+   "choix": [
+    "1 liaison",
+    "2 liaisons",
+    "3 liaisons",
+    "4 liaisons"
+   ],
+   "bonne": 3,
+   "expl": ""
+  },
+  {
+   "q": "Une recette demande 3 œufs pour 2 personnes. Pour 6 personnes, il faut :",
+   "choix": [
+    "6 œufs",
+    "9 œufs",
+    "12 œufs",
+    "18 œufs"
+   ],
+   "bonne": 1,
+   "expl": "proportionnalité : 3 fois plus de personnes, 3 fois plus d'œufs"
+  },
+  {
+   "q": "Le résultat de 8 × 6,0 × 10²³ s'écrit :",
+   "choix": [
+    "4,8×10²³",
+    "4,8×10²⁴",
+    "48×10²³",
+    "1,4×10²⁴"
+   ],
+   "bonne": 1,
+   "expl": "8 × 6,0 = 48, soit 48 × 10²³ = 4,8 × 10²⁴"
+  },
+  {
+   "q": "Une bouteille contient 2,5 L d'un liquide de masse volumique 0,80 kg/L. Sa masse est :",
+   "choix": [
+    "0,32 kg",
+    "2,0 kg",
+    "3,3 kg",
+    "3,1 kg"
+   ],
+   "bonne": 1,
+   "expl": "m = ρV = 0,80 × 2,5 = 2,0 kg"
+  },
+  {
+   "q": "Convertir 37,5 kg en grammes :",
+   "choix": [
+    "375 g",
+    "3750 g",
+    "37 500 g",
+    "0,0375 g"
+   ],
+   "bonne": 2,
+   "expl": ""
+  }
+ ],
+ "bilan": [
+  {
+   "q": "Au cours d'une transformation chimique :",
+   "choix": [
+    "des atomes disparaissent",
+    "les atomes sont conservés et réorganisés",
+    "des atomes se créent",
+    "les atomes changent de nature"
+   ],
+   "bonne": 1,
+   "expl": ""
+  },
+  {
+   "q": "Pour équilibrer une équation, on modifie :",
+   "choix": [
+    "les coefficients devant les formules",
+    "les indices dans les formules",
+    "la nature des produits",
+    "rien du tout"
+   ],
+   "bonne": 0,
+   "expl": "on ne touche jamais aux indices"
+  },
+  {
+   "q": "Dans une combustion, on équilibre l'oxygène <strong>en dernier</strong> parce que :",
+   "choix": [
+    "il est le plus lourd",
+    "il n'apparaît qu'une fois",
+    "O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres",
+    "c'est un produit"
+   ],
+   "bonne": 2,
+   "expl": ""
+  },
+  {
+   "q": "L'équation CH₄ + O₂ → CO₂ + H₂O équilibrée s'écrit :",
+   "choix": [
+    "CH₄ + O₂ → CO₂ + H₂O",
+    "2 CH₄ + O₂ → 2 CO₂ + H₂O",
+    "CH₄ + 2 O₂ → CO₂ + H₂O",
+    "CH₄ + 2 O₂ → CO₂ + 2 H₂O"
+   ],
+   "bonne": 3,
+   "expl": ""
+  },
+  {
+   "q": "La molécule C₄H₈ appartient à la famille des :",
+   "choix": [
+    "alcanes",
+    "alcools",
+    "alcènes",
+    "acides"
+   ],
+   "bonne": 2,
+   "expl": "C<sub>n</sub>H<sub>2n</sub> avec n = 4"
+  },
+  {
+   "q": "Le groupe caractéristique des alcools est :",
+   "choix": [
+    "-COOH",
+    "-CH₃",
+    "C=C",
+    "-OH"
+   ],
+   "bonne": 3,
+   "expl": ""
+  },
+  {
+   "q": "Une mole contient :",
+   "choix": [
+    "12 entités",
+    "6,02 × 10²³ entités",
+    "6,02 × 10⁻²³ entités",
+    "1000 entités"
+   ],
+   "bonne": 1,
+   "expl": ""
+  },
+  {
+   "q": "0,5 mol de molécules, cela représente :",
+   "choix": [
+    "3,01 × 10²³ molécules",
+    "environ 3 molécules",
+    "presque rien",
+    "1,2 × 10²⁴ molécules"
+   ],
+   "bonne": 0,
+   "expl": "la moitié de 6,02 × 10²³"
+  },
+  {
+   "q": "La masse molaire du dioxyde de carbone CO₂ vaut :",
+   "choix": [
+    "44 g/mol",
+    "28 g/mol",
+    "32 g/mol",
+    "12 g/mol"
+   ],
+   "bonne": 0,
+   "expl": "12 + 2 × 16 = 44"
+  },
+  {
+   "q": "La quantité de matière contenue dans 88 g de CO₂ vaut :",
+   "choix": [
+    "0,5 mol",
+    "2 mol",
+    "44 mol",
+    "3872 mol"
+   ],
+   "bonne": 1,
+   "expl": "n = 88/44 = 2 mol"
+  },
+  {
+   "q": "Le <strong>réactif limitant</strong> est celui qui :",
+   "choix": [
+    "est présent en plus grande quantité",
+    "a la plus grande masse molaire",
+    "reste à la fin",
+    "s'épuise le premier"
+   ],
+   "bonne": 3,
+   "expl": ""
+  },
+  {
+   "q": "Une combustion <strong>incomplète</strong> se produit lorsque :",
+   "choix": [
+    "le combustible est limitant",
+    "la température est trop élevée",
+    "le dioxygène est limitant",
+    "il n'y a pas d'énergie d'activation"
+   ],
+   "bonne": 2,
+   "expl": ""
+  }
+ ],
+ "cartes": [
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Conservation des atomes » ?",
+   "verso": "Au cours d'une transformation chimique, il y a <strong>autant d'atomes de chaque élément</strong> avant et après la réaction. C'est ce principe qui impose d'<strong>équilibrer</strong> l'équation.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Réactif limitant » ?",
+   "verso": "Le <strong>réactif limitant</strong> est celui qui s'épuise le premier. C'est lui — et lui seul — qui fixe la quantité de produits formés. Les autres réactifs, présents <strong>en excès</strong>, subsistent à la fin.",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « La mole » ?",
+   "verso": "Une <strong>mole</strong> d'entités contient N_A = 6,02×10²³ entités. Ce nombre s'appelle la <strong>constante d'Avogadro</strong>. La quantité de matière n s'exprime en <strong>moles</strong> (mol).",
+   "origine": "definition du cours"
+  },
+  {
+   "type": "trou",
+   "recto": "Au cours d'une transformation chimique, il y a …… avant et après la réaction.",
+   "rep": "autant d'atomes de chaque élément",
+   "verso": "<strong>autant d'atomes de chaque élément</strong>",
+   "origine": "cours a completer"
+  },
+  {
+   "type": "question",
+   "recto": "Au cours d'une transformation chimique ……",
+   "rep": "les atomes sont conservés et réorganisés",
+   "verso": "<strong>les atomes sont conservés et réorganisés</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Pour équilibrer une équation, on modifie ……",
+   "rep": "les coefficients devant les formules",
+   "verso": "<strong>les coefficients devant les formules</strong> — on ne touche jamais aux indices",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Dans une combustion, on équilibre l'oxygène <strong>en dernier</strong> parce que ……",
+   "rep": "O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres",
+   "verso": "<strong>O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'équation CH₄ + O₂ → CO₂ + H₂O équilibrée s'écrit ……",
+   "rep": "CH₄ + 2 O₂ → CO₂ + 2 H₂O",
+   "verso": "<strong>CH₄ + 2 O₂ → CO₂ + 2 H₂O</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La molécule C₄H₈ appartient à la famille des ……",
+   "rep": "alcènes",
+   "verso": "<strong>alcènes</strong> — C<sub>n</sub>H<sub>2n</sub> avec n = 4",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le groupe caractéristique des alcools est ……",
+   "rep": "-OH",
+   "verso": "<strong>-OH</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une mole contient ……",
+   "rep": "6,02 × 10²³ entités",
+   "verso": "<strong>6,02 × 10²³ entités</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La masse molaire du dioxyde de carbone CO₂ vaut ……",
+   "rep": "44 g/mol",
+   "verso": "<strong>44 g/mol</strong> — 12 + 2 × 16 = 44",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La quantité de matière contenue dans 88 g de CO₂ vaut ……",
+   "rep": "2 mol",
+   "verso": "<strong>2 mol</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le <strong>réactif limitant</strong> est celui qui ……",
+   "rep": "s'épuise le premier",
+   "verso": "<strong>s'épuise le premier</strong>",
+   "origine": "bilan"
+  }
+ ]
+};
