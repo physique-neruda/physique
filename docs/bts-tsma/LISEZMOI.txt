@@ -1,3 +1,0 @@
-Déposer ici les PDF de cette filière, puis les inscrire dans catalogue.js.
-Ce fichier ne sert qu à garder le dossier dans le dépôt : il peut être supprimé
-dès qu un premier document est déposé.
