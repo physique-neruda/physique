@@ -49,5 +49,9 @@ window.ACCES_PROF = {
       "iv": "HJtQYfJcDxGFnpbZ",
       "cle": "0mpb6jHCemB8usw762V5qe4T3SfbkKtXrWRUmZ5utbkmKw+aqqPxhoF5wvkhF8Z5"
     }
+  },
+  "prive": {
+    "iv": "eQgaeKKsY8DFWJUo",
+    "cle": "v7gIOwZb0OHPHlr3Yz///fTpvM85CmuIYH4lpS3J5s/uzf6mACqsqr5N1OvofRrl"
   }
 };

@@ -261,6 +261,8 @@ function vueAccueil(){
           +   '<div class="compte">' + compte + '</div>'
           + '</a>';
   });
+  if(CLE_PRIVE) html += '<a class="filiere" href="#prive" style="border-left-color:var(--teal)">'
+    + '<span class="nom">Espace enseignant</span><div class="st">Visible seulement sur cet appareil, code enseignant saisi</div></a>';
   document.getElementById("vue").innerHTML = html;
 }
 
@@ -396,6 +398,8 @@ function rendu(){
 /* ---------- navigation ---------- */
 function surHash(){
   var h = (location.hash || "").replace(/^#/, "");
+  if(h === "prive"){ vueFiliere = null; vueChapitre = null; recherche = "";
+                     document.getElementById("q").value = ""; vuePrive(); window.scrollTo(0,0); return; }
   var bouts = h.split("/");
   vueFiliere = bouts[0] && laFiliere(bouts[0]) ? bouts[0] : null;
   vueChapitre = (vueFiliere && bouts[1]) ? bouts[1] : null;
@@ -513,9 +517,10 @@ function demander(fil){
   }
   dlgFil = fil;
   var f = laFiliere(fil);
-  document.getElementById("mdp-titre").textContent = f ? f.nom : fil;
-  document.getElementById("mdp-texte").textContent =
-    "Documents réservés aux élèves de la classe. Le mot de passe est donné en cours.";
+  document.getElementById("mdp-titre").textContent = f ? f.nom : "Espace enseignant";
+  document.getElementById("mdp-texte").textContent = f
+    ? "Documents réservés aux élèves de la classe. Le mot de passe est donné en cours."
+    : "Saisir le code enseignant.";
   document.getElementById("mdp-classe").value = "physique-" + fil;
   document.getElementById("mdp-champ").value = "";
   document.getElementById("mdp-erreur").textContent = "";
@@ -536,9 +541,15 @@ document.getElementById("mdp-form").addEventListener("submit", function(e){
     ecrire(session(), "acces-" + f, trace);
     if(garder) ecrire(memoire(), "acces-" + f, trace);
   }
-  deriver(fil, mot).then(function(bits){
-    return importer(bits, false).then(function(k){
-      return verifier(fil, k).then(function(ok){
+  var essai = ACCES[fil]
+    ? deriver(fil, mot).then(function(bits){
+        return importer(bits, false).then(function(k){
+          return verifier(fil, k).then(function(ok){ return {ok: ok, k: k, bits: bits}; });
+        });
+      })
+    : Promise.resolve({ok: false});
+  essai.then(function(r){ var k = r.k, bits = r.bits;
+    return (function(ok){
         if(ok){
           CLES[fil] = k; memoriser(fil, bits);
           fermerDlg(); rendu();
@@ -548,11 +559,12 @@ document.getElementById("mdp-form").addEventListener("submit", function(e){
         /* pas le mot de passe de la classe : peut-être le code enseignant */
         return essayerProf(mot, memoriser).then(function(okProf){
           if(!okProf){ err.textContent = "Mot de passe incorrect."; return; }
-          fermerDlg(); rendu();
+          fermerDlg();
+          if(location.hash === "#prive"){ surHash(); return; }
+          rendu();
           avertir("Accès enseignant : toutes les classes sont ouvertes.");
         });
-      });
-    });
+    })(r.ok);
   }).catch(function(){ err.textContent = "Impossible de vérifier le mot de passe."; })
     .then(function(){ btn.disabled = false; btn.textContent = "Ouvrir"; });
 });
@@ -578,7 +590,20 @@ function essayerProf(mot, memoriser){
             .then(function(brut){
               return importer(brut, false).then(function(k){ CLES[f] = k; memoriser(f, brut); });
             });
-        })).then(function(){ return true; });
+        })).then(function(){
+          if(!PROF.prive) return true;
+          return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(PROF.prive.iv),
+                                        additionalData:new TextEncoder().encode("prive")}, kp, deB64(PROF.prive.cle))
+            .then(function(brut){
+              return importer(brut, false).then(function(k){
+                CLE_PRIVE = k;
+                var trace = JSON.stringify({sel: PROF.sel, k: versB64(brut)});
+                ecrire(session(), "acces-prive", trace);
+                if(document.getElementById("mdp-souvenir").checked) ecrire(memoire(), "acces-prive", trace);
+                return true;
+              });
+            });
+        });
       });
   });
 }
@@ -596,20 +621,22 @@ function ouvrirProtege(a){
   var fil = a.getAttribute("data-fil"), fichier = a.getAttribute("data-fichier");
   var k = CLES[fil];
   if(!k){ demander(fil); return; }
-  var pdf = /\.pdf$/i.test(fichier);
+  ouvrirChiffre(a, k, fichier + ".enc", fichier, nomTelecharge(fichier), /\.pdf$/i.test(fichier));
+}
+function ouvrirChiffre(a, k, url, aad, nom, pdf){
   /* L'onglet doit s'ouvrir tout de suite, pendant le geste de l'élève,
      sinon le navigateur le bloque. Il est rempli quand le déchiffrement finit.
      Android ne sait pas afficher un PDF de cette façon : on le télécharge. */
   var w = (pdf && !ANDROID) ? window.open("", "_blank") : null;
   if(w){ try{ w.document.write('<p style="font:16px sans-serif;padding:20px">Ouverture du document…</p>'); }catch(e){} }
   a.classList.add("attente");
-  fetch(fichier + ".enc", {cache: "no-cache"})
+  fetch(url, {cache: "no-cache"})
     .then(function(r){ if(!r.ok) throw new Error("absent"); return r.arrayBuffer(); })
     .then(function(buf){
       var u = new Uint8Array(buf);
       if(String.fromCharCode(u[0],u[1],u[2],u[3]) !== "NRD1") throw new Error("format");
       return crypto.subtle.decrypt({name:"AES-GCM", iv:u.slice(4,16),
-                                    additionalData:new TextEncoder().encode(fichier)}, k, u.slice(16));
+                                    additionalData:new TextEncoder().encode(aad)}, k, u.slice(16));
     })
     .then(function(clair){
       var blob = new Blob([clair], {type: pdf ? "application/pdf" : "application/octet-stream"});
@@ -617,7 +644,7 @@ function ouvrirProtege(a){
       if(w){ w.location.href = url; }
       else{
         var l = document.createElement("a");
-        l.href = url; l.download = nomTelecharge(fichier);
+        l.href = url; l.download = nom;
         document.body.appendChild(l); l.click(); l.remove();
       }
       setTimeout(function(){ URL.revokeObjectURL(url); }, 120000);
@@ -630,14 +657,89 @@ function ouvrirProtege(a){
     })
     .then(function(){ a.classList.remove("attente"); });
 }
+/* ======================================================================
+   ESPACE ENSEIGNANT (#prive) — invisible depuis l'accueil. Les fichiers sont
+   dans prive/ sous des noms opaques ; leur liste (prive/index.enc) est
+   chiffrée elle aussi. Seul le code enseignant donne la clé.
+   ====================================================================== */
+var CLE_PRIVE = null, INDEX_PRIVE = null;
+function restaurerPrive(){
+  if(!PROF || !PROF.prive || !window.crypto || !crypto.subtle) return Promise.resolve();
+  var brut = lire(session(), "acces-prive") || lire(memoire(), "acces-prive");
+  if(!brut) return Promise.resolve();
+  var o; try{ o = JSON.parse(brut); }catch(e){ o = null; }
+  if(!o || o.sel !== PROF.sel){ oublier(session(), "acces-prive"); oublier(memoire(), "acces-prive"); return Promise.resolve(); }
+  return importer(deB64(o.k), false).then(function(k){ CLE_PRIVE = k; }, function(){});
+}
+function fermerPrive(){
+  CLE_PRIVE = null; INDEX_PRIVE = null;
+  oublier(session(), "acces-prive"); oublier(memoire(), "acces-prive");
+  Object.keys(CLES).forEach(function(f){ fermerAcces(f); });
+  location.hash = "";
+}
+function chargerIndexPrive(){
+  if(INDEX_PRIVE) return Promise.resolve(INDEX_PRIVE);
+  return fetch("prive/index.enc", {cache: "no-cache"})
+    .then(function(r){ if(!r.ok) throw new Error("absent"); return r.arrayBuffer(); })
+    .then(function(buf){
+      var u = new Uint8Array(buf);
+      return crypto.subtle.decrypt({name:"AES-GCM", iv:u.slice(4,16),
+               additionalData:new TextEncoder().encode("prive/index")}, CLE_PRIVE, u.slice(16));
+    })
+    .then(function(t){ INDEX_PRIVE = JSON.parse(new TextDecoder().decode(t)); return INDEX_PRIVE; });
+}
+function taille(n){ return n > 1e6 ? (n/1e6).toFixed(1).replace(".", ",") + " Mo" : Math.round(n/1e3) + " ko"; }
+function vuePrive(){
+  document.getElementById("chips").innerHTML = "";
+  document.getElementById("bandeau").innerHTML = "";
+  var fil = document.getElementById("fil");
+  fil.hidden = false; fil.innerHTML = '<a href="#">Toutes les filières</a> &nbsp;›&nbsp; Espace enseignant';
+  var vue = document.getElementById("vue");
+  if(!PROF || !PROF.prive){ vue.innerHTML = '<p class="rien">Rien ici.</p>'; return; }
+  if(!CLE_PRIVE){
+    vue.innerHTML = '<h2>Espace enseignant</h2><div class="acces ferme"><span>' + CADENAS
+      + 'Réservé à l\'enseignant.</span><button type="button" id="prive-ouvrir">Saisir le code</button></div>';
+    document.getElementById("prive-ouvrir").onclick = function(){ demander("prof"); };
+    return;
+  }
+  vue.innerHTML = '<p class="rien">Déchiffrement de la liste…</p>';
+  chargerIndexPrive().then(function(liste){
+    var noms = {livres: "Livres du professeur"};
+    FILIERES.forEach(function(f){ noms[f.id] = f.nom; });
+    var html = '<h2>Espace enseignant</h2><div class="acces ouvert"><span>' + liste.length
+      + ' documents : corrigés complets, tests, épreuves, livres du professeur.</span>'
+      + '<button type="button" id="prive-fermer">Fermer l\'accès</button></div>';
+    var filCour = null, chCour = null;
+    liste.forEach(function(d){
+      if(d.fil !== filCour){ filCour = d.fil; chCour = null; html += '<h2>' + echappe(noms[d.fil] || d.fil) + '</h2>'; }
+      if(d.fil !== "livres" && d.ch !== chCour){ chCour = d.ch; html += '<h3>' + echappe(d.chapitre) + '</h3>'; }
+      html += '<a class="item pdf" href="#" data-prive="' + echappe(d.id) + '" data-nom="' + echappe(d.nom) + '">'
+            + '<span class="marque">PDF</span><span class="corps"><span class="nom">' + echappe(d.titre)
+            + '</span><span class="ou">' + taille(d.taille) + '</span></span></a>';
+    });
+    vue.innerHTML = html;
+    document.getElementById("prive-fermer").onclick = fermerPrive;
+  }).catch(function(){
+    vue.innerHTML = '<p class="rien">La liste n\'a pas pu être déchiffrée. Le code a peut-être changé : le saisir à nouveau.</p>';
+    CLE_PRIVE = null; oublier(session(), "acces-prive"); oublier(memoire(), "acces-prive");
+  });
+}
+
 document.addEventListener("click", function(e){
+  var p = e.target.closest && e.target.closest("a[data-prive]");
+  if(p){
+    e.preventDefault();
+    var id = p.getAttribute("data-prive");
+    ouvrirChiffre(p, CLE_PRIVE, "prive/" + id + ".enc", "prive/" + id, p.getAttribute("data-nom"), true);
+    return;
+  }
   var a = e.target.closest && e.target.closest("a[data-verrou]");
   if(!a) return;
   e.preventDefault();
   ouvrirProtege(a);
 });
 
-restaurer().then(surHash, surHash);
+Promise.all([restaurer(), restaurerPrive()]).then(surHash, surHash);
 </script>
 </body>
 </html>

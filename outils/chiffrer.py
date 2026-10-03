@@ -27,6 +27,11 @@ CODE ENSEIGNANT : un code unique (bloc "_prof" du fichier des mots de passe) ouv
 toutes les filières d'un coup. Il se saisit dans la même fenêtre que le mot de passe
 de classe. Le changer : --nouveau prof (ou --nouveau prof --mot "…").
 
+ESPACE ENSEIGNANT CACHÉ : --prive ../prive-atelier chiffre tout ce dossier (corrigés
+complets, tests, livres du professeur) avec une clé à part (bloc "_prive"), que seul le
+code enseignant ouvre. Fichiers publiés sous des noms opaques dans prive/, liste comprise.
+On y accède par l'adresse …/physique/#prive.
+
 Principe cryptographique (de quoi vérifier, rien à régler) :
   - clé de la filière  = PBKDF2-HMAC-SHA256(mot de passe, sel, 300 000 tours), 32 octets ;
   - chaque fichier     = "NRD1" + IV (12 octets) + AES-256-GCM(contenu),
@@ -39,7 +44,7 @@ Principe cryptographique (de quoi vérifier, rien à régler) :
     témoin chiffré qui permet à la page de dire « mot de passe incorrect ».
     Le mot de passe lui-même n'est écrit nulle part dans le site.
 """
-import argparse, base64, hashlib, hmac, json, os, secrets, shutil, sys
+import argparse, base64, glob, hashlib, hmac, json, os, re, secrets, shutil, sys
 
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
@@ -123,15 +128,87 @@ def charger_cles(chemin, nouveau, mot_impose):
             "-".join(secrets.choice(MOTS) for _ in range(4)) + "-" + str(secrets.randbelow(90) + 10))
         cles["_prof"] = {"mot_de_passe": mot, "sel": b64(secrets.token_bytes(16)), "tours": TOURS}
         print(f"  nouveau code enseignant : {mot}")
+    # espace enseignant caché : une clé aléatoire, tirée une fois pour toutes
+    if "_prive" not in cles:
+        cles["_prive"] = {"cle": b64(secrets.token_bytes(32)), "id": b64(secrets.token_bytes(8))}
     cles["_note"] = ("Fichier SECRET. Ne pas déposer sur GitHub. Un bloc par filière "
                      "protégée ; supprimer un bloc rend la filière publique.")
     with open(chemin, "w", encoding="utf-8") as f:
         json.dump(cles, f, ensure_ascii=False, indent=2)
-    return {k: v for k, v in cles.items() if not k.startswith("_")}, cles["_prof"]
+    return {k: v for k, v in cles.items() if not k.startswith("_")}, cles["_prof"], cles["_prive"]
+
+
+# ------------------------------------------------------- espace enseignant
+TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qui colle
+    (r"^test_corrige$", "Test — corrigé"), (r"^test$", "Test — sujet"),
+    (r"^exercices_corrige$", "Exercices — corrigé complet"),
+    (r"^activite_corrige$", "Activité — corrigé"), (r"^activite2_corrige$", "Activité 2 — corrigé"),
+    (r"^activite_anim_corrige$", "Activité sur animation — corrigé"),
+    (r"^activite_banc_corrige$", "Activité au banc — corrigé"),
+    (r"^a(\d)_(\w+)_corrige$", "Activité {0} ({1}) — corrigé"),
+    (r"^ccf_corrige$", "Situation type CCF — corrigé"), (r"^devoir_corrige$", "Devoir type E32 — corrigé"),
+    (r"^oral_corrige$", "Oral — corrigé"), (r"^e4_corrige$", "Sujet type E4 — corrigé"),
+    (r"^u51_corrige$", "Situation U51 — corrigé"), (r"^diagnostic_corrige$", "Questionnaire diagnostique — corrigé"),
+]
+ORDRE_PRIVE = ["test", "test_corrige", "exercices_corrige", "activite_corrige", "activite2_corrige",
+               "activite_anim_corrige", "activite_banc_corrige", "ccf_corrige", "devoir_corrige",
+               "oral_corrige", "e4_corrige", "u51_corrige", "diagnostic_corrige"]
+
+
+def titre_prive(nom):
+    for motif, titre in TITRES_PRIVES:
+        m = re.match(motif, nom)
+        if m:
+            return titre.format(*[g.replace("_", " ") for g in m.groups()])
+    return nom.replace("_", " ")
+
+
+def fabriquer_prive(prive_dir, sortie, k, atelier):
+    """prive-atelier/<filière>/<chapitre>/<doc>.pdf et prive-atelier/livres/*.pdf
+    -> sortie/prive/<identifiant>.enc + sortie/prive/index.enc (la liste, chiffrée elle
+    aussi). Les noms publiés sont des identifiants opaques : rien ne dit ce qu'il y a."""
+    prive_dir = os.path.abspath(prive_dir)
+    if prive_dir.startswith(os.path.abspath(atelier) + os.sep):
+        sys.exit("Le dossier de l'espace enseignant ne doit pas être dans le dossier du site.")
+    dest = os.path.join(sortie, "prive")
+    os.makedirs(dest, exist_ok=True)
+    chap = {}
+    for f in glob.glob(os.path.join(atelier, "chapitres", "*.json")):
+        with open(f, encoding="utf-8") as h:
+            chap[os.path.basename(f)[:-5]] = {c: v["titre"] for c, v in json.load(h).items()}
+    entrees = []
+    for racine, _, fichiers in os.walk(prive_dir):
+        for nom in sorted(fichiers):
+            if not nom.lower().endswith(".pdf"):
+                continue
+            rel = os.path.relpath(os.path.join(racine, nom), prive_dir).replace("\\", "/")
+            parts = rel.split("/")
+            ident = hmac.new(k, ("fichier|" + rel).encode(), hashlib.sha256).hexdigest()[:20]
+            with open(os.path.join(racine, nom), "rb") as h:
+                donnees = h.read()
+            with open(os.path.join(dest, ident + ".enc"), "wb") as h:
+                h.write(chiffrer(k, "prive/" + ident, donnees))
+            doc = nom[:-4]
+            if parts[0] == "livres":
+                e = {"fil": "livres", "ch": "", "chapitre": "Livres du professeur",
+                     "titre": doc.replace("Livre_professeur_", "Livre du professeur — ").replace("_", " "),
+                     "ordre": 0}
+            else:
+                fil, ch = parts[0], parts[1]
+                e = {"fil": fil, "ch": ch, "chapitre": chap.get(fil, {}).get(ch, ch),
+                     "titre": titre_prive(doc),
+                     "ordre": ORDRE_PRIVE.index(doc) if doc in ORDRE_PRIVE else 50}
+            e.update({"id": ident, "nom": rel.replace("/", "-"), "taille": len(donnees)})
+            entrees.append(e)
+    entrees.sort(key=lambda e: (e["fil"] != "livres", e["fil"], e["ch"], e["ordre"], e["titre"]))
+    brut = json.dumps(entrees, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    with open(os.path.join(dest, "index.enc"), "wb") as h:
+        h.write(chiffrer(k, "prive/index", brut))
+    return len(entrees)
 
 
 # ------------------------------------------------------------ fabrication
-def fabriquer(atelier, sortie, cles, prof=None):
+def fabriquer(atelier, sortie, cles, prof=None, prive=None, prive_dir=None):
     atelier, sortie = os.path.abspath(atelier), os.path.abspath(sortie)
     if sortie.startswith(atelier + os.sep) or sortie == atelier:
         sys.exit("La sortie doit être un dossier À CÔTÉ de l'atelier, pas dedans.")
@@ -190,6 +267,12 @@ def fabriquer(atelier, sortie, cles, prof=None):
             env[fil] = {"iv": b64(iv), "cle": b64(AESGCM(kp).encrypt(iv, k, fil.encode()))}
         acces_prof = {"sel": prof["sel"], "tours": prof["tours"], "iv": b64(ivp),
                       "temoin": b64(tp), "cles": env}
+        if prive and prive_dir:
+            kpr = base64.b64decode(prive["cle"])
+            iv = hmac.new(kp, ("enveloppe|prive|" + prive["id"]).encode(), hashlib.sha256).digest()[:12]
+            acces_prof["prive"] = {"iv": b64(iv), "cle": b64(AESGCM(kp).encrypt(iv, kpr, b"prive"))}
+            nb_prive = fabriquer_prive(prive_dir, sortie, kpr, atelier)
+            print(f"  espace enseignant : {nb_prive} documents chiffrés")
     with open(os.path.join(sortie, "acces.js"), "w", encoding="utf-8") as f:
         f.write("/* acces.js — fabriqué par outils/chiffrer.py, ne pas modifier.\n"
                 "   Filières dont les documents sont chiffrés. Le mot de passe n'y\n"
@@ -221,12 +304,14 @@ if __name__ == "__main__":
     ap.add_argument("--cles", required=True, help="fichier des mots de passe (hors site)")
     ap.add_argument("--nouveau", nargs="*", default=[], help="filières à qui changer le mot de passe")
     ap.add_argument("--mot", default=None, help="mot de passe imposé avec --nouveau (une filière)")
+    ap.add_argument("--prive", default=None,
+                    help="dossier de l'espace enseignant (corrigés, livres du professeur), HORS du site")
     a = ap.parse_args()
     if a.mot and len(a.nouveau) != 1:
         sys.exit("--mot s'emploie avec une seule filière après --nouveau.")
     if os.path.abspath(a.cles).startswith(os.path.abspath(a.atelier) + os.sep):
         sys.exit("Le fichier des mots de passe ne doit pas être dans le dossier du site.")
-    cles, prof = charger_cles(a.cles, set(a.nouveau), a.mot)
-    clair, chiffre = fabriquer(a.atelier, a.sortie, cles, prof)
+    cles, prof, prive = charger_cles(a.cles, set(a.nouveau), a.mot)
+    clair, chiffre = fabriquer(a.atelier, a.sortie, cles, prof, prive, a.prive)
     print(f"{a.sortie} fabriqué : {clair} fichiers copiés tels quels, "
           + ", ".join(f"{n} chiffrés pour {f}" for f, n in chiffre.items()))

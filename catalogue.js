@@ -1486,6 +1486,608 @@ const DOCUMENTS = [
   },
 
 
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/tp05/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/tp05/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/tp05/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/tp05/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/tp05/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/tp05/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/tp05/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/tp05/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/tp05/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/tp05/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp05&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 5 — Les transformateurs",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=tp05",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/tp06/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/tp06/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/tp06/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/tp06/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/tp06/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/tp06/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/tp06/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/tp06/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/tp06/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 6 — Le redressement",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/tp06/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 6 — Le redressement",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp06&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 6 — Le redressement",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=tp06",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/tp07/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/tp07/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/tp07/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/tp07/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/tp07/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/tp07/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/tp07/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/tp07/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/tp07/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/tp07/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=tp07&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "TP 7 — Le régime non sinusoïdal",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=tp07",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/c04/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "animation", titre: "Pression au fond d'une éprouvette",
+    fichier: "animations/eprouvette-pression.html",
+    description: "Une éprouvette d'eau ou d'huile et un capteur de pression absolue au fond : on relève la pression pour plusieurs hauteurs et on retrouve Δp = ρgh.",
+    trouve: "La pente de p = f(h) vaut ρg : elle donne la masse volumique du liquide.",
+    motscles: ["pression", "rho g h", "capteur", "masse volumique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Activité au simulateur — La pression au fond d'un liquide",
+    fichier: "docs/bts-et/c04/a1_pression.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/c04/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/c04/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/c04/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/c04/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/c04/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/c04/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/c04/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/c04/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/c04/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=c04&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "Cours 4 — Statique des fluides",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=c04",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Prérequis",
+    fichier: "docs/bts-et/c05/prerequis.pdf",
+    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "animation", titre: "Le chariot filoguidé",
+    fichier: "animations/chariot-filoguide.html",
+    description: "Un chariot automatique démarre sous une force motrice constante, freiné par les frottements, à plat ou en rampe : courbes v(t) et x(t), accélération, énergie cinétique, puissance.",
+    trouve: "F − f = m·a ; en croisière, la force motrice ne compense plus que les frottements.",
+    motscles: ["pfd", "acceleration", "chariot", "plan incline", "puissance"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Activité 1 — Le chariot filoguidé",
+    fichier: "docs/bts-et/c05/a1_chariot.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "animation", titre: "Treuil virtuel 24 V",
+    fichier: "animations/treuil.html",
+    description: "Un treuil lève une masse réglable : voltmètre, ampèremètre et chronomètre à déclencher soi-même.",
+    trouve: "Énergie potentielle gagnée, énergie électrique absorbée, rendement.",
+    motscles: ["treuil", "energie potentielle", "puissance", "rendement"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Activité 2 — Le treuil",
+    fichier: "docs/bts-et/c05/a2_treuil.pdf",
+    description: "Le document à remplir pendant l'animation.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Cours à compléter",
+    fichier: "docs/bts-et/c05/cours_a_completer.pdf",
+    description: "La version distribuée en séance, avec les passages à écrire.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Cours complet",
+    fichier: "docs/bts-et/c05/cours.pdf",
+    description: "La même chose, tout écrit. À relire après la séance.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Activité documentaire",
+    fichier: "docs/bts-et/c05/activite.pdf",
+    description: "Exploitation de documents techniques, après le cours.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Exercices",
+    fichier: "docs/bts-et/c05/exercices.pdf",
+    description: "Les exercices du chapitre, sans les corrigés.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Situation U51",
+    fichier: "docs/bts-et/c05/u51.pdf",
+    description: "Une situation d'évaluation type U51, pour s'entraîner.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Sujet type E4 — sujet",
+    fichier: "docs/bts-et/c05/e4_sujet.pdf",
+    description: "Le questionnement, au format de l'épreuve.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Sujet type E4 — dossier ressources",
+    fichier: "docs/bts-et/c05/e4_dres.pdf",
+    description: "Les documents techniques à exploiter.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Sujet type E4 — documents réponses",
+    fichier: "docs/bts-et/c05/e4_drep.pdf",
+    description: "Les pages à rendre.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "Cours",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "pdf", titre: "Bilan de fin de chapitre",
+    fichier: "docs/bts-et/c05/bilan.pdf",
+    description: "Des questions pour se tester, réponses en bas de page.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "qcm", titre: "Bilan — se tester après",
+    fichier: "entrainement/qcm.html?f=bts-et&ch=c05&type=bilan",
+    description: "12 questions sur tout le chapitre.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "S'entraîner",
+    chapitre: "Cours 5 — Mécanique en translation",
+    type: "cartes", titre: "Cartes de révision",
+    fichier: "entrainement/cartes.html?f=bts-et&ch=c05",
+    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
+  },
+
+
 
   /* ---------------- BTS CRSA ---------------- */
   {

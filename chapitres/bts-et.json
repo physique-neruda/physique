@@ -158,5 +158,78 @@
    "deux wattmetres",
    "puissance"
   ]
+ },
+ "tp05": {
+  "num": "5",
+  "titre": "TP 5 — Les transformateurs",
+  "motscles": [
+   "transformateur",
+   "rapport de transformation",
+   "essai a vide",
+   "essai en court-circuit",
+   "pertes fer",
+   "pertes cuivre",
+   "kapp",
+   "rendement",
+   "dyn"
+  ]
+ },
+ "tp06": {
+  "num": "6",
+  "titre": "TP 6 — Le redressement",
+  "motscles": [
+   "diode",
+   "redressement",
+   "simple alternance",
+   "pont de graetz",
+   "valeur moyenne",
+   "ondulation",
+   "filtrage",
+   "condensateur"
+  ]
+ },
+ "tp07": {
+  "num": "7",
+  "titre": "TP 7 — Le régime non sinusoïdal",
+  "motscles": [
+   "harmonique",
+   "fourier",
+   "spectre",
+   "thd",
+   "puissance deformante",
+   "facteur de puissance",
+   "neutre",
+   "rang 3"
+  ]
+ },
+ "c04": {
+  "num": "4",
+  "titre": "Cours 4 — Statique des fluides",
+  "motscles": [
+   "pression",
+   "masse volumique",
+   "bar",
+   "pression relative",
+   "rho g h",
+   "capteur de niveau",
+   "archimede",
+   "debit",
+   "puissance hydraulique"
+  ]
+ },
+ "c05": {
+  "num": "5",
+  "titre": "Cours 5 — Mécanique en translation",
+  "motscles": [
+   "vitesse",
+   "acceleration",
+   "mua",
+   "pfd",
+   "plan incline",
+   "energie cinetique",
+   "energie potentielle",
+   "travail",
+   "puissance mecanique"
+  ]
  }
 }

@@ -142,6 +142,12 @@ DOCUMENTS = {
          "Le document à remplir pendant l'animation."),
         ("a3_groupe",         "Cours", "Activité 3 — Le groupe électrogène",
          "Le document à remplir pendant l'animation."),
+        ("a1_pression",       "Cours", "Activité au simulateur — La pression au fond d'un liquide",
+         "Le document à remplir pendant l'animation."),
+        ("a1_chariot",        "Cours", "Activité 1 — Le chariot filoguidé",
+         "Le document à remplir pendant l'animation."),
+        ("a2_treuil",         "Cours", "Activité 2 — Le treuil",
+         "Le document à remplir pendant l'animation."),
         ("cours_a_completer", "Cours", "Cours à compléter",
          "La version distribuée en séance, avec les passages à écrire."),
         ("cours",             "Cours", "Cours complet",
@@ -172,7 +178,7 @@ DOCUMENTS = {
 # celle déclarée ci-dessus. Le fil « TP élec » du BTS ET est un fil complet
 # de chapitres : ses documents sont les mêmes, la rubrique change.
 RUBRIQUE_DU_CHAPITRE = {
-    "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "tp04": "TP", "ch09": "TP", "adm01": "ADM",
+    "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "tp04": "TP", "tp05": "TP", "tp06": "TP", "tp07": "TP", "ch09": "TP", "adm01": "ADM",
                "adm02": "TP systèmes", "adm03": "TP systèmes"},
 }
 
@@ -197,6 +203,27 @@ TITRES_PARTICULIERS = {
 # chapitre. None => à la fin de la rubrique.
 ANIMATIONS = {
     "bts-et": [
+        {"chapitre": "c05", "rubrique": "Cours", "avant": "a1_chariot",
+         "titre": "Le chariot filoguidé",
+         "fichier": "animations/chariot-filoguide.html",
+         "description": "Un chariot automatique démarre sous une force motrice constante, freiné par "
+                        "les frottements, à plat ou en rampe : courbes v(t) et x(t), accélération, "
+                        "énergie cinétique, puissance.",
+         "trouve": "F − f = m·a ; en croisière, la force motrice ne compense plus que les frottements.",
+         "motscles": ["pfd", "acceleration", "chariot", "plan incline", "puissance"]},
+        {"chapitre": "c05", "rubrique": "Cours", "avant": "a2_treuil",
+         "titre": "Treuil virtuel 24 V", "fichier": "animations/treuil.html",
+         "description": "Un treuil lève une masse réglable : voltmètre, ampèremètre et chronomètre "
+                        "à déclencher soi-même.",
+         "trouve": "Énergie potentielle gagnée, énergie électrique absorbée, rendement.",
+         "motscles": ["treuil", "energie potentielle", "puissance", "rendement"]},
+        {"chapitre": "c04", "rubrique": "Cours", "avant": "a1_pression",
+         "titre": "Pression au fond d'une éprouvette",
+         "fichier": "animations/eprouvette-pression.html",
+         "description": "Une éprouvette d'eau ou d'huile et un capteur de pression absolue au fond : "
+                        "on relève la pression pour plusieurs hauteurs et on retrouve Δp = ρgh.",
+         "trouve": "La pente de p = f(h) vaut ρg : elle donne la masse volumique du liquide.",
+         "motscles": ["pression", "rho g h", "capteur", "masse volumique"]},
         {"chapitre": "adm02", "rubrique": "TP systèmes", "avant": "tp_four",
          "titre": "Le four industriel : lecture du schéma pas à pas",
          "fichier": "animations/four-industriel.html",
@@ -522,5 +549,5 @@ SOURCES = {
 
 # Correspondance clé du site -> dossier dans la collection ET.
 DOSSIERS_ET = {"ch00": "ch00", "ch09": "ch09", "c01": "C1", "c02": "C2",
-               "tp01": "TP1", "tp02": "TP2", "tp04": "TP4", "adm01": "ADM1", "adm02": "ADM2", "adm03": "ADM3",
-               "c03": "C3", "tp03": "TP3"}
+               "tp01": "TP1", "tp02": "TP2", "tp04": "TP4", "tp05": "TP5", "tp06": "TP6", "tp07": "TP7", "adm01": "ADM1", "adm02": "ADM2", "adm03": "ADM3",
+               "c03": "C3", "c04": "C4", "c05": "C5", "tp03": "TP3"}

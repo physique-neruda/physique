@@ -124,9 +124,9 @@ s'affiche encore, c'est le cache du navigateur : recharger en navigation privée
 visible et téléchargeable par n'importe qui, et indexable par les moteurs de recherche. Une
 adresse compliquée ne protège rien : il n'existe pas de « lien secret » sur GitHub Pages.
 
-**Depuis le 2 octobre 2026 (v37), les documents des quatre classes sont chiffrés** : seul le
+**Depuis le 2 octobre 2026 (v42), les documents des quatre classes sont chiffrés** : seul le
 fichier `.enc` est publié, et il ne s'ouvre qu'avec le mot de passe de la classe (voir la mise à
-jour v37 en fin de notice). Le reste — catalogue, animations, questionnaires, outils — reste
+jour v42 en fin de notice). Le reste — catalogue, animations, questionnaires, outils — reste
 public. La règle ci-dessous tient toujours : un mot de passe partagé par une classe finit par
 circuler, il ne protège pas un sujet d'examen.
 
@@ -839,10 +839,31 @@ animations » y a été posé.
 
 - BTS CRSA : chapitre 20 « Systèmes asservis » et nouvelle animation `regulation.html` (correcteur PI, thermostat TOR).
 
+## Mise à jour du 2 octobre 2026, fin (v37)
+
+- BTS ET : TP 5 « Les transformateurs » ajouté (documents, questionnaire, cartes).
+
+## Mise à jour du 2 octobre 2026, fin (v38)
+
+- BTS ET : TP 6 « Le redressement » ajouté (documents, questionnaire, cartes).
+
+## Mise à jour du 2 octobre 2026, fin (v39)
+
+- BTS ET : TP 7 « Le régime non sinusoïdal » ajouté ; fil TP de 1re année complet.
+
+## Mise à jour du 2 octobre 2026, nuit (v40)
+
+- BTS ET : Cours 4 « Statique des fluides » (fil du collègue) ajouté, avec l animation de l éprouvette.
+- Correctif des QR codes des activités au simulateur (BTS ET, TSMA) : PDF redéposés.
+
+## Mise à jour du 2 octobre 2026, nuit (v41)
+
+- BTS ET : Cours 5 « Mécanique en translation » (fil du collègue) et nouvelle animation `chariot-filoguide.html`.
+
 
 ---
 
-## Mise à jour du 2 octobre 2026 (v37) — documents réservés aux élèves
+## Mise à jour du 2 octobre 2026 (v42) — documents réservés aux élèves
 
 **Ce qui change pour les élèves.** Sur la page d'une classe, un bandeau dit que les documents sont
 réservés. Au premier document touché, le site demande le mot de passe de la classe ; il le vérifie
@@ -870,7 +891,8 @@ site-physique/          L'ATELIER. PDF en clair, scripts, catalogue. On y travai
                         on ne le publie plus.
 site-en-ligne/          CE QUI PART SUR GITHUB. Fabriqué par outils/chiffrer.py.
 NE_PAS_PUBLIER/
-   mots_de_passe.json   les mots de passe et les sels — SECRET, jamais sur GitHub
+   mots_de_passe.json   les mots de passe, les sels et la clé de l'espace enseignant — SECRET
+prive-atelier/          les documents de l'espace enseignant, EN CLAIR — jamais sur GitHub
 ```
 
 `index.html` est le même dans les deux : dans l'atelier (pas de fichier `acces.js`), les PDF
@@ -881,7 +903,7 @@ s'ouvrent directement comme avant ; dans `site-en-ligne/`, `acces.js` active le 
 Après toute modification de l'atelier (nouveaux PDF, `publier.py`, etc.) :
 
 ```sh
-python3 site-physique/outils/chiffrer.py site-physique site-en-ligne --cles NE_PAS_PUBLIER/mots_de_passe.json
+python3 site-physique/outils/chiffrer.py site-physique site-en-ligne --cles NE_PAS_PUBLIER/mots_de_passe.json --prive prive-atelier
 ```
 
 Un PDF inchangé redonne exactement le même `.enc` : GitHub Desktop ne montre comme modifiés que
@@ -905,7 +927,7 @@ de TSMA aussi.
 
 ### Une fois pour toutes : effacer l'historique GitHub
 
-Jusqu'à la v36, les PDF ont été publiés **en clair**. Ils restent dans l'**historique** du dépôt :
+Jusqu'à la v41, les PDF ont été publiés **en clair**. Ils restent dans l'**historique** du dépôt :
 n'importe qui peut remonter un ancien commit et les télécharger. Déposer les `.enc` par-dessus ne
 suffit pas ; il faut repartir d'un dépôt neuf, à la même adresse (les QR codes continuent de
 marcher) :
@@ -935,9 +957,7 @@ s'affichaient collés sur une seule ligne (« PrérequisÀ faire avant… ») ; 
 sur deux lignes.
 
 
----
-
-## Mise à jour du 2 octobre 2026 (v38) — code enseignant
+### Le code enseignant
 
 Un **code enseignant** ouvre d'un coup les documents des quatre classes. Il se tape dans la même
 fenêtre que le mot de passe de classe, sur n'importe quelle page de classe ; le site essaie
@@ -953,9 +973,7 @@ un poste du lycée qui l'a mémorisé reste ouvert sur toutes les classes jusqu'
 (à faire classe par classe).
 
 
----
-
-## Mise à jour du 2 octobre 2026 (v39) — corrigés des séances
+### Les corrigés des séances
 
 Une rubrique **Corrigés** apparaît dans chaque classe. Elle porte, chapitre par chapitre, un
 **corrigé des séances** : la correction des seuls exercices et parties d'activité déjà traités en
@@ -970,3 +988,32 @@ Les numéros d'exercices sont ceux de la feuille élève (un corrigé qui saute 
 est normal). Le document est l'union des classes d'une même filière (CRSA 1re et 2e année
 ensemble, scolaires et apprentis ensemble en BTS ET) ; les versions par classe sont livrées à part.
 À refaire au fil de l'avancement, à partir du classeur à jour.
+
+
+### L'espace enseignant caché
+
+Une page **invisible** : `…/physique/#prive`. Aucun lien n'y mène depuis l'accueil pour un élève ;
+une carte « Espace enseignant » n'apparaît que sur l'appareil où le code enseignant a été saisi.
+
+Elle contient ce qui ne doit jamais tomber entre les mains des étudiants, rangé par filière et
+par chapitre : **corrigés complets** (exercices, activités, CCF, devoirs E32, oraux, sujets E4,
+situations U51, diagnostics), **tests et leurs corrigés** (STI2D), et les **quatre livres du
+professeur**. Les sources sont dans `prive-atelier/`, à côté du site et pas dedans :
+
+```
+prive-atelier/<filière>/<chapitre>/<document>.pdf     exemple : 1sti2d/ch02/test_corrige.pdf
+prive-atelier/livres/Livre_professeur_<classe>.pdf
+```
+
+Protection : clé aléatoire à part (bloc `_prive` de `mots_de_passe.json`), que seul le code
+enseignant déverrouille — un mot de passe de classe n'y donne jamais accès. Dans le dépôt, tout est
+dans `prive/` sous des **noms opaques** (`3fa9c1….enc`), et la liste des documents (`index.enc`)
+est chiffrée elle aussi : quelqu'un qui parcourt le dépôt ne voit ni les titres, ni les chapitres.
+
+Le dossier se reconstruit à partir des collections et des livres du professeur avec
+`outils/preparer_prive.py` (voir son en-tête). Mettre à jour : remplacer ou ajouter des PDF
+dans `prive-atelier/`, puis relancer `chiffrer.py`
+avec `--prive prive-atelier`. Un document inchangé garde le même fichier chiffré.
+
+Rien n'empêche de mettre un sujet d'examen ici, mais le plus sûr pour une épreuve à venir reste
+de ne pas le mettre en ligne du tout.
