@@ -10,8 +10,9 @@ des collections LaTeX décompressées et des livres du professeur.
         --et    <…>/BTS_ET_LaTeX \
         --livres <…>/Livres_du_professeur_vNN
 
-Prend dans chaque <chapitre>/pdf/ tout ce qui porte « corrige » dans son nom, plus les
-sujets de test (« _test.pdf »). Range en prive-atelier/<filière>/<chapitre>/<doc>.pdf.
+Prend dans chaque <chapitre>/pdf/ tout ce qui porte « corrige » dans son nom, les
+sujets de test (« _test.pdf ») et les énoncés retirés du site élèves : CCF, devoirs
+E32, oraux, sujets E4 (sujet, dossier ressources, documents réponses), situations U51. Range en prive-atelier/<filière>/<chapitre>/<doc>.pdf.
 Ensuite : chiffrer.py … --prive prive-atelier.
 """
 import argparse, glob, os, re, shutil
@@ -34,7 +35,8 @@ for fil, racine in src.items():
     if not racine: continue
     for pdf in sorted(glob.glob(os.path.join(racine, "*", "pdf", "*.pdf"))):
         b = os.path.basename(pdf)
-        if "corrige" not in b and not b.endswith("_test.pdf"): continue
+        if "corrige" not in b and not re.search(r"_(test|ccf|devoir|oral|u51|e4_sujet|e4_dres|e4_drep)\.pdf$", b):
+            continue
         chdir = pdf.replace("\\", "/").split("/")[-3]
         ch = cle_et(chdir) if fil == "bts-et" else chdir
         doc = re.sub(r"^[A-Z0-9]+_(ch\d+|tp\d+|c\d+|adm\d+)_", "", b)

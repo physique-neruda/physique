@@ -141,6 +141,10 @@ def charger_cles(chemin, nouveau, mot_impose):
 # ------------------------------------------------------- espace enseignant
 TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qui colle
     (r"^test_corrige$", "Test — corrigé"), (r"^test$", "Test — sujet"),
+    (r"^ccf$", "Situation type CCF — sujet"), (r"^devoir$", "Devoir type E32 — sujet"),
+    (r"^oral$", "Oral — sujet"), (r"^u51$", "Situation U51 — sujet"),
+    (r"^e4_sujet$", "Sujet type E4 — sujet"), (r"^e4_dres$", "Sujet type E4 — dossier ressources"),
+    (r"^e4_drep$", "Sujet type E4 — documents réponses"),
     (r"^exercices_corrige$", "Exercices — corrigé complet"),
     (r"^activite_corrige$", "Activité — corrigé"), (r"^activite2_corrige$", "Activité 2 — corrigé"),
     (r"^activite_anim_corrige$", "Activité sur animation — corrigé"),
@@ -149,10 +153,24 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
     (r"^ccf_corrige$", "Situation type CCF — corrigé"), (r"^devoir_corrige$", "Devoir type E32 — corrigé"),
     (r"^oral_corrige$", "Oral — corrigé"), (r"^e4_corrige$", "Sujet type E4 — corrigé"),
     (r"^u51_corrige$", "Situation U51 — corrigé"), (r"^diagnostic_corrige$", "Questionnaire diagnostique — corrigé"),
+    (r"^tp_four_corrige$", "TP Four industriel — corrigé"), (r"^tp_four$", "TP Four industriel — sujet"),
+    (r"^tp_banc_corrige$", "TP Banc départ-moteur — corrigé"), (r"^tp_banc$", "TP Banc départ-moteur — sujet"),
+    (r"^tp_piscine_corrige$", "TP Centrale de pompage — corrigé"), (r"^tp_piscine$", "TP Centrale de pompage — sujet"),
+    (r"^tp_levage_corrige$", "TP Système de levage — corrigé"), (r"^tp_levage$", "TP Système de levage — sujet"),
+    (r"^tp_ermalux_corrige$", "TP Éclairage Ermalux — corrigé"), (r"^tp_ermalux$", "TP Éclairage Ermalux — sujet"),
+    (r"^tp_harmocem_corrige$", "TP Banc Harmocem — corrigé"), (r"^tp_harmocem$", "TP Banc Harmocem — sujet"),
+    (r"^tp_(\w+)_corrige$", "TP {0} — corrigé"), (r"^tp_(\w+)$", "TP {0} — sujet"),
+    # documents élèves des chapitres retirés du site (CHAPITRES_CACHES)
+    (r"^prerequis$", "Prérequis"), (r"^cours_a_completer$", "Cours à compléter"),
+    (r"^cours$", "Cours complet"), (r"^exercices$", "Exercices"), (r"^bilan$", "Bilan"),
+    (r"^activite$", "Activité"), (r"^activite2$", "Activité 2"),
+    (r"^a(\d)_(\w+)$", "Activité {0} ({1})"), (r"^corrige_seances$", "Corrigé des séances"),
 ]
-ORDRE_PRIVE = ["test", "test_corrige", "exercices_corrige", "activite_corrige", "activite2_corrige",
-               "activite_anim_corrige", "activite_banc_corrige", "ccf_corrige", "devoir_corrige",
-               "oral_corrige", "e4_corrige", "u51_corrige", "diagnostic_corrige"]
+ORDRE_PRIVE = ["prerequis", "cours_a_completer", "cours", "exercices", "bilan", "activite",
+               "activite2", "corrige_seances", "test", "test_corrige", "exercices_corrige", "activite_corrige", "activite2_corrige",
+               "activite_anim_corrige", "activite_banc_corrige", "ccf", "ccf_corrige",
+               "devoir", "devoir_corrige", "oral", "oral_corrige", "e4_sujet", "e4_dres",
+               "e4_drep", "e4_corrige", "u51", "u51_corrige", "diagnostic_corrige"]
 
 
 def titre_prive(nom):

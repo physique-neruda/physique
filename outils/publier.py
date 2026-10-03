@@ -18,7 +18,7 @@ import json, os, re, shutil, sys
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
-from filieres import (FILIERES, DOCUMENTS, ANIMATIONS, SOURCES, DOSSIERS_ET,
+from filieres import (CHAPITRES_CACHES, FILIERES, DOCUMENTS, ANIMATIONS, SOURCES, DOSSIERS_ET,
                       RUBRIQUE_DU_CHAPITRE, TITRES_PARTICULIERS)
 
 DEBUT = "/* >>> bloc genere par outils/publier.py"
@@ -64,6 +64,8 @@ def deposer(site, fil, racine):
     src = SOURCES[fil]
     copies, manquants = 0, []
     for ch in chapitres(fil):
+        if ch in CHAPITRES_CACHES.get(fil, ()):
+            continue
         dossier = src["dossier"].format(ch=ch, CH=DOSSIERS_ET.get(ch, ch))
         for doc, _rub, _tit, _desc in DOCUMENTS[fil]:
             if not publiable(doc):
@@ -124,6 +126,8 @@ def bloc(site):
             continue
         premier = True
         for ch, info in chaps.items():
+            if ch in CHAPITRES_CACHES.get(fil, ()):
+                continue          # chapitre retiré du site élèves (filieres.py)
             entrees = []
             dossier = os.path.join(site, "docs", fil, ch)
             presents = set(os.listdir(dossier)) if os.path.isdir(dossier) else set()

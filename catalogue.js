@@ -304,42 +304,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "Cours",
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/c01/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["energie", "interne", "thermiques", "transferts"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/c01/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["energie", "interne", "thermiques", "transferts"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/c01/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["energie", "interne", "thermiques", "transferts"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/c01/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["energie", "interne", "thermiques", "transferts"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 1 — Énergie interne et transferts thermiques",
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/c01/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
@@ -488,42 +452,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "Cours",
     chapitre: "Cours 2 — Électromagnétisme",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/c02/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 2 — Électromagnétisme",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/c02/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 2 — Électromagnétisme",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/c02/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 2 — Électromagnétisme",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/c02/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 2 — Électromagnétisme",
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/c02/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
@@ -663,42 +591,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "Cours",
     chapitre: "Cours 3 — Les combustions",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/c03/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 3 — Les combustions",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/c03/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 3 — Les combustions",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/c03/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 3 — Les combustions",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/c03/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 3 — Les combustions",
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/c03/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
@@ -766,42 +658,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Exercices",
     fichier: "docs/bts-et/tp01/exercices.pdf",
     description: "Les exercices du chapitre, sans les corrigés.",
-    motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 1 — Notions fondamentales d'électricité",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/tp01/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 1 — Notions fondamentales d'électricité",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/tp01/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 1 — Notions fondamentales d'électricité",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/tp01/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 1 — Notions fondamentales d'électricité",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/tp01/e4_drep.pdf",
-    description: "Les pages à rendre.",
     motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
   },
 
@@ -909,42 +765,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "TP",
     chapitre: "TP 2 — Dipôles passifs et actifs",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/tp02/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 2 — Dipôles passifs et actifs",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/tp02/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 2 — Dipôles passifs et actifs",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/tp02/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 2 — Dipôles passifs et actifs",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/tp02/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 2 — Dipôles passifs et actifs",
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/tp02/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
@@ -1036,42 +856,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "TP",
     chapitre: "TP 3 — Régime sinusoïdal monophasé",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/tp03/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 3 — Régime sinusoïdal monophasé",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/tp03/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 3 — Régime sinusoïdal monophasé",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/tp03/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 3 — Régime sinusoïdal monophasé",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/tp03/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 3 — Régime sinusoïdal monophasé",
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/tp03/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
@@ -1094,115 +878,6 @@ const DOCUMENTS = [
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp03",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
-  },
-
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Prérequis",
-    fichier: "docs/bts-et/ch09/prerequis.pdf",
-    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Cours à compléter",
-    fichier: "docs/bts-et/ch09/cours_a_completer.pdf",
-    description: "La version distribuée en séance, avec les passages à écrire.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Cours complet",
-    fichier: "docs/bts-et/ch09/cours.pdf",
-    description: "La même chose, tout écrit. À relire après la séance.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Activité documentaire",
-    fichier: "docs/bts-et/ch09/activite.pdf",
-    description: "Exploitation de documents techniques, après le cours.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Exercices",
-    fichier: "docs/bts-et/ch09/exercices.pdf",
-    description: "Les exercices du chapitre, sans les corrigés.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/ch09/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/ch09/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/ch09/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/ch09/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "pdf", titre: "Bilan de fin de chapitre",
-    fichier: "docs/bts-et/ch09/bilan.pdf",
-    description: "Des questions pour se tester, réponses en bas de page.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "S'entraîner",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=ch09&type=bilan",
-    description: "12 questions sur tout le chapitre.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "S'entraîner",
-    chapitre: "Chapitre 9 — Distribution et qualité de l'énergie électrique",
-    type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-et&ch=ch09",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["distribution", "ligne", "chute de tension", "compensation", "facteur de puissance", "harmoniques", "cem"]
   },
 
 
@@ -1268,25 +943,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Exercices",
     fichier: "docs/bts-et/adm01/exercices.pdf",
     description: "Les exercices du chapitre, sans les corrigés.",
-    motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "ADM",
-    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
-    type: "animation", titre: "Le démarrage étoile-triangle",
-    fichier: "animations/etoile-triangle.html",
-    description: "Les trois contacteurs, la temporisation réglable et le temps mort. La courbe trace le courant absorbé ; on peut supprimer le verrouillage pour voir ce qui se passe quand étoile et triangle se ferment ensemble.",
-    trouve: "Pourquoi le courant de démarrage est divisé par trois, et à quoi sert le verrouillage.",
-    motscles: ["etoile triangle", "couplage", "temporisation", "verrouillage", "temps mort", "courant de demarrage", "moteur asynchrone"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "ADM",
-    chapitre: "ADM 1 — Schémas électriques et appareillage de commande",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/adm01/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
     motscles: ["schema electrique", "contacteur", "relais", "demarrage direct", "etoile triangle", "automaintien", "sectionneur", "relais thermique", "u51", "adm", "appareillage"]
   },
 
@@ -1378,6 +1034,76 @@ const DOCUMENTS = [
 
 
   {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 4 — Centrale de pompage : lignage, armoire et pompes",
+    type: "animation", titre: "La centrale de pompage : comprendre et ligner pas à pas",
+    fichier: "animations/centrale-pompage.html",
+    description: "Vingt-quatre étapes sur la centrale de piscine DMS : le circuit d'eau, les vannes à positionner pour chaque lignage, puis l'armoire sur les folios du schéma constructeur.",
+    trouve: "Quelles vannes ouvrir pour chaque fonction, et ce que commande l'armoire.",
+    motscles: ["pompage", "piscine", "vanne", "lignage", "pompe", "armoire", "schema"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 4 — Centrale de pompage : lignage, armoire et pompes",
+    type: "pdf", titre: "TP — La centrale de pompage",
+    fichier: "docs/bts-et/adm04/tp_piscine.pdf",
+    description: "Le sujet de TP sur la centrale de piscine DMS : armoire, lignage des vannes, mesures, pompes.",
+    motscles: ["pompage", "piscine", "vanne", "lignage", "pompe", "armoire", "adm", "tp systeme"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 5 — Système de levage : énergie, schémas et mise en service",
+    type: "animation", titre: "Le système de levage : lecture du schéma pas à pas",
+    fichier: "animations/systeme-levage.html",
+    description: "Dix-huit étapes sur les sept folios du schéma du levage : puissance, variateur, commande, fins de course et sécurités.",
+    trouve: "Suivre un ordre de montée du bouton jusqu'au moteur.",
+    motscles: ["levage", "schema", "variateur", "fin de course", "folio", "moteur"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 5 — Système de levage : énergie, schémas et mise en service",
+    type: "pdf", titre: "TP — Le système de levage",
+    fichier: "docs/bts-et/adm05/tp_levage.pdf",
+    description: "Le sujet de TP sur le levage : énergie, lecture des sept folios du schéma, mise en service.",
+    motscles: ["levage", "energie", "schema", "variateur", "mise en service", "adm", "tp systeme"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 6 — Éclairage scénique Ermalux : schémas, variateurs et mise en service",
+    type: "pdf", titre: "TP — L'éclairage scénique Ermalux",
+    fichier: "docs/bts-et/adm06/tp_ermalux.pdf",
+    description: "Le sujet de TP sur l'éclairage scénique : schéma, variateurs, mise en service.",
+    motscles: ["eclairage", "variateur", "gradateur", "schema", "mise en service", "adm", "tp systeme"]
+  },
+
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 7 — Pollution harmonique et filtrage : banc Harmocem",
+    type: "animation", titre: "Harmocem : la pollution harmonique pas à pas",
+    fichier: "animations/harmocem.html",
+    description: "Les points de mesure du banc, puis chaque solution de filtrage avec les relevés de l'analyseur : forme du courant, spectre, THD.",
+    trouve: "Ce que chaque solution de filtrage retire du spectre.",
+    motscles: ["harmonique", "thd", "filtrage", "spectre", "analyseur", "harmocem"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "TP systèmes",
+    chapitre: "ADM 7 — Pollution harmonique et filtrage : banc Harmocem",
+    type: "pdf", titre: "TP — Pollution harmonique et filtrage (Harmocem)",
+    fichier: "docs/bts-et/adm07/tp_harmocem.pdf",
+    description: "Le sujet de TP sur le banc Harmocem : mesures d'harmoniques et solutions de filtrage.",
+    motscles: ["harmonique", "thd", "filtrage", "spectre", "analyseur", "adm", "tp systeme"]
+  },
+
+
+  {
     filiere: "bts-et", rubrique: "TP",
     chapitre: "TP 4 — Le triphasé",
     type: "pdf", titre: "Prérequis",
@@ -1419,42 +1145,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Exercices",
     fichier: "docs/bts-et/tp04/exercices.pdf",
     description: "Les exercices du chapitre, sans les corrigés.",
-    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 4 — Le triphasé",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/tp04/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 4 — Le triphasé",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/tp04/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 4 — Le triphasé",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/tp04/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 4 — Le triphasé",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/tp04/e4_drep.pdf",
-    description: "Les pages à rendre.",
     motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
   },
 
@@ -1534,42 +1224,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "TP",
     chapitre: "TP 5 — Les transformateurs",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/tp05/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 5 — Les transformateurs",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/tp05/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 5 — Les transformateurs",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/tp05/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 5 — Les transformateurs",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/tp05/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 5 — Les transformateurs",
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/tp05/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
@@ -1637,42 +1291,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Exercices",
     fichier: "docs/bts-et/tp06/exercices.pdf",
     description: "Les exercices du chapitre, sans les corrigés.",
-    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 6 — Le redressement",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/tp06/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 6 — Le redressement",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/tp06/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 6 — Le redressement",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/tp06/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 6 — Le redressement",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/tp06/e4_drep.pdf",
-    description: "Les pages à rendre.",
     motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
   },
 
@@ -1752,42 +1370,6 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "TP",
     chapitre: "TP 7 — Le régime non sinusoïdal",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/tp07/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 7 — Le régime non sinusoïdal",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/tp07/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 7 — Le régime non sinusoïdal",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/tp07/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 7 — Le régime non sinusoïdal",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/tp07/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "TP",
-    chapitre: "TP 7 — Le régime non sinusoïdal",
     type: "pdf", titre: "Bilan de fin de chapitre",
     fichier: "docs/bts-et/tp07/bilan.pdf",
     description: "Des questions pour se tester, réponses en bas de page.",
@@ -1810,281 +1392,6 @@ const DOCUMENTS = [
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp07",
     description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
-  },
-
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Prérequis",
-    fichier: "docs/bts-et/c04/prerequis.pdf",
-    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "animation", titre: "Pression au fond d'une éprouvette",
-    fichier: "animations/eprouvette-pression.html",
-    description: "Une éprouvette d'eau ou d'huile et un capteur de pression absolue au fond : on relève la pression pour plusieurs hauteurs et on retrouve Δp = ρgh.",
-    trouve: "La pente de p = f(h) vaut ρg : elle donne la masse volumique du liquide.",
-    motscles: ["pression", "rho g h", "capteur", "masse volumique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Activité au simulateur — La pression au fond d'un liquide",
-    fichier: "docs/bts-et/c04/a1_pression.pdf",
-    description: "Le document à remplir pendant l'animation.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Cours à compléter",
-    fichier: "docs/bts-et/c04/cours_a_completer.pdf",
-    description: "La version distribuée en séance, avec les passages à écrire.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Cours complet",
-    fichier: "docs/bts-et/c04/cours.pdf",
-    description: "La même chose, tout écrit. À relire après la séance.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Activité documentaire",
-    fichier: "docs/bts-et/c04/activite.pdf",
-    description: "Exploitation de documents techniques, après le cours.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Exercices",
-    fichier: "docs/bts-et/c04/exercices.pdf",
-    description: "Les exercices du chapitre, sans les corrigés.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/c04/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/c04/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/c04/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/c04/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "pdf", titre: "Bilan de fin de chapitre",
-    fichier: "docs/bts-et/c04/bilan.pdf",
-    description: "Des questions pour se tester, réponses en bas de page.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "S'entraîner",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=c04&type=bilan",
-    description: "12 questions sur tout le chapitre.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "S'entraîner",
-    chapitre: "Cours 4 — Statique des fluides",
-    type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-et&ch=c04",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["pression", "masse volumique", "bar", "pression relative", "rho g h", "capteur de niveau", "archimede", "debit", "puissance hydraulique"]
-  },
-
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Prérequis",
-    fichier: "docs/bts-et/c05/prerequis.pdf",
-    description: "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "animation", titre: "Le chariot filoguidé",
-    fichier: "animations/chariot-filoguide.html",
-    description: "Un chariot automatique démarre sous une force motrice constante, freiné par les frottements, à plat ou en rampe : courbes v(t) et x(t), accélération, énergie cinétique, puissance.",
-    trouve: "F − f = m·a ; en croisière, la force motrice ne compense plus que les frottements.",
-    motscles: ["pfd", "acceleration", "chariot", "plan incline", "puissance"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Activité 1 — Le chariot filoguidé",
-    fichier: "docs/bts-et/c05/a1_chariot.pdf",
-    description: "Le document à remplir pendant l'animation.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "animation", titre: "Treuil virtuel 24 V",
-    fichier: "animations/treuil.html",
-    description: "Un treuil lève une masse réglable : voltmètre, ampèremètre et chronomètre à déclencher soi-même.",
-    trouve: "Énergie potentielle gagnée, énergie électrique absorbée, rendement.",
-    motscles: ["treuil", "energie potentielle", "puissance", "rendement"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Activité 2 — Le treuil",
-    fichier: "docs/bts-et/c05/a2_treuil.pdf",
-    description: "Le document à remplir pendant l'animation.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Cours à compléter",
-    fichier: "docs/bts-et/c05/cours_a_completer.pdf",
-    description: "La version distribuée en séance, avec les passages à écrire.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Cours complet",
-    fichier: "docs/bts-et/c05/cours.pdf",
-    description: "La même chose, tout écrit. À relire après la séance.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Activité documentaire",
-    fichier: "docs/bts-et/c05/activite.pdf",
-    description: "Exploitation de documents techniques, après le cours.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Exercices",
-    fichier: "docs/bts-et/c05/exercices.pdf",
-    description: "Les exercices du chapitre, sans les corrigés.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Situation U51",
-    fichier: "docs/bts-et/c05/u51.pdf",
-    description: "Une situation d'évaluation type U51, pour s'entraîner.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Sujet type E4 — sujet",
-    fichier: "docs/bts-et/c05/e4_sujet.pdf",
-    description: "Le questionnement, au format de l'épreuve.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Sujet type E4 — dossier ressources",
-    fichier: "docs/bts-et/c05/e4_dres.pdf",
-    description: "Les documents techniques à exploiter.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Sujet type E4 — documents réponses",
-    fichier: "docs/bts-et/c05/e4_drep.pdf",
-    description: "Les pages à rendre.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "Cours",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "pdf", titre: "Bilan de fin de chapitre",
-    fichier: "docs/bts-et/c05/bilan.pdf",
-    description: "Des questions pour se tester, réponses en bas de page.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "S'entraîner",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "qcm", titre: "Bilan — se tester après",
-    fichier: "entrainement/qcm.html?f=bts-et&ch=c05&type=bilan",
-    description: "12 questions sur tout le chapitre.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
-  },
-
-  {
-    filiere: "bts-et", rubrique: "S'entraîner",
-    chapitre: "Cours 5 — Mécanique en translation",
-    type: "cartes", titre: "Cartes de révision",
-    fichier: "entrainement/cartes.html?f=bts-et&ch=c05",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
-    motscles: ["vitesse", "acceleration", "mua", "pfd", "plan incline", "energie cinetique", "energie potentielle", "travail", "puissance mecanique"]
   },
 
 
@@ -2219,33 +1526,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 1 — Énergie, puissance, rendement",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch01/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 1 — Énergie, puissance, rendement",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch01/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 1 — Énergie, puissance, rendement",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch01/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "Corrigés",
     chapitre: "Chapitre 1 — Énergie, puissance, rendement",
     type: "pdf", titre: "Corrigé des séances",
@@ -2333,33 +1613,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch02/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 2 — Conversion et stockage de l'énergie",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch02/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 2 — Conversion et stockage de l'énergie",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch02/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 2 — Conversion et stockage de l'énergie",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch02/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
   },
 
@@ -2494,33 +1747,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 3 — Énergie thermique",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch03/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 3 — Énergie thermique",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch03/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 3 — Énergie thermique",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch03/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "Corrigés",
     chapitre: "Chapitre 3 — Énergie thermique",
     type: "pdf", titre: "Corrigé des séances",
@@ -2612,33 +1838,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 4 — Mécanique du solide",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch04/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["mecanique", "solide", "force", "moment", "couple", "travail", "rotation"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 4 — Mécanique du solide",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch04/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["mecanique", "solide", "force", "moment", "couple", "travail", "rotation"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 4 — Mécanique du solide",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch04/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["mecanique", "solide", "force", "moment", "couple", "travail", "rotation"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 4 — Mécanique du solide",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -2717,33 +1916,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch05/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 5 — Statique et dynamique des fluides",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch05/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 5 — Statique et dynamique des fluides",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch05/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 5 — Statique et dynamique des fluides",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch05/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
   },
 
@@ -2830,33 +2002,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 6 — Viscosité et pertes de charge",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch06/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite", "pompe"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 6 — Viscosité et pertes de charge",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch06/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite", "pompe"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 6 — Viscosité et pertes de charge",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch06/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite", "pompe"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 6 — Viscosité et pertes de charge",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -2935,33 +2080,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch07/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 7 — Distribution triphasée",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch07/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 7 — Distribution triphasée",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch07/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 7 — Distribution triphasée",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch07/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
   },
 
@@ -3048,33 +2166,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch08/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["corrosion", "oxydoreduction", "risque chimique", "bruit", "acoustique", "protection"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch08/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["corrosion", "oxydoreduction", "risque chimique", "bruit", "acoustique", "protection"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch08/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["corrosion", "oxydoreduction", "risque chimique", "bruit", "acoustique", "protection"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -3153,33 +2244,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch09/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 9 — Le transformateur",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch09/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 9 — Le transformateur",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch09/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 9 — Le transformateur",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch09/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
   },
 
@@ -3266,33 +2330,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 10 — Les redresseurs",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch10/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["redressement", "diode", "pont", "filtrage", "ondulation", "valeur moyenne"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 10 — Les redresseurs",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch10/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["redressement", "diode", "pont", "filtrage", "ondulation", "valeur moyenne"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 10 — Les redresseurs",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch10/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["redressement", "diode", "pont", "filtrage", "ondulation", "valeur moyenne"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 10 — Les redresseurs",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -3371,33 +2408,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch11/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["hacheur", "onduleur", "rapport cyclique", "mli", "variation de vitesse"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 11 — Hacheur série et onduleur",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch11/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["hacheur", "onduleur", "rapport cyclique", "mli", "variation de vitesse"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 11 — Hacheur série et onduleur",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch11/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["hacheur", "onduleur", "rapport cyclique", "mli", "variation de vitesse"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 11 — Hacheur série et onduleur",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch11/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["hacheur", "onduleur", "rapport cyclique", "mli", "variation de vitesse"]
   },
 
@@ -3484,33 +2494,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 12 — Machine à courant continu",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch12/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["machine a courant continu", "mcc", "couple", "force electromotrice", "vitesse", "rendement"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 12 — Machine à courant continu",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch12/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["machine a courant continu", "mcc", "couple", "force electromotrice", "vitesse", "rendement"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 12 — Machine à courant continu",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch12/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["machine a courant continu", "mcc", "couple", "force electromotrice", "vitesse", "rendement"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 12 — Machine à courant continu",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -3589,33 +2572,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch13/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 13 — Machines alternatives",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch13/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 13 — Machines alternatives",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch13/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 13 — Machines alternatives",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch13/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
   },
 
@@ -3702,33 +2658,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 14 — Les capteurs",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch14/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["capteur", "etendue de mesure", "sensibilite", "linearite", "tor", "analogique"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 14 — Les capteurs",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch14/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["capteur", "etendue de mesure", "sensibilite", "linearite", "tor", "analogique"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 14 — Les capteurs",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch14/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["capteur", "etendue de mesure", "sensibilite", "linearite", "tor", "analogique"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 14 — Les capteurs",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -3807,33 +2736,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch15/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 15 — Analyse du signal",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch15/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 15 — Analyse du signal",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch15/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 15 — Analyse du signal",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch15/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
   },
 
@@ -3920,33 +2822,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 16 — Conditionnement du signal",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch16/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["conditionnement", "diviseur de tension", "pont de wheatstone", "amplification", "comparateur"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 16 — Conditionnement du signal",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch16/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["conditionnement", "diviseur de tension", "pont de wheatstone", "amplification", "comparateur"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 16 — Conditionnement du signal",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch16/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["conditionnement", "diviseur de tension", "pont de wheatstone", "amplification", "comparateur"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Conditionnement du signal",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -4029,33 +2904,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 17 — Filtrage et conversion",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch17/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 17 — Filtrage et conversion",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch17/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 17 — Filtrage et conversion",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch17/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["filtre", "bode", "decibel", "frequence de coupure", "bande passante", "can", "cna", "quantum", "echantillonneur bloqueur"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 17 — Filtrage et conversion",
     type: "qcm", titre: "Bilan — se tester après",
@@ -4129,33 +2977,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 18 — Transmission du signal",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch18/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 18 — Transmission du signal",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch18/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 18 — Transmission du signal",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch18/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
-  },
-
-  {
     filiere: "bts-crsa", rubrique: "S'entraîner",
     chapitre: "Chapitre 18 — Transmission du signal",
     type: "qcm", titre: "Bilan — se tester après",
@@ -4225,33 +3046,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch19/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch19/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch19/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch19/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
   },
 
@@ -4335,33 +3129,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-crsa/ch20/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 20 — Systèmes asservis",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-crsa/ch20/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 20 — Systèmes asservis",
-    type: "pdf", titre: "Devoir type E32",
-    fichier: "docs/bts-crsa/ch20/devoir.pdf",
-    description: "Un devoir écrit au format de l'épreuve E32, pour s'entraîner.",
-    motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
-  },
-
-  {
-    filiere: "bts-crsa", rubrique: "TP",
-    chapitre: "Chapitre 20 — Systèmes asservis",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-crsa/ch20/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
   },
 
@@ -4514,24 +3281,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch01/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch01/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "Corrigés",
     chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
     type: "pdf", titre: "Corrigé des séances",
@@ -4638,24 +3387,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité sur animation",
     fichier: "docs/bts-tsma/ch02/activite_anim.pdf",
     description: "La même étude, menée sur une animation : aucun matériel nécessaire.",
-    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch02/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 2 — Énergie, puissance, rendement",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch02/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
   },
 
@@ -4781,24 +3512,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 3 — Statique des fluides",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch03/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 3 — Statique des fluides",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch03/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["fluide", "pression", "statique", "hydrostatique", "verin"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 3 — Statique des fluides",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -4886,24 +3599,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité sur banc",
     fichier: "docs/bts-tsma/ch04/activite_banc.pdf",
     description: "La même étude menée sur le banc du laboratoire, avec le matériel réel.",
-    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 4 — Dynamique des fluides",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch04/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 4 — Dynamique des fluides",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch04/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
   },
 
@@ -5018,24 +3713,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch05/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 5 — Viscosité et pertes de charge",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch05/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 5 — Viscosité et pertes de charge",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -5114,24 +3791,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch06/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 6 — La réaction chimique",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch06/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 6 — La réaction chimique",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch06/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
   },
 
@@ -5218,24 +3877,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 7 — Combustions et carburants",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch07/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 7 — Combustions et carburants",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch07/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 7 — Combustions et carburants",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -5314,24 +3955,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch08/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch08/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch08/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
   },
 
@@ -5418,24 +4041,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch09/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch09/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -5514,24 +4119,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch10/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 10 — Machines thermiques",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch10/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["machine thermique", "moteur", "cycle", "rendement"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 10 — Machines thermiques",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch10/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["machine thermique", "moteur", "cycle", "rendement"]
   },
 
@@ -5618,24 +4205,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch11/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch11/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -5714,24 +4283,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch12/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["signal", "frequence", "spectre", "periode"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 12 — Analyse du signal",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch12/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["signal", "frequence", "spectre", "periode"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 12 — Analyse du signal",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch12/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["signal", "frequence", "spectre", "periode"]
   },
 
@@ -5818,24 +4369,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 13 — Oscillations et résonance",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch13/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 13 — Oscillations et résonance",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch13/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["oscillation", "resonance", "vibration", "amortissement"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 13 — Oscillations et résonance",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -5914,24 +4447,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch14/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch14/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 14 — Ondes acoustiques et protection",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch14/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
   },
 
@@ -6018,24 +4533,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch15/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch15/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -6118,24 +4615,6 @@ const DOCUMENTS = [
   },
 
   {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch16/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch16/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
-    motscles: ["capteur", "conditionnement", "conversion", "analogique", "numerique"]
-  },
-
-  {
     filiere: "bts-tsma", rubrique: "S'entraîner",
     chapitre: "Chapitre 16 — Capteurs, conditionnement et conversion",
     type: "qcm", titre: "Prérequis — se tester avant",
@@ -6214,24 +4693,6 @@ const DOCUMENTS = [
     type: "pdf", titre: "Activité expérimentale",
     fichier: "docs/bts-tsma/ch17/activite.pdf",
     description: "L'activité de découverte, à faire en salle de TP.",
-    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
-    type: "pdf", titre: "Situation type CCF",
-    fichier: "docs/bts-tsma/ch17/ccf.pdf",
-    description: "Un sujet d'entraînement au format de l'évaluation en cours de formation.",
-    motscles: ["distribution electrique", "securite", "habilitation", "courant"]
-  },
-
-  {
-    filiere: "bts-tsma", rubrique: "TP",
-    chapitre: "Chapitre 17 — Distribution électrique et sécurité",
-    type: "pdf", titre: "Oral — sujet d'entraînement",
-    fichier: "docs/bts-tsma/ch17/oral.pdf",
-    description: "Le format de l'épreuve orale, à préparer en autonomie.",
     motscles: ["distribution electrique", "securite", "habilitation", "courant"]
   },
 

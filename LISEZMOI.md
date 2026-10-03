@@ -1017,3 +1017,50 @@ avec `--prive prive-atelier`. Un document inchangé garde le même fichier chiff
 
 Rien n'empêche de mettre un sujet d'examen ici, mais le plus sûr pour une épreuve à venir reste
 de ne pas le mettre en ligne du tout.
+
+### Ce que voient les élèves (décision du 3 octobre 2026)
+
+Avec le mot de passe de la classe : **prérequis, cours complet, cours à compléter, exercices,
+bilan, activités** (expérimentales, documentaires, sur animation, TP) et **corrigés des séances**.
+Sans mot de passe, comme avant : **animations, questionnaires et cartes de révision**.
+
+Ne sont plus publiés côté élèves : les énoncés de **situation type CCF, devoir type E32, oral,
+sujet type E4** (sujet, dossier ressources, documents réponses) et **situation U51**. Ils sont
+commentés dans `outils/filieres.py` (« CACHÉ ») et rangés dans l'espace enseignant, à côté de
+leurs corrigés. `preparer_prive.py` les y met automatiquement.
+
+**Dans le dossier du dépôt**, supprimer les anciens fichiers de ces énoncés s'ils y sont encore :
+dans l'Explorateur, rechercher `ccf.pdf.enc`, `devoir.pdf.enc`, `oral.pdf.enc`, `u51.pdf.enc`,
+`e4_*.pdf.enc` dans `docs\` et les supprimer. (Ils ont été vidés, donc illisibles, mais autant
+qu'ils disparaissent du dépôt.)
+
+## Mise à jour du 3 octobre 2026 (v43) — BTS ET : chapitres cachés et ADM 4 à 7
+
+### Chapitres retirés du site élèves
+
+`outils/filieres.py` porte désormais une liste `CHAPITRES_CACHES`. Un chapitre qui y
+figure disparaît entièrement du catalogue (PDF, animations, QCM, cartes) et
+`publier.py --deposer` ne le redépose plus. Pour le BTS ET :
+
+- `c04` Statique des fluides et `c05` Mécanique en translation : cours assurés par le collègue ;
+- `ch09` Distribution et qualité de l'énergie électrique.
+
+Leurs PDF sont rangés dans l'espace enseignant (`prive-atelier/bts-et/<ch>/`), où ils
+restent accessibles avec le code enseignant. Pour en remettre un en ligne : le retirer
+de la liste, remettre ses PDF dans `docs/bts-et/<ch>/`, relancer `publier.py` puis
+`chiffrer.py`. Les animations de ces chapitres restent dans `animations/` (elles servent
+aussi en CRSA ou en TSMA) mais ne sont plus listées en BTS ET.
+
+### ADM 4 à 7 ajoutés (rubrique « TP systèmes »)
+
+| Chapitre | Sujet (mot de passe de la classe) | Animation (libre) |
+|---|---|---|
+| adm04 Centrale de pompage | `tp_piscine.pdf` (archive v2) | `animations/centrale-pompage.html` |
+| adm05 Système de levage | `tp_levage.pdf` (v1) | `animations/systeme-levage.html` |
+| adm06 Éclairage scénique Ermalux | `tp_ermalux.pdf` (v1) | **non publiée** : autorisation de diffusion du schéma ERM à vérifier |
+| adm07 Harmocem | `tp_harmocem.pdf` (v1) | `animations/harmocem.html` |
+
+Les corrigés des sept TP ADM (ADM 1 : activité, exercices, situation U51 et son
+corrigé ; ADM 2 à 7 : corrigé du TP) sont dans l'espace enseignant.
+Les PDF de l'ADM 1 déjà en ligne (compilés le 1er octobre) sont plus récents que
+l'archive v21 : ils n'ont pas été remplacés.
