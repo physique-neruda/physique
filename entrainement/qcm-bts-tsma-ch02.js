@@ -199,96 +199,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Puissance » ?",
-   "verso": "La <strong>puissance</strong> est le quotient de l'énergie échangée par la durée de l'échange.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la puissance. Relation avec l'énergie ? Unités ?",
+   "verso": "Le quotient de l'énergie échangée par la durée : <b>P = E / t</b>, soit <b>E = P × t</b>.<br>E en J, t en s, P en W (1 W = 1 J/s).",
+   "origine": "Cours §1.1 Puissance"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Rendement » ?",
-   "verso": "Le <strong>rendement</strong> d'un convertisseur est le quotient de la puissance utile par la puissance absorbée.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>1 kWh en J ? 1 ch en W ? Énergie d'un litre de gazole ?",
+   "verso": "<b>1 kWh = 3,6 × 10<sup>6</sup> J = 3,6 MJ</b> ; <b>1 ch = 736 W</b> ; 1 L de gazole ≈ <b>36 MJ</b>.",
+   "origine": "Cours §1.2 Les unités du terrain"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Consommation spécifique » ?",
-   "verso": "La <strong>consommation spécifique</strong> est la masse de carburant consommée par unité d'énergie mécanique produite. Elle s'exprime en g/kW·h.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Puissance en rotation ? Conversion de N (tr/min) en ω ? Couple ?",
+   "verso": "<b>P = C × ω</b>, <b>ω = 2π N / 60</b> (rad/s) ; couple <b>C = F × r</b>.<br>Oublier la conversion : erreur d'un facteur 9,55.",
+   "origine": "Cours §2.1 Rotation"
   },
   {
-   "type": "retenir",
-   "recto": "Les conversions à maîtriser — qu'y a-t-il à retenir ?",
-   "verso": "1 kW·h = 1000 × 3600 = 3,6×10⁶ J = 3,6 MJ 1 = 736 W et 1 L de gazole ≈ 36 MJ",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Puissance hydraulique ? Puissance électrique en continu ?",
+   "verso": "Hydraulique : <b>P = p × Q<sub>v</sub></b> (Pa, m³/s).<br>Électrique : <b>P = U × I</b>.",
+   "origine": "Cours §2.2 Hydraulique et électricité"
   },
   {
-   "type": "retenir",
-   "recto": "Deux formules de plus — qu'y a-t-il à retenir ?",
-   "verso": "Hydraulique : P = p × Q_v, avec p en Pa et Q_v en m³/s. Électricité (courant continu) : P = U × I, avec U en V et I en A.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment convertir un débit en L/min et une pression en bar pour calculer une puissance ?",
+   "verso": "L/min → m³/s : <b>÷ 60 000</b>.<br>bar → Pa : <b>× 10<sup>5</sup></b>.",
+   "origine": "Cours §2.2 Les conversions qui tuent"
   },
   {
-   "type": "retenir",
-   "recto": "Rendements en série — qu'y a-t-il à retenir ?",
-   "verso": "Quand plusieurs convertisseurs se suivent, les rendements se multiplient : η_global = η₁ × η₂ × η₃ × …",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Puissance en translation ?",
+   "verso": "<b>P = F × v</b> (N, m/s).",
+   "origine": "Cours §2 Translation"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>puissance</strong> est le quotient de …….",
-   "rep": "l'énergie échangée par la durée de l'échange",
-   "verso": "<strong>l'énergie échangée par la durée de l'échange</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir le rendement d'un convertisseur. Valeurs possibles ?",
+   "verso": "<b>η = P<sub>utile</sub> / P<sub>absorbée</sub></b>, sans unité, <b>entre 0 et 1</b>. η &gt; 1 : erreur de calcul.",
+   "origine": "Cours §3.2 Le rendement"
   },
   {
-   "type": "trou",
-   "recto": "1 kW·h = 1000 × 3600 = 3,6×10⁶ J = 3,6 MJ 1 = 736 W et ……",
-   "rep": "1 L de gazole ≈ 36 MJ",
-   "verso": "<strong>1 L de gazole ≈ 36 MJ</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que vaut la puissance perdue ? Sous quelle forme part-elle ?",
+   "verso": "<b>P<sub>perdue</sub> = P<sub>absorbée</sub> − P<sub>utile</sub></b>, dissipée en <b>chaleur</b> (effet Joule, frottements, échappement). L'énergie se conserve, sa qualité se dégrade.",
+   "origine": "Cours §3.2 Ce qui manque n'est pas perdu"
   },
   {
-   "type": "trou",
-   "recto": "Électricité (courant continu) : ……, avec U en V et I en A.",
-   "rep": "P = U × I",
-   "verso": "<strong>P = U × I</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rendement global de plusieurs convertisseurs en série ?",
+   "verso": "Les rendements se <b>multiplient</b> : η<sub>global</sub> = η<sub>1</sub> × η<sub>2</sub> × … Le plus bas offre la plus grande marge de progrès.",
+   "origine": "Cours §3.3 Rendements en cascade"
   },
   {
-   "type": "trou",
-   "recto": "1 kW·h = 1000 × 3600 = 3,6×10⁶ J = 3,6 MJ …… et 1 L de gazole ≈ 36 MJ",
-   "rep": "1 = 736 W",
-   "verso": "<strong>1 = 736 W</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la consommation spécifique d'un moteur. Unité ? Valeur d'un diesel moderne ?",
+   "verso": "La <b>masse de carburant par unité d'énergie mécanique</b> produite, en <b>g/kWh</b>. Diesel moderne : <b>200 à 260 g/kWh</b>.",
+   "origine": "Cours §4.1 Consommation spécifique"
   },
   {
-   "type": "trou",
-   "recto": "Quand plusieurs convertisseurs se suivent, les rendements se multiplient : ……",
-   "rep": "η_global = η₁ × η₂ × η₃ × …",
-   "verso": "<strong>η_global = η₁ × η₂ × η₃ × …</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi la consommation horaire (L/h) ne permet-elle pas de comparer deux moteurs ?",
+   "verso": "Elle dépend de la <b>charge</b>. Seule la <b>consommation spécifique</b> rapporte la dépense au travail réellement fourni.",
+   "origine": "Cours §4.1 Ne pas juger sur la consommation horaire"
   },
   {
-   "type": "question",
-   "recto": "L'unité de l'énergie dans le Système international est ……",
-   "rep": "le joule",
-   "verso": "<strong>le joule</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Prise de force à 540 tr/min, couple 950 N·m. Comment calculer la puissance ?",
+   "verso": "1. ω = 2π × 540/60 = <b>56,5 rad/s</b>.<br>2. P = C ω = 950 × 56,5 = <b>53,7 kW</b>.<br>3. En ch : 53 700/736 ≈ <b>73 ch</b>.",
+   "origine": "Cours §2.1 La prise de force"
   },
   {
-   "type": "question",
-   "recto": "1 kW·h vaut ……",
-   "rep": "3,6 MJ",
-   "verso": "<strong>3,6 MJ</strong> — le joule est l'unité légale, le kilowattheure celle des factures : 1 kW·h = 1000 × 3600 = 3,6×10⁶ J. 3pt",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment construire une chaîne d'énergie ?",
+   "verso": "1. <b>Source</b> et nature de son énergie.<br>2. <b>Convertisseurs</b> dans l'ordre, nommés.<br>3. <b>Nature de l'énergie</b> entre chaque bloc.<br>4. <b>Pertes</b> : flèche descendante sous chaque bloc (chaleur).",
+   "origine": "Cours §3.1 Méthode — Chaîne d'énergie"
   },
   {
-   "type": "question",
-   "recto": "Un arbre tourne à 540 1/min. Sa vitesse angulaire vaut ……",
-   "rep": "56,5 rad/s",
-   "verso": "<strong>56,5 rad/s</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Moteur : 12,0 L/h de gazole (ρ = 0,84 kg/L), 42 kW utiles. Comment calculer la consommation spécifique ?",
+   "verso": "1. Masse : 12,0 × 0,84 = 10,08 kg/h.<br>2. CS = 10,08 / 42 = 0,240 kg/kWh = <b>240 g/kWh</b>.<br>3. Comparer : entre 200 et 260 → dans la norme.",
+   "origine": "Cours §4.1 Un moteur de tracteur"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer un rendement au banc ?",
+   "verso": "1. Établir la charge, attendre la <b>stabilisation</b>.<br>2. Relever <b>simultanément</b> entrée et sortie.<br>3. Calculer les deux puissances (conversions !).<br>4. η et incertitude relative composée.<br>5. Comparer à la valeur constructeur (intervalle).",
+   "origine": "Cours §4.2 Méthode — Rendement au banc"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

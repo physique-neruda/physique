@@ -40,6 +40,10 @@ def enrichir(filiere, racine, dossier):
         j = brut.rindex("}") + 1
         d = json.loads(brut[i:j])
         avant = len(d.get("cartes") or [])
+        if d.get("cartes_figees"):
+            print("  %-24s cartes figées, laissées telles quelles" % ch)
+            resume.append((ch, avant, avant, 0))
+            continue
         if not os.path.exists(cours):
             print("  %-24s cours introuvable, laissé tel quel" % ch)
             resume.append((ch, avant, avant, 0))

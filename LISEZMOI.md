@@ -1064,3 +1064,35 @@ Les corrigés des sept TP ADM (ADM 1 : activité, exercices, situation U51 et so
 corrigé ; ADM 2 à 7 : corrigé du TP) sont dans l'espace enseignant.
 Les PDF de l'ADM 1 déjà en ligne (compilés le 1er octobre) sont plus récents que
 l'archive v21 : ils n'ont pas été remplacés.
+
+### Les cartes de révision sont écrites à la main (octobre 2026)
+
+Les cartes fabriquées par `outils/cartes.py` restaient trop automatiques : titres d'encadrés
+transformés en questions (« Qu'appelle-t-on « Deux protections complémentaires » ? »), trous
+pris au hasard dans le cours, questions du bilan recopiées sans leurs choix, formules tronquées.
+Elles ne collaient pas aux attendus du chapitre.
+
+Elles sont désormais **écrites à la main**, chapitre par chapitre, dans
+`outils/cartes_manuelles/` (un fichier par filière : `sti2d.py`, `crsa.py`, `tsma.py`, `et.py`).
+Chaque carte est rattachée au paragraphe du cours dont elle vient, et elle est de l'un des deux
+types :
+
+- **Notion** : une définition, une formule avec ses unités, un ordre de grandeur, une
+  distinction à ne pas confondre ;
+- **Méthode** : un savoir-faire, les étapes dans l'ordre, sur l'exemple du cours.
+
+Tous les chapitres sont couverts (3 octobre 2026) : 1re STI2D ch. 0 à 18 (305 cartes),
+BTS CRSA ch. 0 à 20 (324), BTS TSMA ch. 0 à 17 (284), BTS ET ch. 0, cours 1 à 3 et TP 1 à 7
+(236) — **1149 cartes**. Restent hors de ce dispositif, côté BTS ET : les cours 4 et 5 (cours
+du collègue, masqués sur le site), le chapitre 9 (masqué) et ADM 1 (paquet Anki déjà écrit à
+la main, voir plus haut).
+
+```
+python3 outils/injecter_cartes_manuelles.py entrainement
+```
+
+recopie ces cartes dans les fichiers de données et pose `cartes_figees: true`.
+`construire.py`, `construire_tsma.py`, `enrichir_cartes.py`, `completer_cartes.py` et
+`refaire_cartes.py` ne touchent plus à un chapitre dont les cartes sont écrites à la main.
+Un chapitre ajouté plus tard garde ses cartes automatiques tant qu'on ne lui a pas écrit
+ses cartes dans `outils/cartes_manuelles/`.

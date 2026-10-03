@@ -213,99 +213,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Redresser » ?",
-   "verso": "<strong>Redresser</strong>, c'est : Le convertisseur qui réalise cette opération s'appelle un <strong>redresseur</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que signifie « redresser » une tension ? Redressé veut-il dire constant ?",
+   "verso": "Transformer une tension alternative en une tension qui <b>garde toujours le même signe</b>. <b>Non</b> : elle ondule encore (arches) ; il faut ensuite la lisser.",
+   "origine": "Cours §1 Redresser"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Retard à l'amorçage » ?",
-   "verso": "Le <strong>retard à l'amorçage</strong> α est : On le lit sur un chronogramme en mesurant le retard Δt, puis : \\[ α= 360° × (Δt)/T. \\]",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment se comporte une diode parfaite passante ? bloquée ? Qui décide de son état ?",
+   "verso": "Courant dans <b>un seul sens</b>. Passante : un <b>fil</b> ; bloquée : un <b>interrupteur ouvert</b>. C'est le <b>circuit</b> qui décide.",
+   "origine": "Cours §2 La diode"
   },
   {
-   "type": "retenir",
-   "recto": "La règle à retenir — qu'y a-t-il à retenir ?",
-   "verso": "Les diodes d'un pont conduisent deux par deux, en diagonale. Dans les deux cas, le courant entre par la <strong>même</strong> borne de la charge : c'est pourquoi u_s ne change jamais de signe.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment conduisent les diodes d'un pont de Graetz (PD2) ? Conséquence sur u<sub>s</sub> ?",
+   "verso": "<b>Deux par deux, en diagonale</b>. Le courant entre toujours par la même borne de la charge : <b>u<sub>s</sub> ne change jamais de signe</b>.",
+   "origine": "Cours §3 Le pont de Graetz"
   },
   {
-   "type": "retenir",
-   "recto": "Ne pas les confondre — qu'y a-t-il à retenir ?",
-   "verso": "[2]Le condensateur se monte <em>en parallèle</em> sur la charge et lisse la tension. La bobine se monte <em>en série</em> avec la charge et lisse le courant.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Fréquence de la tension redressée double alternance ?",
+   "verso": "<b>f<sub>s</sub> = 2 f<sub>e</sub></b> : 100 Hz pour un réseau à 50 Hz.",
+   "origine": "Cours §4 Fréquence de sortie"
   },
   {
-   "type": "trou",
-   "recto": "Sur un spectre en amplitude, la raie située à f = 0 Hz …….",
-   "rep": "est la valeur moyenne du signal",
-   "verso": "<strong>est la valeur moyenne du signal</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Valeur moyenne en sortie d'un pont de diodes ? Piège ?",
+   "verso": "<b>⟨u<sub>s</sub>⟩ = 2 U<sub>max</sub> / π ≈ 0,637 U<sub>max</sub></b>.<br>Piège : une tension de transformateur donnée est <b>efficace</b> → U<sub>max</sub> = U √2.",
+   "origine": "Cours §4 La valeur moyenne"
   },
   {
-   "type": "trou",
-   "recto": "Dans les deux cas, le courant entre par la <strong>même</strong> borne de la charge : c'est pourquoi …….",
-   "rep": "u_s ne change jamais de signe",
-   "verso": "<strong>u_s ne change jamais de signe</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Sur quelle position mesurer la valeur moyenne d'une tension redressée ?",
+   "verso": "Sur <b>DC</b>. En AC, l'appareil retire la composante continue et ne mesure que l'ondulation.",
+   "origine": "Cours §4 Mesurer"
   },
   {
-   "type": "question",
-   "recto": "Un redresseur est un convertisseur ……",
-   "rep": "alternatif continu",
-   "verso": "<strong>alternatif continu</strong> — C'est la définition même du redressement. Le a est le transformateur, le c le hacheur, le d l'onduleur.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Lissage : comment monte-t-on le condensateur ? la bobine ? Que lisse chacun ?",
+   "verso": "<b>Condensateur en parallèle</b> sur la charge : lisse la <b>tension</b>.<br><b>Bobine en série</b> : lisse le <b>courant</b>.<br>Plus C ou L est grand, plus l'ondulation est faible.",
+   "origine": "Cours §5 Lisser"
   },
   {
-   "type": "question",
-   "recto": "Un pont de Graetz comporte ……",
-   "rep": "quatre diodes",
-   "verso": "<strong>quatre diodes</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le retard à l'amorçage α d'un thyristor ? Comment le lire ?",
+   "verso": "L'angle entre le début théorique de conduction et l'impulsion de gâchette.<br><b>α = 360° × Δt / T</b>.",
+   "origine": "Cours §6 Retard à l'amorçage"
   },
   {
-   "type": "question",
-   "recto": "Dans un schéma équivalent, une diode bloquée est remplacée par ……",
-   "rep": "un interrupteur ouvert",
-   "verso": "<strong>un interrupteur ouvert</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Valeur moyenne d'un pont mixte et d'un pont tout thyristor ? Hypothèse ?",
+   "verso": "Mixte : <b>(U<sub>max</sub>/π)(1 + cos α)</b>.<br>Tout thyristor : <b>(2 U<sub>max</sub>/π) cos α</b>.<br>Hypothèse : courant <b>parfaitement lissé</b> (bobine en série).",
+   "origine": "Cours §6 Ponts commandés"
   },
   {
-   "type": "question",
-   "recto": "Le réseau est à 50 Hz. La fréquence de la tension en sortie d'un pont de Graetz vaut ……",
-   "rep": "100 Hz",
-   "verso": "<strong>100 Hz</strong> — Le redressement est double alternance : l'alternance négative est retournée, donc le motif se répète deux fois par période. f_s = 2 f_e.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Sur le spectre d'une tension redressée, que représente la raie à 0 Hz ?",
+   "verso": "La <b>valeur moyenne</b>. Les autres raies (surtout 100 Hz) décrivent l'ondulation.",
+   "origine": "Cours §7 Le spectre"
   },
   {
-   "type": "question",
-   "recto": "Le secondaire d'un transformateur délivre 24 V efficaces. La valeur moyenne en sortie du pont de diodes vaut ……",
-   "rep": "21,6 V",
-   "verso": "<strong>21,6 V</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi un redresseur pollue-t-il le réseau ? Particularité du pont triphasé PD3 ?",
+   "verso": "Il appelle un courant <b>non sinusoïdal</b> (à-coups) → <b>harmoniques</b>. Le PD3 ne produit <b>aucun harmonique de rang 3</b> (ceux qui chauffent le neutre).",
+   "origine": "Cours §7 Côté réseau"
   },
   {
-   "type": "question",
-   "recto": "Pour mesurer la valeur moyenne d'une tension redressée, le commutateur du voltmètre se place sur ……",
-   "rep": "DC",
-   "verso": "<strong>DC</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Transformateur 230 V/24 V suivi d'un pont de Graetz. Comment trouver ⟨u<sub>s</sub>⟩ ?",
+   "verso": "1. 24 V est une valeur <b>efficace</b>.<br>2. U<sub>max</sub> = 24 √2 = <b>34 V</b>.<br>3. ⟨u<sub>s</sub>⟩ = 2 × 34/π = <b>21,6 V</b>.<br>4. Contrôle : ≈ 64 % de U<sub>max</sub>, inférieur à 24 V.",
+   "origine": "Cours §4 Méthode — Valeur moyenne d'un pont"
   },
   {
-   "type": "question",
-   "recto": "Pour lisser la tension aux bornes d'une charge, on ajoute ……",
-   "rep": "un condensateur en parallèle",
-   "verso": "<strong>un condensateur en parallèle</strong> — Le condensateur se monte en parallèle sur la charge : il se charge à la crête et comble les creux de tension.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Pont tout thyristor, U<sub>max</sub> = 34 V, 50 Hz, conduction 3,33 ms après le zéro. Comment trouver ⟨u<sub>s</sub>⟩ ?",
+   "verso": "1. α = 360 × 3,33/20 = <b>60°</b>.<br>2. Identifier le pont (4 thyristors).<br>3. ⟨u<sub>s</sub>⟩ = (2 × 34/π) cos 60° = <b>10,8 V</b>.<br>4. Vérifier : α plus grand → tension plus faible.",
+   "origine": "Cours §6 Méthode — Pont commandé"
   },
   {
-   "type": "question",
-   "recto": "Pour lisser le courant dans une charge, on ajoute ……",
-   "rep": "une bobine en série",
-   "verso": "<strong>une bobine en série</strong> — La bobine se monte en série : elle s'oppose aux variations du courant. Retenir la paire : C en parallèle pour la tension, L en série pour le courant.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Tension lissée entre 40 V et 44 V. Comment trouver l'ondulation et le taux d'ondulation ?",
+   "verso": "1. <b>Δu = 44 − 40 = 4 V</b>.<br>2. Valeur moyenne ≈ 42 V.<br>3. Taux = Δu / ⟨u⟩ = 4/42 ≈ <b>9,5 %</b>.",
+   "origine": "Cours §5 Lisser"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment obtenir la valeur moyenne d'un signal à partir de son spectre ?",
+   "verso": "1. Relever l'amplitude de la <b>raie à 0 Hz</b> : c'est ⟨u⟩.<br>2. Pour vérifier : recalculer 2U<sub>max</sub>/π.<br>3. Comparer par un <b>écart relatif</b> et conclure.",
+   "origine": "Cours §7 Lire une valeur moyenne sur un spectre"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

@@ -146,101 +146,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "retenir",
-   "recto": "Système triphasé équilibré — qu'y a-t-il à retenir ?",
-   "verso": "Les trois tensions simples ont la même valeur efficace V et la même fréquence, mais elles sont décalées l'une de l'autre d'un tiers de période, soit 120. Leur somme est nulle à chaque instant.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que distribue un réseau triphasé ? Qu'est-ce qu'une tension simple ?",
+   "verso": "Trois phases <b>L1, L2, L3</b> et souvent un <b>neutre N</b>.<br>Tension simple : entre <b>une phase et le neutre</b> (v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub>).",
+   "origine": "Cours §1 Le réseau triphasé"
   },
   {
-   "type": "retenir",
-   "recto": "Méthode des deux wattmètres (récepteur équilibré) — qu'y a-t-il à retenir ?",
-   "verso": "P = P₁ + P₂ Q = √3 (P₁ - P₂) Une lecture négative n'est pas une erreur : quand cosφ< 0,5, P₂ devient négatif. Il faut alors le compter avec son signe.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Caractéristiques d'un système triphasé équilibré de tensions ?",
+   "verso": "Même <b>valeur efficace V</b>, même fréquence, décalées d'<b>un tiers de période (120°)</b>. Leur somme est <b>nulle</b> à chaque instant.",
+   "origine": "Cours §1 Système triphasé équilibré"
   },
   {
-   "type": "trou",
-   "recto": "Sur le réseau de distribution : V = 230 V et U = …… — d'où l'écriture « 230/400 V ».",
-   "rep": "400 V",
-   "verso": "<strong>400 V</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une tension composée ? Relation avec la tension simple ? Valeurs du réseau ?",
+   "verso": "Tension <b>entre deux phases</b> : u<sub>12</sub> = v<sub>1</sub> − v<sub>2</sub>.<br><b>U = V√3</b> : V = 230 V, <b>U = 400 V</b> (réseau « 230/400 V »).",
+   "origine": "Cours §2 Tension composée"
   },
   {
-   "type": "trou",
-   "recto": "Les trois tensions simples ont …… V et la même fréquence, mais elles sont décalées l'une de l'autre d'un tiers de période, soit 120.",
-   "rep": "la même valeur efficace",
-   "verso": "<strong>la même valeur efficace</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi u<sub>12</sub> ne vaut-il pas 230 − 230 = 0 V ?",
+   "verso": "Les tensions simples <b>ne sont pas en phase</b> (120°) : la différence se construit avec <b>Fresnel</b>. U = V√3 relie des valeurs efficaces.",
+   "origine": "Cours §2 Le piège de la soustraction"
   },
   {
-   "type": "question",
-   "recto": "Sur le réseau de distribution, la tension entre une phase et le neutre vaut ……",
-   "rep": "230 V",
-   "verso": "<strong>230 V</strong> — La tension simple ; 400 V est la composée.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Couplage étoile / triangle : tension aux bornes d'un élément ? Relation entre I (ligne) et J (élément) ?",
+   "verso": "<b>Étoile</b> : chaque élément sous <b>V</b>, <b>I = J</b>.<br><b>Triangle</b> : chaque élément sous <b>U</b>, <b>I = J√3</b>.",
+   "origine": "Cours §3 Étoile et triangle"
   },
   {
-   "type": "question",
-   "recto": "Les trois tensions simples sont décalées l'une de l'autre de ……",
-   "rep": "120",
-   "verso": "<strong>120</strong> — Un tiers de période.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Trois résistances de 100 Ω sur le 230/400 V : courants en étoile et en triangle ?",
+   "verso": "Étoile : J = I = 230/100 = <b>2,3 A</b>.<br>Triangle : J = 400/100 = 4,0 A, I = 4,0√3 = <b>6,9 A</b>.<br>Le triangle absorbe <b>3 fois plus</b> de puissance (√3 fois plus de tension par élément).",
+   "origine": "Cours §3 Trois résistances en étoile puis en triangle"
   },
   {
-   "type": "question",
-   "recto": "La tension composée vaut ……",
-   "rep": "V√3",
-   "verso": "<strong>V√3</strong> — Construction de Fresnel : 2Vcos30°. La réponse a additionne des vecteurs qui ne sont pas alignés.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Récepteur équilibré : quel courant circule dans le neutre ? Pourquoi ?",
+   "verso": "<b>Aucun</b> : les trois courants de ligne ont même valeur, sont décalés de 120°, et leur somme est nulle.",
+   "origine": "Cours §3 Le neutre"
   },
   {
-   "type": "question",
-   "recto": "En couplage étoile, chaque élément du récepteur est soumis à ……",
-   "rep": "la tension simple",
-   "verso": "<strong>la tension simple</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment choisir le couplage d'un moteur à partir de sa plaque ?",
+   "verso": "1. La <b>plus petite</b> tension de la plaque est celle que supporte <b>un enroulement</b>.<br>2. Lire la tension composée U du réseau.<br>3. Enroulement prévu pour U → <b>triangle</b> ; pour U/√3 → <b>étoile</b>.<br>Ex. « 400 V Δ / 690 V Y » sur 400 V → triangle ; « 230/400 V » sur 400 V → étoile.",
+   "origine": "Cours §4 Choisir le couplage d'un moteur"
   },
   {
-   "type": "question",
-   "recto": "En couplage triangle, le courant de ligne vaut ……",
-   "rep": "J√3",
-   "verso": "<strong>J√3</strong> — Le courant de ligne se partage entre deux éléments.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que se passe-t-il si un moteur « 230/400 V » est couplé en triangle sur le 400 V ?",
+   "verso": "Chaque enroulement reçoit <b>√3 fois</b> sa tension nominale : il chauffe et <b>grille</b> en quelques minutes.",
+   "origine": "Cours §4 L'erreur de couplage"
   },
   {
-   "type": "question",
-   "recto": "Un récepteur triphasé équilibré : le courant dans le neutre est ……",
-   "rep": "nul",
-   "verso": "<strong>nul</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>P, Q, S d'un récepteur triphasé équilibré (grandeurs de ligne) ?",
+   "verso": "<b>P = √3 U I cos φ</b> ; <b>Q = √3 U I sin φ</b> ; <b>S = √3 U I</b>.<br>Valables dans les deux couplages ; Boucherot s'applique.",
+   "origine": "Cours §5 Puissances en triphasé"
   },
   {
-   "type": "question",
-   "recto": "Un moteur « 230 V Δ / 400 V Y » se branche sur le réseau 230/400 V en ……",
-   "rep": "étoile",
-   "verso": "<strong>étoile</strong> — Un enroulement supporte 230 V, la tension simple du réseau.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans P = √3 U I cos φ, entre quelles grandeurs est mesuré φ ?",
+   "verso": "Entre la <b>tension et le courant d'un même élément</b>, pas entre U et I de ligne.",
+   "origine": "Cours §5 Quel déphasage φ ?"
   },
   {
-   "type": "question",
-   "recto": "Un moteur « 400 V Δ / 690 V Y » se branche sur le même réseau en ……",
-   "rep": "triangle",
-   "verso": "<strong>triangle</strong> — Un enroulement supporte 400 V, la composée.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Moteur sur 400 V : I = 8,2 A, cos φ = 0,82. P, S, Q ?",
+   "verso": "P = √3 × 400 × 8,2 × 0,82 = <b>4,66 kW</b><br>S = √3 × 400 × 8,2 = <b>5,68 kVA</b><br>Q = √(S² − P²) = <b>3,25 kvar</b>",
+   "origine": "Cours §5 Un moteur sur le 400 V"
   },
   {
-   "type": "question",
-   "recto": "La puissance active d'un récepteur triphasé équilibré s'écrit ……",
-   "rep": "√3 UIcosφ",
-   "verso": "<strong>√3 UIcosφ</strong> — La réponse c est la puissance apparente.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Méthode des deux wattmètres : P et Q à partir des lectures P<sub>1</sub> et P<sub>2</sub> ?",
+   "verso": "<b>P = P<sub>1</sub> + P<sub>2</sub></b><br><b>Q = √3 (P<sub>1</sub> − P<sub>2</sub>)</b><br>Lectures prises <b>avec leur signe</b> (sans neutre, récepteur équilibré).",
+   "origine": "Cours §6 La méthode des deux wattmètres"
   },
   {
-   "type": "question",
-   "recto": "Dans cette formule, φ est le déphasage entre ……",
-   "rep": "la tension et le courant d'un même élément",
-   "verso": "<strong>la tension et le courant d'un même élément</strong> — Le piège classique : ce n'est pas le déphasage entre U et I de ligne.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Un des deux wattmètres affiche une valeur négative : erreur ?",
+   "verso": "Non : quand <b>cos φ &lt; 0,5</b>, P<sub>2</sub> devient négatif. On le compte <b>avec son signe</b>.",
+   "origine": "Cours §6 Une lecture négative"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>P<sub>1</sub> = 3200 W et P<sub>2</sub> = 1400 W : P, Q, cos φ ?",
+   "verso": "1. P = 3200 + 1400 = <b>4600 W</b>.<br>2. Q = √3 × (3200 − 1400) = <b>3118 var</b>.<br>3. tan φ = Q/P = 0,678 → <b>cos φ = 0,83</b>.",
+   "origine": "Cours §6 Exploiter les deux lectures"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

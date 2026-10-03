@@ -201,96 +201,144 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Caractéristique » ?",
-   "verso": "La caractéristique d'un dipôle est : Elle ne dépend que du dipôle, jamais du circuit dans lequel on le place.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la caractéristique d'un dipôle ? De quoi dépend-elle ?",
+   "verso": "La courbe du <b>courant en fonction de la tension</b> (ou l'inverse). Elle ne dépend <b>que du dipôle</b>, jamais du circuit.",
+   "origine": "Cours §1 La caractéristique"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Dipôle ohmique » ?",
-   "verso": "Un dipôle est ohmique lorsque sa caractéristique est une droite passant par l'origine. Sa résistance R est alors constante, et U = R I.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment reconnaître sur sa caractéristique un dipôle passif ? actif ?",
+   "verso": "<b>Passif</b> : la caractéristique <b>passe par l'origine</b>.<br><b>Actif</b> : elle <b>ne passe pas par l'origine</b> (tension imposée à courant nul).",
+   "origine": "Cours §1 Passif ou actif"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Capacité » ?",
-   "verso": "Un condensateur stocke une charge q proportionnelle à la tension à ses bornes : q = C u, où C est la capacité, en farads (F). Les relations ci-dessous sont écrites en <strong>convention récepteur</strong> : flèches de u et de i opposées.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Un dipôle actif fournit-il toujours de la puissance ?",
+   "verso": "Non : une batterie en charge est active mais <b>reçoit</b>. C'est le <b>signe de U I</b> dans la convention choisie qui dit le sens du transfert.",
+   "origine": "Cours §1 Actif ne veut pas dire générateur"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Inductance » ?",
-   "verso": "Une bobine s'oppose aux variations du courant qui la traverse. La tension à ses bornes vaut u = L di/dt, où L est l'inductance, en henrys (H), en <strong>convention récepteur</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand un dipôle est-il ohmique ? Relations utiles ?",
+   "verso": "Caractéristique = <b>droite passant par l'origine</b>.<br><b>U = R I</b> ; <b>P = U I = R I² = U² / R</b>",
+   "origine": "Cours §2 Dipôle ohmique"
   },
   {
-   "type": "retenir",
-   "recto": "Passif ou actif — qu'y a-t-il à retenir ?",
-   "verso": "Un dipôle est <strong>passif</strong> lorsque sa caractéristique passe par l'origine : sans générateur, il ne se passe rien. Il est <strong>actif</strong> lorsqu'elle ne passe pas par l'origine : il impose une tension même à courant nul.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment déterminer R à partir d'une caractéristique I(U) relevée ?",
+   "verso": "Par la <b>pente</b> (elle vaut <b>1/R</b>), et non par un seul point : cela moyenne les erreurs de mesure.",
+   "origine": "Cours §2 Dipôle ohmique"
   },
   {
-   "type": "retenir",
-   "recto": "Trois dipôles dont la résistance n'est pas constante — qu'y a-t-il à retenir ?",
-   "verso": "La <strong>diode</strong> ne conduit que dans un sens, et seulement au-delà d'une tension de seuil de l'ordre de 0,6 V pour le silicium. La <strong>lampe à filament</strong> voit sa résistance augmenter avec la température, donc avec le courant.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelles sont les deux valeurs qui caractérisent une résistance ?",
+   "verso": "Sa <b>valeur ohmique</b> et sa <b>puissance admissible</b>. Ex. : 47 Ω sous 12 V dissipe 3,1 W, trop pour une 0,25 W ou 2 W.",
+   "origine": "Cours §2 Une résistance porte deux valeurs"
   },
   {
-   "type": "retenir",
-   "recto": "Le réflexe du régime continu établi — qu'y a-t-il à retenir ?",
-   "verso": "Une fois le régime établi en continu, plus rien ne varie. Le condensateur se comporte alors comme un interrupteur ouvert (i = 0) et la bobine comme un fil (u = 0).",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Diode, lampe à filament, varistance : comportement de chacune ?",
+   "verso": "<b>Diode</b> : conduit dans <b>un seul sens</b>, au-delà de ~0,6 V (silicium).<br><b>Lampe</b> : R <b>augmente avec la température</b>.<br><b>Varistance</b> : isolante puis brutalement conductrice — <b>limiteur de surtension</b>.",
+   "origine": "Cours §3 Les dipôles non linéaires"
   },
   {
-   "type": "trou",
-   "recto": "Un dipôle est ohmique lorsque sa caractéristique est …….",
-   "rep": "une droite passant par l'origine",
-   "verso": "<strong>une droite passant par l'origine</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi « la résistance d'une lampe » n'a-t-il pas de sens sans précision ?",
+   "verso": "R = U/I <b>change d'un point à l'autre</b> : à froid, une lampe a environ <b>1/10</b> de sa résistance à chaud — d'où la pointe de courant à l'allumage.",
+   "origine": "Cours §3 U/I n'a plus de sens global"
   },
   {
-   "type": "trou",
-   "recto": "Deux dipôles branchés l'un sur l'autre ont forcément …….",
-   "rep": "la même tension et le même courant",
-   "verso": "<strong>la même tension et le même courant</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Relations du condensateur (convention récepteur) ?",
+   "verso": "<b>q = C u</b> ; <b>i = C du/dt</b> ; énergie <b>W = ½ C u²</b><br>C en farads (F).",
+   "origine": "Cours §4 Le condensateur"
   },
   {
-   "type": "trou",
-   "recto": "La source génère E I, en fournit U I à l'extérieur, et dissipe …… en interne.",
-   "rep": "r I²",
-   "verso": "<strong>r I²</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelle grandeur ne peut pas varier brutalement aux bornes d'un condensateur ? Pourquoi ?",
+   "verso": "La <b>tension</b> : une variation brutale demanderait un courant infini (i = C du/dt).",
+   "origine": "Cours §4 Le condensateur"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>lampe à filament</strong> voit sa résistance ……, donc avec le courant.",
-   "rep": "augmenter avec la température",
-   "verso": "<strong>augmenter avec la température</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi attendre avant d'intervenir sur un variateur coupé ?",
+   "verso": "Les condensateurs du bus continu gardent <b>½ C u²</b> et plusieurs centaines de volts pendant des minutes. On attend le temps de décharge, puis on <b>vérifie l'absence de tension</b>.",
+   "origine": "Cours §4 Un condensateur chargé reste dangereux"
   },
   {
-   "type": "trou",
-   "recto": "Le condensateur se comporte alors comme …… (i = 0) et la bobine comme un fil (u = 0).",
-   "rep": "un interrupteur ouvert",
-   "verso": "<strong>un interrupteur ouvert</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Relations de la bobine (convention récepteur) ? Quelle grandeur ne peut pas varier brutalement ?",
+   "verso": "<b>u = L di/dt</b> ; énergie <b>W = ½ L i²</b> (L en henrys).<br>C'est le <b>courant</b> qui ne peut pas varier brutalement.",
+   "origine": "Cours §5 La bobine"
   },
   {
-   "type": "question",
-   "recto": "Un dipôle dont la caractéristique passe par l'origine est ……",
-   "rep": "passif",
-   "verso": "<strong>passif</strong> — Passer par l'origine signifie qu'à tension nulle le courant est nul : sans générateur, il ne se passe rien. La réponse b est trop forte — une diode et une lampe passent par l'origine sans être ohmiques.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi place-t-on une diode de roue libre aux bornes d'une bobine commandée en continu ?",
+   "verso": "Couper brutalement le courant crée une <b>très forte tension</b> (u = L di/dt) : l'arc du contacteur. La diode de roue libre l'évite.",
+   "origine": "Cours §5 La surtension d'ouverture"
   },
   {
-   "type": "question",
-   "recto": "Sur la caractéristique I(U) d'un conducteur ohmique, la pente vaut ……",
-   "rep": "1/R",
-   "verso": "<strong>1/R</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>En régime continu établi, comment se comportent un condensateur et une bobine ?",
+   "verso": "Condensateur : <b>interrupteur ouvert</b> (i = 0).<br>Bobine : <b>fil</b> (u = 0).",
+   "origine": "Cours §5 Régime continu établi"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Modèle d'une source réelle ? Équation de sa caractéristique ?",
+   "verso": "Une f.é.m. <b>E</b> en série avec une résistance interne <b>r</b> :<br><b>U = E − r I</b>",
+   "origine": "Cours §6 Modèle de Thévenin"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Sur la caractéristique U(I) d'une source, où lit-on E et r ?",
+   "verso": "<b>E</b> : la tension <b>à vide</b> (I = 0), ordonnée à l'origine.<br><b>r</b> : la <b>pente</b> de la droite, au signe près.",
+   "origine": "Cours §6 Modèle de Thévenin"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le point de fonctionnement d'un circuit source + récepteur ?",
+   "verso": "Les deux dipôles ont <b>la même tension et le même courant</b> : c'est l'<b>intersection de leurs deux caractéristiques</b>.",
+   "origine": "Cours §7 Point de fonctionnement"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi le point de fonctionnement d'un module photovoltaïque ne se trouve-t-il que graphiquement ?",
+   "verso": "Sa caractéristique <b>n'est pas une droite</b> : courant presque constant (≈ I<sub>cc</sub>) puis effondrement près de la tension à vide. Le court-circuit y est sans danger.",
+   "origine": "Cours §7 Le module photovoltaïque"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rendement d'une source de Thévenin ? Où passent les pertes ?",
+   "verso": "<b>η = U / E</b>. Elle génère E I, fournit U I et dissipe <b>r I²</b> en interne. Le rendement <b>baisse</b> quand le courant augmente.",
+   "origine": "Cours §7 Rendement d'une source"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer R d'un dipôle à partir d'un relevé de caractéristique ?",
+   "verso": "1. Relever plusieurs couples (U ; I).<br>2. Tracer <b>I en fonction de U</b>.<br>3. Vérifier : droite <b>passant par l'origine</b> → ohmique.<br>4. Pente sur deux points éloignés = <b>1/R</b>, d'où R.",
+   "origine": "Cours §2 Partie A du TP"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Batterie : 12,6 V à vide, 11,4 V sous 30 A. Comment trouver E et r ?",
+   "verso": "1. <b>E = 12,6 V</b> (mesure à courant nul).<br>2. Chute : E − U = 1,2 V.<br>3. <b>r = 1,2 / 30 = 40 mΩ</b>.<br>4. Interpréter : 5 à 10 mΩ pour une batterie neuve → vieillissement.",
+   "origine": "Cours §6 Méthode — Déterminer E et r"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>E = 24 V, r = 0,8 Ω alimente R = 5,2 Ω. Comment trouver le point de fonctionnement ?",
+   "verso": "<b>Algébrique</b> : maille E = r I + R I → I = 24 / 6,0 = <b>4,0 A</b> ; U = 5,2 × 4,0 = <b>20,8 V</b>.<br><b>Graphique</b> : intersection de U = 24 − 0,8 I et U = 5,2 I (seule voie si le récepteur n'est pas linéaire).",
+   "origine": "Cours §7 Méthode — Deux voies vers le même point"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer le rendement d'une source et ses pertes internes ?",
+   "verso": "1. Mesurer E (à vide) et U (en charge).<br>2. <b>η = U / E</b>.<br>3. Pertes internes : <b>r I²</b> (ou (E − U) × I).",
+   "origine": "Cours §7 Rendement d'une source"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

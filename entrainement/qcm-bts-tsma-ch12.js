@@ -199,96 +199,90 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Période et fréquence » ?",
-   "verso": "La <strong>période</strong> T est la durée du motif qui se répète, en secondes. La <strong>fréquence</strong> f est le nombre de motifs par seconde, en hertz, avec f = 1/T.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir période et fréquence d'un signal. Comment repérer correctement une période ?",
+   "verso": "<b>T</b> : durée du motif ; <b>f = 1/T</b> en Hz.<br>Entre deux points de <b>même valeur et même sens de variation</b>.",
+   "origine": "Cours §1 Période et fréquence"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Valeur moyenne » ?",
-   "verso": "La <strong>valeur moyenne</strong> d'un signal périodique est le niveau <em>constant</em> qui donnerait, sur une période, la même aire sous la courbe. C'est la valeur qu'affiche un multimètre en position continue.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la valeur moyenne. Quelle position du multimètre l'affiche ?",
+   "verso": "Le niveau constant qui donnerait <b>la même aire</b> sur une période. Position <b>continu (DC)</b>.",
+   "origine": "Cours §2 La valeur moyenne"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Valeur efficace » ?",
-   "verso": "La <strong>valeur efficace</strong> U_eff d'un signal est la valeur de la tension continue qui produirait, dans la même résistance, le même échauffement.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Valeur moyenne d'un signal rectangulaire (U pendant αT, 0 sinon) ? Ce qu'elle fixe pour un moteur ?",
+   "verso": "<b>u<sub>moy</sub> = α U</b> (α rapport cyclique). Elle fixe la <b>vitesse</b> d'un moteur à courant continu (24 V, α = 0,60 → 14,4 V).",
+   "origine": "Cours §2 Signal rectangulaire"
   },
   {
-   "type": "retenir",
-   "recto": "Les carrés s'ajoutent — qu'y a-t-il à retenir ?",
-   "verso": "Tout signal périodique se décompose en une composante continue — sa valeur moyenne — et une composante alternative de moyenne nulle. Leurs valeurs efficaces ne s'additionnent pas : U_eff² = U_moy² + U_alt,eff².",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la valeur efficace. Puissance dans une résistance ?",
+   "verso": "La tension <b>continue</b> qui produirait <b>le même échauffement</b> dans la même résistance.<br><b>P = U<sub>eff</sub>² / R</b>.",
+   "origine": "Cours §3.1 La valeur efficace"
   },
   {
-   "type": "retenir",
-   "recto": "Pourquoi on ne peut pas corriger — qu'y a-t-il à retenir ?",
-   "verso": "L'erreur change de signe selon la forme du signal. La corriger supposerait donc de connaître la forme d'onde à l'avance — c'est-à-dire de disposer déjà de l'information que l'on cherche.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Valeur efficace d'une sinusoïde, d'un créneau symétrique, d'un triangle symétrique ?",
+   "verso": "Sinusoïde : <b>U<sub>max</sub>/√2</b>.<br>Créneau : <b>U<sub>max</sub></b>.<br>Triangle : <b>U<sub>max</sub>/√3</b>.",
+   "origine": "Cours §3.1 Formes usuelles"
   },
   {
-   "type": "retenir",
-   "recto": "Décomposition d'un signal périodique — qu'y a-t-il à retenir ?",
-   "verso": "Tout signal périodique alternatif est la somme d'une sinusoïde de même fréquence que lui — le fondamental — et de sinusoïdes de fréquences multiples de celle-ci, les harmoniques.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Relation entre valeur efficace totale, valeur moyenne et composante alternative ?",
+   "verso": "<b>U<sub>eff</sub>² = U<sub>moy</sub>² + U<sub>alt,eff</sub>²</b> : les <b>carrés</b> s'ajoutent, jamais les valeurs.",
+   "origine": "Cours §3.2 Les carrés s'ajoutent"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>période</strong> T est ……, en secondes.",
-   "rep": "la durée du motif qui se répète",
-   "verso": "<strong>la durée du motif qui se répète</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que mesure un multimètre ordinaire en position AC ? Sur quel signal est-il juste ?",
+   "verso": "1,11 × la valeur moyenne du signal redressé : juste <b>seulement sur une sinusoïde</b> (créneau : + 11 % ; triangle : − 3,8 %). Il faut un <b>TRMS</b> ou un oscilloscope.",
+   "origine": "Cours §4 Ce que mesure un multimètre"
   },
   {
-   "type": "trou",
-   "recto": "Leurs valeurs efficaces ne s'additionnent pas : …….",
-   "rep": "U_eff² = U_moy² + U_alt,eff²",
-   "verso": "<strong>U_eff² = U_moy² + U_alt,eff²</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir le temps de montée et le temps d'établissement à 5 %.",
+   "verso": "<b>t<sub>m</sub></b> : de <b>10 à 90 %</b> de la valeur finale (rapidité).<br><b>t<sub>5%</sub></b> : à partir duquel le signal reste dans <b>± 5 %</b> de la valeur finale (stabilisation).",
+   "origine": "Cours §5 Régime transitoire"
   },
   {
-   "type": "trou",
-   "recto": "C'est la valeur qu'affiche un multimètre en position …….",
-   "rep": "continue",
-   "verso": "<strong>continue</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le fondamental ? les harmoniques ? Que porte le spectre d'amplitude ?",
+   "verso": "<b>Fondamental</b> : sinusoïde de même fréquence que le signal. <b>Harmoniques</b> : fréquences multiples. Spectre : <b>fréquence</b> en abscisse, <b>amplitude</b> en ordonnée.",
+   "origine": "Cours §6.1 Fondamental et harmoniques"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>fréquence</strong> f est ……, en hertz, avec f = 1/T.",
-   "rep": "le nombre de motifs par seconde",
-   "verso": "<strong>le nombre de motifs par seconde</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que dit un spectre à une seule raie ? Quels rangs pour un signal symétrique ? Décroissance d'un créneau, d'un triangle ?",
+   "verso": "Une raie : <b>sinusoïde pure</b>.<br>Symétrique : <b>rangs impairs</b> seulement.<br>Créneau : en <b>1/n</b> ; triangle : en <b>1/n²</b>.",
+   "origine": "Cours §6.1 Reconnaître une forme"
   },
   {
-   "type": "trou",
-   "recto": "Le <strong>spectre d'amplitude</strong> porte …… en abscisse et l'amplitude en ordonnée.",
-   "rep": "la fréquence",
-   "verso": "<strong>la fréquence</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Valeur efficace d'un signal à partir de son spectre ?",
+   "verso": "<b>U<sub>eff</sub> = √(U<sub>0</sub>² + U<sub>1</sub>² + U<sub>3</sub>² + …)</b> (valeurs efficaces des raies). Une somme tronquée <b>sous-estime</b>.",
+   "origine": "Cours §6.2 Du spectre à la valeur efficace"
   },
   {
-   "type": "question",
-   "recto": "Un signal a une période de 4,0 ms. Sa fréquence vaut ……",
-   "rep": "250 Hz",
-   "verso": "<strong>250 Hz</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Alimentation : 3,0 V continus et ondulation sinusoïdale d'amplitude 0,80 V. Comment trouver la valeur efficace totale ?",
+   "verso": "1. U<sub>alt,eff</sub> = 0,80/√2 = 0,57 V.<br>2. U<sub>eff</sub>² = 3,0² + 0,57² = 9,32.<br>3. U<sub>eff</sub> = <b>3,05 V</b> (+ 1,8 % seulement).",
+   "origine": "Cours §3.2 Une ondulation résiduelle"
   },
   {
-   "type": "question",
-   "recto": "La valeur moyenne d'un signal est ce qu'affiche un multimètre en position ……",
-   "rep": "continu",
-   "verso": "<strong>continu</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment identifier une forme d'onde à partir de son spectre ?",
+   "verso": "1. Raie la plus basse = <b>fondamental</b> (fréquence du signal).<br>2. Autres raies à des <b>multiples</b>.<br>3. Rangs <b>présents</b> (impairs → symétrique).<br>4. <b>Décroissance</b> : 1/n créneau, 1/n² triangle.",
+   "origine": "Cours §6.1 Méthode — Identifier une forme d'onde"
   },
   {
-   "type": "question",
-   "recto": "Un hacheur alimenté sous 24 V est réglé à α= 0,60. La valeur moyenne vaut ……",
-   "rep": "14,4 V",
-   "verso": "<strong>14,4 V</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment lire t<sub>m</sub> et t<sub>5%</sub> sur un enregistrement ?",
+   "verso": "1. Repérer la <b>valeur finale</b>.<br>2. t<sub>m</sub> : instants à 10 % et 90 % de la valeur finale, faire la différence.<br>3. t<sub>5%</sub> : dernier instant où le signal entre dans ± 5 % sans en ressortir.",
+   "origine": "Cours §5 Régime transitoire"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

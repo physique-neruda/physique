@@ -35,7 +35,7 @@ def completer(dossier, filiere):
         j = brut.rindex("}") + 1
         data = json.loads(brut[i:j])
         avant = len(data.get("cartes") or [])
-        if avant >= PLANCHER:
+        if avant >= PLANCHER or data.get("cartes_figees"):
             resume.append((f, avant, avant))
             continue
         cartes = list(data.get("cartes") or [])

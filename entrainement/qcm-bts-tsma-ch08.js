@@ -199,95 +199,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Système » ?",
-   "verso": "Le <strong>système</strong> est la portion de matière que l'on choisit d'étudier ; tout le reste constitue le milieu extérieur. Les deux sont séparés par la frontière, réelle ou imaginaire.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un système en thermodynamique ? Convention de signe des échanges ?",
+   "verso": "La portion de matière étudiée, séparée du <b>milieu extérieur</b> par une <b>frontière</b>.<br>Ce que le système <b>reçoit</b> : <b>positif</b> ; ce qu'il <b>cède</b> : <b>négatif</b>.",
+   "origine": "Cours §1.1 Système"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Intensif, extensif » ?",
-   "verso": "Une grandeur est <strong>intensive</strong> si elle ne change pas quand on coupe le système en deux ; elle est <strong>extensive</strong> si elle est proportionnelle à la taille du système.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Grandeur intensive et grandeur extensive : définir et donner des exemples.",
+   "verso": "<b>Intensive</b> : inchangée si l'on coupe le système en deux (T, p, ρ).<br><b>Extensive</b> : proportionnelle à la taille (V, m, n, U, H).",
+   "origine": "Cours §1.2 Intensif, extensif"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Énergie interne » ?",
-   "verso": "L'<strong>énergie interne</strong> U d'un système est l'énergie contenue dans l'agitation et les interactions de ses particules. C'est une <strong>fonction d'état</strong> : elle ne dépend que de l'état du système, jamais du chemin suivi pour y parvenir.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Isochore, isobare, isotherme, adiabatique : que signifient-elles ?",
+   "verso": "<b>Isochore</b> : V constant. <b>Isobare</b> : p constante. <b>Isotherme</b> : T constante. <b>Adiabatique</b> : Q = 0.",
+   "origine": "Cours §1.3 Les transformations"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Enthalpie » ?",
-   "verso": "L'<strong>enthalpie</strong> est définie par H = U + p V. Son intérêt est le suivant : pour une transformation <strong>à pression constante</strong>, ΔH = Q.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que traduisent la température et la pression d'un gaz à l'échelle des particules ?",
+   "verso": "<b>Température</b> : l'<b>agitation</b> des particules.<br><b>Pression</b> : les <b>chocs</b> des particules sur les parois.",
+   "origine": "Cours §2.1 Interprétation microscopique"
   },
   {
-   "type": "retenir",
-   "recto": "La convention de signe — qu'y a-t-il à retenir ?",
-   "verso": "Tout ce que le système reçoit est compté positivement ; tout ce qu'il cède est compté négativement. Cette règle vaut pour le travail comme pour la chaleur, et elle ne souffre aucune exception.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Loi des gaz parfaits et unités ?",
+   "verso": "<b>p V = n R T</b> : p en Pa (<b>absolue</b>), V en m³, n en mol, T en <b>K</b>, R = 8,314 J·mol<sup>−1</sup>·K<sup>−1</sup>.",
+   "origine": "Cours §2.2 Loi des gaz parfaits"
   },
   {
-   "type": "retenir",
-   "recto": "Quatre noms, quatre contraintes — qu'y a-t-il à retenir ?",
-   "verso": "Isochore : le volume est constant. Isobare : la pression est constante. Isotherme : la température est constante. Adiabatique : aucun échange de chaleur, Q = 0.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pneu gonflé « à 2 bar » au manomètre : quelle pression dans pV = nRT ?",
+   "verso": "La pression <b>absolue</b> : 2 + 1 = <b>3 bar</b> (3 × 10<sup>5</sup> Pa).",
+   "origine": "Cours §2.2 La pression est toujours absolue"
   },
   {
-   "type": "retenir",
-   "recto": "Première loi de Joule — qu'y a-t-il à retenir ?",
-   "verso": "Pour un gaz parfait, l'énergie interne ne dépend que de la température : ΔU = n C_v,m ΔT. Cette relation vaut <strong>quelle que soit la transformation</strong>, même si le volume et la pression ont changé.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le premier principe. Qu'est-ce qu'une fonction d'état ?",
+   "verso": "<b>ΔU = W + Q</b> (tout ce que le système reçoit).<br>U est une <b>fonction d'état</b> : ne dépend que de l'état, pas du chemin. W et Q en dépendent.",
+   "origine": "Cours §3.1 Premier principe"
   },
   {
-   "type": "trou",
-   "recto": "Pour un gaz parfait, l'énergie interne ne dépend que de la température : …….",
-   "rep": "ΔU = n C_v,m ΔT",
-   "verso": "<strong>ΔU = n C_v,m ΔT</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énergie interne d'un gaz parfait : de quoi dépend-elle ?",
+   "verso": "Seulement de la <b>température</b> : <b>ΔU = n C<sub>v,m</sub> ΔT</b>, quelle que soit la transformation.",
+   "origine": "Cours §3.2 Première loi de Joule"
   },
   {
-   "type": "trou",
-   "recto": "Pour un gaz parfait, l'énergie interne ne dépend que de …… : ΔU = n C_v,m ΔT.",
-   "rep": "la température",
-   "verso": "<strong>la température</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que vaut W ou Q pour une isochore ? une isobare ? une isotherme ? une adiabatique ?",
+   "verso": "Isochore : <b>W = 0</b>, Q = ΔU.<br>Isobare : <b>W = −p ΔV</b>.<br>Isotherme : <b>ΔU = 0</b>, Q = −W.<br>Adiabatique : <b>Q = 0</b>, ΔU = W.",
+   "origine": "Cours §3.3 Les quatre transformations"
   },
   {
-   "type": "trou",
-   "recto": "Le <strong>système</strong> est …… ; tout le reste constitue le milieu extérieur.",
-   "rep": "la portion de matière que l'on choisit d'étudier",
-   "verso": "<strong>la portion de matière que l'on choisit d'étudier</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Température et pression après une compression adiabatique de taux τ ?",
+   "verso": "<b>T<sub>2</sub> = T<sub>1</sub> τ<sup>γ−1</sup></b> ; <b>p<sub>2</sub> = p<sub>1</sub> τ<sup>γ</sup></b> (T en K).",
+   "origine": "Cours §3.3 Compression adiabatique"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>température</strong> mesure …… : plus elles vont vite, plus elle est élevée.",
-   "rep": "l'agitation des particules",
-   "verso": "<strong>l'agitation des particules</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir l'enthalpie. Son intérêt ?",
+   "verso": "<b>H = U + p V</b>. À <b>pression constante</b> : <b>ΔH = Q</b>.",
+   "origine": "Cours §4.1 L'enthalpie"
   },
   {
-   "type": "trou",
-   "recto": "Tout ce que le système reçoit est compté …… ; tout ce qu'il cède est compté négativement.",
-   "rep": "positivement",
-   "verso": "<strong>positivement</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelle formule hors changement d'état ? pendant un changement d'état ?",
+   "verso": "Hors changement : <b>Q = m c Δθ</b> (θ varie).<br>Pendant : <b>Q = m L</b> (θ constante, L enthalpie massique de changement d'état).",
+   "origine": "Cours §4.2 Changements d'état"
   },
   {
-   "type": "question",
-   "recto": "Parmi ces grandeurs, laquelle est intensive ?",
-   "rep": "la pression",
-   "verso": "<strong>la pression</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment exploiter la loi des gaz parfaits entre deux états ?",
+   "verso": "1. Convertir : bar → Pa (× 10<sup>5</sup>, absolue), L → m³ (÷ 1000), °C → K (+ 273,15).<br>2. Repérer ce qui ne varie pas.<br>3. p<sub>1</sub>V<sub>1</sub>/T<sub>1</sub> = p<sub>2</sub>V<sub>2</sub>/T<sub>2</sub>, simplifier.<br>4. Pour n ou m : pV = nRT puis m = n M.",
+   "origine": "Cours §2.2 Méthode — Gaz parfaits"
   },
   {
-   "type": "question",
-   "recto": "Dans pV = nRT, la température doit être exprimée en ……",
-   "rep": "kelvins",
-   "verso": "<strong>kelvins</strong> — deux conversions oubliées à chaque devoir. La température doit être absolue : une valeur en degrés Celsius donne un résultat absurde, parfois négatif.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Air à 20 °C, taux de compression 18, γ = 1,40. Comment trouver la température en fin de compression ?",
+   "verso": "1. Compression rapide → <b>adiabatique</b>.<br>2. T<sub>1</sub> = 293 K.<br>3. T<sub>2</sub> = 293 × 18<sup>0,40</sup> = <b>931 K</b> (658 °C).<br>4. &gt; 250 °C : le gazole s'enflamme sans bougie.",
+   "origine": "Cours §3.3 La compression d'un diesel"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer une température d'équilibre dans un calorimètre ?",
+   "verso": "1. Qui <b>cède</b>, qui <b>reçoit</b>.<br>2. <b>Vérifier la faisabilité</b> (assez d'énergie pour tout fondre ?).<br>3. Q<sub>cédé</sub> = Q<sub>reçu</sub> avec m c Δθ et m L.<br>4. Résoudre, vérifier θ<sub>f</sub> encadrée.",
+   "origine": "Cours §4.3 Méthode — Calorimètre"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

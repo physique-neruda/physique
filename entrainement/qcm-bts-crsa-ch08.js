@@ -213,96 +213,108 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Oxydant, réducteur » ?",
-   "verso": "Un <strong>oxydant</strong> est une espèce capable de capter un ou plusieurs électrons. Un <strong>réducteur</strong> est une espèce capable de céder un ou plusieurs électrons.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir un oxydant et un réducteur. Qui subit l'oxydation ?",
+   "verso": "<b>Oxydant</b> : capte des électrons (il subit une réduction).<br><b>Réducteur</b> : cède des électrons (il subit une <b>oxydation</b>).",
+   "origine": "Cours §1 Oxydant, réducteur"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Corrosion » ?",
-   "verso": "La corrosion est la dégradation d'un métal par oxydation au contact de son environnement : air humide, eau, sels, produits acides.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un couple oxydant/réducteur ? Exemple de demi-équation.",
+   "verso": "Un oxydant et le réducteur qu'il devient après avoir capté des électrons, noté <b>Ox/Red</b>.<br>Fe<sup>2+</sup> + 2 e<sup>−</sup> ⇌ Fe pour le couple Fe<sup>2+</sup>/Fe.",
+   "origine": "Cours §1 Couple et demi-équation"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Fiche de données de sécurité » ?",
-   "verso": "La <strong>FDS</strong> est le document qui accompagne obligatoirement tout produit dangereux. Elle indique :",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment lire l'échelle des potentiels standard E° ? Entre qui se fait la réaction spontanée ?",
+   "verso": "Potentiel <b>élevé</b> → oxydant <b>fort</b> ; potentiel <b>bas</b> → réducteur <b>fort</b>.<br>Réaction entre l'<b>oxydant du couple haut</b> et le <b>réducteur du couple bas</b>.",
+   "origine": "Cours §2 L'échelle des potentiels"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Niveau d'intensité sonore » ?",
-   "verso": "Le niveau d'intensité sonore L se mesure en <strong>décibels</strong> (dB) à l'aide d'un sonomètre. Il se déduit de l'intensité sonore I, en W/meter² :",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la corrosion. Quels sont les trois ingrédients de la corrosion du fer ?",
+   "verso": "La dégradation d'un métal par <b>oxydation</b> au contact de son environnement.<br>Il faut <b>le métal, l'eau et le dioxygène</b> : en supprimer un l'arrête.",
+   "origine": "Cours §3 La corrosion"
   },
   {
-   "type": "retenir",
-   "recto": "La règle de lecture — qu'y a-t-il à retenir ?",
-   "verso": "Plus le potentiel d'un couple est <strong>élevé</strong>, plus son oxydant est fort. Plus il est <strong>bas</strong>, plus son réducteur est fort. Une réaction se produit spontanément entre l'oxydant du couple haut et le réducteur du couple bas.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Protection passive et protection active : principe et exemples ?",
+   "verso": "<b>Passive</b> : <b>isole</b> le métal (revêtement, passivation, anodisation) ; inefficace si percée.<br><b>Active</b> : <b>sacrifie un métal plus réducteur</b> (galvanisation, anode sacrificielle) ; protège même après rayure.",
+   "origine": "Cours §4 Protéger le métal"
   },
   {
-   "type": "retenir",
-   "recto": "Les trois ingrédients — qu'y a-t-il à retenir ?",
-   "verso": "La corrosion du fer exige simultanément le métal, l'eau et le dioxygène. En supprimer un seul suffit à l'arrêter — c'est ce que fait toute protection.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Solution acide, neutre, basique : quel pH ? Quand est-elle la plus corrosive ?",
+   "verso": "pH &lt; 7 <b>acide</b> ; = 7 <b>neutre</b> ; &gt; 7 <b>basique</b> (à 25 °C). Plus le pH <b>s'éloigne de 7</b>, plus elle est corrosive.",
+   "origine": "Cours §5 Acides, bases et pH"
   },
   {
-   "type": "retenir",
-   "recto": "Deux familles, deux logiques — qu'y a-t-il à retenir ?",
-   "verso": "Une protection <strong>passive</strong> isole le métal de son environnement : elle cesse de protéger dès qu'elle est percée. Une protection <strong>active</strong> sacrifie un métal plus réducteur : elle protège encore après une rayure.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Un bain à pH 1 est-il un peu ou beaucoup plus acide qu'un bain à pH 2 ?",
+   "verso": "<b>10 fois plus</b> : l'échelle de pH est <b>logarithmique</b>.",
+   "origine": "Cours §5 Une échelle qui trompe"
   },
   {
-   "type": "trou",
-   "recto": "Un <strong>oxydant</strong> est une espèce capable de …….",
-   "rep": "capter un ou plusieurs électrons",
-   "verso": "<strong>capter un ou plusieurs électrons</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Papier pH ou pH-mètre : lequel choisir ?",
+   "verso": "<b>Papier pH</b> (± 1 unité) : pour trier. <b>pH-mètre étalonné</b> (± 0,05) : quand la décision se joue près d'une limite.",
+   "origine": "Cours §5 Choisir l'instrument"
   },
   {
-   "type": "trou",
-   "recto": "Un <strong>réducteur</strong> est une espèce capable de …….",
-   "rep": "céder un ou plusieurs électrons",
-   "verso": "<strong>céder un ou plusieurs électrons</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que dit le pictogramme ? Que dit la fiche de données de sécurité (FDS) ?",
+   "verso": "<b>Pictogramme</b> : <b>quel danger</b> existe.<br><b>FDS</b> : <b>quoi faire</b> (précautions, stockage, secours, EPI). Une réponse complète cite les deux.",
+   "origine": "Cours §6 FDS et pictogrammes"
   },
   {
-   "type": "trou",
-   "recto": "Deux machines de 85 dB côte à côte donnent donc ……, et non 170 .",
-   "rep": "88 dB",
-   "verso": "<strong>88 dB</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Formule du niveau d'intensité sonore ? Valeur de I<sub>0</sub> ? Appareil de mesure ?",
+   "verso": "<b>L = 10 log(I / I<sub>0</sub>)</b> en dB, <b>I<sub>0</sub> = 1,0 × 10<sup>−12</sup> W/m²</b>. Mesuré au <b>sonomètre</b>.",
+   "origine": "Cours §7 Niveau d'intensité sonore"
   },
   {
-   "type": "trou",
-   "recto": "Doubler l'intensité ajoute …… ; la multiplier par dix en ajoute 10 .",
-   "rep": "3 dB",
-   "verso": "<strong>3 dB</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Deux machines de 85 dB côte à côte donnent… ? Doubler la distance en champ libre ?",
+   "verso": "<b>88 dB</b> (doubler l'intensité ajoute 3 dB ; × 10 ajoute 10 dB).<br>Doubler la distance : <b>−6 dB</b>.",
+   "origine": "Cours §7 Les décibels ne s'additionnent pas"
   },
   {
-   "type": "trou",
-   "recto": "Doubler l'intensité ajoute 3 dB ; la multiplier par dix en ajoute …….",
-   "rep": "10",
-   "verso": "<strong>10</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>De quoi dépend le risque sonore ? Quels sont les trois seuils réglementaires ?",
+   "verso": "Du <b>niveau</b>, de la <b>durée</b> et de la <b>fréquence</b>.<br><b>80</b> dB(A) : protections mises à disposition ; <b>85</b> : port obligatoire ; <b>87</b> : valeur limite.",
+   "origine": "Cours §7 Le risque acoustique"
   },
   {
-   "type": "question",
-   "recto": "Un réducteur est une espèce qui ……",
-   "rep": "cède des électrons",
-   "verso": "<strong>cède des électrons</strong> — Il réduit l'autre espèce en lui cédant ses électrons. Le nom dit ce qu'il fait à l'autre, pas ce qu'il subit.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans quel ordre agir contre le bruit ?",
+   "verso": "1. <b>À la source</b> (machine).<br>2. Sur la <b>propagation</b> (local).<br>3. Seulement ensuite sur l'<b>individu</b> (bouchons, casque).",
+   "origine": "Cours §7 La protection individuelle vient en dernier"
   },
   {
-   "type": "question",
-   "recto": "Un métal qui se corrode subit ……",
-   "rep": "une oxydation",
-   "verso": "<strong>une oxydation</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Pluie acide (H<sup>+</sup>/H<sub>2</sub> : 0,00 V) sur du fer (Fe<sup>2+</sup>/Fe : −0,44 V). Comment savoir si le fer est attaqué ?",
+   "verso": "1. Relever les deux potentiels.<br>2. Couple haut → oxydant (<b>H<sup>+</sup></b>) ; couple bas → réducteur (<b>Fe</b>).<br>3. Justifier : 0,00 &gt; −0,44, le fer est <b>attaqué</b>.",
+   "origine": "Cours §2 Méthode — Identifier oxydant et réducteur"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment écrire l'équation d'une réaction d'oxydoréduction ?",
+   "verso": "1. Identifier les deux couples (potentiels).<br>2. Écrire l'oxydation et la réduction.<br>3. <b>Égaliser les électrons</b> (multiplier).<br>4. Additionner : les électrons disparaissent.<br>5. Contrôler éléments et charges.",
+   "origine": "Cours §3 Méthode — Écrire une équation d'oxydoréduction"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment choisir le métal d'une anode sacrificielle pour protéger de l'acier ?",
+   "verso": "1. Potentiel du fer : −0,44 V.<br>2. Ne garder que les métaux de potentiel <b>inférieur</b> (meilleurs réducteurs).<br>3. Choisir le praticable (<b>zinc, magnésium</b>).<br>4. Justifier en comparant au moins deux métaux.",
+   "origine": "Cours §4 Méthode — Anode sacrificielle"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment évaluer le risque sonore à un poste de travail ?",
+   "verso": "1. <b>Mesurer</b> L au sonomètre au poste.<br>2. Ajouter <b>+3 dB</b> par source identique.<br>3. Ramener à 8 h : <b>L<sub>ex</sub> = L + 10 log(T / 8 h)</b>.<br>4. Comparer aux seuils 80/85/87 dB(A) et énoncer l'obligation.",
+   "origine": "Cours §7 Méthode — Évaluer un risque sonore"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

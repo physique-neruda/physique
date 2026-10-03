@@ -244,98 +244,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Les quatre caractéristiques » ?",
-   "verso": "Une force se représente par un <strong>vecteur</strong> défini par son <strong>point d'application</strong> (où elle s'exerce), sa <strong>direction</strong> (la droite d'action).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une force ? Quelles sont les deux familles d'actions ?",
+   "verso": "Le modèle d'une <b>action mécanique</b> d'un objet sur un autre.<br>Actions de <b>contact</b> (main, support, ressort, air) et actions <b>à distance</b> (poids, forces magnétiques et électriques).",
+   "origine": "Cours §1.1 Actions de contact et à distance"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « La règle, en deux cas » ?",
-   "verso": "<strong>Action à distance</strong> — rien ne touche l'objet, et l'action s'exerce sur <em>toute</em> sa matière. On remplace cette infinité de petites forces par <strong>une seule</strong>, appliquée au <strong>centre de gravité G</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelles sont les quatre caractéristiques d'une force ?",
+   "verso": "<b>Point d'application</b>, <b>direction</b>, <b>sens</b>, <b>norme</b> (intensité) en <b>newtons (N)</b>.",
+   "origine": "Cours §1.2 Les quatre caractéristiques"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Principe d'inertie » ?",
-   "verso": "Lorsque la résultante des forces appliquées à un solide est <strong>nulle</strong>, ce solide est soit <strong>immobile</strong> (à l'équilibre), soit en <strong>translation rectiligne uniforme</strong> — vitesse constante en direction, sens et valeur.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Où placer le point d'application d'une action à distance ? d'une action de contact ?",
+   "verso": "À distance (le <b>poids</b>) : au <b>centre de gravité G</b>.<br>De contact : <b>sur la zone de contact</b> (milieu de la surface d'appui, point d'accroche de la corde…).",
+   "origine": "Cours §1.3 Où placer le point d'application"
   },
   {
-   "type": "retenir",
-   "recto": "Le contrôle qui ne trompe pas — qu'y a-t-il à retenir ?",
-   "verso": "Pour chaque flèche du schéma, on doit pouvoir répondre à la question : [1]<strong>« qu'est-ce qui touche l'objet à cet endroit ? »</strong> Si la réponse est « rien », alors la flèche ne peut être que le <strong>poids</strong>, et elle part de G.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelle question permet de vérifier chaque flèche d'un schéma de forces ?",
+   "verso": "« <b>Qu'est-ce qui touche l'objet à cet endroit ?</b> » Rien → c'est le poids, depuis G. Un objet → la flèche part du point de contact. Sinon : flèche à supprimer.",
+   "origine": "Cours §1.3 Le contrôle qui ne trompe pas"
   },
   {
-   "type": "trou",
-   "recto": "On remplace cette infinité de petites forces par <strong>une seule</strong>, appliquée au …….",
-   "rep": "centre de gravité G",
-   "verso": "<strong>centre de gravité G</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Caractéristiques du poids d'un objet de masse m ?",
+   "verso": "<b>P = m × g</b> (g ≈ 9,81 N/kg), <b>vertical</b>, vers le <b>bas</b>, appliqué en <b>G</b>.",
+   "origine": "Cours §1.4 Le poids"
   },
   {
-   "type": "trou",
-   "recto": "La résultante des forces 2.1 Définition La <strong>résultante</strong> des forces appliquées à un solide est la …… de toutes les forces qu'il subit, notée F.",
-   "rep": "somme vectorielle",
-   "verso": "<strong>somme vectorielle</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Force d'un support, force élastique, frottement fluide : que retenir ?",
+   "verso": "<b>Support</b> : empêche de traverser ; perpendiculaire au plan sans frottement.<br><b>Ressort</b> : <b>F = k × Δℓ</b> (k en N/m), ramène vers l'équilibre.<br><b>Frottement fluide</b> : s'oppose au mouvement, croît avec la vitesse.",
+   "origine": "Cours §1.4 Les quatre forces au programme"
   },
   {
-   "type": "question",
-   "recto": "Les quatre caractéristiques d'une force sont ……",
-   "rep": "point d'application, direction, sens, valeur",
-   "verso": "<strong>point d'application, direction, sens, valeur</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Différence entre masse et poids ?",
+   "verso": "<b>Masse</b> m en kg : quantité de matière, la même partout.<br><b>Poids</b> P en N : une force, qui dépend du lieu (g varie).",
+   "origine": "Cours §1.4 Masse et poids"
   },
   {
-   "type": "question",
-   "recto": "Parmi ces actions, laquelle est une action <strong>à distance</strong> ?",
-   "rep": "le poids",
-   "verso": "<strong>le poids</strong> — les autres exigent un contact matériel",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la résultante des forces ? Deux forces de 10 N opposées donnent… ?",
+   "verso": "La <b>somme vectorielle</b> Σ F des forces. Deux forces de 10 N opposées : résultante <b>nulle</b> (pas 20 N).",
+   "origine": "Cours §2.1 La résultante"
   },
   {
-   "type": "question",
-   "recto": "L'unité d'une force est ……",
-   "rep": "le newton",
-   "verso": "<strong>le newton</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le principe d'inertie.",
+   "verso": "Résultante des forces <b>nulle</b> ⇔ le solide est <b>immobile</b> ou en <b>translation rectiligne uniforme</b>.",
+   "origine": "Cours §2.2 Principe d'inertie"
   },
   {
-   "type": "question",
-   "recto": "Le poids d'un corps de masse 250 kg vaut environ ……",
-   "rep": "2452 N",
-   "verso": "<strong>2452 N</strong> — 250 × 9,81",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Faut-il une force pour entretenir un mouvement à vitesse constante ?",
+   "verso": "<b>Non</b> : une force sert à <b>changer</b> le mouvement. La traction d'une voiture à vitesse constante ne fait que <b>compenser les frottements</b>.",
+   "origine": "Cours §2.2 L'idée à retenir"
   },
   {
-   "type": "question",
-   "recto": "En passant de la Terre à la Lune, un objet conserve ……",
-   "rep": "sa masse",
-   "verso": "<strong>sa masse</strong> — la masse est la même partout, le poids dépend de g",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Résultante nulle : comment se disposent les vecteurs forces mis tête à queue ?",
+   "verso": "Ils forment une <b>boucle fermée</b> (un triangle pour trois forces), ce qui permet de trouver les forces inconnues.",
+   "origine": "Cours §2.2 Résolution graphique"
   },
   {
-   "type": "question",
-   "recto": "La force élastique exercée par un ressort de raideur k vaut ……",
-   "rep": "F = k × Δℓ",
-   "verso": "<strong>F = k × Δℓ</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>On observe un objet à vitesse constante. Que peut-on en déduire sur les forces ?",
+   "verso": "Elles se <b>compensent</b> (résultante nulle) : on peut calculer les forces inconnues. C'est le sens le plus utilisé en exercice.",
+   "origine": "Cours §3 Relier forces et mouvement"
   },
   {
-   "type": "question",
-   "recto": "La résultante de deux forces de 10 N opposées et de même droite d'action vaut ……",
-   "rep": "0 N",
-   "verso": "<strong>0 N</strong> — on additionne des <strong>vecteurs</strong>, pas des intensités",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment faire le bilan des forces d'un livre de 800 g posé sur une table ?",
+   "verso": "1. Système (le livre), référentiel terrestre.<br>2. Inventaire : poids P (à distance), réaction R de la table (contact).<br>3. Caractériser : P vertical vers le bas en G ; R vertical vers le haut au milieu du contact.<br>4. P = m g = 0,800 × 9,81 = <b>7,85 N</b> ; immobile → R = P.",
+   "origine": "Cours §1 Méthode 1"
   },
   {
-   "type": "question",
-   "recto": "Si la somme des forces appliquées à un corps est nulle, alors ce corps ……",
-   "rep": "est immobile ou en mouvement rectiligne uniforme",
-   "verso": "<strong>est immobile ou en mouvement rectiligne uniforme</strong> — c'est le principe d'inertie",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Voiture de 1200 kg à vitesse constante, frottements 480 N. Comment trouver traction et réaction de la route ?",
+   "verso": "1. Vitesse constante en ligne droite → résultante <b>nulle</b>.<br>2. Bilan : P, R, traction F, frottements f.<br>3. Horizontalement : <b>F = f = 480 N</b>.<br>4. Verticalement : R = P = m g = <b>1,18 × 10<sup>4</sup> N</b>.",
+   "origine": "Cours §3 Méthode 2"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Caisse immobile sur une pente d'angle α. Comment trouver le frottement f et la réaction normale R<sub>N</sub> ?",
+   "verso": "1. Bilan : P (vertical), R<sub>N</sub> (⊥ au plan), f (le long de la pente).<br>2. Résultante nulle → <b>triangle fermé</b>.<br>3. Trigonométrie : <b>f = P sin α</b> ; <b>R<sub>N</sub> = P cos α</b>.",
+   "origine": "Cours §3 Trois forces : le plan incliné"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

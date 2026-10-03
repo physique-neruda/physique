@@ -222,97 +222,114 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Cahier des charges » ?",
-   "verso": "Le <strong>cahier des charges</strong> est la liste des <strong>critères</strong> que la pièce doit satisfaire. Chaque critère est confronté aux propriétés des matériaux candidats : un seul critère non respecté suffit à <strong>éliminer</strong> un candidat.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelles sont les quatre familles de matériaux ? Qu'est-ce qu'un composite ?",
+   "verso": "<b>Métalliques</b>, <b>organiques</b>, <b>minéraux</b>, <b>composites</b>.<br>Un composite associe au moins deux matériaux de familles différentes (fibre de carbone : fibres + résine).",
+   "origine": "Cours §1 Les familles de matériaux"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Résistance d'un conducteur » ?",
-   "verso": "[2]\\[ R = ρL/S \\] R en ohms, L en mètres, S en m², et ρ la <strong>résistivité</strong> du matériau en · m. Plus ρ est faible, meilleur est le conducteur.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Citer les six familles de propriétés d'un matériau.",
+   "verso": "<b>Mécaniques</b>, <b>électriques</b>, <b>thermiques</b>, <b>optiques</b>, <b>chimiques</b>, <b>environnementales</b>.",
+   "origine": "Cours §2 Les propriétés"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Groupes caractéristiques » ?",
-   "verso": "Certains groupes d'atomes donnent à une molécule des propriétés reconnaissables : · [--] le groupe <strong>hydroxyle</strong> -OH caractérise les <strong>alcools</strong> (éthanol C2H6O, soit CH3-CH2-OH).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la masse volumique. Unité SI ?",
+   "verso": "<b>ρ = m / V</b>, en <b>kg/m³</b>. Elle décide si une pièce est lourde ou légère.",
+   "origine": "Cours §2 Masse volumique"
   },
   {
-   "type": "retenir",
-   "recto": "Ordres de grandeur — qu'y a-t-il à retenir ?",
-   "verso": "Cuivre ρ≈ 1.7e-8· m aluminium ≈ 2.8e-8· m fer ≈ 1.0e-7· m. Un isolant comme le verre dépasse 10¹⁰ · m : dix-huit ordres de grandeur d'écart.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un cahier des charges ? Quand élimine-t-on un matériau candidat ?",
+   "verso": "La liste des <b>critères</b> que la pièce doit satisfaire. <b>Un seul critère non respecté</b> suffit à éliminer un candidat.",
+   "origine": "Cours §3 Cahier des charges"
   },
   {
-   "type": "retenir",
-   "recto": "À savoir par cœur — qu'y a-t-il à retenir ?",
-   "verso": "H fait <strong>1</strong> liaison C en fait <strong>4</strong> N en fait <strong>3</strong> O en fait <strong>2</strong> Cl en fait <strong>1</strong>.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Résistance d'un conducteur de longueur L et section S ? Résistivité du cuivre ?",
+   "verso": "<b>R = ρ L / S</b> (ρ en Ω·m, S en m²).<br>Cuivre : <b>1,7 × 10<sup>−8</sup> Ω·m</b> ; un isolant comme le verre dépasse 10<sup>10</sup> Ω·m.",
+   "origine": "Cours §4 Résistivité"
   },
   {
-   "type": "trou",
-   "recto": "Un matériau n'est pas « bon » ou « mauvais » dans l'absolu : il est …… à un usage donné.",
-   "rep": "adapté ou non",
-   "verso": "<strong>adapté ou non</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Résistance thermique surfacique d'une paroi ? Comment se lit-elle ?",
+   "verso": "<b>R<sub>th</sub> = e / λ</b> (m²·K/W), e épaisseur, λ conductivité thermique. Plus elle est grande, mieux la paroi <b>isole</b>.",
+   "origine": "Cours §4 Résistance thermique"
   },
   {
-   "type": "trou",
-   "recto": "Les électrons de valence qui ne servent pas à une liaison restent groupés par deux : ce sont les …….",
-   "rep": "doublets non liants",
-   "verso": "<strong>doublets non liants</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir l'indice de réfraction. Valeur pour le verre ?",
+   "verso": "<b>n = c / v</b> (vitesse dans le vide / vitesse dans le matériau). Verre : <b>n ≈ 1,50</b>.",
+   "origine": "Cours §4 Indice de réfraction"
   },
   {
-   "type": "question",
-   "recto": "Le verre appartient à la famille des matériaux ……",
-   "rep": "minéraux",
-   "verso": "<strong>minéraux</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand un atome est-il stable ? Qu'est-ce qu'une liaison covalente ?",
+   "verso": "Quand sa couche externe contient <b>8 électrons</b> (2 pour H).<br>Liaison covalente : une <b>paire d'électrons mise en commun</b> entre deux atomes.",
+   "origine": "Cours §5 Couche externe"
   },
   {
-   "type": "question",
-   "recto": "La <strong>masse volumique</strong> d'un matériau relève de ses propriétés ……",
-   "rep": "mécaniques",
-   "verso": "<strong>mécaniques</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Nombre de liaisons formées par H, C, N, O, Cl ?",
+   "verso": "H : <b>1</b> ; C : <b>4</b> ; N : <b>3</b> ; O : <b>2</b> ; Cl : <b>1</b>.",
+   "origine": "Cours §5 À savoir par cœur"
   },
   {
-   "type": "question",
-   "recto": "Lors d'un choix de matériau, un candidat qui ne respecte <strong>qu'un seul</strong> critère du cahier des charges en moins ……",
-   "rep": "est <strong>éliminé</strong>",
-   "verso": "<strong>est <strong>éliminé</strong></strong> — un seul critère manqué suffit à éliminer",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'apporte le schéma de Lewis par rapport à la formule développée ?",
+   "verso": "Il ajoute les <b>doublets non liants</b> (électrons de valence qui ne forment pas de liaison). H<sub>2</sub>O : 2 sur O ; HCl : 3 sur Cl ; NH<sub>3</sub> : 1 sur N.",
+   "origine": "Cours §5 Schéma de Lewis"
   },
   {
-   "type": "question",
-   "recto": "La résistance d'un conducteur s'écrit ……",
-   "rep": "R = ρL/S",
-   "verso": "<strong>R = ρL/S</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Formules brute, développée, semi-développée : que montre chacune ? (exemple de l'éthanol)",
+   "verso": "<b>Brute</b> : nombre d'atomes (C<sub>2</sub>H<sub>6</sub>O).<br><b>Développée</b> : toutes les liaisons.<br><b>Semi-développée</b> : liaisons avec H sous-entendues (CH<sub>3</sub>–CH<sub>2</sub>–OH).",
+   "origine": "Cours §6 Les quatre représentations"
   },
   {
-   "type": "question",
-   "recto": "Si l'on double la <strong>section</strong> d'un câble sans changer sa longueur, sa résistance ……",
-   "rep": "est divisée par deux",
-   "verso": "<strong>est divisée par deux</strong> — R est inversement proportionnelle à S",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une macromolécule ? Exemple ?",
+   "verso": "Une molécule géante formée de la <b>répétition d'un motif</b> des milliers de fois : les <b>polymères</b> (plastiques).",
+   "origine": "Cours §7 Macromolécules"
   },
   {
-   "type": "question",
-   "recto": "La résistance thermique surfacique d'une paroi vaut ……",
-   "rep": "R<sub>th</sub> = e/λ",
-   "verso": "<strong>R<sub>th</sub> = e/λ</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quel groupe caractérise un alcool ? un acide carboxylique ? Exemples.",
+   "verso": "<b>–OH</b> (hydroxyle) : alcool, ex. éthanol CH<sub>3</sub>–CH<sub>2</sub>–OH.<br><b>–COOH</b> (carboxyle) : acide carboxylique, ex. acide éthanoïque CH<sub>3</sub>–COOH.",
+   "origine": "Cours §7 Groupes caractéristiques"
   },
   {
-   "type": "question",
-   "recto": "L'indice de réfraction d'un milieu se définit par ……",
-   "rep": "n = c/v",
-   "verso": "<strong>n = c/v</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quel est l'intérêt du recyclage ? Exemple de l'aluminium.",
+   "verso": "Il referme le cycle de vie et économise <b>ressources et énergie</b> : l'aluminium recyclé demande ≈ <b>20 fois moins d'énergie</b>.",
+   "origine": "Cours §8 Recyclage"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que signalent les pictogrammes CLP les plus courants ?",
+   "verso": "Losange rouge sur fond blanc : <b>inflammable</b>, <b>corrosif</b>, <b>toxique</b>, <b>nocif/irritant</b>, <b>dangereux pour l'environnement</b>.",
+   "origine": "Cours §8 Pictogrammes CLP"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment choisir un matériau sur cahier des charges ?",
+   "verso": "1. <b>Traduire</b> le besoin en critères mesurables.<br>2. <b>Confronter</b> chaque candidat, critère par critère.<br>3. <b>Éliminer</b> dès qu'un critère n'est pas satisfait.<br>4. <b>Conclure</b> : celui qui satisfait tout, au moindre coût.",
+   "origine": "Cours §3 Méthode 1"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Câble de cuivre de 50 m et 2,5 mm². Comment calculer sa résistance ?",
+   "verso": "1. S = 2,5 mm² = <b>2,5 × 10<sup>−6</sup> m²</b> (facteur 10<sup>−6</sup>).<br>2. R = ρ L/S = 1,7 × 10<sup>−8</sup> × 50 / 2,5 × 10<sup>−6</sup>.<br>3. R = <b>0,34 Ω</b>.",
+   "origine": "Cours §4 Méthode 2"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment passer de la formule brute NH<sub>3</sub> au schéma de Lewis ?",
+   "verso": "1. Compter les liaisons : N 3, H 1.<br>2. Atome central : celui qui en fait le plus (N).<br>3. Relier les 3 H au N (développée).<br>4. Doublets non liants : N a 5 électrons de valence, 3 liés → <b>1 doublet non liant</b>.<br>5. Vérifier : 8 électrons autour de N, 2 autour de H.",
+   "origine": "Cours §6 Méthode 3"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

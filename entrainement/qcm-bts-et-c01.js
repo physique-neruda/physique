@@ -201,96 +201,162 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Les deux échelles » ?",
-   "verso": "La température Celsius θ s'exprime en °C ; la température absolue T s'exprime en K et vaut T = θ+ 273. Le zéro absolu correspond à -273 °C : c'est l'arrêt de l'agitation microscopique, une limite inatteignable.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Relation entre température absolue T et température Celsius θ ? Que représente 0 K ?",
+   "verso": "<b>T (K) = θ (°C) + 273</b><br>0 K = −273 °C : le <b>zéro absolu</b>, arrêt de l'agitation microscopique (inatteignable).",
+   "origine": "Cours §1 Les deux échelles"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Énergie interne » ?",
-   "verso": "L'énergie interne U d'un système est : La température en est la traduction macroscopique : plus les particules s'agitent, plus la température est élevée.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Un écart de 40 °C vaut combien de kelvins ? Quelle formule du chapitre exige T en kelvins ?",
+   "verso": "<b>40 K</b> : le décalage de 273 disparaît dans la soustraction.<br>Seule la <b>loi de Stefan</b> exige la température absolue en K.",
+   "origine": "Cours §1 Un écart n'est pas une température"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Capacité thermique massique » ?",
-   "verso": "La capacité thermique massique c d'un corps est : Elle s'exprime en J/kg/K.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pt100, thermocouple, CTN : principe et usage de chacun ?",
+   "verso": "<b>Pt100</b> : résistance du platine qui varie — linéaire, précise (régulation).<br><b>Thermocouple</b> : tension au contact de deux métaux — jusqu'à 1300 °C.<br><b>CTN</b> : résistance qui chute quand θ monte — non linéaire, pour les seuils.",
+   "origine": "Cours §1 Trois capteurs industriels"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Chaleur latente » ?",
-   "verso": "La chaleur latente L d'un changement d'état est : Elle s'exprime en J/kg.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que l'énergie interne U d'un système ? Que traduit la température ?",
+   "verso": "La <b>somme des énergies de ses constituants microscopiques</b>. La température en est la traduction macroscopique (agitation des particules).",
+   "origine": "Cours §2 Énergie interne"
   },
   {
-   "type": "retenir",
-   "recto": "Trois activités au simulateur précèdent ce cours — qu'y a-t-il à retenir ?",
-   "verso": "Chacune fait <em>trouver</em> une loi avant qu'elle ne soit écrite ici, à partir de mesures relevées sur téléphone. L'<strong>activité 1</strong> donne E = P × t, puis Q = m c Δθ et Q = m L.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Sous quelles formes un système échange-t-il de l'énergie avec l'extérieur ?",
+   "verso": "Uniquement par <b>travail</b> ou par <b>chaleur</b>. Il n'y a pas de troisième voie.",
+   "origine": "Cours §2 Les deux façons de transférer de l'énergie"
   },
   {
-   "type": "retenir",
-   "recto": "Trois capteurs industriels — qu'y a-t-il à retenir ?",
-   "verso": "La <strong>Pt100</strong> exploite la variation de résistance du platine : linéaire, précise, c'est le capteur de la régulation. Le <strong>thermocouple</strong> délivre une tension due au contact de deux métaux différents : quelques millivolts.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énergie consommée par un appareil de puissance P pendant t ? Unités ?",
+   "verso": "<b>E = P × t</b> : E en J, P en W, t en <b>s</b>.<br>(P en kW et t en h → kWh ; 1 kWh = 3,6 MJ.) On ne mélange jamais les deux systèmes.",
+   "origine": "Cours §3 E = P × t"
   },
   {
-   "type": "retenir",
-   "recto": "Q et E sont la même grandeur — qu'y a-t-il à retenir ?",
-   "verso": "Quand une résistance chauffante délivre son énergie à un corps, ce que le corps reçoit est exactement ce que la résistance a dépensé. On le note Q au lieu de E, et on l'appelle chaleur, ou quantité de chaleur.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi note-t-on Q l'énergie reçue par un corps chauffé ?",
+   "verso": "Q est une <b>énergie, en joules</b>, comme E. La lettre indique seulement le chemin : un <b>transfert thermique</b> (chaleur), pas un travail.",
+   "origine": "Cours §3 Q et E sont la même grandeur"
   },
   {
-   "type": "trou",
-   "recto": "Pour en déduire une température, il faut lui fournir …….",
-   "rep": "l'émissivité de la surface visée",
-   "verso": "<strong>l'émissivité de la surface visée</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la capacité thermique massique c. Unité ?",
+   "verso": "L'énergie nécessaire pour élever de <b>1 degré</b> la température de <b>1 kg</b> du corps. En <b>J·kg<sup>−1</sup>·K<sup>−1</sup></b>.",
+   "origine": "Cours §4 Capacité thermique massique"
   },
   {
-   "type": "trou",
-   "recto": "Le flux joue le rôle du courant, l'écart de température celui …….",
-   "rep": "de la tension",
-   "verso": "<strong>de la tension</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énergie pour échauffer une masse m de θ<sub>i</sub> à θ<sub>f</sub> ? Valeur de c pour l'eau ?",
+   "verso": "<b>Q = m c Δθ = m c (θ<sub>f</sub> − θ<sub>i</sub>)</b><br>Eau : <b>c ≈ 4185 J·kg<sup>−1</sup>·K<sup>−1</sup></b>.",
+   "origine": "Cours §4 Échauffer un corps"
   },
   {
-   "type": "trou",
-   "recto": "Une caméra thermique ne mesure pas une température : elle mesure …….",
-   "rep": "un rayonnement",
-   "verso": "<strong>un rayonnement</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que signifie Q &lt; 0 dans Q = m c Δθ ?",
+   "verso": "Le corps a <b>cédé</b> de l'énergie (il s'est refroidi). On ne corrige pas le signe, on le lit.",
+   "origine": "Cours §4 Le signe porte l'information"
   },
   {
-   "type": "trou",
-   "recto": "Les <strong>pentes</strong> correspondent à …… : la température monte.",
-   "rep": "Q = m c Δθ",
-   "verso": "<strong>Q = m c Δθ</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la chaleur latente L. Énergie pour changer d'état une masse m ?",
+   "verso": "L'énergie pour faire changer d'état <b>1 kg</b> de corps, <b>à température constante</b>, en J/kg.<br><b>Q = m L</b>",
+   "origine": "Cours §5 Chaleur latente"
   },
   {
-   "type": "trou",
-   "recto": "Le zéro absolu correspond à -273 °C : c'est ……, une limite inatteignable.",
-   "rep": "l'arrêt de l'agitation microscopique",
-   "verso": "<strong>l'arrêt de l'agitation microscopique</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Sur une courbe de chauffe θ(t), que représentent les pentes et les paliers ?",
+   "verso": "<b>Pentes</b> : la température monte, Q = m c Δθ.<br><b>Paliers</b> : changement d'état, Q = m L, la température ne bouge pas.",
+   "origine": "Cours §5 Lire une courbe de chauffe"
   },
   {
-   "type": "question",
-   "recto": "Une température de 27 °C vaut, en kelvins ……",
-   "rep": "300 K",
-   "verso": "<strong>300 K</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Conduction, convection, rayonnement : définition et exemple sur une armoire ?",
+   "verso": "<b>Conduction</b> : de proche en proche dans la matière (la tôle chauffe).<br><b>Convection</b> : par déplacement d'un fluide (le ventilateur).<br><b>Rayonnement</b> : sans support, par ondes électromagnétiques (caméra thermique).",
+   "origine": "Cours §6 Les trois modes de transfert"
   },
   {
-   "type": "question",
-   "recto": "Un écart de température de 35 °C vaut, en kelvins ……",
-   "rep": "35 K",
-   "verso": "<strong>35 K</strong> — Un écart est le même dans les deux échelles : le décalage de 273 disparaît dans la soustraction. C'est pour cela que Q = m c Δθ accepte indifféremment les degrés Celsius et les kelvins.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Flux thermique à travers une paroi plane : formule et unités ?",
+   "verso": "<b>Φ = λ S (θ<sub>1</sub> − θ<sub>2</sub>) / e = Δθ / R<sub>th</sub></b><br>Φ en W, λ en W·m<sup>−1</sup>·K<sup>−1</sup>, S en m², e en m.",
+   "origine": "Cours §7 Flux thermique"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Résistance thermique d'une paroi ? Comment se combinent plusieurs couches ?",
+   "verso": "<b>R<sub>th</sub> = e / (λ S)</b>, en K/W.<br>Couches superposées : les résistances <b>s'ajoutent en série</b>, le flux est le même dans toutes.",
+   "origine": "Cours §7 Résistance thermique"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans l'analogie thermique/électrique, à quoi correspondent le flux et l'écart de température ?",
+   "verso": "Flux Φ ↔ <b>courant</b> ; écart Δθ ↔ <b>tension</b> ; R<sub>th</sub> ↔ résistance.",
+   "origine": "Cours §7 L'analogie électrique"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Faut-il isoler une armoire électrique dont les équipements chauffent ?",
+   "verso": "<b>Non</b> : l'isolant empêche aussi la chaleur de <b>sortir</b>. Avec une source interne, isoler aggrave l'échauffement.",
+   "origine": "Cours §7 Isoler une armoire qui chauffe"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Puissance rayonnée (émise) par une surface : formule ?",
+   "verso": "<b>P = ε σ S T<sup>4</sup></b>, σ = 5,67 × 10<sup>−8</sup> W·m<sup>−2</sup>·K<sup>−4</sup>, ε émissivité (0 à 1), <b>T en kelvins</b>.<br>Doubler T multiplie P par 16.",
+   "origine": "Cours §8 Loi de Stefan"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un corps noir ?",
+   "verso": "La surface idéale qui <b>absorbe tout</b> ce qu'elle reçoit. C'est aussi le <b>meilleur émetteur</b> à température égale : <b>ε = 1</b>.",
+   "origine": "Cours §8 Le corps noir"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que mesure réellement une caméra thermique ? Que faut-il lui fournir ?",
+   "verso": "Un <b>rayonnement</b>, pas une température. Il faut lui donner l'<b>émissivité</b> de la surface (cuivre brillant ε ≈ 0,05 : pastille mate).",
+   "origine": "Cours §8 Ce que mesure une caméra thermique"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Bilan énergétique d'un convertisseur ? Sous quelle forme se retrouvent les pertes ?",
+   "verso": "<b>W<sub>a</sub> = W<sub>u</sub> + W<sub>p</sub></b>, <b>η = W<sub>u</sub> / W<sub>a</sub></b>. Les pertes sont <b>intégralement thermiques</b> (95 % sur 100 kW → 5 kW à évacuer).",
+   "origine": "Cours §8 Bilan et rendement"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment trouver la puissance pour chauffer 200 L d'eau de 12 à 60 °C en 2 h ?",
+   "verso": "1. Masse : 200 L d'eau → <b>200 kg</b>.<br>2. Q = m c Δθ = 200 × 4185 × 48 = <b>4,02 × 10<sup>7</sup> J</b>.<br>3. P = Q / t = 4,02 × 10<sup>7</sup> / 7200 = <b>5580 W</b>.<br>4. Choisir 6 kW normalisé, vérifier I = 6000/230 = 26 A.",
+   "origine": "Cours §4 Méthode — Dimensionner un préparateur d'eau chaude"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer l'énergie pour chauffer puis vaporiser une masse d'eau ?",
+   "verso": "1. Chauffage jusqu'à 100 °C : Q<sub>1</sub> = m c (100 − θ<sub>i</sub>).<br>2. Palier : Q<sub>2</sub> = m L<sub>v</sub> (L<sub>v</sub> = 2257 kJ/kg).<br>3. Q = Q<sub>1</sub> + Q<sub>2</sub>, en joules.",
+   "origine": "Cours §5 Courbe de chauffe"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer le flux perdu à travers une paroi tôle + isolant ?",
+   "verso": "1. R<sub>1</sub> = e<sub>1</sub> / (λ<sub>1</sub> S) pour la tôle.<br>2. R<sub>2</sub> = e<sub>2</sub> / (λ<sub>2</sub> S) pour l'isolant.<br>3. <b>R<sub>th</sub> = R<sub>1</sub> + R<sub>2</sub></b> (série).<br>4. <b>Φ = Δθ / R<sub>th</sub></b>.<br>5. Comparer à la puissance dissipée → ventilation nécessaire ?",
+   "origine": "Cours §7 Méthode — Chiffrer la déperdition d'une armoire"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer la puissance rayonnée par une surface à 60 °C ?",
+   "verso": "1. Convertir en kelvins : T = 60 + 273 = <b>333 K</b>.<br>2. Relever ε et S (en m²).<br>3. P = ε σ S T<sup>4</sup>.<br>Laisser T en °C fausse le résultat d'un facteur ~950.",
+   "origine": "Cours §8 Loi de Stefan"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment mesurer correctement un point chaud à la caméra thermique ?",
+   "verso": "1. <b>Régler l'émissivité</b> de la surface (pastille mate si métal brillant).<br>2. Comparer le point suspect à une <b>référence sur la même surface</b>.<br>3. Conclure sur l'<b>écart</b> plutôt que sur une valeur absolue.",
+   "origine": "Cours §8 Thermographie"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

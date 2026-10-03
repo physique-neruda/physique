@@ -222,100 +222,90 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Référentiel et trajectoire » ?",
-   "verso": "Le <strong>référentiel</strong> est le point de vue depuis lequel on observe le mouvement. La <strong>trajectoire</strong> d'un point est l'ensemble des positions successives qu'il occupe au cours du temps, <em>dans un référentiel donné</em>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un référentiel ? une trajectoire ?",
+   "verso": "<b>Référentiel</b> : l'objet (muni d'une horloge) par rapport auquel on décrit le mouvement.<br><b>Trajectoire</b> : ensemble des positions successives d'un point, dans un référentiel donné.",
+   "origine": "Cours §1 Référentiel et trajectoire"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Vitesse instantanée » ?",
-   "verso": "La <strong>vitesse instantanée</strong> est la limite de la vitesse moyenne lorsque Δt tend vers zéro. C'est la <strong>dérivée</strong> de la position par rapport au temps : [2]\\[ v(t) = dxdt.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Par quoi commence toujours la description d'un mouvement ?",
+   "verso": "« <b>Dans le référentiel…</b> » (en STI2D, presque toujours <b>terrestre</b>). Sans référentiel, une vitesse n'a pas de sens.",
+   "origine": "Cours §1 La règle absolue"
   },
   {
-   "type": "trou",
-   "recto": "Dans une translation, tous les points du solide décrivent des trajectoires …….",
-   "rep": "superposables",
-   "verso": "<strong>superposables</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand un solide est-il en translation ? Quelles sont les trois translations ?",
+   "verso": "Il garde toujours la <b>même orientation</b>.<br><b>Rectiligne</b> (ascenseur), <b>circulaire</b> (nacelle de grande roue), <b>curviligne</b>.",
+   "origine": "Cours §2 Translation"
   },
   {
-   "type": "question",
-   "recto": "Avant toute étude de mouvement, il faut d'abord préciser ……",
-   "rep": "le référentiel",
-   "verso": "<strong>le référentiel</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le modèle du point matériel ? Quand est-il valable ?",
+   "verso": "On remplace le solide par un point placé au <b>centre de masse</b>, portant toute sa masse. Valable seulement en <b>translation</b> (pas pour une roue qui tourne).",
+   "origine": "Cours §2 Le modèle du point matériel"
   },
   {
-   "type": "question",
-   "recto": "La <strong>trajectoire</strong> d'un point ……",
-   "rep": "dépend du référentiel choisi",
-   "verso": "<strong>dépend du référentiel choisi</strong> — une bille lâchée d'un chariot en marche décrit une droite vue du chariot, une courbe vue du sol",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Vitesse moyenne : formule et unités ? Conversion km/h → m/s ?",
+   "verso": "<b>v = d / Δt</b> (v en m/s, d en m, Δt en s).<br>km/h → m/s : <b>diviser par 3,6</b>.",
+   "origine": "Cours §3.1 La vitesse moyenne"
   },
   {
-   "type": "question",
-   "recto": "Le modèle du <strong>point matériel</strong> consiste à remplacer le solide par un point placé ……",
-   "rep": "en son centre de masse",
-   "verso": "<strong>en son centre de masse</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la vitesse instantanée ? Comment la lire sur la courbe x(t) ?",
+   "verso": "La limite de la vitesse moyenne quand Δt → 0 : <b>v = dx/dt</b>, la <b>dérivée</b> de la position.<br>Graphiquement : la <b>pente de la tangente</b> à x(t).",
+   "origine": "Cours §3.2 Vitesse instantanée"
   },
   {
-   "type": "question",
-   "recto": "90 km/h correspondent à ……",
-   "rep": "25 m/s",
-   "verso": "<strong>25 m/s</strong> — 90/3,6",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir l'accélération. Unité ?",
+   "verso": "La rapidité de variation de la vitesse : <b>a = dv/dt</b>, en <b>m/s²</b>.",
+   "origine": "Cours §3.3 L'accélération"
   },
   {
-   "type": "question",
-   "recto": "La vitesse instantanée est, mathématiquement ……",
-   "rep": "la dérivée de la position par rapport au temps",
-   "verso": "<strong>la dérivée de la position par rapport au temps</strong> — c'est la définition de la dérivée",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que signifie a &gt; 0, a = 0, a &lt; 0 ?",
+   "verso": "a &gt; 0 : <b>accéléré</b> ; a = 0 : <b>uniforme</b> (vitesse constante) ; a &lt; 0 : <b>freiné</b>.<br>a = 0 ne veut pas dire « à l'arrêt ».",
+   "origine": "Cours §3.3 L'accélération"
   },
   {
-   "type": "question",
-   "recto": "Sur un graphique x(t), la vitesse instantanée se lit comme ……",
-   "rep": "la pente de la tangente",
-   "verso": "<strong>la pente de la tangente</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment lire le régime d'un mouvement sur une chronophotographie ?",
+   "verso": "Par les <b>espacements</b> : constants → uniforme ; croissants → accéléré ; décroissants → freiné.",
+   "origine": "Cours §3.3 Chronophotographie"
   },
   {
-   "type": "question",
-   "recto": "L'accélération est la dérivée ……",
-   "rep": "de la vitesse",
-   "verso": "<strong>de la vitesse</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dérivées de t², de t et d'une constante ?",
+   "verso": "(t²)' = <b>2t</b> ; (t)' = <b>1</b> ; (constante)' = <b>0</b>.",
+   "origine": "Cours §3.4 Calculer par dérivation"
   },
   {
-   "type": "question",
-   "recto": "Sur une chronophotographie, des positions de plus en plus espacées traduisent un mouvement ……",
-   "rep": "accéléré",
-   "verso": "<strong>accéléré</strong> — les espacements croissent",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rectiligne uniforme, rectiligne uniformément varié, circulaire uniforme : que dire de a ?",
+   "verso": "Rectiligne uniforme : <b>a = 0</b>.<br>Uniformément varié : <b>a constante non nulle</b> (démarrage, chute libre).<br>Circulaire uniforme : <b>a ≠ 0</b> car la <b>direction</b> de la vitesse change.",
+   "origine": "Cours §4 Trois mouvements"
   },
   {
-   "type": "question",
-   "recto": "Une accélération nulle signifie que ……",
-   "rep": "la vitesse ne change pas",
-   "verso": "<strong>la vitesse ne change pas</strong> — une voiture à 90 km/h sur autoroute a une accélération nulle",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Positions relevées toutes les 0,20 s : 0 ; 0,15 ; 0,40 ; 0,75 m. Comment trouver le type de mouvement et a ?",
+   "verso": "1. Vitesses moyennes Δx/Δt : 0,75 ; 1,25 ; 1,75 m/s.<br>2. Elles augmentent → <b>accéléré</b>.<br>3. a = Δv/Δt = 0,50/0,20 = <b>2,5 m/s²</b>.<br>4. Même valeur partout → uniformément accéléré.",
+   "origine": "Cours §3 Méthode 1"
   },
   {
-   "type": "question",
-   "recto": "Dans un mouvement <strong>circulaire uniforme</strong>, l'accélération est ……",
-   "rep": "non nulle, car la direction de la vitesse change",
-   "verso": "<strong>non nulle, car la direction de la vitesse change</strong> — la vitesse est un <strong>vecteur</strong> : sa valeur est constante, sa direction non",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>x(t) = 6,35 t² + 26 t + 156. Comment obtenir v(t) et a(t) ?",
+   "verso": "1. Dériver terme à terme : <b>v(t) = 12,70 t + 26</b>.<br>2. Dériver encore : <b>a = 12,70 m/s²</b> (constante).<br>3. Remplacer t pour une valeur : v(2,0) = 51,4 m/s.",
+   "origine": "Cours §3 Méthode 2"
   },
   {
-   "type": "question",
-   "recto": "Pour convertir des km/h en m/s, on ……",
-   "rep": "divise par 3,6",
-   "verso": "<strong>divise par 3,6</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer la vitesse moyenne d'un trajet donné en km et en minutes, en m/s ?",
+   "verso": "1. Convertir d en <b>m</b> et Δt en <b>s</b>.<br>2. v = d / Δt.<br>3. Contrôler l'ordre de grandeur (× 3,6 → km/h).",
+   "origine": "Cours §3.1 La vitesse moyenne"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

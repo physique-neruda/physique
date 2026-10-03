@@ -199,97 +199,84 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « La mole » ?",
-   "verso": "La <strong>mole</strong> est la quantité de matière d'un système contenant N_ A = 6,02×10²³ entités (atomes, molécules ou ions). Son symbole est mol.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une mole ? Valeur de N<sub>A</sub> ?",
+   "verso": "La quantité de matière contenant <b>N<sub>A</sub> = 6,02 × 10<sup>23</sup></b> entités (atomes, molécules, ions). Symbole <b>mol</b>. On compte en pesant.",
+   "origine": "Cours §1.1 La mole"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Masse molaire » ?",
-   "verso": "La <strong>masse molaire</strong> M d'une espèce est la masse d'une mole de cette espèce. Elle s'exprime en g/mol. La masse molaire d'une molécule s'obtient en additionnant les masses molaires atomiques, chacune multipliée par son indice.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la masse molaire. Comment la calcule-t-on pour une molécule ?",
+   "verso": "La masse d'<b>une mole</b>, en <b>g/mol</b>. On additionne les masses molaires atomiques, chacune <b>multipliée par son indice</b>.",
+   "origine": "Cours §1.2 Masse molaire"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Nombres stœchiométriques » ?",
-   "verso": "Les coefficients placés devant les formules sont les <strong>nombres stœchiométriques</strong>. Ils indiquent dans quelles proportions les espèces réagissent et se forment.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans 2 Ca(OH)<sub>2</sub>, sur quoi porte l'indice 2 ? Le coefficient 2 entre-t-il dans M ?",
+   "verso": "L'indice porte sur <b>tout le groupe</b> entre parenthèses (2 O, 2 H). Le coefficient devant la formule <b>n'entre jamais</b> dans M.",
+   "origine": "Cours §1.2 Deux pièges de lecture"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Avancement » ?",
-   "verso": "L'<strong>avancement</strong> x, en moles, mesure le degré de progression de la réaction. Un réactif de nombre stœchiométrique ν voit sa quantité diminuer de νx ; un produit voit la sienne augmenter de νx.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment calculer n pour un solide ? un gaz ? une espèce en solution ?",
+   "verso": "Solide/liquide : <b>n = m / M</b>.<br>Gaz : <b>n = V / V<sub>m</sub></b>.<br>Solution : <b>n = C × V</b> (mol/L, L).",
+   "origine": "Cours §2 Les trois relations"
   },
   {
-   "type": "retenir",
-   "recto": "Les trois relations — qu'y a-t-il à retenir ?",
-   "verso": "Solide ou liquide, on le pèse : n = m/M, avec m en g et M en g/mol. Gaz, on mesure son volume : n = V/V_m, avec V en L et V_m en L/mol. Espèce en solution, on connaît volume et concentration : n = C × V, avec C en mol/L et V en L.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>De quoi dépend le volume molaire V<sub>m</sub> ? Valeur à 20 °C ?",
+   "verso": "Seulement de la <b>température et de la pression</b>, pas du gaz. <b>24,0 L/mol</b> à 20 °C (22,4 à 0 °C).",
+   "origine": "Cours §2 Le volume molaire"
   },
   {
-   "type": "trou",
-   "recto": "Une équation est <strong>ajustée</strong> lorsque …….",
-   "rep": "chaque élément est présent en même nombre des deux côtés de la flèche",
-   "verso": "<strong>chaque élément est présent en même nombre des deux côtés de la flèche</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que représentent les nombres stœchiométriques ? Quand une équation est-elle ajustée ?",
+   "verso": "Les <b>proportions</b> dans lesquelles les espèces réagissent et se forment. Ajustée : <b>chaque élément</b> en même nombre des deux côtés.",
+   "origine": "Cours §3.1 Nombres stœchiométriques"
   },
   {
-   "type": "trou",
-   "recto": "Un mélange est <strong>stœchiométrique</strong> lorsque …….",
-   "rep": "les quotients n/ν de tous les réactifs sont égaux",
-   "verso": "<strong>les quotients n/ν de tous les réactifs sont égaux</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pour ajuster une équation, que peut-on modifier ?",
+   "verso": "Seulement les <b>coefficients</b>. Changer un indice change l'espèce chimique.",
+   "origine": "Cours §3.1 Ce qu'on n'a pas le droit de toucher"
   },
   {
-   "type": "trou",
-   "recto": "Gaz, on mesure son volume : ……, avec V en L et V_m en L/mol.",
-   "rep": "n = V/V_m",
-   "verso": "<strong>n = V/V_m</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que l'avancement x ? Comment varient réactifs et produits ?",
+   "verso": "Le degré de progression de la réaction, en mol. Réactif : <b>− ν x</b> ; produit : <b>+ ν x</b>.",
+   "origine": "Cours §4.1 L'avancement"
   },
   {
-   "type": "trou",
-   "recto": "Solide ou liquide, on le pèse : ……, avec m en g et M en g/mol.",
-   "rep": "n = m/M",
-   "verso": "<strong>n = m/M</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment trouver le réactif limitant ?",
+   "verso": "Comparer les quotients <b>n<sub>initial</sub> / ν</b> : le <b>plus petit</b> désigne le limitant et donne <b>x<sub>max</sub></b>. Jamais les n bruts.",
+   "origine": "Cours §4.2 Le réactif limitant"
   },
   {
-   "type": "trou",
-   "recto": "Le <strong>réactif limitant</strong> est …… : c'est lui qui arrête la réaction.",
-   "rep": "celui qui s'épuise le premier",
-   "verso": "<strong>celui qui s'épuise le premier</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un mélange stœchiométrique ?",
+   "verso": "Les quotients n/ν de tous les réactifs sont <b>égaux</b> : ils disparaissent <b>en même temps</b>, sans reste.",
+   "origine": "Cours §4.3 Mélange stœchiométrique"
   },
   {
-   "type": "question",
-   "recto": "L'unité de la quantité de matière est ……",
-   "rep": "la mole",
-   "verso": "<strong>la mole</strong> — 40,1 + 12,0 + 3×16,0 = 100,1. La réponse a correspond à un oubli du facteur 3 sur l'oxygène. 3pt",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment aborder un énoncé de chimie ?",
+   "verso": "1. Repérer la <b>forme</b> de chaque espèce (masse, volume de gaz, solution).<br>2. Convertir (g, L, mol/L).<br>3. Calculer les <b>quantités de matière initiales</b> de tous les réactifs.",
+   "origine": "Cours §2 Méthode — Aborder un énoncé de chimie"
   },
   {
-   "type": "question",
-   "recto": "La masse molaire de CaCO₃ vaut (Ca 40,1 ; C 12,0 ; O 16,0) ……",
-   "rep": "100,1 g/mol",
-   "verso": "<strong>100,1 g/mol</strong> — 40,1 + 12,0 + 3×16,0 = 100,1. La réponse a correspond à un oubli du facteur 3 sur l'oxygène. 3pt",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment établir un bilan de matière ?",
+   "verso": "1. Équation <b>ajustée</b>.<br>2. n initiales des réactifs.<br>3. Plus petit n/ν → limitant et <b>x<sub>max</sub></b>.<br>4. Restant = n<sub>i</sub> − ν x<sub>max</sub> ; formé = ν x<sub>max</sub>.<br>5. Revenir à m = n M ou V = n V<sub>m</sub>.",
+   "origine": "Cours §4.2 Méthode — Bilan de matière"
   },
   {
-   "type": "question",
-   "recto": "Dans Ca(OH)₂, le nombre d'atomes d'hydrogène est ……",
-   "rep": "4",
-   "verso": "<strong>4</strong> — l'indice 2 porte sur tout le groupe (OH) : deux O et deux H. C'est le piège le plus fréquent du calcul de masse molaire. 3pt",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Pour une espèce en solution, la quantité de matière se calcule par ……",
-   "rep": "n = C × V",
-   "verso": "<strong>n = C × V</strong> — trois chemins vers n selon la forme de l'espèce. Le volume molaire ne dépend que de la température et de la pression : un même volume de dihydrogène et de dioxyde de carbone contient le même nombre de molécules, mais pas du tout la même masse.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>2,80 g de fer et 80,0 mL de HCl à 1,00 mol/L (Fe + 2 HCl → FeCl<sub>2</sub> + H<sub>2</sub>). Comment trouver le limitant et le volume de H<sub>2</sub> ?",
+   "verso": "1. n(Fe) = 2,80/55,8 = 5,02 × 10<sup>−2</sup> mol ; n(HCl) = 8,00 × 10<sup>−2</sup> mol.<br>2. Quotients : 5,02 × 10<sup>−2</sup> et 4,00 × 10<sup>−2</sup> → <b>HCl limitant</b>.<br>3. V(H<sub>2</sub>) = x<sub>max</sub> × V<sub>m</sub> = 4,00 × 10<sup>−2</sup> × 24,0 = <b>0,96 L</b>.",
+   "origine": "Cours §4.2 Le décapage d'une pièce"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

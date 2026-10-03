@@ -146,100 +146,90 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Gain en décibels » ?",
-   "verso": "Le gain d'un montage, exprimé en décibels, se calcule à partir du rapport des amplitudes : il vaut vingt fois le logarithme de ce rapport.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que fait un filtre ? À quelle condition peut-il séparer deux signaux ?",
+   "verso": "Il <b>trie les composantes selon leur fréquence</b>. Il ne sépare deux signaux que si leurs <b>fréquences diffèrent</b>.",
+   "origine": "Cours §1 Pourquoi filtrer"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Fréquence de coupure » ?",
-   "verso": "La fréquence de coupure d'un filtre est celle pour laquelle le gain a chuté de 3 dB sous la valeur du palier — autrement dit celle où l'amplitude est divisée par √2.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quel type de filtre si l'utile est en bas du spectre ? en haut ? au milieu ?",
+   "verso": "En bas : <b>passe-bas</b> ; en haut : <b>passe-haut</b> ; encadré : <b>passe-bande</b>. Fréquence de coupure <b>entre</b> les groupes de raies.",
+   "origine": "Cours §1 Le gabarit"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Quantum, ou résolution » ?",
-   "verso": "Le quantum d'un convertisseur est la plus petite variation de tension qu'il peut distinguer. Il vaut la pleine échelle divisée par le nombre de valeurs possibles.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Formule du gain en décibels ? Formule inverse ?",
+   "verso": "<b>G = 20 log(u<sub>s</sub>/u<sub>e</sub>)</b> ; <b>u<sub>s</sub>/u<sub>e</sub> = 10<sup>G/20</sup></b>.<br>Repères : −3 dB → 0,71 ; −20 dB → 0,10. G &lt; 0 : atténuation.",
+   "origine": "Cours §2 Le gain en décibels"
   },
   {
-   "type": "trou",
-   "recto": "Sans lui, le nombre obtenu ne correspondrait à …….",
-   "rep": "aucun instant précis",
-   "verso": "<strong>aucun instant précis</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la fréquence de coupure d'un filtre. Qu'est-ce que la bande passante ?",
+   "verso": "f<sub>c</sub> : le gain a chuté de <b>3 dB</b> sous le palier (amplitude ÷ √2).<br>Bande passante : fréquences où G &gt; −3 dB (passe-bas : de 0 à f<sub>c</sub>).",
+   "origine": "Cours §3 Fréquence de coupure"
   },
   {
-   "type": "trou",
-   "recto": "L'échantillonneur bloqueur …… pendant toute la durée de la conversion.",
-   "rep": "maintient la tension d'entrée constante",
-   "verso": "<strong>maintient la tension d'entrée constante</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quel piège sur l'axe des fréquences d'un diagramme de Bode ?",
+   "verso": "Il est <b>logarithmique</b> : chaque intervalle = × 10. Entre 10 et 100 Hz, le milieu vaut ≈ <b>32 Hz</b>, pas 55.",
+   "origine": "Cours §3 Axe logarithmique"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>bande passante</strong> est l'intervalle de fréquences pour lequel le gain reste au-dessus de …….",
-   "rep": "-3 dB",
-   "verso": "<strong>-3 dB</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Un filtre peut-il créer ou déplacer une fréquence ?",
+   "verso": "<b>Non</b> : mêmes raies aux mêmes fréquences ; seules leurs <b>hauteurs</b> changent.",
+   "origine": "Cours §4 Spectre de sortie"
   },
   {
-   "type": "trou",
-   "recto": "Sa sortie ne varie donc que <strong>par paliers</strong> : le plus petit d'entre eux est, comme pour le CAN, le …… q.",
-   "rep": "quantum",
-   "verso": "<strong>quantum</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir le quantum (résolution) d'un CAN. Formule ?",
+   "verso": "La plus petite variation de tension distinguée : <b>q = PE / 2<sup>n</sup></b> (PE pleine échelle, n bits).",
+   "origine": "Cours §5 Quantum d'un CAN"
   },
   {
-   "type": "trou",
-   "recto": "La fréquence de coupure d'un filtre est celle pour laquelle le gain a chuté de 3 dB sous la valeur du palier — autrement dit celle où l'amplitude est …….",
-   "rep": "divisée par √2",
-   "verso": "<strong>divisée par √2</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les deux leviers pour améliorer la résolution d'un CAN ?",
+   "verso": "<b>Ajouter des bits</b> (chaque bit divise q par 2) ou <b>réduire la pleine échelle</b>. Inutile au-delà de la précision du capteur.",
+   "origine": "Cours §5 Améliorer la résolution"
   },
   {
-   "type": "question",
-   "recto": "Un filtre trie les composantes d'un signal selon leur ……",
-   "rep": "fréquence",
-   "verso": "<strong>fréquence</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rôle de l'échantillonneur bloqueur ?",
+   "verso": "Il <b>maintient la tension constante</b> pendant la conversion, pour que le nombre corresponde à un <b>instant précis</b>.",
+   "origine": "Cours §6 Échantillonneur bloqueur"
   },
   {
-   "type": "question",
-   "recto": "Pour éliminer un parasite à 50 Hz d'un signal quasi continu, on utilise un filtre ……",
-   "rep": "passe-bas",
-   "verso": "<strong>passe-bas</strong> — L'utile est en bas du spectre, le parasite en haut : on garde le bas.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que fait un CNA ? Tension de sortie ? Caractéristiques à lire sur sa documentation ?",
+   "verso": "Il transforme un nombre N en tension <b>u = q × N</b> (par paliers).<br>Doc : <b>résolution</b>, <b>non-linéarité</b>, <b>temps de conversion</b>.",
+   "origine": "Cours §7 Le CNA"
   },
   {
-   "type": "question",
-   "recto": "Un gain de -20 dB signifie que l'amplitude est ……",
-   "rep": "divisée par 10",
-   "verso": "<strong>divisée par 10</strong> — 10^-20/20 = 0,1. La réponse c est le piège : les décibels ne se lisent pas comme un facteur de division.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment choisir le gabarit d'un filtre ?",
+   "verso": "1. Lire le <b>spectre d'entrée</b>.<br>2. Repérer raies <b>utiles</b> et raies à éliminer.<br>3. En déduire passe-bas, passe-haut ou passe-bande.<br>4. Placer f<sub>c</sub> <b>entre</b> les deux groupes.",
+   "origine": "Cours §1 Méthode — Choisir le gabarit"
   },
   {
-   "type": "question",
-   "recto": "La fréquence de coupure d'un filtre se lit à ……",
-   "rep": "-3 dB sous le palier",
-   "verso": "<strong>-3 dB sous le palier</strong> — C'est la définition : l'amplitude y est divisée par √2. La réponse d est une confusion fréquente — la courbe est en décibels, pas en amplitude.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer graphiquement la fréquence de coupure sur un diagramme de Bode ?",
+   "verso": "1. Gain du <b>palier</b>.<br>2. Descendre de <b>3 dB</b>, tracer l'horizontale.<br>3. Intersection avec la courbe, descendre sur l'axe.<br>4. Lire (échelle <b>log</b>).<br>5. <b>Laisser les traits</b>.",
+   "origine": "Cours §3 Méthode — f<sub>c</sub> à −3 dB"
   },
   {
-   "type": "question",
-   "recto": "Deux signaux de même fréquence peuvent être séparés par ……",
-   "rep": "aucun filtre",
-   "verso": "<strong>aucun filtre</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment construire le spectre de sortie d'un filtre ?",
+   "verso": "1. Pour chaque raie d'entrée :<br>2. Lire le gain G du filtre à sa fréquence.<br>3. Rapport = 10<sup>G/20</sup>.<br>4. Nouvelle amplitude = amplitude × rapport, <b>même fréquence</b>.",
+   "origine": "Cours §4 Méthode — Spectre de sortie"
   },
   {
-   "type": "question",
-   "recto": "Le quantum d'un CAN 12 bits de pleine échelle 10 V vaut environ ……",
-   "rep": "2,4 mV",
-   "verso": "<strong>2,4 mV</strong> — 10/4096 = 2,44×10⁻³ V. La réponse a divise par 12 au lieu de 2¹².",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>CAN 12 bits, pleine échelle 10,0 V, chaîne à 0,10 V/°C. Comment trouver la résolution en °C ?",
+   "verso": "1. q = 10,0 / 2<sup>12</sup> = 10,0/4096 = <b>2,44 mV</b>.<br>2. En °C : 2,44 × 10<sup>−3</sup> / 0,10 = <b>0,024 °C</b>.",
+   "origine": "Cours §5 Exemple — Quantum"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

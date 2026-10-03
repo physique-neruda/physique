@@ -199,98 +199,90 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Oscillateur » ?",
-   "verso": "Un <strong>oscillateur</strong> est un système qui, écarté de sa position d'équilibre, y revient en la dépassant. Il est caractérisé par sa <strong>période propre</strong> T₀ et sa <strong>fréquence propre</strong> f₀ = 1/T₀.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un oscillateur ? Par quoi est-il caractérisé ?",
+   "verso": "Un système qui, écarté de l'équilibre, y revient <b>en le dépassant</b>. Caractérisé par sa <b>période propre T<sub>0</sub></b> et sa <b>fréquence propre f<sub>0</sub> = 1/T<sub>0</sub></b>.",
+   "origine": "Cours §1 Oscillateur"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Libre et forcé » ?",
-   "verso": "Les oscillations sont <strong>libres</strong> lorsque le système oscille de lui-même après avoir été écarté ; il vibre alors à sa fréquence propre.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Fréquence propre d'un système masse-ressort ? Comment doubler f<sub>0</sub> ?",
+   "verso": "<b>f<sub>0</sub> = (1/2π) √(k/m)</b> : en √k et en 1/√m. Doubler f<sub>0</sub> → <b>quadrupler la raideur</b>.",
+   "origine": "Cours §1 Masse-ressort"
   },
   {
-   "type": "retenir",
-   "recto": "Résonance mécanique — qu'y a-t-il à retenir ?",
-   "verso": "Il y a <strong>résonance</strong> lorsque l'amplitude de la réponse passe par un maximum, pour une fréquence d'excitation voisine de la fréquence propre du système. Plus l'amortissement est faible, plus le pic est haut et étroit.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les trois régimes d'oscillation selon l'amortissement ?",
+   "verso": "<b>Périodique</b> : sans amortissement (idéal).<br><b>Pseudopériodique</b> : oscille en perdant de l'amplitude.<br><b>Apériodique</b> : retour sans oscillation.",
+   "origine": "Cours §2 Les trois régimes"
   },
   {
-   "type": "retenir",
-   "recto": "La règle de l'isolation — qu'y a-t-il à retenir ?",
-   "verso": "Des plots élastiques forment avec la masse portée un <em>nouvel</em> oscillateur, de fréquence propre f₀ basse. L'isolation n'est efficace que si f > √2 f₀. En dessous de cette limite, on amplifie au lieu d'atténuer.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Augmenter toujours l'amortissement accélère-t-il le retour à l'équilibre ?",
+   "verso": "<b>Non</b> : au-delà du seuil apériodique, il le <b>ralentit</b>. Un amortisseur est réglé près de ce seuil.",
+   "origine": "Cours §2 Plus d'amortissement"
   },
   {
-   "type": "trou",
-   "recto": "Plus l'amortissement est faible, plus le pic est …….",
-   "rep": "haut et étroit",
-   "verso": "<strong>haut et étroit</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>En régime pseudopériodique, comment évoluent les amplitudes ? la période ?",
+   "verso": "Les amplitudes décroissent dans un <b>rapport constant</b> ; la période reste <b>pratiquement inchangée</b>.",
+   "origine": "Cours §3 L'amortissement"
   },
   {
-   "type": "trou",
-   "recto": "Sans amortissement, le régime est …… — cas idéal, jamais atteint.",
-   "rep": "périodique",
-   "verso": "<strong>périodique</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>À quelle fréquence vibre un système en oscillations libres ? forcées ?",
+   "verso": "<b>Libres</b> : à sa <b>fréquence propre</b>.<br><b>Forcées</b> : à la fréquence de l'<b>excitateur</b> ; seule l'amplitude dépend du système.",
+   "origine": "Cours §4 Libres et forcées"
   },
   {
-   "type": "trou",
-   "recto": "Pour une vitesse de N tours par minute, cette fréquence vaut …… en hertz.",
-   "rep": "f = N/60",
-   "verso": "<strong>f = N/60</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la résonance ? Effet de l'amortissement ?",
+   "verso": "L'amplitude passe par un <b>maximum</b> quand la fréquence d'excitation approche <b>f<sub>0</sub></b>. Amortissement faible → pic <b>haut et étroit</b>.",
+   "origine": "Cours §5 La résonance"
   },
   {
-   "type": "trou",
-   "recto": "En régime pseudopériodique, les amplitudes successives se succèdent dans un …….",
-   "rep": "rapport constant",
-   "verso": "<strong>rapport constant</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Où recherche-t-on la résonance ? Où la redoute-t-on ?",
+   "verso": "Recherchée : crible vibrant, compacteur, table vibrante. Redoutée : cabine, tôlerie, tuyauterie, échappement.",
+   "origine": "Cours §5 Recherchée ou redoutée"
   },
   {
-   "type": "trou",
-   "recto": "Avec un amortissement fort, il devient apériodique : le retour à l'équilibre se fait …….",
-   "rep": "sans aucune oscillation",
-   "verso": "<strong>sans aucune oscillation</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>À quelle fréquence excite un balourd ? Que signale un pic au double ?",
+   "verso": "À la <b>fréquence de rotation</b> : <b>f = N/60</b>. Un pic à <b>2f</b> oriente vers un <b>désalignement</b>.",
+   "origine": "Cours §6.1 Le balourd"
   },
   {
-   "type": "question",
-   "recto": "Un système écarté puis lâché, sans excitation extérieure, effectue des oscillations ……",
-   "rep": "libres",
-   "verso": "<strong>libres</strong> — c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand des plots élastiques isolent-ils efficacement des vibrations ?",
+   "verso": "Seulement si <b>f &gt; √2 × f<sub>0</sub></b> (f<sub>0</sub> du système sur plots). En dessous, ils <b>amplifient</b>.",
+   "origine": "Cours §6.2 Règle de l'isolation"
   },
   {
-   "type": "question",
-   "recto": "En régime forcé établi, le système oscille à ……",
-   "rep": "la fréquence de l'excitateur",
-   "verso": "<strong>la fréquence de l'excitateur</strong> — c'est la distinction fondatrice du chapitre. En libre, la fréquence est imposée par le système lui-même ; en forcé, elle est imposée de l'extérieur.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans quel ordre traiter une vibration ?",
+   "verso": "1. <b>Supprimer l'excitation</b> (équilibrer, aligner).<br>2. <b>Déplacer f<sub>0</sub></b> (raideur du support).<br>3. <b>Amortir</b> (dernier recours).",
+   "origine": "Cours §6.2 Traiter une vibration"
   },
   {
-   "type": "question",
-   "recto": "Un enregistrement montre un retour à l'équilibre sans aucune oscillation. Le régime est ……",
-   "rep": "apériodique",
-   "verso": "<strong>apériodique</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment exploiter un enregistrement d'oscillations libres ?",
+   "verso": "1. Durée de <b>plusieurs</b> oscillations ÷ leur nombre → T<sub>0</sub>.<br>2. f<sub>0</sub> = 1/T<sub>0</sub>.<br>3. Amplitudes successives du même côté.<br>4. Rapports X<sub>2</sub>/X<sub>1</sub>, X<sub>3</sub>/X<sub>2</sub>… <b>égaux</b> → amortissement visqueux.",
+   "origine": "Cours §3 Méthode — Oscillations libres"
   },
   {
-   "type": "question",
-   "recto": "La fréquence propre d'un système masse-ressort vaut f₀ = 1/2π√(k/m). Si on quadruple la masse, f₀ est ……",
-   "rep": "divisée par 2",
-   "verso": "<strong>divisée par 2</strong> — f₀ varie en 1/√m : quadrupler m divise f₀ par √4 = 2. La racine carrée écrase les variations : pour diviser une fréquence propre par deux, il ne suffit pas de doubler la masse. 3pt",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment relever une courbe de résonance ?",
+   "verso": "1. Excitateur à <b>amplitude constante</b>.<br>2. Balayer par <b>pas réguliers</b>, attendre le régime établi.<br>3. Repérer le maximum, <b>balayage plus fin</b> autour.<br>4. Comparer à f<sub>0</sub> mesurée en libre.",
+   "origine": "Cours §5 Méthode — Courbe de résonance"
   },
   {
-   "type": "question",
-   "recto": "Les amplitudes successives d'un système amorti valent 42,0, 34,0, 27,6, 22,3 mm. La décroissance est ……",
-   "rep": "géométrique, de rapport voisin de 0,81",
-   "verso": "<strong>géométrique, de rapport voisin de 0,81</strong> — les rapports successifs valent 0,810, 0,812, 0,808 : ils sont constants, ce qui est la signature d'une décroissance géométrique, donc exponentielle.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>m = 0,200 kg, k = 120 N/m. Comment calculer f<sub>0</sub> et T<sub>0</sub> ?",
+   "verso": "1. f<sub>0</sub> = (1/2π) √(120/0,200) = <b>3,90 Hz</b>.<br>2. T<sub>0</sub> = 1/f<sub>0</sub> = <b>0,256 s</b>.",
+   "origine": "Cours §1 Ordre de grandeur"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };
