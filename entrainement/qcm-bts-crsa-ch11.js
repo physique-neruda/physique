@@ -213,100 +213,90 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Les deux convertisseurs du chapitre » ?",
-   "verso": "Un <strong>hacheur</strong> convertit une tension continue en une tension continue réglable. Un <strong>onduleur</strong> convertit une tension continue en une tension alternative.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que convertissent un hacheur et un onduleur ?",
+   "verso": "<b>Hacheur</b> : continu → <b>continu réglable</b>.<br><b>Onduleur</b> : continu → <b>alternatif</b>.",
+   "origine": "Cours §1 Les deux convertisseurs"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Rapport cyclique » ?",
-   "verso": "Le <strong>rapport cyclique</strong> α est la fraction de la période pendant laquelle l'interrupteur est fermé. Il varie entre 0 et 1 et n'a pas d'unité.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi un variateur redresse-t-il puis ondule-t-il la tension du réseau ?",
+   "verso": "Pour obtenir une <b>autre fréquence que 50 Hz</b> : c'est le seul moyen de faire varier la vitesse d'un moteur alternatif.",
+   "origine": "Cours §1 Le variateur de vitesse"
   },
   {
-   "type": "retenir",
-   "recto": "Deux moyens, un seul effet — qu'y a-t-il à retenir ?",
-   "verso": "Pour réduire l'ondulation, on peut augmenter l'inductance ou augmenter la fréquence de découpage. C'est pour cette seconde raison que les hacheurs industriels découpent à plusieurs dizaines de kilohertz : la bobine peut alors être beaucoup plus petite.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment se comporte un transistor utilisé en commutation ?",
+   "verso": "Deux états seulement : <b>passant</b> = fil ; <b>bloqué</b> = interrupteur ouvert.",
+   "origine": "Cours §2 L'interrupteur commandé"
   },
   {
-   "type": "trou",
-   "recto": "Le courant oscille de Δi autour de sa valeur moyenne, …….",
-   "rep": "sans jamais s'annuler",
-   "verso": "<strong>sans jamais s'annuler</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rôle de la diode de roue libre d'un hacheur ? Peut-elle conduire en même temps que l'interrupteur ?",
+   "verso": "Elle <b>entretient le courant</b> de la bobine quand l'interrupteur s'ouvre (évite la surtension). <b>Jamais en même temps</b> : sinon court-circuit de la source.",
+   "origine": "Cours §3 La diode de roue libre"
   },
   {
-   "type": "trou",
-   "recto": "C'en serait un si l'on voulait la même tension : mais on veut ……, et c'est le seul moyen de l'obtenir.",
-   "rep": "une autre fréquence que celle du réseau",
-   "verso": "<strong>une autre fréquence que celle du réseau</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir le rapport cyclique α. Valeur moyenne en sortie d'un hacheur série ?",
+   "verso": "La <b>fraction de la période</b> pendant laquelle l'interrupteur est fermé (0 ≤ α ≤ 1, sans unité).<br><b>⟨u<sub>s</sub>⟩ = α U</b> : la tension est toujours <b>abaissée</b>.",
+   "origine": "Cours §3 Le rapport cyclique"
   },
   {
-   "type": "trou",
-   "recto": "Sa valeur moyenne est nulle, et sa valeur efficace vaut …… — c'est le seul cas où amplitude et valeur efficace coïncident, puisque |u_c| vaut U en permanence.",
-   "rep": "exactement U",
-   "verso": "<strong>exactement U</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la conduction continue ? Comment réduire l'ondulation Δi ?",
+   "verso": "Le courant oscille autour de sa moyenne <b>sans s'annuler</b>.<br>Réduire Δi : <b>augmenter L</b> ou <b>augmenter la fréquence de découpage</b>.",
+   "origine": "Cours §4 L'ondulation du courant"
   },
   {
-   "type": "question",
-   "recto": "Un hacheur est un convertisseur ……",
-   "rep": "continu continu",
-   "verso": "<strong>continu continu</strong> — Continu vers continu, mais réglable : c'est tout son intérêt.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelle règle absolue pour les interrupteurs d'un bras d'onduleur ?",
+   "verso": "<b>Jamais les deux interrupteurs d'un même bras fermés ensemble</b> (court-circuit de la source) : temps mort entre les deux.",
+   "origine": "Cours §5 L'onduleur en pont"
   },
   {
-   "type": "question",
-   "recto": "Un onduleur est un convertisseur ……",
-   "rep": "continu alternatif",
-   "verso": "<strong>continu alternatif</strong> — L'onduleur fabrique de l'alternatif à partir du continu. Le a est le redresseur, le d le transformateur.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Onduleur en commande symétrique : forme, valeur moyenne, valeur efficace de la sortie ?",
+   "verso": "Un <b>créneau ±U</b> ; valeur moyenne <b>nulle</b> ; valeur efficace <b>exactement U</b>.",
+   "origine": "Cours §5 Commande symétrique"
   },
   {
-   "type": "question",
-   "recto": "Dans un variateur de vitesse pour moteur asynchrone, l'ordre des blocs est ……",
-   "rep": "redresseur, filtre, onduleur",
-   "verso": "<strong>redresseur, filtre, onduleur</strong> — On redresse, on filtre, puis on ondule. C'est le schéma des sujets 2019 et 2022.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'apporte la commande MLI par rapport à la commande symétrique ?",
+   "verso": "Même fondamental, mais les <b>harmoniques sont repoussés vers la fréquence de découpage</b>, où l'inductance du moteur les filtre.",
+   "origine": "Cours §6 La MLI"
   },
   {
-   "type": "question",
-   "recto": "Le rapport cyclique d'un hacheur ……",
-   "rep": "est compris entre 0 et 1, sans unité",
-   "verso": "<strong>est compris entre 0 et 1, sans unité</strong> — C'est un rapport de deux durées : les unités se simplifient, et il ne peut pas dépasser 1 puisque la durée de fermeture ne peut excéder la période.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment savoir sur des chronogrammes si le pont fonctionne en onduleur ou en redresseur ?",
+   "verso": "u et i de <b>même signe</b> : p &gt; 0, énergie vers la charge → <b>onduleur</b>.<br>De <b>signes opposés</b> : p &lt; 0, énergie vers la source → <b>redresseur</b> (freinage par récupération).",
+   "origine": "Cours §7 Le sens du transfert"
   },
   {
-   "type": "question",
-   "recto": "Un hacheur série alimenté sous 48 V est réglé à α= 0,75. La tension moyenne de sortie vaut ……",
-   "rep": "36 V",
-   "verso": "<strong>36 V</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>10 V/div, 10 µs/div : palier haut 4,8 div, durée 3,0 div, motif 5,0 div. Comment trouver U, f, α et ⟨u<sub>s</sub>⟩ ?",
+   "verso": "1. U = 4,8 × 10 = <b>48 V</b>.<br>2. T = 50 µs → <b>f = 20 kHz</b>.<br>3. α = 3,0/5,0 = <b>0,60</b> (en divisions).<br>4. ⟨u<sub>s</sub>⟩ = 0,60 × 48 = <b>28,8 V</b>.",
+   "origine": "Cours §3 Méthode — Chronogramme de hacheur"
   },
   {
-   "type": "question",
-   "recto": "Sur un chronogramme, le palier haut dure 3,0 divisions et le motif complet 5,0 divisions. Le rapport cyclique vaut ……",
-   "rep": "0,60",
-   "verso": "<strong>0,60</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer l'ondulation du courant d'un hacheur avec la relation fournie ?",
+   "verso": "1. Relever α, U, L, f (en unités SI).<br>2. Δi = α(1 − α) U / (L f).<br>3. Ex. : 0,60 × 0,40 × 48 / (2,0 × 10<sup>−3</sup> × 20 × 10<sup>3</sup>) = <b>0,29 A</b>.<br>4. Comparer au courant moyen.",
+   "origine": "Cours §4 L'ondulation du courant"
   },
   {
-   "type": "question",
-   "recto": "Un hacheur série peut délivrer une tension moyenne ……",
-   "rep": "toujours inférieure ou égale à celle de la source",
-   "verso": "<strong>toujours inférieure ou égale à celle de la source</strong> — Puisque α 1, on a toujours αU U. Si un montage délivre davantage que sa source, ce n'est pas un hacheur série — c'était le cas du sujet 2021.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment tracer la tension de sortie d'un onduleur en pont ?",
+   "verso": "1. K<sub>1</sub>, K<sub>3</sub> fermés : charge reliée au + à gauche → <b>u<sub>c</sub> = +U</b>.<br>2. K<sub>2</sub>, K<sub>4</sub> fermés : liaisons inversées → <b>u<sub>c</sub> = −U</b>.<br>3. Tracer le créneau.<br>4. Vérifier : changement de signe, alternances égales.",
+   "origine": "Cours §5 Méthode — Tracer la sortie d'un onduleur"
   },
   {
-   "type": "question",
-   "recto": "Pendant que l'interrupteur d'un hacheur est ouvert, la diode de roue libre est ……",
-   "rep": "passante, et le courant décroît",
-   "verso": "<strong>passante, et le courant décroît</strong> — La diode devient passante et offre au courant un chemin pour continuer de circuler ; il décroît sans s'annuler. C'est le régime de conduction continue.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment lire le sens du transfert d'énergie sur des chronogrammes u et i ?",
+   "verso": "1. Superposer u<sub>c</sub> et i.<br>2. Repérer les intervalles de <b>même signe</b> (onduleur).<br>3. Repérer ceux de <b>signes opposés</b> (redresseur).<br>4. Conclure sur le fonctionnement dominant (durées).",
+   "origine": "Cours §7 Méthode — Sens du transfert"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

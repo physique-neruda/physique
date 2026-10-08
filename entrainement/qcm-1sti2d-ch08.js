@@ -222,98 +222,90 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Travail d'une force constante » ?",
-   "verso": "Le travail d'une force constante F dont le point d'application se déplace d'une longueur d vaut W = F × d × cosα, où α est l'angle entre la force et le déplacement. Le travail est une <strong>énergie</strong> : il s'exprime en <strong>joules</strong> (J).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Travail d'une force constante : formule et unité ?",
+   "verso": "<b>W = F × d × cos α</b>, α = angle entre la force et le déplacement. En <b>joules (J)</b>. C'est le produit scalaire F⃗ · d⃗.",
+   "origine": "Cours §1 Travail d'une force"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Puissance moyenne » ?",
-   "verso": "La puissance moyenne est le travail effectué rapporté à la durée mise pour l'effectuer : P = W/(Δt), en watts (W).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand le travail d'une force est-il moteur, résistant, nul ?",
+   "verso": "<b>Moteur</b> W &gt; 0 : accélère.<br><b>Résistant</b> W &lt; 0 : freine.<br><b>Nul</b> : force <b>perpendiculaire</b> au déplacement (cos 90° = 0).",
+   "origine": "Cours §2 Moteur, résistant ou nul"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Énergie cinétique » ?",
-   "verso": "Un solide de masse m en translation à la vitesse v possède l'énergie cinétique E_c = 1/2 m v², en joules (m en kg, v en m/s).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Travail du poids sur une dénivelée h ? De quoi dépend-il ?",
+   "verso": "<b>−m g h</b> à la montée (résistant), <b>+m g h</b> à la descente (moteur), 0 à l'horizontale.<br>Il ne dépend <b>pas du chemin suivi</b>, seulement de la dénivelée.",
+   "origine": "Cours §2 Le travail du poids"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Théorème de l'énergie cinétique » ?",
-   "verso": "Entre deux instants, la variation de l'énergie cinétique d'un solide en translation est égale à la somme des travaux de <em>toutes</em> les forces qui s'exercent sur lui : ΔE_c = W.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Puissance moyenne d'une force ? Et à vitesse constante ?",
+   "verso": "<b>P = W / Δt</b> (en W).<br>À vitesse constante : <b>P = F × v</b>.",
+   "origine": "Cours §3 Puissance moyenne"
   },
   {
-   "type": "trou",
-   "recto": "En mathématiques, cette opération porte un nom : le …… des vecteurs F et d.",
-   "rep": "produit scalaire",
-   "verso": "<strong>produit scalaire</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énergie cinétique d'un solide en translation ? Unités ?",
+   "verso": "<b>E<sub>c</sub> = ½ m v²</b> — m en kg, v en <b>m/s</b>, E<sub>c</sub> en J.",
+   "origine": "Cours §4 Énergie cinétique"
   },
   {
-   "type": "question",
-   "recto": "Le travail d'une force constante s'écrit ……",
-   "rep": "W = F × d × cos α",
-   "verso": "<strong>W = F × d × cos α</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Si la vitesse double, que devient l'énergie cinétique ?",
+   "verso": "Elle est <b>multipliée par 4</b> (v au carré).",
+   "origine": "Cours §4 Énergie cinétique"
   },
   {
-   "type": "question",
-   "recto": "Le travail d'une force perpendiculaire au déplacement est ……",
-   "rep": "nul",
-   "verso": "<strong>nul</strong> — (cos 90° = 0)",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le théorème de l'énergie cinétique.",
+   "verso": "<b>E<sub>c</sub>(B) − E<sub>c</sub>(A) = Σ W</b> : la variation d'énergie cinétique égale la somme des travaux des forces.",
+   "origine": "Cours §5 Théorème de l'énergie cinétique"
   },
   {
-   "type": "question",
-   "recto": "Un travail résistant ……",
-   "rep": "ralentit le solide",
-   "verso": "<strong>ralentit le solide</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énergie potentielle de pesanteur ? Énergie potentielle élastique ?",
+   "verso": "<b>E<sub>pp</sub> = m g h</b> (h mesurée depuis une <b>référence</b> à annoncer).<br><b>E<sub>pe</sub> = ½ k x²</b> (ressort de raideur k, déformé de x).",
+   "origine": "Cours §6 Énergies potentielles"
   },
   {
-   "type": "question",
-   "recto": "Le travail du poids lors d'une montée de hauteur h vaut ……",
-   "rep": "-mgh",
-   "verso": "<strong>-mgh</strong> — (résistant à la montée)",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir l'énergie mécanique. Quand se conserve-t-elle ?",
+   "verso": "<b>E<sub>m</sub> = E<sub>c</sub> + E<sub>p</sub></b>. Elle est <b>constante sans frottement</b> ; avec frottements elle diminue, <b>dissipée en chaleur</b>.",
+   "origine": "Cours §7 Énergie mécanique"
   },
   {
-   "type": "question",
-   "recto": "La puissance moyenne se calcule par ……",
-   "rep": "P = W/Δt",
-   "verso": "<strong>P = W/Δt</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Vitesse en bas d'une chute de hauteur h sans frottement ?",
+   "verso": "½ m v² = m g h → <b>v = √(2 g h)</b> (≈ 6,3 m/s pour 2,0 m), quelle que soit la forme du parcours.",
+   "origine": "Cours §7 Énergie mécanique"
   },
   {
-   "type": "question",
-   "recto": "L'énergie cinétique d'un solide en translation vaut ……",
-   "rep": "1/2mv²",
-   "verso": "<strong>1/2mv²</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Force de 800 N inclinée de 30° sur un déplacement de 15 m. Comment calculer son travail ?",
+   "verso": "1. Repérer F = 800 N, d = 15 m, α = 30°.<br>2. W = F d cos α = 800 × 15 × 0,866.<br>3. W ≈ <b>1,04 × 10<sup>4</sup> J</b>, positif → <b>moteur</b>.",
+   "origine": "Cours §2 Méthode 1"
   },
   {
-   "type": "question",
-   "recto": "Si la vitesse d'un véhicule est multipliée par 3, son énergie cinétique est multipliée par ……",
-   "rep": "9",
-   "verso": "<strong>9</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Monte-charge : 250 kg élevés de 12 m en 30 s. Comment trouver sa puissance ?",
+   "verso": "1. Travail contre le poids : W = m g h = 250 × 9,81 × 12 = <b>2,94 × 10<sup>4</sup> J</b>.<br>2. P = W/Δt = 2,94 × 10<sup>4</sup>/30 = <b>981 W</b>.<br>3. Interpréter : ≈ 1 kW.",
+   "origine": "Cours §3 Méthode 2"
   },
   {
-   "type": "question",
-   "recto": "Le théorème de l'énergie cinétique s'énonce ……",
-   "rep": "ΔE<sub>c</sub> = ΣW",
-   "verso": "<strong>ΔE<sub>c</sub> = ΣW</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Voiture de 1200 kg à 90 km/h, force de freinage 6000 N. Comment trouver la distance d'arrêt ?",
+   "verso": "1. v = 90/3,6 = 25 m/s ; E<sub>c</sub> = ½ × 1200 × 25² = 3,75 × 10<sup>5</sup> J.<br>2. Théorème : 0 − E<sub>c</sub> = −F × d.<br>3. d = 3,75 × 10<sup>5</sup>/6000 = <b>62,5 m</b>.",
+   "origine": "Cours §5 Méthode 3"
   },
   {
-   "type": "question",
-   "recto": "L'énergie potentielle de pesanteur vaut ……",
-   "rep": "mgh",
-   "verso": "<strong>mgh</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment faire un bilan d'énergie mécanique ?",
+   "verso": "1. <b>Choisir et annoncer la référence</b> des altitudes.<br>2. Calculer E<sub>m</sub> initiale = E<sub>c</sub> + E<sub>p</sub>.<br>3. Sans frottement : E<sub>m</sub> finale = E<sub>m</sub> initiale → l'inconnue.<br>4. Vérifier la cohérence (v positive, h inférieure au départ).",
+   "origine": "Cours §7 Méthode 4"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

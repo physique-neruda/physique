@@ -18,7 +18,7 @@ import json, os, re, shutil, sys
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
-from filieres import (FILIERES, DOCUMENTS, ANIMATIONS, SOURCES, DOSSIERS_ET,
+from filieres import (CHAPITRES_CACHES, FILIERES, DOCUMENTS, ANIMATIONS, SOURCES, DOSSIERS_ET,
                       RUBRIQUE_DU_CHAPITRE, TITRES_PARTICULIERS)
 
 DEBUT = "/* >>> bloc genere par outils/publier.py"
@@ -44,8 +44,17 @@ def chapitres(fil):
         return json.load(f)
 
 
+# Seule exception au verrou : le corrigé des séances, qui ne contient que ce qui a
+# déjà été traité en classe. Il n'est acceptable QUE parce que les documents des
+# classes sont publiés chiffrés (outils/chiffrer.py refuse un corrigé dans une
+# filière non protégée).
+AUTORISES = ("corrige_seances",)
+
+
 def publiable(nom):
     n = nom.lower()
+    if n in AUTORISES:
+        return True
     return not any(mot in n for mot in INTERDITS)
 
 
@@ -55,6 +64,8 @@ def deposer(site, fil, racine):
     src = SOURCES[fil]
     copies, manquants = 0, []
     for ch in chapitres(fil):
+        if ch in CHAPITRES_CACHES.get(fil, ()):
+            continue
         dossier = src["dossier"].format(ch=ch, CH=DOSSIERS_ET.get(ch, ch))
         for doc, _rub, _tit, _desc in DOCUMENTS[fil]:
             if not publiable(doc):
@@ -115,6 +126,8 @@ def bloc(site):
             continue
         premier = True
         for ch, info in chaps.items():
+            if ch in CHAPITRES_CACHES.get(fil, ()):
+                continue          # chapitre retiré du site élèves (filieres.py)
             entrees = []
             dossier = os.path.join(site, "docs", fil, ch)
             presents = set(os.listdir(dossier)) if os.path.isdir(dossier) else set()
@@ -133,7 +146,8 @@ def bloc(site):
                 if doc + ".pdf" not in presents or not publiable(doc):
                     continue
                 t, d = TITRES_PARTICULIERS.get((fil, ch, doc), (titre, desc))
-                entrees.append(dict(rubrique=forcee or rub, type="pdf", titre=t,
+                entrees.append(dict(rubrique=(rub if doc in AUTORISES else forcee or rub),
+                                    type="pdf", titre=t,
                                     fichier=f"docs/{fil}/{ch}/{doc}.pdf",
                                     description=d, trouve=None,
                                     motscles=info["motscles"]))

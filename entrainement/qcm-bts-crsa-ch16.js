@@ -213,101 +213,78 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Coefficient d'amplification » ?",
-   "verso": "Le coefficient d'amplification A est la pente de la partie linéaire de la caractéristique de transfert. Il est sans unité, puisqu'il rapporte une tension à une tension.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le conditionnement ? Quels sont les trois problèmes qu'il règle ?",
+   "verso": "L'ensemble des étages qui rendent exploitable la sortie brute d'un capteur. La sortie n'est <b>pas une tension</b> ; elle est <b>trop faible</b> ; il faut en tirer une <b>décision</b>. Un étage par problème.",
+   "origine": "Introduction"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Comparateur à hystérésis » ?",
-   "verso": "Un comparateur à hystérésis possède deux seuils distincts : l'un pour basculer en montant, l'autre pour retomber en descendant. Entre les deux, la sortie conserve son état. On l'appelle aussi <strong>trigger de Schmitt</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Formule du diviseur de tension avec un capteur résistif R(θ) en série avec R<sub>1</sub> ?",
+   "verso": "<b>u = E × R(θ) / (R<sub>1</sub> + R(θ))</b> (tension prise aux bornes du capteur). Contrôle : u &lt; E.",
+   "origine": "Cours §1 Le diviseur de tension"
   },
   {
-   "type": "trou",
-   "recto": "Comme les deux branches produisent le même décalage, celui-ci …….",
-   "rep": "disparaît dans la différence",
-   "verso": "<strong>disparaît dans la différence</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un pont de Wheatstone ? Quand est-il équilibré ?",
+   "verso": "La <b>différence de deux diviseurs de tension</b> : le décalage disparaît. <b>Équilibré</b> quand la tension de sortie est <b>nulle</b>.",
+   "origine": "Cours §2 Le pont de Wheatstone"
   },
   {
-   "type": "trou",
-   "recto": "Le coefficient d'amplification A est …… de la caractéristique de transfert.",
-   "rep": "la pente de la partie linéaire",
-   "verso": "<strong>la pente de la partie linéaire</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand choisir un pont plutôt qu'un diviseur ?",
+   "verso": "Quand la variation est <b>minuscule</b> devant la valeur au repos (jauge, ≈ 1/1000) → <b>pont</b>. Variation de quelques dizaines de % (Pt100) → <b>diviseur</b>.",
+   "origine": "Cours §2 Diviseur ou pont"
   },
   {
-   "type": "trou",
-   "recto": "Le pont est dit <strong>équilibré</strong> quand sa tension de sortie est …….",
-   "rep": "nulle",
-   "verso": "<strong>nulle</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir le coefficient d'amplification A. Unité ? Signe pour un inverseur ?",
+   "verso": "<b>A = Δu<sub>s</sub> / Δu<sub>e</sub></b>, pente de la partie linéaire, <b>sans unité</b>. Pente descendante → <b>inverseur</b>, A &lt; 0.",
+   "origine": "Cours §3 L'amplification"
   },
   {
-   "type": "trou",
-   "recto": "Sa sortie ne prend plus que …… : c'est un signal logique, au sens du chapitre 15.",
-   "rep": "deux valeurs",
-   "verso": "<strong>deux valeurs</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la saturation d'un amplificateur ? Conséquence sur le choix de A ?",
+   "verso": "Sa sortie reste <b>bloquée</b> quelle que soit l'entrée : il ne mesure plus rien. On choisit A pour que la pleine échelle du capteur arrive <b>juste avant</b> la saturation.",
+   "origine": "Cours §3 La saturation"
   },
   {
-   "type": "trou",
-   "recto": "Un comparateur à hystérésis possède …… : l'un pour basculer en montant, l'autre pour retomber en descendant.",
-   "rep": "deux seuils distincts",
-   "verso": "<strong>deux seuils distincts</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que fait un comparateur simple ? Nature de sa sortie ?",
+   "verso": "Il compare la tension d'entrée à un <b>seuil</b> et bascule. Sortie à <b>deux valeurs</b> : signal <b>logique</b>.",
+   "origine": "Cours §4 Le comparateur simple"
   },
   {
-   "type": "question",
-   "recto": "Dans un diviseur R₁--R₂ alimenté sous E, la tension aux bornes de R₂ vaut ……",
-   "rep": "E R₂/(R₁+R₂)",
-   "verso": "<strong>E R₂/(R₁+R₂)</strong> — La tension prélevée est proportionnelle à la résistance à ses bornes, divisée par la résistance totale. La réponse a est le piège : elle inverse le numérateur.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un comparateur à hystérésis (trigger de Schmitt) ?",
+   "verso": "Un comparateur à <b>deux seuils</b> distincts (montée et descente). Entre les deux, la sortie <b>conserve son état</b>.",
+   "origine": "Cours §5 Le comparateur à hystérésis"
   },
   {
-   "type": "question",
-   "recto": "Cette tension peut-elle dépasser E ?",
-   "rep": "non, jamais",
-   "verso": "<strong>non, jamais</strong> — Jamais. La fraction R₂/(R₁+R₂) est toujours inférieure à 1 : la tension prélevée est une part de E. C'est le contrôle de vraisemblance à faire systématiquement.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelle est la chaîne de conditionnement type ?",
+   "verso": "Capteur → <b>diviseur</b> → <b>soustracteur</b> → <b>amplificateur</b> → <b>comparateur</b>.",
+   "origine": "Cours §6 La chaîne type"
   },
   {
-   "type": "question",
-   "recto": "Un pont de Wheatstone est essentiellement ……",
-   "rep": "la différence de deux diviseurs de tension",
-   "verso": "<strong>la différence de deux diviseurs de tension</strong> — Deux diviseurs côte à côte dont on mesure la différence des points milieux. C'est de là que vient tout son intérêt : les deux branches produisent le même décalage, qui disparaît dans la différence.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment exploiter un diviseur de tension avec un capteur ?",
+   "verso": "1. Repérer les deux résistances en série, identifier le <b>capteur</b>.<br>2. u = E × R<sub>capteur</sub> / R<sub>totale</sub>.<br>3. Calculer R du capteur à la valeur demandée (loi du capteur).<br>4. Vérifier <b>0 &lt; u &lt; E</b>.",
+   "origine": "Cours §1 Méthode — Diviseur de tension"
   },
   {
-   "type": "question",
-   "recto": "Un pont est dit équilibré lorsque ……",
-   "rep": "sa tension de sortie est nulle",
-   "verso": "<strong>sa tension de sortie est nulle</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment exploiter la caractéristique de transfert d'un amplificateur ?",
+   "verso": "1. Repérer la <b>partie linéaire</b> et les <b>paliers de saturation</b>.<br>2. Pente sur deux points éloignés → A.<br>3. <b>Signe</b> : montante = non inverseur, descendante = inverseur.<br>4. Lire le <b>domaine d'utilisation</b> en entrée.",
+   "origine": "Cours §3 Méthode — Caractéristique de transfert"
   },
   {
-   "type": "question",
-   "recto": "On choisit un pont plutôt qu'un diviseur lorsque ……",
-   "rep": "la variation du capteur est très faible",
-   "verso": "<strong>la variation du capteur est très faible</strong> — Quand la variation est minuscule — une jauge varie d'un millième — le décalage d'un diviseur écraserait le signal. Le pont part de zéro, et toute la dynamique sert à la seule variation utile.",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "L'unité du coefficient d'amplification est ……",
-   "rep": "il n'en a pas",
-   "verso": "<strong>il n'en a pas</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Une caractéristique de transfert décroissante correspond à un amplificateur ……",
-   "rep": "inverseur",
-   "verso": "<strong>inverseur</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment justifier le choix d'un comparateur à hystérésis ?",
+   "verso": "1. <b>Défaut</b> du simple : près du seuil, le bruit fait basculer plusieurs fois.<br>2. <b>Conséquence</b> : relais qui claque, usure, clignotement.<br>3. <b>Remède</b> : deux seuils, zone insensible au bruit.<br>4. <b>Compromis</b> : plus de seuil unique.",
+   "origine": "Cours §5 Méthode — Justifier l'hystérésis"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

@@ -222,99 +222,138 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Résultat de mesure » ?",
-   "verso": "Un <strong>résultat de mesure</strong> comporte trois éléments indissociables : une <strong>valeur</strong>, une <strong>incertitude</strong> et une <strong>unité</strong>. On l'écrit sous la forme [2]\\[ d = (25,020 ± 0,008) mm. \\]",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les trois éléments d'un résultat de mesure ?",
+   "verso": "Une <b>valeur</b>, une <b>incertitude</b> et une <b>unité</b> :<br>d = (25,020 ± 0,008) mm.",
+   "origine": "Cours §1 Mesurer, c'est comparer"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Justesse, fidélité » ?",
-   "verso": "La <strong>justesse</strong> caractérise l'écart entre la moyenne des mesures et la valeur vraie : elle traduit une <strong>erreur systématique</strong> (un appareil mal réglé, un zéro décalé).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Citer les sept unités de base du SI.",
+   "verso": "<b>mètre</b> (m), <b>kilogramme</b> (kg), <b>seconde</b> (s), <b>ampère</b> (A), <b>kelvin</b> (K), <b>mole</b> (mol), <b>candela</b> (cd). Les autres unités (N, V, J…) en dérivent.",
+   "origine": "Cours §1 Le système international"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Moyenne » ?",
-   "verso": "La <strong>moyenne</strong> m des n mesures est le meilleur estimateur de la grandeur cherchée : [2]\\[ m = x₁ + x₂ + + x_nn. \\]",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la justesse d'une série de mesures ? Quel type d'erreur la dégrade ?",
+   "verso": "L'écart entre la <b>moyenne</b> des mesures et la <b>valeur vraie</b>. Elle est dégradée par une <b>erreur systématique</b> (zéro décalé, appareil mal réglé).",
+   "origine": "Cours §2 Justesse et fidélité"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>fidélité</strong> caractérise le regroupement des mesures entre elles : elle traduit les …… (lecture, vibrations, opérateur).",
-   "rep": "erreurs aléatoires",
-   "verso": "<strong>erreurs aléatoires</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la fidélité d'une série de mesures ? Quel type d'erreur la dégrade ?",
+   "verso": "Le <b>regroupement</b> des mesures entre elles. Elle est dégradée par les <b>erreurs aléatoires</b> (lecture, vibrations, opérateur).",
+   "origine": "Cours §2 Justesse et fidélité"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>justesse</strong> caractérise l'écart entre la moyenne des mesures et la valeur vraie : elle traduit une …… (un appareil mal réglé, un zéro décalé).",
-   "rep": "erreur systématique",
-   "verso": "<strong>erreur systématique</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Répéter les mesures corrige-t-il un défaut de justesse ?",
+   "verso": "<b>Non, jamais.</b> Répéter et moyenner réduit les erreurs <b>aléatoires</b> (fidélité). Un défaut de justesse se corrige en <b>réglant ou étalonnant</b> l'instrument.",
+   "origine": "Cours §2 Deux remèdes différents"
   },
   {
-   "type": "question",
-   "recto": "Un résultat de mesure complet comporte ……",
-   "rep": "une valeur, une incertitude et une unité",
-   "verso": "<strong>une valeur, une incertitude et une unité</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Des mesures très groupées mais toutes décalées de la valeur vraie sont…",
+   "verso": "<b>fidèles mais pas justes</b>.",
+   "origine": "Cours §2 Justesse et fidélité"
   },
   {
-   "type": "question",
-   "recto": "Un instrument mal réglé au zéro provoque une erreur ……",
-   "rep": "systématique",
-   "verso": "<strong>systématique</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels zéros comptent comme chiffres significatifs ? Combien en a 0,0250 ?",
+   "verso": "Les zéros <b>de tête</b> ne comptent pas, les zéros <b>à droite</b> comptent.<br>0,0250 a <b>3</b> chiffres significatifs.",
+   "origine": "Cours §3 Les chiffres significatifs"
   },
   {
-   "type": "question",
-   "recto": "Répéter les mesures et faire la moyenne permet de réduire ……",
-   "rep": "les erreurs aléatoires",
-   "verso": "<strong>les erreurs aléatoires</strong> — la moyenne compense les écarts aléatoires, jamais un décalage systématique",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Combien de chiffres garde-t-on au résultat d'un produit ou d'un quotient ? d'une somme ?",
+   "verso": "Produit, quotient : le <b>plus petit nombre de chiffres significatifs</b> des données.<br>Somme, différence : le <b>plus petit nombre de décimales</b>.",
+   "origine": "Cours §3 Les chiffres significatifs"
   },
   {
-   "type": "question",
-   "recto": "Des mesures très groupées mais toutes décalées de la valeur vraie sont ……",
-   "rep": "fidèles mais pas justes",
-   "verso": "<strong>fidèles mais pas justes</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi l'histogramme d'une série de mesures a-t-il une forme de cloche ?",
+   "verso": "C'est la signature des <b>erreurs aléatoires</b> : elles jouent autant dans un sens que dans l'autre. C'est pour cela que la <b>moyenne</b> les compense.",
+   "origine": "Cours §4 Une série de mesures se disperse"
   },
   {
-   "type": "question",
-   "recto": "Le nombre 0,0250 comporte ……",
-   "rep": "3 chiffres significatifs",
-   "verso": "<strong>3 chiffres significatifs</strong> — les zéros de tête ne comptent pas, celui de fin oui",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que mesure l'écart-type s ? et l'incertitude-type u ?",
+   "verso": "<b>s</b> : la dispersion <b>des mesures</b>.<br><b>u</b> : le doute qui reste <b>sur la moyenne</b>.",
+   "origine": "Cours §5 De la dispersion à l'incertitude"
   },
   {
-   "type": "question",
-   "recto": "Le produit 12,4 × 3,0 doit s'écrire ……",
-   "rep": "37",
-   "verso": "<strong>37</strong> — le facteur 3,0 n'a que 2 chiffres significatifs",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Incertitude-type sur la moyenne de n mesures : formule ?",
+   "verso": "<b>u = s / √n</b><br>s : écart-type, n : nombre de mesures (évaluation de type A).",
+   "origine": "Cours §5 Incertitude de type A"
   },
   {
-   "type": "question",
-   "recto": "Dans une série de mesures, l'écart-type s mesure ……",
-   "rep": "la dispersion des valeurs",
-   "verso": "<strong>la dispersion des valeurs</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Par combien multiplier le nombre de mesures pour diviser l'incertitude-type par 2 ?",
+   "verso": "Par <b>4</b>, car u varie en 1/√n.",
+   "origine": "Cours §5 Multiplier les mesures"
   },
   {
-   "type": "question",
-   "recto": "L'incertitude-type sur la moyenne se calcule par ……",
-   "rep": "u = s/√n",
-   "verso": "<strong>u = s/√n</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Incertitude-type d'une mesure unique : formule ? Que vaut a ?",
+   "verso": "<b>u = a / √3</b> (type B), a = demi-largeur de l'intervalle.<br>Précision annoncée ± a → on prend a.<br>Instrument gradué de pas d → a = d / 2.",
+   "origine": "Cours §6 Une seule mesure"
   },
   {
-   "type": "question",
-   "recto": "On effectue <strong>une seule</strong> mesure avec un instrument dont la notice indique ± 0,02 mm. L'incertitude-type vaut ……",
-   "rep": "0,012 mm",
-   "verso": "<strong>0,012 mm</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand utilise-t-on u = s/√n et quand u = a/√3 ?",
+   "verso": "<b>Plusieurs mesures</b> → on exploite leur dispersion : u = s/√n (type A).<br><b>Une seule mesure</b> → on exploite l'instrument : u = a/√3 (type B).",
+   "origine": "Cours §6 Type A ou type B"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelles sont les deux règles d'écriture d'un résultat, dans l'ordre ?",
+   "verso": "1. Arrondir l'incertitude à <b>un seul chiffre significatif</b>.<br>2. Arrondir la valeur à la <b>même décimale</b>.",
+   "origine": "Cours §7 Écrire le résultat"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Écart normalisé E<sub>n</sub> : formule et critère ?",
+   "verso": "<b>E<sub>n</sub> = |m − m<sub>ref</sub>| / √(u² + u<sub>ref</sub>²)</b><br>Si E<sub>n</sub> &lt; 2 : résultats <b>compatibles</b>.",
+   "origine": "Cours §8 Comparer un résultat"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand un modèle tracé sur des points expérimentaux est-il validé ?",
+   "verso": "Quand il passe par <b>toutes les barres d'incertitude</b> — inutile qu'il passe exactement par les points.",
+   "origine": "Cours §8 Représenter des mesures"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Une plaque mesure 12,4 cm sur 3,0 cm. Comment écrire son aire ?",
+   "verso": "1. Chiffres significatifs des données : 12,4 → 3 ; 3,0 → 2.<br>2. Calculer sans arrondir : 37,2.<br>3. Produit : on garde le plus petit, <b>2</b>.<br>4. S = <b>37 cm²</b>.",
+   "origine": "Cours §3 Méthode 1"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment exploiter une série de n mesures pour donner le résultat ?",
+   "verso": "1. Calculer la <b>moyenne</b> m et l'<b>écart-type</b> s (calculatrice).<br>2. Calculer <b>u = s / √n</b>.<br>3. Arrondir u à 1 chiffre significatif, puis m à la même décimale.<br>4. Écrire x = (m ± u) unité.",
+   "origine": "Cours §5 Méthode 2"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Thermomètre : on lit 37,2 °C, notice ± 0,5 °C. Comment écrire le résultat ?",
+   "verso": "1. Mesure unique → type B ; a = 0,5 °C.<br>2. u = a / √3 = 0,5 / 1,732 = 0,29 °C.<br>3. Arrondir u à 1 chiffre : 0,3.<br>4. θ = <b>(37,2 ± 0,3) °C</b>.",
+   "origine": "Cours §6 Méthode 4"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Calcul : m = 25,0200 mm et u = 0,00816 mm. Comment écrire le résultat ?",
+   "verso": "1. u à un chiffre significatif : 0,00816 → <b>0,008</b>.<br>2. m à la même décimale : 25,0200 → <b>25,020</b>.<br>3. d = (25,020 ± 0,008) mm.",
+   "origine": "Cours §7 Écrire le résultat"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment décider si une mesure est compatible avec une valeur de référence ?",
+   "verso": "1. Calculer l'<b>écart</b> |m − m<sub>ref</sub>|.<br>2. Calculer l'incertitude de l'écart √(u² + u<sub>ref</sub>²).<br>3. Former <b>E<sub>n</sub></b> = écart / incertitude.<br>4. E<sub>n</sub> &lt; 2 → compatibles (les intervalles se recouvrent).",
+   "origine": "Cours §8 Méthode 3"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

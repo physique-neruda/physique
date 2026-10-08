@@ -222,98 +222,84 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Onde sonore » ?",
-   "verso": "Un <strong>son</strong> est une onde <strong>mécanique</strong> : la propagation d'une variation de pression dans un milieu matériel (air, eau, solide).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelle est la nature du son ?",
+   "verso": "Une onde <b>mécanique longitudinale</b> : propagation d'une variation de <b>pression</b> dans un milieu matériel. Pas de son dans le vide.",
+   "origine": "Cours §1 Onde sonore"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Trois domaines » ?",
-   "verso": "L'oreille humaine perçoit les sons dont la fréquence est comprise entre 20 et 20 : ce sont les sons <strong>audibles</strong>. En dessous de 20 se trouvent les <strong>infrasons</strong> (éléphants, séismes).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>De quoi dépend la célérité du son ? Dépend-elle de la fréquence ?",
+   "verso": "Du <b>milieu</b> (plus rapide s'il est dense et rigide). <b>Pas de la fréquence</b> : graves et aigus arrivent ensemble. C'est λ qui change avec f.",
+   "origine": "Cours §1 Célérité du son"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Hauteur » ?",
-   "verso": "La <strong>hauteur</strong> d'un son est la sensation de grave ou d'aigu. Elle est déterminée par la <strong>fréquence</strong> : plus la fréquence est <strong>élevée</strong>, plus le son est <strong>aigu</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Domaine des sons audibles ? Infrasons ? Ultrasons ?",
+   "verso": "Audibles : <b>20 Hz à 20 kHz</b>.<br>Infrasons : <b>&lt; 20 Hz</b> (séismes).<br>Ultrasons : <b>&gt; 20 kHz</b> (sonar, échographie).",
+   "origine": "Cours §2 Domaines de fréquences"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Timbre et harmoniques » ?",
-   "verso": "Le <strong>timbre</strong> est ce qui permet de reconnaître la source d'un son de même hauteur. Le diapason produit un signal <strong>sinusoïdal pur</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelle grandeur détermine la hauteur d'un son (grave/aigu) ?",
+   "verso": "La <b>fréquence</b> : plus elle est élevée, plus le son est <b>aigu</b> ; plus elle est basse, plus il est <b>grave</b>.",
+   "origine": "Cours §3 La hauteur"
   },
   {
-   "type": "trou",
-   "recto": "Les particules du milieu vibrent …… au sens de propagation : l'onde sonore est dite <strong>longitudinale</strong>.",
-   "rep": "parallèlement",
-   "verso": "<strong>parallèlement</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le timbre ? D'où vient-il ?",
+   "verso": "Ce qui permet de reconnaître la <b>source</b> d'un son de même hauteur. Il vient des <b>harmoniques</b> (multiples de la fréquence fondamentale) : la <b>forme</b> du motif.",
+   "origine": "Cours §4 Le timbre"
   },
   {
-   "type": "trou",
-   "recto": "Les particules du milieu vibrent <strong>parallèlement</strong> au sens de propagation : l'onde sonore est dite …….",
-   "rep": "longitudinale",
-   "verso": "<strong>longitudinale</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Signal d'un diapason et signal d'un instrument : quelle différence ?",
+   "verso": "Diapason : <b>sinusoïdal pur</b>.<br>Instrument : <b>périodique non sinusoïdal</b> (fondamental + harmoniques).",
+   "origine": "Cours §4 Le timbre"
   },
   {
-   "type": "question",
-   "recto": "Le son est une onde ……",
-   "rep": "mécanique longitudinale",
-   "verso": "<strong>mécanique longitudinale</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir l'intensité sonore. Formule pour une source qui rayonne dans toutes les directions ?",
+   "verso": "<b>I = P / S</b> en <b>W/m²</b>.<br>À la distance d : <b>I = P / (4π d²)</b> (surface d'une sphère).",
+   "origine": "Cours §5 Intensité sonore"
   },
   {
-   "type": "question",
-   "recto": "Dans une onde sonore, les tranches d'air ……",
-   "rep": "oscillent sur place, parallèlement à la propagation",
-   "verso": "<strong>oscillent sur place, parallèlement à la propagation</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Si la distance à la source double, que devient l'intensité sonore ?",
+   "verso": "Elle est <b>divisée par 4</b> (distance × 3 → intensité ÷ 9).",
+   "origine": "Cours §6 L'atténuation avec la distance"
   },
   {
-   "type": "question",
-   "recto": "La célérité du son est la plus grande dans ……",
-   "rep": "l'acier",
-   "verso": "<strong>l'acier</strong> — le son va d'autant plus vite que le milieu est dense et rigide",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi des écouteurs de 5 mW sont-ils plus dangereux qu'un concert de 100 W ?",
+   "verso": "Ils concentrent leur puissance sur une <b>surface minuscule</b> (le conduit auditif) : l'<b>intensité reçue</b> est bien plus grande. Le danger vient de la concentration.",
+   "origine": "Cours §7 Exposition sonore"
   },
   {
-   "type": "question",
-   "recto": "Dans un milieu donné, si la fréquence d'un son augmente, sa célérité ……",
-   "rep": "ne change pas",
-   "verso": "<strong>ne change pas</strong> — la célérité ne dépend que du <em>milieu</em> ; c'est λ qui change",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les trois leviers pour réduire l'exposition sonore ?",
+   "verso": "1. <b>S'éloigner</b> (I en 1/d²).<br>2. <b>Réduire la durée</b>.<br>3. <b>S'isoler</b> (bouchons, casque).",
+   "origine": "Cours §7 Exposition sonore"
   },
   {
-   "type": "question",
-   "recto": "Un son de fréquence 12 Hz est ……",
-   "rep": "un infrason",
-   "verso": "<strong>un infrason</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>5 périodes occupent 12,5 ms sur un oscillogramme. Comment trouver f et dire si le son est audible ?",
+   "verso": "1. Mesurer sur plusieurs périodes : 5T = 12,5 ms.<br>2. T = 2,5 ms = 2,5 × 10<sup>−3</sup> s.<br>3. f = 1/T = <b>400 Hz</b>.<br>4. Entre 20 Hz et 20 kHz → <b>audible</b>.",
+   "origine": "Cours §3 Méthode 1"
   },
   {
-   "type": "question",
-   "recto": "Le domaine audible de l'oreille humaine s'étend environ de ……",
-   "rep": "20 Hz à 20 kHz",
-   "verso": "<strong>20 Hz à 20 kHz</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Haut-parleur de 0,50 W. Comment calculer l'intensité reçue à 2,0 m ?",
+   "verso": "1. Surface : S = 4π d² = 4π × 2,0² = 50,3 m².<br>2. I = P/S = 0,50/50,3 = <b>9,9 × 10<sup>−3</sup> W/m²</b>.",
+   "origine": "Cours §5 Méthode 2"
   },
   {
-   "type": "question",
-   "recto": "Un son est d'autant plus <strong>aigu</strong> que ……",
-   "rep": "sa fréquence est grande",
-   "verso": "<strong>sa fréquence est grande</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Un signal a une période T = 4,0 ms. Sa fréquence vaut ……",
-   "rep": "250 Hz",
-   "verso": "<strong>250 Hz</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>On passe de 2,0 m à 4,0 m d'une source. Comment prévoir la nouvelle intensité ?",
+   "verso": "1. La distance <b>double</b>.<br>2. La surface 4π d² est multipliée par <b>4</b>.<br>3. L'intensité est <b>divisée par 4</b>.",
+   "origine": "Cours §6 Méthode 3"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

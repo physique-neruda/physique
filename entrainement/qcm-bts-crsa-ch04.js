@@ -213,100 +213,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "retenir",
-   "recto": "Le cas le plus utile — qu'y a-t-il à retenir ?",
-   "verso": "Si le solide est <strong>immobile</strong> ou s'il se déplace à <strong>vitesse constante</strong>, alors a = 0 et donc F = 0. Ces deux situations conduisent à la même équation.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Par quoi commence tout calcul de mécanique ? Comment savoir si une force existe ?",
+   "verso": "Par le <b>bilan des forces</b>. Une force est toujours <b>exercée par un corps identifiable</b> ; « force d'inertie » ou « d'élan » n'existent pas.",
+   "origine": "Cours §1 Le bilan des forces"
   },
   {
-   "type": "retenir",
-   "recto": "Tout se transpose — qu'y a-t-il à retenir ?",
-   "verso": "En rotation, la masse devient le moment d'inertie J, l'accélération devient l'accélération angulaire ω, et la force devient le moment M = F× d. Le principe s'écrit alors M = J ω.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le PFD. Que fixe la somme des forces ?",
+   "verso": "<b>Σ F⃗ = m a⃗</b>. La somme des forces impose l'<b>accélération</b>, pas la vitesse.",
+   "origine": "Cours §2 Principe fondamental de la dynamique"
   },
   {
-   "type": "retenir",
-   "recto": "Le signe du travail — qu'y a-t-il à retenir ?",
-   "verso": "Une force dans le sens du mouvement a un travail positif : elle est <em>motrice</em>. Une force opposée au mouvement a un travail négatif : elle est <em>résistante</em>. Une force perpendiculaire au déplacement a un travail nul.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Solide immobile ou à vitesse constante : que vaut la somme des forces ?",
+   "verso": "a = 0, donc <b>Σ F⃗ = 0⃗</b> : la <b>même équation</b> dans les deux cas.",
+   "origine": "Cours §2 Le cas le plus utile"
   },
   {
-   "type": "trou",
-   "recto": "Une force opposée au mouvement a un travail …… : elle est <em>résistante</em>.",
-   "rep": "négatif",
-   "verso": "<strong>négatif</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi est-ce le démarrage qui dimensionne le moteur d'un chariot ?",
+   "verso": "Au démarrage il faut <b>F = m a + f</b> (accélérer + vaincre les frottements) ; lancé, seulement f.",
+   "origine": "Cours §2 Démarrer coûte plus cher"
   },
   {
-   "type": "trou",
-   "recto": "Une force dans le sens du mouvement a un travail …… : elle est <em>motrice</em>.",
-   "rep": "positif",
-   "verso": "<strong>positif</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>PFD en rotation ? Que deviennent masse, accélération et force ?",
+   "verso": "<b>Σ M = J ω̇</b>. Masse → moment d'inertie <b>J</b> (toujours donné) ; accélération → <b>ω̇</b> ; force → moment <b>M = F × d</b>.",
+   "origine": "Cours §3 Le cas de la rotation"
   },
   {
-   "type": "trou",
-   "recto": "En l'<strong>absence de frottement</strong>, l'énergie mécanique …… : ce que l'on perd en hauteur, on le gagne en vitesse.",
-   "rep": "se conserve",
-   "verso": "<strong>se conserve</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans quelle unité doit être ω ? Conversion depuis N (tr/min) ?",
+   "verso": "En <b>rad/s</b> : <b>ω = N × 2π / 60</b>.",
+   "origine": "Cours §3 Le cas de la rotation"
   },
   {
-   "type": "trou",
-   "recto": "Si le solide est <strong>immobile</strong> ou s'il se déplace à <strong>vitesse constante</strong>, alors a = 0 et donc …….",
-   "rep": "F = 0",
-   "verso": "<strong>F = 0</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Travail d'une force : formule et signe ?",
+   "verso": "<b>W = F d cos α</b>.<br>Positif : <b>moteur</b> ; négatif : <b>résistant</b> ; nul : force <b>perpendiculaire</b> au déplacement.",
+   "origine": "Cours §4 Le travail"
   },
   {
-   "type": "question",
-   "recto": "Un chariot avance à vitesse constante sur un sol horizontal. La somme des forces qui lui sont appliquées est ……",
-   "rep": "nulle",
-   "verso": "<strong>nulle</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Trois écritures de la puissance mécanique ?",
+   "verso": "<b>P = W / Δt = F v = C ω</b>",
+   "origine": "Cours §4 La puissance"
   },
   {
-   "type": "question",
-   "recto": "Le principe fondamental de la dynamique impose ……",
-   "rep": "son accélération",
-   "verso": "<strong>son accélération</strong> — Il relie les forces à l'accélération, pas à la vitesse.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le théorème de l'énergie cinétique. Énergie cinétique en translation et en rotation ?",
+   "verso": "<b>E<sub>c2</sub> − E<sub>c1</sub> = Σ W</b> (ignore la durée et la forme du trajet).<br>Translation : <b>½ m v²</b> ; rotation : <b>½ J ω²</b>.",
+   "origine": "Cours §5 Théorème de l'énergie cinétique"
   },
   {
-   "type": "question",
-   "recto": "Une force perpendiculaire au déplacement a un travail ……",
-   "rep": "nul",
-   "verso": "<strong>nul</strong> — cos90 = 0. C'est le cas de la réaction du support sur un déplacement horizontal : une force de moins à compter dans le bilan.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Doubler la vitesse d'un chariot : effet sur la distance d'arrêt ?",
+   "verso": "Elle est <b>multipliée par 4</b> (E<sub>c</sub> en v²).",
+   "origine": "Cours §5 Le carré de la vitesse"
   },
   {
-   "type": "question",
-   "recto": "En rotation, la grandeur qui joue le rôle de la masse est ……",
-   "rep": "le moment d'inertie",
-   "verso": "<strong>le moment d'inertie</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand l'énergie mécanique se conserve-t-elle ? Sinon, que vaut sa perte ?",
+   "verso": "<b>E<sub>m</sub> = E<sub>c</sub> + E<sub>p</sub></b> se conserve <b>sans frottement</b>. Sinon elle diminue, et la perte égale le <b>travail des frottements</b>.",
+   "origine": "Cours §6 L'énergie mécanique"
   },
   {
-   "type": "question",
-   "recto": "Le principe fondamental appliqué à un solide en rotation s'écrit ……",
-   "rep": "M = J domega/dt",
-   "verso": "<strong>M = J domega/dt</strong> — Avec ω l'accélération angulaire. La réponse a confondrait vitesse et accélération.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quel outil pour une accélération ? une distance ou une force ? Quand utiliser la conservation ?",
+   "verso": "Accélération : <b>PFD</b>.<br>Distance ou force : <b>théorème de l'énergie cinétique</b>.<br>Conservation de E<sub>m</sub> : seulement <b>sans frottement</b>.",
+   "origine": "Cours §7 Choisir le bon outil"
   },
   {
-   "type": "question",
-   "recto": "Une vitesse de 1200 1/min vaut, en rad/s, environ ……",
-   "rep": "126",
-   "verso": "<strong>126</strong> — 1200 × 2π/60 = 125,7.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Chariot de 600 kg, frottements 180 N, accélération 0,40 m/s². Comment trouver la force de traction ?",
+   "verso": "1. Bilan des forces, axe du mouvement.<br>2. PFD : F − f = m a.<br>3. F = m a + f = 600 × 0,40 + 180 = <b>420 N</b>.<br>4. Une fois lancé : F = f = 180 N.",
+   "origine": "Cours §2 Démarrer coûte plus cher que rouler"
   },
   {
-   "type": "question",
-   "recto": "L'énergie cinétique d'un solide en rotation vaut ……",
-   "rep": "1/2Jω²",
-   "verso": "<strong>1/2Jω²</strong> — Exactement transposée de 1/2mv².",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Chariot de 800 kg à 1,8 m/s freiné par 650 N. Comment trouver la distance d'arrêt ?",
+   "verso": "1. E<sub>c</sub> départ = ½ × 800 × 1,8² = 1296 J ; arrivée : 0.<br>2. Théorème : 0 − 1296 = W.<br>3. W = −F d.<br>4. d = 1296/650 = <b>2,0 m</b>.",
+   "origine": "Cours §5 Méthode — Distance de freinage"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer une force de frottement à partir d'une perte d'énergie mécanique ?",
+   "verso": "1. Calculer E<sub>m</sub> au départ (m g h) et à l'arrivée (½ m v² mesurée).<br>2. Perte ΔE<sub>m</sub> = travail des frottements.<br>3. <b>f = |ΔE<sub>m</sub>| / d</b> (d = distance parcourue).",
+   "origine": "Cours §6 Mesurer un frottement"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

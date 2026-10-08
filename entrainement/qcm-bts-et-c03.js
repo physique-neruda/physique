@@ -134,96 +134,162 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Combustion » ?",
-   "verso": "Une combustion est une réaction chimique entre un <strong>combustible</strong> et un <strong>comburant</strong>, presque toujours le dioxygène de l'air. Elle libère de l'énergie, sous forme de chaleur et souvent de lumière.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une combustion ?",
+   "verso": "Une <b>réaction chimique</b> entre un <b>combustible</b> et un <b>comburant</b> (presque toujours le dioxygène de l'air), qui libère de l'énergie : chaleur, souvent lumière.",
+   "origine": "Cours §1 Combustion"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Combustion incomplète » ?",
-   "verso": "Quand le dioxygène manque, le carbone n'est pas entièrement transformé en CO₂ : il se forme du monoxyde de carbone CO, et parfois du carbone pur, la suie. Exemple : 2 CH₄ + 3 O₂ 2 CO + 4 H₂O.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les trois côtés du triangle du feu ? Comment éteindre un feu ?",
+   "verso": "<b>Combustible</b>, <b>comburant</b>, <b>énergie d'activation</b>.<br>On en supprime <b>un seul</b> : couper le gaz, étouffer, refroidir.",
+   "origine": "Cours §1 Le triangle du feu"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Mole et masse molaire » ?",
-   "verso": "Une <strong>mole</strong> est un paquet de 6,02×10²³ molécules. La <strong>masse molaire</strong> M est la masse d'une mole, en g/mol : elle s'obtient en additionnant les masses molaires des atomes, C = 12, H = 1, O = 16.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>D'où vient souvent l'énergie d'activation dans une installation électrique ?",
+   "verso": "D'un <b>arc</b> à l'ouverture d'un contact, d'une étincelle, ou d'une <b>borne mal serrée</b> dont la résistance de contact dissipe R I² en un point minuscule. Le serrage au couple prescrit prévient l'incendie.",
+   "origine": "Cours §1 L'énergie d'activation en électrotechnique"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Pouvoir calorifique » ?",
-   "verso": "Le pouvoir calorifique d'un combustible est de ce combustible (ou d'un mètre cube, pour un gaz). Il s'exprime en MJ/kg ou en kW·h/kg.",
-   "origine": "definition du cours"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Que contient C<sub>3</sub>H<sub>8</sub> ? et 2 H<sub>2</sub>O ?",
+   "verso": "La lettre donne l'atome, l'<b>indice</b> le nombre dans une molécule (pas d'indice = 1).<br>C<sub>3</sub>H<sub>8</sub> : 3 C et 8 H.<br>Le nombre <b>devant</b> compte les molécules : 2 H<sub>2</sub>O = 4 H et 2 O.",
+   "origine": "Cours §2 Lire une formule chimique"
   },
   {
-   "type": "retenir",
-   "recto": "Le triangle du feu — qu'y a-t-il à retenir ?",
-   "verso": "Une combustion ne démarre et ne se poursuit que si les trois éléments sont réunis : combustible, comburant et énergie d'activation. Pour éteindre un feu, il suffit d'en supprimer un seul : couper le gaz, étouffer (plus d'air), ou refroidir.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un hydrocarbure ? Formules du méthane, du propane, du butane ?",
+   "verso": "Une molécule faite <b>seulement de C et de H</b>.<br>Méthane <b>CH<sub>4</sub></b>, propane <b>C<sub>3</sub>H<sub>8</sub></b>, butane <b>C<sub>4</sub>H<sub>10</sub></b>.",
+   "origine": "Cours §2 Les hydrocarbures"
   },
   {
-   "type": "retenir",
-   "recto": "Les combustibles usuels — qu'y a-t-il à retenir ?",
-   "verso": "Les gaz et les carburants usuels sont des hydrocarbures : des molécules faites seulement de carbone et d'hydrogène. Méthane CH₄ (gaz naturel), propane C₃H₈, butane C₄H₁₀, et un mélange de molécules plus lourdes pour le gazole et le fioul.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que deviennent les atomes au cours d'une réaction chimique ?",
+   "verso": "Ils ne sont <b>ni créés ni détruits</b> : ils changent de partenaires. Mêmes atomes, en même nombre, avant et après.",
+   "origine": "Cours §3 Conservation des atomes"
   },
   {
-   "type": "retenir",
-   "recto": "Conservation des atomes — qu'y a-t-il à retenir ?",
-   "verso": "Au cours d'une réaction chimique, les atomes ne sont ni créés ni détruits : ils changent seulement de partenaires. On retrouve après la réaction exactement les mêmes atomes, en même nombre, qu'avant.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Équation de la combustion complète du méthane ?",
+   "verso": "<b>CH<sub>4</sub> + 2 O<sub>2</sub> → CO<sub>2</sub> + 2 H<sub>2</sub>O</b><br>Le carbone devient CO<sub>2</sub>, l'hydrogène devient H<sub>2</sub>O.",
+   "origine": "Cours §3 Combustion complète du méthane"
   },
   {
-   "type": "trou",
-   "recto": "Au cours d'une réaction chimique, …… : ils changent seulement de partenaires.",
-   "rep": "les atomes ne sont ni créés ni détruits",
-   "verso": "<strong>les atomes ne sont ni créés ni détruits</strong>",
-   "origine": "cours a completer"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Équilibrer la combustion du propane C<sub>3</sub>H<sub>8</sub>. Dans quel ordre ?",
+   "verso": "Ordre : <b>C, puis H, puis O en dernier</b>.<br>C : 3 CO<sub>2</sub>. H : 8/2 = 4 H<sub>2</sub>O. O à droite : 6 + 4 = 10 → 5 O<sub>2</sub>.<br><b>C<sub>3</sub>H<sub>8</sub> + 5 O<sub>2</sub> → 3 CO<sub>2</sub> + 4 H<sub>2</sub>O</b>",
+   "origine": "Cours §3 Équilibrer une combustion"
   },
   {
-   "type": "trou",
-   "recto": "Brûler 1 meter³ de méthane demande 2 meter³ de dioxygène, donc 2/0,21 ≈ 9,5 meter³ …….",
-   "rep": "d'air",
-   "verso": "<strong>d'air</strong>",
-   "origine": "cours a completer"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Pour le butane, on trouve 6,5 O<sub>2</sub>. Que faire ?",
+   "verso": "<b>Tout multiplier par 2</b> :<br><b>2 C<sub>4</sub>H<sub>10</sub> + 13 O<sub>2</sub> → 8 CO<sub>2</sub> + 10 H<sub>2</sub>O</b>",
+   "origine": "Cours §3 Le cas de la demi-molécule"
   },
   {
-   "type": "trou",
-   "recto": "Les gaz et les carburants usuels sont des …… : des molécules faites seulement de carbone et d'hydrogène.",
-   "rep": "hydrocarbures",
-   "verso": "<strong>hydrocarbures</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand une combustion est-elle incomplète ? Que produit-elle ?",
+   "verso": "Quand le <b>dioxygène manque</b> : il se forme du <b>monoxyde de carbone CO</b>, parfois de la suie (carbone).<br>Ex. 2 CH<sub>4</sub> + 3 O<sub>2</sub> → 2 CO + 4 H<sub>2</sub>O.",
+   "origine": "Cours §4 Combustion incomplète"
   },
   {
-   "type": "trou",
-   "recto": "Une combustion incomplète est …… (CO) et coûteuse : le CO contient encore de l'énergie qui n'a pas été libérée.",
-   "rep": "dangereuse",
-   "verso": "<strong>dangereuse</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi le CO est-il dangereux ? Quelles précautions ?",
+   "verso": "<b>Incolore, inodore</b>, il se fixe dans le sang à la place du dioxygène ; quelques centaines de ppm suffisent.<br>Jamais de groupe électrogène en local fermé ; détecteurs de CO.",
+   "origine": "Cours §4 Le monoxyde de carbone tue"
   },
   {
-   "type": "trou",
-   "recto": "Une combustion ne démarre et ne se poursuit que si …… sont réunis : combustible, comburant et énergie d'activation.",
-   "rep": "les trois éléments",
-   "verso": "<strong>les trois éléments</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi fournir assez d'air ? Et pourquoi pas un grand excès ?",
+   "verso": "Manque d'air : combustion incomplète, <b>dangereuse</b> (CO) et <b>coûteuse</b> (énergie non libérée).<br>Grand excès : refroidit la flamme et emporte de la chaleur par la cheminée. Réglage à l'analyseur de fumées.",
+   "origine": "Cours §4 Assez d'air, mais pas trop"
   },
   {
-   "type": "question",
-   "recto": "La molécule C₃H₈ contient ……",
-   "rep": "11 atomes : 3 C et 8 H",
-   "verso": "<strong>11 atomes : 3 C et 8 H</strong> — Les indices comptent les atomes dans la molécule : 3 C et 8 H. La réponse c multiplie les indices, ce qui n'a pas de sens.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une mole ? une masse molaire ? Valeurs pour C, H, O ?",
+   "verso": "Mole : paquet de <b>6,02 × 10<sup>23</sup></b> molécules.<br>Masse molaire M : masse d'une mole, en g/mol, somme des atomes : <b>C = 12, H = 1, O = 16</b>.",
+   "origine": "Cours §5 Mole et masse molaire"
   },
   {
-   "type": "question",
-   "recto": "L'équation équilibrée de la combustion complète du méthane est ……",
-   "rep": "CH₄ + 2 O₂ CO₂ + 2 H₂O",
-   "verso": "<strong>CH₄ + 2 O₂ CO₂ + 2 H₂O</strong> — Contrôle : 1 C, 4 H et 4 O de chaque côté. La réponse a n'est pas équilibrée (2 O à gauche, 3 à droite) ; la b fait apparaître un carbone de trop.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Relations entre n, m, M et entre V, n, V<sub>m</sub> ?",
+   "verso": "<b>n = m / M</b><br><b>V = n × V<sub>m</sub></b>, V<sub>m</sub> = 24 L/mol à 20 °C (le même pour tous les gaz).",
+   "origine": "Cours §5 Quantité de matière et volume"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment lire CH<sub>4</sub> + 2 O<sub>2</sub> → CO<sub>2</sub> + 2 H<sub>2</sub>O en moles ? en volumes ?",
+   "verso": "Les nombres sont des <b>proportions de moles</b> : 1 mol de méthane réagit avec 2 mol de O<sub>2</sub>.<br>Même volume molaire pour tous les gaz → aussi <b>1 L de méthane pour 2 L de O<sub>2</sub></b>.",
+   "origine": "Cours §5 Ce que dit l'équation"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Que consomme et que produit la combustion de 1 kg de méthane ?",
+   "verso": "1. n = 1000 / 16 = <b>62,5 mol</b>.<br>2. Proportions : 125 mol O<sub>2</sub>, 62,5 mol CO<sub>2</sub>, 125 mol H<sub>2</sub>O.<br>3. m = n × M : O<sub>2</sub> <b>4,00 kg</b> ; CO<sub>2</sub> <b>2,75 kg</b> ; H<sub>2</sub>O <b>2,25 kg</b>.<br>4. Contrôle : 1 + 4 = 2,75 + 2,25 (la masse se conserve).",
+   "origine": "Cours §5 Bilan de matière"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Quel volume d'air pour brûler 1 m³ de méthane ?",
+   "verso": "1. Équation : 1 m³ CH<sub>4</sub> demande <b>2 m³ de O<sub>2</sub></b>.<br>2. L'air n'a que <b>21 %</b> de O<sub>2</sub> : 2 / 0,21 ≈ <b>9,5 m³ d'air</b>.<br>C'est ce qui dimensionne les entrées d'air d'une chaufferie.",
+   "origine": "Cours §5 L'air nécessaire"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le pouvoir calorifique ? Énergie libérée par une masse m ?",
+   "verso": "L'énergie libérée par la combustion <b>complète de 1 kg</b> (ou 1 m³ pour un gaz), en MJ/kg ou kWh/kg.<br><b>E = m × PCI</b>",
+   "origine": "Cours §6 Pouvoir calorifique"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Différence entre PCI et PCS ? Pourquoi une chaudière à condensation dépasse 100 % ?",
+   "verso": "Le <b>PCS</b> compte l'énergie rendue par la <b>condensation de la vapeur d'eau</b> des fumées, le <b>PCI</b> non (méthane : PCS ≈ PCI + 11 %).<br>La chaudière à condensation récupère une partie de cet écart : rapporté au PCI, son rendement peut dépasser 100 %.",
+   "origine": "Cours §6 PCI ou PCS"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Méthane : 50 MJ/kg = ? kWh/kg. Énergie d'1 m³ de gaz naturel ? d'1 L de gazole ?",
+   "verso": "1 kWh = 3,6 MJ → 50 / 3,6 = <b>13,9 kWh/kg</b>.<br>Gaz naturel ≈ <b>10 kWh/m³</b> (PCS) ; gazole ≈ <b>10 kWh/L</b>.",
+   "origine": "Cours §6 Conversions utiles"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rendement d'une installation à combustion ? Ordres de grandeur ?",
+   "verso": "<b>η = W<sub>utile</sub> / (m × PCI)</b><br>Chaudière 90–105 % (sur PCI) ; groupe électrogène <b>30–40 %</b> ; centrale thermique 35–60 %.",
+   "origine": "Cours §7 Rendement d'une installation à combustion"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi choisir un groupe électrogène au plus juste ?",
+   "verso": "Son rendement <b>chute loin de la puissance nominale</b> : à 25 % de charge, il consomme près de 50 % de gazole de plus par kWh qu'à pleine charge.",
+   "origine": "Cours §7 Le groupe sous-chargé"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>De quoi dépend la masse de CO<sub>2</sub> rejetée ? Valeurs pour le méthane et le gazole ?",
+   "verso": "Elle est <b>proportionnelle à la masse de combustible brûlé</b> (conservation des atomes) : <b>2,75 kg</b>/kg de méthane, <b>3,1 kg</b>/kg de gazole.<br>≈ 0,20 kg/kWh de chaleur au gaz ; ≈ 0,7 kg/kWh électrique au diesel.",
+   "origine": "Cours §7 Le CO2 émis"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Groupe 100 kW pendant 1 h, η = 37 %, PCI gazole 11,8 kWh/kg : gazole et CO<sub>2</sub> ?",
+   "verso": "1. Énergie chimique : 100 / 0,37 = <b>270 kWh</b>.<br>2. Gazole : 270 / 11,8 = <b>23 kg</b> (≈ 27 L).<br>3. CO<sub>2</sub> : 23 × 3,1 = <b>71 kg</b>.",
+   "origine": "Cours §7 Une heure de secours"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que faire face à un feu dans une armoire électrique ?",
+   "verso": "<b>Couper l'alimentation</b> d'abord. Sous tension, seul l'<b>extincteur à CO<sub>2</sub></b> convient (ne conduit pas, aucun résidu). Jamais d'eau en jet.",
+   "origine": "Cours §8 Feu sur une installation électrique"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand un mélange gaz–air peut-il exploser ?",
+   "verso": "Seulement si sa concentration est comprise entre la <b>LIE</b> (limite inférieure) et la <b>LSE</b> (limite supérieure). En dessous : trop pauvre ; au-dessus : trop riche.",
+   "origine": "Cours §8 Limites d'explosivité"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

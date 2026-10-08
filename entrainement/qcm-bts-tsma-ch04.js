@@ -199,97 +199,84 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Débits » ?",
-   "verso": "Le <strong>débit volumique</strong> Q_v est le volume de fluide traversant une section par unité de temps. Le <strong>débit massique</strong> Q_m est la masse correspondante.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir le débit volumique et le débit massique. Formules et unités ?",
+   "verso": "<b>Q<sub>v</sub> = V / t = S × v</b> (m³/s) : volume traversant une section par seconde.<br><b>Q<sub>m</sub> = ρ × Q<sub>v</sub></b> (kg/s).",
+   "origine": "Cours §1.1 Débits"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Équation de continuité » ?",
-   "verso": "Dans un écoulement permanent d'un fluide incompressible, le débit volumique est le même à travers toute section de la conduite.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment convertir des L/min en m³/s ? Section d'une conduite de diamètre D ?",
+   "verso": "L/min → m³/s : <b>÷ 60 000</b>.<br><b>S = π D² / 4</b>, D converti en m <b>avant</b> d'élever au carré.",
+   "origine": "Cours §1.1 Les deux conversions"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Théorème de Bernoulli » ?",
-   "verso": "Pour un fluide <strong>parfait</strong> (sans viscosité), <strong>incompressible</strong>, en écoulement <strong>permanent</strong>, la somme des trois termes suivants se conserve le long d'une ligne de courant.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer l'équation de continuité.",
+   "verso": "En écoulement permanent incompressible, le débit est le même dans toute section : <b>Q<sub>v</sub> = S<sub>1</sub> v<sub>1</sub> = S<sub>2</sub> v<sub>2</sub></b>.",
+   "origine": "Cours §2.1 Équation de continuité"
   },
   {
-   "type": "retenir",
-   "recto": "La conséquence à retenir — qu'y a-t-il à retenir ?",
-   "verso": "Le fluide accélère dans les rétrécissements et ralentit dans les élargissements. Comme les sections varient en D², diviser le diamètre par deux multiplie la vitesse par quatre.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Où le fluide accélère-t-il ? Si le diamètre est divisé par 2 ?",
+   "verso": "Il <b>accélère dans les rétrécissements</b>, ralentit dans les élargissements. Diamètre ÷ 2 → vitesse <b>× 4</b>.",
+   "origine": "Cours §2.1 La conséquence à retenir"
   },
   {
-   "type": "retenir",
-   "recto": "Vitesse et pression varient en sens inverse — qu'y a-t-il à retenir ?",
-   "verso": "Là où le fluide va plus vite, la pression statique est plus faible. Dans un circuit horizontal, la conservation impose p₁ - p₂ = 1/2ρ(v₂² - v₁²).",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le théorème de Bernoulli et ses conditions.",
+   "verso": "<b>p + ½ ρ v² + ρ g z = constante</b> le long d'une ligne de courant, pour un fluide <b>parfait</b> (sans viscosité), <b>incompressible</b>, en écoulement <b>permanent</b>.",
+   "origine": "Cours §3.1 Théorème de Bernoulli"
   },
   {
-   "type": "trou",
-   "recto": "Dans un circuit horizontal, la conservation impose …….",
-   "rep": "p₁ - p₂ = 1/2ρ(v₂² - v₁²)",
-   "verso": "<strong>p₁ - p₂ = 1/2ρ(v₂² - v₁²)</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Nommer les trois termes de Bernoulli.",
+   "verso": "<b>p</b> : pression statique (manomètre) ; <b>½ρv²</b> : pression dynamique ; <b>ρgz</b> : pression de pesanteur. Tous en Pa.",
+   "origine": "Cours §3.1 Les trois termes"
   },
   {
-   "type": "trou",
-   "recto": "Là où le fluide va plus vite, la pression statique est …….",
-   "rep": "plus faible",
-   "verso": "<strong>plus faible</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que l'effet Venturi ? Relation en circuit horizontal ?",
+   "verso": "Là où le fluide va <b>plus vite</b>, la pression statique est <b>plus faible</b>.<br><b>p<sub>1</sub> − p<sub>2</sub> = ½ ρ (v<sub>2</sub>² − v<sub>1</sub>²)</b>.",
+   "origine": "Cours §3.3 L'effet Venturi"
   },
   {
-   "type": "trou",
-   "recto": "Dans un écoulement permanent d'un fluide incompressible, …….",
-   "rep": "le débit volumique est le même à travers toute section de la conduite",
-   "verso": "<strong>le débit volumique est le même à travers toute section de la conduite</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Vitesse de vidange par un orifice à une profondeur h ?",
+   "verso": "<b>v = √(2 g h)</b>, indépendante du liquide. Le débit diminue quand le niveau baisse.",
+   "origine": "Cours §3.4 Vidange d'un réservoir"
   },
   {
-   "type": "trou",
-   "recto": "Comme les sections varient en D², diviser le diamètre par deux multiplie la vitesse par …….",
-   "rep": "quatre",
-   "verso": "<strong>quatre</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Bernoulli généralisé : où placer le terme de la pompe et celui des pertes ?",
+   "verso": "Δp<sub>pompe</sub> <b>du côté où se trouve la pompe</b> ; Δp<sub>pertes</sub> <b>du côté de l'arrivée</b>.",
+   "origine": "Cours §4 Bernoulli en circuit réel"
   },
   {
-   "type": "question",
-   "recto": "Le débit volumique s'exprime, dans le Système international, en ……",
-   "rep": "m³/s",
-   "verso": "<strong>m³/s</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans un circuit haute pression (185 bar), quels termes de Bernoulli sont négligeables ?",
+   "verso": "Les termes <b>dynamique</b> et de <b>pesanteur</b> (&lt; 0,1 %). Ils comptent seulement en basse pression (aspiration, cuves, irrigation).",
+   "origine": "Cours §4 Haute pression"
   },
   {
-   "type": "question",
-   "recto": "60 L/min valent ……",
-   "rep": "1,0×10⁻³ m³/s",
-   "verso": "<strong>1,0×10⁻³ m³/s</strong> — le débitmètre affiche des L/min, le calcul exige des m³/s : diviser par 60000. La réponse b de la question 2 correspond à un oubli du facteur 60. 3pt",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>60 L/min dans une conduite de 40 mm puis 25 mm. Comment trouver les deux vitesses ?",
+   "verso": "1. Q<sub>v</sub> = 60/60 000 = <b>1,0 × 10<sup>−3</sup> m³/s</b>.<br>2. S<sub>1</sub> = π × 0,040²/4 = 1,257 × 10<sup>−3</sup> m² → v<sub>1</sub> = <b>0,80 m/s</b>.<br>3. S<sub>2</sub> = 4,91 × 10<sup>−4</sup> m² → v<sub>2</sub> = <b>2,04 m/s</b>.",
+   "origine": "Cours §2.1 Circuit de refroidissement"
   },
   {
-   "type": "question",
-   "recto": "Le débit massique se calcule par ……",
-   "rep": "Q_m = ρQ_v",
-   "verso": "<strong>Q_m = ρQ_v</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment appliquer Bernoulli entre deux points ?",
+   "verso": "1. Deux points <b>sur la même ligne de courant</b>, les plus connus.<br>2. Fixer <b>z = 0</b> (souvent le plus bas).<br>3. Écrire l'égalité, <b>barrer</b> : horizontal (z égaux), grand réservoir (v ≈ 0), air libre (p = 0 relatif).<br>4. Isoler, vérifier l'unité.",
+   "origine": "Cours §3.2 Méthode — Appliquer Bernoulli"
   },
   {
-   "type": "question",
-   "recto": "L'équation de continuité traduit la conservation ……",
-   "rep": "de la masse",
-   "verso": "<strong>de la masse</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Une conduite passe de 40 mm à 20 mm de diamètre. La vitesse est multipliée par ……",
-   "rep": "4",
-   "verso": "<strong>4</strong> — la continuité découle de la conservation de la masse (rien ne s'accumule), pas de l'énergie : c'est Bernoulli qui traduit l'énergie. Et comme S D², diviser le diamètre par deux divise la section par quatre, donc multiplie la vitesse par quatre. 3pt",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Orifice de 15 mm à 1,80 m sous la surface. Comment trouver la vitesse et le débit de sortie ?",
+   "verso": "1. v = √(2 × 9,81 × 1,80) = <b>5,94 m/s</b>.<br>2. S = π × 0,015²/4 = 1,77 × 10<sup>−4</sup> m².<br>3. Q<sub>v</sub> = S v ≈ <b>63 L/min</b> (au début seulement).",
+   "origine": "Cours §3.4 Une cuve de gazole"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

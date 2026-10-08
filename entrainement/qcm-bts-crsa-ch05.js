@@ -213,99 +213,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Fluide incompressible » ?",
-   "verso": "Un fluide est dit <strong>incompressible</strong> si sa masse volumique reste constante quelle que soit la pression. Tous les liquides le sont en pratique ; les gaz ne le sont pas.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un fluide incompressible ? Exemples ?",
+   "verso": "Un fluide dont la <b>masse volumique reste constante</b> quelle que soit la pression : tous les <b>liquides</b> en pratique ; <b>pas les gaz</b> (ni l'air comprimé).",
+   "origine": "Cours §1 Compressible ou incompressible"
   },
   {
-   "type": "retenir",
-   "recto": "Pression absolue et pression relative — qu'y a-t-il à retenir ?",
-   "verso": "La pression <strong>absolue</strong> se compte à partir du vide. La pression <strong>relative</strong> — celle qu'indiquent la plupart des capteurs et manomètres d'atelier — se compte à partir de la pression atmosphérique : elle vaut donc zéro à l'air libre.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définition de la pression ? Unités ? 1 bar en Pa ?",
+   "verso": "<b>p = F / S</b> (Pa = N/m²).<br><b>1 bar = 10<sup>5</sup> Pa</b> ≈ 10 m d'eau.",
+   "origine": "Cours §2 La pression"
   },
   {
-   "type": "retenir",
-   "recto": "Trois termes, une constante — qu'y a-t-il à retenir ?",
-   "verso": "Le long d'un écoulement permanent de fluide parfait incompressible, la somme 1/2ρv² + ρg z + p reste constante. Le premier terme est celui de la vitesse, le deuxième celui de l'altitude, le troisième celui de la pression.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Différence entre pression absolue et pression relative ?",
+   "verso": "<b>Absolue</b> : comptée depuis le vide.<br><b>Relative</b> : comptée depuis la pression atmosphérique (0 à l'air libre) — celle des manomètres d'atelier.",
+   "origine": "Cours §2 Pression absolue et relative"
   },
   {
-   "type": "retenir",
-   "recto": "La vitesse de vidange — qu'y a-t-il à retenir ?",
-   "verso": "Pour un bac ouvert se vidant par un orifice à l'air libre, les trois simplifications conduisent à v = √(2gh). La masse volumique disparaît : l'eau et l'huile sortent à la même vitesse.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le principe fondamental de l'hydrostatique.",
+   "verso": "<b>p<sub>B</sub> − p<sub>A</sub> = ρ g h</b>, h différence d'altitude (B plus bas que A), résultat en Pa.",
+   "origine": "Cours §3 Principe fondamental de l'hydrostatique"
   },
   {
-   "type": "trou",
-   "recto": "La masse volumique …… : l'eau et l'huile sortent à la même vitesse.",
-   "rep": "disparaît",
-   "verso": "<strong>disparaît</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>La pression au fond d'un récipient dépend-elle de sa forme ou du volume de liquide ?",
+   "verso": "<b>Non</b> : seule compte la <b>hauteur</b> de liquide.",
+   "origine": "Cours §3 Ce qui n'intervient pas"
   },
   {
-   "type": "trou",
-   "recto": "Un fluide est dit <strong>incompressible</strong> si …… quelle que soit la pression.",
-   "rep": "sa masse volumique reste constante",
-   "verso": "<strong>sa masse volumique reste constante</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Débit volumique et débit massique : formules et unités ?",
+   "verso": "<b>Q<sub>v</sub> = S × v</b> en m³/s.<br><b>Q<sub>m</sub> = ρ × Q<sub>v</sub></b> en kg/s.<br>1 m³/h = 2,78 × 10<sup>−4</sup> m³/s.",
+   "origine": "Cours §4 Les débits"
   },
   {
-   "type": "trou",
-   "recto": "Le long d'un écoulement permanent de fluide parfait incompressible, la somme 1/2ρv² + ρg z + p …….",
-   "rep": "reste constante",
-   "verso": "<strong>reste constante</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer l'équation de continuité. Si la section diminue ?",
+   "verso": "<b>S<sub>1</sub> v<sub>1</sub> = S<sub>2</sub> v<sub>2</sub></b> (le débit se conserve). Section plus petite → vitesse <b>plus grande</b>.",
+   "origine": "Cours §5 L'équation de continuité"
   },
   {
-   "type": "trou",
-   "recto": "Le premier terme est celui de la vitesse, le deuxième celui de l'altitude, le troisième celui de …….",
-   "rep": "la pression",
-   "verso": "<strong>la pression</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Si le diamètre d'une conduite est divisé par 2, que devient la vitesse ?",
+   "verso": "Elle est <b>multipliée par 4</b> : S = π d²/4 varie comme le carré du diamètre.",
+   "origine": "Cours §5 Le piège du diamètre"
   },
   {
-   "type": "trou",
-   "recto": "Pour un bac ouvert se vidant par un orifice à l'air libre, les trois simplifications conduisent à …….",
-   "rep": "v = √(2gh)",
-   "verso": "<strong>v = √(2gh)</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le théorème de Bernoulli. Conditions ?",
+   "verso": "<b>½ ρ v² + ρ g z + p = constante</b> le long d'un écoulement <b>permanent</b> de fluide <b>parfait incompressible</b>.<br>Termes de vitesse, d'altitude, de pression.",
+   "origine": "Cours §6 Le théorème de Bernoulli"
   },
   {
-   "type": "question",
-   "recto": "Un fluide incompressible est un fluide dont ……",
-   "rep": "la masse volumique est constante",
-   "verso": "<strong>la masse volumique est constante</strong> — Son volume ne varie pas sous l'effet de la pression.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Vitesse de vidange d'un bac ouvert par un orifice à l'air libre ? Dépend-elle du liquide ?",
+   "verso": "<b>v = √(2 g h)</b>, <b>indépendante de ρ</b>. Le débit diminue quand h baisse : le débit initial est le maximum.",
+   "origine": "Cours §7 La vidange"
   },
   {
-   "type": "question",
-   "recto": "Parmi ces fluides, lequel n'est pas incompressible ?",
-   "rep": "l'air comprimé",
-   "verso": "<strong>l'air comprimé</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quel outil pour un fluide au repos ? Pour une vitesse en écoulement ? Pour une pression en écoulement ?",
+   "verso": "Au repos : <b>hydrostatique</b>.<br>Vitesse : <b>continuité</b>.<br>Pression : <b>Bernoulli</b>.",
+   "origine": "Cours §8 Choisir le bon outil"
   },
   {
-   "type": "question",
-   "recto": "120 bar valent, en pascals ……",
-   "rep": "1,2×10⁷ Pa",
-   "verso": "<strong>1,2×10⁷ Pa</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Vérin de 63 mm de diamètre sous 120 bar. Comment calculer la force ?",
+   "verso": "1. S = π d²/4 = π × 0,063²/4 = 3,12 × 10<sup>−3</sup> m².<br>2. p = 120 × 10<sup>5</sup> Pa.<br>3. F = p S ≈ <b>37 kN</b>.<br>Oublier la conversion bar → Pa : facteur 100 000.",
+   "origine": "Cours §2 L'erreur la plus coûteuse"
   },
   {
-   "type": "question",
-   "recto": "La pression au fond d'un récipient dépend ……",
-   "rep": "de la hauteur de liquide",
-   "verso": "<strong>de la hauteur de liquide</strong> — p = ρg h : ni le volume, ni la forme, ni la surface du fond n'interviennent.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer la pression relative puis absolue sous 2,5 m d'eau ?",
+   "verso": "1. p<sub>rel</sub> = ρ g h = 1000 × 9,81 × 2,5 = <b>2,45 × 10<sup>4</sup> Pa</b> (0,25 bar).<br>2. p<sub>abs</sub> = p<sub>atm</sub> + p<sub>rel</sub> = 1,013 × 10<sup>5</sup> + 2,45 × 10<sup>4</sup> = <b>1,26 × 10<sup>5</sup> Pa</b>.",
+   "origine": "Cours §3 Un bassin de traitement"
   },
   {
-   "type": "question",
-   "recto": "Un capteur de pression relative plongé dans l'air libre indique ……",
-   "rep": "zéro",
-   "verso": "<strong>zéro</strong> — La pression relative se compte à partir de la pression atmosphérique.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment appliquer le théorème de Bernoulli ?",
+   "verso": "1. <b>Choisir deux points</b> (le plus connu, celui de l'inconnue).<br>2. Écrire les <b>six termes</b>.<br>3. <b>Simplifier</b> : horizontal → ρgz disparaît ; air libre → p s'élimine ; grand bac → v ≈ 0.<br>4. Isoler l'inconnue.",
+   "origine": "Cours §6 Méthode — Appliquer Bernoulli"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Débit de 3,6 m³/h dans une conduite de 25 mm puis de 12,5 mm. Comment trouver les vitesses ?",
+   "verso": "1. Q<sub>v</sub> = 3,6/3600 = 1,0 × 10<sup>−3</sup> m³/s.<br>2. v<sub>1</sub> = Q<sub>v</sub>/S<sub>1</sub> avec S = π d²/4.<br>3. Diamètre ÷ 2 → <b>v<sub>2</sub> = 4 v<sub>1</sub></b>.",
+   "origine": "Cours §5 L'équation de continuité"
   }
  ],
- "cartes_figees": false
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

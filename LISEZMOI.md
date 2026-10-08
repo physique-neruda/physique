@@ -124,6 +124,12 @@ s'affiche encore, c'est le cache du navigateur : recharger en navigation privée
 visible et téléchargeable par n'importe qui, et indexable par les moteurs de recherche. Une
 adresse compliquée ne protège rien : il n'existe pas de « lien secret » sur GitHub Pages.
 
+**Depuis le 2 octobre 2026 (v42), les documents des quatre classes sont chiffrés** : seul le
+fichier `.enc` est publié, et il ne s'ouvre qu'avec le mot de passe de la classe (voir la mise à
+jour v42 en fin de notice). Le reste — catalogue, animations, questionnaires, outils — reste
+public. La règle ci-dessous tient toujours : un mot de passe partagé par une classe finit par
+circuler, il ne protège pas un sujet d'examen.
+
 Ne pas y mettre :
 
 - les **corrigés**, quels qu'ils soient. Le site ne contient que les versions élève, et le pied
@@ -854,23 +860,239 @@ animations » y a été posé.
 
 - BTS ET : Cours 5 « Mécanique en translation » (fil du collègue) et nouvelle animation `chariot-filoguide.html`.
 
-## Mise à jour du 3 octobre 2026 (v42)
 
-- BTS ET : Cours 6 « Énergie, rayonnement, photométrie » ; nouvelles animations `corps-chaud.html` et `eclairage-atelier.html`. Les six chapitres de cours de 1re année sont en ligne.
+---
 
-## Mise à jour du 3 octobre 2026, suite (v43)
+## Mise à jour du 2 octobre 2026 (v42) — documents réservés aux élèves
 
-- Renvois complétés dans plusieurs cours (BTS ET, CRSA ch.20, ADM 1) : PDF redéposés.
+**Ce qui change pour les élèves.** Sur la page d'une classe, un bandeau dit que les documents sont
+réservés. Au premier document touché, le site demande le mot de passe de la classe ; il le vérifie
+dans le navigateur, puis le document s'ouvre (dans un nouvel onglet ; téléchargé sur Android).
+« Se souvenir sur cet appareil » évite de le retaper ; à décocher sur un ordinateur du lycée. Le
+bouton *Fermer l'accès* efface la mémorisation. Les **animations, questionnaires, cartes et
+outils restent libres**, sans mot de passe : ils servent à plusieurs classes et ne contiennent
+rien de nominatif.
 
-## Correction du 6 octobre 2026 (v44)
+**Comment c'est protégé.** Ce n'est pas un simple masquage : chaque PDF (et le paquet Anki) est
+chiffré en AES-256 avant d'être déposé. Le dépôt ne contient plus que des fichiers `.enc`
+illisibles ; quelqu'un qui trouve l'adresse d'un document ou parcourt le dépôt GitHub n'obtient
+rien sans le mot de passe. La clé est dérivée du mot de passe dans le navigateur de l'élève
+(PBKDF2, 300 000 tours) ; le mot de passe n'est écrit nulle part dans le site. Aucun compte,
+aucune adresse mail, rien d'envoyé : toujours aucune question RGPD.
 
-- BTS CRSA ch.2 : devoir, partie A réécrite sur documents (PDF redéposé).
+**Limite à connaître.** C'est un mot de passe par classe. Un élève peut le donner à quelqu'un, et
+on ne peut pas retirer l'accès d'un seul élève : on change le mot de passe de toute la classe
+(une commande, voir plus bas). Chaque rentrée, en changer pour toutes les classes.
 
-## Correction du 6 octobre 2026, suite (v45)
+### Deux dossiers désormais
 
-- BTS CRSA ch.2 : exercice 3 « Choisir la chaîne » réécrit sur document (PDF redéposés).
+```
+site-physique/          L'ATELIER. PDF en clair, scripts, catalogue. On y travaille,
+                        on ne le publie plus.
+site-en-ligne/          CE QUI PART SUR GITHUB. Fabriqué par outils/chiffrer.py.
+NE_PAS_PUBLIER/
+   mots_de_passe.json   les mots de passe, les sels et la clé de l'espace enseignant — SECRET
+prive-atelier/          les documents de l'espace enseignant, EN CLAIR — jamais sur GitHub
+```
 
-## Mise à jour du 8 octobre 2026 (v46)
+`index.html` est le même dans les deux : dans l'atelier (pas de fichier `acces.js`), les PDF
+s'ouvrent directement comme avant ; dans `site-en-ligne/`, `acces.js` active le verrou.
 
-- BTS CRSA ch.1 : nouveau devoir E32 « air comprimé et récupération de chaleur » (PDF redéposé).
-- Animations `calculatrice-puissances.html` (v4, retour arrière) et `latispro.html` (v8, deux tutoriels séparés) : versions à jour, présentes dans la rubrique Outils.
+### Fabriquer la version en ligne
+
+Après toute modification de l'atelier (nouveaux PDF, `publier.py`, etc.) :
+
+```sh
+python3 site-physique/outils/chiffrer.py site-physique site-en-ligne --cles NE_PAS_PUBLIER/mots_de_passe.json --prive prive-atelier
+```
+
+Un PDF inchangé redonne exactement le même `.enc` : GitHub Desktop ne montre comme modifiés que
+les documents qui ont réellement changé. Le script s'arrête en erreur s'il reste un seul PDF en
+clair dans une filière protégée.
+
+### Changer un mot de passe
+
+```sh
+python3 site-physique/outils/chiffrer.py site-physique site-en-ligne --cles NE_PAS_PUBLIER/mots_de_passe.json --nouveau 1sti2d
+python3 site-physique/outils/chiffrer.py ... --nouveau 1sti2d --mot "mon-choix-perso"
+python3 site-physique/outils/chiffrer.py ... --nouveau 1sti2d bts-crsa bts-et bts-tsma   # rentrée
+```
+
+Tous les documents de la filière sont rechiffrés (tout est à renvoyer sur GitHub), l'ancien mot de
+passe ne marche plus, et les téléphones qui l'avaient mémorisé le redemandent.
+
+Rendre une filière publique : supprimer son bloc dans `mots_de_passe.json` et refabriquer.
+Les BTS ET scolaires et apprentis partagent le mot de passe `bts-et` ; les deux années de CRSA et
+de TSMA aussi.
+
+### Une fois pour toutes : effacer l'historique GitHub
+
+Jusqu'à la v41, les PDF ont été publiés **en clair**. Ils restent dans l'**historique** du dépôt :
+n'importe qui peut remonter un ancien commit et les télécharger. Déposer les `.enc` par-dessus ne
+suffit pas ; il faut repartir d'un dépôt neuf, à la même adresse (les QR codes continuent de
+marcher) :
+
+1. github.com → dépôt `physique` → **Settings** → tout en bas, **Delete this repository**.
+2. Sur le PC, dans GitHub Desktop : *Repository → Remove* sur `physique`, puis renommer le dossier
+   `Documents\GitHub\physique` en `physique-ancien` (à supprimer plus tard).
+3. Créer un dossier vide `Documents\GitHub\physique` et y copier **le contenu** de
+   `site-en-ligne/` (pas le dossier lui-même : `index.html` doit être à la racine).
+4. GitHub Desktop : *File → Add local repository* → ce dossier → *create a repository* →
+   *Create repository*, puis **Publish repository** sur le compte `physique-neruda`, en
+   **décochant « Keep this code private »** (GitHub Pages gratuit exige un dépôt public).
+5. github.com → nouveau dépôt `physique` → **Settings → Pages** → *Deploy from a branch*,
+   `main`, `/ (root)` → *Save*. Le site revient à la même adresse en une ou deux minutes.
+
+Ce qui a déjà été téléchargé ou archivé par des tiers avant aujourd'hui ne peut évidemment pas
+être rappelé.
+
+### Ensuite, à chaque mise à jour
+
+Copier le contenu de `site-en-ligne/` dans `Documents\GitHub\physique` (remplacer les fichiers),
+puis dans GitHub Desktop *Commit to main* et *Push origin*. Ne jamais y copier `site-physique/`
+ni `NE_PAS_PUBLIER/`.
+
+**Au passage** : dans la liste des documents, le titre et la description d'un document
+s'affichaient collés sur une seule ligne (« PrérequisÀ faire avant… ») ; ils sont de nouveau
+sur deux lignes.
+
+
+### Le code enseignant
+
+Un **code enseignant** ouvre d'un coup les documents des quatre classes. Il se tape dans la même
+fenêtre que le mot de passe de classe, sur n'importe quelle page de classe ; le site essaie
+d'abord le mot de passe de la classe, puis le code enseignant. Il est rangé dans
+`NE_PAS_PUBLIER/mots_de_passe.json` (bloc `_prof`) et n'est écrit nulle part dans le site :
+`acces.js` ne contient que les clés des classes, chiffrées avec lui.
+
+Changer de code : `chiffrer.py … --nouveau prof` (ou `--nouveau prof --mot "…"`). Changer le mot
+de passe d'une classe ne change pas le code enseignant, qui continue d'ouvrir cette classe.
+
+À ne saisir que sur ses propres appareils, ou en décochant « Se souvenir sur cet appareil » :
+un poste du lycée qui l'a mémorisé reste ouvert sur toutes les classes jusqu'à *Fermer l'accès*
+(à faire classe par classe).
+
+
+### Les corrigés des séances
+
+Une rubrique **Corrigés** apparaît dans chaque classe. Elle porte, chapitre par chapitre, un
+**corrigé des séances** : la correction des seuls exercices et parties d'activité déjà traités en
+classe, d'après le classeur de pointage (cahier de textes v16 du 1er octobre). Ce qui est pointé
+« à finir », ou donné pour une échéance pas encore passée, n'y figure pas.
+
+C'est la seule exception au verrou « corrige » de `publier.py` (`AUTORISES`), et elle ne tient que
+parce que les documents des classes sont chiffrés : `chiffrer.py` s'arrête net s'il trouve un
+corrigé en clair dans une filière non protégée. Les corrigés complets, eux, ne sortent toujours pas.
+
+Les numéros d'exercices sont ceux de la feuille élève (un corrigé qui saute de l'exercice 4 au 6
+est normal). Le document est l'union des classes d'une même filière (CRSA 1re et 2e année
+ensemble, scolaires et apprentis ensemble en BTS ET) ; les versions par classe sont livrées à part.
+À refaire au fil de l'avancement, à partir du classeur à jour.
+
+
+### L'espace enseignant caché
+
+Une page **invisible** : `…/physique/#prive`. Aucun lien n'y mène depuis l'accueil pour un élève ;
+une carte « Espace enseignant » n'apparaît que sur l'appareil où le code enseignant a été saisi.
+
+Elle contient ce qui ne doit jamais tomber entre les mains des étudiants, rangé par filière et
+par chapitre : **corrigés complets** (exercices, activités, CCF, devoirs E32, oraux, sujets E4,
+situations U51, diagnostics), **tests et leurs corrigés** (STI2D), et les **quatre livres du
+professeur**. Les sources sont dans `prive-atelier/`, à côté du site et pas dedans :
+
+```
+prive-atelier/<filière>/<chapitre>/<document>.pdf     exemple : 1sti2d/ch02/test_corrige.pdf
+prive-atelier/livres/Livre_professeur_<classe>.pdf
+```
+
+Protection : clé aléatoire à part (bloc `_prive` de `mots_de_passe.json`), que seul le code
+enseignant déverrouille — un mot de passe de classe n'y donne jamais accès. Dans le dépôt, tout est
+dans `prive/` sous des **noms opaques** (`3fa9c1….enc`), et la liste des documents (`index.enc`)
+est chiffrée elle aussi : quelqu'un qui parcourt le dépôt ne voit ni les titres, ni les chapitres.
+
+Le dossier se reconstruit à partir des collections et des livres du professeur avec
+`outils/preparer_prive.py` (voir son en-tête). Mettre à jour : remplacer ou ajouter des PDF
+dans `prive-atelier/`, puis relancer `chiffrer.py`
+avec `--prive prive-atelier`. Un document inchangé garde le même fichier chiffré.
+
+Rien n'empêche de mettre un sujet d'examen ici, mais le plus sûr pour une épreuve à venir reste
+de ne pas le mettre en ligne du tout.
+
+### Ce que voient les élèves (décision du 3 octobre 2026)
+
+Avec le mot de passe de la classe : **prérequis, cours complet, cours à compléter, exercices,
+bilan, activités** (expérimentales, documentaires, sur animation, TP) et **corrigés des séances**.
+Sans mot de passe, comme avant : **animations, questionnaires et cartes de révision**.
+
+Ne sont plus publiés côté élèves : les énoncés de **situation type CCF, devoir type E32, oral,
+sujet type E4** (sujet, dossier ressources, documents réponses) et **situation U51**. Ils sont
+commentés dans `outils/filieres.py` (« CACHÉ ») et rangés dans l'espace enseignant, à côté de
+leurs corrigés. `preparer_prive.py` les y met automatiquement.
+
+**Dans le dossier du dépôt**, supprimer les anciens fichiers de ces énoncés s'ils y sont encore :
+dans l'Explorateur, rechercher `ccf.pdf.enc`, `devoir.pdf.enc`, `oral.pdf.enc`, `u51.pdf.enc`,
+`e4_*.pdf.enc` dans `docs\` et les supprimer. (Ils ont été vidés, donc illisibles, mais autant
+qu'ils disparaissent du dépôt.)
+
+## Mise à jour du 3 octobre 2026 (v43) — BTS ET : chapitres cachés et ADM 4 à 7
+
+### Chapitres retirés du site élèves
+
+`outils/filieres.py` porte désormais une liste `CHAPITRES_CACHES`. Un chapitre qui y
+figure disparaît entièrement du catalogue (PDF, animations, QCM, cartes) et
+`publier.py --deposer` ne le redépose plus. Pour le BTS ET :
+
+- `c04` Statique des fluides et `c05` Mécanique en translation : cours assurés par le collègue ;
+- `ch09` Distribution et qualité de l'énergie électrique.
+
+Leurs PDF sont rangés dans l'espace enseignant (`prive-atelier/bts-et/<ch>/`), où ils
+restent accessibles avec le code enseignant. Pour en remettre un en ligne : le retirer
+de la liste, remettre ses PDF dans `docs/bts-et/<ch>/`, relancer `publier.py` puis
+`chiffrer.py`. Les animations de ces chapitres restent dans `animations/` (elles servent
+aussi en CRSA ou en TSMA) mais ne sont plus listées en BTS ET.
+
+### ADM 4 à 7 ajoutés (rubrique « TP systèmes »)
+
+| Chapitre | Sujet (mot de passe de la classe) | Animation (libre) |
+|---|---|---|
+| adm04 Centrale de pompage | `tp_piscine.pdf` (archive v2) | `animations/centrale-pompage.html` |
+| adm05 Système de levage | `tp_levage.pdf` (v1) | `animations/systeme-levage.html` |
+| adm06 Éclairage scénique Ermalux | `tp_ermalux.pdf` (v1) | **non publiée** : autorisation de diffusion du schéma ERM à vérifier |
+| adm07 Harmocem | `tp_harmocem.pdf` (v1) | `animations/harmocem.html` |
+
+Les corrigés des sept TP ADM (ADM 1 : activité, exercices, situation U51 et son
+corrigé ; ADM 2 à 7 : corrigé du TP) sont dans l'espace enseignant.
+Les PDF de l'ADM 1 déjà en ligne (compilés le 1er octobre) sont plus récents que
+l'archive v21 : ils n'ont pas été remplacés.
+
+### Les cartes de révision sont écrites à la main (octobre 2026)
+
+Les cartes fabriquées par `outils/cartes.py` restaient trop automatiques : titres d'encadrés
+transformés en questions (« Qu'appelle-t-on « Deux protections complémentaires » ? »), trous
+pris au hasard dans le cours, questions du bilan recopiées sans leurs choix, formules tronquées.
+Elles ne collaient pas aux attendus du chapitre.
+
+Elles sont désormais **écrites à la main**, chapitre par chapitre, dans
+`outils/cartes_manuelles/` (un fichier par filière : `sti2d.py`, `crsa.py`, `tsma.py`, `et.py`).
+Chaque carte est rattachée au paragraphe du cours dont elle vient, et elle est de l'un des deux
+types :
+
+- **Notion** : une définition, une formule avec ses unités, un ordre de grandeur, une
+  distinction à ne pas confondre ;
+- **Méthode** : un savoir-faire, les étapes dans l'ordre, sur l'exemple du cours.
+
+Tous les chapitres sont couverts (3 octobre 2026) : 1re STI2D ch. 0 à 18 (305 cartes),
+BTS CRSA ch. 0 à 20 (324), BTS TSMA ch. 0 à 17 (284), BTS ET ch. 0, cours 1 à 3 et TP 1 à 7
+(236) — **1149 cartes**. Restent hors de ce dispositif, côté BTS ET : les cours 4 et 5 (cours
+du collègue, masqués sur le site), le chapitre 9 (masqué) et ADM 1 (paquet Anki déjà écrit à
+la main, voir plus haut).
+
+```
+python3 outils/injecter_cartes_manuelles.py entrainement
+```
+
+recopie ces cartes dans les fichiers de données et pose `cartes_figees: true`.
+`construire.py`, `construire_tsma.py`, `enrichir_cartes.py`, `completer_cartes.py` et
+`refaire_cartes.py` ne touchent plus à un chapitre dont les cartes sont écrites à la main.
+Un chapitre ajouté plus tard garde ses cartes automatiques tant qu'on ne lui a pas écrit
+ses cartes dans `outils/cartes_manuelles/`.

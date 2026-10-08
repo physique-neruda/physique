@@ -199,98 +199,90 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Actif ou passif » ?",
-   "verso": "Un capteur est <strong>actif</strong> s'il délivre lui-même une tension ou un courant. Il est <strong>passif</strong> s'il se contente de faire varier une résistance, une capacité ou une inductance : il lui faut alors une alimentation et un montage.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les quatre maillons d'une chaîne de mesure ?",
+   "verso": "<b>Capteur</b> (grandeur électrique) → <b>conditionneur</b> (tension exploitable) → <b>convertisseur</b> (nombre) → <b>calculateur</b> (exploite, affiche).",
+   "origine": "Cours §1 La chaîne de mesure"
   },
   {
-   "type": "retenir",
-   "recto": "Quatre maillons — qu'y a-t-il à retenir ?",
-   "verso": "Le <strong>capteur</strong> traduit la grandeur physique en une grandeur électrique. Le <strong>conditionneur</strong> en fait une tension exploitable. Le <strong>convertisseur</strong> la traduit en un nombre.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quel maillon fixe la qualité d'une chaîne de mesure ?",
+   "verso": "Le <b>maillon le plus faible</b> — presque toujours le <b>capteur</b>. Aucun étage n'améliore le précédent.",
+   "origine": "Cours §1 Aucun maillon n'améliore le précédent"
   },
   {
-   "type": "retenir",
-   "recto": "Trois grandeurs à savoir extraire — qu'y a-t-il à retenir ?",
-   "verso": "La <strong>sensibilité</strong> est la pente de la caractéristique, avec son unité. L'<strong>étendue de mesure</strong> est la plage dans laquelle le capteur est utilisable.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Capteur actif et capteur passif : définir et donner des exemples sur un engin.",
+   "verso": "<b>Actif</b> : délivre lui-même une tension ou un courant (thermocouple, génératrice tachymétrique, piézo de cliquetis).<br><b>Passif</b> : fait varier R, C ou L, il faut une alimentation (CTN, jauge, potentiomètre).",
+   "origine": "Cours §1.1 Actif ou passif"
   },
   {
-   "type": "retenir",
-   "recto": "Deux notions à ne jamais confondre — qu'y a-t-il à retenir ?",
-   "verso": "La <strong>résolution</strong> est le plus petit écart que la chaîne peut distinguer ; elle est fixée par le convertisseur. La <strong>précision</strong> est l'écart possible avec la vraie valeur ; elle est fixée par le capteur.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Sensibilité, étendue de mesure, linéarité : définir.",
+   "verso": "<b>Sensibilité</b> : la pente, <b>avec son unité</b> (V/bar, mV/K…).<br><b>Étendue</b> : plage utilisable.<br><b>Linéarité</b> : écart maximal à la droite, en % de l'étendue.",
+   "origine": "Cours §2 Caractéristique d'un capteur"
   },
   {
-   "type": "trou",
-   "recto": "Le <strong>convertisseur</strong> la traduit en …….",
-   "rep": "un nombre",
-   "verso": "<strong>un nombre</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi un capteur de pression délivre-t-il 0,50 V à 0 bar ?",
+   "verso": "Pour <b>distinguer une pression nulle d'un capteur débranché</b> : 0 V signale une panne.",
+   "origine": "Cours §2 Le zéro décalé"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>sensibilité</strong> est ……, avec son unité.",
-   "rep": "la pente de la caractéristique",
-   "verso": "<strong>la pente de la caractéristique</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Loi de la CTN ? Défaut principal ?",
+   "verso": "<b>R = R<sub>0</sub> e<sup>β(1/T − 1/T<sub>0</sub>)</sup></b>, T en <b>K</b>. Très sensible mais <b>très non linéaire</b> (R ÷ 30 entre 0 et 100 °C).",
+   "origine": "Cours §3.1 La CTN"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>précision</strong> est …… ; elle est fixée par le capteur.",
-   "rep": "l'écart possible avec la vraie valeur",
-   "verso": "<strong>l'écart possible avec la vraie valeur</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Tension de mesure d'un conditionnement par diviseur avec une CTN ?",
+   "verso": "<b>V<sub>m</sub> = V<sub>cc</sub> × R<sub>1</sub> / (R<sub>1</sub> + R)</b>. R<sub>1</sub> décide de la plage où la réponse est droite, pas de la qualité de la mesure.",
+   "origine": "Cours §3.2 Le diviseur"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>linéarité</strong> est ……, exprimé en pourcentage de l'étendue.",
-   "rep": "l'écart maximal à la droite",
-   "verso": "<strong>l'écart maximal à la droite</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quantum d'un convertisseur ? Que rend-il réellement ?",
+   "verso": "<b>q = pleine échelle / 2<sup>N</sup></b> (10 bits, 5,00 V : 4,9 mV). Il rend la <b>partie entière de V/q</b> (le numéro de la marche). Un bit de plus divise q par 2.",
+   "origine": "Cours §4.1 Quantifier"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>résolution</strong> est …… ; elle est fixée par le convertisseur.",
-   "rep": "le plus petit écart que la chaîne peut distinguer",
-   "verso": "<strong>le plus petit écart que la chaîne peut distinguer</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Différence entre résolution et précision ? Qu'améliore l'ajout de bits ?",
+   "verso": "<b>Résolution</b> : plus petit écart distingué, fixée par le <b>convertisseur</b>.<br><b>Précision</b> : écart à la vraie valeur, fixée par le <b>capteur</b>.<br>Ajouter des bits n'améliore que la <b>résolution</b>.",
+   "origine": "Cours §4.2 Résolution et précision"
   },
   {
-   "type": "question",
-   "recto": "Dans une chaîne de mesure, l'ordre des maillons est ……",
-   "rep": "capteur, conditionneur, convertisseur, calculateur",
-   "verso": "<strong>capteur, conditionneur, convertisseur, calculateur</strong> — la grandeur physique traverse les quatre maillons dans cet ordre, et aucun n'améliore ce que le précédent lui donne : chacun ne fait que traduire.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Condition de Shannon ? Que se passe-t-il si elle n'est pas respectée ?",
+   "verso": "<b>f<sub>éch</sub> &gt; 2 f<sub>max</sub></b>. Sinon <b>repliement</b> : un autre signal, plus lent, apparaît (120 Hz à 100 Hz → 20 Hz), et rien ne le signale.",
+   "origine": "Cours §5 Échantillonner"
   },
   {
-   "type": "question",
-   "recto": "Un capteur qui se contente de faire varier sa résistance est ……",
-   "rep": "passif",
-   "verso": "<strong>passif</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment éviter le repliement ?",
+   "verso": "1. <b>Filtrer avant de convertir</b> (filtre anti-repliement).<br>2. <b>Échantillonner assez vite</b>.<br>Filtrer après coup ne sert à rien.",
+   "origine": "Cours §5 Deux remèdes"
   },
   {
-   "type": "question",
-   "recto": "Parmi ces capteurs, le seul actif est ……",
-   "rep": "le thermocouple",
-   "verso": "<strong>le thermocouple</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment exploiter un conditionnement par diviseur ?",
+   "verso": "1. Calculer R à quelques températures de la plage.<br>2. En déduire V<sub>m</sub>.<br>3. <b>Écarts successifs</b> de V<sub>m</sub> voisins → linéaire.<br>4. Sensibilité de l'ensemble en mV/°C.",
+   "origine": "Cours §3.2 Méthode — Conditionnement par diviseur"
   },
   {
-   "type": "question",
-   "recto": "La sensibilité d'un capteur de pression délivrant 0,50 V à 0 bar et 4,50 V à 250 bar vaut ……",
-   "rep": "16 mV/bar",
-   "verso": "<strong>16 mV/bar</strong> — (4,50 - 0,50)/250 = 0,016 V/bar. La réponse b vient d'un oubli du décalage de 0,50 V (on aurait divisé 4,50 par 250). Ce décalage est volontaire : il permet de distinguer une pression nulle d'un capteur débranché. 3pt",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Résolution 0,15 °C, CTN à ± 1,8 °C. L'affichage 80,3 °C est-il justifié ?",
+   "verso": "1. Comparer : l'incertitude du capteur est <b>12 fois</b> la résolution.<br>2. La vraie valeur est entre 78,5 et 82,1 °C.<br>3. Le dixième affiché est du <b>bruit</b> : la précision vient du capteur.",
+   "origine": "Cours §4.2 Le dixième de degré"
   },
   {
-   "type": "question",
-   "recto": "Une CTN a un coefficient de température négatif : quand la température augmente, sa résistance ……",
-   "rep": "diminue",
-   "verso": "<strong>diminue</strong> — CTN veut dire coefficient de température négatif. Et le diviseur ne fabrique aucune information : il traduit la variation de résistance en variation de tension, sur une plage choisie.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Convertisseur 10 bits, pleine échelle 5,00 V, tension 2,40 V. Quel nombre rend-il ?",
+   "verso": "1. q = 5,00/1024 = 4,9 mV.<br>2. V/q = 2,40/4,88 × 10<sup>−3</sup> ≈ 491,5.<br>3. Partie entière : <b>491</b>.",
+   "origine": "Cours §4.1 Quantifier"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

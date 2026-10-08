@@ -199,96 +199,114 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Combustion » ?",
-   "verso": "Une <strong>combustion</strong> est une réaction chimique entre un <strong>combustible</strong> et un <strong>comburant</strong>, qui libère de l'énergie sous forme thermique.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une combustion ? Combustible et comburant dans un moteur ?",
+   "verso": "Une réaction entre un <b>combustible</b> et un <b>comburant</b> qui libère de l'énergie thermique. Moteur : le <b>carburant</b> et le <b>dioxygène de l'air</b>.",
+   "origine": "Cours §1 Combustion"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Combustion incomplète » ?",
-   "verso": "Lorsque le dioxygène est en défaut, le carbone n'est oxydé qu'en partie. Il se forme alors, en plus, du monoxyde de carbone CO et des particules (suies).",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment éteindre un feu ? Pourquoi jamais d'eau sur un feu d'hydrocarbure ou électrique ?",
+   "verso": "Supprimer <b>un côté</b> du triangle (carburant, O<sub>2</sub>, chaleur). L'eau <b>projette le combustible</b> enflammé et <b>conduit le courant</b>.",
+   "origine": "Cours §1 Le triangle du feu"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Pouvoir calorifique inférieur » ?",
-   "verso": "Le <strong>pouvoir calorifique inférieur</strong> (PCI) d'un combustible est l'énergie libérée par la combustion complète d'un kilogramme de ce combustible, l'eau formée restant à l'état de vapeur. Il s'exprime en MJ/kg.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Produits de la combustion complète d'un hydrocarbure ?",
+   "verso": "<b>CO<sub>2</sub> et H<sub>2</sub>O</b>, rien d'autre.",
+   "origine": "Cours §2.1 Combustion complète"
   },
   {
-   "type": "retenir",
-   "recto": "Les produits d'une combustion complète — qu'y a-t-il à retenir ?",
-   "verso": "Un hydrocarbure brûlant complètement dans le dioxygène produit du dioxyde de carbone CO₂ et de l'eau H₂O, et rien d'autre.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand une combustion est-elle incomplète ? Que produit-elle ? Effet sur l'énergie ?",
+   "verso": "Quand le <b>dioxygène est en défaut</b>. Elle produit en plus du <b>CO</b> et des <b>suies</b>, et libère <b>moins d'énergie</b>.",
+   "origine": "Cours §2.2 Combustion incomplète"
   },
   {
-   "type": "retenir",
-   "recto": "Une combustion incomplète coûte deux fois — qu'y a-t-il à retenir ?",
-   "verso": "Elle produit des polluants, <em>et</em> elle libère moins d'énergie : le carbone s'est arrêté à mi-chemin de son oxydation. L'énergie qui manque part par l'échappement, sous forme de CO et d'imbrûlés.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi le CO est-il si dangereux ? Règle à l'atelier ?",
+   "verso": "<b>Inodore, incolore</b>, il se fixe sur l'hémoglobine. <b>Jamais de moteur qui tourne en local fermé</b> : extraction ou ventilation.",
+   "origine": "Cours §2.2 Le monoxyde de carbone"
   },
   {
-   "type": "retenir",
-   "recto": "Comparer à énergie égale, pas à volume égal — qu'y a-t-il à retenir ?",
-   "verso": "Un carburant se juge sur son rejet par mégajoule d'énergie libérée, non par litre : sinon on avantage mécaniquement les carburants peu énergétiques, dont il faut consommer davantage.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir le PCI. Énergie libérée par une masse m ?",
+   "verso": "L'énergie libérée par la combustion complète de <b>1 kg</b> (eau formée en vapeur), en MJ/kg.<br><b>E = m × PCI</b>.",
+   "origine": "Cours §3.1 Pouvoir calorifique inférieur"
   },
   {
-   "type": "trou",
-   "recto": "Lorsque le dioxygène est ……, le carbone n'est oxydé qu'en partie.",
-   "rep": "en défaut",
-   "verso": "<strong>en défaut</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment passer du PCI massique au PCI volumique ?",
+   "verso": "<b>PCI<sub>vol</sub> = PCI × ρ</b> (gazole : 35,9 MJ/L).",
+   "origine": "Cours §3.1 Massique ou volumique"
   },
   {
-   "type": "trou",
-   "recto": "Dans un moteur, le combustible est le carburant et le comburant est …….",
-   "rep": "le dioxygène de l'air",
-   "verso": "<strong>le dioxygène de l'air</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>PCI du gazole, de l'essence, du GNV, du B100, du bioéthanol ?",
+   "verso": "Gazole <b>42,7</b> ; essence <b>44,0</b> ; GNV <b>50,0</b> ; B100 <b>37,2</b> ; bioéthanol <b>26,8</b> MJ/kg.",
+   "origine": "Cours §3.1 Valeurs de PCI"
   },
   {
-   "type": "trou",
-   "recto": "Un hydrocarbure brûlant complètement dans le dioxygène produit ……, et rien d'autre.",
-   "rep": "du dioxyde de carbone CO₂ et de l'eau H₂O",
-   "verso": "<strong>du dioxyde de carbone CO₂ et de l'eau H₂O</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que mesure-t-on en faisant chauffer de l'eau par une combustion ? Comment comparer deux combustibles ?",
+   "verso": "<b>Q = m c Δθ</b> = η × PCI (une partie de l'énergie se perd). Pour comparer : faire le <b>rapport</b> de deux essais identiques (η s'élimine).",
+   "origine": "Cours §3.2 Ce montage ne donne pas le PCI"
   },
   {
-   "type": "trou",
-   "recto": "Une <strong>combustion</strong> est une réaction chimique entre un <strong>combustible</strong> et un <strong>comburant</strong>, qui …….",
-   "rep": "libère de l'énergie sous forme thermique",
-   "verso": "<strong>libère de l'énergie sous forme thermique</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Combien de CO<sub>2</sub> rejette un litre de gazole ? Pourquoi plus que sa masse ?",
+   "verso": "<b>≈ 2,6 kg</b>, plus de trois fois sa masse : l'<b>oxygène vient de l'air</b>.",
+   "origine": "Cours §4.1 Les rejets de CO2"
   },
   {
-   "type": "trou",
-   "recto": "Un carburant se juge sur son rejet ……, non par litre : sinon on avantage mécaniquement les carburants peu énergétiques, dont il faut consommer davantage.",
-   "rep": "par mégajoule d'énergie libérée",
-   "verso": "<strong>par mégajoule d'énergie libérée</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment comparer les rejets de CO<sub>2</sub> de deux carburants ?",
+   "verso": "<b>À énergie égale</b> (g de CO<sub>2</sub> par MJ), pas par litre.",
+   "origine": "Cours §4.1 Comparer les carburants"
   },
   {
-   "type": "question",
-   "recto": "Les trois éléments du triangle du feu sont ……",
-   "rep": "combustible, comburant, énergie d'activation",
-   "verso": "<strong>combustible, comburant, énergie d'activation</strong> — le carburant est le combustible, l'air apporte le comburant. Le troisième côté du triangle est l'énergie d'activation : étincelle en essence, compression en diesel. Supprimer un seul côté éteint le feu. 3pt",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les trois critères de choix d'un carburant alternatif ?",
+   "verso": "Le <b>pouvoir calorifique</b>, l'<b>indice de cétane ou d'octane</b>, les <b>rejets de CO<sub>2</sub></b> à énergie égale sur le cycle complet.",
+   "origine": "Cours §4.2 Les critères de choix"
   },
   {
-   "type": "question",
-   "recto": "Une combustion complète d'hydrocarbure produit ……",
-   "rep": "CO₂ et H₂O",
-   "verso": "<strong>CO₂ et H₂O</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que mesurent l'indice d'octane et l'indice de cétane ?",
+   "verso": "<b>Octane</b> : résistance à l'auto-inflammation (essence).<br><b>Cétane</b> : aptitude à s'enflammer (diesel). En sens contraire.",
+   "origine": "Cours §4.3 Octane et cétane"
   },
   {
-   "type": "question",
-   "recto": "L'équation ajustée de la combustion de l'octane est ……",
-   "rep": "2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O",
-   "verso": "<strong>2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O</strong> — une combustion complète ne produit que CO₂ et H₂O. Pour l'octane, on compte 16 C et 36 H dans deux molécules, donc 16 CO₂ et 18 H₂O, soit 32 + 18 = 50 atomes d'oxygène à droite : 25 O₂. 3pt",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les quatre polluants d'un moteur thermique ?",
+   "verso": "<b>CO</b> (combustion incomplète), <b>particules</b>, <b>NO<sub>x</sub></b> (haute température), <b>hydrocarbures imbrûlés</b>. Le CO<sub>2</sub> est un gaz à effet de serre.",
+   "origine": "Cours §5 Polluants"
+  },
+  {
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rôle du FAP, de la SCR et de l'EGR ?",
+   "verso": "<b>FAP</b> : retient puis brûle les suies.<br><b>SCR</b> (AdBlue) : NO<sub>x</sub> → N<sub>2</sub> + H<sub>2</sub>O.<br><b>EGR</b> : abaisse la température de combustion → moins de NO<sub>x</sub>.",
+   "origine": "Cours §5 Dépollution d'un diesel"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment ajuster l'équation de combustion complète d'un carburant ?",
+   "verso": "1. <b>C</b> : coefficient de CO<sub>2</sub> = nombre de C.<br>2. <b>H</b> : coefficient de H<sub>2</sub>O = H/2.<br>3. <b>O en dernier</b> : O à droite ÷ 2 (retirer l'O du carburant si alcool).<br>4. Demi-entier → <b>doubler</b> tout.",
+   "origine": "Cours §2.1 Méthode — Ajuster une combustion"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>1,42 g d'éthanol chauffent 200,0 g d'eau de 26,5 K. Comment estimer l'énergie par gramme et le rendement du montage ?",
+   "verso": "1. Q = 0,2000 × 4185 × 26,5 = <b>2,22 × 10<sup>4</sup> J</b>.<br>2. Par gramme : 2,22 × 10<sup>4</sup>/1,42 = 1,56 × 10<sup>4</sup> J/g.<br>3. η = 1,56/2,68 ≈ <b>58 %</b>.",
+   "origine": "Cours §3.2 Un ordre de grandeur"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer la masse de CO<sub>2</sub> rejetée par un carburant ?",
+   "verso": "1. Équation ajustée de la combustion complète.<br>2. n(carburant) = m / M.<br>3. × rapport stœchiométrique → n(CO<sub>2</sub>).<br>4. m(CO<sub>2</sub>) = n × 44,0 g/mol.",
+   "origine": "Cours §4.1 Méthode — Rejets de CO2"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

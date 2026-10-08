@@ -222,97 +222,84 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Oxydant et réducteur » ?",
-   "verso": "Un <strong>réducteur</strong> est une espèce qui <strong>cède</strong> des électrons : elle est alors <em>oxydée</em>. Un <strong>oxydant</strong> est une espèce qui <strong>capte</strong> des électrons : elle est alors <em>réduite</em>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir un oxydant et un réducteur.",
+   "verso": "<b>Réducteur</b> : <b>cède</b> des électrons (il est oxydé).<br><b>Oxydant</b> : <b>capte</b> des électrons (il est réduit).",
+   "origine": "Cours §1 Oxydant et réducteur"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Anode et cathode » ?",
-   "verso": "L'<strong>anode</strong> est l'électrode où se produit l'<strong>oxydation</strong> ; dans une pile, c'est la borne <strong>négative</strong>, car elle libère les électrons.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qui subit l'oxydation : l'oxydant ou le réducteur ?",
+   "verso": "Le <b>réducteur</b> subit l'oxydation ; l'oxydant subit la réduction.",
+   "origine": "Cours §1 Erreur fréquente"
   },
   {
-   "type": "retenir",
-   "recto": "Pourquoi H2O et H+, et dans cet ordre — qu'y a-t-il à retenir ?",
-   "verso": "On travaille en <strong>solution aqueuse acide</strong> : l'eau est le solvant, présente en énorme excès, et les ions H+ y sont abondants. On ne les <em>apporte</em> donc pas — on écrit simplement ceux qui participent réellement.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un couple oxydant/réducteur ? une demi-équation ?",
+   "verso": "Un oxydant et le réducteur qu'il devient en captant des électrons (Cu<sup>2+</sup>/Cu).<br>La demi-équation fait apparaître les électrons : Cu<sup>2+</sup> + 2 e<sup>−</sup> = Cu.",
+   "origine": "Cours §2 Couples"
   },
   {
-   "type": "retenir",
-   "recto": "Pourquoi le fer rouille et l'aluminium non — qu'y a-t-il à retenir ?",
-   "verso": "L'aluminium s'oxyde aussi — très vite même — mais son oxyde forme une couche <strong>compacte et adhérente</strong> qui bloque la suite. La rouille, au contraire, est <strong>poreuse et s'effrite</strong> : l'attaque se poursuit jusqu'au cœur de la pièce.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Solution acide, neutre, basique : quelle valeur de pH ?",
+   "verso": "Acide : <b>pH &lt; 7</b> (beaucoup de H<sup>+</sup>).<br>Neutre : <b>pH = 7</b>.<br>Basique : <b>pH &gt; 7</b> (beaucoup de HO<sup>−</sup>).",
+   "origine": "Cours §2 Rappel pH"
   },
   {
-   "type": "retenir",
-   "recto": "Moyen mnémotechnique — qu'y a-t-il à retenir ?",
-   "verso": "La <strong>CA</strong>thode <strong>CA</strong>pte les électrons. Cette règle est <strong>toujours</strong> vraie — y compris en électrolyse, où les bornes seront pourtant inversées. Retenir la règle par le rôle (oxydation/réduction), jamais par le signe.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la corrosion ? Pourquoi le fer rouille-t-il en profondeur et pas l'aluminium ?",
+   "verso": "Une oxydation <b>subie</b> par le métal (O<sub>2</sub> + eau).<br>L'oxyde d'aluminium est <b>compact et adhérent</b> ; la rouille est <b>poreuse et s'effrite</b>.",
+   "origine": "Cours §3 Corrosion"
   },
   {
-   "type": "trou",
-   "recto": "La rouille, au contraire, est …… : l'attaque se poursuit jusqu'au cœur de la pièce.",
-   "rep": "poreuse et s'effrite",
-   "verso": "<strong>poreuse et s'effrite</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Citer les protections contre la corrosion. Qu'est-ce qu'un métal sacrificiel ?",
+   "verso": "<b>Barrière</b> (peinture), <b>galvanisation</b>, <b>métal sacrificiel</b>.<br>Un métal <b>plus réducteur</b> (zinc) placé au contact du fer s'oxyde à sa place ; il faut le remplacer.",
+   "origine": "Cours §3 Protection"
   },
   {
-   "type": "trou",
-   "recto": "L'aluminium s'oxyde aussi — très vite même — mais son oxyde forme une couche …… qui bloque la suite.",
-   "rep": "compacte et adhérente",
-   "verso": "<strong>compacte et adhérente</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans une pile : anode et cathode, quelle réaction, quelle borne ?",
+   "verso": "<b>Anode</b> : <b>oxydation</b>, borne <b>−</b>.<br><b>Cathode</b> : <b>réduction</b>, borne <b>+</b>.<br>La <b>CA</b>thode <b>CA</b>pte les électrons.",
+   "origine": "Cours §4 Anode et cathode"
   },
   {
-   "type": "question",
-   "recto": "Un <strong>réducteur</strong> est une espèce qui ……",
-   "rep": "cède des électrons et est oxydée",
-   "verso": "<strong>cède des électrons et est oxydée</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rôle du pont salin ? Sens du courant dans le circuit extérieur ?",
+   "verso": "Le <b>pont salin</b> ferme le circuit en laissant circuler les ions.<br>Le courant circule en <b>sens inverse des électrons</b>.",
+   "origine": "Cours §4 Les piles"
   },
   {
-   "type": "question",
-   "recto": "Dans la demi-équation Cu²⁺ + 2 e- → Cu, l'espèce Cu²⁺ est ……",
-   "rep": "l'oxydant",
-   "verso": "<strong>l'oxydant</strong> — il capte les électrons",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qui fixe la durée de vie d'une pile ?",
+   "verso": "Le <b>réactif limitant</b> : la pile s'arrête quand le métal de l'anode ou l'oxydant est épuisé.",
+   "origine": "Cours §4 Une pile s'use"
   },
   {
-   "type": "question",
-   "recto": "Les électrons circulent toujours ……",
-   "rep": "du réducteur vers l'oxydant",
-   "verso": "<strong>du réducteur vers l'oxydant</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Lame de zinc dans une solution de Cu<sup>2+</sup>. Comment écrire l'équation ?",
+   "verso": "1. Zn réducteur (cède), Cu<sup>2+</sup> oxydant (capte).<br>2. Oxydation : Zn → Zn<sup>2+</sup> + 2 e<sup>−</sup>.<br>3. Réduction : Cu<sup>2+</sup> + 2 e<sup>−</sup> → Cu.<br>4. Égaliser les électrons, additionner : <b>Zn + Cu<sup>2+</sup> → Zn<sup>2+</sup> + Cu</b>.",
+   "origine": "Cours §2 Méthode 1"
   },
   {
-   "type": "question",
-   "recto": "Un <strong>couple</strong> oxydant/réducteur est constitué ……",
-   "rep": "d'une espèce et de celle qu'elle devient par échange d'électrons",
-   "verso": "<strong>d'une espèce et de celle qu'elle devient par échange d'électrons</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Dans quel ordre équilibrer une demi-équation en milieu acide ?",
+   "verso": "1. Poser Ox = Red.<br>2. Élément caractéristique.<br>3. <b>O</b> avec <b>H<sub>2</sub>O</b>.<br>4. <b>H</b> avec <b>H<sup>+</sup></b>.<br>5. <b>Charges</b> avec <b>e<sup>−</sup></b>.<br>6. Vérifier atomes et charges.",
+   "origine": "Cours §2 Méthode 2"
   },
   {
-   "type": "question",
-   "recto": "Pour équilibrer une demi-équation en milieu aqueux acide, on équilibre l'oxygène ……",
-   "rep": "avec des molécules H₂O",
-   "verso": "<strong>avec des molécules H₂O</strong> — l'eau apporte l'oxygène ; H+ viendra ensuite pour l'hydrogène",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>MnO<sub>4</sub><sup>−</sup> (5 e<sup>−</sup>) réagit avec Fe<sup>2+</sup> (1 e<sup>−</sup>). Comment écrire l'équation ?",
+   "verso": "1. Écrire les deux demi-équations.<br>2. <b>Égaliser les électrons</b> : multiplier celle du fer par 5.<br>3. Additionner : MnO<sub>4</sub><sup>−</sup> + 8 H<sup>+</sup> + 5 Fe<sup>2+</sup> → Mn<sup>2+</sup> + 4 H<sub>2</sub>O + 5 Fe<sup>3+</sup>.<br>4. Vérifier atomes et charges.",
+   "origine": "Cours §2 Combiner deux demi-équations"
   },
   {
-   "type": "question",
-   "recto": "On ajoute des ions H+ dans les demi-équations parce que ……",
-   "rep": "le milieu est supposé acide, ils y sont donc déjà abondants",
-   "verso": "<strong>le milieu est supposé acide, ils y sont donc déjà abondants</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Dans une demi-équation, la dernière étape consiste à équilibrer ……",
-   "rep": "les charges, avec des électrons",
-   "verso": "<strong>les charges, avec des électrons</strong> — atomes d'abord, charges en dernier",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment identifier l'anode et la cathode d'une pile ?",
+   "verso": "1. Repérer où a lieu l'<b>oxydation</b> (le métal qui se dissout) : <b>anode</b>, borne −.<br>2. Où a lieu la <b>réduction</b> : <b>cathode</b>, borne +.<br>3. Électrons de l'anode vers la cathode dans le fil ; courant en sens inverse.",
+   "origine": "Cours §4 Les piles"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

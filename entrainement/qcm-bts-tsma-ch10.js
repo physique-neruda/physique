@@ -199,96 +199,90 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Réversible, irréversible » ?",
-   "verso": "Une transformation est <strong>réversible</strong> si l'on peut la parcourir en sens inverse : Elle est <strong>irréversible</strong> dans le cas contraire — c'est-à-dire dans tous les cas réels.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer le second principe (forme évolution). Différence avec le premier principe ?",
+   "verso": "Un transfert thermique ne se fait <b>jamais spontanément du froid vers le chaud</b>.<br>Le premier <b>compte</b> l'énergie ; le second dit <b>dans quel sens</b> les choses se produisent.",
+   "origine": "Cours §1.1 Le second principe"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Entropie échangée » ?",
-   "verso": "Lorsqu'un système échange une chaleur Q avec un thermostat à la température T, sa variation d'entropie vaut ΔS = Q/T, en J/K. Le signe de ΔS est celui de Q.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une transformation réversible ? Les trois causes d'irréversibilité ?",
+   "verso": "Parcourable en sens inverse par les mêmes états, <b>sans trace</b> dans l'extérieur (idéal).<br>Causes : <b>frottements</b>, transferts sous <b>écart fini de température</b>, <b>détentes brusques</b>.",
+   "origine": "Cours §1.2 Réversible, irréversible"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Machine ditherme » ?",
-   "verso": "Une <strong>machine ditherme</strong> est une machine qui, <strong>en fonctionnant par cycles</strong>, échange de la chaleur avec deux sources de températures différentes et du travail avec le milieu extérieur.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Variation d'entropie lors d'un échange Q avec un thermostat à T ? Unité ? Signe ?",
+   "verso": "<b>ΔS = Q / T</b> (T en K), en <b>J/K</b>, du <b>signe de Q</b>.",
+   "origine": "Cours §2.1 Entropie échangée"
   },
   {
-   "type": "retenir",
-   "recto": "Second principe, énoncé de l'évolution — qu'y a-t-il à retenir ?",
-   "verso": "Un transfert thermique ne peut pas s'effectuer spontanément d'un corps froid vers un corps chaud. Plus généralement, le second principe est un <strong>principe d'évolution</strong> : il indique dans quel sens une transformation se produit.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Second principe écrit avec l'entropie ?",
+   "verso": "<b>ΔS<sub>total</sub> ≥ 0</b> ; égalité seulement si tout est réversible, <b>&gt; 0</b> pour toute transformation réelle.",
+   "origine": "Cours §2.1 Second principe et entropie"
   },
   {
-   "type": "retenir",
-   "recto": "Le second principe, écrit avec l'entropie — qu'y a-t-il à retenir ?",
-   "verso": "Pour un système et tout ce qui l'entoure, ΔS_total ≥ 0. L'égalité ne vaut que pour une transformation réversible ; toute transformation réelle donne ΔS_total > 0.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une machine ditherme ? Premier principe sur un cycle ?",
+   "verso": "Une machine qui, par <b>cycles</b>, échange de la chaleur avec <b>deux sources</b> et du travail avec l'extérieur.<br><b>W + Q<sub>c</sub> + Q<sub>f</sub> = 0</b> (ΔU = 0 sur un cycle).",
+   "origine": "Cours §3.1 Machine ditherme"
   },
   {
-   "type": "retenir",
-   "recto": "Rendement, efficacité, coefficient de performance — qu'y a-t-il à retenir ?",
-   "verso": "Moteur : η= |W| / Q_c, toujours inférieur à 1. Machine frigorifique : e_f = Q_f / |W|. Pompe à chaleur : e_c = Q_c / |W|. Ces deux dernières sont souvent supérieures à 1.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rendement d'un moteur ? Efficacités d'une machine frigorifique et d'une PAC ?",
+   "verso": "Moteur : <b>η = |W| / Q<sub>c</sub> &lt; 1</b>.<br>Frigo : <b>e<sub>f</sub> = Q<sub>f</sub> / |W|</b>.<br>PAC : <b>e<sub>c</sub> = Q<sub>c</sub> / |W|</b> ; <b>e<sub>c</sub> = e<sub>f</sub> + 1</b>.",
+   "origine": "Cours §3.2 Rendement et efficacités"
   },
   {
-   "type": "trou",
-   "recto": "Un transfert thermique ne peut pas s'effectuer spontanément …….",
-   "rep": "d'un corps froid vers un corps chaud",
-   "verso": "<strong>d'un corps froid vers un corps chaud</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Un climatiseur d'efficacité 2,6 viole-t-il la conservation de l'énergie ?",
+   "verso": "<b>Non</b> : il <b>déplace</b> de la chaleur du froid vers le chaud, il n'en crée pas. Le froid ne se fabrique pas, il se déplace.",
+   "origine": "Cours §3.2 Une efficacité &gt; 1"
   },
   {
-   "type": "trou",
-   "recto": "Chacune de ces trois irréversibilités …… par rapport à celle de Carnot.",
-   "rep": "dégrade la performance",
-   "verso": "<strong>dégrade la performance</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rendement de Carnot d'un moteur ? Efficacités de Carnot (frigo, PAC) ?",
+   "verso": "<b>η<sub>C</sub> = 1 − T<sub>f</sub>/T<sub>c</sub></b> ; <b>e<sub>f,C</sub> = T<sub>f</sub>/(T<sub>c</sub> − T<sub>f</sub>)</b> ; <b>e<sub>c,C</sub> = T<sub>c</sub>/(T<sub>c</sub> − T<sub>f</sub>)</b>.<br>T en <b>kelvins</b> ; ce sont des <b>plafonds</b>.",
+   "origine": "Cours §4.1 Limite de Carnot"
   },
   {
-   "type": "trou",
-   "recto": "L'égalité ne vaut que pour une transformation réversible ; toute transformation réelle donne …….",
-   "rep": "ΔS_total > 0",
-   "verso": "<strong>ΔS_total > 0</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans un diagramme (T, S), comment lit-on la chaleur échangée et le travail d'un cycle ?",
+   "verso": "<b>Q = T ΔS</b> : aire du rectangle. Le <b>travail</b> du cycle : <b>aire enfermée</b>.",
+   "origine": "Cours §4.2 Diagramme entropique"
   },
   {
-   "type": "trou",
-   "recto": "Dans un diagramme (T,S), la chaleur échangée à température constante vaut Q = T × ΔS, c'est-à-dire …….",
-   "rep": "l'aire du rectangle correspondant",
-   "verso": "<strong>l'aire du rectangle correspondant</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer l'inégalité de Clausius-Carnot.",
+   "verso": "<b>Q<sub>c</sub>/T<sub>c</sub> + Q<sub>f</sub>/T<sub>f</sub> ≤ 0</b> ; égalité dans le cas réversible (le plus performant).",
+   "origine": "Cours §4.3 Inégalité de Clausius-Carnot"
   },
   {
-   "type": "trou",
-   "recto": "Dans une machine réelle, les échanges se font ……, le fluide subit des frottements, et les détentes sont brutales.",
-   "rep": "sous des écarts finis de température",
-   "verso": "<strong>sous des écarts finis de température</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi une climatisation consomme-t-elle plus quand il fait très chaud dehors ?",
+   "verso": "e<sub>f,C</sub> = T<sub>f</sub>/(T<sub>c</sub> − T<sub>f</sub>) <b>diminue</b> quand l'écart de température augmente : c'est le second principe.",
+   "origine": "Cours §5.2 Climatisation d'une cabine"
   },
   {
-   "type": "question",
-   "recto": "Le second principe de la thermodynamique ……",
-   "rep": "indique dans quel sens les transformations se produisent",
-   "verso": "<strong>indique dans quel sens les transformations se produisent</strong> — c'est le premier principe qui interdit de créer de l'énergie ; le second dit dans quel sens les choses se produisent.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer une variation d'entropie et faire un bilan ?",
+   "verso": "1. Thermostat : <b>ΔS = Q/T</b> (T en K, Q signé).<br>2. Changement d'état : <b>ΔS = m L / T</b>.<br>3. <b>Additionner</b> pour tous les corps.<br>4. Le total doit être <b>≥ 0</b> (sinon erreur de signe).",
+   "origine": "Cours §2.2 Méthode — Variation d'entropie"
   },
   {
-   "type": "question",
-   "recto": "Parmi ces phénomènes, lequel n'est pas une cause d'irréversibilité ?",
-   "rep": "une compression infiniment lente dans un cylindre à température constante",
-   "verso": "<strong>une compression infiniment lente dans un cylindre à température constante</strong> — les trois causes d'irréversibilité sont les frottements, les transferts sous écart fini, les détentes brusques.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment reconnaître le type d'une machine thermique ?",
+   "verso": "1. Elle <b>fournit</b> du travail → <b>moteur</b> ; elle en <b>consomme</b> → récepteur.<br>2. Récepteur : on veut le <b>froid</b> (frigo) ou la <b>chaleur</b> (PAC).<br>3. Flèches signées (reçu = +).<br>4. Vérifier W + Q<sub>c</sub> + Q<sub>f</sub> = 0.",
+   "origine": "Cours §3.1 Méthode — Reconnaître une machine"
   },
   {
-   "type": "question",
-   "recto": "Un système reçoit 600 J d'un thermostat à 300 K. Sa variation d'entropie vaut ……",
-   "rep": "+2,00 J/K",
-   "verso": "<strong>+2,00 J/K</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment situer une machine réelle par rapport à la limite de Carnot ?",
+   "verso": "1. Températures des sources en <b>K</b>.<br>2. Performance de <b>Carnot</b> du bon type.<br>3. Performance <b>réelle</b> mesurée.<br>4. <b>Rapport réel/Carnot &lt; 1</b> (sinon erreur).",
+   "origine": "Cours §4.1 Méthode — Situer une machine réelle"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

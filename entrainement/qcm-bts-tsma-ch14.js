@@ -199,96 +199,102 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Onde acoustique » ?",
-   "verso": "Une onde acoustique est la propagation d'une suite de compressions et de dilatations dans un milieu matériel. La grandeur que l'on mesure est la surpression, c'est-à-dire l'écart à la pression atmosphérique.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une onde acoustique ? Quelle grandeur mesure-t-on ?",
+   "verso": "La propagation d'une suite de <b>compressions et dilatations</b> dans un milieu matériel. On mesure la <b>surpression</b> (écart à la pression atmosphérique).",
+   "origine": "Cours §1 Onde acoustique"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Puissance et intensité acoustiques » ?",
-   "verso": "La <strong>puissance acoustique</strong> P, en watts, caractérise la source seule. L'<strong>intensité acoustique</strong> I, en W/m², est la puissance qui traverse un mètre carré : elle dépend aussi de la distance à la source.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Un son transporte-t-il de la matière ?",
+   "verso": "<b>Non</b> : chaque tranche d'air va et vient sur place ; c'est la <b>perturbation</b> qui se déplace.",
+   "origine": "Cours §1 Ce qui voyage"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Décibel pondéré A » ?",
-   "verso": "Le <strong>décibel pondéré A</strong>, noté dB(A), est le niveau corrigé de la sensibilité de l'oreille selon la fréquence. C'est lui, et lui seul, qu'utilise la réglementation.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Relation entre λ, c et f ? Que devient chacune quand le son change de milieu ?",
+   "verso": "<b>λ = c / f</b>. <b>f ne change pas</b> (imposée par la source) ; <b>c change</b> (dépend du milieu), donc λ aussi.",
+   "origine": "Cours §1 Longueur d'onde"
   },
   {
-   "type": "retenir",
-   "recto": "La célérité dépend du milieu, pas de la source — qu'y a-t-il à retenir ?",
-   "verso": "Lorsqu'un son passe d'un milieu à un autre, sa fréquence ne change pas — elle est imposée par la source — mais sa célérité change, donc sa longueur d'onde aussi. Le son va d'autant plus vite que le milieu est rigide.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Célérité du son dans l'air, l'eau, l'acier ?",
+   "verso": "Air <b>340 m/s</b> ; eau <b>1500 m/s</b> ; acier <b>5000 m/s</b> (plus le milieu est rigide, plus c'est rapide).",
+   "origine": "Cours §1 Célérités"
   },
   {
-   "type": "retenir",
-   "recto": "Lire une échelle logarithmique — qu'y a-t-il à retenir ?",
-   "verso": "Ajouter 10 dB, c'est multiplier l'intensité par dix. Ajouter 3 dB, c'est la multiplier par deux. Doubler le nombre de décibels ne double donc rien du tout.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Puissance et intensité acoustiques : différence ? Intensité en champ direct ?",
+   "verso": "<b>P</b> (W) caractérise la <b>source</b> ; <b>I</b> (W/m²) dépend aussi de la <b>distance</b>.<br><b>I = P / (4π r²)</b>.",
+   "origine": "Cours §2 Puissance et intensité"
   },
   {
-   "type": "retenir",
-   "recto": "La règle des 6 dB — qu'y a-t-il à retenir ?",
-   "verso": "En champ direct, doubler la distance fait perdre 6 dB. Ce qui compte est le rapport des distances, jamais leur différence.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Formule du niveau sonore ? Valeur de I<sub>0</sub> ?",
+   "verso": "<b>L = 10 log(I / I<sub>0</sub>)</b> en dB ; <b>I<sub>0</sub> = 1,0 × 10<sup>−12</sup> W/m²</b> (seuil d'audition).",
+   "origine": "Cours §3 Le niveau en décibels"
   },
   {
-   "type": "trou",
-   "recto": "Le son va d'autant plus vite que le milieu est …….",
-   "rep": "rigide",
-   "verso": "<strong>rigide</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>+10 dB et +3 dB : que devient l'intensité ?",
+   "verso": "<b>+10 dB</b> → intensité <b>× 10</b> ; <b>+3 dB</b> → <b>× 2</b>. Doubler les décibels ne double rien.",
+   "origine": "Cours §3 Échelle logarithmique"
   },
   {
-   "type": "trou",
-   "recto": "À intensité égale, un grave est perçu …… qu'un son medium.",
-   "rep": "beaucoup moins fort",
-   "verso": "<strong>beaucoup moins fort</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Deux sources identiques fonctionnant ensemble : quel niveau ?",
+   "verso": "<b>+3 dB</b>, jamais le double. Formule : L = 10 log(10<sup>L<sub>1</sub>/10</sup> + 10<sup>L<sub>2</sub>/10</sup>).",
+   "origine": "Cours §4.1 Deux sources"
   },
   {
-   "type": "trou",
-   "recto": "La perception d'un son dépend de son …… et de sa fréquence.",
-   "rep": "intensité",
-   "verso": "<strong>intensité</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>En champ direct, que fait perdre le doublement de la distance ?",
+   "verso": "<b>6 dB</b>. C'est le <b>rapport</b> des distances qui compte, pas leur différence.",
+   "origine": "Cours §4.2 La règle des 6 dB"
   },
   {
-   "type": "trou",
-   "recto": "Une onde acoustique est la propagation d'une …… dans un milieu matériel.",
-   "rep": "suite de compressions et de dilatations",
-   "verso": "<strong>suite de compressions et de dilatations</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le dB(A) ? Pourquoi l'utilise-t-on ?",
+   "verso": "Le niveau corrigé de la <b>sensibilité de l'oreille selon la fréquence</b> (les graves sont moins perçus). C'est celui de la <b>réglementation</b>.",
+   "origine": "Cours §5 Décibel pondéré A"
   },
   {
-   "type": "trou",
-   "recto": "Le <strong>décibel pondéré A</strong>, noté dB(A), est le niveau corrigé de …….",
-   "rep": "la sensibilité de l'oreille selon la fréquence",
-   "verso": "<strong>la sensibilité de l'oreille selon la fréquence</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que devient l'énergie d'une onde devant une paroi ? Différence entre isoler et absorber ?",
+   "verso": "<b>Réfléchie</b>, <b>absorbée</b> (échauffe), <b>transmise</b>.<br>Isoler : réduire ce qui <b>passe</b> ; absorber : réduire ce qui <b>revient</b>.",
+   "origine": "Cours §6 Isoler, absorber"
   },
   {
-   "type": "question",
-   "recto": "Dans une onde acoustique, ce qui se déplace est ……",
-   "rep": "la perturbation de pression",
-   "verso": "<strong>la perturbation de pression</strong> — chaque tranche d'air ne fait qu'aller et venir sur place : c'est la perturbation qui voyage, pas la matière. Un son n'est pas un courant d'air.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Seuils réglementaires d'exposition au bruit ?",
+   "verso": "<b>80 dB(A)</b> : information, protections mises à disposition.<br><b>85 dB(A)</b> : valeur d'action, port obligatoire.<br><b>87 dB(A)</b> : valeur limite, sous protection.",
+   "origine": "Cours §6 Seuils réglementaires"
   },
   {
-   "type": "question",
-   "recto": "Un son de 500 Hz passe de l'air à l'acier. Ce qui ne change pas est ……",
-   "rep": "la fréquence",
-   "verso": "<strong>la fréquence</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans quel ordre agir contre le bruit ?",
+   "verso": "1. <b>Source</b> (silencieux, capotage).<br>2. <b>Trajet</b> (cabine, écrans).<br>3. <b>Opérateur</b> (EPI).",
+   "origine": "Cours §6 L'EPI en dernier"
   },
   {
-   "type": "question",
-   "recto": "En champ direct, l'intensité acoustique à la distance r d'une source de puissance P vaut ……",
-   "rep": "I = P/(4πr²)",
-   "verso": "<strong>I = P/(4πr²)</strong> — la puissance de la source se répartit sur la sphère de rayon r, dont la surface vaut 4πr². Retenir que la puissance caractérise la source seule, alors que l'intensité dépend aussi d'où l'on se place. 3pt",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment additionner deux niveaux sonores ?",
+   "verso": "1. Revenir aux intensités : <b>10<sup>L/10</sup></b> (en I<sub>0</sub>).<br>2. <b>Additionner</b>.<br>3. Reprendre <b>10 log</b>.<br>4. Contrôle : deux sources identiques → +3 dB.",
+   "origine": "Cours §4.1 Méthode — Additionner deux niveaux"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment choisir une protection auditive ?",
+   "verso": "1. Mesurer au poste en <b>dB(A)</b>.<br>2. Niveau sous protection : <b>L − SNR</b>.<br>3. Vérifier <b>&lt; 85 dB(A)</b>.<br>4. Mais <b>&gt; 70 dB(A)</b> pour entendre alarmes et collègues.",
+   "origine": "Cours §6 Méthode — Choisir une protection"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Sonomètre : 96 dB en linéaire, 88 dB(A). Que conclure ?",
+   "verso": "Écart de 8 dB : bruit <b>riche en graves</b> (moteur diesel), énergétiquement fort mais moins perçu par l'oreille.",
+   "origine": "Cours §5 Ce qu'un écart révèle"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

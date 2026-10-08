@@ -199,97 +199,102 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Oxydant et réducteur » ?",
-   "verso": "Un <strong>oxydant</strong> est une espèce capable de capter un ou plusieurs électrons ; un <strong>réducteur</strong> est une espèce capable d'en céder. L'oxydant se réduit, le réducteur s'oxyde.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir un oxydant et un réducteur. Qui se réduit, qui s'oxyde ?",
+   "verso": "<b>Oxydant</b> : capte des électrons, il <b>se réduit</b>.<br><b>Réducteur</b> : cède des électrons, il <b>s'oxyde</b>.",
+   "origine": "Cours §1.1 Oxydant et réducteur"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Anode et cathode » ?",
-   "verso": "L'<strong>anode</strong> est l'électrode où se produit l'oxydation ; la <strong>cathode</strong> celle où se produit la réduction. Dans une pile, l'anode est le pôle négatif, car c'est d'elle que partent les électrons.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Une oxydation peut-elle se produire seule ? Que contient une équation bilan ?",
+   "verso": "<b>Non</b> : toujours une réduction en face. L'équation bilan ne contient <b>plus aucun électron</b>.",
+   "origine": "Cours §1.1 Les électrons ne se promènent jamais seuls"
   },
   {
-   "type": "retenir",
-   "recto": "Couple oxydant/réducteur — qu'y a-t-il à retenir ?",
-   "verso": "Un oxydant et son réducteur associé forment un <strong>couple</strong>, noté ox/réd — <strong>l'oxydant en premier</strong>. Le passage de l'un à l'autre s'écrit sous forme d'une demi-équation électronique : Cu^2+ + 2 e⁻ <=> Cu.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Comment note-t-on un couple oxydant/réducteur ? Exemple de demi-équation.",
+   "verso": "<b>ox/réd</b>, l'oxydant en premier.<br>Cu<sup>2+</sup> + 2 e<sup>−</sup> ⇌ Cu.",
+   "origine": "Cours §1.2 Couple"
   },
   {
-   "type": "retenir",
-   "recto": "Prévoir une réaction — qu'y a-t-il à retenir ?",
-   "verso": "La réaction spontanée met en présence l'oxydant du couple le plus haut et le réducteur du couple le plus bas. Dans l'autre sens, il ne se passe rien.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que mesure le potentiel standard E° ?",
+   "verso": "Il classe les couples : E° <b>grand</b> → oxydant <b>fort</b> ; E° <b>petit</b> → réducteur <b>fort</b> (métal qui se corrode).",
+   "origine": "Cours §3.1 Potentiel standard"
   },
   {
-   "type": "retenir",
-   "recto": "Trois façons d'alimenter la même chimie — qu'y a-t-il à retenir ?",
-   "verso": "Dans une <strong>pile</strong>, les réactifs sont enfermés et la transformation n'est pas réversible. Dans un <strong>accumulateur</strong>, elle l'est : un courant imposé en sens inverse régénère les réactifs, c'est la charge.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer la règle du gamma.",
+   "verso": "La réaction spontanée met en présence l'<b>oxydant du couple le plus haut</b> et le <b>réducteur du couple le plus bas</b>. Dans l'autre sens : rien.",
+   "origine": "Cours §3.2 Règle du gamma"
   },
   {
-   "type": "trou",
-   "recto": "Dans une pile, l'anode est le pôle négatif, car c'est d'elle que …….",
-   "rep": "partent les électrons",
-   "verso": "<strong>partent les électrons</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans une pile : anode et cathode, quelle réaction, quel pôle ?",
+   "verso": "<b>Anode</b> : <b>oxydation</b>, pôle <b>−</b> (les électrons en partent).<br><b>Cathode</b> : <b>réduction</b>, pôle <b>+</b>.",
+   "origine": "Cours §4.1 Anode et cathode"
   },
   {
-   "type": "trou",
-   "recto": "Le passage de l'un à l'autre s'écrit sous forme d'une …… : Cu^2+ + 2 e⁻ <=> Cu.",
-   "rep": "demi-équation électronique",
-   "verso": "<strong>demi-équation électronique</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>F.é.m. standard d'une pile ? Signe ?",
+   "verso": "<b>E°<sub>pile</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub></b>, toujours <b>positive</b> (sinon électrodes inversées).",
+   "origine": "Cours §4.1 Force électromotrice"
   },
   {
-   "type": "trou",
-   "recto": "Dans une <strong>pile à combustible</strong>, les réactifs sont …… de l'extérieur.",
-   "rep": "apportés en continu",
-   "verso": "<strong>apportés en continu</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rôle du pont salin ?",
+   "verso": "Il <b>ferme le circuit</b> par les ions et maintient la <b>neutralité électrique</b>. Sans lui, le courant s'arrête.",
+   "origine": "Cours §4.1 Le pont salin"
   },
   {
-   "type": "trou",
-   "recto": "Dans une <strong>pile</strong>, les réactifs sont enfermés et la transformation …….",
-   "rep": "n'est pas réversible",
-   "verso": "<strong>n'est pas réversible</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énoncer la loi de Nernst.",
+   "verso": "<b>E = E° + (0,059 / n) log([ox]/[réd])</b>, n électrons échangés. [ox] ÷ 10 → E baisse de 0,059/n V.",
+   "origine": "Cours §4.2 Loi de Nernst"
   },
   {
-   "type": "trou",
-   "recto": "Plus E° est grand, plus l'oxydant du couple est fort ; plus E° est ……, plus le réducteur est fort.",
-   "rep": "petit",
-   "verso": "<strong>petit</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Différence entre pile, accumulateur et pile à combustible ?",
+   "verso": "<b>Pile</b> : réactifs enfermés, non réversible.<br><b>Accumulateur</b> : réversible, se recharge (batterie au plomb).<br><b>Pile à combustible</b> : réactifs apportés en continu (H<sub>2</sub>, seul rejet : l'eau).",
+   "origine": "Cours §5 Pile, accumulateur, pile à combustible"
   },
   {
-   "type": "question",
-   "recto": "Un réducteur est une espèce qui ……",
-   "rep": "cède des électrons",
-   "verso": "<strong>cède des électrons</strong> — le réducteur réduit l'autre espèce, donc il lui cède ses électrons ; l'oxydant fait l'inverse. Dans la notation d'un couple, l'oxydant est toujours écrit en premier : c'est une convention.",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Deux métaux en contact en milieu humide : lequel se corrode ? Principe de l'anode sacrificielle ?",
+   "verso": "Le <b>plus réducteur</b> (E° le plus petit). On accole à l'acier un métal <b>encore plus réducteur</b> (zinc) qui est <b>consommé à sa place</b>.",
+   "origine": "Cours §6.1 Anode sacrificielle"
   },
   {
-   "type": "question",
-   "recto": "Dans le couple Cu^2+/Cu, l'oxydant est ……",
-   "rep": "Cu^2+",
-   "verso": "<strong>Cu^2+</strong> — le réducteur réduit l'autre espèce, donc il lui cède ses électrons ; l'oxydant fait l'inverse. Dans la notation d'un couple, l'oxydant est toujours écrit en premier : c'est une convention, mais elle évite bien des confusions en évaluation. 3pt",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Citer des méthodes de protection contre la corrosion.",
+   "verso": "<b>Peinture</b>, <b>galvanisation</b>, <b>chromage</b>, <b>anodisation</b>, <b>anode sacrificielle</b>, <b>courant imposé</b>.",
+   "origine": "Cours §6.2 Méthodes de protection"
   },
   {
-   "type": "question",
-   "recto": "L'équation bilan correcte entre Ag+ et Cu est ……",
-   "rep": "2 Ag+ + Cu -> 2 Ag + Cu^2+",
-   "verso": "<strong>2 Ag+ + Cu -> 2 Ag + Cu^2+</strong> — l'argent n'échange qu'un électron, le cuivre deux : il faut donc deux ions argent pour un atome de cuivre. La réponse a ne s'équilibre pas en charges.",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment passer de deux couples à l'équation bilan d'oxydoréduction ?",
+   "verso": "1. Deux demi-équations équilibrées en charges.<br>2. Repérer le sens : réduction / oxydation.<br>3. <b>Multiplier</b> pour égaliser les électrons.<br>4. Additionner, vérifier : <b>aucun électron</b>, charges équilibrées.",
+   "origine": "Cours §2 Méthode — Équation bilan"
   },
   {
-   "type": "question",
-   "recto": "Parmi ces quatre métaux, le meilleur réducteur est ……",
-   "rep": "le zinc",
-   "verso": "<strong>le zinc</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Ag<sup>+</sup>/Ag (1 e<sup>−</sup>) et Cu<sup>2+</sup>/Cu (2 e<sup>−</sup>) : comment écrire le bilan ?",
+   "verso": "1. Ag<sup>+</sup> + e<sup>−</sup> → Ag (× 2) ; Cu → Cu<sup>2+</sup> + 2 e<sup>−</sup>.<br>2. <b>2 Ag<sup>+</sup> + Cu → 2 Ag + Cu<sup>2+</sup></b>.<br>3. Vérifier les charges : +2 = +2.",
+   "origine": "Cours §2 L'erreur qui coûte le plus"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment vérifier expérimentalement la loi de Nernst ?",
+   "verso": "1. Ne faire varier <b>qu'une</b> concentration.<br>2. Tracer <b>E = f(log c)</b> : une droite.<br>3. <b>Pente</b> comparée à 0,059/n (teste le modèle).<br>4. <b>Ordonnée à l'origine</b> comparée à E° (teste le montage).",
+   "origine": "Cours §4.2 Méthode — Vérifier la loi de Nernst"
+  },
+  {
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Raccord en cuivre sur un tuyau en acier en milieu humide : comment prévoir quel métal est attaqué ?",
+   "verso": "1. Placer les couples : Cu<sup>2+</sup>/Cu au-dessus de Fe<sup>2+</sup>/Fe.<br>2. Gamma : oxydant du haut (Cu<sup>2+</sup>) + réducteur du bas (<b>Fe</b>).<br>3. C'est l'<b>acier qui est attaqué</b>.",
+   "origine": "Cours §3.2 Un raccord mal choisi"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

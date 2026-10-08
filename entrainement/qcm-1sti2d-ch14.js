@@ -222,99 +222,72 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Solution » ?",
-   "verso": "Une <strong>solution</strong> est un mélange <strong>homogène</strong> obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une solution ? un soluté ? un solvant ?",
+   "verso": "Un mélange <b>homogène</b> obtenu en dissolvant un <b>soluté</b> dans un liquide, le <b>solvant</b>.",
+   "origine": "Cours §1 Solution"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Concentration » ?",
-   "verso": "[2]\\[ c = n/V (mol L) c_m = m/V (g L) \\] Les deux sont liées par la masse molaire : c_m = c × M.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une solution aqueuse ? Comment la note-t-on ?",
+   "verso": "Une solution dont le solvant est l'<b>eau</b>. On note <b>(aq)</b> derrière les espèces dissoutes.",
+   "origine": "Cours §1 Solution aqueuse"
   },
   {
-   "type": "retenir",
-   "recto": "Solution aqueuse — qu'y a-t-il à retenir ?",
-   "verso": "Lorsque le solvant est l'<strong>eau</strong> — le seul cas de ce programme — la solution est dite <strong>aqueuse</strong>, ce que l'on note (aq) derrière les espèces dissoutes.",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Concentration en quantité de matière et concentration en masse : formules et unités ?",
+   "verso": "<b>c = n / V</b> en mol/L ; <b>c<sub>m</sub> = m / V</b> en g/L.<br>Lien : <b>c<sub>m</sub> = c × M</b>.",
+   "origine": "Cours §2 Concentration"
   },
   {
-   "type": "trou",
-   "recto": "Dans ces deux formules, V est le volume ……, et non le volume de solvant ajouté.",
-   "rep": "total de la solution obtenue",
-   "verso": "<strong>total de la solution obtenue</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans c = n/V, que représente V ?",
+   "verso": "Le volume <b>total de la solution</b> obtenue (en L), pas le volume de solvant ajouté. D'où la fiole jaugée complétée au trait.",
+   "origine": "Cours §2 Le volume est celui de la solution"
   },
   {
-   "type": "trou",
-   "recto": "Lors d'une dilution, on n'ajoute que du <strong>solvant</strong> : la …… prélevée se retrouve intégralement dans la solution fille.",
-   "rep": "quantité de soluté",
-   "verso": "<strong>quantité de soluté</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qui se conserve lors d'une dilution ? Relation de dilution ?",
+   "verso": "La <b>quantité de soluté</b> : on n'ajoute que du solvant.<br><b>c<sub>0</sub> V<sub>0</sub> = c V</b>",
+   "origine": "Cours §3 Ce que diluer ne change pas"
   },
   {
-   "type": "trou",
-   "recto": "Une <strong>solution</strong> est un mélange …… obtenu en dissolvant une espèce, le <strong>soluté</strong>, dans un liquide, le <strong>solvant</strong>.",
-   "rep": "homogène",
-   "verso": "<strong>homogène</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le facteur de dilution ?",
+   "verso": "<b>F = c<sub>0</sub> / c = V / V<sub>0</sub></b> : la concentration est divisée par F, le volume multiplié par F.",
+   "origine": "Cours §3 Facteur de dilution"
   },
   {
-   "type": "question",
-   "recto": "Dans une solution, l'espèce dissoute s'appelle ……",
-   "rep": "le soluté",
-   "verso": "<strong>le soluté</strong> — le solvant est le liquide",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quelle verrerie est précise ? Laquelle est approximative ?",
+   "verso": "Précise : <b>fiole jaugée</b>, <b>pipette jaugée</b>.<br>Approximative : <b>bécher</b>, <b>éprouvette graduée</b>.",
+   "origine": "Cours §4 Choisir la bonne verrerie"
   },
   {
-   "type": "question",
-   "recto": "Une solution est dite <strong>aqueuse</strong> lorsque ……",
-   "rep": "le solvant est l'eau",
-   "verso": "<strong>le solvant est l'eau</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une échelle de teintes ? À quoi sert-elle ?",
+   "verso": "Une série de solutions de concentrations connues (dilutions successives). On y compare une solution inconnue pour estimer sa concentration : <b>dosage par étalonnage</b>.",
+   "origine": "Cours §4 Échelle de teintes"
   },
   {
-   "type": "question",
-   "recto": "La concentration en quantité de matière vaut ……",
-   "rep": "c = n/V",
-   "verso": "<strong>c = n/V</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment préparer 250 mL de CuSO<sub>4</sub> à 0,10 mol/L par dissolution ?",
+   "verso": "1. n = c V = 0,10 × 0,250 = 0,025 mol.<br>2. M = 159,5 g/mol.<br>3. m = n M ≈ <b>4,0 g</b> à peser.<br>4. Fiole jaugée de 250 mL : introduire, rincer, dissoudre, compléter <b>au trait de jauge</b>.",
+   "origine": "Cours §3 Méthode 1"
   },
   {
-   "type": "question",
-   "recto": "Dans la formule c = n/V, le volume V est celui ……",
-   "rep": "de la solution obtenue",
-   "verso": "<strong>de la solution obtenue</strong> — d'où le trait de jauge, que l'on complète <em>après</em> avoir introduit le soluté",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment préparer 100 mL à 0,020 mol/L à partir d'une solution mère à 0,10 mol/L ?",
+   "verso": "1. c<sub>0</sub>V<sub>0</sub> = cV → V<sub>0</sub> = cV/c<sub>0</sub> = <b>20 mL</b>.<br>2. Vérifier : facteur 5.<br>3. Prélever 20 mL à la <b>pipette jaugée</b>, fiole jaugée de 100 mL, compléter au trait, homogénéiser.",
+   "origine": "Cours §3 Méthode 2"
   },
   {
-   "type": "question",
-   "recto": "Une solution contient 5,85 g de NaCl par litre. Sa concentration vaut ……",
-   "rep": "0,100 mol/L",
-   "verso": "<strong>0,100 mol/L</strong> — M = 58,5 g/mol, donc 5,85/58,5 = 0,100 mol dans 1 L",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Pour préparer une solution par <strong>dissolution</strong>, on part ……",
-   "rep": "d'un soluté solide que l'on pèse",
-   "verso": "<strong>d'un soluté solide que l'on pèse</strong> — par dilution, on partirait d'une solution mère",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Lors d'une <strong>dilution</strong>, la quantité de soluté ……",
-   "rep": "ne change pas",
-   "verso": "<strong>ne change pas</strong> — on n'ajoute que du solvant",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "La relation de dilution s'écrit ……",
-   "rep": "c₀V₀ = cV",
-   "verso": "<strong>c₀V₀ = cV</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment passer d'une concentration en mol/L à une concentration en g/L ?",
+   "verso": "1. Calculer la masse molaire M du soluté.<br>2. <b>c<sub>m</sub> = c × M</b>.<br>3. Inversement : c = c<sub>m</sub> / M.",
+   "origine": "Cours §2 Concentration"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

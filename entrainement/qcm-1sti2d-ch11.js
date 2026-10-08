@@ -222,98 +222,84 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Irradiance » ?",
-   "verso": "L'<strong>irradiance</strong> E est la puissance lumineuse P reçue par une surface, divisée par l'aire S de cette surface : [2]\\[ E = P/S en watts par mètre carré (W m²). \\] On la mesure avec un <strong>pyranomètre</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir l'irradiance. Unité ? Appareil de mesure ?",
+   "verso": "La puissance lumineuse reçue par unité de surface : <b>E = P / S</b>, en <b>W/m²</b>. Mesurée au <b>pyranomètre</b>.",
+   "origine": "Cours §2 L'irradiance"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Rendement d'un panneau » ?",
-   "verso": "[2]\\[ η= P_élecE × S \\] où P_élec est la puissance électrique délivrée et E × S la puissance lumineuse reçue. Comme tout rendement, η< 1.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Dans ce chapitre, que désigne la lettre E ? Comment ne pas se tromper ?",
+   "verso": "L'<b>irradiance</b> (W/m²), pas une énergie (J). On regarde toujours l'<b>unité</b>.",
+   "origine": "Cours §2 Attention à la notation"
   },
   {
-   "type": "retenir",
-   "recto": "Ordres de grandeur à mémoriser — qu'y a-t-il à retenir ?",
-   "verso": "Par ciel dégagé, le Soleil apporte au sol E ≈ 1000W m² — c'est la valeur de référence de tous les calculs. Un éclairage intérieur confortable est de l'ordre de quelques W m².",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Irradiance du Soleil au sol par ciel dégagé ?",
+   "verso": "<b>E ≈ 1000 W/m²</b>, la valeur de référence des calculs.",
+   "origine": "Cours §2 Ordres de grandeur"
   },
   {
-   "type": "retenir",
-   "recto": "Sur une année — qu'y a-t-il à retenir ?",
-   "verso": "En France, une surface bien orientée reçoit environ 1200kW m² par an. Avec 17m² de panneaux à 18, la production annuelle vaut 1200 × 17 × 0,18 ≈ 3700kW, soit à peu près la consommation électrique annuelle d'un logement (hors chauffage).",
-   "origine": "encadre du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Puissance lumineuse reçue par une surface S ?",
+   "verso": "<b>P = E × S</b> : proportionnelle à la surface.",
+   "origine": "Cours §3 La puissance reçue"
   },
   {
-   "type": "question",
-   "recto": "L'<strong>irradiance</strong> est ……",
-   "rep": "la puissance lumineuse reçue par unité de surface",
-   "verso": "<strong>la puissance lumineuse reçue par unité de surface</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi l'irradiance diminue-t-elle quand les rayons arrivent obliquement ?",
+   "verso": "La même puissance se répartit sur une <b>surface plus grande</b>. D'où l'inclinaison des panneaux vers le sud.",
+   "origine": "Cours §3 L'effet de l'orientation"
   },
   {
-   "type": "question",
-   "recto": "Son unité est ……",
-   "rep": "W/m²",
-   "verso": "<strong>W/m²</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Pourquoi un laser de 1 mW est-il dangereux pour l'œil ?",
+   "verso": "Il est <b>directif</b> : sa puissance reste concentrée sur une section minuscule, donc son <b>irradiance</b> est énorme. Le danger vient de la <b>concentration</b>, pas de la puissance.",
+   "origine": "Cours §4 Le laser"
   },
   {
-   "type": "question",
-   "recto": "On mesure l'irradiance avec ……",
-   "rep": "un pyranomètre",
-   "verso": "<strong>un pyranomètre</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Rendement d'un panneau photovoltaïque ? Valeurs courantes ?",
+   "verso": "<b>η = P<sub>élec</sub> / (E × S)</b>, entre <b>15 et 20 %</b> en pratique. Le reste échauffe le panneau.",
+   "origine": "Cours §5 Rendement d'un panneau"
   },
   {
-   "type": "question",
-   "recto": "Dans ce chapitre, la lettre E désigne ……",
-   "rep": "une irradiance en W/m²",
-   "verso": "<strong>une irradiance en W/m²</strong> — c'est l'unité qui permet de trancher",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Surface de panneaux nécessaire pour une puissance électrique P<sub>élec</sub> ?",
+   "verso": "<b>S = P<sub>élec</sub> / (η × E)</b>",
+   "origine": "Cours §6 Dimensionner"
   },
   {
-   "type": "question",
-   "recto": "La puissance reçue par une surface S vaut ……",
-   "rep": "P = E × S",
-   "verso": "<strong>P = E × S</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Énergie solaire reçue par an par une surface bien orientée en France ?",
+   "verso": "Environ <b>1200 kWh/m²</b> par an.",
+   "origine": "Cours §6 Sur une année"
   },
   {
-   "type": "question",
-   "recto": "Lorsqu'une surface est <strong>inclinée</strong> par rapport aux rayons, l'irradiance qu'elle reçoit ……",
-   "rep": "diminue",
-   "verso": "<strong>diminue</strong> — la même puissance se répartit sur une surface plus grande",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Toit de 40 m² sous E = 1000 W/m². Comment trouver la puissance reçue ?",
+   "verso": "1. P = E × S.<br>2. P = 1000 × 40 = <b>40 kW</b>.<br>3. C'est la puissance <b>reçue</b>, pas celle récupérée.",
+   "origine": "Cours §3 Méthode 1"
   },
   {
-   "type": "question",
-   "recto": "Par ciel dégagé, l'irradiance du Soleil au sol vaut environ ……",
-   "rep": "1000 W/m²",
-   "verso": "<strong>1000 W/m²</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Pointeur laser 1 mW, faisceau de 1 mm². Comment trouver son irradiance ?",
+   "verso": "1. Convertir : P = 10<sup>−3</sup> W ; S = 1 mm² = <b>10<sup>−6</sup> m²</b>.<br>2. E = P/S = <b>1000 W/m²</b>.<br>3. Autant que le Soleil à midi → danger pour l'œil.",
+   "origine": "Cours §4 Méthode 2"
   },
   {
-   "type": "question",
-   "recto": "Le rendement d'un panneau photovoltaïque s'écrit ……",
-   "rep": "η = (P<sub>élec</sub>)/(E × S)",
-   "verso": "<strong>η = (P<sub>élec</sub>)/(E × S)</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Panneau de 1,7 m² délivrant 300 W sous 1000 W/m². Comment trouver son rendement ?",
+   "verso": "1. Puissance reçue : E × S = 1000 × 1,7 = 1700 W.<br>2. η = 300/1700 ≈ <b>0,18</b> (18 %).<br>3. Commenter : valeur normale, le reste chauffe le panneau.",
+   "origine": "Cours §5 Méthode 3"
   },
   {
-   "type": "question",
-   "recto": "On veut 1800 W électriques avec des panneaux à 18 % sous E = 1000 W/m². La surface nécessaire vaut ……",
-   "rep": "10 m²",
-   "verso": "<strong>10 m²</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "L'unité de la <strong>puissance</strong> dans le Système international est ……",
-   "rep": "le watt (W)",
-   "verso": "<strong>le watt (W)</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Quelle surface pour 3 kW avec des panneaux à 18 % sous 1000 W/m² ? Production annuelle ?",
+   "verso": "1. S = 3000/(0,18 × 1000) ≈ <b>17 m²</b>.<br>2. Par an : 1200 kWh/m² × 17 × 0,18 ≈ <b>3700 kWh</b>.",
+   "origine": "Cours §6 Dimensionner une installation"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };

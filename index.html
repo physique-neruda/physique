@@ -82,6 +82,7 @@ a.item.pdf .marque{color:var(--bleu);border-color:var(--bleu)}
 a.item.qcm .marque,
 a.item.cartes .marque{color:var(--orange);border-color:var(--orange)}
 .corps{min-width:0}
+.corps > span{display:block}
 .corps .nom{font-size:1.02rem;font-weight:600;color:var(--bleu)}
 .corps .desc{font-size:.89rem;margin-top:2px}
 .corps .trouve{font-size:.86rem;color:var(--orange);margin-top:6px}
@@ -96,6 +97,33 @@ footer{margin-top:38px;padding-top:16px;border-top:1px solid var(--bord);
 footer p{margin:0 0 8px}
 noscript{display:block;background:#FDECEA;border:1px solid #E3A9A2;border-radius:8px;
   padding:12px 14px;margin-top:16px;font-size:.9rem}
+
+/* accès réservé : bandeau, cadenas, fenêtre du mot de passe */
+.acces{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;
+  background:var(--panneau);border:1px solid var(--bord);border-left:5px solid var(--teal);
+  border-radius:10px;padding:11px 14px;margin:14px 0 4px;font-size:.9rem}
+.acces.ferme{border-left-color:var(--orange)}
+.acces button{font:inherit;font-size:.88rem;min-height:40px;padding:6px 14px;border-radius:20px;
+  border:1px solid var(--bleu);background:var(--bleu);color:#fff}
+.acces.ouvert button{background:var(--panneau);color:var(--bleu)}
+.cadenas{display:inline-block;width:11px;height:12px;margin-right:4px;vertical-align:-1px}
+.marque .cadenas{width:9px;height:10px;margin-right:3px}
+.attente{opacity:.55;pointer-events:none}
+dialog#mdp{border:1px solid var(--bord);border-radius:12px;padding:20px 18px;max-width:380px;
+  width:calc(100% - 32px);color:var(--encre);background:var(--panneau)}
+dialog#mdp::backdrop{background:rgba(22,35,45,.45)}
+#mdp h2{margin:0 0 4px;font-size:1.08rem}
+#mdp p{margin:0 0 12px;font-size:.88rem;color:var(--gris)}
+#mdp input[type=password]{width:100%;font:inherit;font-size:1rem;padding:11px 12px;min-height:46px;
+  border:1px solid var(--bord);border-radius:9px;background:var(--fond);color:var(--encre)}
+#mdp input[type=password]:focus{outline:3px solid var(--orange);outline-offset:1px}
+#mdp label.souvenir{display:flex;gap:9px;align-items:flex-start;margin:12px 0 4px;font-size:.86rem}
+#mdp label.souvenir input{width:20px;height:20px;margin:0;flex:0 0 auto}
+#mdp .erreur{color:#B3261E;font-size:.88rem;min-height:1.3em;margin:6px 0 0}
+#mdp .boutons{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+#mdp .boutons button{font:inherit;min-height:44px;padding:8px 16px;border-radius:22px;
+  border:1px solid var(--bord);background:var(--panneau);color:var(--encre)}
+#mdp .boutons button[type=submit]{background:var(--bleu);border-color:var(--bleu);color:#fff}
 </style>
 </head>
 <body>
@@ -117,16 +145,42 @@ noscript{display:block;background:#FDECEA;border:1px solid #E3A9A2;border-radius
 <noscript>Cette page a besoin de JavaScript. Les documents restent accessibles directement dans
 les dossiers <b>docs/</b> et <b>animations/</b>.</noscript>
 
+<div id="bandeau"></div>
 <main id="vue"></main>
+
+<dialog id="mdp" aria-labelledby="mdp-titre">
+  <form id="mdp-form" method="dialog">
+    <h2 id="mdp-titre">Documents réservés</h2>
+    <p id="mdp-texte">Le mot de passe de la classe est donné en cours.</p>
+    <input type="text" id="mdp-classe" name="username" autocomplete="username" hidden>
+    <label for="mdp-champ" style="position:absolute;left:-9999px">Mot de passe</label>
+    <input type="password" id="mdp-champ" name="password" autocomplete="current-password"
+           autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Mot de passe" required>
+    <label class="souvenir"><input type="checkbox" id="mdp-souvenir" checked>
+      <span>Se souvenir sur cet appareil<br><small style="color:var(--gris)">décocher sur un ordinateur du lycée</small></span></label>
+    <p class="erreur" id="mdp-erreur" role="alert"></p>
+    <div class="boutons">
+      <button type="button" id="mdp-annuler">Annuler</button>
+      <button type="submit" id="mdp-ok">Ouvrir</button>
+    </div>
+  </form>
+</dialog>
+
 
 <footer>
   <p>Les animations fonctionnent sur téléphone, sans installation et sans compte. Tous les
   calculs se font dans votre navigateur : rien n'est envoyé, et les mesures que vous relevez
   disparaissent quand vous fermez la page.</p>
+  <p>Les cours, TP et documents des classes sont chiffrés : ils ne s'ouvrent qu'avec le mot de
+  passe de la classe, et se déchiffrent dans votre navigateur. Les animations, les questionnaires
+  et les outils restent en accès libre.</p>
   <p>Les corrigés ne sont pas déposés ici.</p>
 </footer>
 
 <script src="catalogue.js"></script>
+<!-- acces.js n'existe que dans la version en ligne (outils/chiffrer.py).
+     Absent, comme dans l'atelier, les PDF s'ouvrent directement. -->
+<script src="acces.js"></script>
 <script>
 "use strict";
 
@@ -170,9 +224,12 @@ var TYPES = {
 function carteItem(d, avecLieu){
   var f = laFiliere(d.filiere);
   var t = TYPES[d.type] || TYPES.pdf;
-  return '<a class="item ' + t.classe + '" href="' + echappe(d.fichier) + '"'
-       + (t.onglet ? ' target="_blank" rel="noopener"' : "") + '>'
-       + '<span class="marque">' + t.marque + '</span>'
+  var verrou = estProtege(d);
+  return '<a class="item ' + t.classe + '" href="' + echappe(verrou ? "#" : d.fichier) + '"'
+       + (verrou ? ' data-verrou="1" data-fil="' + echappe(d.filiere) + '" data-fichier="'
+                   + echappe(d.fichier) + '"'
+                 : (t.onglet ? ' target="_blank" rel="noopener"' : "")) + '>'
+       + '<span class="marque">' + (verrou && !CLES[d.filiere] ? CADENAS : "") + t.marque + '</span>'
        + '<span class="corps">'
        +   '<span class="nom">' + echappe(d.titre) + '</span>'
        +   (d.description ? '<span class="desc">' + echappe(d.description) + '</span>' : '')
@@ -204,6 +261,8 @@ function vueAccueil(){
           +   '<div class="compte">' + compte + '</div>'
           + '</a>';
   });
+  if(CLE_PRIVE) html += '<a class="filiere" href="#prive" style="border-left-color:var(--teal)">'
+    + '<span class="nom">Espace enseignant</span><div class="st">Visible seulement sur cet appareil, code enseignant saisi</div></a>';
   document.getElementById("vue").innerHTML = html;
 }
 
@@ -271,6 +330,7 @@ function ariane(){
 /* Niveau 3 : les documents d'un seul chapitre. */
 function vueChapitreRendu(){
   var f = laFiliere(vueFiliere);
+  bandeau(f);
   var g = parChapitre(docsDe(f.id)).filter(function(x){ return x.cle===vueChapitre; })[0];
   if(!g){ vueChapitre = null; vueFiliereRendu(); return; }
   ariane();
@@ -290,6 +350,7 @@ function vueFiliereRendu(){
   if(!f){ location.hash = ""; return; }
   if(vueChapitre){ vueChapitreRendu(); return; }
   ariane();
+  bandeau(f);
 
   var tous = docsDe(f.id);
   var zone = document.getElementById("chips");
@@ -328,6 +389,7 @@ function vueFiliereRendu(){
 }
 
 function rendu(){
+  if(!vueFiliere || recherche) bandeau(null);
   if(recherche){ vueRecherche(); return; }
   if(vueFiliere){ vueFiliereRendu(); return; }
   vueAccueil();
@@ -336,6 +398,8 @@ function rendu(){
 /* ---------- navigation ---------- */
 function surHash(){
   var h = (location.hash || "").replace(/^#/, "");
+  if(h === "prive"){ vueFiliere = null; vueChapitre = null; recherche = "";
+                     document.getElementById("q").value = ""; vuePrive(); window.scrollTo(0,0); return; }
   var bouts = h.split("/");
   vueFiliere = bouts[0] && laFiliere(bouts[0]) ? bouts[0] : null;
   vueChapitre = (vueFiliere && bouts[1]) ? bouts[1] : null;
@@ -351,7 +415,331 @@ document.getElementById("q").addEventListener("input", function(e){
   rendu();
 });
 
-surHash();
+
+/* ======================================================================
+   ACCÈS RÉSERVÉ
+   Les fichiers de docs/<filière>/ sont publiés chiffrés (<nom>.enc) par
+   outils/chiffrer.py, et acces.js dit quelles filières le sont. La clé est
+   dérivée du mot de passe ici même (PBKDF2, 300 000 tours) ; elle ne quitte
+   pas l'appareil. Rien n'est envoyé nulle part.
+   ====================================================================== */
+var ACCES = window.ACCES || {};
+var CLES = {};                       /* filière -> CryptoKey, une fois ouverte */
+var CADENAS = '<svg class="cadenas" viewBox="0 0 12 14" aria-hidden="true"><rect x="1" y="6" width="10" height="7.5" rx="1.5" fill="currentColor"/><path d="M3.3 6V4.3a2.7 2.7 0 0 1 5.4 0V6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+var ANDROID = /Android/i.test(navigator.userAgent);
+
+function estProtege(d){
+  return !!(ACCES[d.filiere] && /^docs\//.test(d.fichier || "")
+            && /\.(pdf|apkg)$/i.test(d.fichier));
+}
+function deB64(s){
+  var b = atob(s), u = new Uint8Array(b.length);
+  for(var i=0;i<b.length;i++) u[i] = b.charCodeAt(i);
+  return u;
+}
+function versB64(buf){
+  var u = new Uint8Array(buf), s = "";
+  for(var i=0;i<u.length;i++) s += String.fromCharCode(u[i]);
+  return btoa(s);
+}
+function memoire(){ try{ return window.localStorage; }catch(e){ return null; } }
+function session(){ try{ return window.sessionStorage; }catch(e){ return null; } }
+function lire(st, k){ try{ return st ? st.getItem(k) : null; }catch(e){ return null; } }
+function ecrire(st, k, v){ try{ if(st) st.setItem(k, v); }catch(e){} }
+function oublier(st, k){ try{ if(st) st.removeItem(k); }catch(e){} }
+
+/* Vérifie une clé avec le témoin chiffré d'acces.js. */
+function verifier(fil, k){
+  var a = ACCES[fil];
+  return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(a.iv)}, k, deB64(a.temoin))
+    .then(function(t){ return new TextDecoder().decode(t) === "acces-ok:" + fil; },
+          function(){ return false; });
+}
+function importer(brut, exportable){
+  return crypto.subtle.importKey("raw", brut, "AES-GCM", exportable, ["decrypt"]);
+}
+function deriver(fil, mot){ return deriverAvec(ACCES[fil], mot); }
+function deriverAvec(a, mot){
+  return crypto.subtle.importKey("raw", new TextEncoder().encode(mot), "PBKDF2", false, ["deriveBits"])
+    .then(function(base){
+      return crypto.subtle.deriveBits({name:"PBKDF2", hash:"SHA-256",
+                                       salt:deB64(a.sel), iterations:a.tours}, base, 256);
+    });
+}
+
+/* Au chargement : reprendre les accès mémorisés (cet onglet ou cet appareil).
+   Une clé mémorisée qui ne correspond plus (mot de passe changé) est oubliée. */
+function restaurer(){
+  if(!window.crypto || !crypto.subtle) return Promise.resolve();
+  return Promise.all(Object.keys(ACCES).map(function(fil){
+    var nom = "acces-" + fil;
+    var brut = lire(session(), nom) || lire(memoire(), nom);
+    if(!brut) return null;
+    var o; try{ o = JSON.parse(brut); }catch(e){ o = null; }
+    if(!o || o.sel !== ACCES[fil].sel){ oublier(session(), nom); oublier(memoire(), nom); return null; }
+    return importer(deB64(o.k), false).then(function(k){
+      return verifier(fil, k).then(function(ok){
+        if(ok) CLES[fil] = k;
+        else { oublier(session(), nom); oublier(memoire(), nom); }
+      });
+    }, function(){ return null; });
+  }));
+}
+
+function fermerAcces(fil){
+  delete CLES[fil];
+  oublier(session(), "acces-" + fil);
+  oublier(memoire(), "acces-" + fil);
+  rendu();
+}
+
+function bandeau(f){
+  var z = document.getElementById("bandeau");
+  if(!f || !ACCES[f.id]){ z.innerHTML = ""; return; }
+  if(CLES[f.id]){
+    z.innerHTML = '<div class="acces ouvert"><span>Accès élève ouvert pour <b>' + echappe(f.nom)
+      + '</b>.</span><button type="button" id="acces-fermer">Fermer l\'accès</button></div>';
+    document.getElementById("acces-fermer").onclick = function(){ fermerAcces(f.id); };
+  }else{
+    z.innerHTML = '<div class="acces ferme"><span>' + CADENAS + 'Les documents de cette classe sont '
+      + 'réservés à ses élèves.</span><button type="button" id="acces-ouvrir">Saisir le mot de passe</button></div>';
+    document.getElementById("acces-ouvrir").onclick = function(){ demander(f.id); };
+  }
+}
+
+/* ---------- la fenêtre du mot de passe ---------- */
+var dlg = document.getElementById("mdp");
+var dlgFil = null;
+function demander(fil){
+  if(!window.crypto || !crypto.subtle){
+    alert("Ce navigateur ne sait pas déchiffrer les documents. Essayer Chrome, Firefox ou Safari à jour.");
+    return;
+  }
+  dlgFil = fil;
+  var f = laFiliere(fil);
+  document.getElementById("mdp-titre").textContent = f ? f.nom : "Espace enseignant";
+  document.getElementById("mdp-texte").textContent = f
+    ? "Documents réservés aux élèves de la classe. Le mot de passe est donné en cours."
+    : "Saisir le code enseignant.";
+  document.getElementById("mdp-classe").value = "physique-" + fil;
+  document.getElementById("mdp-champ").value = "";
+  document.getElementById("mdp-erreur").textContent = "";
+  if(dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+  setTimeout(function(){ document.getElementById("mdp-champ").focus(); }, 30);
+}
+function fermerDlg(){ if(dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
+document.getElementById("mdp-annuler").onclick = fermerDlg;
+document.getElementById("mdp-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  var fil = dlgFil, mot = document.getElementById("mdp-champ").value.trim().toLowerCase();
+  var garder = document.getElementById("mdp-souvenir").checked;
+  var btn = document.getElementById("mdp-ok"), err = document.getElementById("mdp-erreur");
+  if(!mot) return;
+  btn.disabled = true; btn.textContent = "Vérification…"; err.textContent = "";
+  function memoriser(f, bits){
+    var trace = JSON.stringify({sel: ACCES[f].sel, k: versB64(bits)});
+    ecrire(session(), "acces-" + f, trace);
+    if(garder) ecrire(memoire(), "acces-" + f, trace);
+  }
+  var essai = ACCES[fil]
+    ? deriver(fil, mot).then(function(bits){
+        return importer(bits, false).then(function(k){
+          return verifier(fil, k).then(function(ok){ return {ok: ok, k: k, bits: bits}; });
+        });
+      })
+    : Promise.resolve({ok: false});
+  essai.then(function(r){ var k = r.k, bits = r.bits;
+    return (function(ok){
+        if(ok){
+          CLES[fil] = k; memoriser(fil, bits);
+          fermerDlg(); rendu();
+          avertir("Accès ouvert. Touchez le document pour l'ouvrir.");
+          return;
+        }
+        /* pas le mot de passe de la classe : peut-être le code enseignant */
+        return essayerProf(mot, memoriser).then(function(okProf){
+          if(!okProf){ err.textContent = "Mot de passe incorrect."; return; }
+          fermerDlg();
+          if(location.hash === "#prive"){ surHash(); return; }
+          rendu();
+          avertir("Accès enseignant : toutes les classes sont ouvertes.");
+        });
+    })(r.ok);
+  }).catch(function(){ err.textContent = "Impossible de vérifier le mot de passe."; })
+    .then(function(){ btn.disabled = false; btn.textContent = "Ouvrir"; });
+});
+
+/* Code enseignant : acces.js contient, chiffrée avec la clé du code
+   enseignant, la clé de chaque filière. Un seul code ouvre tout. */
+var PROF = window.ACCES_PROF || null;
+function essayerProf(mot, memoriser){
+  if(!PROF) return Promise.resolve(false);
+  return deriverAvec(PROF, mot).then(function(bits){
+    return importer(bits, false);
+  }).then(function(kp){
+    return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(PROF.iv)}, kp, deB64(PROF.temoin))
+      .then(function(t){ return new TextDecoder().decode(t) === "acces-ok:prof"; },
+            function(){ return false; })
+      .then(function(ok){
+        if(!ok) return false;
+        return Promise.all(Object.keys(PROF.cles).map(function(f){
+          if(!ACCES[f]) return null;
+          var e = PROF.cles[f];
+          return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(e.iv),
+                                        additionalData:new TextEncoder().encode(f)}, kp, deB64(e.cle))
+            .then(function(brut){
+              return importer(brut, false).then(function(k){ CLES[f] = k; memoriser(f, brut); });
+            });
+        })).then(function(){
+          if(!PROF.prive) return true;
+          return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(PROF.prive.iv),
+                                        additionalData:new TextEncoder().encode("prive")}, kp, deB64(PROF.prive.cle))
+            .then(function(brut){
+              return importer(brut, false).then(function(k){
+                CLE_PRIVE = k;
+                var trace = JSON.stringify({sel: PROF.sel, k: versB64(brut)});
+                ecrire(session(), "acces-prive", trace);
+                if(document.getElementById("mdp-souvenir").checked) ecrire(memoire(), "acces-prive", trace);
+                return true;
+              });
+            });
+        });
+      });
+  });
+}
+
+function avertir(t){
+  var z = document.querySelector("#bandeau .acces span");
+  if(z) z.innerHTML = echappe(t);
+}
+
+/* ---------- ouvrir un document protégé ---------- */
+function nomTelecharge(fichier){
+  return fichier.replace(/^docs\//, "").replace(/\//g, "-");
+}
+function ouvrirProtege(a){
+  var fil = a.getAttribute("data-fil"), fichier = a.getAttribute("data-fichier");
+  var k = CLES[fil];
+  if(!k){ demander(fil); return; }
+  ouvrirChiffre(a, k, fichier + ".enc", fichier, nomTelecharge(fichier), /\.pdf$/i.test(fichier));
+}
+function ouvrirChiffre(a, k, url, aad, nom, pdf){
+  /* L'onglet doit s'ouvrir tout de suite, pendant le geste de l'élève,
+     sinon le navigateur le bloque. Il est rempli quand le déchiffrement finit.
+     Android ne sait pas afficher un PDF de cette façon : on le télécharge. */
+  var w = (pdf && !ANDROID) ? window.open("", "_blank") : null;
+  if(w){ try{ w.document.write('<p style="font:16px sans-serif;padding:20px">Ouverture du document…</p>'); }catch(e){} }
+  a.classList.add("attente");
+  fetch(url, {cache: "no-cache"})
+    .then(function(r){ if(!r.ok) throw new Error("absent"); return r.arrayBuffer(); })
+    .then(function(buf){
+      var u = new Uint8Array(buf);
+      if(String.fromCharCode(u[0],u[1],u[2],u[3]) !== "NRD1") throw new Error("format");
+      return crypto.subtle.decrypt({name:"AES-GCM", iv:u.slice(4,16),
+                                    additionalData:new TextEncoder().encode(aad)}, k, u.slice(16));
+    })
+    .then(function(clair){
+      var blob = new Blob([clair], {type: pdf ? "application/pdf" : "application/octet-stream"});
+      var url = URL.createObjectURL(blob);
+      if(w){ w.location.href = url; }
+      else{
+        var l = document.createElement("a");
+        l.href = url; l.download = nom;
+        document.body.appendChild(l); l.click(); l.remove();
+      }
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 120000);
+    })
+    .catch(function(e){
+      if(w) try{ w.close(); }catch(x){}
+      alert(e && e.message === "absent"
+        ? "Ce document est introuvable sur le site."
+        : "Le document n'a pas pu être déchiffré. Le mot de passe a peut-être changé : fermer l'accès puis le saisir à nouveau.");
+    })
+    .then(function(){ a.classList.remove("attente"); });
+}
+/* ======================================================================
+   ESPACE ENSEIGNANT (#prive) — invisible depuis l'accueil. Les fichiers sont
+   dans prive/ sous des noms opaques ; leur liste (prive/index.enc) est
+   chiffrée elle aussi. Seul le code enseignant donne la clé.
+   ====================================================================== */
+var CLE_PRIVE = null, INDEX_PRIVE = null;
+function restaurerPrive(){
+  if(!PROF || !PROF.prive || !window.crypto || !crypto.subtle) return Promise.resolve();
+  var brut = lire(session(), "acces-prive") || lire(memoire(), "acces-prive");
+  if(!brut) return Promise.resolve();
+  var o; try{ o = JSON.parse(brut); }catch(e){ o = null; }
+  if(!o || o.sel !== PROF.sel){ oublier(session(), "acces-prive"); oublier(memoire(), "acces-prive"); return Promise.resolve(); }
+  return importer(deB64(o.k), false).then(function(k){ CLE_PRIVE = k; }, function(){});
+}
+function fermerPrive(){
+  CLE_PRIVE = null; INDEX_PRIVE = null;
+  oublier(session(), "acces-prive"); oublier(memoire(), "acces-prive");
+  Object.keys(CLES).forEach(function(f){ fermerAcces(f); });
+  location.hash = "";
+}
+function chargerIndexPrive(){
+  if(INDEX_PRIVE) return Promise.resolve(INDEX_PRIVE);
+  return fetch("prive/index.enc", {cache: "no-cache"})
+    .then(function(r){ if(!r.ok) throw new Error("absent"); return r.arrayBuffer(); })
+    .then(function(buf){
+      var u = new Uint8Array(buf);
+      return crypto.subtle.decrypt({name:"AES-GCM", iv:u.slice(4,16),
+               additionalData:new TextEncoder().encode("prive/index")}, CLE_PRIVE, u.slice(16));
+    })
+    .then(function(t){ INDEX_PRIVE = JSON.parse(new TextDecoder().decode(t)); return INDEX_PRIVE; });
+}
+function taille(n){ return n > 1e6 ? (n/1e6).toFixed(1).replace(".", ",") + " Mo" : Math.round(n/1e3) + " ko"; }
+function vuePrive(){
+  document.getElementById("chips").innerHTML = "";
+  document.getElementById("bandeau").innerHTML = "";
+  var fil = document.getElementById("fil");
+  fil.hidden = false; fil.innerHTML = '<a href="#">Toutes les filières</a> &nbsp;›&nbsp; Espace enseignant';
+  var vue = document.getElementById("vue");
+  if(!PROF || !PROF.prive){ vue.innerHTML = '<p class="rien">Rien ici.</p>'; return; }
+  if(!CLE_PRIVE){
+    vue.innerHTML = '<h2>Espace enseignant</h2><div class="acces ferme"><span>' + CADENAS
+      + 'Réservé à l\'enseignant.</span><button type="button" id="prive-ouvrir">Saisir le code</button></div>';
+    document.getElementById("prive-ouvrir").onclick = function(){ demander("prof"); };
+    return;
+  }
+  vue.innerHTML = '<p class="rien">Déchiffrement de la liste…</p>';
+  chargerIndexPrive().then(function(liste){
+    var noms = {livres: "Livres du professeur"};
+    FILIERES.forEach(function(f){ noms[f.id] = f.nom; });
+    var html = '<h2>Espace enseignant</h2><div class="acces ouvert"><span>' + liste.length
+      + ' documents : corrigés complets, tests, épreuves, livres du professeur.</span>'
+      + '<button type="button" id="prive-fermer">Fermer l\'accès</button></div>';
+    var filCour = null, chCour = null;
+    liste.forEach(function(d){
+      if(d.fil !== filCour){ filCour = d.fil; chCour = null; html += '<h2>' + echappe(noms[d.fil] || d.fil) + '</h2>'; }
+      if(d.fil !== "livres" && d.ch !== chCour){ chCour = d.ch; html += '<h3>' + echappe(d.chapitre) + '</h3>'; }
+      html += '<a class="item pdf" href="#" data-prive="' + echappe(d.id) + '" data-nom="' + echappe(d.nom) + '">'
+            + '<span class="marque">PDF</span><span class="corps"><span class="nom">' + echappe(d.titre)
+            + '</span><span class="ou">' + taille(d.taille) + '</span></span></a>';
+    });
+    vue.innerHTML = html;
+    document.getElementById("prive-fermer").onclick = fermerPrive;
+  }).catch(function(){
+    vue.innerHTML = '<p class="rien">La liste n\'a pas pu être déchiffrée. Le code a peut-être changé : le saisir à nouveau.</p>';
+    CLE_PRIVE = null; oublier(session(), "acces-prive"); oublier(memoire(), "acces-prive");
+  });
+}
+
+document.addEventListener("click", function(e){
+  var p = e.target.closest && e.target.closest("a[data-prive]");
+  if(p){
+    e.preventDefault();
+    var id = p.getAttribute("data-prive");
+    ouvrirChiffre(p, CLE_PRIVE, "prive/" + id + ".enc", "prive/" + id, p.getAttribute("data-nom"), true);
+    return;
+  }
+  var a = e.target.closest && e.target.closest("a[data-verrou]");
+  if(!a) return;
+  e.preventDefault();
+  ouvrirProtege(a);
+});
+
+Promise.all([restaurer(), restaurerPrive()]).then(surHash, surHash);
 </script>
 </body>
 </html>

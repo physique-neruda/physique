@@ -222,98 +222,84 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Onde » ?",
-   "verso": "Une <strong>onde</strong> est la <strong>propagation d'une perturbation</strong> dans un milieu, qui transporte de l'<strong>énergie</strong> <em>sans</em> transporter de <strong>matière</strong>.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une onde ? Que transporte-t-elle ?",
+   "verso": "La <b>propagation d'une perturbation</b> dans un milieu. Elle transporte de l'<b>énergie</b>, <b>jamais de matière</b> : les points du milieu oscillent sur place.",
+   "origine": "Cours §1 Onde"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Les deux familles » ?",
-   "verso": "Une onde <strong>mécanique</strong> est la déformation d'un milieu matériel : elle a <strong>besoin d'un milieu</strong> pour se propager. C'est le cas du <strong>son</strong>, des vagues, des ondes sismiques.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Onde mécanique et onde électromagnétique : différence ? Exemples ?",
+   "verso": "<b>Mécanique</b> : a besoin d'un <b>milieu matériel</b> (son, vagues, ondes sismiques).<br><b>Électromagnétique</b> : se propage <b>même dans le vide</b> (lumière, radio, Wi-Fi).",
+   "origine": "Cours §2 Les deux familles"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Période, fréquence, longueur d'onde » ?",
-   "verso": "La <strong>période</strong> T (en secondes) est la durée d'une oscillation <strong>en un point</strong> donné. La <strong>fréquence</strong> f = 1/T (en hertz) est le nombre d'oscillations par seconde.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Onde longitudinale, onde transversale : définir et donner un exemple.",
+   "verso": "<b>Longitudinale</b> : oscillation <b>parallèle</b> à la propagation (le son).<br><b>Transversale</b> : oscillation <b>perpendiculaire</b> (corde, vagues, lumière).",
+   "origine": "Cours §3 Longitudinale ou transversale"
   },
   {
-   "type": "definition",
-   "recto": "Qu'appelle-t-on « Guide d'onde » ?",
-   "verso": "Un <strong>guide d'onde</strong> est un dispositif qui confine une onde et la conduit d'un point à un autre avec très peu de pertes.",
-   "origine": "definition du cours"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Définir la période T et la longueur d'onde λ. Sur quel graphe les lit-on ?",
+   "verso": "<b>T</b> : durée d'une oscillation <b>en un point</b> → graphe en fonction du <b>temps</b>.<br><b>λ</b> : distance entre deux motifs identiques <b>à un instant</b> → graphe en fonction de la <b>position</b>.",
+   "origine": "Cours §4 Les grandeurs d'une onde"
   },
   {
-   "type": "trou",
-   "recto": "Une <strong>onde</strong> est la …… dans un milieu, qui transporte de l'<strong>énergie</strong> <em>sans</em> transporter de <strong>matière</strong>.",
-   "rep": "propagation d'une perturbation",
-   "verso": "<strong>propagation d'une perturbation</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Relation entre célérité, longueur d'onde et fréquence ?",
+   "verso": "<b>v = λ / T = λ × f</b> (v en m/s, λ en m, f en Hz).",
+   "origine": "Cours §4 La relation fondamentale"
   },
   {
-   "type": "trou",
-   "recto": "La <strong>longueur d'onde</strong> λ (en mètres) est la distance qui sépare deux motifs identiques …… donné : c'est la « longueur d'un motif » dans l'espace.",
-   "rep": "à un instant",
-   "verso": "<strong>à un instant</strong>",
-   "origine": "cours a completer"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quand une onde change de milieu, que deviennent f, v et λ ?",
+   "verso": "<b>f</b> ne change pas (imposée par la <b>source</b>).<br><b>v</b> change (dépend du <b>milieu</b>).<br>Donc <b>λ change</b>.",
+   "origine": "Cours §4 Ce qui dépend de quoi"
   },
   {
-   "type": "question",
-   "recto": "Une onde transporte ……",
-   "rep": "de l'énergie, sans matière",
-   "verso": "<strong>de l'énergie, sans matière</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Que devient l'énergie d'une onde à la frontière entre deux milieux ?",
+   "verso": "Elle se répartit en <b>transmission</b>, <b>réflexion</b> et <b>absorption</b> (qui échauffe), toujours ensemble.",
+   "origine": "Cours §5 À la rencontre d'un obstacle"
   },
   {
-   "type": "question",
-   "recto": "Le <strong>son</strong> est une onde ……",
-   "rep": "mécanique",
-   "verso": "<strong>mécanique</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un guide d'onde ? Comment la fibre optique piège-t-elle la lumière ?",
+   "verso": "Un dispositif qui <b>confine</b> une onde et la conduit avec peu de pertes. Dans la fibre, la lumière reste dans le <b>cœur</b> par <b>réflexions totales</b> sur la gaine.",
+   "origine": "Cours §6 Guide d'onde"
   },
   {
-   "type": "question",
-   "recto": "Quelle onde peut se propager dans le <strong>vide</strong> ?",
-   "rep": "la lumière",
-   "verso": "<strong>la lumière</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Quels sont les maillons d'une chaîne de transmission d'information ?",
+   "verso": "<b>Émetteur</b> (code en modulant l'onde) → <b>onde modulée</b> → <b>récepteur</b> (décode), avec un <b>code partagé</b>.",
+   "origine": "Cours §7 Chaîne de transmission"
   },
   {
-   "type": "question",
-   "recto": "Dans une onde <strong>longitudinale</strong>, l'oscillation est ……",
-   "rep": "parallèle à la propagation",
-   "verso": "<strong>parallèle à la propagation</strong>",
-   "origine": "bilan"
+   "type": "notion",
+   "recto": "<span class=\"sujet\">Notion</span>Où se trouve l'information transportée par une onde ?",
+   "verso": "Dans la <b>façon dont on modifie l'onde</b> (modulation) et dans le <b>code commun</b> qui permet de l'interpréter.",
+   "origine": "Cours §7 Une onde n'est qu'un support"
   },
   {
-   "type": "question",
-   "recto": "La <strong>longueur d'onde</strong> se lit sur un graphe représentant ……",
-   "rep": "l'amplitude en fonction de la position",
-   "verso": "<strong>l'amplitude en fonction de la position</strong> — un graphe temporel donne T, pas λ",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Diapason à 440 Hz, son à 340 m/s dans l'air. Comment trouver λ ?",
+   "verso": "1. Isoler : λ = v / f.<br>2. λ = 340/440 = <b>0,77 m</b>.<br>3. Dans l'eau (1500 m/s), f ne change pas : λ = 3,4 m.",
+   "origine": "Cours §4 Méthode 1"
   },
   {
-   "type": "question",
-   "recto": "La relation entre célérité, longueur d'onde et fréquence est ……",
-   "rep": "v = λ × f",
-   "verso": "<strong>v = λ × f</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Un sonar reçoit l'écho 0,80 s après l'émission (v = 1500 m/s). Comment trouver la profondeur ?",
+   "verso": "1. L'onde fait l'<b>aller-retour</b> : elle parcourt 2d.<br>2. 2d = v Δt → <b>d = v Δt / 2</b>.<br>3. d = 1500 × 0,80/2 = <b>600 m</b>.",
+   "origine": "Cours §5 Méthode 2"
   },
   {
-   "type": "question",
-   "recto": "Quand une onde passe d'un milieu à un autre, la grandeur qui <strong>ne change pas</strong> est ……",
-   "rep": "la fréquence",
-   "verso": "<strong>la fréquence</strong>",
-   "origine": "bilan"
-  },
-  {
-   "type": "question",
-   "recto": "Une onde sonore de 680 Hz dans l'air a pour longueur d'onde ……",
-   "rep": "0,50 m",
-   "verso": "<strong>0,50 m</strong>",
-   "origine": "bilan"
+   "type": "methode",
+   "recto": "<span class=\"sujet\">Méthode</span>Comment analyser une chaîne de transmission (télécommande de TV) ?",
+   "verso": "1. <b>Nature de l'onde</b> (infrarouge : électromagnétique).<br>2. <b>Émetteur</b> (diode).<br>3. <b>Codage</b> (suite d'impulsions).<br>4. <b>Récepteur</b> (capteur du téléviseur).<br>5. <b>Code partagé</b> nécessaire.",
+   "origine": "Cours §7 Méthode 3"
   }
- ]
+ ],
+ "cartes_figees": true,
+ "cartes_source": "outils/cartes_manuelles"
 };
