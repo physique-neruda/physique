@@ -213,90 +213,100 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que mesure la viscosité ? Viscosité dynamique et cinématique : symboles et unités ?",
-   "verso": "La <b>résistance du fluide à l'écoulement</b>.<br>Dynamique <b>μ</b> en Pa·s ; cinématique <b>ν = μ/ρ</b> en <b>m²/s</b>.",
-   "origine": "Cours §1 La viscosité"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Viscosité » ?",
+   "verso": "La viscosité mesure la résistance du fluide à l'écoulement. La viscosité <strong>dynamique</strong> µ s'exprime en Pa·s ; la viscosité <strong>cinématique</strong> ν= µ/ρ s'exprime en meter²/s.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment la viscosité d'une huile varie-t-elle avec la température ? Conséquence ?",
-   "verso": "Elle <b>augmente fortement à froid</b> (VG 46 : 5,5 fois plus visqueuse à 10 °C qu'à 40 °C). Un circuit hydraulique peine au démarrage : on préchauffe l'huile.",
-   "origine": "Cours §1 Viscosité et température"
+   "type": "retenir",
+   "recto": "Où se place le terme de pertes — qu'y a-t-il à retenir ?",
+   "verso": "Δp_pertes est toujours positif et se place du côté de l'arrivée. Le fluide perd de l'énergie en chemin, il n'en gagne jamais — sauf si une pompe lui en apporte.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formule du nombre de Reynolds ? Unité ?",
-   "verso": "<b>Re = v d / ν</b>, <b>sans unité</b>.",
-   "origine": "Cours §2 Le nombre de Reynolds"
+   "type": "retenir",
+   "recto": "Deux dépendances à connaître — qu'y a-t-il à retenir ?",
+   "verso": "À débit imposé et en régime laminaire, la perte de charge varie comme 1/D⁴ : augmenter le diamètre de 40 % divise les pertes par quatre. Elle varie aussi comme L, donc raccourcir la conduite de moitié ne divise les pertes que par deux.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quel régime pour Re &lt; 2000 ? Re &gt; 4000 ?",
-   "verso": "Re &lt; 2000 : <b>laminaire</b> (filets parallèles).<br>Re &gt; 4000 : <b>turbulent</b> (tourbillons).",
-   "origine": "Cours §2 Les deux régimes"
+   "type": "trou",
+   "recto": "Si Re > 4000, il est …… : les filets s'enchevêtrent en tourbillons.",
+   "rep": "turbulent",
+   "verso": "<strong>turbulent</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Où place-t-on le terme de pertes de charge dans Bernoulli ? Quel est son signe ?",
-   "verso": "Δp<sub>pertes</sub> est <b>toujours positif</b> et se place <b>du côté de l'arrivée</b> : le fluide perd de l'énergie en chemin.",
-   "origine": "Cours §3 Bernoulli corrigé"
+   "type": "trou",
+   "recto": "Entre les deux, le régime est dit …… — instable, il n'est pas au programme.",
+   "rep": "transitoire",
+   "verso": "<strong>transitoire</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pertes régulières et pertes singulières : différence ?",
-   "verso": "<b>Régulières</b> : le long des conduites droites (frottement sur les parois).<br><b>Singulières</b> : aux accidents (coude, vanne, rétrécissement, té). Elles s'additionnent.",
-   "origine": "Cours §3 Deux familles de pertes"
+   "type": "trou",
+   "recto": "Si Re < 2000, l'écoulement est …… : les filets de fluide restent parallèles.",
+   "rep": "laminaire",
+   "verso": "<strong>laminaire</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formule des pertes de charge régulières ? Que vaut λ en laminaire ?",
-   "verso": "<b>Δp = λ (L/D) ½ ρ v²</b>, λ sans unité.<br>Laminaire : <b>λ = 64 / Re</b> ; turbulent : abaque (donné).",
-   "origine": "Cours §4 Les pertes régulières"
+   "type": "trou",
+   "recto": "La viscosité <strong>dynamique</strong> µ s'exprime en Pa·s ; la viscosité <strong>cinématique</strong> ν= µ/ρ s'exprime en …….",
+   "rep": "meter²/s",
+   "verso": "<strong>meter²/s</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formule des pertes de charge singulières ?",
-   "verso": "<b>Δp = (Σ K) ½ ρ v²</b>, coefficients K sans unité, donnés, qui <b>s'additionnent</b>.",
-   "origine": "Cours §5 Les pertes singulières"
+   "type": "trou",
+   "recto": "À débit imposé et en régime laminaire, la perte de charge varie comme 1/D⁴ : augmenter le diamètre de 40 % divise les pertes par …….",
+   "rep": "quatre",
+   "verso": "<strong>quatre</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>À débit imposé, en laminaire, comment la perte de charge dépend-elle de D et de L ?",
-   "verso": "Comme <b>1/D<sup>4</sup></b> et comme <b>L</b>. Le <b>diamètre</b> est le levier le plus efficace (+40 % de D → pertes ÷ 4).",
-   "origine": "Cours §6 Le diamètre, levier principal"
+   "type": "question",
+   "recto": "La viscosité cinématique ν s'exprime en ……",
+   "rep": "meter²/s",
+   "verso": "<strong>meter²/s</strong> — ν= µ/ρ. La réponse a est l'unité de la viscosité dynamique µ : les deux se confondent facilement.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment les pertes de charge suivent-elles le débit en laminaire ? en turbulent ?",
-   "verso": "Laminaire : comme le <b>débit</b>. Turbulent : comme son <b>carré</b>.",
-   "origine": "Cours §6 Débit et pertes"
+   "type": "question",
+   "recto": "Quand la température d'une huile diminue, sa viscosité ……",
+   "rep": "augmente",
+   "verso": "<strong>augmente</strong> — Une huile VG 46 est cinq fois et demie plus visqueuse à 10 qu'à 40 °C. C'est ce qui explique les difficultés au démarrage à froid.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que doit fournir une pompe ? Puissance hydraulique ?",
-   "verso": "La somme : <b>dénivelé + pertes régulières + pertes singulières</b>.<br><b>P<sub>hyd</sub> = Δp × Q<sub>v</sub></b> ; puissance absorbée = P<sub>hyd</sub> / η.",
-   "origine": "Cours §7 La pompe"
+   "type": "question",
+   "recto": "Le nombre de Reynolds s'exprime en ……",
+   "rep": "sans unité",
+   "verso": "<strong>sans unité</strong> — C'est un nombre pur, qui compare effets d'inertie et effets visqueux.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer une perte de charge régulière ?",
-   "verso": "1. <b>Vitesse</b> : v = Q<sub>v</sub>/S (débit en m³/s).<br>2. <b>Reynolds</b> et <b>nommer le régime</b> (jamais facultatif).<br>3. <b>λ</b> : 64/Re en laminaire, abaque en turbulent.<br>4. Appliquer Δp = λ (L/D) ½ρv², convertir en bar.",
-   "origine": "Cours §4 Méthode — Perte de charge régulière"
+   "type": "question",
+   "recto": "En régime laminaire, le coefficient de perte de charge vaut ……",
+   "rep": "λ= 64/Re",
+   "verso": "<strong>λ= 64/Re</strong> — Et cette relation n'est valable qu'en laminaire.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Huile (ν = 46 × 10<sup>−6</sup> m²/s) à 0,85 m/s dans 12 mm. Comment trouver le régime ?",
-   "verso": "1. Convertir d = 0,012 m.<br>2. Re = v d / ν = 0,85 × 0,012 / 46 × 10<sup>−6</sup> ≈ <b>222</b>.<br>3. Re &lt; 2000 → <b>laminaire</b>.",
-   "origine": "Cours §2 Deux fluides, deux régimes"
+   "type": "question",
+   "recto": "En régime turbulent, le coefficient λ ……",
+   "rep": "se lit sur un abaque",
+   "verso": "<strong>se lit sur un abaque</strong> — λ dépend alors aussi de la rugosité de la conduite ; l'énoncé le fournit.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment dimensionner une pompe ?",
-   "verso": "1. <b>Additionner</b> dénivelé (ρgh), pertes régulières, pertes singulières → Δp<sub>pompe</sub>.<br>2. <b>P<sub>hyd</sub> = Δp × Q<sub>v</sub></b>.<br>3. Diviser par le <b>rendement</b>.<br>4. <b>Comparer les postes</b> pour savoir où agir.",
-   "origine": "Cours §7 Méthode — Dimensionner une pompe"
+   "type": "question",
+   "recto": "Les pertes de charge régulières se produisent ……",
+   "rep": "le long des conduites droites",
+   "verso": "<strong>le long des conduites droites</strong> — Les coudes et les vannes relèvent des pertes singulières.",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

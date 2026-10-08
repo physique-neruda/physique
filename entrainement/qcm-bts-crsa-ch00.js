@@ -134,168 +134,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>À quelle condition un résultat sort-il automatiquement dans la bonne unité ?",
-   "verso": "Avoir converti <b>toutes les données en unités SI avant de calculer</b>. Le tableau des unités dérivées se <b>consulte</b>, il ne s'apprend pas.",
-   "origine": "Cours §1 Grandeur, valeur et unité"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Grandeurs proportionnelles » ?",
+   "verso": "Deux grandeurs sont <strong>proportionnelles</strong> si l'on passe de l'une à l'autre en multipliant <em>toujours</em> par le même nombre.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>On convertit vers une unité plus <b>petite</b>. Le nombre augmente ou diminue ? Et l'exposant ?",
-   "verso": "Le découpage est plus fin, il en faut <b>davantage</b> : le nombre <b>augmente</b>, exposant <b>positif</b>.<br>Vers une unité plus grande : le nombre diminue, exposant négatif.",
-   "origine": "Cours §1 La règle qui donne le signe"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Le principe de l'égalité » ?",
+   "verso": "Une égalité reste vraie si l'on effectue <strong>la même opération sur ses deux membres</strong> : additionner, soustraire, multiplier ou diviser par un même nombre non nul. C'est le seul outil nécessaire — tout le reste n'en est qu'un raccourci.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sur quelle unité s'appliquent les préfixes pour une masse ?",
-   "verso": "Sur le <b>gramme</b>, jamais sur le kilogramme : le kg est la seule unité de base qui porte déjà un préfixe.",
-   "origine": "Cours §1 Le piège du kilogramme"
+   "type": "retenir",
+   "recto": "L'aide-mémoire des unités dérivées — qu'y a-t-il à retenir ?",
+   "verso": "Le tableau vert ci-dessus est une <strong>ressource</strong>, pas une leçon : on ne le retient pas, on le consulte. Il sert à une seule chose — vérifier qu'un résultat sort dans la bonne unité.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que valent 10<sup>a</sup> × 10<sup>b</sup> et 10<sup>a</sup> / 10<sup>b</sup> ?",
-   "verso": "10<sup>a</sup> × 10<sup>b</sup> = <b>10<sup>a+b</sup></b><br>10<sup>a</sup> / 10<sup>b</sup> = <b>10<sup>a−b</sup></b>",
-   "origine": "Cours §2 Les puissances de dix"
+   "type": "retenir",
+   "recto": "La règle qui donne le signe — qu'y a-t-il à retenir ?",
+   "verso": "C'est de cette seule idée que découle tout le reste du chapitre : · unité d'arrivée <strong>plus petite</strong> il en faut <strong>davantage</strong> le nombre <strong>augmente</strong>.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelle est la forme d'une écriture scientifique ?",
-   "verso": "<b>N = a × 10<sup>n</sup></b> avec <b>1 ≤ a &lt; 10</b>.<br>45 × 10<sup>5</sup> ou 0,45 × 10<sup>7</sup> ne sont pas des écritures scientifiques.",
-   "origine": "Cours §2 L'écriture scientifique"
+   "type": "retenir",
+   "recto": "C'est la même question que pour les conversions — qu'y a-t-il à retenir ?",
+   "verso": "Agrandir exposant positif, rapetisser exposant négatif. On ne retient donc <strong>aucune règle sur le sens de déplacement de la virgule</strong> : on se demande seulement si le nombre doit grandir ou rétrécir, exactement comme pour un changement d'unité.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Écriture scientifique : comment choisir le signe de l'exposant ?",
-   "verso": "Se demander si le nombre doit <b>grandir</b> (exposant <b>positif</b>) ou <b>rapetisser</b> (exposant <b>négatif</b>) pour revenir au nombre de départ.",
-   "origine": "Cours §2 Même question que pour les conversions"
+   "type": "trou",
+   "recto": "C'est faux : il faut <strong>aussi</strong> que …….",
+   "rep": "la droite passe par l'origine",
+   "verso": "<strong>la droite passe par l'origine</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Chiffres significatifs d'un produit ou quotient ? d'une somme ou différence ?",
-   "verso": "Produit, quotient : autant que la <b>donnée la moins précise</b>.<br>Somme, différence : le <b>rang du dernier chiffre significatif</b> (les décimales) commande.<br>On n'arrondit <b>qu'à la fin</b>.",
-   "origine": "Cours §3 La règle du plus faible"
+   "type": "trou",
+   "recto": "Deux grandeurs sont <strong>proportionnelles</strong> si l'on passe de l'une à l'autre en multipliant …….",
+   "rep": "toujours par le même nombre",
+   "verso": "<strong>toujours par le même nombre</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Combien de chiffres significatifs a 1200 ? Comment lever le doute ?",
-   "verso": "2, 3 ou 4 : on ne sait pas. Seule l'<b>écriture scientifique</b> le dit : 1,2 × 10<sup>3</sup> ; 1,20 × 10<sup>3</sup> ; 1,200 × 10<sup>3</sup>.",
-   "origine": "Cours §3 Pourquoi 1200 est ambigu"
+   "type": "trou",
+   "recto": "La partie décimale est une <strong>fraction d'heure</strong> : 0,5 h = 0,5 × 60 = 30min, donc 1,5 h vaut …….",
+   "rep": "1 h 30 min",
+   "verso": "<strong>1 h 30 min</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Compte-t-on les chiffres significatifs de « commande en 24 V » ou « réseau d'air à 6 bar » ?",
-   "verso": "Non : ce sont des valeurs <b>nominales</b> (noms de catégorie), pas des mesures.",
-   "origine": "Cours §3 Valeurs nominales"
+   "type": "trou",
+   "recto": "Une égalité reste vraie si l'on effectue …… : additionner, soustraire, multiplier ou diviser par un même nombre non nul.",
+   "rep": "la même opération sur ses deux membres",
+   "verso": "<strong>la même opération sur ses deux membres</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi soustraire deux nombres voisins fait-il perdre de la précision ?",
-   "verso": "Le résultat garde le rang de la donnée la moins précise : 1,35 × 10<sup>5</sup> − 1,013 × 10<sup>5</sup> = <b>3,4 × 10<sup>4</sup> Pa</b>, seulement 2 chiffres significatifs.",
-   "origine": "Cours §3 La soustraction détruit des chiffres"
+   "type": "trou",
+   "recto": "Ce nombre est le <strong>coefficient de proportionnalité</strong> ; c'est le …… des deux grandeurs, et il doit rester <strong>constant</strong>.",
+   "rep": "quotient",
+   "verso": "<strong>quotient</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Préfixes de kilo à milli, puis au-delà ? Que vaut un cran ?",
-   "verso": "Un cran = <b>un facteur 10</b>.<br>k, h, da, unité, d, c, m.<br>Puis par <b>3 crans</b> : M, G, T ; µ, n, p (« Mille Microbes Nagent Profondément »).",
-   "origine": "Cours §4 Convertir : compter les crans"
+   "type": "question",
+   "recto": "L'unité SI de la masse est ……",
+   "rep": "le kilogramme",
+   "verso": "<strong>le kilogramme</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que valent 1 cm² en m², et 1 L en m³ ?",
-   "verso": "<b>1 cm² = 10<sup>−4</sup> m²</b><br><b>1 L = 1 dm³ = 10<sup>−3</sup> m³</b>",
-   "origine": "Cours §5 Le piège des unités composées"
+   "type": "question",
+   "recto": "2,5 kW valent ……",
+   "rep": "2500 W",
+   "verso": "<strong>2500 W</strong> — le kilogramme est l'unité de base, et c'est la seule dont le nom porte déjà un préfixe : il n'existe pas de « kilokilogramme ». Et « kilo » vaut toujours 1000, jamais 100. 3pt",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>1 bar en Pa ? 1 L/min en m³/s ? 1 tr/min en rad/s ? T (K) en fonction de θ (°C) ?",
-   "verso": "<b>1 bar = 10<sup>5</sup> Pa</b> ; <b>1 L/min = 1,67 × 10<sup>−5</sup> m³/s</b> ; <b>1 tr/min = 2π/60 rad/s</b> ; <b>T = θ + 273</b>.",
-   "origine": "Cours §5 Conversions du métier"
+   "type": "question",
+   "recto": "Le nombre 0,00450 comporte ……",
+   "rep": "3 chiffres significatifs",
+   "verso": "<strong>3 chiffres significatifs</strong> — dans 0,00450, les zéros de gauche ne comptent pas, celui de droite si : trois chiffres significatifs. Et le quotient garde le nombre de chiffres de la donnée la moins précise, ici deux.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Combien valent 1,5 h et 2,25 h ? Comment passe-t-on des km/h aux m/s ?",
-   "verso": "1,5 h = <b>1 h 30 min</b> ; 2,25 h = <b>2 h 15 min</b>.<br>km/h → m/s : <b>diviser par 3,6</b>.",
-   "origine": "Cours §6 Durées"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Deux grandeurs sont proportionnelles si… ? Et sur un graphique ?",
-   "verso": "Leur <b>quotient est constant</b>.<br>Graphique : <b>droite passant par l'origine</b> — les deux conditions sont nécessaires.",
-   "origine": "Cours §7 Proportionnalité"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formule de la pente ? Avec quelle unité ? Quels points choisir ?",
-   "verso": "<b>a = (y<sub>2</sub> − y<sub>1</sub>) / (x<sub>2</sub> − x<sub>1</sub>)</b>, unité de y / unité de x, sur <b>deux points éloignés</b>.",
-   "origine": "Cours §9 Lire une droite"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quand a-t-on le droit d'utiliser une règle de trois sur une droite ?",
-   "verso": "Seulement si la droite <b>passe par l'origine</b>. Avec une ordonnée à l'origine (décalage de capteur, tare), doubler x ne double pas y.",
-   "origine": "Cours §9 La règle de trois"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sur quel principe repose la transformation d'une formule ?",
-   "verso": "Faire <b>la même opération sur les deux membres</b>. Seule méthode qui marche aussi avec une somme.",
-   "origine": "Cours §10 Transformer une formule"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Dans un triangle rectangle, que valent cos α, sin α, tan α ?",
-   "verso": "<b>cos α = adjacent/hypoténuse</b> ; <b>sin α = opposé/hypoténuse</b> ; <b>tan α = opposé/adjacent</b>.<br>Vérifier le mode <b>degrés</b>.",
-   "origine": "Cours §11 Trigonométrie"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment juger l'accord entre une mesure et une prévision ?",
-   "verso": "Par l'<b>écart relatif</b> |mesure − prévision| / prévision × 100. En dessous de <b>5 %</b> : compatibles. Un écart de zéro doit inquiéter (calcul recopié).",
-   "origine": "Cours §12 Comparer mesure et prévision"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment écrire 4 500 000 Pa et 0,000072 m en écriture scientifique ?",
-   "verso": "1. Écrire le nombre entre 1 et 10 : 4,5 et 7,2.<br>2. Compter les rangs pour revenir au nombre : 6 en agrandissant, 5 en rapetissant.<br>3. <b>4,5 × 10<sup>6</sup> Pa</b> ; <b>7,2 × 10<sup>−5</sup> m</b>.",
-   "origine": "Cours §2 Méthode 1"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Vérin : S = 38,5 cm², p = 125 bar. Comment calculer F = p S au bon nombre de chiffres ?",
-   "verso": "1. SI : S = 38,5 × 10<sup>−4</sup> m² ; p = 1,25 × 10<sup>7</sup> Pa.<br>2. Calculer sans arrondir : 48 125 N.<br>3. 3 c.s. → <b>F = 4,81 × 10<sup>4</sup> N</b>.<br>4. Contrôler l'ordre de grandeur.",
-   "origine": "Cours §3 Méthode 2"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Moteur à 1450 tr/min, couple 141 N·m. Comment calculer la puissance ?",
-   "verso": "1. ω = 1450 × 2π/60 = <b>151,8 rad/s</b>.<br>2. P = C ω = 141 × 151,8 ≈ 21 400 W.<br>3. <b>P ≈ 21,4 kW</b> (moteur normalisé 22 kW).<br>Sans conversion : 9,55 fois trop.",
-   "origine": "Cours §6 Méthode 3"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>6,0 m de flexible pèsent 5,4 kg. Comment trouver la masse de 14 m ?",
-   "verso": "1. Vérifier la proportionnalité.<br>2. <b>Passer à l'unité</b> : 1 m → 0,90 kg.<br>3. 14 × 0,90 = <b>12,6 kg</b>.<br>4. Contrôler.",
-   "origine": "Cours §8 Méthode 4"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment isoler Δθ dans Q = m c Δθ ?",
-   "verso": "1. Δθ est multiplié par m et c.<br>2. <b>Diviser les deux membres</b> par m c.<br>3. <b>Δθ = Q / (m c)</b>.<br>4. Contrôler l'unité.",
-   "origine": "Cours §10 Méthode 5"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment isoler h dans p<sub>A</sub> = p<sub>B</sub> + ρ g h ?",
-   "verso": "1. <b>Déplacer le terme entier</b> : p<sub>A</sub> − p<sub>B</sub> = ρ g h.<br>2. <b>Diviser</b> par ρ g : h = (p<sub>A</sub> − p<sub>B</sub>)/(ρ g).",
-   "origine": "Cours §10 Quand la formule contient une somme"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment conclure sur une mesure comparée à une prévision ?",
-   "verso": "1. Calculer la valeur <b>prévue</b>.<br>2. Relever la valeur <b>mesurée</b> avec son unité.<br>3. Calculer l'<b>écart relatif</b> en %.<br>4. <b>Conclure par une phrase</b> (compatible ou non, et pourquoi).",
-   "origine": "Cours §12 Méthode 6"
+   "type": "question",
+   "recto": "On calcule 12,3 / 4,0. Le résultat s'écrit ……",
+   "rep": "3,1",
+   "verso": "<strong>3,1</strong> — dans 0,00450, les zéros de gauche ne comptent pas, celui de droite si : trois chiffres significatifs. Et le quotient garde le nombre de chiffres de la donnée la moins précise, ici deux.",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

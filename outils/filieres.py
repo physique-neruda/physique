@@ -26,23 +26,19 @@ FILIERES = [
      "rubriques": ["Calcul", "Mesure"]},
     {"id": "bts-et", "nom": "BTS Électrotechnique",
      "sous_titre": "Physique appliquée",
-     "rubriques": ["Cours", "TP", "ADM", "TP systèmes", "S'entraîner", "Corrigés"]},
+     "rubriques": ["Cours", "TP", "ADM", "TP systèmes", "S'entraîner"]},
     {"id": "bts-crsa", "nom": "BTS CRSA",
      "sous_titre": "Conception et Réalisation de Systèmes Automatiques",
-     "rubriques": ["Cours", "TP", "S'entraîner", "Corrigés"]},
+     "rubriques": ["Cours", "TP", "S'entraîner"]},
     {"id": "bts-tsma", "nom": "BTS TSMA",
      "sous_titre": "Techniques et Services en Matériels Agricoles",
-     "rubriques": ["Cours", "TP", "S'entraîner", "Corrigés"]},
+     "rubriques": ["Cours", "TP", "S'entraîner"]},
     {"id": "1sti2d", "nom": "1re STI2D",
      "sous_titre": "Physique-chimie et mathématiques",
-     "rubriques": ["Cours", "TP", "S'entraîner", "Corrigés"]},
+     "rubriques": ["Cours", "TP", "S'entraîner"]},
 ]
 
 # --------------------------------------------------------- listes blanches
-# Décision du 3 octobre 2026 : côté élèves, seulement prérequis, cours (complet et à
-# compléter), exercices, bilan, activités et corrigés des séances. Les énoncés de CCF,
-# devoirs E32, oraux, sujets E4 et situations U51 ne sortent plus : ils sont rangés,
-# avec tous les corrigés, dans l'espace enseignant caché (outils/preparer_prive.py).
 # Ce qui NE sort JAMAIS, dans aucune filière : tout ce qui porte « corrige »
 # ou « test » dans son nom (second verrou, dans publier.py), et tout ce qui
 # n'est pas nommé ci-dessous. Les diagnostics de début d'année n'y sont pas :
@@ -67,8 +63,6 @@ DOCUMENTS = {
          "Les exercices du chapitre, sans les corrigés."),
         ("bilan",             "Cours", "Bilan de fin de chapitre",
          "Douze questions pour se tester, réponses en bas de page."),
-        ("corrige_seances",   "Corrigés", "Corrigé des séances",
-         "Les corrections des exercices et des parties d'activité déjà traités en classe."),
     ],
 
     "bts-tsma": [
@@ -88,12 +82,10 @@ DOCUMENTS = {
          "La même étude, menée sur une animation : aucun matériel nécessaire."),
         ("activite_banc",     "TP",    "Activité sur banc",
          "La même étude menée sur le banc du laboratoire, avec le matériel réel."),
-        # CACHÉ (espace enseignant) : ("ccf",               "TP",    "Situation type CCF",
-        #   "Un sujet d'entraînement au format de l'évaluation en cours de formation."),
-        # CACHÉ (espace enseignant) : ("oral",              "TP",    "Oral — sujet d'entraînement",
-        #   "Le format de l'épreuve orale, à préparer en autonomie."),
-        ("corrige_seances",   "Corrigés", "Corrigé des séances",
-         "Les corrections des exercices et des parties d'activité déjà traités en classe."),
+        ("ccf",               "TP",    "Situation type CCF",
+         "Un sujet d'entraînement au format de l'évaluation en cours de formation."),
+        ("oral",              "TP",    "Oral — sujet d'entraînement",
+         "Le format de l'épreuve orale, à préparer en autonomie."),
     ],
 
     "bts-crsa": [
@@ -111,14 +103,12 @@ DOCUMENTS = {
          "L'activité de découverte, à faire en salle de TP."),
         ("activite2",         "TP",    "Activité 2",
          "La seconde activité du chapitre."),
-        # CACHÉ (espace enseignant) : ("ccf",               "TP",    "Situation type CCF",
-        #   "Un sujet d'entraînement au format de l'évaluation en cours de formation."),
-        # CACHÉ (espace enseignant) : ("devoir",            "TP",    "Devoir type E32",
-        #   "Un devoir écrit au format de l'épreuve E32, pour s'entraîner."),
-        # CACHÉ (espace enseignant) : ("oral",              "TP",    "Oral — sujet d'entraînement",
-        #   "Le format de l'épreuve orale, à préparer en autonomie."),
-        ("corrige_seances",   "Corrigés", "Corrigé des séances",
-         "Les corrections des exercices et des parties d'activité déjà traités en classe."),
+        ("ccf",               "TP",    "Situation type CCF",
+         "Un sujet d'entraînement au format de l'évaluation en cours de formation."),
+        ("devoir",            "TP",    "Devoir type E32",
+         "Un devoir écrit au format de l'épreuve E32, pour s'entraîner."),
+        ("oral",              "TP",    "Oral — sujet d'entraînement",
+         "Le format de l'épreuve orale, à préparer en autonomie."),
     ],
 
     "bts-et": [
@@ -126,14 +116,6 @@ DOCUMENTS = {
          "Le sujet de TP sur le four du laboratoire : lecture du schéma, mesures, gradateur à train d'ondes."),
         ("tp_banc",           "TP",    "TP — Le banc départ-moteur",
          "Le sujet de TP sur le banc : plaque, schéma, câblage, mesures, démarrage direct, protections, diagnostic."),
-        ("tp_piscine",        "TP",    "TP — La centrale de pompage",
-         "Le sujet de TP sur la centrale de piscine DMS : armoire, lignage des vannes, mesures, pompes."),
-        ("tp_levage",         "TP",    "TP — Le système de levage",
-         "Le sujet de TP sur le levage : énergie, lecture des sept folios du schéma, mise en service."),
-        ("tp_ermalux",        "TP",    "TP — L'éclairage scénique Ermalux",
-         "Le sujet de TP sur l'éclairage scénique : schéma, variateurs, mise en service."),
-        ("tp_harmocem",       "TP",    "TP — Pollution harmonique et filtrage (Harmocem)",
-         "Le sujet de TP sur le banc Harmocem : mesures d'harmoniques et solutions de filtrage."),
         ("prerequis",         "Cours", "Prérequis",
          "À faire avant d'ouvrir le chapitre : ce qu'il faut savoir manipuler."),
         ("a1_chauffage",      "Cours", "Activité 1 — Chauffer un corps",
@@ -160,6 +142,10 @@ DOCUMENTS = {
          "Le document à remplir pendant l'animation."),
         ("a2_treuil",         "Cours", "Activité 2 — Le treuil",
          "Le document à remplir pendant l'animation."),
+        ("a1_corps",          "Cours", "Activité 1 — Corps chaud, couleur et photon",
+         "Le document à remplir pendant l'animation."),
+        ("a2_eclairage",      "Cours", "Activité 2 — L'éclairage d'un atelier",
+         "Le document à remplir pendant l'animation."),
         ("cours_a_completer", "Cours", "Cours à compléter",
          "La version distribuée en séance, avec les passages à écrire."),
         ("cours",             "Cours", "Cours complet",
@@ -168,18 +154,16 @@ DOCUMENTS = {
          "Exploitation de documents techniques, après le cours."),
         ("exercices",         "Cours", "Exercices",
          "Les exercices du chapitre, sans les corrigés."),
-        # CACHÉ (espace enseignant) : ("u51",               "Cours", "Situation U51",
-        #   "Une situation d'évaluation type U51, pour s'entraîner."),
-        # CACHÉ (espace enseignant) : ("e4_sujet",          "Cours", "Sujet type E4 — sujet",
-        #   "Le questionnement, au format de l'épreuve."),
-        # CACHÉ (espace enseignant) : ("e4_dres",           "Cours", "Sujet type E4 — dossier ressources",
-        #   "Les documents techniques à exploiter."),
-        # CACHÉ (espace enseignant) : ("e4_drep",           "Cours", "Sujet type E4 — documents réponses",
-        #   "Les pages à rendre."),
+        ("u51",               "Cours", "Situation U51",
+         "Une situation d'évaluation type U51, pour s'entraîner."),
+        ("e4_sujet",          "Cours", "Sujet type E4 — sujet",
+         "Le questionnement, au format de l'épreuve."),
+        ("e4_dres",           "Cours", "Sujet type E4 — dossier ressources",
+         "Les documents techniques à exploiter."),
+        ("e4_drep",           "Cours", "Sujet type E4 — documents réponses",
+         "Les pages à rendre."),
         ("bilan",             "Cours", "Bilan de fin de chapitre",
          "Des questions pour se tester, réponses en bas de page."),
-        ("corrige_seances",   "Corrigés", "Corrigé des séances",
-         "Les corrections des exercices et des parties d'activité déjà traités en classe."),
     ],
 }
 
@@ -191,18 +175,7 @@ DOCUMENTS = {
 # de chapitres : ses documents sont les mêmes, la rubrique change.
 RUBRIQUE_DU_CHAPITRE = {
     "bts-et": {"tp01": "TP", "tp02": "TP", "tp03": "TP", "tp04": "TP", "tp05": "TP", "tp06": "TP", "tp07": "TP", "ch09": "TP", "adm01": "ADM",
-               "adm02": "TP systèmes", "adm03": "TP systèmes",
-               "adm04": "TP systèmes", "adm05": "TP systèmes", "adm06": "TP systèmes",
-               "adm07": "TP systèmes"},
-}
-
-# Chapitres retirés du site élèves (décision du 3 octobre 2026) : ni leurs PDF,
-# ni leurs animations, ni leurs QCM n'apparaissent dans le catalogue. Leurs
-# documents sont rangés dans l'espace enseignant (prive-atelier/<filière>/<ch>/).
-#   c04, c05 : cours assurés par le collègue (statique des fluides, mécanique
-#              en translation) ;  ch09 : distribution et qualité de l'énergie.
-CHAPITRES_CACHES = {
-    "bts-et": ["c04", "c05", "ch09"],
+               "adm02": "TP systèmes", "adm03": "TP systèmes"},
 }
 
 # Titre affiché différent pour un document précis d'un chapitre précis.
@@ -226,6 +199,21 @@ TITRES_PARTICULIERS = {
 # chapitre. None => à la fin de la rubrique.
 ANIMATIONS = {
     "bts-et": [
+        {"chapitre": "c06", "rubrique": "Cours", "avant": "a1_corps",
+         "titre": "Corps chaud, couleur et photon",
+         "fichier": "animations/corps-chaud.html",
+         "description": "La température d'un corps chaud règle son spectre : longueur d'onde du "
+                        "maximum, teinte perçue, part visible ; et l'énergie du photon pour une "
+                        "longueur d'onde choisie.",
+         "trouve": "λmax × T = 2,90 × 10⁻³ m·K (loi de Wien) ; E = hc/λ.",
+         "motscles": ["wien", "temperature de couleur", "photon", "spectre"]},
+        {"chapitre": "c06", "rubrique": "Cours", "avant": "a2_eclairage",
+         "titre": "L'éclairage d'un atelier",
+         "fichier": "animations/eclairage-atelier.html",
+         "description": "Local, type et nombre de luminaires : éclairement moyen comparé aux valeurs "
+                        "recommandées, puissance installée, énergie et coût annuels.",
+         "trouve": "E = N·Φ·U·M/S ; les LED divisent la consommation par deux face aux tubes.",
+         "motscles": ["eclairement", "lux", "lumen", "led", "efficacite lumineuse"]},
         {"chapitre": "c05", "rubrique": "Cours", "avant": "a1_chariot",
          "titre": "Le chariot filoguidé",
          "fichier": "animations/chariot-filoguide.html",
@@ -353,28 +341,6 @@ ANIMATIONS = {
          "trouve": "L'automaintien, la priorité à l'arrêt, et ce que disent les voyants.",
          "motscles": ["demarrage direct", "automaintien", "bouton poussoir", "arret d'urgence",
                       "relais thermique", "sectionneur", "voyant", "schema de commande"]},
-        {"chapitre": "adm04", "rubrique": "TP systèmes", "avant": "tp_piscine",
-         "titre": "La centrale de pompage : comprendre et ligner pas à pas",
-         "fichier": "animations/centrale-pompage.html",
-         "description": "Vingt-quatre étapes sur la centrale de piscine DMS : le circuit d'eau, "
-                        "les vannes à positionner pour chaque lignage, puis l'armoire sur les "
-                        "folios du schéma constructeur.",
-         "trouve": "Quelles vannes ouvrir pour chaque fonction, et ce que commande l'armoire.",
-         "motscles": ["pompage", "piscine", "vanne", "lignage", "pompe", "armoire", "schema"]},
-        {"chapitre": "adm05", "rubrique": "TP systèmes", "avant": "tp_levage",
-         "titre": "Le système de levage : lecture du schéma pas à pas",
-         "fichier": "animations/systeme-levage.html",
-         "description": "Dix-huit étapes sur les sept folios du schéma du levage : puissance, "
-                        "variateur, commande, fins de course et sécurités.",
-         "trouve": "Suivre un ordre de montée du bouton jusqu'au moteur.",
-         "motscles": ["levage", "schema", "variateur", "fin de course", "folio", "moteur"]},
-        {"chapitre": "adm07", "rubrique": "TP systèmes", "avant": "tp_harmocem",
-         "titre": "Harmocem : la pollution harmonique pas à pas",
-         "fichier": "animations/harmocem.html",
-         "description": "Les points de mesure du banc, puis chaque solution de filtrage avec les "
-                        "relevés de l'analyseur : forme du courant, spectre, THD.",
-         "trouve": "Ce que chaque solution de filtrage retire du spectre.",
-         "motscles": ["harmonique", "thd", "filtrage", "spectre", "analyseur", "harmocem"]},
         {"chapitre": "adm01", "rubrique": "ADM", "avant": "u51",
          "titre": "Le démarrage étoile-triangle", "fichier": "animations/etoile-triangle.html",
          "description": "Les trois contacteurs, la temporisation réglable et le temps mort. La "
@@ -595,5 +561,4 @@ SOURCES = {
 # Correspondance clé du site -> dossier dans la collection ET.
 DOSSIERS_ET = {"ch00": "ch00", "ch09": "ch09", "c01": "C1", "c02": "C2",
                "tp01": "TP1", "tp02": "TP2", "tp04": "TP4", "tp05": "TP5", "tp06": "TP6", "tp07": "TP7", "adm01": "ADM1", "adm02": "ADM2", "adm03": "ADM3",
-               "adm04": "ADM4", "adm05": "ADM5", "adm06": "ADM6", "adm07": "ADM7",
-               "c03": "C3", "c04": "C4", "c05": "C5", "tp03": "TP3"}
+               "c03": "C3", "c04": "C4", "c05": "C5", "c06": "C6", "tp03": "TP3"}

@@ -213,84 +213,99 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>La fréquence se lit-elle sur un chronogramme ?",
-   "verso": "Non : on lit la <b>période T</b> et on calcule <b>f = 1/T</b> (attention ms → s).",
-   "origine": "Cours §1 Chronogramme"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Décomposition d'un signal périodique » ?",
+   "verso": "Tout signal périodique est la somme de sa composante continue, égale à sa valeur moyenne, et de sa composante alternative, de valeur moyenne nulle.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>De quoi se compose tout signal périodique ?",
-   "verso": "D'une <b>composante continue</b> (sa valeur moyenne) + une <b>composante alternative</b> (de valeur moyenne nulle).",
-   "origine": "Cours §2 Continue et alternative"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Valeur moyenne » ?",
+   "verso": "La valeur moyenne d'un signal périodique, notée u, est l'aire algébrique sous la courbe sur une période, divisée par la période.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir la valeur moyenne d'un signal périodique. Raccourci si le motif est symétrique ?",
-   "verso": "L'<b>aire algébrique</b> sous la courbe sur une période, divisée par la période. Motif symétrique : c'est l'<b>axe de symétrie</b>.<br>Créneau : ⟨u⟩ = α U<sub>max</sub>.",
-   "origine": "Cours §3 La valeur moyenne"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Valeur efficace, définition énergétique » ?",
+   "verso": "La valeur efficace d'un signal périodique est la valeur de la tension continue qui dissiperait la même puissance dans la même résistance.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énoncer la définition de la valeur efficace.",
-   "verso": "La valeur de la <b>tension continue</b> qui dissiperait <b>la même puissance</b> dans la même résistance.",
-   "origine": "Cours §4 La valeur efficace"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Fondamental et harmoniques » ?",
+   "verso": "Un signal périodique alternatif se décompose en une somme de sinusoïdes : le <strong>fondamental</strong>, de fréquence f₁ égale à celle du signal, et les <strong>harmoniques</strong>, de fréquences multiples entiers de f₁.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>U<sub>eff</sub> = U<sub>max</sub>/√2 : est-ce valable pour tout signal ?",
-   "verso": "<b>Non</b> : seulement pour un signal <b>sinusoïdal</b>. Faux pour un créneau.",
-   "origine": "Cours §4 La valeur efficace"
+   "type": "trou",
+   "recto": "La valeur moyenne d'un signal périodique, notée u, est …… sur une période, divisée par la période.",
+   "rep": "l'aire algébrique sous la courbe",
+   "verso": "<strong>l'aire algébrique sous la courbe</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Relation entre valeur efficace totale, valeur moyenne et valeur efficace de la composante alternative ?",
-   "verso": "<b>U<sub>eff</sub>² = ⟨u⟩² + U<sub>eff,alt</sub>²</b> (valable pour tout signal périodique).",
-   "origine": "Cours §4 Relation générale"
+   "type": "trou",
+   "recto": "La valeur efficace d'un signal périodique est la valeur de …… qui dissiperait la même puissance dans la même résistance.",
+   "rep": "la tension continue",
+   "verso": "<strong>la tension continue</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le fondamental ? les harmoniques ?",
-   "verso": "<b>Fondamental</b> : sinusoïde de fréquence <b>f<sub>1</sub></b> = celle du signal.<br><b>Harmoniques</b> : fréquences <b>f<sub>n</sub> = n × f<sub>1</sub></b>.",
-   "origine": "Cours §5 Fondamental et harmoniques"
+   "type": "question",
+   "recto": "Un signal a une période de 2,0 ms. Sa fréquence vaut ……",
+   "rep": "500 Hz",
+   "verso": "<strong>500 Hz</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sur un spectre d'amplitude, que représente la raie à 0 Hz ? la première raie non nulle ?",
-   "verso": "Raie à 0 Hz : la <b>composante continue</b> (valeur moyenne).<br>Première raie non nulle : le <b>fondamental</b>.",
-   "origine": "Cours §5 Le spectre"
+   "type": "question",
+   "recto": "La composante continue d'un signal périodique, c'est ……",
+   "rep": "sa valeur moyenne",
+   "verso": "<strong>sa valeur moyenne</strong> — La composante continue est la valeur moyenne du signal. C'est elle que lit un voltmètre en position DC, et elle apparaît sur le spectre sous la forme d'une raie à 0 Hz.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelle position du voltmètre pour une valeur moyenne ? pour la vraie valeur efficace ?",
-   "verso": "Valeur moyenne : <b>DC</b>.<br>Valeur efficace vraie : <b>AC+DC</b> sur un voltmètre <b>TRMS</b> (AC suffit sans composante continue).",
-   "origine": "Cours §6 Mesurer"
+   "type": "question",
+   "recto": "Un créneau varie entre 0 et 20 V avec un rapport cyclique α= 0,25. Sa valeur moyenne vaut ……",
+   "rep": "5 V",
+   "verso": "<strong>5 V</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer une valeur moyenne sur un chronogramme ?",
-   "verso": "1. Repérer une <b>période</b>.<br>2. Chercher une <b>symétrie</b> horizontale (axe = valeur moyenne).<br>3. Sinon, découper en rectangles/triangles, aires algébriques ÷ T.<br>4. Contrôler : entre u<sub>min</sub> et u<sub>max</sub>.",
-   "origine": "Cours §3 Méthode — Valeur moyenne"
+   "type": "question",
+   "recto": "Pour ce même créneau, la valeur efficace vaut ……",
+   "rep": "10 V",
+   "verso": "<strong>10 V</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>⟨u⟩ = 12 V et composante alternative de valeur efficace 5,66 V. Comment trouver U<sub>eff</sub> ?",
-   "verso": "1. U<sub>eff</sub>² = ⟨u⟩² + U<sub>eff,alt</sub>².<br>2. = 12² + 5,66² = 176.<br>3. U<sub>eff</sub> = √176 = <b>13,3 V</b>.",
-   "origine": "Cours §4 Relation générale"
+   "type": "question",
+   "recto": "La relation U_eff = U_max/√2 s'applique ……",
+   "rep": "aux seuls signaux sinusoïdaux",
+   "verso": "<strong>aux seuls signaux sinusoïdaux</strong> — Uniquement pour un sinusoïdal. Appliquée à un créneau symétrique, où U_eff = U_max, elle donnerait une erreur de 30 %.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment exploiter un spectre d'amplitude ?",
-   "verso": "1. Raie à <b>0 Hz</b> : valeur moyenne.<br>2. <b>Fondamental</b> : première raie non nulle.<br>3. <b>Rang</b> d'un harmonique = f / f<sub>1</sub> (250 Hz avec f<sub>1</sub> = 50 Hz → rang 5).<br>4. Lire les amplitudes (vérifier l'unité de l'axe).",
-   "origine": "Cours §5 Méthode — Exploiter un spectre"
+   "type": "question",
+   "recto": "Sur un spectre d'amplitude, la raie située à 0 Hz représente ……",
+   "rep": "la composante continue",
+   "verso": "<strong>la composante continue</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment répondre à « indiquer le réglage du voltmètre » ?",
-   "verso": "1. Grandeur demandée : moyenne ou efficace ?<br>2. Moyenne → <b>DC</b>.<br>3. Efficace vraie → <b>AC+DC</b>, appareil <b>TRMS</b>.<br>4. Nommer l'appareil <b>et</b> sa position.",
-   "origine": "Cours §6 Méthode — Réglage du voltmètre"
+   "type": "question",
+   "recto": "Le fondamental d'un signal est à 50 Hz. L'harmonique de rang 7 est à ……",
+   "rep": "350 Hz",
+   "verso": "<strong>350 Hz</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un spectre ne comporte qu'une seule raie, à 100 Hz. Le signal est ……",
+   "rep": "sinusoïdal",
+   "verso": "<strong>sinusoïdal</strong> — Une seule raie signifie une seule fréquence : le signal est une sinusoïde pure. Un créneau ou un triangle donneraient un fondamental et des harmoniques. Un signal continu n'aurait qu'une raie, mais à 0 Hz.",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

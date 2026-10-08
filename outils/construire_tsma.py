@@ -276,12 +276,8 @@ def construire(racine, sortie):
         cartes = lire_cartes(open(f'{d}/{ch}_cours.tex').read(), bilan=bilan)
         prereq = [{'q': q, 'choix': c, 'bonne': b, 'expl': e}
                   for (q, c, b, e) in PREREQUIS.get(ch, [])]
-        # cartes écrites à la main (outils/cartes_manuelles) : elles priment
-        from cartes_manuelles import pour as cartes_manuelles
-        manuelles = cartes_manuelles('bts-tsma', ch)
         data = {'filiere':'bts-tsma','num':str(int(ch[2:])),'titre':TITRES[ch],
-                'niveau':'BTS TSMA','prerequis':prereq,'bilan':bilan,
-                'cartes':manuelles or cartes, 'cartes_figees':bool(manuelles)}
+                'niveau':'BTS TSMA','prerequis':prereq,'bilan':bilan,'cartes':cartes}
         entete = (f"/* Engendré par outils/construire_tsma.py — ne pas éditer à la main.\n"
                   f"   BTS TSMA · chapitre {ch[2:]} · {TITRES[ch]}\n"
                   f"   Le bilan vient de {ch}_bilan.tex, les cartes des \\trou{{}} de\n"

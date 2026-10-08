@@ -222,108 +222,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que traduit la température d'un corps ?",
-   "verso": "L'<b>agitation</b> de ses constituants microscopiques : plus ils bougent vite, plus la température est élevée.",
-   "origine": "Cours §1 La température"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Température » ?",
+   "verso": "La température d'un corps traduit l'<strong>agitation</strong> de ses constituants microscopiques : plus ils se déplacent vite, plus la température est élevée.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Relation entre T (K) et θ (°C) ? Qu'est-ce que le zéro absolu ?",
-   "verso": "<b>T = θ + 273,15</b>.<br>Le zéro absolu (0 K = −273,15 °C) est la température la plus basse possible, où l'agitation cesse.",
-   "origine": "Cours §1 Les deux échelles"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Énergie interne » ?",
+   "verso": "L'énergie interne U d'un système est la somme de l'énergie cinétique d'agitation et de l'énergie potentielle d'interaction de tous ses constituants microscopiques.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Un écart de 1 °C vaut combien de kelvins ?",
-   "verso": "<b>1 K</b> : les deux échelles ont le même pas, elles sont seulement décalées.",
-   "origine": "Cours §1 Les deux échelles"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Capacité thermique massique » ?",
+   "verso": "La capacité thermique massique c d'un matériau est l'énergie qu'il faut fournir à 1 de ce matériau pour élever sa température de 1. Elle s'exprime en (J·kg-1·K-1).",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Citer trois types de thermomètres.",
-   "verso": "À <b>dilatation</b> de liquide ; à <b>résistance</b> (sonde Pt100, R augmente avec T) ; <b>infrarouge</b> (sans contact).",
-   "origine": "Cours §1 Mesurer une température"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Énergie massique de changement d'état » ?",
+   "verso": "L'énergie massique de changement d'état L d'une espèce est l'énergie qu'il faut fournir à 1 de cette espèce pour la faire changer d'état <em>à température constante</em>. Elle s'exprime en.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que l'énergie interne U d'un système ?",
-   "verso": "La somme de l'énergie <b>cinétique d'agitation</b> et de l'énergie <b>potentielle d'interaction</b> de ses constituants microscopiques, en J.",
-   "origine": "Cours §2 L'énergie interne"
+   "type": "trou",
+   "recto": "La température d'un corps traduit l'…… de ses constituants microscopiques : plus ils se déplacent vite, plus la température est élevée.",
+   "rep": "agitation",
+   "verso": "<strong>agitation</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir la capacité thermique massique c. Unité ? Valeur pour l'eau ?",
-   "verso": "L'énergie pour élever de <b>1 K</b> la température de <b>1 kg</b> du matériau, en <b>J·kg<sup>−1</sup>·K<sup>−1</sup></b>.<br>Eau : <b>4180</b> (très élevée).",
-   "origine": "Cours §3 Capacité thermique massique"
+   "type": "question",
+   "recto": "La température d'un corps traduit ……",
+   "rep": "l'agitation de ses constituants microscopiques",
+   "verso": "<strong>l'agitation de ses constituants microscopiques</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Variation d'énergie interne d'un corps chauffé sans changement d'état ?",
-   "verso": "<b>ΔU = m c Δθ</b> avec Δθ = θ<sub>final</sub> − θ<sub>initial</sub>.<br>ΔU &gt; 0 s'il se réchauffe, &lt; 0 s'il se refroidit.",
-   "origine": "Cours §3 Chauffer sans changer d'état"
+   "type": "question",
+   "recto": "Une température de 20 °C vaut, en kelvins ……",
+   "rep": "293 K",
+   "verso": "<strong>293 K</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir l'énergie massique de changement d'état L. Énergie pour faire changer d'état une masse m ?",
-   "verso": "L'énergie pour faire changer d'état <b>1 kg</b> à <b>température constante</b>, en J/kg.<br><b>Q = m L</b>",
-   "origine": "Cours §4 Changement d'état"
+   "type": "question",
+   "recto": "Un écart de température de 1 °C correspond à un écart de ……",
+   "rep": "1 K",
+   "verso": "<strong>1 K</strong> — (même pas d'échelle)",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énergies massiques de fusion et de vaporisation de l'eau ?",
-   "verso": "Fusion : <b>L<sub>f</sub> = 334 kJ/kg</b>.<br>Vaporisation : <b>L<sub>v</sub> = 2260 kJ/kg</b> (≈ 7 fois plus).",
-   "origine": "Cours §4 Changement d'état"
+   "type": "question",
+   "recto": "L'unité de la capacité thermique massique c est ……",
+   "rep": "J/kg/K",
+   "verso": "<strong>J/kg/K</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sur une courbe de chauffe, quelle formule pour les pentes ? pour les paliers ?",
-   "verso": "Pentes (la température monte) : <b>m c Δθ</b>.<br>Paliers (changement d'état, θ constante) : <b>m L</b>.<br>Problème complet : on additionne les étapes.",
-   "origine": "Cours §4 Courbe de chauffe"
+   "type": "question",
+   "recto": "Pour élever de 10 K la température de 1 kg d'eau, il faut environ ……",
+   "rep": "42 kJ",
+   "verso": "<strong>42 kJ</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Dans quel sens se fait spontanément un transfert thermique ? Quand s'arrête-t-il ?",
-   "verso": "Du <b>corps chaud vers le corps froid</b>, jusqu'à ce qu'ils aient la <b>même température</b> : l'équilibre thermique.",
-   "origine": "Cours §5 L'équilibre thermique"
+   "type": "question",
+   "recto": "Pendant un palier de changement d'état, la température du corps ……",
+   "rep": "reste constante",
+   "verso": "<strong>reste constante</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Conduction, convection, rayonnement : définir et donner un exemple.",
-   "verso": "<b>Conduction</b> : de proche en proche dans un solide (manche de casserole).<br><b>Convection</b> : mouvement d'un fluide (air chaud d'un radiateur).<br><b>Rayonnement</b> : par ondes, sans contact, même dans le vide (Soleil).",
-   "origine": "Cours §6 Les trois modes de transfert"
+   "type": "question",
+   "recto": "L'énergie à fournir pour faire fondre 0,5 kg de glace à 0 °C vaut ……",
+   "rep": "167 kJ",
+   "verso": "<strong>167 kJ</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Un corps « contient-il » de la chaleur ?",
-   "verso": "Non : la <b>chaleur</b> est un <b>transfert</b> d'énergie d'un corps à un autre. Un corps possède de l'<b>énergie interne</b>.",
-   "origine": "Cours §6 La chaleur"
+   "type": "question",
+   "recto": "À l'équilibre thermique, les deux corps ont ……",
+   "rep": "la même température",
+   "verso": "<strong>la même température</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer l'énergie pour porter 200 kg d'eau de 15 °C à 60 °C ?",
-   "verso": "1. m = 200 kg ; c = 4180 J·kg<sup>−1</sup>·K<sup>−1</sup>.<br>2. Δθ = 60 − 15 = 45 K.<br>3. ΔU = m c Δθ = 200 × 4180 × 45 = <b>3,76 × 10<sup>7</sup> J</b> (≈ 10,4 kWh).",
-   "origine": "Cours §3 Méthode 1"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer l'énergie pour faire fondre un glaçon de 34 g à 0 °C ?",
-   "verso": "1. Changement d'état : fusion, L<sub>f</sub> = 334 kJ/kg.<br>2. m = 0,034 kg.<br>3. Q = m L = 0,034 × 334 000 = <b>1,14 × 10<sup>4</sup> J</b>.<br>Pas de m c Δθ pendant le palier.",
-   "origine": "Cours §4 Méthode 2"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>200 g d'eau à 80 °C versés dans 300 g d'eau à 20 °C. Comment trouver la température finale ?",
-   "verso": "1. Système isolé : énergie cédée = énergie reçue.<br>2. m<sub>1</sub>c(T<sub>f</sub> − θ<sub>1</sub>) + m<sub>2</sub>c(T<sub>f</sub> − θ<sub>2</sub>) = 0.<br>3. Même c : T<sub>f</sub> = (200×80 + 300×20)/500 = <b>44 °C</b>.<br>4. Vérifier : entre 20 et 80 °C.",
-   "origine": "Cours §5 Méthode 3"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer l'énergie pour transformer de la glace à −10 °C en eau à 20 °C ?",
-   "verso": "1. Glace de −10 à 0 °C : m c<sub>glace</sub> Δθ.<br>2. Fusion à 0 °C : m L<sub>f</sub>.<br>3. Eau de 0 à 20 °C : m c<sub>eau</sub> Δθ.<br>4. <b>Additionner</b> les trois énergies.",
-   "origine": "Cours §4 Courbe de chauffe"
+   "type": "question",
+   "recto": "Le mode de transfert thermique qui se produit <strong>sans contact</strong>, même dans le vide, est ……",
+   "rep": "le rayonnement",
+   "verso": "<strong>le rayonnement</strong>",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };

@@ -233,16 +233,13 @@ def construire(filiere, racine, sortie):
                 except ValueError:
                     anciens = []
         # des cartes figées viennent d'ailleurs (un paquet Anki, par exemple) :
-        # on ne les reconstruit pas depuis le cours. Les cartes écrites à la
-        # main (outils/cartes_manuelles) priment sur tout.
-        from cartes_manuelles import pour as cartes_manuelles
-        manuelles = cartes_manuelles(filiere, ch)
+        # on ne les reconstruit pas depuis le cours
         data = {"filiere": filiere, "num": info["num"],
                 "cle": ch, "etiquette": info["titre"].split("\u2014")[0].strip(),
                 "titre": titre,
                 "niveau": NIVEAUX[filiere], "prerequis": anciens,
-                "bilan": bilan, "cartes": manuelles or figees or cartes,
-                "cartes_figees": bool(manuelles or figees)}
+                "bilan": bilan, "cartes": figees or cartes,
+                "cartes_figees": bool(figees)}
         entete = (f"/* Engendré par outils/construire.py — ne pas éditer à la main.\n"
                   f"   {NIVEAUX[filiere]} · {info['titre']}\n"
                   f"   Le bilan vient de {os.path.basename(fb)}, les cartes des \\trou{{}} de\n"

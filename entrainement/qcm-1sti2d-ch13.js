@@ -222,84 +222,99 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que se conserve-t-il au cours d'une transformation chimique ?",
-   "verso": "Les <b>atomes</b> : il y a autant d'atomes de chaque élément avant et après. D'où la nécessité d'<b>équilibrer</b> l'équation.",
-   "origine": "Cours §1 Conservation des atomes"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Conservation des atomes » ?",
+   "verso": "Au cours d'une transformation chimique, il y a <strong>autant d'atomes de chaque élément</strong> avant et après la réaction. C'est ce principe qui impose d'<strong>équilibrer</strong> l'équation.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pour équilibrer une équation, que modifie-t-on ? Que ne touche-t-on jamais ?",
-   "verso": "On place des <b>coefficients stœchiométriques</b> devant les formules. On ne modifie <b>jamais les indices</b> (CO<sub>3</sub> au lieu de CO<sub>2</sub> change la molécule).",
-   "origine": "Cours §2 Équilibrer"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Réactif limitant » ?",
+   "verso": "Le <strong>réactif limitant</strong> est celui qui s'épuise le premier. C'est lui — et lui seul — qui fixe la quantité de produits formés. Les autres réactifs, présents <strong>en excès</strong>, subsistent à la fin.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Dans quel ordre équilibre-t-on une combustion ? Pourquoi l'oxygène en dernier ?",
-   "verso": "<b>C</b>, puis <b>H</b>, puis <b>O</b>. O<sub>2</sub> ne contient que de l'oxygène : on l'ajuste sans rien déranger.",
-   "origine": "Cours §2 Équilibrer une combustion"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « La mole » ?",
+   "verso": "Une <strong>mole</strong> d'entités contient N_A = 6,02×10²³ entités. Ce nombre s'appelle la <strong>constante d'Avogadro</strong>. La quantité de matière n s'exprime en <strong>moles</strong> (mol).",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formules générales des alcanes et des alcènes ? Groupe des alcools ?",
-   "verso": "Alcanes : <b>C<sub>n</sub>H<sub>2n+2</sub></b>.<br>Alcènes : <b>C<sub>n</sub>H<sub>2n</sub></b> (une double liaison).<br>Alcools : groupe <b>–OH</b>.",
-   "origine": "Cours §3 Les carburants"
+   "type": "trou",
+   "recto": "Au cours d'une transformation chimique, il y a …… avant et après la réaction.",
+   "rep": "autant d'atomes de chaque élément",
+   "verso": "<strong>autant d'atomes de chaque élément</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le réactif limitant ?",
-   "verso": "Celui qui <b>s'épuise le premier</b>. Il fixe seul la quantité de produits formés ; les autres restent <b>en excès</b>.",
-   "origine": "Cours §4 Réactif limitant"
+   "type": "question",
+   "recto": "Au cours d'une transformation chimique ……",
+   "rep": "les atomes sont conservés et réorganisés",
+   "verso": "<strong>les atomes sont conservés et réorganisés</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une mole ? Valeur de la constante d'Avogadro ?",
-   "verso": "Un paquet de <b>N<sub>A</sub> = 6,02 × 10<sup>23</sup></b> entités. La quantité de matière n s'exprime en mol.<br>0,5 mol n'est pas « presque rien » : 3,01 × 10<sup>23</sup> molécules.",
-   "origine": "Cours §4 La mole"
+   "type": "question",
+   "recto": "Pour équilibrer une équation, on modifie ……",
+   "rep": "les coefficients devant les formules",
+   "verso": "<strong>les coefficients devant les formules</strong> — on ne touche jamais aux indices",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Relation entre masse et quantité de matière ? Masses molaires de H, C, N, O ?",
-   "verso": "<b>n = m / M</b> (M masse molaire en g/mol).<br>H <b>1</b> ; C <b>12</b> ; N <b>14</b> ; O <b>16</b> g/mol.",
-   "origine": "Cours §4 Masse molaire"
+   "type": "question",
+   "recto": "Dans une combustion, on équilibre l'oxygène <strong>en dernier</strong> parce que ……",
+   "rep": "O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres",
+   "verso": "<strong>O₂ ne contient que cet élément, on peut l'ajuster sans déranger les autres</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quand une combustion devient-elle incomplète ? Que produit-elle ?",
-   "verso": "Quand le <b>dioxygène est limitant</b>. Elle produit en plus du <b>CO</b> et des <b>suies</b>.",
-   "origine": "Cours §6 Complète ou incomplète"
+   "type": "question",
+   "recto": "L'équation CH₄ + O₂ → CO₂ + H₂O équilibrée s'écrit ……",
+   "rep": "CH₄ + 2 O₂ → CO₂ + 2 H₂O",
+   "verso": "<strong>CH₄ + 2 O₂ → CO₂ + 2 H₂O</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi la masse de CO<sub>2</sub> produite dépasse-t-elle celle du carburant brûlé ?",
-   "verso": "Les atomes d'<b>oxygène</b> du CO<sub>2</sub> viennent de l'<b>air</b> : leur masse s'ajoute à celle du carbone (37,5 kg d'essence → 116 kg de CO<sub>2</sub>).",
-   "origine": "Cours §6 Le CO2 d'un plein"
+   "type": "question",
+   "recto": "La molécule C₄H₈ appartient à la famille des ……",
+   "rep": "alcènes",
+   "verso": "<strong>alcènes</strong> — C<sub>n</sub>H<sub>2n</sub> avec n = 4",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment équilibrer la combustion complète du butane C<sub>4</sub>H<sub>10</sub> ?",
-   "verso": "1. Squelette : C<sub>4</sub>H<sub>10</sub> + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O.<br>2. C : 4 CO<sub>2</sub>. 3. H : 5 H<sub>2</sub>O.<br>4. O : 13 atomes → 6,5 O<sub>2</sub>.<br>5. Doubler : <b>2 C<sub>4</sub>H<sub>10</sub> + 13 O<sub>2</sub> → 8 CO<sub>2</sub> + 10 H<sub>2</sub>O</b>.<br>6. Vérifier.",
-   "origine": "Cours §2 Méthode 1"
+   "type": "question",
+   "recto": "Le groupe caractéristique des alcools est ……",
+   "rep": "-OH",
+   "verso": "<strong>-OH</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Quelle quantité de matière dans 92 g d'éthanol C<sub>2</sub>H<sub>6</sub>O ?",
-   "verso": "1. M = 2 × 12 + 6 × 1 + 16 = <b>46 g/mol</b>.<br>2. n = m/M = 92/46 = <b>2,0 mol</b>.<br>3. Sens inverse : m = n × M.",
-   "origine": "Cours §4 Méthode 2"
+   "type": "question",
+   "recto": "Une mole contient ……",
+   "rep": "6,02 × 10²³ entités",
+   "verso": "<strong>6,02 × 10²³ entités</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>0,20 mol de CH<sub>4</sub> et 0,30 mol de O<sub>2</sub> (CH<sub>4</sub> + 2 O<sub>2</sub> → CO<sub>2</sub> + 2 H<sub>2</sub>O). Comment trouver le réactif limitant ?",
-   "verso": "1. Tester : brûler 0,20 mol de CH<sub>4</sub> demande 0,40 mol de O<sub>2</sub> &gt; 0,30 → <b>O<sub>2</sub> limitant</b>.<br>2. Avancement : 0,30/2 = 0,15 mol.<br>3. Formés : 0,15 mol CO<sub>2</sub> ; 0,30 mol H<sub>2</sub>O.<br>4. Reste : 0,05 mol de CH<sub>4</sub> en excès.",
-   "origine": "Cours §5 Méthode 3"
+   "type": "question",
+   "recto": "La masse molaire du dioxyde de carbone CO₂ vaut ……",
+   "rep": "44 g/mol",
+   "verso": "<strong>44 g/mol</strong> — 12 + 2 × 16 = 44",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer la masse de CO<sub>2</sub> émise par la combustion d'une masse de carburant ?",
-   "verso": "1. Équation équilibrée (2 C<sub>8</sub>H<sub>18</sub> + 25 O<sub>2</sub> → 16 CO<sub>2</sub> + 18 H<sub>2</sub>O).<br>2. n(carburant) = m/M.<br>3. Proportions : n(CO<sub>2</sub>) = 8 × n(octane).<br>4. m(CO<sub>2</sub>) = n × 44 g/mol.",
-   "origine": "Cours §6 Le CO2 d'un plein"
+   "type": "question",
+   "recto": "La quantité de matière contenue dans 88 g de CO₂ vaut ……",
+   "rep": "2 mol",
+   "verso": "<strong>2 mol</strong>",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Le <strong>réactif limitant</strong> est celui qui ……",
+   "rep": "s'épuise le premier",
+   "verso": "<strong>s'épuise le premier</strong>",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };

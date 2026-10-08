@@ -213,108 +213,102 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Tension simple V et tension composée U : entre quels conducteurs ? Relation ?",
-   "verso": "<b>V</b> : entre une <b>phase et le neutre</b>.<br><b>U</b> : entre <b>deux phases</b>.<br><b>U = √3 V</b> (réseau 230/400 V).",
-   "origine": "Cours §1 Tension simple, tension composée"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Tension simple, tension composée » ?",
+   "verso": "La <strong>tension simple</strong> V se mesure entre une phase et le neutre. La <strong>tension composée</strong> U se mesure entre deux phases.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment lire l'indication « 230/400 V » d'un réseau ?",
-   "verso": "<b>Simple / composée</b> : V = 230 V, U = 400 V.",
-   "origine": "Cours §1 Un réseau se nomme par ses deux tensions"
+   "type": "trou",
+   "recto": "La <strong>tension simple</strong> V se mesure …….",
+   "rep": "entre une phase et le neutre",
+   "verso": "<strong>entre une phase et le neutre</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelle tension voit un récepteur couplé en étoile ? en triangle ?",
-   "verso": "<b>Étoile</b> : la tension simple <b>V</b> (et J = I).<br><b>Triangle</b> : la tension composée <b>U</b> (et J = I/√3).",
-   "origine": "Cours §2 Étoile ou triangle"
+   "type": "trou",
+   "recto": "La <strong>tension composée</strong> U se mesure …….",
+   "rep": "entre deux phases",
+   "verso": "<strong>entre deux phases</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Différence entre courant de ligne I et courant de phase J ?",
-   "verso": "<b>I</b> circule dans le <b>câble d'alimentation</b> ; <b>J</b> dans le <b>récepteur</b>. Étoile : J = I ; triangle : J = I/√3.",
-   "origine": "Cours §2 Courants"
+   "type": "trou",
+   "recto": "La puissance <strong>active</strong> P, en watts, est …….",
+   "rep": "celle qui travaille et que l'on paie",
+   "verso": "<strong>celle qui travaille et que l'on paie</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que se passe-t-il si un récepteur prévu en étoile est couplé en triangle ?",
-   "verso": "Sa tension est × √3, sa puissance × <b>3</b> : il grille. Le couplage se vérifie <b>avant</b> la mise sous tension.",
-   "origine": "Cours §2 L'erreur de couplage"
+   "type": "trou",
+   "recto": "La puissance <strong>réactive</strong> Q, en var, est …….",
+   "rep": "celle qui fait des allers-retours sans travailler",
+   "verso": "<strong>celle qui fait des allers-retours sans travailler</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Puissances active, réactive, apparente : unités et rôle ?",
-   "verso": "<b>P</b> (W) : celle qui <b>travaille</b> et qu'on paie.<br><b>Q</b> (var) : allers-retours sans travailler.<br><b>S</b> (VA) : celle que voient <b>câbles et disjoncteur</b>.",
-   "origine": "Cours §3 Les trois puissances"
+   "type": "trou",
+   "recto": "La puissance <strong>apparente</strong> S, en V·A, est …….",
+   "rep": "celle que voient les câbles et le disjoncteur",
+   "verso": "<strong>celle que voient les câbles et le disjoncteur</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formules des puissances en triphasé équilibré ?",
-   "verso": "<b>S = √3 U I</b> ; <b>P = S cos φ</b> ; <b>Q = S sin φ</b> ; Q = P tan φ.",
-   "origine": "Cours §3 Les trois puissances"
+   "type": "question",
+   "recto": "La relation entre tension composée et tension simple est ……",
+   "rep": "U = √3 V",
+   "verso": "<strong>U = √3 V</strong> — √3 est le côté du triangle équilatéral des trois tensions simples.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que représente cos φ ? Valeurs typiques ?",
-   "verso": "<b>cos φ = P / S</b> : la fraction du courant qui travaille. <b>1</b> pour un résistif, ≈ <b>0,8</b> pour un moteur asynchrone en charge.",
-   "origine": "Cours §3 Facteur de puissance"
+   "type": "question",
+   "recto": "En couplage étoile, chaque récepteur est soumis à ……",
+   "rep": "la tension simple V",
+   "verso": "<strong>la tension simple V</strong> — En étoile, un récepteur est branché entre une phase et le point neutre : il voit V.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi un mauvais facteur de puissance coûte-t-il cher ?",
-   "verso": "On <b>paie P</b>, mais câbles et disjoncteurs se <b>dimensionnent sur S</b> (le courant). Mauvais cos φ → plus de courant → installation plus chère.",
-   "origine": "Cours §3 On paie P, on dimensionne sur S"
+   "type": "question",
+   "recto": "Trois résistances de tension nominale 400 V sont branchées sur un réseau 230 /400 V. Le couplage à réaliser est ……",
+   "rep": "triangle",
+   "verso": "<strong>triangle</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Bilan de plusieurs récepteurs : qu'est-ce qui s'additionne ?",
-   "verso": "<b>P</b> et <b>Q</b> s'additionnent ; <b>S ne s'additionne pas</b> : S = √(P² + Q²).",
-   "origine": "Cours §4 Le bilan de puissances"
+   "type": "question",
+   "recto": "Passer du couplage étoile au couplage triangle, sur le même réseau, multiplie la puissance absorbée par ……",
+   "rep": "3",
+   "verso": "<strong>3</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Méthode des deux wattmètres : puissance active et déphasage ?",
-   "verso": "<b>P = W<sub>1</sub> + W<sub>2</sub></b>.<br><b>tan φ = √3 (W<sub>1</sub> − W<sub>2</sub>)/(W<sub>1</sub> + W<sub>2</sub>)</b>. W<sub>1</sub> = W<sub>2</sub> → charge résistive.",
-   "origine": "Cours §5 Méthode des deux wattmètres"
+   "type": "question",
+   "recto": "Le facteur de puissance d'une installation vaut ……",
+   "rep": "P/S",
+   "verso": "<strong>P/S</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sur quelle position mettre le multimètre pour mesurer une tension du réseau ?",
-   "verso": "Sur <b>AC</b> : la tension est alternative de valeur moyenne nulle (en DC, ≈ 0).",
-   "origine": "Cours §5 Mesurer"
+   "type": "question",
+   "recto": "Dans un bilan de puissances portant sur plusieurs récepteurs ……",
+   "rep": "seules P et Q s'additionnent",
+   "verso": "<strong>seules P et Q s'additionnent</strong> — S se recalcule à la fin par S = √(P²+Q²) : les courants des récepteurs ne sont pas en phase entre eux.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment relève-t-on le facteur de puissance d'un atelier ? Que deviennent P et I ?",
-   "verso": "Par une <b>batterie de condensateurs en dérivation</b>. <b>P ne change pas</b>, I baisse (et les pertes en I²).",
-   "origine": "Cours §6 Relever le facteur de puissance"
+   "type": "question",
+   "recto": "Sur une charge triphasée équilibrée sans neutre, la méthode des deux wattmètres donne la puissance active par ……",
+   "rep": "P = W₁ + W₂",
+   "verso": "<strong>P = W₁ + W₂</strong> — Seule la somme des deux wattmètres a un sens ; leur différence donne tanφ.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment choisir le couplage d'un récepteur triphasé ?",
-   "verso": "1. Lire la <b>tension nominale d'un enroulement</b>.<br>2. Lire les <b>deux tensions du réseau</b>.<br>3. Choisir le couplage qui lui applique sa tension : <b>étoile si V</b>, <b>triangle si U</b>.<br>4. Rédiger la justification.",
-   "origine": "Cours §2 Méthode — Déterminer le couplage"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Plaque moteur « 230/400 V » sur un réseau 230/400 V : quel couplage ?",
-   "verso": "Enroulement = 230 V. Le réseau a <b>U = 400 V</b> entre phases → <b>étoile</b> (chaque enroulement voit V = 230 V).",
-   "origine": "Cours §2 Plaque moteur"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Moteur : P = 4,50 kW, cos φ = 0,80, U = 400 V. Comment trouver I ?",
-   "verso": "1. S = P / cos φ = 4500/0,80 = <b>5625 VA</b>.<br>2. I = S / (√3 U) = 5625/693 = <b>8,12 A</b>.<br>3. Contrôle : ≈ 1,4 A par kVA sous 400 V.",
-   "origine": "Cours §3 Méthode — De la puissance à l'intensité"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment dimensionner une batterie de condensateurs pour relever cos φ ?",
-   "verso": "1. <b>Q<sub>1</sub> = P tan φ<sub>1</sub></b> (actuel).<br>2. <b>Q<sub>2</sub> = P tan φ<sub>2</sub></b> (visé).<br>3. <b>Q<sub>C</sub> = Q<sub>1</sub> − Q<sub>2</sub></b>.<br>4. Triangle : <b>C = Q<sub>C</sub> / (3 ω U²)</b>.<br>5. Vérifier que P n'a pas changé.",
-   "origine": "Cours §6 Méthode — Batterie de condensateurs"
+   "type": "question",
+   "recto": "Après installation d'une batterie de condensateurs correctement dimensionnée, la puissance active absorbée par l'installation ……",
+   "rep": "ne change pas",
+   "verso": "<strong>ne change pas</strong> — Un condensateur n'absorbe aucune puissance active. Ce qui diminue, c'est le courant, donc les pertes en ligne et le calibre nécessaire — pas la facture d'énergie active.",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

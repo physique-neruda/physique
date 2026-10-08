@@ -222,102 +222,100 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le système chimique ? l'effet thermique d'une transformation ?",
-   "verso": "<b>Système</b> : les espèces qui réagissent (réactifs) et qui se forment (produits).<br><b>Effet thermique</b> : le transfert thermique Q qui accompagne la transformation.",
-   "origine": "Cours §1 Le système chimique"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Pouvoir calorifique » ?",
+   "verso": "Le <strong>pouvoir calorifique</strong> PC est l'énergie libérée par la combustion complète de <strong>1 kg</strong> (ou 1 L) de combustible, en kJ/kg ou MJ/kg.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Transformation exothermique : que fait le système ? l'entourage ? son énergie ?",
-   "verso": "Le système <b>cède</b> de l'énergie, l'entourage <b>se réchauffe</b>, l'énergie du système <b>diminue</b>. Toutes les combustions sont exothermiques.",
-   "origine": "Cours §2 Exothermique ou endothermique"
+   "type": "retenir",
+   "recto": "Ordres de grandeur à mémoriser — qu'y a-t-il à retenir ?",
+   "verso": "Bois sec ≈ 15 · éthanol ≈ 27 · essence et gazole ≈ 43 à 44 · gaz naturel ≈ 50 · dihydrogène ≈ 120 MJ/kg. À masse égale, le dihydrogène est champion, mais si peu dense qu'il faut le comprimer fortement.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Transformation endothermique : que fait le système ? l'entourage ? son énergie ?",
-   "verso": "Le système <b>reçoit</b> de l'énergie, l'entourage <b>se refroidit</b>, l'énergie du système <b>augmente</b> (poche de froid instantané).",
-   "origine": "Cours §2 Exothermique ou endothermique"
+   "type": "trou",
+   "recto": "Deux détecteurs sauvent des vies : <strong>fumée</strong> (obligatoire) et …….",
+   "rep": "monoxyde de carbone",
+   "verso": "<strong>monoxyde de carbone</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quels sont les trois côtés du triangle du feu ?",
-   "verso": "<b>Combustible</b> (ce qui brûle) + <b>comburant</b> (O<sub>2</sub> de l'air) + <b>énergie d'activation</b> (apport pour amorcer).",
-   "origine": "Cours §3 Le triangle du feu"
+   "type": "trou",
+   "recto": "Parce que la réaction doit franchir une « bosse » : il faut lui fournir une …… pour l'amorcer.",
+   "rep": "énergie d'activation",
+   "verso": "<strong>énergie d'activation</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Produits d'une combustion complète ? Équation de la combustion du méthane ?",
-   "verso": "<b>CO<sub>2</sub> et H<sub>2</sub>O</b>.<br><b>CH<sub>4</sub> + 2 O<sub>2</sub> → CO<sub>2</sub> + 2 H<sub>2</sub>O</b>",
-   "origine": "Cours §3 Combustion complète"
+   "type": "trou",
+   "recto": "Règle sans exception : exothermique énergie du système qui <strong>diminue</strong> ; endothermique énergie qui …….",
+   "rep": "augmente",
+   "verso": "<strong>augmente</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quand une combustion est-elle incomplète ? Que produit-elle en plus ?",
-   "verso": "Quand il <b>manque du dioxygène</b>. Elle produit en plus du <b>monoxyde de carbone CO</b> et des <b>suies</b>.",
-   "origine": "Cours §3 Combustion incomplète"
+   "type": "question",
+   "recto": "Le <strong>système chimique</strong>, c'est ……",
+   "rep": "l'ensemble des espèces qui réagissent et se forment",
+   "verso": "<strong>l'ensemble des espèces qui réagissent et se forment</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi une combustion s'auto-entretient-elle ? Quand s'arrête-t-elle ?",
-   "verso": "L'énergie libérée porte le combustible voisin à sa température d'inflammation. Elle s'arrête dès qu'<b>un côté du triangle disparaît</b>.",
-   "origine": "Cours §4 Énergie d'activation"
+   "type": "question",
+   "recto": "Lors d'une transformation <strong>exothermique</strong>, l'énergie du système ……",
+   "rep": "diminue",
+   "verso": "<strong>diminue</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir le pouvoir calorifique. Énergie libérée par une masse m ?",
-   "verso": "L'énergie libérée par la combustion complète de <b>1 kg</b> (ou 1 L) de combustible, en MJ/kg.<br><b>E = PC × m</b>",
-   "origine": "Cours §5 Pouvoir calorifique"
+   "type": "question",
+   "recto": "Toutes les <strong>combustions</strong> sont ……",
+   "rep": "exothermiques",
+   "verso": "<strong>exothermiques</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pouvoirs calorifiques du bois, de l'éthanol, de l'essence, du gaz naturel, du dihydrogène ?",
-   "verso": "Bois ≈ <b>15</b> ; éthanol ≈ <b>27</b> ; essence/gazole ≈ <b>43-44</b> ; gaz naturel ≈ <b>50</b> ; H<sub>2</sub> ≈ <b>120</b> MJ/kg.",
-   "origine": "Cours §5 Ordres de grandeur"
+   "type": "question",
+   "recto": "Le <strong>triangle du feu</strong> réunit ……",
+   "rep": "combustible, comburant, énergie d'activation",
+   "verso": "<strong>combustible, comburant, énergie d'activation</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>1 kWh en MJ ? 1 kcal en kJ ?",
-   "verso": "<b>1 kWh = 3,6 MJ</b> ; <b>1 kcal ≈ 4,18 kJ</b>.",
-   "origine": "Cours §5 Conversions"
+   "type": "question",
+   "recto": "Dans une combustion, le <strong>comburant</strong> est le plus souvent ……",
+   "rep": "le dioxygène O₂ de l'air",
+   "verso": "<strong>le dioxygène O₂ de l'air</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi le monoxyde de carbone est-il dangereux ? Comment s'en protéger ?",
-   "verso": "Il est <b>incolore, inodore et toxique</b> (combustion incomplète). Protection : <b>détecteur de CO</b>, ventilation, entretien des appareils.",
-   "origine": "Cours §7 Dangers"
+   "type": "question",
+   "recto": "L'<strong>énergie d'activation</strong> sert à ……",
+   "rep": "amorcer la réaction",
+   "verso": "<strong>amorcer la réaction</strong> — amorcer (c'est l'auto-entretien qui prend le relais ensuite)",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quel extincteur pour un feu de solides ? pour un feu d'huile ou électrique ?",
-   "verso": "Solides : <b>eau</b>. Huile, liquides, gaz, feu électrique : <b>CO<sub>2</sub></b> ou <b>poudre</b> — <b>jamais d'eau</b>.",
-   "origine": "Cours §7 Dangers"
+   "type": "question",
+   "recto": "Le <strong>pouvoir calorifique</strong> s'exprime en ……",
+   "rep": "MJ/kg",
+   "verso": "<strong>MJ/kg</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment analyser une combustion (exemple : chalumeau à acétylène) ?",
-   "verso": "1. <b>Système</b> : réactifs → produits.<br>2. <b>Combustible</b> (acétylène) et <b>comburant</b> (O<sub>2</sub>).<br>3. <b>Énergie d'activation</b> (étincelle).<br>4. <b>Effet thermique</b> : dégage de la chaleur → exothermique.",
-   "origine": "Cours §3 Méthode 1"
+   "type": "question",
+   "recto": "Un combustible a PC = 50 MJ/kg. L'énergie libérée par 3,0 kg vaut ……",
+   "rep": "150 MJ",
+   "verso": "<strong>150 MJ</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Plein de 50 L d'essence (ρ = 0,750 kg/L, PC = 42,7 MJ/kg). Comment trouver l'énergie libérée ?",
-   "verso": "1. Masse : m = ρ V = 0,750 × 50 = 37,5 kg.<br>2. E = PC × m = 42,7 × 37,5 = <b>1,6 × 10<sup>3</sup> MJ</b>.<br>3. En kWh : 1,6 × 10<sup>3</sup>/3,6 ≈ <b>445 kWh</b>.",
-   "origine": "Cours §5 Méthode 2"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer un pouvoir calorifique par calorimétrie ?",
-   "verso": "1. Chauffer une masse d'eau connue : Δθ.<br>2. Q = m<sub>eau</sub> c Δθ.<br>3. Peser le combustible consommé Δm.<br>4. <b>PC = Q / Δm</b> ; résultat sous-estimé (pertes vers l'air et le récipient).",
-   "origine": "Cours §6 Méthode 3"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Que faire en cas d'odeur de gaz ?",
-   "verso": "1. <b>Aérer</b>.<br>2. <b>Couper le gaz</b> au compteur.<br>3. <b>Aucune flamme ni étincelle</b> (pas d'interrupteur).",
-   "origine": "Cours §7 Dangers"
+   "type": "question",
+   "recto": "Une combustion <strong>incomplète</strong> produit, en plus de CO₂ et H₂O ……",
+   "rep": "du monoxyde de carbone CO et des suies",
+   "verso": "<strong>du monoxyde de carbone CO et des suies</strong>",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };

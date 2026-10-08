@@ -199,90 +199,95 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir la pression. Unités ?",
-   "verso": "<b>p = F / S</b> : force répartie perpendiculairement sur une surface. p en <b>Pa</b>, F en N, S en <b>m²</b> (1 Pa = 1 N/m²).",
-   "origine": "Cours §1.1 La pression"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Pression » ?",
+   "verso": "La <strong>pression</strong> p exercée par une force F répartie perpendiculairement sur une surface S est le quotient de cette force par cette surface.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Section d'un piston de diamètre D ? 1 cm² en m² ?",
-   "verso": "<b>S = π D² / 4</b>.<br><b>1 cm² = 10<sup>−4</sup> m²</b> (et non 10<sup>−2</sup>).",
-   "origine": "Cours §1.1 L'erreur qui coûte cher"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Principe fondamental de l'hydrostatique (PFH) » ?",
+   "verso": "Dans un liquide <strong>au repos</strong> et <strong>incompressible</strong>, la différence de pression entre deux points séparés d'une hauteur h vaut :",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Relations entre bar, pascal et mégapascal ?",
-   "verso": "<b>1 bar = 10<sup>5</sup> Pa = 0,1 MPa</b> ; <b>1 MPa = 10 bar</b>. On lit en bar, on calcule en Pa.",
-   "origine": "Cours §1.2 Les unités"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Les deux pressions » ?",
+   "verso": "La <strong>pression relative</strong> (ou effective) est celle qu'affiche le manomètre : elle se compte à partir de la pression atmosphérique. La <strong>pression absolue</strong> se compte à partir du vide.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énoncer le principe fondamental de l'hydrostatique.",
-   "verso": "Dans un liquide au repos et incompressible : <b>Δp = ρ g h</b> (Pa ; kg/m³ ; g = 9,81 N/kg ; m). La pression est plus grande <b>en bas</b>.",
-   "origine": "Cours §2.1 Principe fondamental de l'hydrostatique"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Théorème de Pascal » ?",
+   "verso": "Toute variation de pression exercée en un point d'un fluide incompressible enfermé se transmet intégralement en tout autre point du fluide.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>La pression au fond d'une cuve dépend-elle de sa forme ? du volume de liquide ?",
-   "verso": "<b>Non</b> : seulement de la <b>hauteur</b> et de la <b>masse volumique</b>.",
-   "origine": "Cours §2.2 Le paradoxe hydrostatique"
+   "type": "retenir",
+   "recto": "Les trois unités à savoir manier — qu'y a-t-il à retenir ?",
+   "verso": "1 bar = 1×10⁵ Pa = 0,1 MPa et 1 MPa = 10 bar. Le pascal est la seule unité du Système international : c'est celle qu'il faut employer dans <em>tous</em> les calculs. Le bar sert à lire et à communiquer.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Relation entre pression absolue et relative ? Laquelle affiche le manomètre ? Laquelle pour un gaz ?",
-   "verso": "<b>p<sub>abs</sub> = p<sub>atm</sub> + p<sub>rel</sub></b>. Le manomètre affiche la <b>relative</b>. Les calculs sur un <b>gaz</b> exigent la <b>absolue</b>.",
-   "origine": "Cours §2.3 Pression absolue, relative"
+   "type": "retenir",
+   "recto": "Le paradoxe hydrostatique — qu'y a-t-il à retenir ?",
+   "verso": "La pression au fond d'un récipient ne dépend ni de sa forme, ni du volume de liquide qu'il contient : elle ne dépend que de la hauteur et de la masse volumique.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énoncer le théorème de Pascal. Conséquence pour deux pistons ?",
-   "verso": "Une variation de pression dans un fluide incompressible enfermé <b>se transmet intégralement</b> partout.<br><b>F<sub>1</sub>/S<sub>1</sub> = F<sub>2</sub>/S<sub>2</sub></b> → F<sub>2</sub> = F<sub>1</sub> × S<sub>2</sub>/S<sub>1</sub>.",
-   "origine": "Cours §3.1 Théorème de Pascal"
+   "type": "retenir",
+   "recto": "Le prix de la multiplication — qu'y a-t-il à retenir ?",
+   "verso": "Le rapport des forces vaut le rapport des sections. Mais le volume d'huile chassé par le petit piston est celui que reçoit le gros, d'où S₁ d₁ = S₂ d₂ : le gros piston avance d'autant moins que la force est multipliée.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que paie-t-on quand une presse multiplie la force ?",
-   "verso": "La <b>course</b> : S<sub>1</sub> d<sub>1</sub> = S<sub>2</sub> d<sub>2</sub>. On échange de la course contre de la force ; l'énergie se conserve.",
-   "origine": "Cours §3.2 Le prix de la multiplication"
+   "type": "trou",
+   "recto": "Lorsque ρ= a/g et que g est connu très précisément, l'incertitude relative se transmet telle quelle : …….",
+   "rep": "u(ρ)/ρ= u(a)/a",
+   "verso": "<strong>u(ρ)/ρ= u(a)/a</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Manomètre et capteur de pression : que délivrent-ils ?",
-   "verso": "<b>Manomètre</b> : affiche une pression <b>relative</b> ; incertitude fixée par sa classe.<br><b>Capteur</b> : une <b>tension</b> proportionnelle à la pression, pour une acquisition.",
-   "origine": "Cours §4.1 Les instruments"
+   "type": "trou",
+   "recto": "La pression au fond d'un récipient ne dépend ni de sa forme, …… qu'il contient : elle ne dépend que de la hauteur et de la masse volumique.",
+   "rep": "ni du volume de liquide",
+   "verso": "<strong>ni du volume de liquide</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Si ρ = a / g avec g très précis, quelle incertitude relative sur ρ ?",
-   "verso": "<b>u(ρ)/ρ = u(a)/a</b> : 3 % sur la pente → 3 % sur ρ.",
-   "origine": "Cours §4.3 Incertitude relative"
+   "type": "question",
+   "recto": "La pression est ……",
+   "rep": "une force divisée par une surface",
+   "verso": "<strong>une force divisée par une surface</strong> — p = F/S.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment utiliser Δp = ρ g h selon l'inconnue ?",
-   "verso": "Pression : <b>Δp = ρ g h</b>.<br>Hauteur : <b>h = Δp / (ρ g)</b> (indicateur de niveau).<br>Fluide : <b>ρ = Δp / (g h)</b>.<br>h en m, hauteur de liquide <b>au-dessus du point</b>.",
-   "origine": "Cours §2.1 Méthode — PFH dans les trois sens"
+   "type": "question",
+   "recto": "1 bar vaut ……",
+   "rep": "1×10⁵ Pa",
+   "verso": "<strong>1×10⁵ Pa</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Petit piston 2,0 cm² poussé par 200 N, grand piston 50 cm². Comment trouver p et F<sub>2</sub> ?",
-   "verso": "1. p = 200 / 2,0 × 10<sup>−4</sup> = <b>1,0 × 10<sup>6</sup> Pa</b> (10 bar).<br>2. F<sub>2</sub> = p × S<sub>2</sub> = 10<sup>6</sup> × 50 × 10<sup>−4</sup> = <b>5000 N</b>.<br>3. Force × 25, course ÷ 25.",
-   "origine": "Cours §3.1 Un ordre de grandeur d'atelier"
+   "type": "question",
+   "recto": "Une section de 25 cm² vaut, en m² ……",
+   "rep": "2,5×10⁻⁴",
+   "verso": "<strong>2,5×10⁻⁴</strong> — une aire se convertit en e-4 : c'est le piège numéro un du chapitre. 3pt",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer une masse volumique par la pente de p = f(h) ?",
-   "verso": "1. Zéro du capteur <b>à la surface</b>.<br>2. Au moins 6 couples (h ; p), h en m.<br>3. Tracer, vérifier l'alignement et l'origine.<br>4. Pente a = Δp/Δh sur deux points éloignés.<br>5. <b>ρ = a / g</b>.",
-   "origine": "Cours §4.2 Méthode — ρ par la pente"
+   "type": "question",
+   "recto": "Deux cuves de même hauteur de liquide, l'une cylindrique, l'autre évasée. La pression au fond est ……",
+   "rep": "identique",
+   "verso": "<strong>identique</strong> — c'est le paradoxe hydrostatique : ni la forme, ni le volume n'interviennent. Attention, la force sur le fond dépend en revanche de l'aire de ce fond (F = p S) : pression et force ne se confondent pas. 3pt",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Pente a = 8,76 × 10<sup>3</sup> Pa/m, incertitude 3 %, référence 870 kg/m³. Comment conclure ?",
-   "verso": "1. ρ = 8760/9,81 = 893 kg/m³.<br>2. u = 3 % → 27, arrondi vers le haut à 30.<br>3. ρ = <b>(890 ± 30) kg/m³</b> → [860 ; 920].<br>4. 870 y est → <b>compatible</b>.",
-   "origine": "Cours §4.3 Conclure proprement"
+   "type": "question",
+   "recto": "La différence de pression entre la surface et un point situé 4,0 m plus bas dans du gazole (ρ= 840 kg/m³) vaut environ ……",
+   "rep": "3,3×10⁴ Pa",
+   "verso": "<strong>3,3×10⁴ Pa</strong>",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };

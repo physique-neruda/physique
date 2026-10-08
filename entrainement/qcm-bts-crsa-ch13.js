@@ -213,96 +213,100 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que créent trois bobines à 120° alimentées en triphasé ?",
-   "verso": "Un <b>champ magnétique unique qui tourne</b>, qui entraîne le rotor sans contact.",
-   "origine": "Cours §1 Le champ tournant"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Vitesse de synchronisme » ?",
+   "verso": "La vitesse de rotation du champ magnétique créé par le stator s'appelle la vitesse de synchronisme. Elle ne dépend que de deux choses : la fréquence du réseau et le nombre de paires de pôles.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Vitesse de synchronisme ? De quoi dépend-elle ?",
-   "verso": "<b>n<sub>s</sub> = 60 f / p</b> (tr/min), p = nombre de <b>paires</b> de pôles. Elle ne dépend que de f et p.<br>À 50 Hz : 3000, 1500, 1000… tr/min.",
-   "origine": "Cours §1 Vitesse de synchronisme"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Glissement » ?",
+   "verso": "Le glissement mesure le retard relatif du rotor sur le champ tournant : c'est l'écart des deux vitesses, rapporté à la vitesse de synchronisme.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Moteur « 4 pôles » sur 50 Hz : que vaut p ? n<sub>s</sub> ?",
-   "verso": "<b>p = 2</b> (paires de pôles) ; n<sub>s</sub> = 60 × 50/2 = <b>1500 tr/min</b>.",
-   "origine": "Cours §1 Deux pièges"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Commande à U/f constant » ?",
+   "verso": "Le variateur fait varier la fréquence <em>et</em> la tension, en gardant leur rapport constant. On conserve ainsi le flux, donc le couple disponible à toutes les vitesses.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir le glissement. Valeur pour une machine synchrone ? asynchrone ?",
-   "verso": "<b>g = (n<sub>s</sub> − n) / n<sub>s</sub></b>.<br>Synchrone : <b>g = 0</b> (rotor accroché).<br>Asynchrone : <b>quelques %</b>.",
-   "origine": "Cours §2 Le glissement"
+   "type": "trou",
+   "recto": "Le glissement mesure le retard relatif du rotor sur le champ tournant : …….",
+   "rep": "c'est l'écart des deux vitesses, rapporté à la vitesse de synchronisme",
+   "verso": "<strong>c'est l'écart des deux vitesses, rapporté à la vitesse de synchronisme</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi une machine asynchrone doit-elle glisser ?",
-   "verso": "Sans retard sur le champ, <b>aucun courant n'est induit</b> au rotor, donc <b>aucun couple</b>.",
-   "origine": "Cours §2 Pourquoi le glissement"
+   "type": "trou",
+   "recto": "Dans les deux cas ……, si bien que la fréquence et la vitesse sont liées l'une à l'autre.",
+   "rep": "n = n_s",
+   "verso": "<strong>n = n_s</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Plaque 230/400 V : quelle tension supporte un enroulement ? Couplage sur réseau 400 V ? Plaque 400/690 V ?",
-   "verso": "La plus petite : <b>230 V</b> → sur réseau 400 V, <b>étoile</b>.<br>Plaque 400/690 V : enroulement 400 V → <b>triangle</b>.",
-   "origine": "Cours §3 Couplage du stator"
+   "type": "trou",
+   "recto": "Dans sa zone d'utilisation, la caractéristique mécanique d'une machine asynchrone est …….",
+   "rep": "une droite très raide, presque verticale",
+   "verso": "<strong>une droite très raide, presque verticale</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Puissance absorbée et puissance utile d'un moteur asynchrone ? Rendement typique ?",
-   "verso": "<b>P<sub>a</sub> = √3 U I cos φ</b> ; <b>P<sub>u</sub> = T<sub>u</sub> Ω</b> (Ω en rad/s).<br>η = P<sub>u</sub>/P<sub>a</sub>, entre <b>80 et 95 %</b>.",
-   "origine": "Cours §4 Bilan des puissances"
+   "type": "trou",
+   "recto": "La machine <strong>asynchrone</strong> a un glissement …… : sans ce retard, aucun courant ne serait induit dans son rotor, donc aucun couple.",
+   "rep": "non nul, de quelques pour cent",
+   "verso": "<strong>non nul, de quelques pour cent</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelles sont les trois vitesses d'un exercice sur machine asynchrone ?",
-   "verso": "<b>n<sub>s</sub></b> : champ (tr/min) ; <b>n</b> : rotor (tr/min) ; <b>Ω</b> : rotor (rad/s). Le couple se calcule avec <b>Ω</b>.",
-   "origine": "Cours §4 Les trois vitesses"
+   "type": "question",
+   "recto": "Trois bobines décalées de 120 ° et alimentées en triphasé créent ……",
+   "rep": "un champ magnétique tournant",
+   "verso": "<strong>un champ magnétique tournant</strong> — C'est le point de départ de tout le chapitre : le triphasé produit un champ tournant, et c'est lui qui entraîne le rotor sans aucun contact mécanique.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Forme de la caractéristique mécanique d'une machine asynchrone ? Conséquence ?",
-   "verso": "Une <b>droite très raide</b>, presque verticale : sur le réseau 50 Hz, elle tourne à vitesse <b>pratiquement constante</b>.",
-   "origine": "Cours §5 Caractéristique mécanique"
+   "type": "question",
+   "recto": "La vitesse de synchronisme d'une machine alimentée en 50 Hz et possédant 3 paires de pôles vaut ……",
+   "rep": "1000 1/min",
+   "verso": "<strong>1000 1/min</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment régler la vitesse d'un moteur asynchrone ? Pourquoi garder U/f constant ?",
-   "verso": "En changeant la <b>fréquence</b> (variateur) donc n<sub>s</sub>. U/f constant conserve le <b>flux</b>, donc le <b>couple</b>. Les caractéristiques sont des <b>droites parallèles</b>.",
-   "origine": "Cours §6 U/f constant"
+   "type": "question",
+   "recto": "Un moteur porte la mention « 4 pôles ». Le nombre p à utiliser dans n_s = 60f/p vaut ……",
+   "rep": "p = 2",
+   "verso": "<strong>p = 2</strong> — p est le nombre de paires de pôles : 4 pôles font 2 paires. C'est l'erreur la plus fréquente du chapitre — elle fait trouver 750 1/min au lieu de 1500 1/min.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>La machine synchrone est-elle réversible ? Peut-elle démarrer seule sur le réseau ?",
-   "verso": "<b>Réversible</b> : alternateur si on l'entraîne, moteur si on l'alimente (n = n<sub>s</sub>).<br><b>Ne démarre pas seule</b> : il faut un variateur qui monte la fréquence depuis zéro.",
-   "origine": "Cours §7 La machine synchrone"
+   "type": "question",
+   "recto": "Une machine est dite asynchrone lorsque ……",
+   "rep": "son rotor tourne moins vite que le champ",
+   "verso": "<strong>son rotor tourne moins vite que le champ</strong> — « Asynchrone » signifie littéralement « qui n'est pas synchronisé » : le rotor reste en retard sur le champ. Un rotor plus rapide que le champ correspondrait à un fonctionnement en génératrice, hors programme ici.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Plaque : 1440 tr/min, 50 Hz. Comment justifier que la machine est asynchrone ?",
-   "verso": "1. Lire n = 1440 tr/min.<br>2. Vitesses de synchronisme possibles : 3000, 1500, 1000…<br>3. 1440 est <b>légèrement inférieure</b> à 1500.<br>4. Conclure : <b>asynchrone</b>, g = (1500 − 1440)/1500 = 4 %.",
-   "origine": "Cours §2 Méthode — Synchrone ou asynchrone"
+   "type": "question",
+   "recto": "Le glissement d'un moteur asynchrone en charge nominale vaut typiquement ……",
+   "rep": "quelques pour cent",
+   "verso": "<strong>quelques pour cent</strong> — Un glissement nominal se compte en unités de pour cent — 3 %, 4 %, 5 %. Trouver 30 % dans un calcul doit faire reprendre la copie.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer le couplage d'un moteur sur un réseau ?",
-   "verso": "1. Plus petite tension de la plaque = tension d'un <b>enroulement</b>.<br>2. Tension composée du réseau.<br>3. Enroulement = V → <b>étoile</b> ; = U → <b>triangle</b>.<br>4. <b>Justifier</b>.",
-   "origine": "Cours §3 Méthode — Couplage"
+   "type": "question",
+   "recto": "Si le glissement d'une machine asynchrone devenait nul, alors ……",
+   "rep": "aucun couple ne serait produit",
+   "verso": "<strong>aucun couple ne serait produit</strong> — Sans glissement, le rotor verrait un champ immobile par rapport à lui : plus de variation de flux, donc plus de courant induit, donc plus de couple. Le glissement n'est pas un défaut, il est la condition du fonctionnement.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Moteur 4 kW, η = 87 %, cos φ = 0,82, 400 V, 1440 tr/min. Comment trouver I et T<sub>u</sub> ?",
-   "verso": "1. P<sub>a</sub> = 4000/0,87 = 4,60 kW.<br>2. I = P<sub>a</sub> / (√3 × 400 × 0,82) = <b>8,1 A</b>.<br>3. Ω = 2π × 1440/60 = 150,8 rad/s.<br>4. T<sub>u</sub> = 4000/150,8 = <b>26,5 N·m</b>.",
-   "origine": "Cours §4 Méthode — Bilan et rendement"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment tracer la caractéristique d'un moteur asynchrone et trouver le point de fonctionnement ?",
-   "verso": "1. Deux points : <b>(n<sub>s</sub> ; 0)</b> et le <b>point nominal</b>.<br>2. Tracer la charge sur le même graphe.<br>3. Lire l'<b>intersection</b>.<br>4. En déduire ce qui est demandé (vitesse de translation…).",
-   "origine": "Cours §5 Méthode — Point de fonctionnement"
+   "type": "question",
+   "recto": "Une plaque indique 400 V / 690 V. Sur un réseau 230 V / 400 V, le couplage à réaliser est ……",
+   "rep": "triangle",
+   "verso": "<strong>triangle</strong>",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

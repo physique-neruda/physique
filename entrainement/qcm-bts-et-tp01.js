@@ -221,180 +221,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi note-t-on U, I, P en majuscules dans ce chapitre ?",
-   "verso": "On est en <b>régime continu</b> : les grandeurs ne varient pas. Les minuscules u, i, p sont réservées aux <b>valeurs instantanées</b> d'une grandeur variable.",
-   "origine": "Cours §0 Convention d'écriture"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Courant électrique » ?",
+   "verso": "Le courant électrique est un déplacement d'ensemble de porteurs de charge. Son intensité mesure la charge qui traverse une section du conducteur par unité de temps : I = Q/t, en ampères (A).",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le courant électrique ? Que mesure son intensité ?",
-   "verso": "Un <b>déplacement d'ensemble de porteurs de charge</b>. L'intensité est la charge qui traverse une section par unité de temps : <b>I = Q / t</b>, en A.",
-   "origine": "Cours §1 Courant électrique"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Potentiel et tension » ?",
+   "verso": "Chaque point d'un circuit est caractérisé par son <strong>potentiel</strong> V, en volts : c'est son « niveau électrique ». La <strong>tension</strong> entre deux points A et B est la différence de leurs potentiels : U_AB = V_A - V_B.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Relation entre la tension U<sub>AB</sub> et les potentiels ? Qu'est-ce que la masse ?",
-   "verso": "<b>U<sub>AB</sub> = V<sub>A</sub> − V<sub>B</sub></b>.<br>La <b>masse</b> est le point de référence dont on fixe le potentiel à <b>0 V</b>.",
-   "origine": "Cours §1 Potentiel et tension"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Les deux conventions » ?",
+   "verso": "En convention <strong>récepteur</strong>, les flèches de U et de I sont opposées. En convention <strong>générateur</strong>, elles sont dans le même sens.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi utiliser une sonde différentielle avec l'oscilloscope ?",
-   "verso": "Les masses des appareils sont reliées par la <b>terre</b> : deux voies sur deux « bas » différents créent un <b>court-circuit</b>. La sonde différentielle mesure entre deux points quelconques.",
-   "origine": "Cours §1 Pourquoi cela compte dès le premier TP"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Maille » ?",
+   "verso": "Une <strong>maille</strong> est un <strong>chemin fermé</strong> du circuit : on part d'un point, on suit des branches sans jamais emprunter deux fois la même, et on revient au point de départ.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment se branchent l'ampèremètre et le voltmètre ?",
-   "verso": "Ampèremètre : <b>en série</b> (le courant traverse).<br>Voltmètre : <b>en dérivation</b>, aux bornes du dipôle.",
-   "origine": "Cours §1 Deux grandeurs, deux branchements"
+   "type": "retenir",
+   "recto": "Une convention d'écriture, valable tout le chapitre — qu'y a-t-il à retenir ?",
+   "verso": "Nous travaillons ici en <strong>régime continu</strong> : les grandeurs ne varient pas au cours du temps. On les note donc en <strong>lettres majuscules</strong> — U, I, P, E.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Où place-t-on la flèche d'un courant ? d'une tension ? Vers où pointe celle de U<sub>AB</sub> ?",
-   "verso": "Courant : <b>sur le fil</b>. Tension : <b>à côté du dipôle</b>.<br>U<sub>AB</sub> pointe vers <b>A</b> (sa première lettre).",
-   "origine": "Cours §2 Deux règles de fléchage"
+   "type": "retenir",
+   "recto": "Le point de référence : la masse — qu'y a-t-il à retenir ?",
+   "verso": "Un potentiel ne se mesure pas tout seul, pas plus qu'une altitude sans niveau de la mer. On choisit donc dans le montage un point de référence, appelé masse, dont on décide que le potentiel vaut 0 V.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Conventions récepteur et générateur : sens des flèches de U et I ?",
-   "verso": "<b>Récepteur</b> : flèches <b>opposées</b>.<br><b>Générateur</b> : flèches <b>dans le même sens</b>.",
-   "origine": "Cours §2 Les deux conventions"
+   "type": "retenir",
+   "recto": "Deux grandeurs, deux branchements — qu'y a-t-il à retenir ?",
+   "verso": "Le courant <em>traverse</em> : l'ampèremètre se place en série, dans la branche à mesurer. La tension est une différence <em>entre deux points</em> : le voltmètre se place en dérivation, aux bornes du dipôle.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>En convention récepteur, que signifie P = U I &gt; 0 ? et P &lt; 0 ?",
-   "verso": "P &gt; 0 : le dipôle <b>reçoit</b> de la puissance.<br>P &lt; 0 : il en <b>fournit</b> (ex. moteur qui freine en génératrice).<br>En convention générateur, c'est l'inverse.",
-   "origine": "Cours §2 P = U I"
+   "type": "trou",
+   "recto": "Son intensité mesure …… : I = Q/t, en ampères (A).",
+   "rep": "la charge qui traverse une section du conducteur par unité de temps",
+   "verso": "<strong>la charge qui traverse une section du conducteur par unité de temps</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>On trouve I = −2,5 A. Que faire ?",
-   "verso": "Rien à corriger : le courant circule <b>en sens inverse de la flèche</b> choisie. On garde la valeur et on l'interprète.",
-   "origine": "Cours §2 Ce que révèle un signe négatif"
+   "type": "trou",
+   "recto": "En convention <strong>générateur</strong>, elles sont …….",
+   "rep": "dans le même sens",
+   "verso": "<strong>dans le même sens</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énoncer la loi des nœuds.",
-   "verso": "En un nœud, la <b>somme des courants qui entrent = somme des courants qui sortent</b>. La charge se conserve.",
-   "origine": "Cours §3 Loi des nœuds"
+   "type": "trou",
+   "recto": "En convention <strong>récepteur</strong>, les flèches de U et de I sont …….",
+   "rep": "opposées",
+   "verso": "<strong>opposées</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Relation de Chasles pour les tensions ? Tension entre deux points reliés par un fil ?",
-   "verso": "<b>U<sub>AC</sub> = U<sub>AB</sub> + U<sub>BC</sub></b><br>Deux points reliés par un fil sont au <b>même potentiel</b> : tension nulle.",
-   "origine": "Cours §3 Relation de Chasles"
+   "type": "trou",
+   "recto": "Toute résistance parcourue par un courant dissipe …… sous forme de chaleur.",
+   "rep": "P_J = R I²",
+   "verso": "<strong>P_J = R I²</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énoncer la loi des mailles et la règle des signes.",
-   "verso": "Sur un tour complet : <b>Σ U = 0</b>.<br>Tension <b>+</b> si sa flèche est dans le sens de parcours, <b>−</b> sinon.<br>Sur une boucle simple : E = U<sub>1</sub> + U<sub>2</sub> + …",
-   "origine": "Cours §3 Loi des mailles"
+   "type": "trou",
+   "recto": "La <strong>tension</strong> entre deux points A et B est …… : U_AB = V_A - V_B.",
+   "rep": "la différence de leurs potentiels",
+   "verso": "<strong>la différence de leurs potentiels</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quand deux dipôles sont-ils en série ? en parallèle ?",
-   "verso": "En <b>série</b> : traversés par <b>le même courant</b>.<br>En <b>parallèle</b> : soumis à <b>la même tension</b>.",
-   "origine": "Cours §4 Série et parallèle"
+   "type": "question",
+   "recto": "La tension U_AB vaut 12 V. Alors U_BA vaut ……",
+   "rep": "-12 V",
+   "verso": "<strong>-12 V</strong> — U_BA = V_B - V_A = -U_AB. L'ordre des indices est une information, pas une formalité : l'inverser change le signe de toutes les conclusions qui suivent.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Résistance équivalente en série ? en parallèle ?",
-   "verso": "Série : <b>R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub></b><br>Parallèle : <b>1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub></b> (deux résistances : R<sub>1</sub>R<sub>2</sub>/(R<sub>1</sub>+R<sub>2</sub>)), toujours plus petite que la plus petite.",
-   "origine": "Cours §4 Associer des dipôles"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formule du diviseur de tension ? À quelle condition est-elle valable ?",
-   "verso": "<b>U<sub>2</sub> = U × R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)</b><br>Seulement si <b>aucun courant ne sort du point milieu</b> (diviseur à vide).",
-   "origine": "Cours §5 Le diviseur de tension"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Rhéostat câblé sur 2 bornes ou sur 3 bornes : quel usage ?",
-   "verso": "<b>2 bornes</b> (extrémité + curseur) : <b>résistance réglable</b> (rhéostat), règle un courant.<br><b>3 bornes</b> : <b>diviseur de tension réglable</b> (potentiomètre), règle une tension : U<sub>S</sub> = U<sub>E</sub> × R<sub>CB</sub>/R<sub>AB</sub>.",
-   "origine": "Cours §5 Le rhéostat"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Résistance d'un conducteur de longueur ℓ et de section S ? Résistivité du cuivre ?",
-   "verso": "<b>R = ρ ℓ / S</b> (ρ en Ω·m, ℓ en m, S en m²).<br>Cuivre : <b>1,8 × 10<sup>−8</sup> Ω·m</b> ; aluminium : 2,8 × 10<sup>−8</sup> Ω·m.",
-   "origine": "Cours §6 Résistance d'un conducteur"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>1 mm² = ? m²",
-   "verso": "<b>1 mm² = 10<sup>−6</sup> m²</b> (et non 10<sup>−3</sup>) : une surface se convertit au carré.",
-   "origine": "Cours §6 La conversion qui coûte le plus de points"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Puissance d'un dipôle en continu ? Énergie sur une durée t ?",
-   "verso": "<b>P = U I</b> (débit d'énergie, en W).<br><b>W = P × t</b> (quantité transférée, en J). Le compteur facture des kWh : 1 kWh = 3,6 MJ.",
-   "origine": "Cours §7 Puissance et énergie"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Puissance dissipée par effet Joule ? Que se passe-t-il si l'on divise le courant par 2 ?",
-   "verso": "<b>P<sub>J</sub> = R I²</b> (chaleur).<br>Les pertes varient comme le <b>carré du courant</b> : I / 2 → pertes / <b>4</b>.",
-   "origine": "Cours §7 L'effet Joule"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelles sont les trois vérifications sur le multimètre avant la mise sous tension ?",
-   "verso": "1. La <b>fonction</b> (tension/courant, continu/alternatif).<br>2. Les <b>bornes</b> (celle du courant est distincte).<br>3. Le <b>calibre</b>, au-dessus de la valeur attendue puis resserré.",
-   "origine": "Cours §8 Les trois vérifications"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que se passe-t-il si l'on branche un ampèremètre en dérivation sur une source ?",
-   "verso": "Sa résistance est quasi nulle : c'est un <b>court-circuit franc</b> (fusible, appareil, opérateur exposés). C'est la seule erreur de branchement dangereuse.",
-   "origine": "Cours §8 L'erreur qui détruit le matériel"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Boîte à décades réglée sur 100 Ω : quel courant admissible commande ?",
-   "verso": "Celui de la <b>décade la plus contraignante parmi celles affichées</b> (décades en série) : ici ×100 → <b>70 mA</b>. On calcule le courant <b>avant</b> la mise sous tension.",
-   "origine": "Cours §8 Boîtes à décades"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir la valeur efficace d'un courant périodique. Que signifie TRMS ?",
-   "verso": "La valeur du <b>courant continu</b> qui dissiperait <b>la même puissance</b> dans la même résistance.<br>Un appareil <b>TRMS</b> la mesure quelle que soit la forme d'onde.",
-   "origine": "Cours §8 Valeur efficace vraie"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment écrire une loi des mailles sans erreur de signe ?",
-   "verso": "1. Choisir un <b>point de départ</b> et un <b>sens de parcours</b>, les dessiner.<br>2. Avancer dipôle après dipôle : <b>+U</b> si la flèche est dans le sens de parcours, <b>−U</b> sinon.<br>3. Revenu au départ : somme = 0.",
-   "origine": "Cours §3 Méthode — Écrire une loi des mailles"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>E = 24 V alimente R<sub>1</sub> = 100 Ω et R<sub>2</sub> = 200 Ω en série. Comment trouver I, U<sub>1</sub>, U<sub>2</sub> ?",
-   "verso": "1. Orienter I, flécher U<sub>1</sub>, U<sub>2</sub> en convention récepteur.<br>2. Maille : E = (R<sub>1</sub> + R<sub>2</sub>) I.<br>3. I = 24 / 300 = <b>80 mA</b>.<br>4. U<sub>1</sub> = <b>8 V</b>, U<sub>2</sub> = <b>16 V</b>.<br>5. Vérifier : 8 + 16 = 24.",
-   "origine": "Cours §3 Méthode — Résoudre un circuit à une maille"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Rhéostat 33 Ω sous 15 V, curseur à 40 % de la piste depuis B. Comment trouver U<sub>S</sub> et vérifier le matériel ?",
-   "verso": "1. R<sub>CB</sub> = 0,40 × 33 = 13,2 Ω.<br>2. U<sub>S</sub> = 15 × 13,2/33 = <b>6,0 V</b>.<br>3. Courant dans la piste : 15/33 = 0,45 A &lt; courant admissible de la plaque.<br>4. Valable seulement sans charge sur le curseur.",
-   "origine": "Cours §5 Méthode — Régler une tension au rhéostat"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Câble cuivre 60 m, 10 mm², 25 A, 2000 h/an. Comment chiffrer les pertes annuelles ?",
-   "verso": "1. R = ρ ℓ / S = 1,8 × 10<sup>−8</sup> × 60 / 10 × 10<sup>−6</sup> = <b>0,108 Ω</b>.<br>2. P<sub>J</sub> = R I² = 0,108 × 25² = <b>67,5 W</b>.<br>3. W = 0,0675 kW × 2000 h = <b>135 kWh</b>.<br>4. Coût = W × prix du kWh.",
-   "origine": "Cours §7 Méthode — Ce que coûte une canalisation"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment passer d'une mesure de tension à une mesure de courant au multimètre TRG803 ?",
-   "verso": "1. Couper l'alimentation.<br>2. Tourner le commutateur sur <b>A</b>.<br>3. <b>Déplacer le cordon</b> de V vers µA mA ou 10 A MAX.<br>4. Insérer l'appareil <b>en série</b>, calibre au-dessus de la valeur attendue.",
-   "origine": "Cours §8 Mesurer sans casser"
+   "type": "question",
+   "recto": "Deux points M et N sont reliés par un simple fil. La tension U_MN vaut ……",
+   "rep": "0 V",
+   "verso": "<strong>0 V</strong>",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

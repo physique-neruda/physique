@@ -199,102 +199,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que mesure la viscosité dynamique ? Symbole et unité ?",
-   "verso": "La <b>résistance au glissement</b> des couches de fluide les unes sur les autres. Symbole <b>η</b>, en <b>Pa·s</b>.",
-   "origine": "Cours §1.1 Viscosité dynamique"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Viscosité dynamique » ?",
+   "verso": "La <strong>viscosité dynamique</strong> η mesure la résistance d'un fluide au glissement de ses couches les unes sur les autres. Elle s'exprime en pascal-seconde (Pa·s).",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Viscosité cinématique : formule et unités ?",
-   "verso": "<b>ν = η / ρ</b> en m²/s, en pratique en mm²/s : <b>1 mm²/s = 10<sup>−6</sup> m²/s</b>.",
-   "origine": "Cours §1.1 Viscosité cinématique"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Les deux régimes » ?",
+   "verso": "En régime <strong>laminaire</strong>, les filets de fluide glissent les uns sur les autres sans se mélanger ; le profil de vitesse est parabolique.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que signifie « ISO VG 46 » ?",
-   "verso": "Viscosité cinématique de <b>46 mm²/s à 40 °C</b>.",
-   "origine": "Cours §1.1 Désignation d'une huile"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Pertes de charge » ?",
+   "verso": "On appelle <strong>perte de charge</strong> la chute de pression subie par un fluide entre deux points d'un circuit. L'énergie correspondante est dissipée en chaleur et ne peut jamais être récupérée.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment varie la viscosité d'une huile avec la température ? Conséquence ?",
-   "verso": "Elle <b>s'effondre quand la température monte</b> (÷ 90 entre 0 et 100 °C pour une VG 46). Tout calcul ou relevé doit <b>préciser la température</b>.",
-   "origine": "Cours §1.2 Viscosité et température"
+   "type": "retenir",
+   "recto": "Deux viscosités, une seule idée — qu'y a-t-il à retenir ?",
+   "verso": "La <strong>viscosité cinématique</strong> ν se déduit de la précédente : ν= η/ρ, en m²/s. Elle s'exprime en pratique en mm²/s, avec 1 mm²/s = 1×10⁻⁶ m²/s.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Régime laminaire et régime turbulent : description ?",
-   "verso": "<b>Laminaire</b> : filets qui glissent sans se mélanger, profil parabolique.<br><b>Turbulent</b> : écoulement chaotique, tourbillons, profil aplati.",
-   "origine": "Cours §2.1 Les deux régimes"
+   "type": "retenir",
+   "recto": "Régulières et singulières — qu'y a-t-il à retenir ?",
+   "verso": "Les pertes <strong>régulières</strong> (ou linéaires) se produisent dans les portions droites, sur toute la longueur : Δp = λL/D·1/2ρv².",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formule du nombre de Reynolds ? Seuils (TSMA) ?",
-   "verso": "<b>Re = ρ v D / η = v D / ν</b>, sans unité.<br><b>Re &lt; 2000</b> : laminaire ; <b>Re &gt; 3000</b> : turbulent ; entre les deux : transition.",
-   "origine": "Cours §2.2 Nombre de Reynolds"
+   "type": "retenir",
+   "recto": "Le diamètre commande tout — qu'y a-t-il à retenir ?",
+   "verso": "À Δp et L fixés, le débit varie comme la puissance quatrième du diamètre. Doubler le diamètre multiplie le débit par 16. Réduire le diamètre de 10 % fait chuter le débit de 34 % (0,90⁴ = 0,656).",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une perte de charge ? Où part l'énergie ?",
-   "verso": "La <b>chute de pression</b> du fluide entre deux points d'un circuit. L'énergie est <b>dissipée en chaleur</b>, irrécupérable.",
-   "origine": "Cours §3.1 Pertes de charge"
+   "type": "trou",
+   "recto": "La <strong>viscosité dynamique</strong> η mesure …….",
+   "rep": "la résistance d'un fluide au glissement de ses couches les unes sur les autres",
+   "verso": "<strong>la résistance d'un fluide au glissement de ses couches les unes sur les autres</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Formules des pertes régulières et singulières ?",
-   "verso": "Régulières (longueurs droites) : <b>Δp = λ (L/D) ½ ρ v²</b>.<br>Singulières (coude, vanne, raccord, filtre) : <b>Δp = K ½ ρ v²</b>.",
-   "origine": "Cours §3.1 Régulières et singulières"
+   "type": "trou",
+   "recto": "En régime <strong>turbulent</strong>, …… ; le profil s'aplatit.",
+   "rep": "l'écoulement devient chaotique, parcouru de tourbillons",
+   "verso": "<strong>l'écoulement devient chaotique, parcouru de tourbillons</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sur un engin agricole, quelles pertes de charge dominent souvent ?",
-   "verso": "Les <b>singulières</b> : conduites courtes mais accessoires nombreux. Un raccord mal choisi peut coûter autant que 10 m de flexible.",
-   "origine": "Cours §3.1 Sur un engin"
+   "type": "trou",
+   "recto": "L'énergie correspondante est …… et ne peut jamais être récupérée.",
+   "rep": "dissipée en chaleur",
+   "verso": "<strong>dissipée en chaleur</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment évolue la charge le long d'un circuit ?",
-   "verso": "Elle <b>ne fait que décroître</b> dans le sens de l'écoulement ; seule une <b>pompe</b> la fait remonter.",
-   "origine": "Cours §3.2 La ligne de charge"
+   "type": "trou",
+   "recto": "Réduire le diamètre de 10 % fait chuter le débit de …… (0,90⁴ = 0,656).",
+   "rep": "34 %",
+   "verso": "<strong>34 %</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Loi de Poiseuille ? Condition d'application ?",
-   "verso": "<b>Q<sub>v</sub> = π Δp D<sup>4</sup> / (128 η L)</b>, soit Δp = 128 η L Q<sub>v</sub> / (π D<sup>4</sup>).<br>Seulement en régime <b>laminaire</b>, conduite cylindrique droite : calculer Re d'abord.",
-   "origine": "Cours §4.1 Loi de Poiseuille"
+   "type": "trou",
+   "recto": "Les pertes <strong>singulières</strong> se produisent …… : Δp = K·1/2ρv².",
+   "rep": "en un point précis : coude, vanne, raccord, filtre, rétrécissement",
+   "verso": "<strong>en un point précis : coude, vanne, raccord, filtre, rétrécissement</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>À Δp et L fixés, comment le débit dépend-il du diamètre ?",
-   "verso": "Comme <b>D<sup>4</sup></b> : doubler D multiplie le débit par <b>16</b> ; D − 10 % → débit − 34 %.",
-   "origine": "Cours §4.2 La puissance quatrième"
+   "type": "question",
+   "recto": "La viscosité dynamique η s'exprime en ……",
+   "rep": "Pa·s",
+   "verso": "<strong>Pa·s</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment les pertes croissent-elles avec le débit en laminaire ? en turbulent ?",
-   "verso": "Laminaire : <b>Δp ∝ Q<sub>v</sub></b> (droite par l'origine).<br>Turbulent : <b>Δp ∝ Q<sub>v</sub><sup>1,75</sup></b> environ (débit × 2 → pertes × 3,4).",
-   "origine": "Cours §4.3 Laminaire et turbulent"
+   "type": "question",
+   "recto": "La désignation « ISO VG 46 » signifie que la viscosité cinématique vaut 46 mm²/s ……",
+   "rep": "à 40 °C",
+   "verso": "<strong>à 40 °C</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Huile ISO VG 46, ρ = 870 kg/m³. Comment calculer sa viscosité dynamique à 40 °C ?",
-   "verso": "1. ν = 46 mm²/s = <b>4,6 × 10<sup>−5</sup> m²/s</b>.<br>2. η = ν × ρ = 4,6 × 10<sup>−5</sup> × 870 = <b>4,0 × 10<sup>−2</sup> Pa·s</b>.",
-   "origine": "Cours §1.1 Lire une désignation d'huile"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer le régime d'écoulement dans une conduite ?",
-   "verso": "1. Convertir D en m, v en m/s, ν en m²/s.<br>2. <b>Re = v D / ν</b>.<br>3. Vérifier que Re est sans unité.<br>4. &lt; 2000 laminaire ; &gt; 3000 turbulent.",
-   "origine": "Cours §2.2 Le fluide décide"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Pertes de 3,1 bar dans un flexible de 10 mm. Que deviennent-elles en 16 mm (même débit, laminaire) ?",
-   "verso": "1. Δp ∝ 1/D<sup>4</sup>.<br>2. Rapport (16/10)<sup>4</sup> = <b>6,6</b>.<br>3. Δp = 3,1/6,6 ≈ <b>0,47 bar</b>.<br>Passer au calibre supérieur rapporte plus qu'une pompe plus puissante.",
-   "origine": "Cours §4.2 Choisir un flexible"
+   "type": "question",
+   "recto": "Quand la température d'une huile augmente, sa viscosité ……",
+   "rep": "diminue fortement",
+   "verso": "<strong>diminue fortement</strong> — le nombre du grade ISO VG est la viscosité cinématique à 40 °C, température de référence normalisée. Une huile n'a pas « une » viscosité : elle en a une par température, et le facteur atteint 90 entre 0 °C et 100 °C. 3pt",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };

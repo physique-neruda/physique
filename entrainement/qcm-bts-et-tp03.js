@@ -154,150 +154,96 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que désignent u(t) en minuscule et U en majuscule ? « u = 230 V » est-il correct ?",
-   "verso": "Minuscule : valeur <b>instantanée</b>, qui change à chaque instant. Majuscule : <b>valeur efficace</b>, un nombre fixe.<br>« u = 230 V » est une faute : c'est <b>U</b> qui vaut 230 V.",
-   "origine": "Convention d'écriture"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Tension sinusoïdale » ?",
+   "verso": "Une tension sinusoïdale s'écrit u(t) = U_maxsin(ωt), où U_max est la <strong>tension maximale</strong> (ou amplitude) et ω la <strong>pulsation</strong>, en rad/s. Elle se répète à l'identique toutes les <strong>périodes</strong> T.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Écriture d'une tension sinusoïdale ? Relations entre T, f et ω ?",
-   "verso": "<b>u(t) = U<sub>max</sub> sin(ωt)</b><br><b>f = 1/T</b> et <b>ω = 2πf</b> (rad/s).",
-   "origine": "Cours §1 Grandeur sinusoïdale"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Valeur efficace » ?",
+   "verso": "La valeur efficace U d'une tension variable est",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Réseau à 50 Hz : période ? pulsation ?",
-   "verso": "<b>T = 20 ms</b>, <b>ω = 2π × 50 = 314 rad/s</b>. La tension passe par zéro 100 fois par seconde.",
-   "origine": "Cours §1 Le réseau"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Déphasage » ?",
+   "verso": "Le déphasage φ du courant par rapport à la tension est le décalage entre les deux courbes, rapporté à la période et exprimé en degrés : une période entière vaut 360.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Valeur moyenne d'une grandeur sinusoïdale ? Conséquence pour le voltmètre ?",
-   "verso": "<b>Nulle</b> : les deux alternances ont la même aire. Un voltmètre en position <b>DC</b> afficherait zéro sur le réseau : il faut la position <b>AC</b>.",
-   "origine": "Cours §1 Valeur moyenne"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Vecteur de Fresnel » ?",
+   "verso": "À une grandeur sinusoïdale, on associe un vecteur dont",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définition de la valeur efficace ? Relation avec U<sub>max</sub> ?",
-   "verso": "La valeur de la <b>tension continue qui produirait le même échauffement</b> dans la même résistance.<br><b>U = U<sub>max</sub> / √2</b> — en sinusoïdal <b>uniquement</b>.",
-   "origine": "Cours §2 Valeur efficace"
+   "type": "retenir",
+   "recto": "Valeur moyenne — qu'y a-t-il à retenir ?",
+   "verso": "Sur une période, les alternances positive et négative ont la même aire : la valeur moyenne d'une grandeur sinusoïdale est nulle. Un voltmètre en position continue (DC) branché sur le réseau afficherait donc zéro — ce n'est pas lui qu'il faut utiliser.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Valeur efficace d'un carré ? d'un triangle ? Quel appareil pour un signal quelconque ?",
-   "verso": "Carré : U = U<sub>max</sub> ; triangle : U = U<sub>max</sub>/√3.<br>Signal quelconque (variateur, découpage) : seul un appareil <b>TRMS</b> mesure la vraie valeur efficace ; un non-TRMS se trompe souvent de plus de 10 %.",
-   "origine": "Cours §2 Le facteur √2 n'est pas universel"
+   "type": "retenir",
+   "recto": "Signe du déphasage — qu'y a-t-il à retenir ?",
+   "verso": "Par convention, φ est le déphasage de u par rapport à i : φ> 0 quand la tension est en avance sur le courant (circuit <strong>inductif</strong>), φ< 0 quand elle est en retard (circuit <strong>capacitif</strong>).",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que lit-on à l'oscilloscope ? au multimètre en AC ? Que sont 230 V et 16 A sur une plaque ?",
-   "verso": "Oscilloscope : la forme et <b>U<sub>max</sub></b>.<br>Multimètre AC : la <b>valeur efficace U</b>.<br>Les valeurs de plaque sont des <b>valeurs efficaces</b>.",
-   "origine": "Cours §2 Ce que mesure chaque appareil"
+   "type": "retenir",
+   "recto": "Pourquoi c'est utile — qu'y a-t-il à retenir ?",
+   "verso": "Additionner deux grandeurs sinusoïdales de même fréquence revient à additionner leurs vecteurs de Fresnel. C'est la seule addition autorisée : les valeurs efficaces, elles, <strong>ne s'additionnent pas</strong> dès que les grandeurs sont déphasées.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définition et formule du déphasage ?",
-   "verso": "Le décalage entre deux sinusoïdes de même fréquence, rapporté à la période (une période = 360°).<br><b>φ = 360° × Δt / T</b>",
-   "origine": "Cours §3 Le déphasage"
+   "type": "trou",
+   "recto": "Un condensateur <em>fournit</em> du réactif : P = 0, …….",
+   "rep": "Q = -I²/(Cω) < 0",
+   "verso": "<strong>Q = -I²/(Cω) < 0</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment mesurer un déphasage sur un oscillogramme ?",
-   "verso": "1. Repérer un passage par zéro <b>dans le même sens</b> sur chaque courbe.<br>2. Mesurer Δt entre les deux et la période T.<br>3. φ = 360 Δt / T.<br>4. Est <b>en avance celle qui passe par zéro la première</b>.<br>Ex. T = 20 ms, i 2 ms après u → φ = 36°, courant en retard.",
-   "origine": "Cours §3 Mesurer un déphasage à l'oscilloscope"
+   "type": "trou",
+   "recto": "Une bobine idéale ne consomme que du réactif : P = 0, …….",
+   "rep": "Q = LωI² > 0",
+   "verso": "<strong>Q = LωI² > 0</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que signifie φ &gt; 0 ? φ &lt; 0 ?",
-   "verso": "φ est le déphasage de u par rapport à i.<br><b>φ &gt; 0</b> : tension en avance sur le courant → circuit <b>inductif</b>.<br><b>φ &lt; 0</b> : tension en retard → circuit <b>capacitif</b>.",
-   "origine": "Cours §3 Signe du déphasage"
+   "type": "trou",
+   "recto": "172 Tracer I horizontal : c'est la <strong>référence</strong>, car le courant est …….",
+   "rep": "commun à tous les dipôles en série",
+   "verso": "<strong>commun à tous les dipôles en série</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'associe-t-on à une grandeur sinusoïdale dans la représentation de Fresnel ?",
-   "verso": "Un vecteur dont la <b>longueur est la valeur efficace</b> et dont l'<b>angle</b> avec la référence est le <b>déphasage</b>.",
-   "origine": "Cours §4 Vecteur de Fresnel"
+   "type": "trou",
+   "recto": "Un condensateur placé …… sur l'installation fournit sur place une partie de la puissance réactive consommée par les moteurs.",
+   "rep": "en parallèle",
+   "verso": "<strong>en parallèle</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Peut-on additionner les valeurs efficaces de deux tensions déphasées ?",
-   "verso": "<b>Non</b>. On additionne leurs <b>vecteurs de Fresnel</b> : c'est la seule addition autorisée.",
-   "origine": "Cours §4 Pourquoi Fresnel"
+   "type": "trou",
+   "recto": "Sur une période, les alternances positive et négative ont la même aire : la valeur moyenne d'une grandeur sinusoïdale est …….",
+   "rep": "nulle",
+   "verso": "<strong>nulle</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définition de l'impédance ? Impédance et déphasage de R, L, C ?",
-   "verso": "<b>Z = U / I</b> (valeurs efficaces), en Ω.<br>Résistance : <b>R</b>, 0°.<br>Bobine : <b>Lω</b>, +90°.<br>Condensateur : <b>1/(Cω)</b>, −90°.",
-   "origine": "Cours §5 Impédance"
+   "type": "question",
+   "recto": "Une tension sinusoïdale de période 20 ms a pour fréquence ……",
+   "rep": "50 Hz",
+   "verso": "<strong>50 Hz</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment modélise-t-on une bobine réelle ? Que se passe-t-il si on l'alimente en continu ?",
-   "verso": "<b>r en série avec L</b> : Z &gt; r et déphasage entre 0° et 90°.<br>En continu, seule r limite le courant : une bobine prévue pour 24 V alternatif <b>grille</b> sous 24 V continu.",
-   "origine": "Cours §5 La bobine réelle"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Circuit série R, L, C : comment construire le diagramme de Fresnel ?",
-   "verso": "1. <b>I horizontal</b> en référence (commun à tous les dipôles en série).<br>2. Bout à bout : U<sub>R</sub> en phase, U<sub>L</sub> à +90°, U<sub>C</sub> à −90°.<br>3. U joint l'origine à l'extrémité du dernier vecteur.<br>4. <b>U = √(U<sub>R</sub>² + (U<sub>L</sub> − U<sub>C</sub>)²)</b>, <b>tan φ = (U<sub>L</sub> − U<sub>C</sub>)/U<sub>R</sub></b>.",
-   "origine": "Cours §6 Construire un Fresnel série"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Impédance d'un circuit R–L série ? Exemple R = 40 Ω, Lω = 30 Ω ?",
-   "verso": "<b>Z = √(R² + X²)</b>, X = Lω (bobine) ou −1/(Cω) (condensateur).<br>40 et 30 Ω → <b>Z = 50 Ω</b>, φ = 36,9°.",
-   "origine": "Cours §6 Triangle des impédances"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Expressions de P, Q, S en monophasé sinusoïdal ? Relation entre elles ?",
-   "verso": "<b>P = U I cos φ</b> (W), <b>Q = U I sin φ</b> (var), <b>S = U I</b> (VA).<br><b>S² = P² + Q²</b>",
-   "origine": "Cours §7 Les trois puissances"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que le facteur de puissance ? Que vaut-il en sinusoïdal ?",
-   "verso": "<b>k = P / S</b>, la part de la puissance transportée réellement utilisée. En sinusoïdal : <b>cos φ</b>.",
-   "origine": "Cours §7 Facteur de puissance"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>P et Q pour une résistance, une bobine idéale, un condensateur ?",
-   "verso": "Résistance : P = R I², <b>Q = 0</b>.<br>Bobine : <b>P = 0</b>, Q = Lω I² <b>&gt; 0</b> (consomme du réactif).<br>Condensateur : <b>P = 0</b>, Q = −I²/(Cω) <b>&lt; 0</b> (fournit du réactif).",
-   "origine": "Cours §7 La puissance de chaque dipôle"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Moteur 1,5 kW sous 230 V, cos φ = 0,80 : S, I, Q ?",
-   "verso": "S = P / cos φ = <b>1875 VA</b> ; I = S / U = <b>8,15 A</b> ; Q = √(S² − P²) = <b>1125 var</b>.<br>Un radiateur de même puissance ne tirerait que 6,52 A.",
-   "origine": "Cours §7 Un moteur monophasé"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qui s'additionne dans une installation ? Qu'est-ce qui ne s'additionne pas ?",
-   "verso": "Les puissances <b>actives</b> s'additionnent, les puissances <b>réactives</b> aussi (avec leur signe).<br>Les puissances <b>apparentes</b> et les <b>courants</b> ne s'additionnent pas.",
-   "origine": "Cours §8 Théorème de Boucherot"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment faire le bilan de puissance d'une installation ?",
-   "verso": "1. Pour chaque récepteur : P absorbée (P<sub>u</sub>/η pour un moteur), puis <b>Q = P tan φ</b>.<br>2. Additionner les P, puis les Q.<br>3. <b>S = √(P² + Q²)</b>, cos φ = P/S, I = S/U.<br>Présenter un tableau, une ligne par récepteur (forme attendue à l'E4).",
-   "origine": "Cours §8 Faire un bilan de puissance"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi un mauvais facteur de puissance coûte-t-il ? Quel est le principe du relèvement ?",
-   "verso": "Courant plus grand que nécessaire : câbles qui chauffent, abonnement en kVA plus élevé, réactif facturé.<br>Un <b>condensateur en parallèle</b> fournit sur place une partie du réactif : P inchangée, Q, S et I diminuent.",
-   "origine": "Cours §9 Pourquoi relever le facteur de puissance"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>5,0 kW sous 230 V, cos φ = 0,70 à relever à 0,95 : capacité ?",
-   "verso": "1. tan φ = 1,020 ; tan φ' = 0,329.<br>2. <b>Q<sub>C</sub> = P (tan φ − tan φ')</b> = 5000 × 0,691 = 3456 var.<br>3. <b>C = Q<sub>C</sub> / (U² ω)</b> = 3456 / (230² × 314) = <b>208 µF</b>.<br>4. Contrôle : I passe de 31,1 A à 22,9 A.",
-   "origine": "Cours §9 Dimensionner le condensateur"
+   "type": "question",
+   "recto": "La tension du réseau, 230 V, désigne ……",
+   "rep": "sa valeur efficace",
+   "verso": "<strong>sa valeur efficace</strong> — Toutes les valeurs de plaque et de réseau sont efficaces. La valeur maximale vaut 325 V ; la valeur moyenne, nulle, ne caractérise rien.",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

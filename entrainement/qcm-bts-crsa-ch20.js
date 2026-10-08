@@ -146,66 +146,103 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Différence entre boucle ouverte et boucle fermée ?",
-   "verso": "<b>Ouverte</b> : commande fixée d'avance, aucune correction des perturbations.<br><b>Fermée</b> : un capteur mesure la sortie, on la compare à la consigne, l'<b>écart fixe la commande</b>.",
-   "origine": "Cours §1 Boucle ouverte, boucle fermée"
+   "type": "trou",
+   "recto": "<strong>Comparateur</strong> : calcule l'<strong>erreur</strong> …….",
+   "rep": "ε= w - m",
+   "verso": "<strong>ε= w - m</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Intérêt et prix d'un système bouclé ?",
-   "verso": "Intérêt : <b>compenser les perturbations</b> et <b>suivre la consigne</b>. Prix : un capteur et un <b>risque d'instabilité</b>.",
-   "origine": "Cours §1 Intérêt de la boucle fermée"
+   "type": "trou",
+   "recto": "Le prix à payer : un capteur, et un risque d'…… si la boucle est mal réglée.",
+   "rep": "instabilité",
+   "verso": "<strong>instabilité</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Éléments d'un schéma blocs de régulation ? Que calcule le comparateur ?",
-   "verso": "<b>Consigne</b> w ; <b>comparateur</b> : erreur <b>ε = w − m</b> ; <b>chaîne directe</b> (correcteur, actionneur, procédé) → sortie y ; <b>chaîne de retour</b> (capteur) → mesure m.",
-   "origine": "Cours §2 Le schéma blocs"
+   "type": "trou",
+   "recto": "En régulation TOR, la grandeur réglée …… entre le seuil bas et le seuil haut.",
+   "rep": "oscille en permanence",
+   "verso": "<strong>oscille en permanence</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quels sont les critères de performance d'une boucle ?",
-   "verso": "<b>Stabilité</b>, <b>précision</b> (erreur statique ε<sub>∞</sub> = consigne − sortie en régime permanent), <b>rapidité</b> (t<sub>5%</sub>), <b>dépassement</b>.",
-   "origine": "Cours §3 Critères de performance"
+   "type": "trou",
+   "recto": "<strong>Chaîne de retour</strong> : le ……, qui ramène la mesure m au comparateur.",
+   "rep": "capteur",
+   "verso": "<strong>capteur</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que se passe-t-il pour un système instable ?",
-   "verso": "Ses <b>oscillations grandissent</b> jusqu'à une butée, une protection ou une casse : le défaut le plus grave.",
-   "origine": "Cours §3 Instabilité"
+   "type": "trou",
+   "recto": "L'intérêt d'un système bouclé : …… et suivre la consigne sans intervention humaine.",
+   "rep": "compenser automatiquement les perturbations",
+   "verso": "<strong>compenser automatiquement les perturbations</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Correcteur PI : rôle de l'action proportionnelle ? de l'action intégrale ?",
-   "verso": "<b>Proportionnelle</b> (K<sub>p</sub>) : la <b>rapidité</b>.<br><b>Intégrale</b> (T<sub>i</sub>) : <b>annule l'erreur statique</b>.<br>Forcer l'une ou l'autre → instabilité : réglage = compromis.",
-   "origine": "Cours §4 Le correcteur PI"
+   "type": "question",
+   "recto": "L'intérêt principal d'un système bouclé est de ……",
+   "rep": "compenser les perturbations",
+   "verso": "<strong>compenser les perturbations</strong> — Et suivre la consigne sans intervention.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Régulation TOR avec hystérésis : comportement ? Effet d'une hystérésis plus large ?",
-   "verso": "La grandeur <b>oscille en permanence</b> entre seuil bas et seuil haut. Hystérésis plus large : oscillations <b>plus amples</b> mais <b>moins de commutations</b> (moins d'usure).",
-   "origine": "Cours §5 Régulation tout ou rien"
+   "type": "question",
+   "recto": "Le comparateur calcule ……",
+   "rep": "l'erreur ε= w - m",
+   "verso": "<strong>l'erreur ε= w - m</strong> — Consigne moins mesure.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Régulation de niveau d'une cuve (capteur de pression, automate, pompe, soutirage). Comment identifier les blocs ?",
-   "verso": "1. <b>Sortie</b> : le niveau ; <b>consigne</b> : le niveau demandé.<br>2. <b>Retour</b> : capteur de pression.<br>3. <b>Comparateur, correcteur</b> : automate.<br>4. <b>Actionneur</b> : pompe + variateur ; <b>procédé</b> : la cuve.<br>5. <b>Perturbation</b> : le soutirage.",
-   "origine": "Cours §2 Méthode — Identifier les blocs"
+   "type": "question",
+   "recto": "Dans une régulation de température, le capteur appartient à ……",
+   "rep": "la chaîne de retour",
+   "verso": "<strong>la chaîne de retour</strong> — Il ramène la mesure au comparateur.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Consigne 1500 tr/min ; max 1650, finale 1440, dans ± 5 % à 2,5 s. Comment lire les performances ?",
-   "verso": "1. Se stabilise → <b>stable</b>.<br>2. ε<sub>∞</sub> = 1500 − 1440 = <b>60 tr/min</b> (4 %).<br>3. D = (1650 − 1440)/1440 = <b>15 %</b>.<br>4. <b>t<sub>5%</sub> = 2,5 s</b>.",
-   "origine": "Cours §3 Méthode — Performances d'une boucle"
+   "type": "question",
+   "recto": "L'erreur statique est l'écart, en régime permanent, entre ……",
+   "rep": "la consigne et la sortie",
+   "verso": "<strong>la consigne et la sortie</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Consigne 60 °C, hystérésis 4 °C, montée 2 °C/min, descente 1 °C/min. Comment prévoir le fonctionnement ?",
-   "verso": "1. Seuils : arrêt à <b>62 °C</b>, reprise à <b>58 °C</b>.<br>2. Chauffe 4/2 = 2 min ; arrêt 4/1 = 4 min → cycle de <b>6 min</b>.<br>3. 10 cycles/h → <b>20 manœuvres</b>.<br>4. Hystérésis doublée : 2 fois moins de manœuvres.",
-   "origine": "Cours §5 Méthode — Thermostat"
+   "type": "question",
+   "recto": "Un système est instable si ……",
+   "rep": "ses oscillations grandissent",
+   "verso": "<strong>ses oscillations grandissent</strong> — Un dépassement n'est pas une instabilité, à condition que la sortie se stabilise.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'action intégrale d'un correcteur PI permet de ……",
+   "rep": "annuler l'erreur statique",
+   "verso": "<strong>annuler l'erreur statique</strong> — Elle agit tant qu'une erreur subsiste.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Diminuer fortement le temps d'intégration T_i ……",
+   "rep": "peut rendre le système oscillant, voire instable",
+   "verso": "<strong>peut rendre le système oscillant, voire instable</strong> — Trop d'action intégrale fait osciller.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "En régulation tout ou rien, la grandeur réglée ……",
+   "rep": "oscille autour de la consigne",
+   "verso": "<strong>oscille autour de la consigne</strong> — Elle oscille entre les deux seuils.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Régulation de vitesse : consigne 1000 1/min, vitesse stabilisée à 960 1/min. L'erreur statique vaut ……",
+   "rep": "4 %",
+   "verso": "<strong>4 %</strong>",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

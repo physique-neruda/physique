@@ -146,78 +146,102 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Dans quel sens une diode conduit-elle ? Tension de seuil ? Modèle idéal ?",
-   "verso": "De l'<b>anode vers la cathode</b> uniquement. Passante : seuil ≈ <b>0,7 V</b> (silicium) ; bloquée : <b>aucun courant</b>.<br>Idéale : un fil quand elle conduit, un interrupteur ouvert sinon.",
-   "origine": "Cours §1 La diode"
+   "type": "retenir",
+   "recto": "Ondulation résiduelle — qu'y a-t-il à retenir ?",
+   "verso": "\\[ ΔU ≈ If_ond C \\] I : courant de la charge ; f_ond : fréquence d'ondulation (100 Hz derrière un pont). Pour réduire l'ondulation, on augmente C ; elle augmente avec le courant débité.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Redressement simple alternance : valeur moyenne ? Fréquence d'ondulation ? Limite ?",
-   "verso": "<b>⟨u⟩ = U<sub>max</sub> / π</b> avec U<sub>max</sub> = U√2.<br>Ondulation à <b>50 Hz</b> (une bosse par période).<br>La moitié de l'énergie est perdue : petites puissances seulement.",
-   "origine": "Cours §2 Redressement simple alternance"
+   "type": "trou",
+   "recto": "Une diode ne laisse passer le courant que dans un sens, …….",
+   "rep": "de l'anode vers la cathode",
+   "verso": "<strong>de l'anode vers la cathode</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Secondaire de 12 V, simple alternance, diode idéale : valeur moyenne ?",
-   "verso": "1. U<sub>max</sub> = 12√2 = <b>17,0 V</b>.<br>2. ⟨u⟩ = 17,0 / π = <b>5,4 V</b>.",
-   "origine": "Cours §2 Simple alternance sous 12 V"
+   "type": "trou",
+   "recto": "À chaque instant, …… conduisent : on perd environ 1,4 V de seuil.",
+   "rep": "deux diodes",
+   "verso": "<strong>deux diodes</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment suivre le trajet du courant dans un pont de diodes ?",
-   "verso": "1. Repérer la borne du secondaire au potentiel <b>le plus haut</b>.<br>2. En partir : une seule diode s'ouvre (anode → cathode) vers le haut de la charge.<br>3. Traverser la charge de haut en bas, revenir à l'autre borne par la seule diode qui l'accepte.<br>4. Alternance suivante : les <b>deux autres diodes</b>, et la charge est traversée <b>dans le même sens</b>.",
-   "origine": "Cours §3 Suivre le courant dans le pont de Graëtz"
+   "type": "trou",
+   "recto": "Pour réduire l'ondulation, on augmente C ; elle augmente avec …….",
+   "rep": "le courant débité",
+   "verso": "<strong>le courant débité</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pont de Graëtz : valeur moyenne ? Fréquence d'ondulation ? Combien de diodes conduisent ?",
-   "verso": "<b>⟨u⟩ = 2 U<sub>max</sub> / π</b>.<br>Ondulation à <b>100 Hz</b> (deux fois le réseau).<br><b>Deux diodes</b> conduisent à chaque instant : ≈ 1,4 V de seuil perdus.",
-   "origine": "Cours §3 Pont de Graëtz"
+   "type": "trou",
+   "recto": "Un voltmètre en position <strong>continu</strong> (DC) affiche la …….",
+   "rep": "valeur moyenne",
+   "verso": "<strong>valeur moyenne</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Même secondaire de 12 V, pont de Graëtz : valeur moyenne ?",
-   "verso": "⟨u⟩ = 2 × 17,0 / π = <b>10,8 V</b> (diodes idéales), ≈ <b>9,9 V</b> en retirant les 1,4 V de seuil.",
-   "origine": "Cours §3 Graëtz sous 12 V"
+   "type": "trou",
+   "recto": "Passante, elle présente une petite tension de seuil, environ 0,7 V pour une diode au silicium ; bloquée, elle ne laisse passer …….",
+   "rep": "aucun courant",
+   "verso": "<strong>aucun courant</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Un pont de diodes peut-il renvoyer de l'énergie au réseau ?",
-   "verso": "<b>Non</b> : l'énergie ne va que du réseau vers la charge. Pour freiner en renvoyant l'énergie, il faut des <b>thyristors</b> (année 2).",
-   "origine": "Cours §3 Le pont n'est pas réversible"
+   "type": "question",
+   "recto": "La tension de seuil d'une diode au silicium vaut environ ……",
+   "rep": "0,7 V",
+   "verso": "<strong>0,7 V</strong> — 1,4 V est la chute dans un pont (deux diodes).",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que lit un voltmètre en DC sur une tension redressée ? en AC ? Comment observer la forme ?",
-   "verso": "DC : la <b>valeur moyenne</b>.<br>AC : l'efficace de la seule partie alternative (sauf <b>TRMS AC+DC</b>).<br>Forme : oscilloscope en <b>couplage DC</b>, via un <b>module d'isolement</b> ou une sonde différentielle.",
-   "origine": "Cours §4 Mesurer une tension redressée"
+   "type": "question",
+   "recto": "En simple alternance, la valeur moyenne vaut ……",
+   "rep": "U_max/π",
+   "verso": "<strong>U_max/π</strong> — Une alternance sur deux est perdue.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Rôle du condensateur en parallèle sur la charge ? Ondulation résiduelle ?",
-   "verso": "Il se charge à chaque sommet puis fournit le courant quand la tension redescend : sortie presque continue, proche de U<sub>max</sub>.<br><b>ΔU ≈ I / (f<sub>ond</sub> C)</b> : diminue si C augmente, augmente avec le courant.",
-   "origine": "Cours §5 Le filtrage capacitif"
+   "type": "question",
+   "recto": "Derrière un pont de Graëtz, la fréquence d'ondulation vaut ……",
+   "rep": "100 Hz",
+   "verso": "<strong>100 Hz</strong> — Deux bosses par période du réseau.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Derrière un pont (12 V), une carte absorbe 0,50 A ; ondulation ≤ 1,5 V. Capacité ?",
-   "verso": "1. f<sub>ond</sub> = <b>100 Hz</b> (pont).<br>2. <b>C ≥ I / (f<sub>ond</sub> ΔU)</b> = 0,50 / (100 × 1,5) = 3,3 × 10<sup>−3</sup> F = 3300 µF.<br>3. Valeur normalisée <b>supérieure</b> : 4700 µF → ΔU ≈ 1,1 V.",
-   "origine": "Cours §5 Dimensionner un condensateur de filtrage"
+   "type": "question",
+   "recto": "Dans un pont, à chaque instant, le nombre de diodes passantes est ……",
+   "rep": "deux",
+   "verso": "<strong>deux</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Deux précautions pour un condensateur chimique de filtrage ?",
-   "verso": "Il est <b>polarisé</b> : à l'envers, il chauffe et peut exploser.<br>Sa <b>tension de service</b> doit dépasser U<sub>max</sub>.",
-   "origine": "Cours §5 Le condensateur chimique"
+   "type": "question",
+   "recto": "Un pont alimenté sous 12 V (diodes idéales) donne une valeur moyenne de ……",
+   "rep": "10,8 V",
+   "verso": "<strong>10,8 V</strong> — 2×17,0/π.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Constitution d'une alimentation continue classique ? Conséquence côté réseau ?",
-   "verso": "<b>Transformateur → pont de diodes → condensateur</b>.<br>Le condensateur ne se recharge qu'aux sommets : le réseau fournit le courant par <b>brèves pointes</b>, <b>non sinusoïdal</b>.",
-   "origine": "Cours §6 La chaîne de conversion"
+   "type": "question",
+   "recto": "Un voltmètre en position DC sur une tension redressée affiche ……",
+   "rep": "sa valeur moyenne",
+   "verso": "<strong>sa valeur moyenne</strong> — C'est la mesure à retenir pour u.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "L'ondulation derrière un condensateur de filtrage ……",
+   "rep": "diminue quand C augmente",
+   "verso": "<strong>diminue quand C augmente</strong> — ΔU ≈ I/(fC).",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Un condensateur chimique branché à l'envers ……",
+   "rep": "chauffe et peut exploser",
+   "verso": "<strong>chauffe et peut exploser</strong> — Il est polarisé.",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

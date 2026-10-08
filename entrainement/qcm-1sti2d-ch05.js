@@ -255,132 +255,98 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énoncer la loi d'Ohm. Unités ?",
-   "verso": "Pour un conducteur ohmique, U est <b>proportionnelle</b> à I : <b>U = R × I</b><br>U en V, R en Ω, I en A.",
-   "origine": "Cours §1 La loi d'Ohm"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Loi d'Ohm » ?",
+   "verso": "Pour un conducteur ohmique, la tension à ses bornes est <strong>proportionnelle</strong> à l'intensité qui le traverse : [2]\\[ U = R × I, U en, R en, I en. \\] Le coefficient de proportionnalité R est la <strong>résistance</strong> du conducteur.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Si l'on double la tension aux bornes d'une résistance, que deviennent R et I ?",
-   "verso": "<b>R ne change pas</b> (caractéristique du composant : matière, longueur, section). <b>I double</b>.",
-   "origine": "Cours §1 La loi d'Ohm"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Convention de signe » ?",
+   "verso": "Lorsqu'un dipôle est fléché en <strong>convention récepteur</strong>, on calcule P = U × I et l'on interprète le <strong>signe</strong> du résultat : si P > 0, le dipôle <strong>reçoit</strong> de l'énergie ; si P < 0, il en <strong>fournit</strong>.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Puissance électrique reçue par un dipôle quelconque ?",
-   "verso": "<b>P = U × I</b> (P en W, U en V, I en A). Valable pour <b>tout dipôle</b> : moteur, lampe, chargeur…",
-   "origine": "Cours §2 La puissance électrique"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Effet Joule » ?",
+   "verso": "Un conducteur de résistance R parcouru par un courant d'intensité I dissipe une puissance thermique : [2]\\[ P_J = R × I². \\]",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelles autres écritures de P pour une résistance ? Pour quel dipôle valent-elles ?",
-   "verso": "<b>P = R I²</b> et <b>P = U² / R</b>, obtenues avec la loi d'Ohm. Seulement pour un <b>conducteur ohmique</b>.",
-   "origine": "Cours §2 Trois écritures, une seule puissance"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Deux protections complémentaires » ?",
+   "verso": "Le <strong>disjoncteur magnétothermique</strong> surveille l'<strong>intensité</strong> qui circule et coupe en cas de surcharge ou de court-circuit : il protège le <strong>câble</strong>.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Dipôle fléché en convention récepteur : que signifie P = U I &gt; 0 ? P &lt; 0 ?",
-   "verso": "<b>P &gt; 0</b> : le dipôle <b>reçoit</b> de l'énergie.<br><b>P &lt; 0</b> : il en <b>fournit</b>.<br>Une résistance donne toujours P &gt; 0.",
-   "origine": "Cours §3 Le signe de la puissance"
+   "type": "trou",
+   "recto": "On flèche en convention récepteur, on calcule, et le …….",
+   "rep": "signe répond à notre place",
+   "verso": "<strong>signe répond à notre place</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Puissance dissipée par effet Joule ? Si l'intensité double ?",
-   "verso": "<b>P<sub>J</sub> = R × I²</b>. I double → pertes × <b>4</b> (I triple → × 9).",
-   "origine": "Cours §4 L'effet Joule"
+   "type": "question",
+   "recto": "La loi d'Ohm s'écrit ……",
+   "rep": "U = R × I",
+   "verso": "<strong>U = R × I</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>L'effet Joule est-il un défaut ou un but ? Exemples.",
-   "verso": "Les deux : <b>défaut</b> dans un câble (énergie gaspillée), <b>but recherché</b> dans un radiateur, une plaque, un grille-pain, un fer à souder.",
-   "origine": "Cours §4 L'effet Joule"
+   "type": "question",
+   "recto": "La caractéristique U(I) d'un conducteur ohmique est ……",
+   "rep": "une droite passant par l'origine",
+   "verso": "<strong>une droite passant par l'origine</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pertes et chute de tension dans une ligne de résistance R<sub>ligne</sub> parcourue par I ?",
-   "verso": "Pertes : <b>R<sub>ligne</sub> × I²</b><br>Chute de tension : <b>R<sub>ligne</sub> × I</b> (aller + retour).",
-   "origine": "Cours §5 Les pertes dans une ligne"
+   "type": "question",
+   "recto": "Si l'on double la tension aux bornes d'une résistance, sa valeur R ……",
+   "rep": "ne change pas",
+   "verso": "<strong>ne change pas</strong> — R est une caractéristique du composant",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment la résistance d'un câble dépend-elle de sa section ?",
-   "verso": "Elle est <b>inversement proportionnelle</b> à la section : section plus grande → résistance et pertes plus faibles.",
-   "origine": "Cours §5 Le rôle de la section"
+   "type": "question",
+   "recto": "La puissance d'un dipôle quelconque vaut ……",
+   "rep": "P = U × I",
+   "verso": "<strong>P = U × I</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi transporte-t-on l'électricité sous haute tension ?",
-   "verso": "À puissance fixée, augmenter U <b>diminue I</b> (I = P/U). Or les pertes varient en <b>I²</b> : elles chutent énormément.",
-   "origine": "Cours §6 Pourquoi la haute tension"
+   "type": "question",
+   "recto": "Les écritures P = R I² et P = U²/R ne sont valables que pour ……",
+   "rep": "un conducteur ohmique",
+   "verso": "<strong>un conducteur ohmique</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quels sont les niveaux de tension, de la ligne nationale à la prise ?",
-   "verso": "<b>400 kV</b> (pays) → <b>90 kV</b> (région) → <b>20 kV</b> (ville) → <b>230 V</b> (prise), avec un <b>transformateur</b> à chaque étage.",
-   "origine": "Cours §6 La chaîne de distribution"
+   "type": "question",
+   "recto": "Un appareil de 2000 W sous 230 V appelle une intensité de ……",
+   "rep": "8,7 A",
+   "verso": "<strong>8,7 A</strong> — 2000/230",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énergie consommée ? 1 kWh en joules ?",
-   "verso": "<b>E = P × Δt</b> ; P en W et Δt en h → Wh ; en s → J.<br><b>1 kWh = 3,6 × 10<sup>6</sup> J</b>.",
-   "origine": "Cours §7 Énergie et facture"
+   "type": "question",
+   "recto": "La puissance dissipée par effet Joule vaut ……",
+   "rep": "R × I²",
+   "verso": "<strong>R × I²</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Seuils de danger du courant alternatif 50 Hz dans le corps ?",
-   "verso": "<b>0,5 mA</b> perception ; <b>10 mA</b> tétanisation ; <b>30 mA</b> paralysie respiratoire ; <b>75 mA</b> fibrillation cardiaque.<br>Ce qui blesse : l'<b>intensité</b> et la <b>durée</b>.",
-   "origine": "Cours §9 Ce qui blesse, c'est l'intensité"
+   "type": "question",
+   "recto": "Si l'on double l'intensité dans un câble, les pertes par effet Joule sont ……",
+   "rep": "multipliées par 4",
+   "verso": "<strong>multipliées par 4</strong> — l'intensité intervient au carré",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Résistance du corps humain, peau sèche et mouillée ? Tensions limites de sécurité ?",
-   "verso": "≈ <b>5000 Ω</b> sec, ≈ <b>1000 Ω</b> mouillé.<br>Tension limite : <b>50 V</b> en local sec, <b>25 V</b> en local humide.",
-   "origine": "Cours §9 Le corps humain"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que protège le disjoncteur magnétothermique ? le disjoncteur différentiel ?",
-   "verso": "<b>Magnétothermique</b> : surveille l'intensité (surcharge, court-circuit) → protège le <b>câble</b>.<br><b>Différentiel</b> : compare courant aller et retour → protège les <b>personnes</b>.",
-   "origine": "Cours §10 Deux protections complémentaires"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi le différentiel domestique est-il réglé à 30 mA ?",
-   "verso": "C'est le <b>seuil de paralysie respiratoire</b>. Il coupe en moins de 30 ms.",
-   "origine": "Cours §10 Deux protections complémentaires"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Plaque chauffante 2000 W sous 230 V. Comment trouver I puis R ?",
-   "verso": "1. P et U connues → P = U I : I = P/U = 2000/230 = <b>8,7 A</b>.<br>2. R = U/I = 230/8,7 = <b>26,4 Ω</b>.<br>3. Vérifier : U²/R = 230²/26,4 ≈ 2000 W.",
-   "origine": "Cours §2 Méthode 1"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Ligne de 0,48 Ω (aller-retour) parcourue par 16 A. Comment chiffrer pertes et chute de tension ?",
-   "verso": "1. Pertes : P<sub>J</sub> = R I² = 0,48 × 16² = <b>122 W</b>.<br>2. Chute : R I = 0,48 × 16 = <b>7,6 V</b> → 222 V au lieu de 230 V.<br>3. Énergie perdue : E = P<sub>J</sub> × Δt, puis le coût.",
-   "origine": "Cours §5 Méthode 2"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment montrer l'intérêt de la haute tension pour transporter 100 kW sur 0,50 Ω ?",
-   "verso": "1. I = P/U : 435 A sous 230 V, 5,0 A sous 20 kV.<br>2. Pertes R I² : <b>94,5 kW</b> sous 230 V, <b>12,5 W</b> sous 20 kV.<br>3. Conclure : U × k → pertes ÷ k².",
-   "origine": "Cours §6 Pourquoi la haute tension"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Moteur : 1500 W absorbés, 1275 W utiles. Comment faire son bilan de puissance ?",
-   "verso": "1. Utile = 1275 W ; absorbée = 1500 W.<br>2. Pertes = 1500 − 1275 = <b>225 W</b> (effet Joule).<br>3. η = 1275/1500 = <b>0,85</b>.<br>4. Vérifier η &lt; 1.",
-   "origine": "Cours §8 Méthode 3"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Contact avec 230 V. Comment chiffrer le risque peau sèche / peau mouillée ?",
-   "verso": "1. Loi d'Ohm I = U/R.<br>2. Sèche (5000 Ω) : 230/5000 = <b>46 mA</b> &gt; 30 mA.<br>3. Mouillée (1000 Ω) : <b>230 mA</b> &gt; 75 mA (fibrillation).<br>4. Comparer aux seuils et conclure.",
-   "origine": "Cours §9 Méthode 4"
+   "type": "question",
+   "recto": "Pour un câble, une section plus grande donne une résistance ……",
+   "rep": "plus faible",
+   "verso": "<strong>plus faible</strong>",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };

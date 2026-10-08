@@ -213,126 +213,100 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelle est la fin de chaîne commune à presque toutes les centrales ?",
-   "verso": "La source fait tourner une <b>turbine</b>, qui entraîne un <b>alternateur</b> (conversion mécanique → électrique).",
-   "origine": "Cours §1 Produire l'énergie électrique"
+   "type": "retenir",
+   "recto": "Une fin de chaîne commune — qu'y a-t-il à retenir ?",
+   "verso": "Quelle que soit la source — charbon, fission nucléaire, chute d'eau, vent — le schéma est le même : la source fait tourner une turbine, qui entraîne un alternateur.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quels moyens produisent l'électricité sans pièce en mouvement ?",
-   "verso": "Le <b>photovoltaïque</b> et les <b>piles</b> (dont la pile à combustible).",
-   "origine": "Cours §1 Produire l'énergie électrique"
+   "type": "retenir",
+   "recto": "Les quatre noms — qu'y a-t-il à retenir ?",
+   "verso": "Alternatif vers continu : redresseur. Continu vers alternatif : onduleur. Continu vers continu : hacheur. Alternatif vers alternatif : gradateur.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Conversions successives dans une éolienne, du vent au réseau ?",
-   "verso": "Énergie <b>cinétique</b> du vent → énergie <b>mécanique</b> de rotation (pales, arbre) → énergie <b>électrique</b> (alternateur).",
-   "origine": "Cours §1 Une éolienne"
+   "type": "retenir",
+   "recto": "Ne pas les confondre — qu'y a-t-il à retenir ?",
+   "verso": "<strong>Redresseur et gradateur</strong> reçoivent tous deux l'alternatif du réseau. Le redresseur rend un courant de <strong>sens constant</strong> : sa valeur moyenne n'est plus nulle, on peut alimenter un moteur à courant continu ou charger une batterie.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un convertisseur statique ?",
-   "verso": "Un appareil <b>sans pièce en mouvement</b> qui met en forme l'énergie électrique à l'aide de composants commandés.",
-   "origine": "Cours §2 Les convertisseurs statiques"
+   "type": "trou",
+   "recto": "Un dispositif qui rend 90 % dans chaque sens n'affiche que …… sur le cycle complet.",
+   "rep": "81 %",
+   "verso": "<strong>81 %</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Nommer le convertisseur : AC → DC ; DC → AC ; DC → DC ; AC → AC.",
-   "verso": "AC → DC : <b>redresseur</b><br>DC → AC : <b>onduleur</b><br>DC → DC : <b>hacheur</b><br>AC → AC : <b>gradateur</b>",
-   "origine": "Cours §2 Les quatre noms"
+   "type": "trou",
+   "recto": "Seuls le photovoltaïque et les …… produisent l'électricité directement, sans pièce en mouvement.",
+   "rep": "piles",
+   "verso": "<strong>piles</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Redresseur et gradateur partent tous deux du réseau. Qu'est-ce qui les distingue ?",
-   "verso": "Redresseur : courant de <b>sens constant</b> (valeur moyenne non nulle), pour un moteur à courant continu ou une batterie.<br>Gradateur : <b>reste alternatif à 50 Hz</b>, découpe les alternances pour régler la puissance.",
-   "origine": "Cours §2 Ne pas les confondre"
+   "type": "trou",
+   "recto": "Quelle que soit la source — charbon, fission nucléaire, chute d'eau, vent — le schéma est le même : la source fait tourner une turbine, qui entraîne un …….",
+   "rep": "alternateur",
+   "verso": "<strong>alternateur</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Onduleur et gradateur fournissent de l'alternatif. Qu'est-ce qui les distingue ?",
-   "verso": "Gradateur : part du réseau et garde ses <b>50 Hz</b>.<br>Onduleur : part d'une source <b>continue</b> et fabrique l'alternatif à la <b>fréquence voulue</b> (d'où son rôle dans un variateur).",
-   "origine": "Cours §2 Ne pas les confondre"
+   "type": "question",
+   "recto": "Dans une centrale nucléaire comme dans une centrale à gaz, l'électricité est produite par ……",
+   "rep": "un alternateur entraîné par une turbine",
+   "verso": "<strong>un alternateur entraîné par une turbine</strong> — La source change, la fin de chaîne est la même : turbine puis alternateur.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Hacheur : que règle le rapport cyclique α ?",
-   "verso": "La valeur moyenne de la tension de sortie : <b>⟨u⟩ = α E</b>, donc la vitesse d'un moteur à courant continu.",
-   "origine": "Cours §2 Le hacheur"
+   "type": "question",
+   "recto": "Parmi ces sources, laquelle est renouvelable ?",
+   "rep": "la géothermie",
+   "verso": "<strong>la géothermie</strong> — Les trois autres sont des stocks finis. Non renouvelable ne veut pas dire polluant : le nucléaire n'émet presque pas de CO₂ et n'est pas renouvelable.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi le transformateur n'est-il pas un convertisseur statique ?",
-   "verso": "Il reçoit et rend de l'<b>alternatif</b> : il ne change pas la <b>nature</b> du courant, seulement la <b>valeur</b> de la tension.",
-   "origine": "Cours §2 Le transformateur n'en fait pas partie"
+   "type": "question",
+   "recto": "Un convertisseur qui transforme de l'alternatif en continu s'appelle ……",
+   "rep": "un redresseur",
+   "verso": "<strong>un redresseur</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que contient le variateur de vitesse d'un moteur asynchrone alimenté par le réseau ?",
-   "verso": "<b>Deux convertisseurs</b> : un <b>redresseur</b> puis un <b>onduleur</b>. Changer la fréquence, c'est changer la vitesse.",
-   "origine": "Cours §2 Variateur de vitesse"
+   "type": "question",
+   "recto": "Un convertisseur qui transforme du continu en alternatif s'appelle ……",
+   "rep": "un onduleur",
+   "verso": "<strong>un onduleur</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Citer les convertisseurs électromécaniques. Comment appelle-t-on la machine qui fonctionne dans l'autre sens ?",
-   "verso": "Moteur à <b>courant continu</b>, moteur <b>asynchrone</b>, moteur <b>synchrone</b> : électrique → mécanique.<br>Mécanique → électrique : <b>alternateur</b> (ou génératrice).",
-   "origine": "Cours §3 Convertisseurs électromécaniques"
+   "type": "question",
+   "recto": "Le transformateur ……",
+   "rep": "change la tension sans changer la nature du courant",
+   "verso": "<strong>change la tension sans changer la nature du courant</strong> — Alternatif en entrée, alternatif en sortie : il ne convertit pas, il transforme. C'est pourquoi il ne figure pas dans le tableau des quatre.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sous quelles formes stocke-t-on l'énergie électrique ?",
-   "verso": "On la convertit en énergie <b>chimique</b> (batterie), <b>électrostatique</b> (condensateur), <b>mécanique</b> (volant), <b>hydraulique</b> (STEP), <b>électromagnétique</b> ou <b>thermique</b>, puis on refait le chemin inverse.",
-   "origine": "Cours §5 On ne stocke pas l'électricité"
+   "type": "question",
+   "recto": "Un variateur de vitesse pour moteur asynchrone alimenté par le réseau contient ……",
+   "rep": "un redresseur puis un onduleur",
+   "verso": "<strong>un redresseur puis un onduleur</strong> — Il redresse d'abord, puis ondule à la fréquence voulue — deux convertisseurs dans un seul boîtier.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que représente l'indication « 40 Ah » d'une batterie ? Comment obtenir son énergie ?",
-   "verso": "Une <b>charge Q</b>, pas une énergie.<br><b>E = U × Q</b> : 24 V × 40 Ah = <b>960 Wh</b>.",
-   "origine": "Cours §5 L'ampère-heure n'est pas une énergie"
+   "type": "question",
+   "recto": "Une batterie porte l'indication 12 V — 40 A·h. L'énergie stockée vaut ……",
+   "rep": "480 W·h",
+   "verso": "<strong>480 W·h</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Énergie stockée par un condensateur de capacité C chargé sous U ?",
-   "verso": "<b>E = ½ C U²</b> (C en F, U en V, E en J). L'énergie varie comme le <b>carré</b> de la tension.",
-   "origine": "Cours §5 Stocker l'énergie"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi les pertes d'un stockage « comptent deux fois » ?",
-   "verso": "Il y a <b>deux conversions</b> (charge puis décharge) : les rendements se <b>multiplient</b>. 90 % dans chaque sens → 0,90 × 0,90 = <b>81 %</b> sur le cycle.",
-   "origine": "Cours §6 Rendement d'un cycle de stockage"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi choisir un supercondensateur plutôt qu'une batterie, alors qu'il stocke bien moins ?",
-   "verso": "Pour la <b>vitesse</b> : il rend son énergie en une fraction de seconde. On choisit un stockage sur l'<b>usage</b> — autonomie (batterie) ou <b>pic de puissance</b> (supercondensateur).",
-   "origine": "Cours §6 À l'oral"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment choisir le convertisseur entre une source et une machine ?",
-   "verso": "1. <b>Source</b> : continue (batterie, PV) ou alternative (réseau) ?<br>2. <b>Machine</b> : MCC → continu ; asynchrone/synchrone → alternatif.<br>3. <b>Nommer</b> le convertisseur avec le tableau des quatre.<br>4. Vérifier s'il en faut <b>deux</b> (vitesse variable depuis le réseau : redresseur + onduleur).",
-   "origine": "Cours §4 Méthode — Choisir un convertisseur"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Chariot : batterie 24 V et moteur asynchrone triphasé. Quel convertisseur ?",
-   "verso": "Source <b>continue</b>, machine <b>alternative</b> → un <b>onduleur</b>.",
-   "origine": "Cours §4 Méthode — Choisir un convertisseur"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Batterie 24 V, 40 Ah, récepteur de 240 W. Comment trouver l'énergie et l'autonomie ?",
-   "verso": "1. E = U × Q = 24 × 40 = <b>960 Wh</b> (× 3600 → 3,46 × 10<sup>6</sup> J).<br>2. Autonomie : Δt = E / P = 960 / 240 = <b>4,0 h</b>.",
-   "origine": "Cours §5 Lire une plaque de batterie"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer l'énergie récupérée après un cycle de stockage ?",
-   "verso": "1. Rendement du cycle : η<sub>cycle</sub> = η<sub>charge</sub> × η<sub>décharge</sub>.<br>2. E<sub>restituée</sub> = η<sub>cycle</sub> × E<sub>fournie à la charge</sub>.<br>3. Contrôle : E<sub>restituée</sub> &lt; E<sub>fournie</sub>.",
-   "origine": "Cours §6 Rendement d'un cycle"
+   "type": "question",
+   "recto": "L'ampère-heure est une unité ……",
+   "rep": "de charge électrique",
+   "verso": "<strong>de charge électrique</strong> — C'est une charge. Multipliée par une tension, elle donne une énergie.",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

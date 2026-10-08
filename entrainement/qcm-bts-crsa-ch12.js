@@ -213,90 +213,102 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que convertit un moteur à courant continu ? Grandeurs d'entrée et de sortie ?",
-   "verso": "Énergie <b>électrique → mécanique</b>. Entrée : U et I. Sortie : couple <b>T<sub>u</sub></b> et vitesse <b>Ω</b>.",
-   "origine": "Cours §1 Conversion réalisée"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Conversion réalisée » ?",
+   "verso": "Un moteur à courant continu convertit de l'énergie électrique en énergie mécanique. Ses grandeurs d'entrée sont la tension U et le courant I ; ses grandeurs de sortie sont le couple T_u et la vitesse de rotation Ω.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Rôle de l'inducteur et de l'induit ?",
-   "verso": "<b>Inducteur</b> : crée le champ magnétique (souvent des aimants permanents).<br><b>Induit</b> : porte le courant utile.",
-   "origine": "Cours §1 Inducteur et induit"
+   "type": "trou",
+   "recto": "Le point faible du moteur à courant continu, ce sont …….",
+   "rep": "les balais, qui s'usent",
+   "verso": "<strong>les balais, qui s'usent</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Modèle électrique de l'induit ? Que vaut E à l'arrêt ?",
-   "verso": "<b>U = E + R I</b> (E force électromotrice). À l'arrêt, <b>E = 0</b>.",
-   "origine": "Cours §2 Modèle de l'induit"
+   "type": "trou",
+   "recto": "Au démarrage, Ω= 0 donc E = 0, et le courant ne vaut plus que …….",
+   "rep": "I_d = U/R",
+   "verso": "<strong>I_d = U/R</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Les deux relations de couplage du moteur à courant continu ?",
-   "verso": "<b>E = k Ω</b> et <b>T<sub>em</sub> = k I</b>, avec le même k. D'où <b>E I = T<sub>em</sub> Ω</b>.<br>Ω en rad/s : Ω = 2π n / 60.",
-   "origine": "Cours §3 Relations de couplage"
+   "type": "trou",
+   "recto": "Pour régler la vitesse d'un moteur à courant continu, on agit sur …….",
+   "rep": "la tension d'induit",
+   "verso": "<strong>la tension d'induit</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Courant de démarrage d'un moteur à courant continu ? Comment l'éviter ?",
-   "verso": "E = 0, donc <b>I<sub>d</sub> = U / R</b> (souvent &gt; 10 fois le nominal). On monte la tension <b>progressivement</b> (hacheur, α croissant).",
-   "origine": "Cours §4 Le démarrage"
+   "type": "question",
+   "recto": "Dans un moteur à courant continu, le circuit parcouru par le courant utile s'appelle ……",
+   "rep": "l'induit",
+   "verso": "<strong>l'induit</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comparer le couple utile T<sub>u</sub> et le couple électromagnétique T<sub>em</sub>.",
-   "verso": "<b>T<sub>u</sub> &lt; T<sub>em</sub></b> : une partie du couple sert à vaincre les frottements. T<sub>u</sub> = P<sub>u</sub>/Ω.",
-   "origine": "Cours §5 Couple utile et électromagnétique"
+   "type": "question",
+   "recto": "Le modèle électrique de l'induit en régime permanent s'écrit ……",
+   "rep": "U = E + RI",
+   "verso": "<strong>U = E + RI</strong> — C'est la loi des mailles : la tension appliquée se répartit entre la force électromotrice et la chute ohmique.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Rendement typique d'un moteur à courant continu ?",
-   "verso": "Autour de <b>90 %</b>. Une valeur très différente doit faire relire le calcul.",
-   "origine": "Cours §5 Rendement"
+   "type": "question",
+   "recto": "La force électromotrice d'un moteur à courant continu ……",
+   "rep": "est proportionnelle à la vitesse de rotation",
+   "verso": "<strong>est proportionnelle à la vitesse de rotation</strong> — E = kΩ. C'est ce qui explique qu'elle soit nulle à l'arrêt, et donc tout le problème du démarrage.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Forme de la caractéristique mécanique T(Ω) ? Qu'est-ce que le point de fonctionnement ?",
-   "verso": "Une <b>droite descendante</b>. Le point de fonctionnement est l'<b>intersection</b> avec la caractéristique de la charge.",
-   "origine": "Cours §6 Caractéristique mécanique"
+   "type": "question",
+   "recto": "Le moment du couple électromagnétique est proportionnel ……",
+   "rep": "au courant d'induit",
+   "verso": "<strong>au courant d'induit</strong> — T_em = kI. Le courant est l'image directe du couple : c'est pourquoi on surveille le courant pour protéger un entraînement.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment régler la vitesse d'un moteur à courant continu ? l'inverser ?",
-   "verso": "Régler : agir sur la <b>tension d'induit</b> (le courant est fixé par la charge).<br>Inverser : <b>permuter les bornes</b> de l'induit.",
-   "origine": "Cours §6 Régler la vitesse"
+   "type": "question",
+   "recto": "Un moteur tourne à 1500 1/min. Sa vitesse angulaire vaut ……",
+   "rep": "157 rad/s",
+   "verso": "<strong>157 rad/s</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Moteur à 90 % suivi d'un réducteur à 85 % : rendement global ?",
-   "verso": "Les rendements se <b>multiplient</b> : 0,90 × 0,85 = <b>77 %</b>.",
-   "origine": "Cours §7 Le réducteur"
+   "type": "question",
+   "recto": "Au démarrage, le courant d'un moteur à courant continu vaut ……",
+   "rep": "U/R, souvent bien plus que le nominal",
+   "verso": "<strong>U/R, souvent bien plus que le nominal</strong> — À l'arrêt E = 0, il ne reste que R pour limiter le courant. Pour le moteur de référence du chapitre, cela fait 16 fois le courant nominal.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Points faibles du moteur à courant continu ?",
-   "verso": "L'<b>usure des balais</b> et des <b>pertes au rotor</b> difficiles à évacuer. On lui préfère les machines alternatives.",
-   "origine": "Cours §7 Ses limites"
+   "type": "question",
+   "recto": "Les pertes par effet Joule dans l'induit valent ……",
+   "rep": "RI²",
+   "verso": "<strong>RI²</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>U = 48 V, I = 12 A, R = 0,25 Ω, n = 1500 tr/min. Comment trouver E, k et T<sub>em</sub> ?",
-   "verso": "1. E = U − R I = 48 − 3 = <b>45 V</b>.<br>2. Ω = 2π × 1500/60 = <b>157 rad/s</b>.<br>3. k = E/Ω = <b>0,286 V·s/rad</b>.<br>4. T<sub>em</sub> = k I = <b>3,44 N·m</b>.",
-   "origine": "Cours §3 Exemple de référence"
+   "type": "question",
+   "recto": "La puissance électromagnétique peut se calculer par ……",
+   "rep": "EI",
+   "verso": "<strong>EI</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment établir le bilan des puissances d'un moteur à courant continu ?",
-   "verso": "1. <b>P<sub>a</sub> = U I</b>.<br>2. Retirer <b>p<sub>J</sub> = R I²</b> → P<sub>em</sub>.<br>3. Contrôler <b>P<sub>em</sub> = E I</b>.<br>4. Retirer pertes fer et mécaniques → <b>P<sub>u</sub></b>.<br>5. <b>η = P<sub>u</sub>/P<sub>a</sub></b> ; T<sub>u</sub> = P<sub>u</sub>/Ω.",
-   "origine": "Cours §5 Méthode — Bilan des puissances"
+   "type": "question",
+   "recto": "Le rendement d'un moteur à courant continu est de l'ordre de ……",
+   "rep": "90 %",
+   "verso": "<strong>90 %</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer le point de fonctionnement moteur + charge ?",
-   "verso": "1. Tracer la caractéristique du <b>moteur</b> T(Ω).<br>2. Tracer celle de la <b>charge</b> sur le même graphe.<br>3. Lire l'<b>intersection</b>.<br>4. Convertir : n = 60 Ω/2π.",
-   "origine": "Cours §6 Méthode — Point de fonctionnement"
+   "type": "question",
+   "recto": "La caractéristique mécanique T = f(Ω) d'un moteur à courant continu est ……",
+   "rep": "une droite descendante",
+   "verso": "<strong>une droite descendante</strong>",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

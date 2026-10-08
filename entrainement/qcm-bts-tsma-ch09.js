@@ -199,102 +199,95 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir le flux thermique. Unité ? Lien avec l'énergie Q ?",
-   "verso": "L'énergie transférée <b>par unité de temps</b> : <b>φ = Q / Δt</b>. C'est une <b>puissance</b>, en <b>W</b>. Q = φ Δt.",
-   "origine": "Cours §1.1 Le flux thermique"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Flux thermique » ?",
+   "verso": "Le <strong>flux thermique</strong> φ est l'énergie transférée par unité de temps. C'est donc une puissance, exprimée en watts.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que la densité de flux ? Unité ?",
-   "verso": "Le flux rapporté à la surface : <b>φ / S</b>, en <b>W/m²</b>.",
-   "origine": "Cours §1.2 Densité de flux"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Densité de flux » ?",
+   "verso": "La <strong>densité de flux</strong> est le flux rapporté à l'unité de surface : φ= φ/ S, en W/m².",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Dans quel sens se fait spontanément un transfert thermique ? Quand cesse-t-il ?",
-   "verso": "Toujours du <b>plus chaud vers le plus froid</b> ; il cesse quand les <b>températures sont égales</b>.",
-   "origine": "Cours §1.3 Le sens du transfert"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Résistance thermique » ?",
+   "verso": "La <strong>résistance thermique</strong> d'une paroi plane se calcule par R_th = e / (λS) et s'exprime en K/W. Le flux s'écrit alors φ= ΔT / R_th.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment savoir que le régime permanent est établi ?",
-   "verso": "Par un critère <b>chiffré</b> : les températures relevées (toutes les 2 min) ne varient plus de plus que la <b>résolution des sondes</b>.",
-   "origine": "Cours §1.4 Régime permanent"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Convection » ?",
+   "verso": "La <strong>convection</strong> est le transfert thermique assuré par le mouvement d'un fluide. Elle est dite naturelle lorsque ce mouvement naît du seul échauffement du fluide, et forcée lorsqu'un ventilateur ou une pompe l'impose.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Conduction, convection, rayonnement : définir et donner un exemple sur un engin.",
-   "verso": "<b>Conduction</b> : de proche en proche dans la matière immobile (le carter).<br><b>Convection</b> : par un fluide en mouvement (liquide de refroidissement).<br><b>Rayonnement</b> : par ondes, sans support (l'échappement chauffe le capot).",
-   "origine": "Cours §2 Les trois modes"
+   "type": "retenir",
+   "recto": "Un sens unique — qu'y a-t-il à retenir ?",
+   "verso": "Un transfert thermique s'effectue toujours spontanément du corps le plus chaud vers le corps le plus froid, et il cesse lorsque les deux températures sont égales.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Flux de conduction à travers une paroi ? Unités ?",
-   "verso": "<b>φ = λ S (T<sub>1</sub> − T<sub>2</sub>) / e</b> : λ en W·m<sup>−1</sup>·K<sup>−1</sup>, S en m², e en m, écart en K.",
-   "origine": "Cours §3.1 Loi de Fourier"
+   "type": "retenir",
+   "recto": "Trois mécanismes, trois exigences — qu'y a-t-il à retenir ?",
+   "verso": "Conduction : de proche en proche dans la matière immobile. Convection : transport par un fluide en mouvement. Rayonnement : à distance, par ondes, sans aucun support matériel.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'un bon isolant ? Pourquoi laine de verre, polystyrène et liège se ressemblent-ils ?",
-   "verso": "Un λ <b>petit</b> (≈ 0,04 W·m<sup>−1</sup>·K<sup>−1</sup>, 10 000 fois moins que le cuivre). Tous emprisonnent de l'<b>air immobile</b> : tassé ou mouillé, l'isolant perd son pouvoir.",
-   "origine": "Cours §3.2 Isolant ou conducteur"
+   "type": "retenir",
+   "recto": "Isolant ou conducteur — qu'y a-t-il à retenir ?",
+   "verso": "Un matériau isole d'autant mieux que sa conductivité λ est petite. Les bons isolants du métier — laine de verre, polystyrène, liège — se situent tous autour de 0,04 W/m/K, soit dix mille fois moins que le cuivre.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Résistance thermique d'une paroi plane ? Expression du flux ?",
-   "verso": "<b>R<sub>th</sub> = e / (λ S)</b> en K/W ; <b>φ = ΔT / R<sub>th</sub></b>.",
-   "origine": "Cours §4.1 Résistance thermique"
+   "type": "trou",
+   "recto": "Un matériau isole d'autant mieux que sa conductivité λ est …….",
+   "rep": "petite",
+   "verso": "<strong>petite</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment se combinent les résistances de couches successives ? Laquelle commande ?",
-   "verso": "Elles <b>s'ajoutent</b> (en série). La <b>plus grande</b> (l'isolant) impose le résultat.",
-   "origine": "Cours §4.2 Parois multicouches"
+   "type": "trou",
+   "recto": "La <strong>convection</strong> est le transfert thermique assuré par …….",
+   "rep": "le mouvement d'un fluide",
+   "verso": "<strong>le mouvement d'un fluide</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Flux de convection ? Convection naturelle et forcée ?",
-   "verso": "<b>φ = h S ΔT</b>, h coefficient de convection (W·m<sup>−2</sup>·K<sup>−1</sup>), qui dépend surtout de la vitesse du fluide.<br><b>Naturelle</b> : mouvement né de l'échauffement ; <b>forcée</b> : ventilateur, pompe.",
-   "origine": "Cours §5.1 Convection"
+   "type": "trou",
+   "recto": "La <strong>densité de flux</strong> est le flux rapporté à l'unité de surface : ……, en W/m².",
+   "rep": "φ= φ/ S",
+   "verso": "<strong>φ= φ/ S</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Résistance thermique d'un film de fluide ? Pourquoi l'oublier donne des résultats absurdes ?",
-   "verso": "<b>R<sub>th</sub> = 1 / (h S)</b>, en série avec les couches. Sur un vitrage, les films d'air portent <b>97 %</b> de la résistance.",
-   "origine": "Cours §5.2 Résistance de surface"
+   "type": "trou",
+   "recto": "La <strong>densité de flux</strong> est le flux rapporté à l'unité de surface : φ= φ/ S, en …….",
+   "rep": "W/m²",
+   "verso": "<strong>W/m²</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Puissance emportée par un fluide qui traverse un appareil ?",
-   "verso": "<b>φ = q<sub>m</sub> c ΔT</b> (q<sub>m</sub> en kg/s).",
-   "origine": "Cours §6.1 Fluide en écoulement"
+   "type": "trou",
+   "recto": "La <strong>résistance thermique</strong> d'une paroi plane se calcule par …… et s'exprime en K/W.",
+   "rep": "R_th = e / (λS)",
+   "verso": "<strong>R_th = e / (λS)</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Dans un échangeur, comparer le flux cédé par le chaud et le flux reçu par le froid.",
-   "verso": "Flux cédé <b>≥</b> flux reçu ; la différence = <b>pertes vers l'extérieur</b>.",
-   "origine": "Cours §6.2 Bilan d'un échangeur"
+   "type": "question",
+   "recto": "Le flux thermique φ s'exprime en ……",
+   "rep": "watts",
+   "verso": "<strong>watts</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment calculer le flux traversant une paroi multicouche ?",
-   "verso": "1. Convertir épaisseurs (m) et surfaces (m²).<br>2. <b>R<sub>th</sub> = e/(λS)</b> pour chaque couche (contrôler l'ordre de grandeur).<br>3. Ajouter les films : 1/(hS).<br>4. <b>R<sub>tot</sub></b> = somme.<br>5. <b>φ = ΔT / R<sub>tot</sub></b>.",
-   "origine": "Cours §4.1 Méthode — Flux à travers une paroi"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment faire le bilan d'un échangeur liquide-liquide ?",
-   "verso": "1. Pour chaque circuit : φ = q<sub>m</sub> c ΔT.<br>2. Comparer : l'écart = pertes.<br>3. Retenir une valeur, calculer ΔT<sub>moy</sub> entre fluides.<br>4. <b>K = φ / (S ΔT<sub>moy</sub>)</b> en W·m<sup>−2</sup>·K<sup>−1</sup>.",
-   "origine": "Cours §6.2 Méthode — Bilan d'un échangeur"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment mesurer la résistance thermique globale d'une cabine sans la démonter ?",
-   "verso": "1. Régime permanent : puissance de chauffage = flux perdu.<br>2. Mesurer P<sub>chauffage</sub> et ΔT intérieur/extérieur.<br>3. <b>R<sub>th</sub> = ΔT / P</b>.",
-   "origine": "Cours §6.2 Bilan d'une enceinte"
+   "type": "question",
+   "recto": "Le seul mode de transfert qui fonctionne dans le vide est ……",
+   "rep": "le rayonnement",
+   "verso": "<strong>le rayonnement</strong>",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };

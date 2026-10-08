@@ -213,84 +213,99 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que fait un capteur ?",
-   "verso": "Il <b>traduit</b> une grandeur physique en une grandeur <b>électrique</b>. Il ne mesure pas : il convertit. C'est le premier maillon de la chaîne de mesure.",
-   "origine": "Introduction"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Grandeurs d'entrée et de sortie » ?",
+   "verso": "La grandeur d'<strong>entrée</strong> d'un capteur est la grandeur physique que l'on veut connaître : température, force, éclairement, débit, pH Sa grandeur de <strong>sortie</strong> est toujours une grandeur électrique : résistance, tension, courant, charge.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Grandeur d'entrée et grandeur de sortie d'un capteur : de quelle nature ?",
-   "verso": "<b>Entrée</b> : la grandeur <b>physique</b> mesurée (température, force…).<br><b>Sortie</b> : <b>toujours électrique</b> (résistance, tension, courant, charge).",
-   "origine": "Cours §1 Grandeurs d'entrée et de sortie"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Capteur passif, capteur actif » ?",
+   "verso": "Un capteur est <strong>passif</strong> lorsque sa grandeur de sortie est une impédance — le plus souvent une résistance. Il est <strong>actif</strong> lorsqu'il délivre lui-même une tension, un courant ou une charge, en se comportant comme un générateur.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quand un capteur est-il passif ? actif ?",
-   "verso": "<b>Passif</b> : la sortie est une <b>impédance</b> (résistance…) ; il faut une alimentation extérieure.<br><b>Actif</b> : il délivre une <b>tension, un courant ou une charge</b> (générateur).",
-   "origine": "Cours §2 Capteur passif, capteur actif"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Sensibilité » ?",
+   "verso": "La sensibilité d'un capteur est la pente de sa caractéristique statique : elle indique de combien varie la sortie lorsque l'entrée varie d'une unité.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quels sont les trois types de signal de sortie ? Ce classement dépend-il d'actif/passif ?",
-   "verso": "<b>Analogique</b>, <b>logique</b> (deux états), <b>numérique</b> (nombre codé). Classement <b>indépendant</b> d'actif/passif (Pt100 : passive et analogique).",
-   "origine": "Cours §3 Nature du signal"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Temps de réponse à 5 % » ?",
+   "verso": "Le temps de réponse à 5 %, noté t_r(5 %), est le temps que met le capteur pour atteindre 95 % de sa variation finale après un échelon appliqué à son entrée.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir la sensibilité d'un capteur. Son unité ?",
-   "verso": "La <b>pente</b> de la caractéristique statique : <b>s = ΔS / ΔE</b>. Unité <b>déduite du quotient</b> (Ω/°C pour une Pt100).",
-   "origine": "Cours §4 Sensibilité"
+   "type": "trou",
+   "recto": "Un capteur <strong>traduit</strong> une grandeur physique en une grandeur ……, exploitable par un circuit.",
+   "rep": "électrique",
+   "verso": "<strong>électrique</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que l'étendue de mesure ? Quand un capteur est-il linéaire ?",
-   "verso": "<b>Étendue</b> : l'intervalle sur lequel le capteur est garanti.<br><b>Linéaire</b> : caractéristique = <b>droite</b>, sensibilité constante.",
-   "origine": "Cours §4 Étendue et linéarité"
+   "type": "trou",
+   "recto": "Un capteur est <strong>passif</strong> lorsque sa grandeur de sortie est …… — le plus souvent une résistance.",
+   "rep": "une impédance",
+   "verso": "<strong>une impédance</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Loi de la sonde Pt100 ? Sensibilité ?",
-   "verso": "<b>R = R<sub>0</sub>(1 + α θ)</b>, R<sub>0</sub> = 100 Ω à 0 °C, α = 3,85 × 10<sup>−3</sup> °C<sup>−1</sup>.<br>s = R<sub>0</sub> α = <b>0,385 Ω/°C</b>. Passive, analogique.",
-   "origine": "Cours §4 La Pt100"
+   "type": "trou",
+   "recto": "La sensibilité d'un capteur est …… : elle indique de combien varie la sortie lorsque l'entrée varie d'une unité.",
+   "rep": "la pente de sa caractéristique statique",
+   "verso": "<strong>la pente de sa caractéristique statique</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Définir le temps de réponse à 5 % d'un capteur. Piège ?",
-   "verso": "Le temps pour atteindre <b>95 % de la variation</b> finale après un échelon. Piège : 95 % de la variation, <b>pas de la valeur finale</b>.",
-   "origine": "Cours §5 Temps de réponse à 5 %"
+   "type": "trou",
+   "recto": "Le temps de réponse à 5 %, noté t_r(5 %), est le temps que met le capteur pour atteindre …… après un échelon appliqué à son entrée.",
+   "rep": "95 % de sa variation finale",
+   "verso": "<strong>95 % de sa variation finale</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Jauge d'extensométrie : loi ? Thermocouple et piézoélectrique : actifs ou passifs ?",
-   "verso": "Jauge : <b>ΔR/R<sub>0</sub> = k ΔL/L<sub>0</sub></b>, passive.<br>Thermocouple, piézoélectrique : <b>actifs</b>.",
-   "origine": "Cours §6 Quelques capteurs"
+   "type": "trou",
+   "recto": "La <strong>linéarité</strong> est acquise quand la caractéristique est …… : la sensibilité est alors constante, ce qui simplifie tout.",
+   "rep": "une droite",
+   "verso": "<strong>une droite</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment préciser les grandeurs d'entrée et de sortie d'un capteur ?",
-   "verso": "1. Ce que le capteur <b>surveille</b> → entrée (physique).<br>2. Ce qu'il <b>délivre</b> → sortie (électrique).<br>3. Donner les <b>unités</b>.<br>4. Ne pas confondre avec la sortie du conditionneur.",
-   "origine": "Cours §1 Méthode — Entrée et sortie"
+   "type": "question",
+   "recto": "Un capteur est dit passif lorsque ……",
+   "rep": "sa sortie est une impédance",
+   "verso": "<strong>sa sortie est une impédance</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment justifier qu'un capteur est actif ou passif ?",
-   "verso": "Regarder la <b>nature de la sortie</b> :<br>• résistance, capacité, inductance → <b>passif</b> (rien sans alimentation) ;<br>• tension, courant, charge → <b>actif</b> (générateur).",
-   "origine": "Cours §2 Méthode — Actif ou passif"
+   "type": "question",
+   "recto": "Parmi ces capteurs, lequel est actif ?",
+   "rep": "le thermocouple",
+   "verso": "<strong>le thermocouple</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment déterminer graphiquement t<sub>r</sub>(5 %) ?",
-   "verso": "1. Valeur <b>initiale</b> et <b>finale</b>.<br>2. Variation Δ = finale − initiale.<br>3. Seuil = initiale + <b>0,95 Δ</b>.<br>4. Horizontale au seuil → intersection → lire t. <b>Laisser les traits de construction.</b>",
-   "origine": "Cours §5 Méthode — Temps de réponse"
+   "type": "question",
+   "recto": "Que signifie le « 100 » de la sonde Pt100 ?",
+   "rep": "sa résistance à 0 °C",
+   "verso": "<strong>sa résistance à 0 °C</strong> — 100 Ω à 0 °C — question posée telle quelle en 2023. Le « Pt » est le symbole chimique du platine.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment justifier le choix d'un capteur à partir d'une documentation ?",
-   "verso": "1. Relever l'<b>exigence</b> de l'énoncé.<br>2. Relever la <b>caractéristique</b> correspondante.<br>3. <b>Comparer chiffres à l'appui</b> (étendue, sensibilité, linéarité, temps de réponse).<br>4. <b>Conclure</b> : convient / ne convient pas car…",
-   "origine": "Cours §7 Méthode — Justifier un choix de capteur"
+   "type": "question",
+   "recto": "L'unité de la sensibilité d'une sonde Pt100 est ……",
+   "rep": "le Ω/°C",
+   "verso": "<strong>le Ω/°C</strong> — L'unité se déduit du quotient : une résistance divisée par une température, soit des Ω/°C. Ne jamais donner une sensibilité sans son unité.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "Une caractéristique statique est une droite. On en déduit que le capteur est ……",
+   "rep": "linéaire",
+   "verso": "<strong>linéaire</strong>",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

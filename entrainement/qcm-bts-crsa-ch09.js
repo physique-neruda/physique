@@ -213,84 +213,100 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Le transformateur redresse-t-il ? Change-t-il la fréquence ?",
-   "verso": "<b>Non et non</b> : sa sortie reste <b>alternative</b>, il ne lisse rien, la fréquence reste celle du réseau (50 Hz). Il change seulement la <b>tension</b>.",
-   "origine": "Cours §1 Ce que le transformateur ne fait pas"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Isolement galvanique » ?",
+   "verso": "Les deux enroulements ne sont jamais reliés électriquement. L'énergie passe de l'un à l'autre par le flux magnétique commun au circuit de fer.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>De quoi est fait un transformateur ? Comment l'énergie passe-t-elle du primaire au secondaire ?",
-   "verso": "Un <b>circuit magnétique</b> en tôles feuilletées et deux enroulements (<b>primaire</b> N<sub>1</sub>, <b>secondaire</b> N<sub>2</sub>), jamais reliés : l'énergie passe par le <b>flux magnétique commun</b> (isolement galvanique).",
-   "origine": "Cours §2 Le principe"
+   "type": "retenir",
+   "recto": "Pourquoi l'alternatif est indispensable — qu'y a-t-il à retenir ?",
+   "verso": "Une tension n'apparaît au secondaire que si le flux varie. En continu, le flux est constant : la tension au secondaire est nulle, et le primaire, réduit à sa résistance, grille.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que se passe-t-il si l'on alimente un transformateur en continu ?",
-   "verso": "Le flux est constant : <b>aucune tension au secondaire</b>, et le primaire, réduit à sa résistance, <b>grille</b>.",
-   "origine": "Cours §2 Pourquoi l'alternatif"
+   "type": "retenir",
+   "recto": "Le transformateur réel — qu'y a-t-il à retenir ?",
+   "verso": "Il présente des <strong>pertes fer</strong> dans le circuit magnétique et des <strong>pertes cuivre</strong> dans les enroulements. Son rendement η= P₂/P₁ dépasse couramment 95 %. En charge, la tension au secondaire chute de quelques pour cent.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Rapport de transformation du transformateur parfait ?",
-   "verso": "<b>m = U<sub>2</sub>/U<sub>1</sub> = N<sub>2</sub>/N<sub>1</sub> = I<sub>1</sub>/I<sub>2</sub></b> (sans unité). Le rapport des courants est <b>inversé</b>.",
-   "origine": "Cours §3 Le transformateur parfait"
+   "type": "trou",
+   "recto": "Une tension n'apparaît au secondaire que si le flux …….",
+   "rep": "varie",
+   "verso": "<strong>varie</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment savoir si un transformateur est abaisseur ou élévateur ?",
-   "verso": "<b>m &lt; 1</b> : <b>abaisseur</b> (U<sub>2</sub> &lt; U<sub>1</sub>) ; <b>m &gt; 1</b> : <b>élévateur</b>. Toujours justifier.",
-   "origine": "Cours §3 Abaisseur ou élévateur"
+   "type": "trou",
+   "recto": "Un transformateur parfait …… : S₁ = S₂, soit U₁ I₁ = U₂ I₂.",
+   "rep": "conserve la puissance apparente",
+   "verso": "<strong>conserve la puissance apparente</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que conserve un transformateur parfait ?",
-   "verso": "La puissance apparente : <b>S<sub>1</sub> = S<sub>2</sub></b>, soit <b>U<sub>1</sub> I<sub>1</sub> = U<sub>2</sub> I<sub>2</sub></b>. Élever la tension abaisse le courant dans le même rapport.",
-   "origine": "Cours §4 Conservation de la puissance"
+   "type": "trou",
+   "recto": "En continu, le flux est constant : la tension au secondaire est nulle, et le primaire, réduit à sa résistance, …….",
+   "rep": "grille",
+   "verso": "<strong>grille</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi la plaque d'un transformateur donne-t-elle S en VA et pas P en W ?",
-   "verso": "L'échauffement dépend du <b>courant</b>, donc de <b>S = U I</b>. Dépasser S fait chauffer le transformateur, même si la charge consomme peu de watts.",
-   "origine": "Cours §5 Des VA, pas des watts"
+   "type": "question",
+   "recto": "Un transformateur est un convertisseur ……",
+   "rep": "alternatif alternatif",
+   "verso": "<strong>alternatif alternatif</strong> — Il entre de l'alternatif, il sort de l'alternatif. Le redressement est le travail du chapitre 10.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que montre l'oscilloscope et qu'affiche le voltmètre au secondaire ?",
-   "verso": "Oscilloscope : <b>U<sub>2max</sub></b>. Voltmètre (sur AC) : <b>U<sub>2</sub> efficace = U<sub>2max</sub>/√2</b>. Valeur moyenne nulle.",
-   "origine": "Cours §6 Oscilloscope et voltmètre"
+   "type": "question",
+   "recto": "Un transformateur alimenté sous 50 Hz délivre au secondaire une tension de fréquence ……",
+   "rep": "50 Hz",
+   "verso": "<strong>50 Hz</strong> — Le transformateur ne touche jamais à la fréquence.",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelles pertes dans un transformateur réel ? Rendement typique ?",
-   "verso": "<b>Pertes fer</b> (circuit magnétique) et <b>pertes cuivre</b> (enroulements). <b>η = P<sub>2</sub>/P<sub>1</sub> &gt; 95 %</b>. En charge, U<sub>2</sub> chute de quelques %.",
-   "origine": "Cours §7 Le transformateur réel"
+   "type": "question",
+   "recto": "Le rapport de transformation vaut ……",
+   "rep": "U₂/U₁",
+   "verso": "<strong>U₂/U₁</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Plaque « 230 V / 24 V ». Comment trouver m et conclure ?",
-   "verso": "1. Primaire = côté source (230 V).<br>2. m = U<sub>2</sub>/U<sub>1</sub> = 24/230 = <b>0,104</b>.<br>3. m &lt; 1 → <b>abaisseur</b> (justifier).<br>4. Contrôle : tension ÷ 10, courant × 10.",
-   "origine": "Cours §3 Méthode — Déterminer m"
+   "type": "question",
+   "recto": "Un transformateur 230 V / 24 V a un rapport de transformation d'environ ……",
+   "rep": "0,104",
+   "verso": "<strong>0,104</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Plaque « 230 V / 24 V — 24 VA ». Comment trouver les courants nominaux ?",
-   "verso": "1. S = 24 VA des deux côtés.<br>2. I<sub>2N</sub> = S/U<sub>2</sub> = <b>1,00 A</b>.<br>3. I<sub>1N</sub> = S/U<sub>1</sub> = <b>0,104 A</b>.<br>4. Contrôle : I<sub>1</sub>/I<sub>2</sub> = m.",
-   "origine": "Cours §5 Méthode — Courants nominaux"
+   "type": "question",
+   "recto": "Si m > 1, le transformateur est ……",
+   "rep": "élévateur",
+   "verso": "<strong>élévateur</strong> — m > 1 signifie U₂ > U₁.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>20 V/div, 5 ms/div ; amplitude 1,7 div, motif sur 4 div. Comment trouver U<sub>2max</sub>, f et U<sub>2</sub> ?",
-   "verso": "1. U<sub>2max</sub> = 1,7 × 20 = <b>34 V</b>.<br>2. T = 4 × 5 = 20 ms → <b>f = 50 Hz</b>.<br>3. U<sub>2</sub> = 34/√2 = <b>24 V</b>.",
-   "origine": "Cours §6 Méthode — Oscillogramme de u2"
+   "type": "question",
+   "recto": "Pour un transformateur parfait, les courants vérifient ……",
+   "rep": "I₁/I₂ = m",
+   "verso": "<strong>I₁/I₂ = m</strong> — Les courants sont dans le rapport inverse des tensions.",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment mesurer le rapport de transformation ?",
-   "verso": "1. <b>Secondaire ouvert</b> (rien de branché).<br>2. Alimenter le primaire, mesurer U<sub>1</sub>.<br>3. Mesurer U<sub>20</sub> à vide.<br>4. <b>m = U<sub>20</sub>/U<sub>1</sub></b>, comparer à la plaque (quelques %).",
-   "origine": "Cours §7 Méthode — Mesurer m"
+   "type": "question",
+   "recto": "Un transformateur parfait conserve ……",
+   "rep": "la puissance apparente",
+   "verso": "<strong>la puissance apparente</strong> — S₁ = S₂, soit U₁ I₁ = U₂ I₂.",
+   "origine": "bilan"
+  },
+  {
+   "type": "question",
+   "recto": "La plaque indique 24 V·A et 24 V au secondaire. L'intensité nominale au secondaire vaut ……",
+   "rep": "1,00 A",
+   "verso": "<strong>1,00 A</strong>",
+   "origine": "bilan"
   }
  ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ "cartes_figees": false
 };

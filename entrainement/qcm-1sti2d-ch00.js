@@ -255,144 +255,97 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Pourquoi « la pièce fait 25 » n'est-il pas un résultat ?",
-   "verso": "Il manque l'<b>unité</b> : 25 mm et 25 cm ne décrivent pas le même objet. Un résultat comporte toujours <b>une valeur et une unité</b>.",
-   "origine": "Cours §1 Grandeur, valeur et unité"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Grandeurs proportionnelles » ?",
+   "verso": "Deux grandeurs sont <strong>proportionnelles</strong> si l'on passe de l'une à l'autre en multipliant <em>toujours</em> par le même nombre.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Choisir une unité, c'est quoi ?",
-   "verso": "C'est décider en <b>combien de morceaux on découpe</b> la grandeur. Mesurer, c'est ensuite <b>compter ces morceaux</b>.",
-   "origine": "Cours §1 Grandeur, valeur et unité"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Le principe de l'égalité » ?",
+   "verso": "Une égalité reste vraie si l'on effectue <strong>la même opération sur ses deux membres</strong> : additionner, soustraire, multiplier ou diviser par un même nombre non nul. C'est le seul outil nécessaire — tout le reste n'en est qu'un raccourci.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>On convertit vers une unité plus <b>petite</b>. Le nombre augmente ou diminue ? Et l'exposant ?",
-   "verso": "Le découpage est plus fin, il faut <b>davantage</b> de morceaux : le nombre <b>augmente</b>, l'exposant est <b>positif</b>.<br>Vers une unité plus grande : le nombre diminue, exposant négatif.",
-   "origine": "Cours §1 La règle qui donne le signe"
+   "type": "retenir",
+   "recto": "La règle qui donne le signe — qu'y a-t-il à retenir ?",
+   "verso": "C'est de cette idée que découle tout le reste du chapitre : · unité d'arrivée <strong>plus petite</strong> il en faut <strong>davantage</strong> le nombre <strong>augmente</strong>.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que valent 10<sup>a</sup> × 10<sup>b</sup> et 10<sup>a</sup> / 10<sup>b</sup> ?",
-   "verso": "10<sup>a</sup> × 10<sup>b</sup> = <b>10<sup>a+b</sup></b><br>10<sup>a</sup> / 10<sup>b</sup> = <b>10<sup>a−b</sup></b>",
-   "origine": "Cours §2 Les puissances de 10"
+   "type": "retenir",
+   "recto": "Retenir l'ordre des préfixes — qu'y a-t-il à retenir ?",
+   "verso": "Autour de l'unité, les sept rangs se retiennent par une phrase dont chaque initiale donne un préfixe : soit <strong>k</strong>ilo, <strong>h</strong>ecto, <strong>d</strong>éc<strong>a</strong>, <strong>u</strong>nité, <strong>d</strong>éci.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que signifie un exposant négatif, par exemple 10<sup>−3</sup> ?",
-   "verso": "Un nombre <b>plus petit que 1</b> : 10<sup>−3</sup> = 1/1000 = 0,001. Ce n'est <b>pas</b> un nombre négatif.",
-   "origine": "Cours §2 Les puissances de 10"
+   "type": "retenir",
+   "recto": "La règle d'or du calcul en physique — qu'y a-t-il à retenir ?",
+   "verso": "Avant tout calcul numérique, on convertit <strong>toutes</strong> les grandeurs dans les unités du système international : les longueurs en, les masses en, les durées en.",
+   "origine": "encadre du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce que l'ordre de grandeur d'un nombre, et à quoi sert-il ?",
-   "verso": "C'est la <b>puissance de 10 la plus proche</b> (un cheveu : 10<sup>−4</sup> m). Il sert à <b>contrôler un résultat</b> avant de le recopier.",
-   "origine": "Cours §2 L'ordre de grandeur"
+   "type": "trou",
+   "recto": "C'est faux : il faut <strong>aussi</strong> que …….",
+   "rep": "la droite passe par l'origine",
+   "verso": "<strong>la droite passe par l'origine</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sur la réglette des préfixes, que vaut un cran ?",
-   "verso": "Un cran = <b>un facteur 10</b>.",
-   "origine": "Cours §3 Convertir : compter les crans"
+   "type": "trou",
+   "recto": "Deux grandeurs sont <strong>proportionnelles</strong> si l'on passe de l'une à l'autre en multipliant …….",
+   "rep": "toujours par le même nombre",
+   "verso": "<strong>toujours par le même nombre</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Donner, dans l'ordre, les préfixes de kilo à milli.",
-   "verso": "<b>k</b>ilo, <b>h</b>ecto, <b>da</b> (déca), <b>u</b>nité, <b>d</b>éci, <b>c</b>enti, <b>m</b>illi — un cran entre chaque.",
-   "origine": "Cours §3 Retenir l'ordre des préfixes"
+   "type": "trou",
+   "recto": "La partie décimale est une <strong>fraction d'heure</strong> : 0,5 h = 0,5 × 60 = 30min, donc 1,5 h vaut …….",
+   "rep": "1 h 30 min",
+   "verso": "<strong>1 h 30 min</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quels préfixes viennent au-delà de kilo, et après milli ? Combien de crans entre eux ?",
-   "verso": "On avance de <b>3 crans</b> à la fois.<br>Au-delà de kilo : <b>M</b>éga (10<sup>6</sup>), <b>G</b>iga (10<sup>9</sup>), <b>T</b>éra (10<sup>12</sup>).<br>Après milli : <b>µ</b> micro (10<sup>−6</sup>), <b>n</b> nano (10<sup>−9</sup>), <b>p</b> pico (10<sup>−12</sup>) — « Mille Microbes Nagent Profondément ».",
-   "origine": "Cours §3 Retenir l'ordre des préfixes"
+   "type": "trou",
+   "recto": "Une égalité reste vraie si l'on effectue …… : additionner, soustraire, multiplier ou diviser par un même nombre non nul.",
+   "rep": "la même opération sur ses deux membres",
+   "verso": "<strong>la même opération sur ses deux membres</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que valent 1 cm² en m², et 1 L en m³ ?",
-   "verso": "1 cm² = (10<sup>−2</sup> m)² = <b>10<sup>−4</sup> m²</b><br>1 L = 1 dm³ = (10<sup>−1</sup> m)³ = <b>10<sup>−3</sup> m³</b><br>Sur une aire, la puissance de 10 s'élève au carré ; sur un volume, au cube.",
-   "origine": "Cours §3 Le piège des unités composées"
+   "type": "trou",
+   "recto": "Ce nombre est le <strong>coefficient de proportionnalité</strong> ; c'est le …… des deux grandeurs, et il doit rester <strong>constant</strong>.",
+   "rep": "quotient",
+   "verso": "<strong>quotient</strong>",
+   "origine": "cours a completer"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que fait-on avant tout calcul numérique en physique ?",
-   "verso": "On convertit <b>toutes</b> les grandeurs en <b>unités SI</b> (m, kg, s…). Le résultat sort alors dans l'unité SI.",
-   "origine": "Cours §3 La règle d'or du calcul"
+   "type": "question",
+   "recto": "On convertit une longueur des mètres vers les millimètres. Le nombre obtenu ……",
+   "rep": "augmente, car le mm est un découpage plus petit",
+   "verso": "<strong>augmente, car le mm est un découpage plus petit</strong> — plus le découpage est fin, plus il en faut",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Combien valent 1,5 h et 2,25 h en heures et minutes ?",
-   "verso": "La partie décimale est une fraction d'heure, × 60 :<br>1,5 h = <b>1 h 30 min</b> ; 2,25 h = <b>2 h 15 min</b>.",
-   "origine": "Cours §4 Les durées"
+   "type": "question",
+   "recto": "Le produit (4 × 10⁻³) × (5 × 10⁸) vaut ……",
+   "rep": "2 × 10⁶",
+   "verso": "<strong>2 × 10⁶</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment passe-t-on des km/h aux m/s ?",
-   "verso": "On <b>divise par 3,6</b> (et on multiplie par 3,6 dans l'autre sens).<br>Exemple : 108 km/h = 30 m/s.",
-   "origine": "Cours §4 Les durées"
+   "type": "question",
+   "recto": "2,5 mA vaut ……",
+   "rep": "2,5 × 10⁻³ A",
+   "verso": "<strong>2,5 × 10⁻³ A</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>À quelle condition deux grandeurs sont-elles proportionnelles ?",
-   "verso": "Leur <b>quotient est constant</b> : on passe de l'une à l'autre en multipliant toujours par le même nombre (coefficient de proportionnalité).",
-   "origine": "Cours §5 Proportionnalité"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment reconnaît-on la proportionnalité sur un graphique ?",
-   "verso": "Une <b>droite</b> qui <b>passe par l'origine</b>. Les deux conditions sont nécessaires.",
-   "origine": "Cours §5 Une droite ne suffit pas"
-  },
-  {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Sur quel principe repose la transformation d'une formule ?",
-   "verso": "Une égalité reste vraie si l'on fait <b>la même opération sur ses deux membres</b> (ajouter, soustraire, multiplier, diviser par un même nombre non nul).",
-   "origine": "Cours §7 Transformer une formule"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment convertir 680 nm en mètres ?",
-   "verso": "1. <b>Compter les crans</b> de nano à l'unité : 9 crans (3 + 3 + 3).<br>2. <b>Choisir le signe</b> : le mètre est un découpage plus gros, le nombre diminue → exposant <b>négatif</b>.<br>3. <b>Écrire</b> : λ = 680 × 10<sup>−9</sup> m.",
-   "origine": "Cours §3 Méthode 1"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment convertir une aire de 2,5 mm² en m² ?",
-   "verso": "1. Crans entre mm et m : <b>3</b>, vers une unité plus grosse → 10<sup>−3</sup>.<br>2. C'est une aire : on élève <b>une seule fois</b> au carré → (10<sup>−3</sup>)² = 10<sup>−6</sup>.<br>3. S = 2,5 × 10<sup>−6</sup> m².",
-   "origine": "Cours §3 Unités composées"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment convertir 1 h 45 min 20 s en secondes ?",
-   "verso": "1. Convertir chaque part : 1 h = 3600 s ; 45 min = 45 × 60 = 2700 s ; reste 20 s.<br>2. Additionner : Δt = 3600 + 2700 + 20 = <b>6320 s</b>.",
-   "origine": "Cours §4 Méthode 2"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment vérifier qu'un tableau de mesures traduit une proportionnalité ?",
-   "verso": "1. Calculer le <b>quotient</b> des deux grandeurs pour <b>chaque</b> couple de valeurs.<br>2. S'il est <b>constant</b> → proportionnalité ; sinon, non.<br>3. Sur le graphique : droite <b>et</b> origine.",
-   "origine": "Cours §5 Proportionnel ou pas ?"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>6,0 m de câble pèsent 54 g. Comment trouver la masse de 14 m ?",
-   "verso": "1. Vérifier que c'est proportionnel (câble homogène).<br>2. <b>Passer à l'unité</b> : 1 m pèse 54 / 6,0 = 9,0 g.<br>3. <b>Multiplier</b> : 14 × 9,0 = <b>126 g</b>.<br>4. Contrôler : un peu plus du double, des deux côtés.",
-   "origine": "Cours §6 Méthode 3"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment isoler Δθ dans Q = m × c × Δθ ?",
-   "verso": "1. Repérer ce qui gêne : Δθ est multiplié par m et par c.<br>2. <b>Diviser les deux membres</b> par m × c.<br>3. Écrire : <b>Δθ = Q / (m × c)</b>.<br>4. Contrôler par les unités.",
-   "origine": "Cours §7 Méthode 4"
-  },
-  {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment isoler R dans E − R × I = U ?",
-   "verso": "1. D'abord <b>déplacer le terme entier</b> : E − U = R × I.<br>2. Puis <b>diviser</b> les deux membres par I : <b>R = (E − U) / I</b>.<br>Le produit en croix ne marche pas tant qu'une somme reste.",
-   "origine": "Cours §7 Quand la formule contient une somme"
+   "type": "question",
+   "recto": "Une aire de 1 cm² vaut, en mètres carrés ……",
+   "rep": "10⁻⁴ m²",
+   "verso": "<strong>10⁻⁴ m²</strong> — on élève 10⁻² au carré",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };

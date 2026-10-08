@@ -143,59 +143,6 @@
    "tp systeme"
   ]
  },
- "adm04": {
-  "num": "104",
-  "titre": "ADM 4 — Centrale de pompage : lignage, armoire et pompes",
-  "motscles": [
-   "pompage",
-   "piscine",
-   "vanne",
-   "lignage",
-   "pompe",
-   "armoire",
-   "adm",
-   "tp systeme"
-  ]
- },
- "adm05": {
-  "num": "105",
-  "titre": "ADM 5 — Système de levage : énergie, schémas et mise en service",
-  "motscles": [
-   "levage",
-   "energie",
-   "schema",
-   "variateur",
-   "mise en service",
-   "adm",
-   "tp systeme"
-  ]
- },
- "adm06": {
-  "num": "106",
-  "titre": "ADM 6 — Éclairage scénique Ermalux : schémas, variateurs et mise en service",
-  "motscles": [
-   "eclairage",
-   "variateur",
-   "gradateur",
-   "schema",
-   "mise en service",
-   "adm",
-   "tp systeme"
-  ]
- },
- "adm07": {
-  "num": "107",
-  "titre": "ADM 7 — Pollution harmonique et filtrage : banc Harmocem",
-  "motscles": [
-   "harmonique",
-   "thd",
-   "filtrage",
-   "spectre",
-   "analyseur",
-   "adm",
-   "tp systeme"
-  ]
- },
  "tp04": {
   "num": "4",
   "titre": "TP 4 — Le triphasé",
@@ -283,6 +230,22 @@
    "energie potentielle",
    "travail",
    "puissance mecanique"
+  ]
+ },
+ "c06": {
+  "num": "6",
+  "titre": "Cours 6 — Énergie, rayonnement, photométrie",
+  "motscles": [
+   "onde electromagnetique",
+   "longueur d'onde",
+   "photon",
+   "spectre",
+   "loi de wien",
+   "temperature de couleur",
+   "lumen",
+   "lux",
+   "efficacite lumineuse",
+   "irc"
   ]
  }
 }

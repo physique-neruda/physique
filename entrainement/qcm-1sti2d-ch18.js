@@ -222,90 +222,99 @@ window.CHAPITRE = {
  ],
  "cartes": [
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Qu'est-ce qu'une onde électromagnétique ? A-t-elle besoin d'un milieu ?",
-   "verso": "La propagation d'une perturbation <b>électrique et magnétique</b>. Elle n'a besoin d'<b>aucun milieu</b> : elle se propage dans le vide.",
-   "origine": "Cours §1 Onde électromagnétique"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Onde électromagnétique » ?",
+   "verso": "Une <strong>onde électromagnétique</strong> est la propagation d'une perturbation électrique et magnétique. Contrairement à une onde mécanique, elle <strong>n'a besoin d'aucun milieu matériel</strong> : elle se propage dans le vide.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Célérité des ondes électromagnétiques dans le vide ? Et dans le verre ?",
-   "verso": "<b>c = 3,00 × 10<sup>8</sup> m/s</b>, identique pour tout le spectre (vitesse limite).<br>Dans le verre : ralentie, ≈ 2,0 × 10<sup>8</sup> m/s.",
-   "origine": "Cours §1 Célérité de la lumière"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Spectre électromagnétique » ?",
+   "verso": "Le <strong>spectre électromagnétique</strong> est le classement de toutes les ondes électromagnétiques par longueur d'onde croissante en fréquence.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Relation entre λ et f dans le vide ? Comment varient-elles l'une par rapport à l'autre ?",
-   "verso": "<b>c = λ × f</b>. c étant fixée, λ et f varient en <b>sens inverse</b>.",
-   "origine": "Cours §2 Relation λ et f"
+   "type": "definition",
+   "recto": "Qu'appelle-t-on « Spectre d'émission » ?",
+   "verso": "Une source à <strong>spectre continu</strong> (lampe à filament, Soleil) émet toutes les longueurs d'onde du visible : sa lumière est <strong>polychromatique</strong>. Une source <strong>monochromatique</strong> (laser) n'émet qu'une seule longueur d'onde.",
+   "origine": "definition du cours"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Domaines du spectre électromagnétique, des grandes vers les petites longueurs d'onde ?",
-   "verso": "<b>Radio</b> → <b>micro-ondes</b> → <b>infrarouge</b> → <b>visible</b> → <b>ultraviolet</b> → <b>rayons X</b> → <b>rayons γ</b>.",
-   "origine": "Cours §3 Spectre électromagnétique"
+   "type": "question",
+   "recto": "Une onde électromagnétique ……",
+   "rep": "se propage dans le vide",
+   "verso": "<strong>se propage dans le vide</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Domaine de longueurs d'onde du visible ? Quelle couleur à chaque extrémité ?",
-   "verso": "De <b>400 nm (violet)</b> à <b>800 nm (rouge)</b> : une fenêtre minuscule du spectre.",
-   "origine": "Cours §3 Le visible"
+   "type": "question",
+   "recto": "Dans le vide, les ondes radio et les rayons X se propagent ……",
+   "rep": "à la même célérité c",
+   "verso": "<strong>à la même célérité c</strong> — la célérité dans le vide est la même pour tout le spectre",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Bornes du domaine des micro-ondes ?",
-   "verso": "De <b>1 mm à 1 m</b> (Wi-Fi 2,4 GHz : λ = 12,5 cm).",
-   "origine": "Cours §3 Spectre électromagnétique"
+   "type": "question",
+   "recto": "La célérité de la lumière dans le vide vaut environ ……",
+   "rep": "3,00×10⁸ m/s",
+   "verso": "<strong>3,00×10⁸ m/s</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Durée de propagation de la lumière : Soleil-Terre ? Terre-Lune ?",
-   "verso": "<b>d = c × t</b>.<br>Soleil-Terre : <b>8 min 20 s</b> (500 s).<br>Terre-Lune : <b>1,3 s</b>.",
-   "origine": "Cours §4 Durée de propagation"
+   "type": "question",
+   "recto": "La relation entre célérité, longueur d'onde et fréquence dans le vide est ……",
+   "rep": "c = λ × f",
+   "verso": "<strong>c = λ × f</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Source à spectre continu, source monochromatique : définir et donner un exemple.",
-   "verso": "<b>Spectre continu</b> (polychromatique) : toutes les longueurs d'onde du visible (Soleil, lampe à filament).<br><b>Monochromatique</b> : une seule longueur d'onde (laser). La LED : bande étroite.",
-   "origine": "Cours §5 Les sources de lumière"
+   "type": "question",
+   "recto": "Une onde de fréquence 100 MHz a une longueur d'onde de ……",
+   "rep": "3,00 m",
+   "verso": "<strong>3,00 m</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Quelles sont les trois propriétés du laser ?",
-   "verso": "<b>Monochromatique</b>, <b>directif</b> (faisceau parallèle), <b>cohérent</b>.",
-   "origine": "Cours §5 Le laser"
+   "type": "question",
+   "recto": "Le domaine visible s'étend environ de ……",
+   "rep": "400 nm à 800 nm",
+   "verso": "<strong>400 nm à 800 nm</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Que signifie la classe d'un laser ? Classe d'un pointeur du commerce ?",
-   "verso": "Le niveau de risque, de <b>1 (sans danger)</b> à <b>4 (brûlures œil et peau)</b>. Pointeur : <b>classe 2</b>. Ne jamais viser un œil.",
-   "origine": "Cours §6 Classes de laser"
+   "type": "question",
+   "recto": "Parmi ces ondes, laquelle a la <strong>plus petite</strong> longueur d'onde ?",
+   "rep": "un rayon γ",
+   "verso": "<strong>un rayon γ</strong> — plus on va vers les γ, plus λ est petite",
+   "origine": "bilan"
   },
   {
-   "type": "notion",
-   "recto": "<span class=\"sujet\">Notion</span>Comment évolue la dangerosité d'une onde avec sa longueur d'onde ? Risques des IR, UV, X ?",
-   "verso": "Plus λ est <b>petite</b>, plus l'onde est <b>énergétique</b>.<br>IR : chauffent. UV : peau et yeux. X et γ : traversent les tissus (usage encadré).",
-   "origine": "Cours §7 Interaction avec la matière"
+   "type": "question",
+   "recto": "Une source <strong>monochromatique</strong> émet ……",
+   "rep": "une seule longueur d'onde",
+   "verso": "<strong>une seule longueur d'onde</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Radio FM à 100 MHz. Comment trouver la longueur d'onde ?",
-   "verso": "1. Convertir : f = 1,00 × 10<sup>8</sup> Hz.<br>2. λ = c / f.<br>3. λ = 3,00 × 10<sup>8</sup>/1,00 × 10<sup>8</sup> = <b>3,00 m</b>.",
-   "origine": "Cours §2 Méthode 1"
+   "type": "question",
+   "recto": "Un laser est dangereux pour l'œil principalement parce que ……",
+   "rep": "son faisceau reste concentré sur une très petite surface",
+   "verso": "<strong>son faisceau reste concentré sur une très petite surface</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Comment situer une onde de 2,4 GHz dans le spectre ?",
-   "verso": "1. λ = c/f = 3,00 × 10<sup>8</sup>/2,4 × 10<sup>9</sup> = <b>12,5 cm</b>.<br>2. Comparer aux bornes : entre 1 mm et 1 m.<br>3. Conclure : <b>micro-onde</b>.",
-   "origine": "Cours §3 Méthode 2"
+   "type": "question",
+   "recto": "La lumière du Soleil met environ, pour parvenir jusqu'à la Terre ……",
+   "rep": "8 min",
+   "verso": "<strong>8 min</strong>",
+   "origine": "bilan"
   },
   {
-   "type": "methode",
-   "recto": "<span class=\"sujet\">Méthode</span>Soleil à 1,50 × 10<sup>11</sup> m. Comment trouver la durée de trajet de sa lumière ?",
-   "verso": "1. Isoler : t = d / c.<br>2. t = 1,50 × 10<sup>11</sup>/3,00 × 10<sup>8</sup> = <b>500 s</b>.<br>3. Convertir : <b>8 min 20 s</b>.",
-   "origine": "Cours §4 Méthode 3"
+   "type": "question",
+   "recto": "Le préfixe « nano » signifie ……",
+   "rep": "10⁻⁹",
+   "verso": "<strong>10⁻⁹</strong>",
+   "origine": "bilan"
   }
- ],
- "cartes_figees": true,
- "cartes_source": "outils/cartes_manuelles"
+ ]
 };
