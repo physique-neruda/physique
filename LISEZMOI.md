@@ -1238,3 +1238,22 @@ plus récente** (date de compilation du PDF) :
   main (il restait à 14 partout).
 - Sujets d'évaluation (CCF, devoirs E32, oraux, E4, U51) et corrigés : toujours dans l'espace
   enseignant chiffré uniquement.
+- ADM 3 (banc départ-moteur) : sujet et corrigé **v3 du 8 octobre** (pince HZO50, fiche Rigol,
+  question D.3 sur la composante continue). L'animation en ligne reste celle des cinq folios
+  (40 étapes) ; la v3 de l'animation (17 étapes, photo + folio animé) n'est pas encore publiée.
+
+## Mise à jour du 8 octobre 2026 (v51) — espace enseignant en dossiers, ADM 2 à 7 réservés
+
+- **ADM 2 à 7 retirés du site élèves** (`CHAPITRES_CACHES`) : sujets, corrigés et animations
+  (four, banc départ-moteur — les deux versions —, centrale de pompage, levage, Harmocem) sont dans
+  l'espace enseignant, dossier « TP systèmes ». Seul l'ADM 1 reste en ligne, avec ses animations.
+- **Espace enseignant réorganisé en dossiers** : Livres du professeur · Diaporamas · Tests ·
+  Exercices corrigés · Corrections des activités · Évaluations (sujets et corrigés) · TP systèmes
+  (ADM 2 à 7) · Chapitres retirés du site élèves. Dans chaque dossier : par classe, puis par
+  chapitre. Les animations des chapitres retirés y figurent en lien.
+- **Diaporamas** (73 chapitres) : uniquement dans l'espace enseignant
+  (`prive-atelier/diaporamas/<filière>/<chapitre>/diaporama.pdf`).
+- **BTS CRSA ch.1 : deux devoirs E32** — n°1 (devoir d'origine) et n°2 (air comprimé et
+  récupération de chaleur, 8 octobre), chacun avec son corrigé.
+- Outils : `chiffrer.py` range chaque document dans son dossier (`dossier_prive`) ;
+  `preparer_prive.py` reconnaît `devoir2`, `devoir3`…

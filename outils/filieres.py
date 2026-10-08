@@ -203,10 +203,11 @@ RUBRIQUE_DU_CHAPITRE = {
 # Chapitres retirés du site élèves (décision du 3 octobre 2026) : ni leurs PDF,
 # ni leurs animations, ni leurs QCM n'apparaissent dans le catalogue. Leurs
 # documents sont rangés dans l'espace enseignant (prive-atelier/<filière>/<ch>/).
+#   adm02 à adm07 : TP systèmes, réservés à l'enseignant (décision du 8 octobre 2026) ;
 #   c04, c05, c06 : cours assurés par le collègue (c06 ajouté le 8 octobre 2026) (statique des fluides, mécanique
 #              en translation) ;  ch09 : distribution et qualité de l'énergie.
 CHAPITRES_CACHES = {
-    "bts-et": ["c04", "c05", "c06", "ch09"],
+    "bts-et": ["c04", "c05", "c06", "ch09", "adm02", "adm03", "adm04", "adm05", "adm06", "adm07"],
 }
 
 # Titre affiché différent pour un document précis d'un chapitre précis.
@@ -282,6 +283,13 @@ ANIMATIONS = {
                         "l'arrêt et les protections du départ-moteur.",
          "trouve": "Passer du plan au câblage réel, et d'un symptôme à l'appareil en cause.",
          "motscles": ["depart moteur", "folio", "cablage", "contacteur", "relais thermique", "banc"]},
+        {"chapitre": "adm03", "rubrique": "TP systèmes", "avant": "tp_banc",
+         "titre": "Le banc départ-moteur : photo et folio pas à pas",
+         "fichier": "animations/banc-depart-moteur-photo.html",
+         "description": "Dix-sept étapes : la photo de la face manuelle du banc et le folio du "
+                        "démarrage direct animés côte à côte (version de l'ADM 3, archive v3).",
+         "trouve": "Relier chaque appareil de la face du banc à son symbole sur le folio.",
+         "motscles": ["depart moteur", "folio", "photo", "demarrage direct", "banc"]},
         {"chapitre": "c01", "rubrique": "Cours", "avant": "a1_chauffage",
          "titre": "Le chauffage", "fichier": "animations/calorimetre.html",
          "description": "Une résistance de puissance connue dans un récipient. Masse, matière, "

@@ -124,6 +124,22 @@ dialog#mdp::backdrop{background:rgba(22,35,45,.45)}
 #mdp .boutons button{font:inherit;min-height:44px;padding:8px 16px;border-radius:22px;
   border:1px solid var(--bord);background:var(--panneau);color:var(--encre)}
 #mdp .boutons button[type=submit]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+
+/* espace enseignant : dossiers */
+.dossiers{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.dossiers a.dossier-lien{display:inline-flex;gap:6px;align-items:center;padding:7px 12px;border-radius:18px;
+  border:1px solid var(--bord);background:var(--panneau);color:var(--encre);text-decoration:none;font-size:.9rem}
+.dossiers a.dossier-lien span{font-size:.78rem;color:var(--gris)}
+.dossiers a.dossier-lien:hover{border-color:var(--teal)}
+details.dossier{border:1px solid var(--bord);border-left:5px solid var(--teal);border-radius:10px;
+  background:var(--panneau);margin:10px 0;padding:4px 12px}
+details.dossier > summary{cursor:pointer;padding:8px 0}
+details.dossier > summary .ou{display:block;font-size:.84rem;color:var(--gris);margin-top:2px}
+details.dossier h3{margin:14px 0 6px;font-size:1.02rem}
+details.classe{margin:6px 0 6px 4px}
+details.classe > summary{cursor:pointer;padding:6px 0;font-weight:600;color:var(--bleu)}
+details.classe > summary .ou{font-weight:400;color:var(--gris);font-size:.84rem}
+details.dossier h4{margin:10px 0 4px;font-size:.92rem;color:var(--gris);font-weight:600}
 </style>
 </head>
 <body>
@@ -706,19 +722,58 @@ function vuePrive(){
   chargerIndexPrive().then(function(liste){
     var noms = {livres: "Livres du professeur"};
     FILIERES.forEach(function(f){ noms[f.id] = f.nom; });
+    var DOSSIERS = [
+      ["livres", "Livres du professeur", "Un livre par classe : tous les documents de l'année, corrigés compris."],
+      ["diaporamas", "Diaporamas", "Le diaporama complet de chaque chapitre (cours, activités, exercices et corrigés au clic)."],
+      ["tests", "Tests", "Sujets et corrigés des tests, par classe."],
+      ["exercices", "Exercices corrigés", "Le corrigé complet de chaque feuille d'exercices, par classe."],
+      ["activites", "Corrections des activités", "Activités et activités sur animation, corrigées, par classe."],
+      ["evaluations", "Évaluations : sujets et corrigés", "CCF, devoirs E32, oraux, sujets E4 et situations U51."],
+      ["adm", "TP systèmes (ADM 2 à 7)", "Sujets, corrigés et animations des TP systèmes, retirés du site élèves."],
+      ["retires", "Chapitres retirés du site élèves", "Documents et animations des chapitres masqués (cours du collègue…)."]];
+    var parDossier = {};
+    liste.forEach(function(d){ var k = d.dossier || "retires"; (parDossier[k] = parDossier[k] || []).push(d); });
     var html = '<h2>Espace enseignant</h2><div class="acces ouvert"><span>' + liste.length
-      + ' documents : corrigés complets, tests, épreuves, livres du professeur.</span>'
-      + '<button type="button" id="prive-fermer">Fermer l\'accès</button></div>';
-    var filCour = null, chCour = null;
-    liste.forEach(function(d){
-      if(d.fil !== filCour){ filCour = d.fil; chCour = null; html += '<h2>' + echappe(noms[d.fil] || d.fil) + '</h2>'; }
-      if(d.fil !== "livres" && d.ch !== chCour){ chCour = d.ch; html += '<h3>' + echappe(d.chapitre) + '</h3>'; }
-      html += '<a class="item pdf" href="#" data-prive="' + echappe(d.id) + '" data-nom="' + echappe(d.nom) + '">'
-            + '<span class="marque">PDF</span><span class="corps"><span class="nom">' + echappe(d.titre)
-            + '</span><span class="ou">' + taille(d.taille) + '</span></span></a>';
+      + ' documents, rangés par dossier puis par classe.</span>'
+      + '<button type="button" id="prive-fermer">Fermer l\'accès</button></div><div class="dossiers">';
+    DOSSIERS.forEach(function(D){
+      if(parDossier[D[0]]) html += '<a class="dossier-lien" href="#" data-dossier="' + D[0] + '">' + echappe(D[1])
+        + ' <span>' + parDossier[D[0]].length + '</span></a>';
+    });
+    html += '</div>';
+    DOSSIERS.forEach(function(D){
+      var docs = parDossier[D[0]]; if(!docs) return;
+      html += '<details class="dossier" id="dossier-' + D[0] + '"><summary><b>' + echappe(D[1]) + '</b> <span class="ou">'
+            + docs.length + ' · ' + echappe(D[2]) + '</span></summary>';
+      var filCour = null, chCour = null, nbFil = {};
+      docs.forEach(function(d){ nbFil[d.fil] = (nbFil[d.fil] || 0) + 1; });
+      docs.forEach(function(d){
+        if(d.fil !== "livres" && d.fil !== filCour){
+          if(filCour !== null) html += '</details>';
+          filCour = d.fil; chCour = null;
+          html += '<details class="classe"><summary>' + echappe(noms[d.fil] || d.fil) + ' <span class="ou">' + nbFil[d.fil] + '</span></summary>';
+        }
+        if(d.fil !== "livres" && d.ch !== chCour){ chCour = d.ch; html += '<h4>' + echappe(d.chapitre) + '</h4>'; }
+        if(d.type === "lien"){
+          html += '<a class="item animation" href="' + echappe(d.url) + '" target="_blank" rel="noopener">'
+                + '<span class="marque">ANIM</span><span class="corps"><span class="nom">' + echappe(d.titre)
+                + '</span><span class="ou">animation interactive</span></span></a>';
+        } else {
+          html += '<a class="item pdf" href="#" data-prive="' + echappe(d.id) + '" data-nom="' + echappe(d.nom) + '">'
+                + '<span class="marque">PDF</span><span class="corps"><span class="nom">' + echappe(d.titre)
+                + '</span><span class="ou">' + taille(d.taille) + '</span></span></a>';
+        }
+      });
+      if(filCour !== null) html += '</details>';
+      html += '</details>';
     });
     vue.innerHTML = html;
     document.getElementById("prive-fermer").onclick = fermerPrive;
+    Array.prototype.forEach.call(vue.querySelectorAll("a[data-dossier]"), function(l){
+      l.onclick = function(ev){ ev.preventDefault();
+        var d = document.getElementById("dossier-" + l.getAttribute("data-dossier"));
+        if(d){ d.open = true; d.scrollIntoView({behavior: "smooth", block: "start"}); } };
+    });
   }).catch(function(){
     vue.innerHTML = '<p class="rien">La liste n\'a pas pu être déchiffrée. Le code a peut-être changé : le saisir à nouveau.</p>';
     CLE_PRIVE = null; oublier(session(), "acces-prive"); oublier(memoire(), "acces-prive");

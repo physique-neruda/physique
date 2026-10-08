@@ -142,6 +142,7 @@ def charger_cles(chemin, nouveau, mot_impose):
 TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qui colle
     (r"^test_corrige$", "Test — corrigé"), (r"^test$", "Test — sujet"),
     (r"^ccf$", "Situation type CCF — sujet"), (r"^devoir$", "Devoir type E32 — sujet"),
+    (r"^devoir(\d)$", "Devoir type E32 n°{0} — sujet"), (r"^devoir(\d)_corrige$", "Devoir type E32 n°{0} — corrigé"),
     (r"^oral$", "Oral — sujet"), (r"^u51$", "Situation U51 — sujet"),
     (r"^e4_sujet$", "Sujet type E4 — sujet"), (r"^e4_dres$", "Sujet type E4 — dossier ressources"),
     (r"^e4_drep$", "Sujet type E4 — documents réponses"),
@@ -169,7 +170,7 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
 ORDRE_PRIVE = ["prerequis", "cours_a_completer", "cours", "exercices", "bilan", "activite",
                "activite2", "corrige_seances", "test", "test_corrige", "exercices_corrige", "activite_corrige", "activite2_corrige",
                "activite_anim_corrige", "activite_banc_corrige", "ccf", "ccf_corrige",
-               "devoir", "devoir_corrige", "oral", "oral_corrige", "e4_sujet", "e4_dres",
+               "devoir", "devoir_corrige", "devoir2", "devoir2_corrige", "devoir3", "devoir3_corrige", "oral", "oral_corrige", "e4_sujet", "e4_dres",
                "e4_drep", "e4_corrige", "u51", "u51_corrige", "diagnostic_corrige"]
 
 
@@ -181,19 +182,58 @@ def titre_prive(nom):
     return nom.replace("_", " ")
 
 
+# Dossiers de l'espace enseignant (ordre d'affichage)
+DOSSIERS_PRIVES = ["livres", "diaporamas", "tests", "exercices", "activites", "evaluations",
+                   "adm", "retires"]
+ORDRE_FIL = ["1sti2d", "bts-crsa", "bts-tsma", "bts-et"]
+
+
+def dossier_prive(parts, doc, caches):
+    """Range un document de l'espace enseignant dans un dossier thématique."""
+    if parts[0] == "livres":
+        return "livres"
+    if parts[0] == "diaporamas":
+        return "diaporamas"
+    fil, ch = parts[0], parts[1]
+    if re.match(r"^(test|test_corrige|diagnostic_corrige)$", doc):
+        return "tests"
+    if doc == "exercices_corrige":
+        return "exercices"
+    if re.match(r"^(activite\w*|a\d_\w+)_corrige$", doc):
+        return "activites"
+    if re.match(r"^(ccf|devoir\d*|oral|e4_\w+|u51)(_corrige)?$", doc):
+        return "evaluations"
+    if ch.startswith("adm"):
+        return "adm"
+    return "retires"
+
+
 def fabriquer_prive(prive_dir, sortie, k, atelier):
-    """prive-atelier/<filière>/<chapitre>/<doc>.pdf et prive-atelier/livres/*.pdf
-    -> sortie/prive/<identifiant>.enc + sortie/prive/index.enc (la liste, chiffrée elle
-    aussi). Les noms publiés sont des identifiants opaques : rien ne dit ce qu'il y a."""
+    """prive-atelier/<filière>/<chapitre>/<doc>.pdf, prive-atelier/livres/*.pdf et
+    prive-atelier/diaporamas/<filière>/<chapitre>/*.pdf -> sortie/prive/<identifiant>.enc
+    + sortie/prive/index.enc (la liste, chiffrée elle aussi). Les noms publiés sont des
+    identifiants opaques : rien ne dit ce qu'il y a. Chaque entrée porte son dossier
+    (livres, diaporamas, tests, exercices corrigés, corrections d'activités, évaluations,
+    TP ADM, chapitres retirés) ; les animations des chapitres retirés y figurent en lien."""
     prive_dir = os.path.abspath(prive_dir)
     if prive_dir.startswith(os.path.abspath(atelier) + os.sep):
         sys.exit("Le dossier de l'espace enseignant ne doit pas être dans le dossier du site.")
     dest = os.path.join(sortie, "prive")
     os.makedirs(dest, exist_ok=True)
-    chap = {}
+    chap, rang = {}, {}
     for f in glob.glob(os.path.join(atelier, "chapitres", "*.json")):
         with open(f, encoding="utf-8") as h:
-            chap[os.path.basename(f)[:-5]] = {c: v["titre"] for c, v in json.load(h).items()}
+            d = json.load(h)
+        fil = os.path.basename(f)[:-5]
+        chap[fil] = {c: v["titre"] for c, v in d.items()}
+        rang[fil] = {c: i for i, c in enumerate(d)}
+    sys.path.insert(0, os.path.join(atelier, "outils"))
+    try:
+        import filieres as F
+        caches = getattr(F, "CHAPITRES_CACHES", {})
+        animations = getattr(F, "ANIMATIONS", {})
+    except Exception:
+        caches, animations = {}, {}
     entrees = []
     for racine, _, fichiers in os.walk(prive_dir):
         for nom in sorted(fichiers):
@@ -211,14 +251,34 @@ def fabriquer_prive(prive_dir, sortie, k, atelier):
                 e = {"fil": "livres", "ch": "", "chapitre": "Livres du professeur",
                      "titre": doc.replace("Livre_professeur_", "Livre du professeur — ").replace("_", " "),
                      "ordre": 0}
+            elif parts[0] == "diaporamas":
+                fil, ch = parts[1], parts[2]
+                e = {"fil": fil, "ch": ch, "chapitre": chap.get(fil, {}).get(ch, ch),
+                     "titre": "Diaporama complet (cours, activités, exercices et corrigés)", "ordre": 0}
             else:
                 fil, ch = parts[0], parts[1]
                 e = {"fil": fil, "ch": ch, "chapitre": chap.get(fil, {}).get(ch, ch),
                      "titre": titre_prive(doc),
                      "ordre": ORDRE_PRIVE.index(doc) if doc in ORDRE_PRIVE else 50}
-            e.update({"id": ident, "nom": rel.replace("/", "-"), "taille": len(donnees)})
+            e.update({"id": ident, "nom": rel.replace("/", "-"), "taille": len(donnees),
+                      "dossier": dossier_prive(parts, doc, caches)})
             entrees.append(e)
-    entrees.sort(key=lambda e: (e["fil"] != "livres", e["fil"], e["ch"], e["ordre"], e["titre"]))
+    # animations des chapitres retirés du site élèves : liens dans l'espace enseignant
+    for fil, chs in caches.items():
+        for a in animations.get(fil, []):
+            if a.get("chapitre") in chs and os.path.exists(os.path.join(atelier, a["fichier"])):
+                ch = a["chapitre"]
+                entrees.append({"fil": fil, "ch": ch, "chapitre": chap.get(fil, {}).get(ch, ch),
+                                "titre": "Animation — " + a["titre"], "ordre": 60, "type": "lien",
+                                "url": a["fichier"], "dossier": "adm" if ch.startswith("adm") else "retires"})
+    # plusieurs devoirs dans un chapitre : le premier devient « n°1 »
+    avec2 = {(e["fil"], e["ch"]) for e in entrees if e.get("nom", "").endswith("-devoir2.pdf")}
+    for e in entrees:
+        if (e["fil"], e["ch"]) in avec2 and e["titre"].startswith("Devoir type E32 —"):
+            e["titre"] = e["titre"].replace("Devoir type E32 —", "Devoir type E32 n°1 —")
+    entrees.sort(key=lambda e: (DOSSIERS_PRIVES.index(e["dossier"]),
+                                ORDRE_FIL.index(e["fil"]) if e["fil"] in ORDRE_FIL else 9,
+                                rang.get(e["fil"], {}).get(e["ch"], 99), e["ch"], e["ordre"], e["titre"]))
     brut = json.dumps(entrees, ensure_ascii=False, sort_keys=True).encode("utf-8")
     with open(os.path.join(dest, "index.enc"), "wb") as h:
         h.write(chiffrer(k, "prive/index", brut))

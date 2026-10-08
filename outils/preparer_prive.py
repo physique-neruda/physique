@@ -35,7 +35,7 @@ for fil, racine in src.items():
     if not racine: continue
     for pdf in sorted(glob.glob(os.path.join(racine, "*", "pdf", "*.pdf"))):
         b = os.path.basename(pdf)
-        if "corrige" not in b and not re.search(r"_(test|ccf|devoir|oral|u51|e4_sujet|e4_dres|e4_drep)\.pdf$", b):
+        if "corrige" not in b and not re.search(r"_(test|ccf|devoir\d?|oral|u51|e4_sujet|e4_dres|e4_drep)\.pdf$", b):
             continue
         chdir = pdf.replace("\\", "/").split("/")[-3]
         ch = cle_et(chdir) if fil == "bts-et" else chdir
