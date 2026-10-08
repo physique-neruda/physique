@@ -284,5 +284,21 @@
    "travail",
    "puissance mecanique"
   ]
+ },
+ "c06": {
+  "num": "6",
+  "titre": "Cours 6 — Énergie, rayonnement, photométrie",
+  "motscles": [
+   "onde electromagnetique",
+   "longueur d'onde",
+   "photon",
+   "spectre",
+   "loi de wien",
+   "temperature de couleur",
+   "lumen",
+   "lux",
+   "efficacite lumineuse",
+   "irc"
+  ]
  }
 }

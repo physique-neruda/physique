@@ -1096,3 +1096,145 @@ recopie ces cartes dans les fichiers de données et pose `cartes_figees: true`.
 `refaire_cartes.py` ne touchent plus à un chapitre dont les cartes sont écrites à la main.
 Un chapitre ajouté plus tard garde ses cartes automatiques tant qu'on ne lui a pas écrit
 ses cartes dans `outils/cartes_manuelles/`.
+
+## Mise à jour du 7 octobre 2026 (v44) — calculatrice refaite
+
+- **Calculatrices** (`animations/calculatrice-puissances.html`) : animation refaite sur le modèle des
+  émulateurs en ligne. Les photos sont remplacées par quatre claviers **redessinés et cliquables**
+  (TI-83 Premium CE, Casio Graph 35+E II, Casio fx-92+ Spéciale Collège et **NumWorks**, qui remplace
+  la TI-83 Plus). L'écran calcule vraiment : affichage naturel (cases d'exposant, fractions, racines,
+  ×10ˣ de la fx-92), priorités, résultat précédent, erreurs propres à chaque modèle, fractions
+  exactes et S⇔D des Casio, fraction ≈ décimal de la NumWorks, réglages NORMAL/SCI, Norm 1/2, Sci,
+  degrés/radians atteints par les **vrais menus** (mode, SET UP, CONFIG, Paramètres).
+- Deux modes : **Exercices guidés** (l'élève appuie lui-même ; touche refusée si ce n'est pas la
+  bonne, touche attendue entourée, consigne pas à pas, « Tout jouer », bilan d'erreurs) et
+  **Calculatrice libre** (journal des touches pressées). Clavier de l'ordinateur accepté.
+- Six exercices : 4,5 × 10⁻³ ; produit ; piège de la division (saisie fautive puis bonne) ;
+  puissances ; affichage scientifique ; **nouveau** : degrés ou radians (sin 30°).
+- Fichier passé de 200 ko (photos) à environ 70 ko. Testé dans Chromium : les six exercices
+  aboutissent sur les quatre modèles, aucune erreur de script, pas de défilement horizontal
+  sur téléphone. Fiche du catalogue mise à jour.
+
+## Mise à jour du 7 octobre 2026, suite (v45) — calculatrice : zoom et statistiques
+
+- **Écran agrandi** : bouton « Agrandir l'écran » sous la calculatrice (ou clic sur l'écran). Une
+  copie agrandie de l'écran, tenue à jour en direct, s'affiche au-dessus des exercices ; sur
+  téléphone, elle reste collée en haut pendant qu'on fait défiler le clavier, avec la consigne
+  de l'étape en dessous.
+- **Statistiques à une variable** simulées sur les quatre modèles, par les vrais chemins :
+  TI-83 Premium CE ([stats] 1:Modifier…, éditeur L1-L3, puis CALC 1:Stats 1-Var, Calculer) ;
+  Graph 35+E II ([MENU] 2 STAT, List 1-4, [F2] CALC, [F1] 1-VAR) ; fx-92+ Spéciale Collège
+  ([MENU] 2 Statistiques, 1 1-Variable, colonne x, [OPTN] 2 Calcul 1-variable) ; NumWorks
+  (application Statistiques, colonne V1, onglet Stats). Résultats : moyenne, sommes, σ et s,
+  n, min, quartiles, médiane, max (Q1/Q3 par demi-séries sur TI et Casio, définition française
+  sur NumWorks). Histogrammes et boîtes non simulés.
+- **Exercice guidé 7** : cinq mesures d'une résistance (98, 102, 100, 101, 99 Ω) → x̄ = 100 Ω,
+  σ ≈ 1,41 Ω, s ≈ 1,58 Ω ; l'explication rappelle que l'incertitude-type se calcule avec
+  l'écart-type expérimental s (u = s/√n).
+- Testé dans Chromium : les sept exercices aboutissent sur les quatre modèles, aucune erreur de
+  script, pas de défilement horizontal sur téléphone. Fiche du catalogue mise à jour.
+
+## Mise à jour du 7 octobre 2026, fin (v46) — LatisPro : trois tutoriels de plus
+
+`animations/latispro.html` passe de deux à **cinq tutoriels**, construits d'après les vidéos et les
+notices rangées dans `2026-2027\latispro` :
+
+- **Tutoriel 1** : menu clic droit du graphe complété d'après les captures (Loupe, Repère orthonormé,
+  Créer Flèche / Droite / Commentaire, Copie Graphique, Méthode des tangentes…) ; nouvelle étape
+  « Annoter le graphe » (commentaire τ = … ms) ; la courbe modèle reste affichée après fermeture
+  de la modélisation ; menu Traitements ▸ Calculs spécifiques ▸ Dérivée.
+- **Tutoriel 3 — Signal périodique (GBF)**, 8 étapes : premier essai avec les réglages par défaut
+  (200 points sur 20 ms, sinusoïde méconnaissable), réglage de la durée et du nombre de points,
+  case Périodique, mode permanent qui « saute » puis déclenchement (EA1, montant, 0 V), arrêt par
+  Échap, période au réticule sur trois périodes (T = 0,952 ms, f ≈ 1 050 Hz), commentaire.
+- **Tutoriel 4 — Tableau saisi à la main**, 8 étapes : Variables ▸ Nouvelle (V en mL, P en hPa),
+  saisie, tracé P = f(V) par glisser-déposer, linéarisation `=1/V`, P = f(1/V), modèle linéaire
+  (P × V constant, loi de Mariotte), équation affichée en commentaire.
+- **Tutoriel 5 — Pointage vidéo**, 9 étapes : module AVI, ouverture du film, origine, étalon d'un
+  mètre, sens des axes, pointage manuel de 23 images avec zoom, transfert vers Mouvement X / Y et
+  renommage, trajectoire y = f(x), dérivées (vx constante, vy de pente ≈ −9,8 m/s²), feuille de
+  calcul (v, Ec, Epp, Em quasi constante), modèle parabole et retour à g et à l'angle de tir.
+- Testé dans Chromium : les 45 étapes se jouent sans erreur de script. Fiche du catalogue mise à jour.
+
+## Mise à jour du 8 octobre 2026 (v47) — LatisPro : graphismes d'après les captures
+
+- **Habillage** refait d'après les captures d'écran et les photos de LatisPro / Sysam-SP5 : barres
+  de titre et bandeaux gris-bleu, boutons arrondis en relief (enfoncés quand ils sont actifs),
+  boutons « Courbes » et « Acquisition » de la boîte de paramètres, onglets Temporelle / Pas à pas /
+  XY, cases rondes pour Périodique et Mode permanent, barre d'outils à boutons carrés.
+- **Entrées nommées EA0 à EA7** partout (tutoriels 1, 2 et 3).
+- **Tutoriel 1, déclenchement** : la section « Entrées Analogiques » est repliée par son bouton ⌃
+  pour faire apparaître Seuil et Pré-Trig, qui étaient cachés en bas de la boîte (même geste dans
+  le tutoriel 3). Modèle de charge affiché sous son vrai nom A*(1-exp(-(X-Δ)/τ))+V0, avec Δ et V0.
+- **Tutoriel 2 refait** dans la vraie présentation du mode pas à pas : capteur reconnu sur EA0
+  (bouton « Pression »), onglet Pas à pas avec Abscisse Clavier / Titrage / Abscisse Instrumentée /
+  Ordonnée Clavier, unité choisie dans la liste (Mètre (m)), fenêtre **Acquisition pas à pas**
+  (mesure en direct, Point Acquis, Trier par abscisse croissante, bouton Acquérir), boîte
+  Propriétés avec la liste des styles (Trait, Croix, Histogramme…), modélisation affine développée.
+- Testé dans Chromium : les 45 étapes se jouent sans erreur de script.
+
+## Mise à jour du 8 octobre 2026, suite (v48) — LatisPro : générateur intégré et barre d'outils
+
+- **Troisième bouton de la boîte de paramètres rétabli** (coche verte, paramétrage de l'émission),
+  dans tous les tutoriels.
+- **Tutoriel 6 — Générateur intégré (Sysam-SP5)**, 6 étapes : ouvrir le paramétrage de l'émission,
+  Sortie 1 (SA1) / Sortie 2 (SA2), Sortie active, forme d'onde (Sinus, Rampe, Triangle, Constante,
+  Carré, Courbes), Minimum / Maximum / Fréquence, Mode GBF (émission permanente) ou émission
+  synchronisée à l'acquisition (bouton Emettre) ; câblage SA1 → EA0 sur la face avant ;
+  visualisation de la sinusoïde ; arrêt en décochant Sortie active. Rappel : la Sysam-Campus du
+  lycée Rostand n'a pas de sortie, on y utilise un GBF séparé (tutoriel 3).
+- **Barre d'outils de la version actuelle** : le bouton Acquisition est le bouton « lecteur » bleu ▶,
+  suivi du haut-parleur ; icônes redessinées dans l'ordre Nouveau, Ouvrir, Enregistrer, Imprimer,
+  AVI, Tableur, Modélisation, Mesures auto, Acquisition, Son, Afficheurs, Notes, Mosaïque, Aide,
+  avec leur infobulle.
+- **Boîte de paramètres** redessinée d'après la capture de la version actuelle : bandeaux clairs,
+  boutons EA0… rectangulaires (bleu clair une fois activés), cases à cocher carrées pour
+  Périodique et Mode permanent.
+- Testé dans Chromium : les 51 étapes se jouent sans erreur de script.
+
+## Mise à jour du 8 octobre 2026, fin (v49) — calculatrices redessinées d'après les photos
+
+`animations/calculatrice-puissances.html` : les quatre calculatrices sont redessinées d'après les
+photos rangées dans `2026-2027\calculatrice`.
+
+- **TI-83 Premium CE Edition Python** : tête noire autour de l'écran, corps blanc, chiffres gris
+  foncé, touche 2nde bleue, alpha verte, rangée f(x) / fenêtre / zoom / trace / graphe, pavé
+  rond, inscription « TEXAS INSTRUMENTS ». Touches **trig** (menu sin, cos, tan et réciproques),
+  **résol** et **n/d** à leur vraie place ; x⁻¹ = 2nde matrice, π = 2nde trig.
+- **Casio Graph 35+E** (et non plus « 35+E II ») : corps blanc bordé de bleu-vert, touches F1…F6
+  en goutte, pavé REPLAY ovale, SHIFT jaune, ALPHA orange, EXE violette, DEL / AC gris, touche
+  **F↔D** pour passer d'une fraction à son écriture décimale.
+- **Casio fx-92 Collège** (et non plus « fx-92+ Spéciale Collège ») : corps vert d'eau, touches
+  rondes blanches, SECONDE bleue, bloc ACCUEIL / CONFIG / retour / OK / VARIABLE / FONCTION /
+  CATALOG / OUTILS, touches Rép et **FORMAT**. Valeur décimale : SECONDE puis EXE (≈), ou
+  FORMAT ▸ Décimal ; nombre négatif : SECONDE puis − ; statistiques par ACCUEIL puis OUTILS.
+- **NumWorks** : touches blanches arrondies avec leurs fonctions secondes écrites dedans, touche
+  maison orange, OK et retour ronds, touche **Ans**.
+- Les exercices guidés suivent les nouvelles touches (textes « À retenir » mis à jour).
+- Testé dans Chromium : les 28 exercices se jouent sans erreur sur les quatre modèles ; pas de
+  défilement horizontal sur un téléphone (375 px).
+
+
+## Fusion du 8 octobre 2026 (v50) — deux versions du site réunies
+
+Deux sessions de travail avaient fait évoluer le site en parallèle depuis le 2 octobre (v41) :
+l'une avec le chiffrement, l'espace enseignant, les ADM 4 à 7, les cartes écrites à la main, la
+calculatrice et LatisPro (v42 à v49 ci-dessus) ; l'autre avec le Cours 6 du BTS ET, les renvois
+complétés, les corrections du ch.2 CRSA et le nouveau devoir E32 du ch.1 CRSA. Le 8 octobre, la
+seconde a été envoyée sur GitHub par erreur, en clair, par-dessus la première. Cette v50 repart de
+la version chiffrée du 3 octobre et y réunit tout, **en gardant pour chaque document la version la
+plus récente** (date de compilation du PDF) :
+
+- 221 documents mis à jour ou ajoutés : CRSA ch.1 (devoir et corrigé), ch.2 (cours, exercices,
+  activité, devoir, CCF, oral et corrigés), ch.20 ; BTS ET TP 4 à 7, ADM 1, Cours 4 et 5 ; tests et
+  corrigés de 1re STI2D recompilés le 1er octobre. Aucun document de cette version n'était plus
+  ancien que celui en ligne.
+- BTS ET Cours 6 « Énergie, rayonnement, photométrie » : comme les Cours 4 et 5 (cours du collègue),
+  il est rangé dans l'espace enseignant et ajouté à `CHAPITRES_CACHES`. Ses deux animations
+  (`corps-chaud.html`, `eclairage-atelier.html`) sont dans `animations/`, non listées.
+- Calculatrice (v49, claviers redessinés d'après les photos) et LatisPro (v48, six tutoriels).
+- Livre du professeur BTS ET : version v11.
+- Le nombre de cartes affiché dans le catalogue est désormais le vrai nombre de cartes écrites à la
+  main (il restait à 14 partout).
+- Sujets d'évaluation (CCF, devoirs E32, oraux, E4, U51) et corrigés : toujours dans l'espace
+  enseignant chiffré uniquement.

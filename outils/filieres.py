@@ -160,6 +160,10 @@ DOCUMENTS = {
          "Le document à remplir pendant l'animation."),
         ("a2_treuil",         "Cours", "Activité 2 — Le treuil",
          "Le document à remplir pendant l'animation."),
+        ("a1_corps",          "Cours", "Activité 1 — Corps chaud, couleur et photon",
+         "Le document à remplir pendant l'animation."),
+        ("a2_eclairage",      "Cours", "Activité 2 — L'éclairage d'un atelier",
+         "Le document à remplir pendant l'animation."),
         ("cours_a_completer", "Cours", "Cours à compléter",
          "La version distribuée en séance, avec les passages à écrire."),
         ("cours",             "Cours", "Cours complet",
@@ -199,10 +203,10 @@ RUBRIQUE_DU_CHAPITRE = {
 # Chapitres retirés du site élèves (décision du 3 octobre 2026) : ni leurs PDF,
 # ni leurs animations, ni leurs QCM n'apparaissent dans le catalogue. Leurs
 # documents sont rangés dans l'espace enseignant (prive-atelier/<filière>/<ch>/).
-#   c04, c05 : cours assurés par le collègue (statique des fluides, mécanique
+#   c04, c05, c06 : cours assurés par le collègue (c06 ajouté le 8 octobre 2026) (statique des fluides, mécanique
 #              en translation) ;  ch09 : distribution et qualité de l'énergie.
 CHAPITRES_CACHES = {
-    "bts-et": ["c04", "c05", "ch09"],
+    "bts-et": ["c04", "c05", "c06", "ch09"],
 }
 
 # Titre affiché différent pour un document précis d'un chapitre précis.
@@ -226,6 +230,21 @@ TITRES_PARTICULIERS = {
 # chapitre. None => à la fin de la rubrique.
 ANIMATIONS = {
     "bts-et": [
+        {"chapitre": "c06", "rubrique": "Cours", "avant": "a1_corps",
+         "titre": "Corps chaud, couleur et photon",
+         "fichier": "animations/corps-chaud.html",
+         "description": "La température d'un corps chaud règle son spectre : longueur d'onde du "
+                        "maximum, teinte perçue, part visible ; et l'énergie du photon pour une "
+                        "longueur d'onde choisie.",
+         "trouve": "λmax × T = 2,90 × 10⁻³ m·K (loi de Wien) ; E = hc/λ.",
+         "motscles": ["wien", "temperature de couleur", "photon", "spectre"]},
+        {"chapitre": "c06", "rubrique": "Cours", "avant": "a2_eclairage",
+         "titre": "L'éclairage d'un atelier",
+         "fichier": "animations/eclairage-atelier.html",
+         "description": "Local, type et nombre de luminaires : éclairement moyen comparé aux valeurs "
+                        "recommandées, puissance installée, énergie et coût annuels.",
+         "trouve": "E = N·Φ·U·M/S ; les LED divisent la consommation par deux face aux tubes.",
+         "motscles": ["eclairement", "lux", "lumen", "led", "efficacite lumineuse"]},
         {"chapitre": "c05", "rubrique": "Cours", "avant": "a1_chariot",
          "titre": "Le chariot filoguidé",
          "fichier": "animations/chariot-filoguide.html",
@@ -518,29 +537,15 @@ ANIMATIONS = {
         {"chapitre": "ou05", "rubrique": "Calcul", "avant": None,
          "titre": "La calculatrice et les puissances de dix",
          "fichier": "animations/calculatrice-puissances.html",
-         "description": "Touche par touche, sur quatre calculatrices (TI-83 Premium CE, TI-83 Plus, "
-                        "Casio Graph 35+E, Casio fx-92 Collège) : écrire un nombre en notation "
-                        "scientifique, calculer avec, élever à une puissance, afficher le résultat en "
-                        "écriture scientifique — et le piège de la division qui fausse un résultat "
-                        "sans prévenir.",
-         "trouve": "« × 10 puissance » s'écrit avec la touche EE ou ×10ˣ, jamais avec × 10 ^ ; "
-                   "l'exposant négatif se tape avec la touche de négation.",
-         "motscles": ["calculatrice", "notation scientifique", "puissance de dix", "exposant", "ti", "casio"]},
+         "description": "Une calculatrice à l'écran, à manipuler comme la vraie (TI-83 Premium CE, Casio Graph 35+E, Casio fx-92 Collège, NumWorks), avec des claviers dessinés d'après les vraies calculatrices. Sept exercices guidés touche par touche : écrire un nombre en notation scientifique, calculer avec, le piège de la division, les puissances, l'affichage scientifique, degrés ou radians, statistiques à une variable (moyenne, écart-type) — un mode libre qui calcule vraiment et un écran agrandi.",
+         "trouve": "« × 10 puissance » s'écrit avec la touche EE ou ×10ˣ, jamais avec × 10 ^ ; l'exposant négatif se tape avec la touche de négation.",
+         "motscles": ["calculatrice", "notation scientifique", "puissance de dix", "exposant", "ti", "casio", "numworks", "radians", "degrés", "émulateur", "statistiques", "moyenne", "écart-type"]},
         {"chapitre": "ou04", "rubrique": "Mesure", "avant": None,
          "titre": "Acquérir, calculer et modéliser avec LatisPro",
          "fichier": "animations/latispro.html",
-         "description": "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales "
-                        "d'acquisition Sysam : paramétrer une acquisition, calculer une "
-                        "nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis "
-                        "la modéliser et lire les paramètres du modèle. Une dernière partie "
-                        "montre la mesure point par point au capteur de pression (mode pas à "
-                        "pas, profondeur saisie au clavier) et la modélisation par une droite. Chaque étape se "
-                        "rejoue ; le mieux est de la reproduire en même temps sur le poste "
-                        "du labo.",
-         "trouve": "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis "
-                   "on demande au logiciel les paramètres.",
-         "motscles": ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier",
-                      "courbe", "modelisation", "regression", "parametres"]},
+         "description": "Six tutoriels pas à pas sur LatisPro, le logiciel des centrales Sysam : (1) acquisition temporelle de la charge d'un condensateur, feuille de calcul, tableur, modélisation et commentaire sur le graphe ; (2) mesure point par point au capteur de pression ; (3) signal périodique d'un GBF — durée et nombre de points, case Périodique, déclenchement, mode permanent, période au réticule ; (4) tableau de mesures saisi à la main, tracé et linéarisation (loi de Mariotte) ; (5) pointage vidéo d'un lancer, dérivée, vitesses, énergies et modèle parabolique ; (6) générateur intégré de la Sysam-SP5 (sorties SA1 et SA2, mode GBF).",
+         "trouve": "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis on demande au logiciel les paramètres.",
+         "motscles": ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier", "courbe", "modelisation", "regression", "parametres", "gbf", "declenchement", "mode permanent", "reticule", "tableur", "linearisation", "pointage video", "derivee", "energie", "emission", "sortie analogique", "sa1", "generateur integre", "sysam-sp5"]},
         {"chapitre": "ou03", "rubrique": "Mesure", "avant": None,
          "titre": "Calculer, tracer et modéliser avec un tableur",
          "fichier": "animations/tableur.html",
@@ -596,4 +601,4 @@ SOURCES = {
 DOSSIERS_ET = {"ch00": "ch00", "ch09": "ch09", "c01": "C1", "c02": "C2",
                "tp01": "TP1", "tp02": "TP2", "tp04": "TP4", "tp05": "TP5", "tp06": "TP6", "tp07": "TP7", "adm01": "ADM1", "adm02": "ADM2", "adm03": "ADM3",
                "adm04": "ADM4", "adm05": "ADM5", "adm06": "ADM6", "adm07": "ADM7",
-               "c03": "C3", "c04": "C4", "c05": "C5", "tp03": "TP3"}
+               "c03": "C3", "c04": "C4", "c05": "C5", "c06": "C6", "tp03": "TP3"}

@@ -128,9 +128,9 @@ const DOCUMENTS = [
     chapitre: "Acquérir, calculer et modéliser avec LatisPro",
     type: "animation", titre: "Acquérir, calculer et modéliser avec LatisPro",
     fichier: "animations/latispro.html",
-    description: "Un tutoriel pas à pas sur LatisPro, le logiciel des centrales d'acquisition Sysam : paramétrer une acquisition, calculer une nouvelle grandeur dans la feuille de calcul, tracer une courbe, puis la modéliser et lire les paramètres du modèle. Une dernière partie montre la mesure point par point au capteur de pression (mode pas à pas, profondeur saisie au clavier) et la modélisation par une droite. Chaque étape se rejoue ; le mieux est de la reproduire en même temps sur le poste du labo.",
+    description: "Six tutoriels pas à pas sur LatisPro, le logiciel des centrales Sysam : (1) acquisition temporelle de la charge d'un condensateur, feuille de calcul, tableur, modélisation et commentaire sur le graphe ; (2) mesure point par point au capteur de pression ; (3) signal périodique d'un GBF — durée et nombre de points, case Périodique, déclenchement, mode permanent, période au réticule ; (4) tableau de mesures saisi à la main, tracé et linéarisation (loi de Mariotte) ; (5) pointage vidéo d'un lancer, dérivée, vitesses, énergies et modèle parabolique ; (6) générateur intégré de la Sysam-SP5 (sorties SA1 et SA2, mode GBF).",
     trouve: "Un modèle se choisit avant d'être calculé : on regarde la courbe, puis on demande au logiciel les paramètres.",
-    motscles: ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier", "courbe", "modelisation", "regression", "parametres"]
+    motscles: ["latispro", "latis pro", "sysam", "acquisition", "feuille de calcul", "pas a pas", "capteur de pression", "entree clavier", "courbe", "modelisation", "regression", "parametres", "gbf", "declenchement", "mode permanent", "reticule", "tableur", "linearisation", "pointage video", "derivee", "energie", "emission", "sortie analogique", "sa1", "generateur integre", "sysam-sp5"]
   },
 
 
@@ -139,9 +139,9 @@ const DOCUMENTS = [
     chapitre: "La calculatrice et les puissances de dix",
     type: "animation", titre: "La calculatrice et les puissances de dix",
     fichier: "animations/calculatrice-puissances.html",
-    description: "Touche par touche, sur quatre calculatrices (TI-83 Premium CE, TI-83 Plus, Casio Graph 35+E, Casio fx-92 Collège) : écrire un nombre en notation scientifique, calculer avec, élever à une puissance, afficher le résultat en écriture scientifique — et le piège de la division qui fausse un résultat sans prévenir.",
+    description: "Une calculatrice à l'écran, à manipuler comme la vraie (TI-83 Premium CE, Casio Graph 35+E, Casio fx-92 Collège, NumWorks), avec des claviers dessinés d'après les vraies calculatrices. Sept exercices guidés touche par touche : écrire un nombre en notation scientifique, calculer avec, le piège de la division, les puissances, l'affichage scientifique, degrés ou radians, statistiques à une variable (moyenne, écart-type) — un mode libre qui calcule vraiment et un écran agrandi.",
     trouve: "« × 10 puissance » s'écrit avec la touche EE ou ×10ˣ, jamais avec × 10 ^ ; l'exposant négatif se tape avec la touche de négation.",
-    motscles: ["calculatrice", "notation scientifique", "puissance de dix", "exposant", "ti", "casio"]
+    motscles: ["calculatrice", "notation scientifique", "puissance de dix", "exposant", "ti", "casio", "numworks", "radians", "degrés", "émulateur", "statistiques", "moyenne", "écart-type"]
   },
 
 
@@ -197,7 +197,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 0 — Outils mathématiques",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=ch00",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "30 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["outils", "puissances de dix", "unites", "conversions", "chiffres significatifs", "proportionnalite"]
   },
 
@@ -342,7 +342,7 @@ const DOCUMENTS = [
     chapitre: "Cours 1 — Énergie interne et transferts thermiques",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=c01",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "26 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
 
@@ -481,7 +481,7 @@ const DOCUMENTS = [
     chapitre: "Cours 2 — Électromagnétisme",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=c02",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "23 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["electromagnetisme", "flux magnetique", "induction", "reluctance", "circuit magnetique"]
   },
 
@@ -611,7 +611,7 @@ const DOCUMENTS = [
     chapitre: "Cours 3 — Les combustions",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=c03",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "26 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["combustion", "equation", "pouvoir calorifique", "pci", "groupe electrogene", "co2", "chimie"]
   },
 
@@ -702,7 +702,7 @@ const DOCUMENTS = [
     chapitre: "TP 1 — Notions fondamentales d'électricité",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp01",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "29 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["electricite", "fondamentales", "notions", "potentiel", "loi des mailles", "diviseur de tension"]
   },
 
@@ -803,7 +803,7 @@ const DOCUMENTS = [
     chapitre: "TP 2 — Dipôles passifs et actifs",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp02",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "23 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["dipole", "resistance", "condensateur", "bobine", "source", "caracteristique"]
   },
 
@@ -876,7 +876,7 @@ const DOCUMENTS = [
     chapitre: "TP 3 — Régime sinusoïdal monophasé",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp03",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "24 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["sinusoidal", "dephasage", "fresnel", "impedance", "puissance active", "puissance reactive", "facteur de puissance", "boucherot"]
   },
 
@@ -1171,7 +1171,7 @@ const DOCUMENTS = [
     chapitre: "TP 4 — Le triphasé",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp04",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["triphase", "tension simple", "tension composee", "racine de 3", "etoile", "triangle", "couplage", "plaque signaletique", "deux wattmetres", "puissance"]
   },
 
@@ -1244,7 +1244,7 @@ const DOCUMENTS = [
     chapitre: "TP 5 — Les transformateurs",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp05",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "16 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["transformateur", "rapport de transformation", "essai a vide", "essai en court-circuit", "pertes fer", "pertes cuivre", "kapp", "rendement", "dyn"]
   },
 
@@ -1317,7 +1317,7 @@ const DOCUMENTS = [
     chapitre: "TP 6 — Le redressement",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp06",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "12 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["diode", "redressement", "simple alternance", "pont de graetz", "valeur moyenne", "ondulation", "filtrage", "condensateur"]
   },
 
@@ -1390,7 +1390,7 @@ const DOCUMENTS = [
     chapitre: "TP 7 — Le régime non sinusoïdal",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-et&ch=tp07",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "12 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["harmonique", "fourier", "spectre", "thd", "puissance deformante", "facteur de puissance", "neutre", "rang 3"]
   },
 
@@ -1447,7 +1447,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 0 — Outils de base",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch00",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "27 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["outils", "puissances de dix", "unites", "conversions", "chiffres significatifs", "proportionnalite"]
   },
 
@@ -1557,7 +1557,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 1 — Énergie, puissance, rendement",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch01",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "23 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "puissance", "rendement", "efficacite", "joule", "watt"]
   },
 
@@ -1648,7 +1648,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 2 — Conversion et stockage de l'énergie",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch02",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "20 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["conversion", "stockage", "condensateur", "supercondensateur", "batterie", "constante de temps"]
   },
 
@@ -1778,7 +1778,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 3 — Énergie thermique",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch03",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["thermique", "chaleur", "capacite thermique", "transfert", "conduction", "isolation"]
   },
 
@@ -1860,7 +1860,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 4 — Mécanique du solide",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch04",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["mecanique", "solide", "force", "moment", "couple", "travail", "rotation"]
   },
 
@@ -1942,7 +1942,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 5 — Statique et dynamique des fluides",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch05",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["fluide", "pression", "hydrostatique", "debit", "bernoulli", "verin"]
   },
 
@@ -2106,7 +2106,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 7 — Distribution triphasée",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch07",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "17 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["triphase", "etoile", "triangle", "puissance", "facteur de puissance", "reseau"]
   },
 
@@ -2188,7 +2188,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 8 — Corrosion, risques chimiques et acoustiques",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch08",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "17 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["corrosion", "oxydoreduction", "risque chimique", "bruit", "acoustique", "protection"]
   },
 
@@ -2270,7 +2270,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 9 — Le transformateur",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch09",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["transformateur", "rapport de transformation", "pertes", "essais", "rendement"]
   },
 
@@ -2352,7 +2352,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 10 — Les redresseurs",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch10",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["redressement", "diode", "pont", "filtrage", "ondulation", "valeur moyenne"]
   },
 
@@ -2598,7 +2598,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 13 — Machines alternatives",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch13",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["machine asynchrone", "machine synchrone", "glissement", "champ tournant", "couple"]
   },
 
@@ -2680,7 +2680,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 14 — Les capteurs",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch14",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["capteur", "etendue de mesure", "sensibilite", "linearite", "tor", "analogique"]
   },
 
@@ -2762,7 +2762,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 15 — Analyse du signal",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch15",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["signal", "valeur moyenne", "valeur efficace", "spectre", "frequence", "periode"]
   },
 
@@ -2844,7 +2844,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 16 — Conditionnement du signal",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch16",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "12 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["conditionnement", "diviseur de tension", "pont de wheatstone", "amplification", "comparateur"]
   },
 
@@ -2990,7 +2990,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 18 — Transmission du signal",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch18",
-    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "16 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["transmission", "chaine de transmission", "fibre optique", "refraction", "reflexion totale", "angle limite", "indice", "liaison serie", "debit", "trame"]
   },
 
@@ -3063,7 +3063,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 19 — Réponse des systèmes linéaires et résonance",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch19",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "12 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["reponse indicielle", "premier ordre", "second ordre", "constante de temps", "temps de reponse", "depassement", "amortissement", "frequence de coupure", "resonance", "frequence propre"]
   },
 
@@ -3146,7 +3146,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 20 — Systèmes asservis",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-crsa&ch=ch20",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "10 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["asservissement", "regulation", "boucle fermee", "schema blocs", "comparateur", "erreur statique", "stabilite", "correcteur pi", "tout ou rien", "hysteresis"]
   },
 
@@ -3212,7 +3212,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 0 — Outils de base",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch00",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "27 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["outils", "puissances de dix", "unites", "proportionnalite"]
   },
 
@@ -3322,7 +3322,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 1 — Mesures, erreurs et incertitudes",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch01",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "24 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["mesure", "incertitude", "dispersion", "tolerance", "pied a coulisse"]
   },
 
@@ -3423,7 +3423,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 2 — Énergie, puissance, rendement",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch02",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "puissance", "rendement", "joule", "watt", "treuil"]
   },
 
@@ -3625,7 +3625,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 4 — Dynamique des fluides",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch04",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["debit", "bernoulli", "conservation", "dynamique des fluides"]
   },
 
@@ -3735,7 +3735,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 5 — Viscosité et pertes de charge",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch05",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "16 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["viscosite", "pertes de charge", "reynolds", "conduite"]
   },
 
@@ -3817,7 +3817,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 6 — La réaction chimique",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch06",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["reaction chimique", "equation", "mole", "masse molaire"]
   },
 
@@ -3899,7 +3899,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 7 — Combustions et carburants",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch07",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "18 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["combustion", "carburant", "gazole", "pouvoir calorifique"]
   },
 
@@ -3981,7 +3981,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 8 — Gaz parfaits et premier principe",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch08",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["gaz parfait", "premier principe", "travail", "chaleur"]
   },
 
@@ -4063,7 +4063,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 9 — Transferts thermiques et calorimétrie",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch09",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "16 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["transfert thermique", "calorimetrie", "conduction", "convection"]
   },
 
@@ -4227,7 +4227,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 11 — Oxydoréduction, piles et corrosion",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch11",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "16 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["oxydoreduction", "pile", "corrosion", "batterie"]
   },
 
@@ -4473,7 +4473,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 14 — Ondes acoustiques et protection",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch14",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "16 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["acoustique", "bruit", "decibel", "protection auditive"]
   },
 
@@ -4555,7 +4555,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 15 — Systèmes linéaires et asservissement",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch15",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "12 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["asservissement", "systeme lineaire", "boucle", "regulation"]
   },
 
@@ -4719,7 +4719,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 17 — Distribution électrique et sécurité",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=bts-tsma&ch=ch17",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["distribution electrique", "securite", "habilitation", "courant"]
   },
 
@@ -4812,7 +4812,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 0 — Outils de base en physique-chimie",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch00",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "23 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["base", "chimie", "outils", "physique"]
   },
 
@@ -4913,7 +4913,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 1 — Mesure et incertitudes",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch01",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "22 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["incertitudes", "mesure"]
   },
 
@@ -5014,7 +5014,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 2 — Énergie, puissance, chaînes",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch02",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "19 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["chaines", "energie", "puissance"]
   },
 
@@ -5096,7 +5096,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 3 — Courant continu",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch03",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "22 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["continu", "courant"]
   },
 
@@ -5260,7 +5260,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 5 — Puissance, énergie électriques, loi d'Ohm",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch05",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "21 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["electriques", "energie", "puissance"]
   },
 
@@ -5424,7 +5424,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 7 — Forces et principe d'inertie",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch07",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "15 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["forces", "inertie", "principe"]
   },
 
@@ -5588,7 +5588,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 9 — Énergie interne et transferts thermiques",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch09",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "17 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "interne", "thermiques", "transferts"]
   },
 
@@ -5670,7 +5670,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 10 — Énergie chimique",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch10",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "16 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["chimique", "energie"]
   },
 
@@ -5752,7 +5752,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 11 — Énergie transportée par la lumière",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch11",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["energie", "lumiere", "transportee"]
   },
 
@@ -5834,7 +5834,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 12 — Matériaux et organisation de la matière",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch12",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "18 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["materiaux", "matiere", "organisation"]
   },
 
@@ -5916,7 +5916,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 13 — Combustions et carburants",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch13",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["carburants", "combustions"]
   },
 
@@ -5998,7 +5998,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 14 — Solutions aqueuses",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch14",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "11 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["aqueuses", "solutions"]
   },
 
@@ -6080,7 +6080,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 15 — Oxydoréduction, corrosion et piles",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch15",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["corrosion", "oxydoreduction", "piles"]
   },
 
@@ -6162,7 +6162,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 16 — Notion d'onde et information",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch16",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["information", "notion", "onde"]
   },
 
@@ -6244,7 +6244,7 @@ const DOCUMENTS = [
     chapitre: "Chapitre 17 — Ondes sonores",
     type: "cartes", titre: "Cartes de révision",
     fichier: "entrainement/cartes.html?f=1sti2d&ch=ch17",
-    description: "14 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
+    description: "13 cartes recto-verso. Une question, on répond dans sa tête, on retourne.",
     motscles: ["ondes", "sonores"]
   },
 

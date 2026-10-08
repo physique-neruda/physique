@@ -359,15 +359,178 @@ footer.page{max-width:1320px;margin:0 auto;padding:6px 20px 28px;color:var(--gri
 .tutoBtn{flex:1;min-width:260px;text-align:left;border:2px solid #C9D3DF;background:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font:inherit;color:#1B2430}
 .tutoBtn b{display:block;font-size:1rem;color:#1F4E79}.tutoBtn span{font-size:.88rem;color:#5A6675}
 .tutoBtn.on{border-color:#1F4E79;background:#E6EEF7}
+.tutos{gap:8px}.tutoBtn{min-width:170px;padding:7px 10px}.tutoBtn span{font-size:.82rem}
+#scX{position:absolute;left:0;top:74px;width:960px;height:504px;background:#5F6B7A;z-index:5}
+#scX .hot{outline:2px solid #D9701E;outline-offset:1px}
+#scX .fld.gr{background:#EEF0F3;color:#6B7684}
+#scX .eagrid{gap:2px 2px}#scX .ea{height:17px;line-height:15px}#scX .sec{margin-bottom:3px}#scX .sec>.b{padding:3px 6px}#scX .dif{margin-bottom:2px}#scX .band{margin:2px 0}#scX .rowf{margin:1px 0}#scX .tabs3{margin-bottom:3px}
+.xptabs{display:flex;justify-content:space-between;padding:3px 8px 5px;margin-bottom:4px;border-bottom:1px solid #C3C9D3}
+.xptabs div{width:62px;height:24px;border:1px solid #8A9BB5;border-radius:4px;background:linear-gradient(#FFFFFF,#E9EEF4);display:flex;align-items:center;justify-content:center}
+.xptabs div.on{background:linear-gradient(#DCE8F7,#B3CAE8);border-color:#6F87AD}
+#scX .mband{background:linear-gradient(#4E86C6,#1D4F93);color:#fff;font-size:11px;padding:1px 6px;margin-top:4px}
+#scX .drop{display:block;border:1px inset #B5B1A8;background:#fff;height:22px;line-height:21px;text-align:center;color:#6B7684;font-size:11px}
+#scX .drop.full{color:#1B2C4A;font-weight:600}
+#scX .drop.xdr{flex:1;display:inline-block}
+#scX .mbox{border:1px solid #B5B1A8;background:#E4E1DA;padding:6px;display:flex;gap:6px;align-items:center;justify-content:center;min-height:44px}
+#scX .btn.off{color:#9AA3B1}
+#scX .coef{border:1px solid #B5B1A8;background:#E4E1DA;height:104px;font-size:11px;padding:4px 6px}
+#scX .coef .hd{display:flex;color:#2A3646;margin-bottom:3px}#scX .coef .rw{display:flex;align-items:center;margin-bottom:3px}
+#scX .out{border:1px inset #B5B1A8;background:#fff;height:19px;line-height:18px;padding:0 5px;margin-top:3px;font-family:Consolas,"Courier New",monospace;font-size:11.5px}
+#scX .stat{border:1px inset #B5B1A8;background:#fff;height:19px;line-height:18px;padding:0 5px;font-size:11px}
+#scX .xsel .it{display:flex;align-items:center;gap:6px;padding:2px 4px}
+#scX .xsel .th{width:56px;height:26px;border:1px solid #C3C9D3;background:#fff}
+#scX .xsel .bt{flex:1;border:2px outset #F4F2ED;background:#E4E1DA;text-align:center;font-size:11px;padding:2px}
+#scX .xsel .bt.hot{border-style:inset;background:#CBD8EC;outline:none}
+#scX .xcalc .cmenu{display:flex;gap:2px;font-size:11.5px;margin-bottom:2px}#scX .xcalc .cmenu span{padding:1px 8px}
+#scX .xcalc .cols{display:flex;gap:3px;height:160px}
+#scX .xcalc .code{flex:1;border:1px inset #B5B1A8;background:#fff;padding:3px 6px;font-family:Consolas,"Courier New",monospace;font-size:12px;white-space:pre;line-height:1.35}
+#scX .xcalc .res{width:150px;border:1px inset #B5B1A8;background:#fff;font-family:Consolas,monospace;font-size:12px;padding:3px 6px;white-space:pre;line-height:1.35}
+#scX .xtab .tmenu{display:flex;gap:2px;font-size:11.5px;margin-bottom:3px}#scX .xtab .tmenu span{padding:1px 8px}#scX .xtab .tmenu span.on{background:#1D4F93;color:#fff}
+#scX .xtab .ttool{display:flex;align-items:center;gap:3px;border-bottom:1px solid #B5B1A8;padding-bottom:3px;margin-bottom:3px}
+#scX .xtab .ti{width:24px;height:22px;border:2px outset #F4F2ED;background:#E4E1DA;display:flex;align-items:center;justify-content:center;font-size:10px}
+#scX .xtab .fxf{flex:1;border:1px inset #B5B1A8;background:#fff;height:20px;font-family:Consolas,monospace;font-size:11.5px;padding:1px 4px}
+#scX .xtab .gridwrap{display:flex;gap:3px}#scX .xtab .grid{flex:1;border:1px solid #8E97A5;background:#fff;overflow:hidden}
+#scX .xtab table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:11px}
+#scX .xtab th,#scX .xtab td{border:1px solid #A9B1BD;height:17px;padding:0 3px;white-space:nowrap;overflow:hidden;text-align:right}
+#scX .xtab th{background:linear-gradient(#DDE5F1,#BCCBE2);font-weight:700;color:#1B2C4A;text-align:center}
+#scX .xtab tr.u th{font-weight:400}
+#scX .xtab td.n,#scX .xtab th.n{width:30px;background:linear-gradient(#DDE5F1,#BCCBE2);font-weight:700;color:#1B2C4A;text-align:center}
+#scX .xtab th.sel{outline:2px solid #1B2C4A;outline-offset:-2px}#scX .xtab td.sel{border-left:2px solid #1B2C4A;border-right:2px solid #1B2C4A}
+#scX .xtab td.cur{outline:2px solid #1D4F93;outline-offset:-2px;background:#EEF3FB}
+#scX .xtab .cst{width:22px;border:1px solid #8E97A5;background:linear-gradient(90deg,#E4E9F1,#CDD6E4);position:relative;overflow:hidden}
+#scX .xtab .cst span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg);white-space:nowrap;font-size:10.5px}
+#scX .xvid .vb{display:block;margin:3px 0;font-size:10.5px;padding:2px 4px}
+#scX .xvid .vb.on{border-style:inset;background:#CBD8EC}
+#scX .axi{width:24px;height:20px;border:2px outset #F4F2ED;background:#E4E1DA;text-align:center;font-size:12px;line-height:16px}
+#scX .axi.on{border-style:inset;background:#CBD8EC}
+#scX .rad{border-radius:50%}#scX .rad.on::after{content:"";position:absolute;left:3px;top:3px;width:4px;height:4px;border-radius:50%;background:#000}
+#scX .fs{background:#1D4F93;color:#fff}
+#scX .sca h4{margin:10px 0 2px;font-size:12px;text-decoration:underline}
+#dlgCom{left:330px;top:140px;width:330px;height:210px}
+#dlgCom textarea,#dlgCom .ta{display:block;width:100%;height:64px;background:#fff;border:1px inset #B5B1A8;font:12px Consolas,monospace;padding:3px}
+#popSub{z-index:23}
 .tutoHead{margin:14px 0 4px;padding:6px 8px;background:#1F4E79;color:#fff;font-weight:700;border-radius:6px;font-size:.88rem}
+
+/* ===== thème « LatisPro / Sysam-SP5 », d'après les captures d'écran fournies ===== */
+#stage{--ard1:#A9AEC6;--ard2:#69708F;--ard3:#545B79;--pan:#CDCFDB;--pan2:#DCDEE7;--bord:#8B90A8;--txt:#1D2233}
+#app,#desk{background:#E7E8EE}
+.tbar{background:linear-gradient(#8E94AE,#646B88 60%,#555C79);color:#EEF0F7;height:22px;justify-content:center;border-bottom:1px solid #3F4560}
+.tbar b{flex:none;font-weight:600;letter-spacing:.02em;text-shadow:0 1px 0 rgba(0,0,0,.35)}
+.tbar .wb i{background:linear-gradient(#7C839F,#5E6584);border:1px solid #454B66;color:#E4E6EF}
+#menubar{background:linear-gradient(#F3F3F7,#E2E3EA);border-bottom:1px solid #B3B6C6}
+#menubar span.on{background:#6A7192;color:#fff;border-radius:2px}
+#toolbar{background:linear-gradient(#E9EAF0,#CFD1DC);border-bottom:1px solid #9A9EB3;gap:1px;padding:0 3px}
+.tbtn{width:30px;height:30px;border:1px solid #A3A7BA;border-radius:0;background:linear-gradient(#FDFDFE,#E3E4EB 55%,#CBCDD8)}
+.tbtn.on{background:linear-gradient(#9DA3BC,#B9BED1);border-color:#6A7192;box-shadow:inset 0 1px 3px rgba(30,35,60,.45)}
+.deco{background:linear-gradient(#FBFBFD,#DADCE5);border:1px solid #A3A7BA;border-radius:2px}
+#status{background:linear-gradient(#E9EAF0,#D3D5DF);border-top:1px solid #A3A7BA}
+#status .stl{background:#F4F4F8;border:1px solid #A3A7BA}
+#status .wtab{background:linear-gradient(#F4F4F8,#D9DBE4);border:1px solid #A3A7BA;border-bottom:0}
+#status .wtab.on{background:linear-gradient(#8E94AE,#646B88);color:#fff;border-color:#545B79}
+/* fenêtres */
+.win{background:var(--pan);border:1px solid #6E7491;box-shadow:2px 3px 8px rgba(30,35,60,.35)}
+.wbody{background:var(--pan)}
+.wtitle{background:linear-gradient(#ECEDF2,#D3D5DF);color:var(--txt);height:18px;border-bottom:1px solid #A3A7BA}
+.wtitle b{font-weight:600}
+.wtitle i{background:linear-gradient(#FDFDFE,#D5D7E1);border:1px solid #7E839B;border-radius:2px;color:#2A3046}
+#param .wtitle,.wtitle.pt{background:linear-gradient(#9CA2BC,#6C7393 55%,#5A6180);color:#F2F3F8;border-bottom:1px solid #454B66}
+#param .wtitle i,.wtitle.pt i{background:#F4F5F9;border:1px solid #454B66;color:#1D2233;font-weight:700}
+#graph{border:1px solid #8B90A8}
+#graph .mtitle{background:linear-gradient(#ECEDF2,#D9DBE4);border-bottom:1px solid #A3A7BA;color:#555B73}
+/* boîte de paramétrage */
+#param{background:var(--pan);border:1px solid #6E7491}
+#param .wbody{background:var(--pan);padding:3px 4px}
+#ptabs,.xptabs{display:flex;justify-content:space-around;align-items:center;padding:6px 6px 8px;margin:-3px -4px 4px;background:linear-gradient(#D9DBE4,#C9CBD8);border-bottom:1px solid #A3A7BA;gap:0}
+#ptabs div,.xptabs div{width:70px!important;height:26px!important;border:1px solid #5E6584!important;border-radius:9px!important;
+  background:linear-gradient(#FBFBFD,#DFE1E9 50%,#C3C6D4)!important;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 #fff,0 1px 1px rgba(0,0,0,.2)!important}
+#ptabs div.on,.xptabs div.on{background:linear-gradient(#7D839C,#9AA0B7)!important;box-shadow:inset 0 2px 4px rgba(20,24,45,.55)!important}
+
+.band{background:linear-gradient(#9CA2BC,#6C7393 55%,#5A6180);color:#F2F3F8;border:1px solid #454B66;border-radius:0;font-size:11.5px;padding:2px;margin:3px 0;text-shadow:0 1px 0 rgba(0,0,0,.3)}
+.sec{background:var(--pan2);border:1px solid #8B90A8;border-radius:3px;margin-bottom:4px;overflow:hidden}
+.sec>.h{background:linear-gradient(#9CA2BC,#6C7393 55%,#5A6180);color:#F2F3F8;font-weight:400;padding:1px 4px;align-items:center}
+.sec>.h span:last-child{width:13px;height:12px;background:#F4F5F9;color:#1D2233;border:1px solid #454B66;font-size:8px;line-height:11px;text-align:center;font-weight:700}
+.sec>.b{padding:3px 6px}
+.dif{margin-bottom:3px}
+.eagrid{display:grid;grid-template-columns:1fr 14px 1fr;gap:3px 4px;align-items:center}
+.ea{height:18px;line-height:16px;border:1px solid #6E7491;border-radius:7px;background:linear-gradient(#FBFBFD,#E1E3EA 50%,#C6C9D6);font-size:11px;box-shadow:inset 0 1px 0 #fff}
+.ea.on{background:linear-gradient(#6C7393,#8A90AA);color:#fff;font-weight:600;border-color:#454B66;box-shadow:inset 0 2px 3px rgba(20,24,45,.5)}
+.ea.capt{outline:2px solid #4CC25A;outline-offset:0}
+.box,.rad{border:1px solid #6E7491;background:linear-gradient(#E3E5EC,#FFFFFF);width:12px;height:12px}
+.rad{border-radius:50%}
+.rad.on::after{content:"";position:absolute;left:2px;top:2px;width:6px;height:6px;border-radius:50%;background:#1D2233}
+.tabs3{gap:2px;margin-bottom:5px;border-bottom:1px solid #8B90A8}
+.tabs3 div{border:1px solid #8B90A8;border-bottom:0;border-radius:4px 4px 0 0;background:linear-gradient(#F7F7FA,#DADCE5);padding:1px 9px;font-weight:400;color:#1D2233}
+.tabs3 div.on{background:linear-gradient(#8E94AE,#646B88);color:#fff;font-weight:400}
+.fld,.cbo{border:1px solid #8B90A8;border-radius:2px;background:#fff;box-shadow:inset 0 1px 2px rgba(0,0,0,.12)}
+.cbo i{background:linear-gradient(#5E6584,#454B66);color:#fff;border:0;border-radius:1px}
+.fld.gr,.cbo.gr{background:#E4E5EC;color:#7E8399}
+.lgr{color:#8D92A6}
+.btn{border:1px solid #6E7491;border-radius:9px;background:linear-gradient(#FBFBFD,#DFE1E9 50%,#C3C6D4);box-shadow:inset 0 1px 0 #fff;padding:2px 10px}
+.btn.hot{background:linear-gradient(#9DA3BC,#B9BED1);border-color:#454B66}
+.btn.off{color:#9DA2B6}
+.rowf{margin:2px 0}
+.cl{background:#fff;background-image:linear-gradient(#EEF0F6 1px,transparent 1px),linear-gradient(90deg,#EEF0F6 1px,transparent 1px);background-size:6px 6px;border:1px solid #8B90A8}
+.cl .cv.hot,.cl .cv.sel{background:#E3E4F7;outline:1px solid #6E74C8}
+/* modélisation, tableur, feuille de calcul */
+#model .mband,#scX .mband{background:linear-gradient(#8E94AE,#646B88 55%,#555C79)!important;color:#F2F3F8;padding:2px 6px}
+#model .drop,#scX .drop{background:linear-gradient(#F2F3F7,#D9DBE4)!important;border:1px solid #8B90A8!important;border-radius:2px;color:#2A3046}
+#model .mbox,#scX .mbox,#model .coef,#scX .coef{background:var(--pan2)!important;border:1px solid #8B90A8!important;border-radius:2px}
+#model .out,#model .stat,#scX .out,#scX .stat{background:#fff;border:1px solid #A3A7BA!important}
+#selmod .lst{background:var(--pan2)}
+#selmod .it .bt,#scX .xsel .bt{border:1px solid #6E7491!important;border-radius:9px!important;background:linear-gradient(#FBFBFD,#DFE1E9 50%,#C3C6D4)!important}
+#selmod .it .bt.hot,#scX .xsel .bt.hot{background:linear-gradient(#9DA3BC,#B9BED1)!important}
+#tabl th,#tabl td.n,#tabl th.n,#scX .xtab th,#scX .xtab td.n,#scX .xtab th.n{background:linear-gradient(#FBFBFD,#DADCE5)!important;color:#1D2233!important;border-color:#A3A7BA!important}
+#tabl .ttool .ti,#scX .xtab .ti{border:1px solid #A3A7BA!important;border-radius:2px!important;background:linear-gradient(#FDFDFE,#D5D7E1)!important}
+#tabl .tmenu span.on,#scX .xtab .tmenu span.on{background:#6A7192!important}
+.pop{background:linear-gradient(#FAFAFC,#E6E7EE)!important;border:1px solid #8B90A8!important;border-radius:2px}
+.pop div.hot{background:linear-gradient(#8E94AE,#6A7192)!important;color:#fff}
+#scP,#scX{background:#E7E8EE}
+
+.sbx{width:13px;height:12px;background:#F4F5F9;color:#1D2233;border:1px solid #454B66;font-size:9px;line-height:12px;text-align:center;font-weight:700}
+.sec>.h .sbx{display:inline-block}
+.pap{font-size:11px}.pap .rowf{margin:3px 0}
+#popStyle{z-index:25;width:190px;padding:3px}
+#popStyle div{display:flex;align-items:center;gap:6px;padding:2px}
+#popStyle div svg{width:28px;height:20px;background:#fff;border:1px solid #A3A7BA}
+#popStyle div span{flex:1;text-align:center;border:1px solid #6E7491;border-radius:9px;background:linear-gradient(#FBFBFD,#DFE1E9 50%,#C3C6D4);padding:2px}
+#popStyle div.hot{background:none!important}#popStyle div.hot span{background:linear-gradient(#8E94AE,#6A7192);color:#fff}
+#dcStyle.hot{outline:2px solid #D9701E}
+
+/* boîte de paramètres, d'après la capture de la version actuelle */
+.band{background:linear-gradient(#FFFFFF,#E6E8EE)!important;color:#1D2233!important;border:1px solid #B5BAC8!important;text-shadow:none!important}
+.sec{background:#F4F5F8!important;border:1px solid #B5BAC8!important;border-radius:2px!important}
+.sec>.h{background:linear-gradient(#FFFFFF,#E3E6EC)!important;color:#1D2233!important;border-bottom:1px solid #C9CDD8}
+.sbx{background:linear-gradient(#FFFFFF,#DCE0E8)!important;border:1px solid #7E8AA8!important;border-radius:2px;color:#2B3A66!important}
+.ea{border-radius:3px!important;border:1px solid #6F86AE!important;background:linear-gradient(#FFFFFF,#F1F3F7 50%,#E2E6EE)!important;color:#1D2233!important;font-weight:400!important;box-shadow:none!important;height:20px!important;line-height:18px!important}
+.ea.on{background:linear-gradient(#C9D9EE,#A9C2E2)!important;color:#1D2233!important;font-weight:400!important;box-shadow:inset 0 1px 2px rgba(30,50,90,.3)!important}
+.tabs3{border-bottom:1px solid #8A9BC0!important}
+.tabs3 div{background:linear-gradient(#FFFFFF,#E6E8EE)!important;color:#1D2233!important;border-color:#8A9BC0!important}
+.tabs3 div.on{background:linear-gradient(#DCE8F7,#BBD0EC)!important;color:#1D2233!important;font-weight:600!important}
+.box{border:1px solid #2B3A66!important;background:#fff!important;border-radius:0}
+#ptabs div,.xptabs div{border-radius:4px!important;border:1px solid #2B3A66!important;background:linear-gradient(#FFFFFF,#EEF0F4 50%,#D4D8E2)!important}
+#ptabs div.on,.xptabs div.on{background:linear-gradient(#9BA3B6,#B9C0CE)!important;box-shadow:inset 0 2px 3px rgba(20,24,45,.45)!important}
+.etabs{display:flex;align-items:flex-end;gap:2px;margin:4px 0 0;border-bottom:1px solid #8A9BC0;font-size:11px}
+.etabs>span{padding:2px 8px;border:1px solid #8A9BC0;border-bottom:0;border-radius:3px 3px 0 0;background:linear-gradient(#FFFFFF,#E6E8EE)}
+.etabs>span.on{background:linear-gradient(#DCE8F7,#BBD0EC);font-weight:600}
+.etabs>span.egbf{border:1px solid #B5BAC8;border-radius:2px;background:#EEF0F4;margin:0 0 2px 10px;padding:1px 6px}
+.ebody{border:1px solid #8A9BC0;border-top:0;background:#F4F5F8;padding:7px 6px;min-height:150px}
+.eact{display:inline-block;border:1px solid #B5BAC8;background:#fff;padding:2px 8px 2px 4px;margin-bottom:10px}
+.eformes{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;margin-bottom:10px}
+.eformes .btn{border-radius:3px!important;border:1px solid #6F86AE!important;background:linear-gradient(#FFFFFF,#E2E6EE)!important;padding:3px 4px!important}
+.eformes .btn.on{background:linear-gradient(#C9D9EE,#A9C2E2)!important}
+.eformes .btn i{font-style:normal;color:#666}
+.eparams{display:flex;gap:6px}.eparams>div{flex:1;display:flex;flex-direction:column;gap:2px;font-size:10.5px}
+.spin{display:flex;justify-content:space-between;align-items:center;border:1px solid #8B90A8;background:#fff;height:18px;padding:0 0 0 4px;font-size:11px}
+.spin i{font-style:normal;width:12px;height:16px;line-height:16px;text-align:center;background:linear-gradient(#FFFFFF,#D9DEE8);border-left:1px solid #8B90A8;font-size:9px;color:#2B3A66}
+#scX .spin.hot,#scX .eact .hot,#scX .egbf .hot,#scX .etabs .hot{outline:2px solid #D9701E}
 </style>
 </head>
 <body>
 <header class="page">
   <h1>Acquérir, calculer, tracer et modéliser avec LatisPro</h1>
-  <p>Deux tutoriels indépendants, à choisir ci-dessous. <b>Tutoriel 1</b> : une acquisition en fonction du temps, la charge d'un condensateur, suivie jusqu'à sa modélisation. <b>Tutoriel 2</b> : une mesure point par point au capteur de pression, la profondeur étant tapée au clavier.</p>
+  <p>Six tutoriels indépendants, à choisir ci-dessous : une acquisition en fonction du temps jusqu'à la modélisation, une mesure point par point, l'acquisition d'un signal périodique, un tableau de mesures saisi à la main, le pointage d'une vidéo, et l'utilisation du générateur intégré à la centrale (sorties SA1, SA2). Chaque étape se joue sous vos yeux, le pointeur montre où cliquer.</p>
 </header>
-<div class="tutos"><button class="tutoBtn on" data-t="1"><b>Tutoriel 1</b><span>Acquisition temporelle — la charge d'un condensateur</span></button><button class="tutoBtn" data-t="2"><b>Tutoriel 2</b><span>Mesure point par point — le capteur de pression</span></button></div>
+<div class="tutos"><button class="tutoBtn on" data-t="1"><b>Tutoriel 1</b><span>Acquisition temporelle — la charge d'un condensateur</span></button><button class="tutoBtn" data-t="2"><b>Tutoriel 2</b><span>Mesure point par point — le capteur de pression</span></button><button class="tutoBtn" data-t="3"><b>Tutoriel 3</b><span>Signal périodique — GBF, déclenchement, mode permanent</span></button><button class="tutoBtn" data-t="4"><b>Tutoriel 4</b><span>Tableau saisi à la main — tracer et linéariser</span></button><button class="tutoBtn" data-t="5"><b>Tutoriel 5</b><span>Pointage vidéo — trajectoire, vitesse, énergie</span></button><button class="tutoBtn" data-t="6"><b>Tutoriel 6</b><span>Générateur intégré — sorties SA1 / SA2 (Sysam-SP5)</span></button></div>
 <main class="layout">
   <section class="viewer">
     <div id="wrap"><div id="stage"></div></div>
@@ -432,31 +595,32 @@ const GP={L:56,R:660,T:26,B:408};                  // zone de tracé
 const gx=t=>GP.L+(GP.R-GP.L)*t/DUREE, gy=u=>GP.B-(GP.B-GP.T)*u/6;
 const sx=t=>GW.x+3+gx(t), sy=u=>GW.y+18+3+gy(u);   // coordonnées scène
 const MENUS=['Fichier','Traitements','Edition','Outils','Exécuter','Fenêtres','Aide'];
-const TB=[   // ordre de la notice : Nouveau, Ouvrir, Enregistrer, Imprimer, AVI, Tableur, Modélisation, Mesures auto, Acquisition, Afficheurs, Notes, Mosaïque, Aide
- ['tNew','<path d="M4 2h8l3 3v11H4z" fill="#fff" stroke="#6B7684"/><path d="M12 2v3h3" fill="#E6E9EE" stroke="#6B7684"/>'],
- ['tOpen','<path d="M2 5h5l1.5 2H15v8H2z" fill="#F1C24E" stroke="#94761C"/><path d="M4 8h12.5l-2 7H2z" fill="#F8DC8A" stroke="#94761C"/><path d="M11 2l3 2-3 2" fill="#3FA34D"/>'],
- ['tSave','<rect x="2.5" y="2.5" width="13" height="13" rx="1" fill="#2D57B8" stroke="#1B3775"/><rect x="5" y="2.5" width="8" height="5" fill="#E9EEF8"/><rect x="4.5" y="10" width="9" height="5.5" fill="#1B3775"/>'],
- ['tPrint','<rect x="5" y="2" width="8" height="5" fill="#fff" stroke="#6B7684"/><path d="M2 7h14v6H2z" fill="#8C95A3" stroke="#555E6B"/><rect x="5" y="11" width="8" height="5" fill="#fff" stroke="#6B7684"/><path d="M6 13h6M6 14.6h4" stroke="#9AA3B1"/>'],
- ['tAvi','<circle cx="9" cy="9" r="6.8" fill="#F4F6F9" stroke="#6B7684"/><path d="M9 2.2A6.8 6.8 0 0 1 15.8 9H9z" fill="#E74C3C"/><path d="M15.8 9A6.8 6.8 0 0 1 9 15.8V9z" fill="#F1C40F"/><path d="M9 15.8A6.8 6.8 0 0 1 2.2 9H9z" fill="#27AE60"/><circle cx="9" cy="9" r="2" fill="#fff" stroke="#6B7684"/>'],
- ['tTab','<rect x="2" y="3" width="14" height="12" fill="#fff" stroke="#3A63A8"/><rect x="2" y="3" width="14" height="3" fill="#3A63A8"/><path d="M2 9h14M2 12h14M6.5 6v9" stroke="#8FA7CC"/>'],
- ['tMod','<path d="M2.5 15.5C5 3 13 3 15.5 15.5" fill="none" stroke="#2A3F75" stroke-width="1.8"/>'],
- ['tMes','<path d="M3 13c2-6 4 2 6-4" fill="none" stroke="#7D3C98" stroke-width="1.5"/><path d="M4 15l10-10" stroke="#C0392B" stroke-width="1.2"/><path d="M14 5l-3 .3 2.7 2.7z" fill="#C0392B"/>'],
- ['tAcq','<path d="M5 15C10 15 10 7 17 7" fill="none" stroke="#C0392B" stroke-width="1.4"/><path d="M2 3l6.5 6.5-2.8.4 2 2.6-1.9 1.1-2-2.6L2 13z" fill="#C0392B"/><circle cx="12" cy="10" r="2.2" fill="none" stroke="#C0392B"/>'],
- ['tAff','<rect x="3" y="2" width="12" height="14" rx="1" fill="#10151E" stroke="#000"/><path d="M7 5h4l-1 4h-4zM6 10h4l-.5 4h-4z" fill="none" stroke="#3AA0FF" stroke-width="1.2"/>'],
- ['tNotes','<path d="M3 3l9-1 3 11-9 2z" fill="#F4F1E6" stroke="#8A8270"/><path d="M5 6l6-.7M5.5 8.5l6-.7M6 11l5-.6" stroke="#9E9684"/><path d="M11 13l4-9 1.5.7-4 9z" fill="#5B6B85"/>'],
- ['tMos','<rect x="2" y="2" width="14" height="14" fill="#fff" stroke="#3A63A8"/><rect x="2" y="2" width="7" height="14" fill="#3A63A8"/><path d="M9 9h7" stroke="#3A63A8"/>'],
- ['tHelp','<text x="9" y="15.5" font-size="16" font-family="Georgia,Times" font-weight="700" fill="#D22B2B" text-anchor="middle">?</text>']];
+const TB=[   // ordre de la version actuelle : Nouveau, Ouvrir, Enregistrer, Imprimer, AVI, Tableur, Modélisation, Mesures auto, Acquisition (lecteur), Son, Afficheurs, Notes, Mosaïque, Aide
+ ['tNew','Nouveau','<path d="M4.5 2.5h7l3 3v10.5h-10z" fill="#FAFAFA" stroke="#5B6270"/><path d="M11.5 2.5v3h3" fill="#E1E3E8" stroke="#5B6270"/>'],
+ ['tOpen','Ouvrir','<path d="M1.5 5.5h5l1.5 1.5h7v8.5h-13.5z" fill="#E9B934" stroke="#8C6A12"/><path d="M3 9h13.5l-2 6.5H1.5z" fill="#F6D46A" stroke="#8C6A12"/><path d="M10 1.5c3 0 5 1.5 5 4.5" fill="none" stroke="#2E9B3E" stroke-width="2"/><path d="M12.5 5.5h4.5l-2.3 2.6z" fill="#2E9B3E"/>'],
+ ['tSave','Enregistrer','<path d="M2.5 2.5h12l1 1v12h-13z" fill="#2440B8" stroke="#152A7A"/><rect x="5" y="2.5" width="7.5" height="5" fill="#fff"/><rect x="5" y="10.5" width="8" height="5" fill="#E8ECF7"/><rect x="10" y="3.5" width="1.6" height="3" fill="#2440B8"/>'],
+ ['tPrint','Imprimer','<path d="M5 2h7v5H5z" fill="#fff" stroke="#6A7180"/><path d="M2 7h14v6.5H2z" fill="#7F8DB8" stroke="#3E4A72"/><path d="M5 11h8v5H5z" fill="#fff" stroke="#6A7180"/><circle cx="14" cy="9" r="1" fill="#46D26A"/>'],
+ ['tAvi','Séquence vidéo (AVI)','<circle cx="9" cy="9.5" r="6.8" fill="#EDEEF2" stroke="#6A7180"/><path d="M9 2.7A6.8 6.8 0 0 1 15.8 9.5H9z" fill="#E64234"/><path d="M15.8 9.5A6.8 6.8 0 0 1 9 16.3V9.5z" fill="#F2C23A"/><path d="M9 16.3A6.8 6.8 0 0 1 2.2 9.5H9z" fill="#3BAA55"/><circle cx="9" cy="9.5" r="2.2" fill="#fff" stroke="#6A7180"/><path d="M12 1l3 2.5-3 .5z" fill="#6A7180"/>'],
+ ['tTab','Tableur','<rect x="1.5" y="3" width="15" height="12" fill="#fff" stroke="#2D5FC2"/><rect x="1.5" y="3" width="15" height="2.6" fill="#2D5FC2"/><path d="M5.5 5.6V15M1.5 8.6h15M1.5 11.8h15" stroke="#7FA2E2"/><path d="M7 7.1h8M7 10.2h8M7 13.4h8" stroke="#2D5FC2" stroke-width="1.2"/>'],
+ ['tMod','Modélisation','<path d="M2.5 16C4.5 6 6.5 2.5 9 2.5S13.5 6 15.5 16" fill="none" stroke="#5B2A9A" stroke-width="1.8" stroke-linecap="round"/>'],
+ ['tMes','Mesures automatiques','<path d="M6 2.5h6M6 2.5c1 2 1 3.5 0 5.5h5" fill="none" stroke="#8A2BB0" stroke-width="1.5"/><path d="M3 15.5h11" stroke="#8A2BB0" stroke-width="1.5"/><path d="M14.5 15.5l-3-2v4z" fill="#8A2BB0"/><path d="M3 15.5l3-2v4z" fill="#8A2BB0"/><path d="M9 9.5v4" stroke="#8A2BB0" stroke-width="1.5"/>'],
+ ['tAcq','Acquisition (F10)','<path d="M4 2.5l12 6.5-12 6.5z" fill="#2C8BE6" stroke="#1A5FA8"/><path d="M5 4.3l8.5 4.7" stroke="#9FD0FF" stroke-width="1.2"/>'],
+ ['tSon','Son','<path d="M2 7h3.5l5-4v12l-5-4H2z" fill="#4FA3F0" stroke="#1E5FA8"/><path d="M12.5 6.5c1.4 1.4 1.4 3.6 0 5M14.3 4.8c2.3 2.4 2.3 5.6 0 8" fill="none" stroke="#1E5FA8" stroke-width="1.3"/>'],
+ ['tAff','Afficheurs','<rect x="3" y="1.5" width="12" height="15" rx="1" fill="#0B0D12"/><path d="M6.5 3.5h5M6.5 9h5M6.5 14.5h5M6 4v4.5M12 4v4.5M6 9.5V14M12 9.5V14" stroke="#38A8FF" stroke-width="1.4"/>'],
+ ['tNotes','Notes','<rect x="3" y="3" width="10.5" height="13" rx="1" fill="#F2EEDC" stroke="#7D7560" transform="rotate(-12 9 9)"/><path d="M5.5 6.5l6-1.2M6 9l6-1.2M6.5 11.5l4.5-1" stroke="#9A9178"/><rect x="6.5" y="1.5" width="4" height="2.2" fill="#9A9178" transform="rotate(-12 9 9)"/><path d="M12.5 15l3.5-9 1.4.6-3.5 9z" fill="#4A5F86"/>'],
+ ['tMos','Mosaïque','<rect x="3" y="2.5" width="12" height="13" fill="#5AA2E8" stroke="#1E5FA8"/><rect x="3" y="2.5" width="12" height="4.5" fill="#1E5FA8"/><rect x="9" y="7" width="6" height="8.5" fill="#A9D2F8"/>'],
+ ['tHelp','Aide','<text x="9" y="15.5" font-size="16" font-family="Georgia,Times" font-weight="700" fill="#D22B2B" text-anchor="middle">?</text>']];
 stage.innerHTML=`
 <div id="app">
  <div class="tbar"><svg width="13" height="13" style="margin-right:5px"><rect x="1" y="2" width="11" height="9" fill="#EDEFF3" stroke="#2A3646"/><path d="M1 5h11" stroke="#2A3646"/></svg><b id="tbarTitre">LatisPro – C:\\Users\\Documents\\Lycee\\TP_condensateur.ltp</b><span class="wb"><i>_</i><i>□</i><i>✕</i></span></div>
  <div id="menubar">${MENUS.map(m=>`<span data-m="${m}">${m}</span>`).join('')}</div>
  <div id="toolbar">${TB.map(t=>t[0]==='sep'?'<div class="tsep"></div>':
-   `<div class="tbtn" id="${t[0]}"><svg width="18" height="18">${t[1]}</svg></div>`).join('')}
+   `<div class="tbtn" id="${t[0]}" title="${t[1]}"><svg width="18" height="18">${t[2]}</svg></div>`).join('')}
    <div style="flex:1"></div>
    <div class="deco"><span class="box on"></span>Décompte</div><div class="digit">00:00:00:00</div></div>
  <div id="desk"></div>
  <div id="status"><span class="stl" id="st1">AUCUNE CENTRALE</span>
-   <span class="wtab on">Fenêtre n°1</span><span class="wtab" id="wtabTab">Tableur</span></div>
+   <span class="wtab on" id="wtabF1">Fenêtre n°1</span><span class="wtab" id="wtabTab">Tableur</span></div>
 </div>
 <div class="win" id="param"><div class="wtitle"><b>Paramètres</b><i>«</i></div>
  <div class="wbody" style="padding:4px"><div id="ptabs">
@@ -483,9 +647,10 @@ stage.innerHTML=`
  <div class="wbody" id="dlgCourbeBody"></div></div>
 <div class="win dlg" id="dlgVar"><div class="wtitle"><b>Propriétés de Var</b><i>□</i></div>
  <div class="wbody" id="dlgVarBody"></div></div>
-<div id="scP" style="display:none"></div>
+<div id="scP" style="display:none"></div><div id="scX" style="display:none"></div>
+<div class="win dlg" id="dlgCom"><div class="wtitle"><b>Commentaire</b><i>✕</i></div><div class="wbody" id="dlgComBody"></div></div>
 <div class="pop" id="popMenu"></div>
-<div class="pop" id="popCtx"></div>
+<div class="pop" id="popCtx"></div><div class="pop" id="popStyle"></div><div class="pop" id="popSub"></div>
 <div id="tooltip"></div><div id="ghost"></div><div id="keybadge"></div>
 <div id="cursor"><svg width="26" height="26" style="overflow:visible">
  <g class="arrow"><path d="M0 0 L0 18 L4.5 14 L7.5 21 L10.5 19.7 L7.5 12.8 L13 12.8 Z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></g>
@@ -506,7 +671,7 @@ function freshState(){return{
  retic:null,
  calc:{txt:'',done:false},
  tabl:{cols:[],menu:null},
- model:{drop:null,dest:false,mod:null,done:false,dev:false,pop:false,scroll:0,zone:null},
+ model:{drop:null,dest:false,mod:null,done:false,dev:false,pop:false,scroll:0,zone:null},X:{t:0},stylePop:false,dlgAbs:null,dlgUA:null,dlgSty:null,com1:[],com:null,dlgUO:null,
  P:{on:false,ea:false,mode:'Temporelle',clav:false,nom:'',unite:'',pts:0,dlg:null,val:'',nomP:'EA1',pointsOnly:false,m:{open:false,drop:false,mod:null,done:false}}}}
 const COL={EA0:'#0000FF',EA1:'#1E8449',i:'#C0392B',U:'#7D3C98',P:'#D4238A'};
 const nameOf=k=>{const c=S.curves.find(c=>c.k===k);return c?c.n:k};
@@ -517,7 +682,9 @@ function render(){
   document.querySelectorAll('.tbtn').forEach(b=>b.classList.toggle('on',b.id===S.hot));
   ['tabCourbes','tabAcq','tabEmi'].forEach((id,k)=>$(id).classList.toggle('on',['courbes','acq','emi'][k]===S.pane));
   for(const k in S.win)$(k).style.display=S.win[k]?'block':'none';
-  renderPane();renderGraph();renderCalc();renderTabl();renderModel();renderPops();renderDlg();renderP();
+  renderPane();renderGraph();renderCalc();renderTabl();renderModel();renderPops();renderDlg();renderP();renderX();
+  const t4=S.X&&S.X.t===4;$('wtabF1').classList.toggle('on',!t4||S.X.view!=='tabl');$('wtabTab').classList.toggle('on',t4&&S.X.view==='tabl');
+  $('st1').textContent=S.X&&(S.X.t===3||S.X.t===6)?'Sysam-SP5 - Eurosmart':'AUCUNE CENTRALE';
 }
 /* ---------- scène 2 : capteur de pression, mode pas à pas, entrée clavier ---------- */
 const PHH=[0.05,0.10,0.15,0.20,0.25,0.30];
@@ -527,7 +694,7 @@ const PFT=(()=>{const n=PHH.length,mx=PHH.reduce((a,b)=>a+b)/n,my=PPR.reduce((a,
   const a=sxy/sxx;return{a,b:my-a*mx,r:sxy/Math.sqrt(sxx*syy)}})();
 function renderP(){
   const P=S.P,el=$('scP');el.style.display=P.on?'block':'none';
-  {const tb=$('tbarTitre');if(tb)tb.textContent=tb.textContent.replace(/TP_\w+\.ltp/,P.on?'TP_pression.ltp':'TP_condensateur.ltp');}if(!P.on)return;
+  {const tb=$('tbarTitre');if(tb)tb.textContent=tb.textContent.replace(/TP_\w+\.ltp/,S.X&&S.X.t?{2:'TP_pression.ltp',3:'TP_signal.ltp',4:'TP_Mariotte.ltp',5:'TP_lancer.ltp',6:'TP_generateur.ltp'}[S.X.t]:P.on?'TP_pression.ltp':'TP_condensateur.ltp');}if(!P.on)return;
   const hot=id=>S.hot===id?'hot':'';
   const GL=60,GR=640,GT=40,GB=420,hx=h=>GL+(GR-GL)*h/0.35,py=p=>GB-(GB-GT)*(p-1000)/50;
   let g=`<svg width="690" height="456" font-family="Segoe UI,Arial" style="background:#fff">`;
@@ -575,29 +742,29 @@ function renderPane(){
   if(S.pane==='acq'){
    $('pbody').innerHTML=`
    <div class="band">Acquisition</div>
-   <div class="sec"><div class="h"><span>Entrées Analogiques</span><span>▲</span></div><div class="b">
+   <div class="sec"><div class="h"><span>Entrées Analogiques</span><span class="sbx${S.hot==='colEA'?' hot':''}" id="colEA">${A.col?'⌄':'⌃'}</span></div><div class="b" style="${A.col?'display:none':''}">
      <div class="dif">Mode différentiel</div>
      <div class="eagrid">
-      ${[1,2,3,4].map(k=>`<div class="ea ${A.ea['EA'+k]?'on':''} ${S.hot==='ea'+k?'hot':''}" id="ea${k}">${k}</div>
+      ${[1,2,3,4].map(k=>`<div class="ea ${A.ea['EA'+k]?'on':''} ${S.hot==='ea'+k?'hot':''}" id="ea${k}">EA${k-1}</div>
         <span class="box"></span>
-        <div class="ea ${A.ea['EA'+(k+4)]?'on':''}" id="ea${k+4}">${k+4}</div>`).join('')}
+        <div class="ea ${A.ea['EA'+(k+4)]?'on':''}" id="ea${k+4}">EA${k+3}</div>`).join('')}
      </div>
      <div style="margin-top:7px"><span class="box ${A.add?'on':''}"></span>Ajouter les courbes</div>
    </div></div>
-   <div class="sec"><div class="h"><span>Acquisition</span><span>▲</span></div><div class="b">
+   <div class="sec"><div class="h"><span>Acquisition</span><span class="sbx">⌃</span></div><div class="b">
      <div class="tabs3">${['Temporelle','Pas à pas','XY'].map(m=>`<div class="${A.mode===m?'on':''}" id="md${m.replace(/ /g,'')}">${m}</div>`).join('')}</div>
      <div class="rowf"><span class="l">Points</span><span class="fld" id="fPts">${A.pts}</span></div>
      <div class="rowf"><span class="l">Te</span><span class="fld" id="fTe">${A.te}</span></div>
      <div class="rowf"><span class="l">Total</span><span class="fld" id="fTot">${A.tot}</span></div>
-     <div style="margin-top:6px"><span class="box"></span>Périodique
-       <span style="margin-left:6px;color:#9AA3B1">Nb périodes <span class="fld" style="min-width:32px;color:#9AA3B1">3</span></span></div>
-     <div style="margin-top:5px"><span class="box ${A.perm?'on':''}" id="bPerm"></span>Mode permanent</div>
+     <div style="margin-top:5px"><span class="box"></span>Périodique
+       <span style="margin-left:6px" class="lgr">Nb. périodes <span class="fld gr" style="min-width:32px">3</span></span></div>
+     <div style="margin-top:4px"><span class="box ${A.perm?'on':''}" id="bPerm"></span>Mode permanent</div>
    </div></div>
-   <div class="sec"><div class="h"><span>Déclenchement</span><span>▲</span></div><div class="b">
+   <div class="sec"><div class="h"><span>Déclenchement</span><span class="sbx">⌃</span></div><div class="b">
      <div class="rowf"><span class="l">Source</span><span class="cbo" id="fSrc"><b>${A.src}</b><i>▼</i></span></div>
      <div class="rowf"><span class="l">Sens</span><span class="cbo" id="fSens"><b>${A.sens}</b><i>▼</i></span></div>
      <div class="rowf"><span class="l">Seuil</span><span class="fld" id="fSeuil">${A.seuil}</span></div>
-     <div class="rowf"><span class="l">Pré-Trigger</span><span class="fld" id="fPre">${A.pre}</span></div>
+     <div class="rowf"><span class="l">Pré-Trig</span><span class="cbo" id="fPre" style="width:60px"><b>${A.pre}</b><i>▼</i></span></div>
    </div></div>`;
   }else{
    const items=S.curves.map(c=>`<div class="cv" id="cv_${c.k}"><span class="sq" style="background:${COL[c.k]||'#555'}"></span>${c.n}</div>`+
@@ -629,7 +796,7 @@ function renderGraph(){
   // noms des ordonnées, en haut à gauche, dans la couleur de la courbe
   let off=0;
   S.series.forEach(k=>{s+=`<text id="lbl_${k}" x="${GP.L+6+off}" y="${GP.T-12}" font-size="10.5" fill="${COL[k]}">${nameOf(k)} en ${UNIT[k]}</text>`;off+=76});
-  if(S.model.done&&S.win.model)s+=`<text x="${GP.L+6+off}" y="${GP.T-12}" font-size="10.5" fill="#B0308E">Modèle de ${nameOf('EA0')} en V</text>`;
+  if(S.model.done)s+=`<text x="${GP.L+6+off}" y="${GP.T-12}" font-size="10.5" fill="#B0308E">Modèle de ${nameOf('EA0')} en V</text>`;
   const path=(arr,col)=>{let d='';T.forEach((t,i)=>{d+=(i?'L':'M')+gx(t).toFixed(1)+' '+gy(arr[i]).toFixed(1)});
     return `<path d="${d}" fill="none" stroke="${col}" stroke-width="1.1"/>`};
   S.series.forEach(k=>{s+=path(DATA[k],COL[k])});
@@ -637,7 +804,7 @@ function renderGraph(){
   if(Z&&S.win.model){let d='';T.forEach((t,i)=>{if(t>=Z.t1&&t<=Z.t2)d+=(d?'L':'M')+gx(t).toFixed(1)+' '+gy(UC[i]).toFixed(1)});
     if(Z.t2>Z.t1)s+=`<path d="${d}" fill="none" stroke="#FFC400" stroke-opacity=".75" stroke-width="7" stroke-linecap="round"/>`;
     [Z.t1,Z.t2].forEach(t=>{const i=Math.round(t/DUREE*(NP-1));s+=`<circle cx="${gx(t)}" cy="${gy(UC[i])}" r="5" fill="#1B2C4A"/>`})}
-  if(S.model.done&&S.win.model){const t1=Z?Z.t1:0,t2=Z?Z.t2:DUREE;let d='';
+  if(S.model.done){const t1=Z?Z.t1:0,t2=Z?Z.t2:DUREE;let d='';
     for(let q=0;q<=140;q++){const t=t1+q*(t2-t1)/140;
       d+=(q?'L':'M')+gx(t).toFixed(1)+' '+gy(fit.A*(1-Math.exp(-t/fit.tau))).toFixed(1)}
     s+=`<path d="${d}" fill="none" stroke="#B0308E" stroke-width="1.2"/>`}
@@ -648,6 +815,7 @@ function renderGraph(){
         <rect x="${bx}" y="${by}" width="116" height="26" fill="#FFFBE6" stroke="#B08000"/>
         <text x="${bx+5}" y="${by+11}" font-size="10.5">t = ${lp(t,'s')}</text>
         <text x="${bx+5}" y="${by+22}" font-size="10.5">${nameOf('EA0')} = ${lpv(v)} V</text>`}
+  (S.com1||[]).forEach(cm=>{s+=comSVG(gx(cm.x),gy(cm.y),cm)});
   $('gbody').innerHTML=s+'</svg>';
 }
 function renderCalc(){
@@ -685,6 +853,7 @@ function renderTabl(){
     <div class="gridwrap"><div class="grid"><table>${h1}</tr>${h2}</tr>${body}</table></div>
       <div class="cst"><span>Constante(s)</span></div></div>`;
 }
+const LBLM={'Exponentiel croissant':'A*(1-exp(-(X-Δ)/τ))+V0','Exponentiel décroissant':'A*exp(-(X-Δ)/τ)+V0'};const lblm=m=>LBLM[m]||m;
 const MODELES=['Constante','Linéaire','Affine','Polynôme','Parabole','Puissance','Exponentiel en X',
   'Exponentiel en 1/X','Exponentiel croissant','Exponentiel décroissant','Sinusoïde','Gaussienne'];
 const MTH={ 'Constante':'M4 14H52','Linéaire':'M4 24L52 4','Affine':'M4 8L52 22','Polynôme':'M4 20C16 2 32 24 52 6',
@@ -694,8 +863,8 @@ const MTH={ 'Constante':'M4 14H52','Linéaire':'M4 24L52 4','Affine':'M4 8L52 22
   'Gaussienne':'M4 24C18 24 20 4 28 4C36 4 38 24 52 24'};
 function renderModel(){
   const M=S.model;
-  const eq1=M.mod==='Exponentiel croissant'?'uC=A*(1-exp(-t/tau))':(M.mod==='Linéaire'?'uC=a*t':'');
-  const eq2=M.done?`uC=${lpv(fit.A)}*(1-exp(-t/${lp(fit.tau)}))`:'';
+  const eq1=M.mod==='Exponentiel croissant'?'uC=A*(1-exp(-(t-Δ)/τ))+V0':(M.mod==='Linéaire'?'uC=a*t':'');
+  const eq2=M.done?`uC=${lpv(fit.A)}*(1-exp(-(t-0,000E-3)/${lp(fit.tau)}))+0,000`:'';
   $('model').style.width=(M.dev?500:236)+'px';$('model').style.height=(M.dev?344:262)+'px';$('model').style.top=(M.dev?196:220)+'px';
   $('modelBody').innerHTML=`<div style="display:flex;gap:7px">
    <div style="width:218px">
@@ -706,7 +875,7 @@ function renderModel(){
     <div class="mband">Modèles :</div>
     <div class="mbox">${M.mod?
       `<svg width="56" height="28" style="border:1px solid #C3C9D3;background:#fff"><path d="${MTH[M.mod]}" fill="none" stroke="#C0392B" stroke-width="1.4" transform="translate(0,1)"/></svg>
-       <span class="btn ${S.hot==='bChoose'?'hot':''}" id="bChoose" style="flex:1">${M.mod}</span>`:
+       <span class="btn ${S.hot==='bChoose'?'hot':''}" id="bChoose" style="flex:1">${lblm(M.mod)}</span>`:
       `<span class="btn ${M.drop?'':'off'} ${S.hot==='bChoose'?'hot':''}" id="bChoose" style="width:150px">Choisir un modèle</span>`}</div>
     <div style="margin-top:8px"><span class="btn" style="display:block">Nouveau Modèle</span></div>
     <div style="display:flex;gap:6px;margin-top:5px">
@@ -720,8 +889,14 @@ function renderModel(){
       ${M.done?`<div class="rw"><span style="width:44px;text-align:center">A</span>
          <span style="flex:1"><span class="fld" style="min-width:118px">${lpv(fit.A)}</span></span>
          <span style="width:40px;text-align:right"><span class="box on"></span></span></div>
-       <div class="rw"><span style="width:44px;text-align:center">tau</span>
+       <div class="rw"><span style="width:44px;text-align:center">Δ</span>
+         <span style="flex:1"><span class="fld" style="min-width:118px">0,000E-3</span></span>
+         <span style="width:40px;text-align:right"><span class="box on"></span></span></div>
+       <div class="rw"><span style="width:44px;text-align:center">τ</span>
          <span style="flex:1"><span class="fld" style="min-width:118px">${lp(fit.tau)}</span></span>
+         <span style="width:40px;text-align:right"><span class="box on"></span></span></div>
+       <div class="rw"><span style="width:44px;text-align:center">V0</span>
+         <span style="flex:1"><span class="fld" style="min-width:118px">0,000</span></span>
          <span style="width:40px;text-align:right"><span class="box on"></span></span></div>`:''}
     </div>
     <div style="margin-top:5px"><span class="btn" style="display:block">Copier le résultat vers le presse-papier</span></div>
@@ -740,16 +915,20 @@ function renderModel(){
     $('selmodBody').innerHTML=`<div class="lst"><div style="position:absolute;left:0;right:20px;top:${-M.scroll*34}px">
       ${MODELES.map((m,k)=>`<div class="it" id="mo${k}">
         <svg class="th" viewBox="0 0 56 28"><path d="M28 2V26M4 14H52" stroke="#C9CDD4" stroke-dasharray="2 2"/><path d="${MTH[m]}" fill="none" stroke="#C0392B" stroke-width="1.4"/></svg>
-        <span class="bt ${S.hot==='mo'+k?'hot':''}">${m}</span></div>`).join('')}</div>
+        <span class="bt ${S.hot==='mo'+k?'hot':''}">${lblm(m)}</span></div>`).join('')}</div>
       <div class="sb"><i id="moUp" style="top:0">▲</i><i id="moDown" style="bottom:0">▼</i>
         <div style="position:absolute;left:0;top:${16+M.scroll*12}px;width:12px;height:40px;background:linear-gradient(#FBFCFD,#DCE1E9);border:1px solid #AEB6C2"></div></div></div>`}
 }
 function renderPops(){
   const pm=$('popMenu');
   if(S.menu==='Traitements'){pm.style.display='block';pm.style.left='55px';pm.style.top='44px';
+    const SUB=['mDer','mInt','mLis','mFil'],subOn=S.hot==='mCS'||SUB.includes(S.hot);
     pm.innerHTML=[['mFdc','Feuille de calculs','F3'],['mTab','Tableur','F11'],['sep'],['mMod','Modélisation',''],
-      ['mDer','Dérivée',''],['mFou','Analyse de Fourier','']]
-      .map(x=>x[0]==='sep'?'<hr>':`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span><span>${x[2]}</span></div>`).join('')}
+      ['mCS','Calculs spécifiques','▸'],['mFou','Analyse de Fourier','']]
+      .map(x=>x[0]==='sep'?'<hr>':`<div id="${x[0]}" class="${S.hot===x[0]||(x[0]==='mCS'&&subOn)?'hot':''}"><span>${x[1]}</span><span>${x[2]}</span></div>`).join('');
+    const ps=$('popSub');if(subOn){ps.style.display='block';const q=relPos($('mCS'));ps.style.left=(q.l+q.w+2)+'px';ps.style.top=q.t+'px';
+      ps.innerHTML=[['mDer','Dérivée'],['mInt','Intégrale'],['mLis','Lissage'],['mFil','Filtrage']].map(x=>`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span></div>`).join('')}
+    else ps.style.display='none'}
   else if(S.menu==='Exécuter'){pm.style.display='block';pm.style.left='232px';pm.style.top='44px';
     pm.innerHTML=[['xAcq','Acquisition','F10'],['xStop','Arrêt','Échap']]
       .map(x=>`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span><span>${x[2]}</span></div>`).join('')}
@@ -761,16 +940,19 @@ function renderPops(){
     pm.innerHTML=[['vTout','✗ Tout enlever'],['vNouv','Nouvelle'],['vRampe','Remplir avec une rampe'],['vTrier','Trier']]
       .map(x=>`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span></div>`).join('')}
   else pm.style.display='none';
+  if(S.menu!=='Traitements')$('popSub').style.display='none';
   const pc=$('popCtx');
   if(S.ctx){pc.style.display='block';pc.style.left=S.ctx.x+'px';pc.style.top=S.ctx.y+'px';
     const items=S.ctx.type==='ord'
       ?[['cH',nameOf(S.ctx.k),'head'],['cRet','Retirer'],['cProp','Propriétés'],['cAxe','Passer sur l\'autre ordonnée']]
       :[['gCal','Calibrage'],['gAnn','Annuler calibrage'],['sep'],['gRet','Réticule'],['gPoi','Pointeur'],
-        ['gLp','Loupe +'],['gLm','Loupe -'],['sep'],['gOrt','Repère orthonormé'],['gFle','Créer Flèche'],
-        ['gCom','Créer Commentaire'],['gTan','Tangente'],['sep'],['gAll','Retirer toutes les courbes']];
+        ['gLp','Loupe +'],['gLm','Loupe -','off'],['sep'],['gOrt','Repère orthonormé'],['sep'],['gFle','Créer Flèche'],['gDro','Créer Droite'],
+        ['gCom','Créer Commentaire'],['gCop','Copie Graphique','sub'],['sep'],['gTan','Tangente'],['gMT','Méthode des tangentes'],['sep'],
+        ['gAll','Retirer toutes les courbes'],['gAbs','Afficher les courbes avec leurs abscisses'],['sep'],['gMar','Marqueurs d\'acquisition','off']];
     pc.innerHTML=items.map(x=>x[0]==='sep'?'<hr>':
-      `<div id="${x[0]}" class="${x[2]==='head'?'head':''} ${S.hot===x[0]?'hot':''}"><span>${x[1]}</span></div>`).join('')}
+      `<div id="${x[0]}" class="${x[2]==='head'?'head':''} ${S.hot===x[0]?'hot':''}" style="${x[2]==='off'?'color:#9AA3B1':''}"><span>${x[1]}</span>${x[2]==='sub'?'<span>▸</span>':''}</div>`).join('')}
   else pc.style.display='none';
+  if(S.ctx){const hh=pc.offsetHeight;if(S.ctx.y+hh>596)pc.style.top=Math.max(2,596-hh)+'px'}
   const tt=$('tooltip');
   if(S.tip){tt.style.display='block';tt.textContent=S.tip.t;tt.style.left=S.tip.x+'px';tt.style.top=S.tip.y+'px'}else tt.style.display='none';
 }
@@ -782,18 +964,30 @@ function renderDlg(){
     <div style="display:flex;gap:12px">
      <div style="flex:1">
       <div>Nom de l'ordonnée :</div><span class="fld" id="dcNom" style="display:block;height:19px">${S.dlgBuf}<span class="caret"></span></span>
-      <div style="margin-top:6px">Nom de l'abscisse :</div><span class="fld" style="display:block;height:19px">Temps</span>
+      <div style="margin-top:6px">Nom de l'abscisse :</div><span class="fld" style="display:block;height:19px">${S.dlgAbs||'Temps'}</span>
       <div class="sec" style="margin-top:8px"><div class="h"><span>Affichage</span></div>
        <div class="b" style="display:flex;gap:12px;align-items:center;padding:6px 8px">Style
-        <svg width="26" height="14"><path d="M1 12C8 12 10 2 25 2" fill="none" stroke="#C0392B"/></svg>
+        <svg id="dcStyle" class="${S.hot==='dcStyle'?'hot':''}" width="30" height="16" style="background:#fff;border:1px solid #A3A7BA">${S.dlgSty==='croix'?'<path d="M5 9l4 4M9 9l-4 4M13 3l4 4M17 3l-4 4M22 7l4 4M26 7l-4 4" stroke="#C0392B" stroke-width="1.3"/>':'<path d="M1 12C8 12 10 2 25 2" fill="none" stroke="#C0392B"/>'}</svg>
         Couleur <span style="width:56px;height:14px;background:${COL[S.dlgKey]||'#00F'};border:1px solid #9AA3B1"></span></div></div>
      </div>
      <div style="width:136px">
-      <div>Unité de l'ordonnée :</div><span class="cbo" style="width:100%"><b>Volt (V)</b><i>▼</i></span>
-      <div style="margin-top:6px">Unité de l'abscisse :</div><span class="cbo" style="width:100%"><b>Seconde (s)</b><i>▼</i></span>
+      <div>Unité de l'ordonnée :</div><span class="cbo" style="width:100%"><b>${S.dlgUO||'Volt (V)'}</b><i>▼</i></span>
+      <div style="margin-top:6px">Unité de l'abscisse :</div><span class="cbo" style="width:100%"><b>${S.dlgUA||'Seconde (s)'}</b><i>▼</i></span>
       <div style="display:flex;flex-direction:column;gap:6px;margin-top:14px">
        <span class="btn ${S.hot==='dcOK'?'hot':''}" id="dcOK">Valider</span><span class="btn">Annuler</span></div>
      </div></div>`;}
+  $('dlgCom').style.display=S.dlg==='com'?'block':'none';
+  const pst=$('popStyle');if(S.dlg==='courbe'&&S.stylePop){const q=relPos($('dlgCourbe'));pst.style.display='block';pst.style.left=(q.l+q.w+4)+'px';pst.style.top=Math.max(80,q.t-60)+'px';
+    const ST=[['Trait','M2 15C10 15 12 4 26 4'],['Trait avec rond','M2 15C10 15 12 4 26 4'],['Trait avec croix','M2 15C10 15 12 4 26 4'],['Rond',''],['Croix',''],['Point',''],['Histogramme',''],['Palier','M2 15H9V10H16V6H26'],['Spectre',''],['Palier relié','M2 15H9V10H16V6H26']];
+    pst.innerHTML=ST.map((x,k)=>{const sym=k===3||k===1?'<circle cx="7" cy="12" r="2" fill="#C0392B"/><circle cx="15" cy="8" r="2" fill="#C0392B"/><circle cx="23" cy="5" r="2" fill="#C0392B"/>':k===4||k===2?'<path d="M5 10l4 4M9 10l-4 4M13 5l4 4M17 5l-4 4M21 2l4 4M25 2l-4 4" stroke="#C0392B" stroke-width="1.2"/>':k===5?'<circle cx="7" cy="13" r="1" fill="#C0392B"/><circle cx="15" cy="9" r="1" fill="#C0392B"/><circle cx="23" cy="5" r="1" fill="#C0392B"/>':(k===6||k===8)?'<path d="M5 18V12M10 18V8M15 18V5M20 18V9M25 18V13" stroke="#C0392B" stroke-width="2"/>':'';
+      return `<div id="st${k}" class="${S.hot==='st'+k?'hot':''}"><svg viewBox="0 0 28 20">${x[1]?`<path d="${x[1]}" fill="none" stroke="#C0392B"/>`:''}${sym}</svg><span>${x[0]}</span></div>`}).join('')}
+  else pst.style.display='none';
+  if(S.dlg==='com'){const C=S.com||{txt:'',fond:'Ellipse'};$('dlgComBody').innerHTML=`<div class="mband" style="background:linear-gradient(#4E86C6,#1D4F93);color:#fff;font-size:11px;padding:1px 6px;text-align:center">Texte</div>
+    <div class="ta" id="dcmTxt">${C.txt}<span class="caret"></span></div>
+    <div style="display:flex;gap:12px;margin-top:8px"><div style="flex:1">
+      <div>Type de Fond :</div><span class="cbo${S.hot==='dcmFond'?' hot':''}" id="dcmFond" style="width:130px"><b>${C.fond}</b><i>▼</i></span>
+      <div style="margin-top:6px">Couleur de Fond :</div><span class="fld" style="width:130px;background:#F4F6FA"></span></div>
+     <div style="width:96px;display:flex;flex-direction:column;gap:5px"><span class="btn">Police</span><span class="btn">Annuler</span><span class="btn${S.hot==='dcmOK'?' hot':''}" id="dcmOK">OK</span></div></div>`}
   if(S.dlg==='var')$('dlgVarBody').innerHTML=`
     <div style="display:flex;gap:14px">
      <div style="flex:1"><div>Nom de l'ordonnée :</div><span class="fld" id="dvNom" style="display:block;height:20px;background:${S.dlgBuf?'#fff':'#4A6EA9'};color:${S.dlgBuf?'#000':'#fff'}">${S.dlgBuf||'Var'}<span class="caret"></span></span></div>
@@ -858,22 +1052,367 @@ function mk(tok,anim){
       await c.wait(240);await c.move(to,900);await c.wait(180);ghost.style.display='none';c.unbadge()}
   };return c}
 
+/* =====================================================================
+   TUTORIELS 3, 4 ET 5 — scènes superposées (#scX), d'après les vidéos
+   ===================================================================== */
+const frn=v=>{const r=Math.round(v*1e6)/1e6;return String(r).replace('.',',').replace('-','−')};
+let XG=null;                       // géométrie du dernier graphe dessiné
+function graphe(o){
+  const W=o.w||688,H=o.h||466,L=o.L||62,R=W-(o.Rm||46),T=36,B=H-42;
+  const X=v=>L+(R-L)*(v-o.x0)/(o.x1-o.x0),Y=v=>B-(B-T)*(v-o.y0)/(o.y1-o.y0);
+  XG={X,Y,L,R,T,B};
+  let s=`<svg id="xg" width="${W}" height="${H}" font-family="Segoe UI,Arial" style="display:block;background:#fff">`;
+  const nx=Math.round((o.x1-o.x0)/o.dx),ny=Math.round((o.y1-o.y0)/o.dy);
+  for(let k=0;k<=ny;k++){const v=o.y0+k*o.dy,y=Y(v);
+    if(k)s+=`<line x1="${L}" x2="${R}" y1="${y}" y2="${y}" stroke="#A8A8A8" stroke-width=".7" stroke-dasharray="1 4"/>`;
+    s+=`<text x="${L-6}" y="${y+4}" font-size="10" fill="#333" text-anchor="end">${(o.fy||frn)(v)}</text>`}
+  for(let k=0;k<=nx;k++){const v=o.x0+k*o.dx,x=X(v);
+    if(k)s+=`<line x1="${x}" x2="${x}" y1="${T}" y2="${B}" stroke="#A8A8A8" stroke-width=".7" stroke-dasharray="1 4"/>`;
+    s+=`<text x="${x}" y="${B+15}" font-size="10.5" fill="#333" text-anchor="middle">${(o.fx||frn)(v)}</text>`}
+  s+=`<line x1="${L}" x2="${L}" y1="${T-16}" y2="${B}" stroke="#000"/><path d="M${L} ${T-24} l-4 8 h8 z"/>
+      <line x1="${L}" x2="${R+16}" y1="${B}" y2="${B}" stroke="#000"/><path d="M${R+24} ${B} l-8 -4 v8 z"/>`;
+  if(o.y0<0&&o.y1>0)s+=`<line x1="${L}" x2="${R}" y1="${Y(0)}" y2="${Y(0)}" stroke="#000" stroke-width=".8" stroke-dasharray="6 3"/>`;
+  if(o.xl)s+=`<text x="${R+22}" y="${B-7}" font-size="10.5" fill="#333" text-anchor="end">${o.xl}</text>`;
+  if(o.xm)s+=`<text x="${R+24}" y="${B+32}" font-size="12" fill="#C0392B" font-weight="700" text-anchor="end">x10<tspan font-size="9" dy="-5">${o.xm}</tspan></text>`;
+  let off=0;(o.yl||[]).forEach(l=>{s+=`<text x="${L+6+off}" y="${T-16}" font-size="10.5" fill="${l.c}">${l.t}</text>`;off+=l.t.length*6+20});
+  (o.S||[]).forEach(se=>{const n=se.x.length;let d='';
+    for(let i=0;i<n;i++)d+=(i?'L':'M')+X(se.x[i]).toFixed(1)+' '+Y(se.y[i]).toFixed(1);
+    if(se.m!=='pts'&&n)s+=`<path d="${d}" fill="none" stroke="${se.c}" stroke-width="${se.w||1.2}"/>`;
+    if(se.m==='pts'||se.m==='both')for(let i=0;i<n;i++){const x=X(se.x[i]),y=Y(se.y[i]);
+      s+=`<path d="M${x-3.5} ${y-3.5}L${x+3.5} ${y+3.5}M${x-3.5} ${y+3.5}L${x+3.5} ${y-3.5}" stroke="${se.c}" stroke-width="1.4"/>`}});
+  if(o.extra)s+=o.extra(X,Y,XG);
+  (o.com||[]).forEach(cm=>{s+=comSVG(X(cm.x),Y(cm.y),cm)});
+  return s+'</svg>'}
+function comSVG(x,y,cm){const w=cm.t.length*7.6+24,h=24;
+  const txt=`<text x="${x}" y="${y+4.5}" font-size="12.5" font-weight="700" fill="#1B2C4A" text-anchor="middle">${cm.t}</text>`;
+  return (cm.f==='Ellipse'?`<ellipse cx="${x}" cy="${y}" rx="${w/2+4}" ry="${h/2+3}" fill="#F4F6FA" stroke="#7A8496"/>`
+    :`<rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" fill="#F4F6FA" stroke="#7A8496"/>`)+txt}
+function reticSVG(G,x,y,l1,l2){const X=G.X(x),Y=G.Y(y),bx=X+140>G.R?X-142:X+6,by=Math.max(G.T,Y-30);
+  return `<line x1="${X}" x2="${X}" y1="${G.T-8}" y2="${G.B}" stroke="#B08000"/><line x1="${G.L}" x2="${G.R}" y1="${Y}" y2="${Y}" stroke="#B08000"/>
+   <rect x="${bx}" y="${by}" width="136" height="26" fill="#FFFBE6" stroke="#B08000"/>
+   <text x="${bx+5}" y="${by+11}" font-size="10.5">${l1}</text><text x="${bx+5}" y="${by+22}" font-size="10.5">${l2}</text>`}
+/* point du graphe → coordonnées de la scène (pour le pointeur animé) */
+function gp(x,y){const q=relPos($('xg'));return{x:q.l+XG.X(x),y:q.t+XG.Y(y)}}
+
+const ICO_C='<svg width="26" height="18" viewBox="0 0 26 18"><path d="M3 9.5C5 1.5 8 1.5 10 9.5S15 17.5 17 9.5 21 1.5 23 5" fill="none" stroke="#4CC25A" stroke-width="1.45" stroke-linecap="round"/></svg>';
+const ICO_A='<svg width="26" height="18" viewBox="0 0 26 18"><path d="M3.5 7.5L9 14.2L17.2 5.6" fill="none" stroke="#D7262E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19.4" cy="4.6" r="3.3" fill="#FBE3E3" stroke="#D7262E" stroke-width="1.4"/><path d="M17.6 4.6h3.6M19.4 2.8v3.6" stroke="#D7262E" stroke-width="1"/></svg>';
+const ICO_E='<svg width="26" height="18" viewBox="0 0 26 18"><path d="M4 9.5L9 7.5L11.5 11L19.5 2L22.5 4.5L11.5 16.5Z" fill="#1F7A3A" stroke="#11471F" stroke-width=".8" stroke-linejoin="round"/><path d="M11.4 11.2L19.6 2.6" stroke="#5FC27A" stroke-width="1"/></svg>';
+const hx=id=>S.hot===id?' hot':'';
+function panneau(P){
+  const sb='<span class="sbx">⌃</span>';
+  let h=`<div class="win" style="left:4px;top:4px;width:250px;height:492px"><div class="wtitle pt"><b>Paramètres</b><i>«</i></div><div class="wbody" style="padding:3px 4px">
+   <div class="xptabs"><div id="xtC" class="${P.tab==='courbes'?'on':''}${hx('xtC')}">${ICO_C}</div><div id="xtA" class="${P.tab==='acq'?'on':''}${hx('xtA')}">${ICO_A}</div><div id="xtE" class="${P.tab==='emi'?'on':''}${hx('xtE')}">${ICO_E}</div></div>`;
+  if(P.tab==='emi'){h+=zoneEmission(P.E)}
+  else if(P.tab==='acq'){const A=P.A;
+    const nom=k=>P.capt&&k===1?'Pression':'EA'+(k-1);
+    h+=`<div class="band">Acquisition</div>
+    <div class="sec"><div class="h"><span>Entrées Analogiques</span><span class="sbx${hx('xcolEA')}" id="xcolEA">${A.col?'⌄':'⌃'}</span></div><div class="b" style="${A.col?'display:none':''}"><div class="dif">Mode différentiel</div><div class="eagrid">
+     ${[1,2,3,4].map(k=>`<div class="ea ${A.ea[k]?'on':''}${P.capt&&k===1?' capt':''}${hx('xea'+k)}" id="xea${k}">${nom(k)}</div><span class="box"></span><div class="ea ${A.ea[k+4]?'on':''}">EA${k+3}</div>`).join('')}
+     </div><div style="margin-top:5px"><span class="box on"></span>Ajouter les courbes</div></div></div>
+    <div class="sec"><div class="h"><span>Acquisition</span>${sb}</div><div class="b">
+     <div class="tabs3">${['Temporelle','Pas à pas','XY'].map((m,k)=>`<div id="xmd${k}" class="${A.mode===m?'on':''}${hx('xmd'+k)}">${m}</div>`).join('')}</div>`;
+    if(A.mode==='Pas à pas'){const Q=P.pap;
+      h+=`<div class="pap">
+       <div class="rowf"><span class="rad ${Q.abs==='clavier'?'on':''}${hx('pAbsClav')}" id="pAbsClav"></span>Abscisse Clavier<span style="flex:1"></span><span class="box"></span>Titrage</div>
+       <div class="rowf"><span class="l" style="padding-left:18px">Nom</span><span class="fld${hx('pNom')}" id="pNom" style="flex:1">${Q.nom}</span></div>
+       <div class="rowf"><span class="l" style="padding-left:18px">Unité</span><span class="cbo${hx('pUnit')}" id="pUnit" style="flex:1"><b>${Q.unite}</b><i>▼</i></span></div>
+       <div class="rowf" style="margin-top:7px"><span class="rad"></span>Abscisse Instrumentée</div>
+       <div class="rowf"><span class="l lgr" style="padding-left:18px">Entrée</span><span class="cbo gr" style="flex:1"><b></b><i>▼</i></span></div>
+       <div class="rowf" style="margin-top:7px"><span class="box"></span>Ordonnée Clavier</div>
+       <div class="rowf lgr" style="padding-left:18px">Nombre d'ordonnée(s)<span style="flex:1"></span><span class="fld gr" style="min-width:34px">0</span></div>
+       <div style="text-align:center;margin-top:5px"><span class="btn off" style="display:block">Définir les ordonnées clavier</span></div></div></div></div>`;
+    }else{
+     h+=`<div class="rowf"><span class="l">Points</span><span class="fld${A.per?' gr':''}${hx('xPts')}" id="xPts">${A.pts}</span></div>
+     <div class="rowf"><span class="l">Te</span><span class="fld${A.per?' gr':''}" id="xTe">${A.te}</span></div>
+     <div class="rowf"><span class="l">Total</span><span class="fld${A.per?' gr':''}${hx('xTot')}" id="xTot">${A.tot}</span></div>
+     <div style="margin-top:5px"><span class="box ${A.per?'on':''}${hx('xPer')}" id="xPer"></span>Périodique
+       <span style="margin-left:6px" class="${A.per?'':'lgr'}">Nb. périodes <span class="fld${A.per?'':' gr'}${hx('xNper')}" id="xNper" style="min-width:32px">${A.nper}</span></span></div>
+     <div style="margin-top:4px"><span class="box ${A.perm?'on':''}${hx('xPerm')}" id="xPerm"></span>Mode permanent</div></div></div>
+    <div class="sec"><div class="h"><span>Déclenchement</span>${sb}</div><div class="b">
+     <div class="rowf"><span class="l">Source</span><span class="cbo${hx('xSrc')}" id="xSrc"><b>${A.src}</b><i>▼</i></span></div>
+     <div class="rowf"><span class="l">Sens</span><span class="cbo${hx('xSens')}" id="xSens"><b>${A.sens}</b><i>▼</i></span></div>
+     <div class="rowf"><span class="l">Seuil</span><span class="fld${hx('xSeuil')}" id="xSeuil">${A.seuil}</span></div>
+     <div class="rowf"><span class="l">Pré-Trig</span><span class="cbo${hx('xPre')}" id="xPre" style="width:56px"><b>${A.pre}</b><i>▼</i></span></div></div></div>`}
+  }else{
+    h+=`<div class="cl"><h4>Courbes</h4>${(P.curves||[]).map(c=>`<div class="cv${hx('xcv_'+c.k)}" id="xcv_${c.k}"><span class="sq" style="background:${c.c}"></span>${c.n}</div>`+
+        (c.sub?`<div class="sub">${c.sub}</div>`:'')).join('')}
+      ${P.sca&&P.sca.length?`<div class="sca"><h4>Scalaires</h4>${P.sca.map(x=>`<div style="padding-left:10px">${x}</div>`).join('')}</div>`:''}
+      <div class="sep"></div><div class="fct">${P.fct||''}</div></div>`}
+  return h+'</div></div>'}
+function fenetre(titre,inner,o){o=o||{};
+  return `<div class="win" style="left:${o.l||260}px;top:${o.t||4}px;width:${o.w||696}px;height:${o.h||492}px;${o.z?'z-index:'+o.z:''}"><div class="wtitle${o.inact?' inact':''}"><b>${titre}</b><i>_</i><i>□</i><i>✕</i></div><div class="wbody" style="padding:2px;${o.bg===false?'':'background:#fff'}">${inner}</div></div>`}
+/* fenêtre de modélisation (même présentation que dans le tutoriel 1) */
+function fenModel(M,o){
+  let h=`<div class="win xmod" style="left:${o.l||300}px;top:${o.t||70}px;width:${M.dev?520:250}px;height:${M.dev?330:262}px;z-index:7"><div class="wtitle"><b>Modélisation</b><i>□</i></div><div class="wbody">
+   <div style="display:flex;gap:7px"><div style="width:232px">
+    <div class="mband">Courbe à modéliser</div>
+    <div class="drop${M.drop?' full':''}" id="xDrop">${M.drop?o.src:'Glisser la courbe source ici...'}</div>
+    <div class="mband">Courbe modèle</div>
+    <div class="drop${M.drop?' full':''}">${M.drop?'Modèle de '+o.y:'Glisser la courbe destination ici...'}</div>
+    <div class="mband">Modèles :</div>
+    <div class="mbox">${M.mod?`<svg width="56" height="28" style="border:1px solid #C3C9D3;background:#fff"><path d="${MTH[M.mod]}" fill="none" stroke="#C0392B" stroke-width="1.4"/></svg>
+        <span class="btn${hx('xChoose')}" id="xChoose" style="flex:1">${M.mod}</span>`
+       :`<span class="btn${M.drop?'':' off'}${hx('xChoose')}" id="xChoose" style="width:150px">Choisir un modèle</span>`}</div>
+    <div style="margin-top:8px"><span class="btn" style="display:block">Nouveau Modèle</span></div>
+    <div style="display:flex;gap:6px;margin-top:5px"><span class="btn${M.mod?'':' off'}${hx('xCalc')}" id="xCalc" style="flex:1">Calculer le modèle</span>
+     <span class="btn${hx('xDev')}" id="xDev">${M.dev?'&lt;&lt;':'&gt;&gt;'}</span></div></div>`;
+  if(M.dev)h+=`<div style="flex:1"><div class="mband" style="text-align:center">Coefficient :</div>
+    <div class="coef"><div class="hd"><span style="width:40px">Nom</span><span style="flex:1">Valeur</span><span style="width:36px;text-align:right">Actif</span></div>
+     ${M.done?o.coefs.map(k=>`<div class="rw"><span style="width:40px;text-align:center">${k[0]}</span><span style="flex:1"><span class="fld" style="min-width:110px">${k[1]}</span></span><span style="width:36px;text-align:right"><span class="box on"></span></span></div>`).join(''):''}</div>
+    <div style="margin-top:5px"><span class="btn" style="display:block">Copier le résultat vers le presse-papier</span></div>
+    <div style="text-align:right;margin-top:5px"><span class="btn">Estimer une valeur</span></div></div>`;
+  h+='</div>';
+  if(M.dev)h+=`<div class="out">${M.mod?o.eq1:''}</div><div class="out">${M.done?o.eq2:''}</div>
+    <div style="display:flex;gap:6px;margin-top:4px"><div class="stat" style="flex:1">Ecart Type = ${M.done?o.ec:''}</div><div class="stat" style="width:80px">Erreur en X</div><div class="stat" style="width:80px">Erreur en Y</div></div>
+    <div style="display:flex;gap:6px;margin-top:3px"><div class="stat" style="flex:1">Coefficient de Corrélation = ${M.done?o.r:''}</div><div class="stat" style="width:80px">0</div><div class="stat" style="width:80px">0</div></div>`;
+  h+='</div></div>';
+  if(M.pop)h+=`<div class="win xsel" style="left:${(o.l||300)+60}px;top:30px;width:210px;height:300px;z-index:8"><div class="wtitle"><b>Sélectionner un modèle...</b><i>□</i></div><div class="wbody" style="padding:3px">
+    ${MODELES.slice(0,8).map((m,k)=>`<div class="it"><svg class="th" viewBox="0 0 56 28"><path d="M28 2V26M4 14H52" stroke="#C9CDD4" stroke-dasharray="2 2"/><path d="${MTH[m]}" fill="none" stroke="#C0392B" stroke-width="1.4"/></svg><span class="bt${hx('xmo'+k)}" id="xmo${k}">${m}</span></div>`).join('')}</div></div>`;
+  return h}
+/* feuille de calcul */
+function fenCalc(C,o){
+  return `<div class="win xcalc" style="left:${o.l}px;top:${o.t}px;width:560px;height:220px;z-index:7"><div class="wtitle"><b>Feuille de calculs</b><i>_</i><i>□</i><i>✕</i></div><div class="wbody">
+   <div class="cmenu"><span>Edition</span><span>Calcul</span><span>Aide</span></div>
+   <div class="cols"><div class="code" id="xCode">${C.txt.replace(/&/g,'&amp;').replace(/</g,'&lt;')}<span class="caret"></span></div>
+   <div class="res">${C.done?C.res:''}</div></div></div></div>`}
+function boiteDerivee(D){
+  return `<div class="win" style="left:330px;top:120px;width:330px;height:118px;z-index:8"><div class="wtitle"><b>Calcul d'une dérivée</b><i>✕</i></div><div class="wbody" style="padding:8px">
+   <div class="rowf"><span class="l" style="width:58px">Courbe</span><span class="drop xdr${D.src?' full':''}" id="xDerSrc">${D.src||'Glisser la courbe source ici...'}</span></div>
+   <div class="rowf" style="margin-top:6px"><span class="l" style="width:58px">Résultat</span><span class="drop xdr${D.src?' full':''}" id="xDerDst">${D.src?'Dérivée de '+D.src:'Glisser la courbe destination ici...'}</span>
+     <span class="btn${hx('xDerOK')}" id="xDerOK" style="margin-left:6px">Calculer</span></div></div></div>`}
+
+/* ---------------- TUTORIEL 3 : signal périodique ---------------- */
+const F3=1050,UM3=5;
+const sig3=(t,ph)=>UM3*Math.sin(2*Math.PI*F3*t+ph);
+const CFG3={A:{n:200,tot:0.020},B:{n:1000,tot:0.003},P:{n:1000,tot:3/F3}};
+const G0=()=>({t:3,tab:'acq',A:{ea:{},mode:'Temporelle',pts:'200',te:'100 µs',tot:'20 ms',per:false,nper:'3',perm:false,src:'Aucune',sens:'',seuil:'',pre:''},
+  cfg:null,ph:0,retic:null,com:[],live:false});
+function htmlG(){const X=S.X,cf=X.cfg?CFG3[X.cfg]:null;
+  const P={tab:X.tab,A:X.A,curves:X.cfg?[{k:'EA0',n:'EA0',c:'#D21F1F',sub:'fct(Temps)'}]:[],fct:X.cfg?'EA0 = fct(Temps)':''};
+  const tot=cf?cf.tot*1000:20;
+  const o={x0:0,x1:tot<=3.01?3:20,dx:tot<=3.01?0.5:2.5,y0:-10,y1:10,dy:2.5,xl:'Temps en ms',yl:X.cfg?[{t:'EA0 en V',c:'#D21F1F'}]:[],com:X.com};
+  if(cf){const xs=[],ys=[];for(let i=0;i<cf.n;i++){const t=i*cf.tot/(cf.n-1);xs.push(t*1000);ys.push(sig3(t,X.ph)+0.04*hash(i+77))}
+    o.S=[{x:xs,y:ys,c:'#D21F1F',m:X.cfg==='A'?'both':'line',w:X.cfg==='A'?1:1.4}];
+    if(X.retic!=null)o.extra=(Xf,Yf,G)=>{const t=X.retic/1000;return reticSVG(G,X.retic,sig3(t,X.ph),'Temps = '+lp(t,'s'),'EA0 = '+lpv(sig3(t,X.ph)+0.0004)+' V')}}
+  return panneau(P)+fenetre('Fenêtre n°1',graphe(o))}
+
+/* ---------------- TUTORIEL 4 : tableau saisi à la main ---------------- */
+const VV=[60,55,50,45,40,35,30],PV=VV.map((v,i)=>Math.round(60780/v+[3,-4,2,5,-3,4,-2][i]));
+const IV=VV.map(v=>1/v);
+const FT4=(()=>{let sxy=0,sxx=0;IV.forEach((x,i)=>{sxy+=x*PV[i];sxx+=x*x});const a=sxy/sxx;
+  let e=0,my=PV.reduce((p,q)=>p+q)/PV.length,syy=0;IV.forEach((x,i)=>{e+=(PV[i]-a*x)**2;syy+=(PV[i]-my)**2});
+  const mx=IV.reduce((p,q)=>p+q)/IV.length;let cxy=0,cxx=0;IV.forEach((x,i)=>{cxy+=(x-mx)*(PV[i]-my);cxx+=(x-mx)**2});
+  return{a,ec:Math.sqrt(e/IV.length),r:cxy/Math.sqrt(cxx*syy)}})();
+const A4=Math.round(FT4.a/10)*10;
+const T4=()=>({t:4,view:'graph',tab:'courbes',cols:[],sel:null,fx:'',fxEdit:false,menu:null,cell:null,buf:'',gy:null,gx:null,
+  m:{drop:false,mod:null,done:false,dev:false,pop:false},mopen:false,com:[]});
+const cellT=v=>v==null||v===''?'':(typeof v==='number'?(v<0.1?lp(v):frn(v)):v);
+function htmlT(){const X=S.X;
+  const curves=X.cols.map(c=>({k:c.n,n:c.n,c:{V:'#1F4FD8',P:'#D21F1F',invV:'#1E8449'}[c.n],sub:c.n===X.gy&&X.gx?'fct('+X.gx+')':''}));
+  let h=panneau({tab:X.tab,curves,fct:X.gy&&X.gx?X.gy+' = fct('+X.gx+')':''});
+  /* graphe */
+  const o={x0:0,x1:70,dx:10,y0:0,y1:2500,dy:500,xl:'',yl:[],com:X.com,fy:v=>String(v)};
+  if(X.gy){o.yl=[{t:'P en hPa',c:'#D21F1F'}]}
+  if(X.gx==='V'){o.xl='V en mL';o.S=[{x:VV,y:PV,c:'#D21F1F',m:'pts'}]}
+  else if(X.gx==='invV'){Object.assign(o,{x0:0,x1:0.04,dx:0.005,fx:v=>frn(v*1000),xm:'-3',xl:'invV'});o.S=[{x:IV,y:PV,c:'#D21F1F',m:'pts'}];
+    if(X.m.done){o.S.push({x:[0,0.038],y:[0,A4*0.038],c:'#B0308E',m:'line',w:1.3});o.yl.push({t:'Modèle de P en hPa',c:'#B0308E'})}}
+  h+=fenetre('Fenêtre n°1',graphe(o));
+  /* tableur */
+  if(X.view==='tabl'){const NC=7,NR=12;
+    let h1='<tr><th class="n"></th>',h2='<tr class="u"><th class="n"></th>';
+    for(let k=0;k<NC;k++){const c=X.cols[k],sel=c&&X.sel===c.n?' sel':'';
+      h1+=`<th id="xcol_${k}" class="${sel}">${c?c.n:''}</th>`;h2+=`<th class="${sel}">${c?c.u:''}</th>`}
+    let body='';for(let r=0;r<NR;r++){body+=`<tr><td class="n">${r+1}</td>`;
+      for(let k=0;k<NC;k++){const c=X.cols[k];let v=c?c.v[r]:'';const cur=X.cell&&X.cell.c===k&&X.cell.r===r;
+        if(cur&&X.buf!=='')v=X.buf;else v=cellT(v);
+        body+=`<td id="xc${k}_${r}" class="${c&&X.sel===c.n?'sel':''}${cur?' cur':''}">${v}${cur&&X.buf!==''?'<span class="caret"></span>':''}</td>`}
+      body+='</tr>'}
+    h+=`<div class="win xtab" style="left:290px;top:34px;width:620px;height:340px;z-index:6"><div class="wtitle"><b>Tableur</b><i>□</i></div><div class="wbody">
+      <div class="tmenu">${['Edition','Variables','Aide'].map(m=>`<span id="xtm${m}" class="${X.menu===m?'on':''}">${m}</span>`).join('')}</div>
+      <div class="ttool"><div class="ti">✂</div><div class="ti">⎘</div><div class="ti">▤</div><div class="ti" style="width:34px;background:linear-gradient(#CBD8EC,#A9BEDD)">3.48</div><div class="ti" style="width:30px">Fx</div>
+        <span style="font-style:italic;font-family:serif;padding:0 4px">fx</span><div class="fxf${hx('xFx')}" id="xFx">${X.fx}${X.fxEdit?'<span class="caret"></span>':''}</div></div>
+      <div class="gridwrap"><div class="grid"><table>${h1}</tr>${h2}</tr>${body}</table></div><div class="cst"><span>Constante(s)</span></div></div></div></div>`;
+    if(X.menu==='Variables')h+=`<div class="pop" style="display:block;left:336px;top:76px;z-index:9">${[['xvTout','✗ Tout enlever'],['xvNouv','Nouvelle'],['xvRampe','Remplir avec une rampe'],['xvTrier','Trier']]
+      .map(x=>`<div id="${x[0]}" class="${S.hot===x[0]?'hot':''}"><span>${x[1]}</span></div>`).join('')}</div>`}
+  if(X.mopen)h+=fenModel(X.m,{l:300,t:150,src:'P fct(invV)',y:'P',eq1:'P=a*invV',eq2:`P=${frn(A4)}*invV`,coefs:[['a',frn(A4)]],ec:frn(Math.round(FT4.ec*10)/10),r:FT4.r.toFixed(4).replace('.',',')});
+  return h}
+
+/* ---------------- TUTORIEL 5 : pointage vidéo ---------------- */
+const DT5=0.04,N5=23,VX5=6*Math.cos(50*Math.PI/180),VY5=6*Math.sin(50*Math.PI/180),M5=0.6;
+const T5=[],XB=[],YB=[];
+for(let i=0;i<N5;i++){const t=i*DT5;T5.push(t);XB.push(VX5*t+0.006*hash(i+300));YB.push(VY5*t-4.905*t*t+0.006*hash(i+400))}
+XB[0]=0;YB[0]=0;
+const deriv=a=>a.map((v,i)=>i===0?(a[1]-a[0])/DT5:i===a.length-1?(a[i]-a[i-1])/DT5:(a[i+1]-a[i-1])/(2*DT5));
+const VXB=deriv(XB),VYB=deriv(YB),VB=VXB.map((v,i)=>Math.hypot(v,VYB[i]));
+const EC=VB.map(v=>0.5*M5*v*v),EPP=YB.map(y=>M5*9.81*y),EM=EC.map((e,i)=>e+EPP[i]);
+const FT5=(()=>{let s=[0,0,0,0,0],t=[0,0,0];XB.forEach((x,i)=>{const y=YB[i];s[0]+=1;s[1]+=x;s[2]+=x*x;s[3]+=x**3;s[4]+=x**4;t[0]+=y;t[1]+=x*y;t[2]+=x*x*y});
+  const M=[[s[4],s[3],s[2],t[2]],[s[3],s[2],s[1],t[1]],[s[2],s[1],s[0],t[0]]];
+  for(let i=0;i<3;i++){for(let j=i+1;j<3;j++){const f=M[j][i]/M[i][i];for(let k=i;k<4;k++)M[j][k]-=f*M[i][k]}}
+  const z=[0,0,0];for(let i=2;i>=0;i--){let v=M[i][3];for(let k=i+1;k<3;k++)v-=M[i][k]*z[k];z[i]=v/M[i][i]}
+  let e=0,my=YB.reduce((p,q)=>p+q)/N5,st=0;XB.forEach((x,i)=>{e+=(YB[i]-(z[0]*x*x+z[1]*x+z[2]))**2;st+=(YB[i]-my)**2});
+  return{a:z[0],b:z[1],c:z[2],ec:Math.sqrt(e/N5),r:Math.sqrt(1-e/st)}})();
+const VXM=VXB.reduce((p,q)=>p+q)/N5;
+const f3=v=>v.toFixed(3).replace('.',',').replace('-','−');
+/* image de la vidéo : 440 × 300 px, 88 px par mètre, origine du lancer en (95 ; 205) */
+const KV=88,OXV=95,OYV=205,vpx=(x,y)=>({x:OXV+KV*x,y:OYV-KV*y});
+const V0=()=>({shown:false,file:false,img:0,dlg:false,fsel:false,orig:false,etal:0,edlg:false,eval:'',mode:null,pts:0});
+const X5=()=>({t:5,tab:'acq',A:{ea:{},mode:'Temporelle',pts:'200',te:'100 µs',tot:'20 ms',per:false,nper:'3',perm:false,src:'Aucune',sens:'',seuil:'',pre:''},
+  V:V0(),curves:[],gview:null,der:null,calc:null,mopen:false,m:{drop:false,mod:null,done:false,dev:false,pop:false},win:'Fenêtre n°1'});
+function sceneVideo(V){let s=`<svg id="xvid" width="440" height="300" style="display:block;background:#111">`;
+  if(!V.file)return s+'</svg>';
+  const fl=vpx(0,-0.9).y;
+  s+=`<defs><linearGradient id="mur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B5A48"/><stop offset="1" stop-color="#8E7A62"/></linearGradient></defs>
+    <rect width="440" height="${fl}" fill="url(#mur)"/><rect y="${fl}" width="440" height="${300-fl}" fill="#B88A54"/>
+    <rect x="150" y="40" width="210" height="96" fill="#2F4A3A" stroke="#5A4630" stroke-width="5"/>
+    ${[0,1,2,3,4,5].map(k=>`<line x1="0" x2="440" y1="${fl+6+k*3*k}" y2="${fl+6+k*3*k}" stroke="#A47848" stroke-width="1"/>`).join('')}`;
+  /* étalon d'un mètre */
+  const e1=vpx(-0.95,-0.9),e2=vpx(-0.95,0.1);
+  for(let k=0;k<10;k++)s+=`<rect x="${e1.x-4}" y="${e2.y+k*(e1.y-e2.y)/10}" width="8" height="${(e1.y-e2.y)/10}" fill="${k%2?'#F4D03F':'#1A1A1A'}"/>`;
+  /* lanceur */
+  const P_=(x,y)=>{const p=vpx(x,y);return p.x.toFixed(1)+' '+p.y.toFixed(1)},hd=vpx(-0.36,0.68);
+  s+=`<g stroke="#26313F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M${P_(-0.5,-0.9)}L${P_(-0.38,-0.05)}L${P_(-0.22,-0.9)}"/><path d="M${P_(-0.38,-0.05)}L${P_(-0.36,0.5)}"/>
+    <path d="M${P_(-0.36,0.45)}L${P_(-0.2,0.22)}L${P_(-0.06,0.03)}"/><path d="M${P_(-0.36,0.45)}L${P_(-0.5,0.15)}"/></g>
+    <circle cx="${hd.x}" cy="${hd.y}" r="9" fill="#E2B48C"/>`;
+  /* points déjà pointés */
+  for(let k=0;k<V.pts;k++){const p=vpx(XB[k],YB[k]);s+=`<path d="M${p.x-4} ${p.y}h8M${p.x} ${p.y-4}v8" stroke="#00E5FF" stroke-width="1.6"/>`}
+  /* balle de l'image courante */
+  const i=Math.min(V.img,24),bx=i<N5?XB[i]:VX5*i*DT5,by=i<N5?YB[i]:VY5*i*DT5-4.905*(i*DT5)**2,b=vpx(bx,by);
+  if(b.y<fl-6)s+=`<circle cx="${b.x}" cy="${b.y}" r="6" fill="#E8701A" stroke="#7A3A0C"/>`;
+  /* repère et étalon */
+  if(V.orig){const o=vpx(0,0);s+=`<g stroke="#FF2A2A" stroke-width="1.6"><line x1="${o.x}" y1="${o.y}" x2="${o.x+90}" y2="${o.y}"/><line x1="${o.x}" y1="${o.y}" x2="${o.x}" y2="${o.y-90}"/></g>
+    <path d="M${o.x+96} ${o.y}l-8 -4v8z M${o.x} ${o.y-96}l-4 8h8z" fill="#FF2A2A"/>`}
+  if(V.etal>=1)s+=`<circle cx="${e1.x}" cy="${e1.y}" r="3" fill="#2E86FF"/>`;
+  if(V.etal>=2)s+=`<line x1="${e1.x}" y1="${e1.y}" x2="${e2.x}" y2="${e2.y}" stroke="#2E86FF" stroke-width="2"/><circle cx="${e2.x}" cy="${e2.y}" r="3" fill="#2E86FF"/>`;
+  return s+'</svg>'}
+function fenVideo(V){const btn=(id,t,on)=>`<span class="btn vb${on?' on':''}${hx(id)}" id="${id}">${t}</span>`;
+  let zoom='';if(V.file&&V.mode==='manuel'&&V.img<N5){const p=vpx(XB[V.img],YB[V.img]);
+    zoom=`<svg width="104" height="78" viewBox="${p.x-26} ${p.y-19} 52 39" style="background:#111;display:block;margin:auto">${sceneVideo(V).replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'')}
+      <circle cx="${p.x}" cy="${p.y}" r="9" fill="none" stroke="#FF3030" stroke-width="1"/></svg>`}
+  let h=`<div class="win xvid" style="left:150px;top:10px;width:660px;height:400px;z-index:6"><div class="wtitle"><b>Séquence vidéo${V.file?' - lancer.avi - 25 images':''}</b><i>✕</i></div><div class="wbody" style="display:flex;gap:6px">
+   <div><div style="border:1px inset #B5B1A8">${sceneVideo(V)}</div>
+    <div style="display:flex;gap:4px;align-items:center;margin-top:6px">${btn('xvFich','Fichiers')}<span class="btn">Lecture</span><span class="btn">Pause</span>
+     <span class="btn">|◀</span><span class="btn">◀</span><span class="btn">▶</span><span class="btn">▶|</span>
+     <span style="font-size:10.5px;line-height:1.25;margin-left:4px">Image ${V.file?Math.min(V.img+1,25):0}/${V.file?25:0}<br>Etalon : ${V.etal>=2&&!V.edlg?'1 m':'—'}</span></div></div>
+   <div style="flex:1;font-size:11px">
+    <div class="mband">Paramètres</div>
+    ${btn('xvOrig','Sélection de l\'origine',V.mode==='origine')}${btn('xvEtal','Sélection de l\'étalon',V.mode==='etalon')}
+    <div class="mband">Sens des axes</div>
+    <div style="display:flex;gap:4px;justify-content:center;margin:3px 0"><span class="axi on">↗</span><span class="axi">↘</span><span class="axi">↙</span><span class="axi">↖</span></div>
+    <div class="mband">Déplacement</div><div style="text-align:center;margin:2px 0"><span class="rad on"></span>Absolu <span class="rad"></span>Relatif</div>
+    ${btn('xvMan',V.mode==='manuel'?'Terminer la sélection manuelle':'Sélection manuelle des points',V.mode==='manuel')}${btn('xvAuto','Sélection Auto des points')}
+    <div class="mband">Zoom</div><div style="height:82px;background:#E4E1DA;border:1px inset #B5B1A8">${zoom}</div>
+    ${btn('xvNouv','Nouvelle étude')}${btn('xvTransf','Transférer vers les courbes')}</div></div></div>`;
+  if(V.dlg)h+=`<div class="win" style="left:250px;top:90px;width:430px;height:226px;z-index:8"><div class="wtitle"><b>Ouvrir</b><i>✕</i></div><div class="wbody" style="padding:6px">
+    <div>Regarder dans : <span class="cbo" style="width:200px"><b>Vidéos TP</b><i>▼</i></span></div>
+    <div style="background:#fff;border:1px inset #B5B1A8;height:110px;margin:6px 0;padding:3px;columns:2">
+     ${['chute_libre.avi','lancer.avi','pendule.avi','rebond.avi','skieur.avi','toboggan.avi'].map((f,k)=>`<div id="xf${k}" class="${V.fsel&&k===1?'fs':''}${hx('xf'+k)}">🎞 ${f}</div>`).join('')}</div>
+    <div class="rowf"><span class="l" style="width:92px">Nom du fichier :</span><span class="fld" style="width:200px">${V.fsel?'lancer.avi':''}</span><span class="btn${hx('xfOuv')}" id="xfOuv">Ouvrir</span></div>
+    <div class="rowf"><span class="l" style="width:92px">Type :</span><span class="cbo" style="width:200px"><b>Fichiers AVI (*.avi)</b><i>▼</i></span><span class="btn">Annuler</span></div></div></div>`;
+  if(V.edlg)h+=`<div class="win" style="left:330px;top:150px;width:270px;height:100px;z-index:8"><div class="wtitle"><b>Etalon</b><i>✕</i></div><div class="wbody" style="padding:8px">
+    <div>Longueur de l'étalon (en m) :</div><div style="margin-top:6px"><span class="fld" id="xeVal" style="width:120px">${V.eval}<span class="caret"></span></span>
+    <span class="btn${hx('xeOK')}" id="xeOK" style="margin-left:10px">OK</span></div></div></div>`;
+  return h}
+function htmlV(){const X=S.X;
+  const P={tab:X.tab,A:X.A,curves:X.curves,sca:X.calc&&X.calc.done?['m = 0,6']:[],fct:X.gview==='yx'||X.gview==='mod'?'y = fct(x)':X.gview?'… = fct(Temps)':''};
+  let h=panneau(P),o;
+  const V=X.gview;
+  if(V==='yt')o={x0:0,x1:1,dx:0.1,y0:-0.2,y1:1.2,dy:0.2,xl:'Temps en s',yl:[{t:'y en m',c:'#D21F1F'}],S:[{x:T5,y:YB,c:'#D21F1F',m:'pts'}]};
+  else if(V==='yx'||V==='mod'){o={x0:0,x1:4,dx:0.5,y0:-0.2,y1:1.2,dy:0.2,xl:'x en m',yl:[{t:'y en m',c:'#D21F1F'}],S:[{x:XB,y:YB,c:'#D21F1F',m:'pts'}]};
+    if(V==='mod'&&X.m.done){const xs=[],ys=[];for(let k=0;k<=60;k++){const x=k*3.6/60;xs.push(x);ys.push(FT5.a*x*x+FT5.b*x+FT5.c)}
+      o.S.push({x:xs,y:ys,c:'#B0308E',m:'line'});o.yl.push({t:'Modèle de y en m',c:'#B0308E'})}}
+  else if(V==='v')o={x0:0,x1:1,dx:0.1,y0:-5,y1:6,dy:1,xl:'Temps en s',yl:[{t:'vx en m/s',c:'#1F4FD8'},{t:'vy en m/s',c:'#1E8449'}],
+    S:[{x:T5,y:VXB,c:'#1F4FD8',m:'both'},{x:T5,y:VYB,c:'#1E8449',m:'both'}]};
+  else if(V==='E')o={x0:0,x1:1,dx:0.1,y0:0,y1:14,dy:2,xl:'Temps en s',yl:[{t:'Ec en J',c:'#1F4FD8'},{t:'Epp en J',c:'#1E8449'},{t:'Em en J',c:'#B0308E'}],
+    S:[{x:T5,y:EC,c:'#1F4FD8',m:'both'},{x:T5,y:EPP,c:'#1E8449',m:'both'},{x:T5,y:EM,c:'#B0308E',m:'both'}]};
+  else o={x0:0,x1:1,dx:0.1,y0:-10,y1:10,dy:2.5,xl:'Temps en s',yl:[]};
+  h+=fenetre(X.win,graphe(o));
+  if(X.V.shown)h+=fenVideo(X.V);
+  if(X.der)h+=boiteDerivee(X.der);
+  if(X.calc&&X.calc.open)h+=fenCalc(X.calc,{l:330,t:200});
+  if(X.mopen)h+=fenModel(X.m,{l:330,t:160,src:'y fct(x)',y:'y',eq1:'y=a2*x^2+a1*x+a0',eq2:`y=${f3(FT5.a)}*x^2+${f3(FT5.b)}*x${FT5.c<0?'':'+'}${f3(FT5.c)}`,
+    coefs:[['a2',f3(FT5.a)],['a1',f3(FT5.b)],['a0',f3(FT5.c)]],ec:f3(FT5.ec),r:FT5.r.toFixed(4).replace('.',',')});
+  return h}
+
+/* ---------------- TUTORIEL 2 : capteur de pression, pas à pas ---------------- */
+const P2=()=>({t:2,tab:'courbes',capt:false,A:{ea:{},mode:'Temporelle',pts:'200',te:'100 µs',tot:'20 ms',per:false,nper:'3',perm:false,src:'Aucune',sens:'',seuil:'',pre:'0 %'},
+  pap:{abs:'clavier',nom:'',unite:''},nomP:'Pression',pts:0,dlg:false,val:'',sty:'trait',mopen:false,m:{drop:false,mod:null,done:false,dev:false,pop:false}});
+function htmlP2(){const X=S.X,np=X.nomP;
+  const curves=X.pts?[{k:'P',n:np,c:'#D4238A',sub:'fct('+(X.pap.nom||'h')+')'}]:[];
+  let h=panneau({tab:X.tab,A:X.A,capt:X.capt,pap:X.pap,curves,fct:X.pts?np+' = fct('+X.pap.nom+')':''});
+  const xs=PHH.slice(0,X.pts),ys=PPR.slice(0,X.pts);
+  const o={x0:0,x1:0.35,dx:0.05,y0:1000,y1:1050,dy:10,fy:v=>String(Math.round(v)),fx:v=>v.toFixed(2).replace('.',','),
+    xl:(X.pap.nom||'h')+' en m',yl:X.A.ea[1]?[{t:np+' en hPa',c:'#D4238A'}]:[],S:[{x:xs,y:ys,c:'#D4238A',m:X.sty==='croix'?'pts':'both'}]};
+  if(X.m.done){o.S.push({x:[0,0.34],y:[PFT.b,PFT.b+PFT.a*0.34],c:'#1F4E79',m:'line',w:1.4});o.yl.push({t:'Modèle de '+np+' en hPa',c:'#1F4E79'})}
+  h+=fenetre('Fenêtre n°1',graphe(o));
+  if(X.dlg){const nx=Math.min(X.pts,PHH.length-1);
+    h+=`<div class="win" style="left:420px;top:150px;width:290px;height:200px;z-index:8"><div class="wtitle"><b>Acquisition pas à pas</b><i id="pFin" class="${S.hot==='pFin'?'hot':''}">✕</i></div><div class="wbody" style="padding:8px">
+     <div class="rowf"><span class="l" style="width:62px">${np}</span><span class="fld gr" style="width:110px">${fr(PPR[nx]+0.07*hash(X.pts*7+3),2)}</span><span class="fld gr" style="min-width:40px">hPa</span></div>
+     <div class="rowf"><span class="l" style="width:62px">${X.pap.nom}</span><span class="fld${hx('pVal')}" id="pVal" style="width:110px">${X.val}<span class="caret"></span></span><span class="cbo" style="width:52px"><b>m</b><i>▼</i></span></div>
+     <div style="border-top:1px solid #A3A7BA;margin:8px 0 6px"></div>
+     <div class="rowf"><span class="fld gr" style="width:190px">Point Acquis : ${X.pts}</span></div>
+     <div class="rowf"><span class="box on"></span>Trier par abscisse croissante</div>
+     <div class="rowf"><span class="box"></span>TRMS</div>
+     <div style="text-align:center;margin-top:6px"><span class="btn${hx('pAcq')}" id="pAcq" style="padding:3px 24px">Acquérir</span></div></div></div>`}
+  if(X.mopen)h+=fenModel(X.m,{l:330,t:120,src:np+' fct(h)',y:np,eq1:np+'=a*h+b',eq2:`${np}=${fr(PFT.a,3)}*h+${fr(PFT.b,3)}`,
+    coefs:[['a',fr(PFT.a,3)],['b',fr(PFT.b,3)]],ec:fr(0.4,3),r:PFT.r.toFixed(4).replace('.',',')});
+  return h}
+/* ---------------- TUTORIEL 6 : générateur intégré (sorties SA1 / SA2, Sysam-SP5) ---------------- */
+const FORMES=['Sinus','Rampe','Triangle','Constante','Carré','Courbes'];
+function zoneEmission(E){
+  let h=`<div class="band">Emission</div>
+   <div class="etabs"><span class="${E.sortie===1?'on':''}${hx('eS1')}" id="eS1">Sortie 1</span><span class="${E.sortie===2?'on':''}${hx('eS2')}" id="eS2">Sortie 2</span>
+    <span class="egbf${E.act?'':' lgr'}"><span class="box${E.gbf?' on':''}${hx('eGbf')}" id="eGbf"></span>Mode GBF</span></span></div>
+   <div class="ebody"><div class="eact"><span class="box${E.act?' on':''}${hx('eAct')}" id="eAct"></span>Sortie active</div>`;
+  if(E.act){
+    h+=`<div class="eformes">${FORMES.map((f,k)=>`<span class="btn${E.forme===f?' on':''}${hx('eF'+k)}" id="eF${k}">${f}${k===5?' <i>▾</i>':''}</span>`).join('')}</div>
+     <div class="eparams"><div><span>Minimum</span><span class="spin${hx('eMin')}" id="eMin">${E.min}<i>⬍</i></span></div>
+      <div><span>Maximum</span><span class="spin${hx('eMax')}" id="eMax">${E.max}<i>⬍</i></span></div>
+      <div><span>Fréquence</span><span class="spin${hx('eFreq')}" id="eFreq">${E.f}<i>⬍</i></span></div></div>
+     ${E.gbf?'':`<div class="eparams" style="margin-top:4px"><div><span>Nb. périodes</span><span class="spin">${E.np||'3'}<i>⬍</i></span></div></div>
+      <div style="margin-top:8px;text-align:center"><span class="btn${hx('eEmet')}" id="eEmet" style="padding:3px 26px">Emettre</span></div>`}`}
+  return h+'</div>'}
+function centrale(X){/* face avant de la Sysam-SP5, simplifiée */
+  const bor=(x,y,c,l)=>`<circle cx="${x}" cy="${y}" r="9" fill="${c}" stroke="#222" stroke-width="1.5"/><circle cx="${x}" cy="${y}" r="3.5" fill="#111"/><text x="${x}" y="${y+23}" font-size="11" text-anchor="middle" fill="#1D2233">${l}</text>`;
+  let s=`<svg width="420" height="190" font-family="Segoe UI,Arial" style="display:block;background:#E9EAEF">
+   <rect x="10" y="10" width="400" height="170" rx="10" fill="#2E3A55"/><rect x="18" y="18" width="384" height="154" rx="6" fill="#DADCE5"/>
+   <text x="30" y="40" font-size="13" font-weight="700" fill="#2E3A55">Sysam-SP5</text>
+   <text x="80" y="74" font-size="10.5" fill="#555">Entrées analogiques</text><text x="300" y="74" font-size="10.5" fill="#555">Sorties</text>
+   ${bor(60,92,'#E4E4E4','EA0')}${bor(105,92,'#E4E4E4','EA1')}${bor(150,92,'#E4E4E4','EA2')}${bor(195,92,'#E4E4E4','EA3')}
+   ${bor(290,92,'#F2C14E','SA1')}${bor(340,92,'#F2C14E','SA2')}${bor(105,148,'#1A1A1A','Masse')}${bor(315,148,'#1A1A1A','Masse')}`;
+  if(X.cabl>=1)s+=`<path d="M290 92 C 290 -20, 60 -20, 60 92" fill="none" stroke="#D21F1F" stroke-width="3.5" stroke-linecap="round"/>`;
+  if(X.cabl>=2)s+=`<path d="M315 148 C 315 178, 105 178, 105 148" fill="none" stroke="#1A1A1A" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="${X.cabl>=2?'0':'4 4'}"/>`;
+  return s+'</svg>'}
+const E0=()=>({t:6,tab:'courbes',A:{ea:{},mode:'Temporelle',pts:'200',te:'100 µs',tot:'20 ms',per:false,nper:'3',perm:false,src:'Aucune',sens:'',seuil:'',pre:'0 %'},
+  E:{sortie:1,act:false,gbf:false,forme:null,min:'',max:'',f:'',np:'3'},cabl:0,photo:false,acq:false,com:[]});
+function htmlE(){const X=S.X;
+  const P={tab:X.tab,A:X.A,E:X.E,curves:X.acq?[{k:'EA0',n:'EA0',c:'#D21F1F',sub:'fct(Temps)'}]:[],fct:X.acq?'EA0 = fct(Temps)':''};
+  let h=panneau(P);
+  const o={x0:0,x1:3,dx:0.5,y0:-10,y1:10,dy:2.5,xl:'Temps en ms',yl:X.acq?[{t:'EA0 en V',c:'#D21F1F'}]:[],com:X.com};
+  if(X.acq){const xs=[],ys=[];for(let i=0;i<600;i++){const t=i*3/599;xs.push(t);ys.push(5*Math.sin(2*Math.PI*t)+0.03*hash(i+911))}o.S=[{x:xs,y:ys,c:'#D21F1F',m:'line',w:1.4}]}
+  h+=fenetre('Fenêtre n°1',graphe(o));
+  if(X.photo)h+=`<div class="win" style="left:330px;top:120px;width:430px;height:222px;z-index:7"><div class="wtitle"><b>Câblage — face avant de la centrale</b><i>✕</i></div><div class="wbody" style="padding:4px">${centrale(X)}</div></div>`;
+  return h}
+
+function renderX(){const el=$('scX'),t=S.X&&S.X.t;el.style.display=t?'block':'none';if(!t){el.innerHTML='';return}
+  el.innerHTML=t===2?htmlP2():t===3?htmlG():t===4?htmlT():t===6?htmlE():htmlV()}
+
 /* ---------- étapes ---------- */
-const acqReady=()=>{S.pane='acq';S.acq={ea:{EA1:true,EA2:true},add:true,perm:false,mode:'Temporelle',pts:'1000',te:'50 µs',tot:'50 ms',src:'EA2',sens:'Montant',seuil:'1 V',pre:'5 %'}};
+const acqReady=()=>{S.pane='acq';S.acq={ea:{EA1:true,EA2:true},add:true,perm:false,mode:'Temporelle',pts:'1000',te:'50 µs',tot:'50 ms',src:'EA1',sens:'Montant',seuil:'1 V',pre:'5 %'}};
 const acquired=()=>{acqReady();S.pane='courbes';S.win.graph=true;
-  S.curves=[{k:'EA0',n:'EA1'},{k:'EA1',n:'EA2'}];S.series=['EA0','EA1']};
+  S.curves=[{k:'EA0',n:'EA0'},{k:'EA1',n:'EA1'}];S.series=['EA0','EA1']};
 const renamed=()=>{acquired();S.curves=[{k:'EA0',n:'uC'},{k:'EA1',n:'uG'}]};
 const withI=()=>{renamed();S.curves.push({k:'i',n:'i'});S.calc={txt:'R=10E3\ni=(uG-uC)/R',done:true}};
 
 const STEPS=[
 {part:'Acquisition',title:'Choisir les voies d\'acquisition',
- text:`<p>Le circuit est branché sur la carte : la tension aux bornes du condensateur sur la <b>voie 1</b>, celle du générateur sur la <b>voie 2</b>, toutes les masses reliées à celle du boîtier.</p>
-<p>Dans la <b>boîte de paramétrage</b>, ouvrir l'onglet d'acquisition (le bouton à la flèche rouge), puis cliquer sur les voies utilisées : elles deviennent vertes. Les voies sélectionnées sont automatiquement placées en ordonnée du graphique, sous les noms EA1, EA2…</p>
-<div class="tip"><b>Deux onglets</b>Le premier bouton donne la liste des courbes, le second le paramétrage de l'acquisition. Les cases entre les deux colonnes de voies servent au mode différentiel, qui associe deux entrées pour mesurer une tension sans masse commune.</div>`,
+ text:`<p>Le circuit est branché sur la carte : la tension aux bornes du condensateur sur l'entrée <b>EA0</b>, celle du générateur sur l'entrée <b>EA1</b>, toutes les masses reliées à celle du boîtier.</p>
+<p>Dans la <b>boîte de paramétrage</b>, ouvrir l'onglet d'acquisition (le bouton à la flèche rouge), puis cliquer sur les boutons des entrées utilisées : ils restent enfoncés. Les voies sélectionnées sont automatiquement placées en ordonnée du graphique, sous les noms EA0, EA1…</p>
+<div class="tip"><b>Trois boutons</b>Le premier donne la liste des courbes, le second le paramétrage de l'acquisition, le troisième (coche verte) le paramétrage de l'émission, pour les sorties SA1 et SA2 de la Sysam-SP5 (tutoriel 6). Les cases entre les deux colonnes de voies servent au mode différentiel, qui associe deux entrées pour mesurer une tension sans masse commune.</div>`,
  async run(c){S.pane='courbes';render();await c.wait(300);
   await c.press('tabAcq',300);S.pane='acq';render();await c.wait(400);
   await c.press('ea1');S.acq.ea.EA1=true;render();await c.press('ea2');S.acq.ea.EA2=true;render();await c.wait(400);
-  await c.note({x:266,y:150},'Voies actives : elles deviennent<br>les courbes EA1 et EA2',2400);}},
+  await c.note({x:266,y:150},'Entrées actives : elles deviennent<br>les courbes EA0 et EA1',2400);}},
 {part:'Acquisition',title:'Régler le mode temporel',
  text:`<p>Trois modes sont proposés : <b>Temporelle</b> (le cas courant), <b>Pas à pas</b>, où l'abscisse est saisie au clavier — pratique pour un dosage — et <b>XY</b>, qui trace une voie en fonction d'une autre.</p>
 <p>En mode temporel, on saisit le <b>nombre de points</b> et la <b>durée totale</b> ; le logiciel en déduit la période d'échantillonnage Te = 50 ms ÷ 1000 = 50 µs. Une case <b>Périodique</b> permet d'indiquer un nombre de périodes à enregistrer, et le <b>mode permanent</b> relance l'acquisition en boucle, ce qui transforme le logiciel en oscilloscope.</p>
@@ -890,12 +1429,15 @@ const STEPS=[
   await c.click(c.center('bPerm'));S.acq.perm=false;render();
   await c.note({x:266,y:330},'…puis on le décoche pour<br>l\'enregistrement',2000);}},
 {part:'Acquisition',title:'Déclencher, puis lancer avec F10',
- text:`<p>Sans déclenchement, l'enregistrement démarre au moment du clic et le début du phénomène est perdu. On règle donc <b>Source</b> = EA2, <b>Sens</b> = Montant, <b>Seuil</b> = 1 V : après appui sur <kbd>F10</kbd>, l'acquisition attend que EA2 franchisse 1 V en montant, c'est-à-dire le début de la charge.</p>
+ text:`<p>Sans déclenchement, l'enregistrement démarre au moment du clic et le début du phénomène est perdu. On règle donc <b>Source</b> = EA1, <b>Sens</b> = Montant, <b>Seuil</b> = 1 V : après appui sur <kbd>F10</kbd>, l'acquisition attend que EA1 franchisse 1 V en montant, c'est-à-dire le début de la charge.</p>
+<p>La partie Déclenchement est en bas de la boîte de paramétrage : on <b>replie la section « Entrées Analogiques »</b> par son petit bouton ⌃ pour la voir en entier (un nouveau clic la redéploie).</p>
 <p>Un <b>pré-trigger</b> de quelques pour cent fait conserver le court instant qui précède le déclenchement : on voit ainsi l'état initial, condensateur déchargé.</p>
-<p>Lancer ensuite par <kbd>F10</kbd> (ou menu Exécuter). Le décompte, en haut à droite, affiche la durée restante. Les courbes s'affichent et les variables EA1 et EA2 rejoignent la liste des courbes.</p>
+<p>Lancer ensuite par <kbd>F10</kbd> (ou menu Exécuter). Le décompte, en haut à droite, affiche la durée restante. Les courbes s'affichent et les variables EA0 et EA1 rejoignent la liste des courbes.</p>
 <div class="tip"><b>Si rien ne se passe</b>Le logiciel attend le déclenchement : vérifier que le signal franchit le seuil, ou l'abaisser. <kbd>Échap</kbd> interrompt l'attente.</div>`,
  async run(c){acqReady();S.acq.src='';S.acq.sens='';S.acq.seuil='';S.acq.pre='';render();await c.wait(300);
-  await c.click(c.center('fSrc'));S.acq.src='EA2';render();await c.wait(350);
+  await c.note({x:266,y:420},'Le bas du déclenchement est caché :<br>on replie « Entrées Analogiques »',2000);
+  await c.press('colEA',300);S.acq.col=true;render();await c.wait(400);
+  await c.click(c.center('fSrc'));S.acq.src='EA1';render();await c.wait(350);
   await c.click(c.center('fSens'));S.acq.sens='Montant';render();await c.wait(350);
   await c.click(c.center('fSeuil'));await c.type(v=>S.acq.seuil=v,'1 V',110);
   await c.click(c.center('fPre'));await c.type(v=>S.acq.pre=v,'5 %',110);
@@ -904,17 +1446,17 @@ const STEPS=[
   acquired();render();await c.wait(900);
   await c.note({x:266,y:370},'Deux courbes enregistrées,<br>affichées en fonction du temps',2400);}},
 {part:'Courbes',title:'Renommer les courbes',
- text:`<p>EA1 et EA2 ne disent rien de la physique. On renomme chaque courbe par un <b>clic droit sur son nom, en haut de l'axe des ordonnées</b>, puis <b>Propriétés</b>. La boîte « Propriétés de EA1 » permet de changer le <b>nom de l'ordonnée</b> (uC, uG, uR…), son unité, le nom et l'unité de l'abscisse, le style de tracé et la couleur. On termine par <b>Valider</b>.</p>
+ text:`<p>EA0 et EA1 ne disent rien de la physique. On renomme chaque courbe par un <b>clic droit sur son nom, en haut de l'axe des ordonnées</b>, puis <b>Propriétés</b>. La boîte « Propriétés de EA0 » permet de changer le <b>nom de l'ordonnée</b> (uC, uG, uR…), son unité, le nom et l'unité de l'abscisse, le style de tracé et la couleur. On termine par <b>Valider</b>.</p>
 <p>Deux autres chemins mènent à la même boîte : un <b>double-clic sur le nom</b> de la courbe dans la liste des courbes, ou un <b>clic droit sur le bouton de la voie</b> dans le paramétrage de l'acquisition, puis « Propriétés de la courbe ».</p>
 <p>Le même menu contextuel propose <b>Retirer</b> pour enlever la courbe du graphe et <b>Passer sur l'autre ordonnée</b>, utile quand deux grandeurs ont des ordres de grandeur très différents.</p>
 <div class="warn"><b>Le faire tout de suite</b>Ces noms servent ensuite dans la feuille de calculs, le tableur et la modélisation : un renommage tardif oblige à reprendre les formules.</div>`,
  async run(c){acquired();render();await c.wait(300);
   await c.ctx('ord',{x:sx(0)+26,y:GW.y+18+3+GP.T-16},'EA0',['cRet','cProp']);
-  S.dlg='courbe';S.dlgOld='EA1';S.dlgKey='EA0';S.dlgBuf='EA1';render();await c.wait(400);
+  S.dlg='courbe';S.dlgOld='EA0';S.dlgKey='EA0';S.dlgBuf='EA0';render();await c.wait(400);
   await c.click(c.center('dcNom'));S.dlgBuf='';render();await c.type(v=>S.dlgBuf=v,'uC',140);
   await c.press('dcOK',300);S.curves[0].n='uC';S.dlg=null;render();await c.wait(500);
   await c.ctx('ord',{x:sx(0)+102,y:GW.y+18+3+GP.T-16},'EA1',['cProp']);
-  S.dlg='courbe';S.dlgOld='EA2';S.dlgKey='EA1';S.dlgBuf='EA2';render();await c.wait(300);
+  S.dlg='courbe';S.dlgOld='EA1';S.dlgKey='EA1';S.dlgBuf='EA1';render();await c.wait(300);
   await c.click(c.center('dcNom'));S.dlgBuf='';render();await c.type(v=>S.dlgBuf=v,'uG',140);
   await c.press('dcOK',300);S.curves[1].n='uG';S.dlg=null;render();await c.wait(400);
   await c.press('tabCourbes',260);S.pane='courbes';render();
@@ -990,8 +1532,8 @@ const STEPS=[
   await c.drag('cv_EA0',c.center('drop'),'uC');S.model.drop='uC fct(Temps)';render();await c.wait(700);
   await c.note({x:170,y:300},'La courbe source est déposée',1800);}},
 {part:'Modélisation',title:'Choisir le modèle et calculer',
- text:`<p>Le bouton <b>Choisir un modèle</b>, actif seulement une fois la courbe déposée, ouvre la fenêtre « Sélectionner un modèle… » : Constante, <b>Linéaire</b> (y = ax, la droite qui passe par l'origine), <b>Affine</b> (y = ax + b), Polynôme, Parabole, Puissance, Exponentiel en X, Exponentiel en 1/X, puis, en faisant défiler, les exponentielles croissante et décroissante, la sinusoïde…</p>
-<p>Le choix se fait d'après la <b>physique</b>, pas d'après l'allure la plus flatteuse : proportionnalité → Linéaire ; charge ou décharge d'un condensateur → exponentielle ; régime sinusoïdal → sinusoïde. Ici uC = E(1 − e<sup>−t/τ</sup>) : <b>Exponentiel croissant</b>.</p>
+ text:`<p>Le bouton <b>Choisir un modèle</b>, actif seulement une fois la courbe déposée, ouvre la fenêtre « Sélectionner un modèle… » : Constante, <b>Linéaire</b> (y = ax, la droite qui passe par l'origine), <b>Affine</b> (y = ax + b), Polynôme, Parabole, Puissance, Exponentiel en X, Exponentiel en 1/X, puis, en faisant défiler, <b>A*(1-exp(-(X-Δ)/τ))+V0</b>, A*exp(-(X-Δ)/τ)+V0, la sinusoïde…</p>
+<p>Le choix se fait d'après la <b>physique</b>, pas d'après l'allure la plus flatteuse : proportionnalité → Linéaire ; charge ou décharge d'un condensateur → exponentielle ; régime sinusoïdal → sinusoïde. Ici uC = E(1 − e<sup>−t/τ</sup>) : le modèle <b>A*(1-exp(-(X-Δ)/τ))+V0</b>, où Δ est un éventuel décalage de l'origine des temps et V0 une tension de départ.</p>
 <p>Il reste à <b>délimiter la zone à modéliser</b> : fenêtre de modélisation ouverte, le pointeur devient une <b>cible rouge</b> au-dessus du graphe. Un clic sur le premier point, un clic sur le dernier : la portion retenue passe en surbrillance, encadrée de deux gros points. On exclut ainsi ce qui ne relève pas de la loi étudiée, par exemple l'instant qui précède la fermeture de l'interrupteur.</p>
 <p>Cliquer ensuite sur <b>Calculer le modèle</b>, puis sur <b>&gt;&gt;</b> pour développer la fenêtre et accéder aux coefficients.</p>
 <div class="tip"><b>Si le modèle ne converge pas</b>Déplacer les bornes, puis relancer le calcul.</div>`,
@@ -1022,6 +1564,17 @@ const STEPS=[
   await c.note({x:150,y:300},`A = ${AV} V : la tension finale`,2200);
   await c.move({x:700,y:440});
   await c.note({x:150,y:300},`τ = ${TAUms} ms, à comparer<br>à RC = 10 ms`,2600);}},
+{part:'Modélisation',title:'Annoter le graphe',
+ text:`<p>Pour un compte rendu, on fait figurer le résultat sur le graphe : clic droit sur le graphe, <b>Créer Commentaire</b>. On tape le texte, on choisit le <b>type de fond</b> (ellipse, rectangle…), au besoin la couleur de fond et la police, puis <b>OK</b>. Le commentaire se déplace ensuite à la souris.</p>
+<p>Le même menu propose <b>Créer Flèche</b> et <b>Créer Droite</b> pour désigner un point ou tracer une asymptote, <b>Tangente</b> et <b>Méthode des tangentes</b> — une autre façon de trouver τ — et <b>Copie Graphique</b>, qui place l'image du graphe dans le presse-papier, prête à coller dans un traitement de texte.</p>
+<div class="tip"><b>La courbe modèle reste affichée</b>Une fois la fenêtre de modélisation fermée, « Modèle de uC » reste dans la liste des courbes et sur le graphe.</div>`,
+ async run(c){withI();S.model={drop:'uC fct(Temps)',mod:'Exponentiel croissant',done:true,dev:true,pop:false,scroll:4,zone:{t1:0.001,t2:0.049}};S.win.model=false;render();await c.wait(300);
+  await c.ctx('graph',{x:sx(0.022),y:sy(1.6)},null,['gFle','gDro','gCom']);
+  S.dlg='com';S.com={txt:'',fond:'Ellipse'};render();await c.wait(300);
+  await c.click(c.center('dcmTxt'));await c.type(v=>S.com.txt=v,`τ = ${TAUms} ms`,100);
+  await c.press('dcmFond',260);S.com.fond='Rectangle';render();await c.wait(300);
+  await c.press('dcmOK',260);S.dlg=null;S.com1=[{x:0.03,y:2,t:`τ = ${TAUms} ms`,f:'Rectangle'}];render();await c.wait(400);
+  await c.note({x:300,y:420},'Le résultat figure sur le graphe',2000);}},
 {part:'Bilan',tuto:1,title:'À retenir',
  text:`<ul><li>Boîte de paramétrage : voies EA0, EA1…, mode temporel, nombre de points et durée totale (Te s'en déduit).</li>
 <li>Déclenchement : source, sens, seuil — sinon le début du phénomène est perdu. Lancement par <kbd>F10</kbd>.</li>
@@ -1029,62 +1582,428 @@ const STEPS=[
 <li>Glisser-déposer : depuis la liste des courbes vers le graphe (ordonnée), sous l'axe (abscisse) ou vers une colonne du tableur.</li>
 <li>Feuille de calculs (<kbd>F3</kbd>, exécution par <kbd>F2</kbd>) pour les grandeurs non mesurées ; leurs valeurs ne s'affichent que dans le tableur ou sur un graphe.</li>
 <li>Tableur (<kbd>F11</kbd>) : glisser les courbes vers les colonnes ; Variables ▸ Nouvelle, sélection de la colonne, puis formule commençant par « = » dans la case fx.</li>
-<li>Modélisation : glisser la courbe, choisir le modèle d'après la loi physique, délimiter la zone par deux clics, calculer, développer, puis traduire les coefficients en grandeurs physiques avec leurs unités.</li></ul>`,
- async run(c){S.P.on=false;S.win.model=false;withI();S.win.model=true;S.model={drop:'uC fct(Temps)',mod:'Exponentiel croissant',done:true,dev:true,pop:false,scroll:4,zone:{t1:0.001,t2:0.049}};render();await c.wait(200)}},
+<li>Modélisation : glisser la courbe, choisir le modèle d'après la loi physique, délimiter la zone par deux clics, calculer, développer, puis traduire les coefficients en grandeurs physiques avec leurs unités.</li>
+<li>Clic droit sur le graphe : réticule, tangente, <b>Créer Commentaire</b> pour afficher le résultat, <b>Copie Graphique</b> pour le compte rendu.</li></ul>`,
+ async run(c){S.P.on=false;S.win.model=false;withI();S.model={drop:'uC fct(Temps)',mod:'Exponentiel croissant',done:true,dev:true,pop:false,scroll:4,zone:{t1:0.001,t2:0.049}};S.com1=[{x:0.03,y:2,t:`τ = ${TAUms} ms`,f:'Rectangle'}];render();await c.wait(200)}},
 {part:'Capteur de pression',tuto:2,title:'Brancher le capteur, passer en « Pas à pas »',
- text:`<p>Une situation différente du tutoriel 1 : on mesure une <b>pression</b> au fond d'une éprouvette d'eau, pour plusieurs profondeurs <b>h</b>. Le temps ne joue aucun rôle : c'est l'expérimentateur qui fixe chaque point. On branche le capteur de pression sur l'entrée <b>1</b> : il est reconnu, et la courbe arrive directement en <b>hPa</b>.</p>
-<p>Dans l'onglet d'acquisition, choisir le mode <b>Pas à pas</b>, cocher <b>Entrée clavier</b>, puis donner le <b>nom</b> et l'<b>unité</b> de la grandeur qu'on tapera : ici <b>h</b>, en <b>m</b>. Ce sera l'abscisse du graphique.</p>
-<div class="tip"><b>Pourquoi le pas à pas</b>En mode temporel, le logiciel enregistrerait des centaines de points pendant qu'on déplace la sonde. En pas à pas, un point n'est enregistré qu'au moment où l'on valide la valeur de h : un point par profondeur, et rien entre les deux.</div>`,
- async run(c){S.P.on=true;S.win={graph:false,calc:false,tabl:false,model:false};render();await c.wait(300);
-  await c.press('pEA1',300);S.P.ea=true;render();await c.wait(500);
-  await c.press('pmPasàpas',300);S.P.mode='Pas à pas';render();await c.wait(400);
-  await c.press('pClav',300);S.P.clav=true;render();await c.wait(300);
-  await c.click(c.center('pNom'));await c.type(v=>S.P.nom=v,'h',120);
-  await c.click(c.center('pUnit'));await c.type(v=>S.P.unite=v,'m',120);
-  await c.note({x:40,y:360},'Mode pas à pas + entrée clavier :<br>l\'abscisse sera tapée au clavier',2400);}},
+ text:`<p>Une situation différente du tutoriel 1 : on mesure une <b>pression</b> au fond d'une éprouvette d'eau, pour plusieurs profondeurs <b>h</b>. Le temps ne joue aucun rôle : c'est l'expérimentateur qui fixe chaque point.</p>
+<p>Le capteur de pression est branché sur l'entrée <b>EA0</b> : il est reconnu, le bouton de la voie affiche son nom (<b>Pression</b>) et la mesure arrive directement en <b>hPa</b>. On clique sur ce bouton pour l'activer.</p>
+<p>Dans la partie Acquisition, onglet <b>Pas à pas</b> : laisser <b>Abscisse Clavier</b> cochée (c'est l'expérimentateur qui tape l'abscisse), puis donner son <b>Nom</b> — ici <b>h</b> — et son <b>Unité</b>, choisie dans la liste : <b>Mètre (m)</b>. Ce sera l'abscisse du graphique.</p>
+<div class="tip"><b>Pourquoi le pas à pas</b>En mode temporel, le logiciel enregistrerait des centaines de points pendant qu'on déplace la sonde. En pas à pas, un point n'est enregistré qu'au moment où l'on clique sur Acquérir : un point par profondeur, et rien entre les deux.</div>`,
+ async run(c){S.X=P2();render();await c.wait(300);
+  await c.press('xtA',280);S.X.tab='acq';render();await c.wait(300);
+  S.X.capt=true;render();await c.note({x:262,y:150},'Capteur reconnu : la voie EA0<br>prend le nom « Pression »',2200);
+  await c.press('xea1',280);S.X.A.ea={1:true};render();await c.wait(300);
+  await c.press('xmd1',300);S.X.A.mode='Pas à pas';render();await c.wait(400);
+  await c.press('pAbsClav',280);
+  await c.click(c.center('pNom'));await c.type(v=>S.X.pap.nom=v,'h',130);
+  await c.press('pUnit',300);S.X.pap.unite='Mètre (m)';render();await c.wait(300);
+  await c.note({x:262,y:330},'Abscisse Clavier : h, en mètres,<br>sera tapée au clavier',2400);}},
 {part:'Capteur de pression',tuto:2,title:'Acquérir point par point',
- text:`<p><kbd>F10</kbd> lance l'acquisition, mais rien ne s'enregistre encore. On place la sonde à la première profondeur, on attend que la valeur se stabilise, puis la fenêtre <b>Entrée clavier</b> demande la valeur de <b>h</b> : on la tape, en mètres, avec la virgule, puis <b>OK</b>. Le point apparaît aussitôt.</p>
-<p>On recommence pour chaque profondeur — ici de 0,05 m à 0,30 m — puis on termine par <b>Fin</b> (ou <kbd>Échap</kbd>).</p>
-<div class="warn"><b>L'unité de h</b>On tape h dans l'unité déclarée à l'étape précédente. Si l'on a déclaré « m », on tape 0,05 et non 5 : sinon la pente sera fausse d'un facteur 100.</div>`,
- async run(c){S.P={...S.P,on:true,ea:true,mode:'Pas à pas',clav:true,nom:'h',unite:'m'};render();await c.wait(300);
-  await c.key('F10',700);
-  for(let i=0;i<PHH.length;i++){S.P.dlg=true;S.P.val='';render();await c.wait(250);
-    await c.click(c.center('pVal'));await c.type(v=>S.P.val=v,fr(PHH[i],2),i<2?110:45);
-    await c.press('pOK',i<2?260:120);S.P.dlg=null;S.P.pts=i+1;render();await c.wait(i<2?500:220)}
-  S.P.dlg=true;S.P.val='';render();await c.press('pFin',300);S.P.dlg=null;render();
+ text:`<p><kbd>F10</kbd> lance l'acquisition : la fenêtre <b>Acquisition pas à pas</b> s'ouvre. Elle affiche en direct la <b>pression mesurée</b> (case grisée). On place la sonde à la première profondeur, on attend que la valeur se stabilise, on tape la valeur de <b>h</b>, puis <b>Acquérir</b>. Le compteur « Point Acquis » augmente et le point apparaît sur le graphe.</p>
+<p>On recommence pour chaque profondeur — ici de 0,05 m à 0,30 m — puis on ferme la fenêtre (ou <kbd>Échap</kbd>) pour terminer. La case <b>Trier par abscisse croissante</b> range les points dans l'ordre des h, même si on ne les mesure pas dans l'ordre.</p>
+<div class="warn"><b>L'unité de h</b>On tape h dans l'unité déclarée à l'étape précédente. Si l'on a déclaré le mètre, on tape 0,05 et non 5 : sinon la pente sera fausse d'un facteur 100.</div>`,
+ async run(c){S.X=P2();Object.assign(S.X,{tab:'acq',capt:true});S.X.A.ea={1:true};S.X.A.mode='Pas à pas';S.X.pap={abs:'clavier',nom:'h',unite:'Mètre (m)'};render();await c.wait(300);
+  await c.key('F10',700);S.X.dlg=true;render();await c.wait(400);
+  for(let i=0;i<PHH.length;i++){const slow=i<2;S.X.val='';render();
+    await c.click(c.center('pVal'));await c.type(v=>S.X.val=v,fr(PHH[i],2),slow?110:45);
+    await c.press('pAcq',slow?280:120);S.X.pts=i+1;S.X.val='';render();await c.wait(slow?500:200)}
+  await c.press('pFin',300);S.X.dlg=false;render();
   await c.note({x:330,y:120},'Six points, un par profondeur',2000);}},
-{part:'Capteur de pression',tuto:2,title:'Tracer P = f(h) en points',
- text:`<p>La courbe du capteur est renommée <b>P</b> (clic droit sur son nom, Propriétés), comme à l'étape 4. En pas à pas, les points ne doivent <b>pas</b> être reliés : clic droit sur la courbe, <b>Propriétés</b>, style <b>Points</b> (croix). On voit d'un coup d'œil qu'ils sont alignés.</p>
+{part:'Capteur de pression',tuto:2,title:'Renommer la courbe, tracer en points',
+ text:`<p>Clic droit sur le nom de la courbe, en haut de l'axe des ordonnées, puis <b>Propriétés</b>. On la renomme <b>P</b> ; l'unité (HectoPascal), l'abscisse h et son unité sont déjà renseignées.</p>
+<p>Des mesures indépendantes ne se relient pas : on clique sur le <b>Style</b> et on choisit <b>Croix</b> dans la liste (trait, trait avec rond, croix, point, histogramme…). On voit alors d'un coup d'œil que les points sont alignés.</p>
 <div class="tip"><b>Ce que dit l'allure</b>Des points alignés sur une droite qui ne passe pas par l'origine : P augmente de la même quantité à chaque centimètre de profondeur, en partant de la pression atmosphérique — ce que prévoit P = Patm + ρ g h.</div>`,
- async run(c){S.P={...S.P,on:true,ea:true,mode:'Pas à pas',clav:true,nom:'h',unite:'m',pts:PHH.length};render();await c.wait(300);
-  await c.move({x:320,y:92});await c.type(v=>S.P.nomP=v,'P',160);
-  await c.move({x:520,y:260});S.P.pointsOnly=true;render();await c.wait(400);
-  await c.note({x:380,y:330},'Style « Points » : on ne relie<br>pas des mesures indépendantes',2400);}},
+ async run(c){S.X=P2();Object.assign(S.X,{tab:'acq',capt:true,pts:PHH.length});S.X.A.ea={1:true};S.X.A.mode='Pas à pas';S.X.pap={abs:'clavier',nom:'h',unite:'Mètre (m)'};render();await c.wait(300);
+  const q=relPos($('xg'));
+  await c.ctx('ord',{x:q.l+XG.L+30,y:q.t+XG.T-20},'Pression',['cRet','cProp']);
+  Object.assign(S,{dlg:'courbe',dlgOld:'Pression',dlgKey:'P',dlgBuf:'Pression',dlgUO:'HectoPascal (hPa)',dlgAbs:'h',dlgUA:'Mètre (m)',dlgSty:'trait'});render();await c.wait(400);
+  await c.click(c.center('dcNom'));S.dlgBuf='';render();await c.type(v=>S.dlgBuf=v,'P',150);
+  await c.press('dcStyle',280);S.stylePop=true;render();await c.wait(400);
+  await c.hover('st2',220);await c.hover('st4',380);c.ripple();S.stylePop=false;S.dlgSty='croix';S.hot=null;render();await c.wait(400);
+  await c.press('dcOK',280);S.dlg=null;S.X.nomP='P';S.X.sty='croix';render();await c.wait(400);
+  await c.note({x:420,y:330},'Style « Croix » : on ne relie<br>pas des mesures indépendantes',2400);}},
 {part:'Capteur de pression',tuto:2,title:'Modéliser par une droite',
- text:`<p>Comme à l'étape 10 : <b>Traitements ▸ Modélisation</b>, puis on fait glisser la courbe <b>P fct(h)</b> dans la zone source. Dans la liste des modèles, on choisit <b>Affine</b> (y = a x + b) — et non <b>Linéaire</b> (y = a x), qui imposerait de passer par l'origine alors que P vaut environ 1013 hPa à la surface.</p>
-<p><b>Calculer le modèle</b> : la droite se superpose aux points, et les coefficients s'affichent.</p>`,
- async run(c){S.P={...S.P,on:true,ea:true,mode:'Pas à pas',clav:true,nom:'h',unite:'m',pts:PHH.length,nomP:'P',pointsOnly:true};render();await c.wait(300);
-  await c.press('tMod',300);S.P.m.open=true;render();await c.wait(500);
-  await c.drag('pGraph',c.center('pDrop'),'P fct(h)');S.P.m.drop=true;render();await c.wait(400);
-  await c.press('pChoose',300);S.P.m.mod='Affine';render();await c.wait(500);
-  await c.press('pCalc',300);S.P.m.done=true;render();await c.wait(500);
-  await c.note({x:560,y:420},'Modèle affine : la droite<br>passe par tous les points',2400);}},
+ text:`<p><b>Traitements ▸ Modélisation</b>, puis on fait glisser la courbe <b>P</b> (qui est « fct(h) ») depuis la liste des courbes jusqu'à la zone source. Dans la liste des modèles, on choisit <b>Affine</b> (y = a x + b) — et non <b>Linéaire</b> (y = a x), qui imposerait de passer par l'origine alors que P vaut environ 1013 hPa à la surface.</p>
+<p><b>Calculer le modèle</b>, puis <b>&gt;&gt;</b> : la droite se superpose aux points, et les coefficients s'affichent.</p>`,
+ async run(c){S.X=P2();Object.assign(S.X,{tab:'acq',capt:true,pts:PHH.length,nomP:'P',sty:'croix'});S.X.A.ea={1:true};S.X.A.mode='Pas à pas';S.X.pap={abs:'clavier',nom:'h',unite:'Mètre (m)'};render();await c.wait(300);
+  await c.press('xtC',280);S.X.tab='courbes';render();await c.wait(300);
+  await c.menu('Traitements',['mMod']);S.X.mopen=true;render();await c.wait(400);
+  await c.drag('xcv_P',c.center('xDrop'),'P fct(h)');S.X.m.drop=true;render();await c.wait(400);
+  await c.press('xChoose',260);S.X.m.pop=true;render();await c.wait(400);
+  await c.hover('xmo1',220);await c.hover('xmo2',380);c.ripple();S.X.m.pop=false;S.X.m.mod='Affine';S.hot=null;render();await c.wait(400);
+  await c.press('xCalc',300);S.X.m.done=true;render();await c.wait(500);
+  await c.press('xDev',300);S.X.m.dev=true;render();await c.wait(400);
+  await c.note({x:300,y:420},'Modèle affine : la droite<br>passe par tous les points',2400);}},
 {part:'Capteur de pression',tuto:2,title:'Exploiter la pente',
  text:`<p>Le modèle donne <b>P = a h + b</b> avec, ici, <b>a = ${fr(PFT.a,1)} hPa/m</b> et <b>b = ${fr(PFT.b,1)} hPa</b>, pour un coefficient de corrélation de ${fr(PFT.r,4)}.</p>
 <p>On identifie terme à terme avec <b>P = Patm + ρ g h</b> : l'ordonnée à l'origine <b>b</b> est la pression atmosphérique, et la pente <b>a</b> vaut <b>ρ g</b>. Attention aux unités : a = ${fr(PFT.a,1)} hPa/m = ${fr(PFT.a*100,0)} Pa/m.</p>
 <div class="eq">ρ = a / g = ${fr(PFT.a*100,0)} / 9,81 ≈ ${fr(PFT.a*100/9.81,0)} kg/m³</div>
 <p>On retrouve la masse volumique de l'eau. Avec un autre liquide, la même méthode donne sa masse volumique sans balance ni éprouvette graduée.</p>`,
- async run(c){S.P={...S.P,on:true,ea:true,mode:'Pas à pas',clav:true,nom:'h',unite:'m',pts:PHH.length,nomP:'P',pointsOnly:true,m:{open:true,drop:true,mod:'Affine',done:true}};render();await c.wait(400);
-  await c.move({x:700,y:360});await c.note({x:280,y:120},`pente a = ${fr(PFT.a,1)} hPa/m = ρ g`,2400);
-  await c.move({x:700,y:380});await c.note({x:280,y:120},`ordonnée à l'origine b = ${fr(PFT.b,1)} hPa = Patm`,2400);}},
+ async run(c){S.X=P2();Object.assign(S.X,{tab:'courbes',capt:true,pts:PHH.length,nomP:'P',sty:'croix',mopen:true});S.X.A.ea={1:true};S.X.A.mode='Pas à pas';S.X.pap={abs:'clavier',nom:'h',unite:'Mètre (m)'};
+  S.X.m={drop:true,mod:'Affine',done:true,dev:true,pop:false};render();await c.wait(400);
+  await c.move(c.center('xDev'));await c.note({x:300,y:420},`pente a = ${fr(PFT.a,1)} hPa/m = ρ g`,2400);
+  await c.note({x:300,y:420},`ordonnée à l'origine b = ${fr(PFT.b,1)} hPa = Patm`,2400);}},
 {part:'Bilan',tuto:2,title:'À retenir',
- text:`<ul><li>Quand c'est l'expérimentateur, et non le temps, qui fixe chaque point : mode <b>Pas à pas</b>.</li>
-<li><b>Entrée clavier</b> cochée : on déclare le <b>nom</b> et l'<b>unité</b> de l'abscisse (ici h, en m), et on la tapera dans cette unité.</li>
-<li><kbd>F10</kbd> lance ; à chaque point, attendre que la mesure se stabilise, taper la valeur, <b>OK</b> ; terminer par <b>Fin</b>.</li>
-<li>Courbe en style <b>Points</b> : on ne relie pas des mesures indépendantes.</li>
+ text:`<ul><li>Quand c'est l'expérimentateur, et non le temps, qui fixe chaque point : onglet <b>Pas à pas</b>.</li>
+<li><b>Abscisse Clavier</b> : on déclare le <b>nom</b> et l'<b>unité</b> de l'abscisse (ici h, en mètres), et on la tapera dans cette unité.</li>
+<li><kbd>F10</kbd> ouvre la fenêtre <b>Acquisition pas à pas</b> ; à chaque point, attendre que la mesure se stabilise, taper la valeur, <b>Acquérir</b> ; terminer en fermant la fenêtre.</li>
+<li>Propriétés de la courbe : style <b>Croix</b> — on ne relie pas des mesures indépendantes.</li>
 <li>Modèle <b>Affine</b> (y = a x + b) si la droite ne passe pas par l'origine, <b>Linéaire</b> (y = a x) sinon.</li>
 <li>Traduire les coefficients avec leurs unités : ici a = ρ g (en Pa/m après conversion) et b = pression atmosphérique.</li></ul>`,
- async run(c){S.P={...S.P,on:true,ea:true,mode:'Pas à pas',clav:true,nom:'h',unite:'m',pts:PHH.length,nomP:'P',pointsOnly:true,m:{open:true,drop:true,mod:'Affine',done:true}};render();await c.wait(200)}}
+ async run(c){S.X=P2();Object.assign(S.X,{tab:'courbes',capt:true,pts:PHH.length,nomP:'P',sty:'croix'});S.X.A.ea={1:true};S.X.A.mode='Pas à pas';S.X.pap={abs:'clavier',nom:'h',unite:'Mètre (m)'};
+  S.X.m={drop:true,mod:'Affine',done:true,dev:false,pop:false};render();await c.wait(200)}},
+
+/* ---------------- TUTORIEL 3 : signal périodique ---------------- */
+{part:'Signal périodique',tuto:3,title:'Brancher le GBF, choisir la voie',
+ text:`<p>Un générateur basse fréquence (GBF) délivre une tension sinusoïdale de fréquence inconnue, voisine de 1 kHz. Sa sortie est reliée à l'entrée analogique <b>EA0</b> de la centrale, sa masse à une borne de <b>masse</b> du boîtier.</p>
+<p>Dans la boîte de paramétrage, onglet d'acquisition (le bouton à la flèche rouge), cliquer sur le bouton <b>EA0</b> : il reste enfoncé, et la courbe s'appellera EA0.</p>
+<div class="tip"><b>Les entrées de la centrale</b>Sur la Sysam-SP5, les huit entrées analogiques s'appellent EA0 à EA7 ; on choisit dans le logiciel celle sur laquelle le fil est branché. Les cases entre les deux colonnes servent au mode différentiel.</div>`,
+ async run(c){S.X=G0();S.X.tab='courbes';render();await c.wait(300);
+  await c.press('xtA',300);S.X.tab='acq';render();await c.wait(300);
+  await c.press('xea1',300);S.X.A.ea={1:true};render();await c.wait(300);
+  await c.note({x:262,y:150},'EA0 active : la courbe<br>s\'appellera EA0',2200);}},
+{part:'Signal périodique',tuto:3,title:'Premier essai : trop de périodes',
+ text:`<p>On lance l'acquisition par <kbd>F10</kbd> sans rien toucher : par défaut, <b>200 points</b> sur <b>20 ms</b>, soit une période d'échantillonnage <b>Te = 100 µs</b>.</p>
+<p>Le résultat est inexploitable : 20 ms contiennent une vingtaine de périodes, et chaque période n'est décrite que par 9 ou 10 points. Les sommets sont tronqués, la sinusoïde est méconnaissable.</p>
+<div class="warn"><b>La règle</b>Une durée totale de quelques périodes seulement, et beaucoup de points par période — au moins une vingtaine, idéalement plusieurs centaines.</div>`,
+ async run(c){S.X=G0();S.X.A.ea={1:true};render();await c.wait(300);
+  await c.note({x:262,y:240},'Réglages par défaut :<br>200 points en 20 ms',2000);
+  await c.key('F10',800);S.X.cfg='A';S.X.ph=0.7;render();await c.wait(600);
+  await c.note({x:420,y:110},'Une vingtaine de périodes, à peine<br>10 points chacune : inexploitable',2600);}},
+{part:'Signal périodique',tuto:3,title:'Régler la durée et le nombre de points',
+ text:`<p>Une période dure environ 1 ms : on demande une <b>durée totale de 3 ms</b> (trois périodes) et <b>1000 points</b>. Le logiciel recalcule tout seul <b>Te = 3 ms ÷ 1000 = 3 µs</b> : plus de 300 points par période.</p>
+<p>Nouvelle acquisition par <kbd>F10</kbd> : la sinusoïde est maintenant bien dessinée.</p>
+<div class="tip"><b>Saisir les durées</b>On tape la valeur suivie de son unité : « 3 ms », « 50 µs ». Points, Te et Total sont liés : en changer deux fixe le troisième.</div>`,
+ async run(c){S.X=G0();S.X.A.ea={1:true};S.X.cfg='A';S.X.ph=0.7;render();await c.wait(300);
+  await c.click(c.center('xPts'));await c.type(v=>S.X.A.pts=v,'1000',110);
+  await c.click(c.center('xTot'));await c.type(v=>S.X.A.tot=v,'3 ms',110);
+  S.X.A.te='3 µs';render();
+  await c.note({x:262,y:260},'Te = 3 ms ÷ 1000 = 3 µs',2000);
+  await c.key('F10',800);S.X.cfg='B';S.X.ph=2.1;render();await c.wait(500);
+  await c.note({x:420,y:110},'Trois périodes, bien dessinées',2200);}},
+{part:'Signal périodique',tuto:3,title:'La case « Périodique »',
+ text:`<p>Pour un signal périodique, la case <b>Périodique</b> évite le calcul : on indique seulement le <b>nombre de périodes</b> voulu (ici 3). Le logiciel mesure la période du signal et règle lui-même la durée totale et Te ; ces champs passent en grisé.</p>
+<p>L'enregistrement contient alors exactement trois périodes : pratique pour une mesure de période ou de valeur efficace.</p>`,
+ async run(c){S.X=G0();Object.assign(S.X.A,{ea:{1:true},pts:'1000',tot:'3 ms',te:'3 µs'});S.X.cfg='B';S.X.ph=2.1;render();await c.wait(300);
+  await c.click(c.center('xPer'));S.X.A.per=true;render();await c.wait(300);
+  await c.click(c.center('xNper'));await c.type(v=>S.X.A.nper=v,'3',150);
+  await c.key('F10',800);Object.assign(S.X.A,{tot:'2,857 ms',te:'2,857 µs'});S.X.cfg='P';S.X.ph=4.0;render();await c.wait(400);
+  await c.note({x:262,y:250},'Durée et Te calculées par le logiciel<br>pour exactement 3 périodes',2600);}},
+{part:'Signal périodique',tuto:3,title:'Mode permanent et déclenchement',
+ text:`<p>Cocher <b>Mode permanent</b> puis <kbd>F10</kbd> : l'acquisition se relance en boucle, comme sur un oscilloscope. On peut tourner les boutons du GBF et voir l'effet en direct. Mais l'image <b>saute</b> : chaque acquisition démarre à un instant quelconque de la période.</p>
+<p>Pour la stabiliser, on replie la section « Entrées Analogiques » (bouton ⌃) afin de voir toute la partie <b>Déclenchement</b>, puis on règle : <b>Source</b> = EA0, <b>Sens</b> = Montant, <b>Seuil</b> = 0 V. Chaque acquisition attend que EA0 passe par 0 V en montant : la courbe démarre toujours au même point, elle ne bouge plus.</p>
+<p><kbd>Échap</kbd> arrête le mode permanent. On décoche la case avant l'enregistrement définitif.</p>
+<div class="tip"><b>Si rien ne s'affiche</b>Le seuil n'est jamais franchi (seuil plus grand que l'amplitude, mauvaise source) : l'acquisition attend indéfiniment. <kbd>Échap</kbd>, puis corriger le seuil.</div>`,
+ async run(c){S.X=G0();Object.assign(S.X.A,{ea:{1:true},pts:'1000',tot:'2,857 ms',te:'2,857 µs',per:true,nper:'3'});S.X.cfg='P';S.X.ph=4.0;render();await c.wait(300);
+  await c.press('xcolEA',300);S.X.A.col=true;render();await c.wait(300);
+  await c.click(c.center('xPerm'));S.X.A.perm=true;render();await c.key('F10',600);
+  const ph=[0.6,2.9,5.1,1.7,3.8,0.2];
+  for(let k=0;k<ph.length;k++){S.X.ph=ph[k];render();await c.wait(330)}
+  await c.note({x:420,y:110},'Sans déclenchement, l\'image saute :<br>chaque acquisition part au hasard',2400);
+  await c.click(c.center('xSrc'));S.X.A.src='EA0';render();await c.wait(250);
+  await c.click(c.center('xSens'));S.X.A.sens='Montant';render();await c.wait(250);
+  await c.click(c.center('xSeuil'));await c.type(v=>S.X.A.seuil=v,'0 V',120);
+  S.X.A.pre='0 %';render();
+  for(let k=0;k<5;k++){S.X.ph=0;render();await c.wait(330)}
+  await c.note({x:420,y:110},'Déclenchement sur EA0, en montant, à 0 V :<br>la courbe ne bouge plus',2600);
+  await c.key('Échap',800);await c.click(c.center('xPerm'));S.X.A.perm=false;render();
+  await c.note({x:262,y:330},'Mode permanent arrêté puis décoché',1800);}},
+{part:'Signal périodique',tuto:3,title:'Mesurer la période au réticule',
+ text:`<p>Clic droit sur le graphe, <b>Réticule</b> : deux lignes suivent la souris et affichent les coordonnées du point.</p>
+<p>Le déclenchement fait commencer la courbe à un passage par 0 V en montant. Trois périodes plus loin, la courbe repasse par 0 V en montant : le réticule y lit <b>t = 2,857 ms</b>.</p>
+<div class="eq">T = 2,857 ms ÷ 3 = 0,952 ms&nbsp;&nbsp;;&nbsp;&nbsp;f = 1 / T ≈ 1 050 Hz</div>
+<p>Mesurer sur plusieurs périodes divise l'erreur de lecture par le nombre de périodes.</p>
+<div class="tip"><b>Mesures automatiques</b>Le menu Outils affiche directement la période, la fréquence, la valeur moyenne et la valeur efficace d'une courbe périodique.</div>`,
+ async run(c){S.X=G0();Object.assign(S.X.A,{ea:{1:true},pts:'1000',tot:'2,857 ms',te:'2,857 µs',per:true,nper:'3',src:'EA0',sens:'Montant',seuil:'0 V',pre:'0 %'});
+  S.X.cfg='P';S.X.ph=0;S.X.tab='courbes';render();await c.wait(300);
+  await c.ctx('graph',gp(1.2,-6),null,['gRet']);
+  cur.classList.add('cross');
+  await c.move(gp(0.4,3.2));S.X.retic=0.4;render();await c.wait(300);
+  await c.move(gp(0,0),800);S.X.retic=0;render();await c.wait(500);
+  await c.note({x:420,y:110},'t = 0 : passage par 0 V en montant',2000);
+  await c.move(gp(2.857,0),1200);S.X.retic=2.857;render();await c.wait(500);
+  await c.note({x:420,y:110},'Trois périodes plus loin : t = 2,857 ms<br>T = 0,952 ms, f ≈ 1 050 Hz',3000);
+  cur.classList.remove('cross');}},
+{part:'Signal périodique',tuto:3,title:'Annoter le graphe',
+ text:`<p>Clic droit sur le graphe, <b>Créer Commentaire</b>. On tape le texte, on choisit le <b>type de fond</b> (ellipse, rectangle…), au besoin la couleur et la police, puis <b>OK</b>. Le commentaire se déplace ensuite à la souris.</p>
+<p>Pour le compte rendu : clic droit, <b>Copie Graphique</b>, puis coller dans le traitement de texte.</p>`,
+ async run(c){S.X=G0();Object.assign(S.X.A,{ea:{1:true},pts:'1000',tot:'2,857 ms',te:'2,857 µs',per:true,nper:'3',src:'EA0',sens:'Montant',seuil:'0 V',pre:'0 %'});
+  S.X.cfg='P';S.X.ph=0;S.X.tab='courbes';render();await c.wait(300);
+  await c.ctx('graph',gp(1.45,-7.5),null,['gCom']);
+  S.dlg='com';S.com={txt:'',fond:'Ellipse'};render();await c.wait(300);
+  await c.click(c.center('dcmTxt'));await c.type(v=>S.com.txt=v,'T = 0,952 ms',90);
+  await c.press('dcmFond',260);S.com.fond='Rectangle';render();await c.wait(300);
+  await c.press('dcmOK',260);S.dlg=null;S.X.com=[{x:1.45,y:-7.5,t:'T = 0,952 ms',f:'Rectangle'}];render();await c.wait(400);
+  await c.note({x:420,y:110},'Le résultat figure sur le graphe',2000);}},
+{part:'Bilan',tuto:3,title:'À retenir',
+ text:`<ul><li>Durée totale = <b>quelques périodes</b> ; nombre de points assez grand pour avoir <b>beaucoup de points par période</b> (Te ≪ T).</li>
+<li>Case <b>Périodique</b> : on donne le nombre de périodes, le logiciel règle durée et Te.</li>
+<li><b>Mode permanent</b> : acquisition en boucle, comme un oscilloscope ; arrêt par <kbd>Échap</kbd>, à décocher avant l'enregistrement.</li>
+<li><b>Déclenchement</b> : source, sens, seuil — l'image se stabilise ; un seuil jamais atteint bloque l'acquisition.</li>
+<li>Période au <b>réticule</b>, mesurée sur plusieurs périodes ; ou menu Outils, mesures automatiques.</li>
+<li>Clic droit sur le graphe : <b>Créer Commentaire</b>, <b>Copie Graphique</b>.</li></ul>`,
+ async run(c){S.X=G0();Object.assign(S.X.A,{ea:{1:true},pts:'1000',tot:'2,857 ms',te:'2,857 µs',per:true,nper:'3',src:'EA0',sens:'Montant',seuil:'0 V',pre:'0 %'});
+  S.X.cfg='P';S.X.ph=0;S.X.com=[{x:1.45,y:-7.5,t:'T = 0,952 ms',f:'Rectangle'}];render();await c.wait(200)}},
+
+/* ---------------- TUTORIEL 4 : tableau saisi à la main ---------------- */
+{part:'Tableau de mesures',tuto:4,title:'Ouvrir le tableur, créer les variables',
+ text:`<p>Pas de capteur ici : on a relevé au manomètre la pression <b>P</b> d'un gaz enfermé dans une seringue, pour plusieurs volumes <b>V</b>. On veut tracer et modéliser ces mesures.</p>
+<p>Ouvrir le <b>Tableur</b> (bouton de la barre d'outils, <kbd>F11</kbd> ou Traitements ▸ Tableur). Puis, dans son menu, <b>Variables ▸ Nouvelle</b> : la boîte « Propriétés de Var » demande le <b>nom</b> et l'<b>unité</b>. On crée ainsi <b>V</b> (en mL), puis <b>P</b> (en hPa).</p>
+<div class="tip"><b>Des noms courts</b>Une lettre, sans espace ni accent : ces noms servent ensuite dans les formules.</div>`,
+ async run(c){S.X=T4();render();await c.wait(300);
+  await c.press('tTab',300);S.X.view='tabl';render();await c.wait(400);
+  for(const [n,u] of [['V','mL'],['P','hPa']]){
+    await c.click(c.center('xtmVariables'));S.X.menu='Variables';render();await c.wait(350);
+    await c.hover('xvNouv',300);c.ripple();S.X.menu=null;S.hot=null;S.dlg='var';S.dlgBuf='';S.dlgUnit='';render();await c.wait(350);
+    await c.type(v=>S.dlgBuf=v,n,150);S.dlgUnit=u;render();await c.wait(300);
+    await c.press('dvOK',260);S.dlg=null;S.X.cols.push({n,u,v:[]});render();await c.wait(350)}
+  await c.note({x:300,y:420},'Deux colonnes vides : V en mL, P en hPa',2200);}},
+{part:'Tableau de mesures',tuto:4,title:'Saisir les mesures',
+ text:`<p>Cliquer dans la première cellule de la colonne V, taper la valeur, puis <kbd>Entrée</kbd> : le curseur descend d'une ligne. On remplit ainsi toute la colonne V, puis la colonne P.</p>
+<div class="warn"><b>Une valeur par cellule, sans unité</b>L'unité est déjà déclarée pour toute la colonne. La virgule décimale est acceptée ; pour une puissance de dix, <code>E</code> : <code>2,5E-3</code>.</div>`,
+ async run(c){S.X=T4();S.X.view='tabl';S.X.cols=[{n:'V',u:'mL',v:[]},{n:'P',u:'hPa',v:[]}];render();await c.wait(300);
+  for(let k=0;k<2;k++){const data=k?PV:VV;
+    await c.click(c.center('xc'+k+'_0'));S.X.cell={c:k,r:0};render();
+    for(let r=0;r<data.length;r++){const slow=r<2;S.X.cell={c:k,r};S.X.buf='';render();
+      await c.type(v=>S.X.buf=v,String(data[r]),slow?120:30);
+      if(slow)await c.key('⏎ Entrée',450);else await c.wait(80);
+      S.X.cols[k].v[r]=data[r];S.X.buf='';S.X.cell={c:k,r:r+1};render()}
+    await c.wait(200)}
+  S.X.cell=null;render();
+  await c.note({x:300,y:420},'Sept mesures dans chaque colonne',2000);}},
+{part:'Tableau de mesures',tuto:4,title:'Tracer P = f(V)',
+ text:`<p>On revient à la fenêtre graphique (onglet <b>Fenêtre n°1</b>, en bas de l'écran) et on affiche la <b>liste des courbes</b> (premier bouton de la boîte de paramètres) : V et P y figurent.</p>
+<p><b>Glisser P</b> sur le graphe : P passe en ordonnée. <b>Glisser V sous l'axe des abscisses</b> : V passe en abscisse, et la liste indique « P = fct(V) ». Des mesures indépendantes se tracent en <b>points</b>, sans les relier (clic droit sur la courbe, Propriétés, style).</p>
+<div class="tip"><b>Ce que dit l'allure</b>P diminue quand V augmente, mais pas en ligne droite : ce n'est pas une fonction affine de V. On peut penser à une proportionnalité inverse.</div>`,
+ async run(c){S.X=T4();S.X.view='tabl';S.X.cols=[{n:'V',u:'mL',v:VV.slice()},{n:'P',u:'hPa',v:PV.slice()}];render();await c.wait(300);
+  await c.click(c.center('wtabF1'));S.X.view='graph';render();await c.wait(300);
+  await c.press('xtC',280);render();await c.wait(300);
+  await c.drag('xcv_P',gp(35,1500),'P');S.X.gy='P';render();await c.wait(400);
+  await c.drag('xcv_V',{x:gp(35,0).x,y:gp(35,0).y+24},'V');S.X.gx='V';render();await c.wait(500);
+  await c.note({x:440,y:110},'P = f(V) : une courbe, pas une droite',2400);}},
+{part:'Tableau de mesures',tuto:4,title:'Linéariser : calculer 1/V',
+ text:`<p>Si P est inversement proportionnelle à V, alors P est proportionnelle à 1/V. On crée donc une nouvelle variable : retour au <b>Tableur</b>, <b>Variables ▸ Nouvelle</b>, nom <b>invV</b>.</p>
+<p>On <b>sélectionne sa colonne</b> en cliquant sur son nom, puis on tape la formule dans la case <b>fx</b> et on valide par <kbd>Entrée</kbd> :</p>
+<div class="eq">=1/V</div>
+<div class="warn"><b>Toute formule commence par « = »</b>Sans lui, le tableur prend la saisie pour du texte.</div>`,
+ async run(c){S.X=T4();S.X.cols=[{n:'V',u:'mL',v:VV.slice()},{n:'P',u:'hPa',v:PV.slice()}];S.X.gx='V';S.X.gy='P';render();await c.wait(300);
+  await c.click(c.center('wtabTab'));S.X.view='tabl';render();await c.wait(300);
+  await c.click(c.center('xtmVariables'));S.X.menu='Variables';render();await c.wait(300);
+  await c.hover('xvNouv',300);c.ripple();S.X.menu=null;S.hot=null;S.dlg='var';S.dlgBuf='';S.dlgUnit='';render();await c.wait(300);
+  await c.type(v=>S.dlgBuf=v,'invV',130);await c.press('dvOK',260);S.dlg=null;S.X.cols.push({n:'invV',u:'',v:[]});render();await c.wait(300);
+  await c.click(c.center('xcol_2'));S.X.sel='invV';render();await c.wait(300);
+  await c.click(c.center('xFx'));S.X.fxEdit=true;render();await c.type(v=>S.X.fx=v,'=1/V',140);
+  await c.key('⏎ Entrée',600);S.X.fxEdit=false;S.X.cols[2].v=IV.slice();render();await c.wait(400);
+  await c.note({x:300,y:420},'invV calculée pour toutes les lignes',2200);}},
+{part:'Tableau de mesures',tuto:4,title:'Tracer P = f(1/V)',
+ text:`<p>Dans la fenêtre graphique, on <b>glisse invV sous l'axe des abscisses</b> : il remplace V. Les points s'alignent sur une <b>droite qui passe par l'origine</b> : P est proportionnelle à 1/V.</p>
+<p>Les valeurs de invV sont petites ; le logiciel l'indique par le facteur <b>x10<sup>−3</sup></b> sous l'axe.</p>`,
+ async run(c){S.X=T4();S.X.cols=[{n:'V',u:'mL',v:VV.slice()},{n:'P',u:'hPa',v:PV.slice()},{n:'invV',u:'',v:IV.slice()}];S.X.gx='V';S.X.gy='P';S.X.view='tabl';S.X.fx='=1/V';render();await c.wait(300);
+  await c.click(c.center('wtabF1'));S.X.view='graph';render();await c.wait(300);
+  await c.drag('xcv_invV',{x:gp(35,0).x,y:gp(35,0).y+24},'invV');S.X.gx='invV';render();await c.wait(500);
+  await c.note({x:440,y:110},'Points alignés sur une droite<br>passant par l\'origine',2400);}},
+{part:'Tableau de mesures',tuto:4,title:'Modéliser par une fonction linéaire',
+ text:`<p><b>Traitements ▸ Modélisation</b>, glisser la courbe <b>P</b> (qui est « fct(invV) ») dans la zone source, <b>Choisir un modèle</b> : <b>Linéaire</b> (y = a x), puisque la droite passe par l'origine. <b>Calculer le modèle</b>, puis <b>&gt;&gt;</b> pour lire les coefficients.</p>
+<div class="eq">P = a × (1/V)&nbsp;&nbsp;avec&nbsp;&nbsp;a = ${frn(A4)} hPa·mL</div>
+<p>Autrement dit <b>P × V = constante</b> : c'est la loi de Mariotte, à température constante. Coefficient de corrélation : ${FT4.r.toFixed(4).replace('.',',')}.</p>`,
+ async run(c){S.X=T4();S.X.cols=[{n:'V',u:'mL',v:VV.slice()},{n:'P',u:'hPa',v:PV.slice()},{n:'invV',u:'',v:IV.slice()}];S.X.gx='invV';S.X.gy='P';render();await c.wait(300);
+  await c.menu('Traitements',['mMod']);S.X.mopen=true;render();await c.wait(400);
+  await c.drag('xcv_P',c.center('xDrop'),'P fct(invV)');S.X.m.drop=true;render();await c.wait(400);
+  await c.press('xChoose',260);S.X.m.pop=true;render();await c.wait(400);
+  await c.hover('xmo2',220);await c.hover('xmo1',380);c.ripple();S.X.m.pop=false;S.X.m.mod='Linéaire';S.hot=null;render();await c.wait(400);
+  await c.press('xCalc',300);S.X.m.done=true;render();await c.wait(600);
+  await c.press('xDev',300);S.X.m.dev=true;render();await c.wait(500);
+  await c.note({x:300,y:90},`a = ${frn(A4)} hPa·mL :<br>P × V est constant`,2600);}},
+{part:'Tableau de mesures',tuto:4,title:'Afficher l\'équation sur le graphe',
+ text:`<p>Comme dans le tutoriel 3 : clic droit sur le graphe, <b>Créer Commentaire</b>, on tape l'équation du modèle, type de fond, <b>OK</b>.</p>
+<p>Le bouton <b>Copier le résultat vers le presse-papier</b> de la modélisation copie l'équation et les coefficients, prêts à coller dans un compte rendu.</p>`,
+ async run(c){S.X=T4();S.X.cols=[{n:'V',u:'mL',v:VV.slice()},{n:'P',u:'hPa',v:PV.slice()},{n:'invV',u:'',v:IV.slice()}];S.X.gx='invV';S.X.gy='P';
+  S.X.m={drop:true,mod:'Linéaire',done:true,dev:false,pop:false};render();await c.wait(300);
+  await c.ctx('graph',gp(0.012,2000),null,['gCom']);
+  S.dlg='com';S.com={txt:'',fond:'Ellipse'};render();await c.wait(300);
+  await c.click(c.center('dcmTxt'));await c.type(v=>S.com.txt=v,`P = ${frn(A4)} / V`,80);
+  await c.press('dcmOK',260);S.dlg=null;S.X.com=[{x:0.012,y:2100,t:`P = ${frn(A4)} / V`,f:'Ellipse'}];render();await c.wait(400);
+  await c.note({x:440,y:110},'L\'équation figure sur le graphe',2000);}},
+{part:'Bilan',tuto:4,title:'À retenir',
+ text:`<ul><li>Sans capteur : <b>Tableur</b>, <b>Variables ▸ Nouvelle</b> (nom et unité), puis une valeur par cellule, <kbd>Entrée</kbd> pour descendre.</li>
+<li>Tracer : glisser la grandeur <b>sur le graphe</b> (ordonnée), l'autre <b>sous l'axe des abscisses</b> (abscisse). Mesures indépendantes en <b>points</b>.</li>
+<li>Une courbe qui n'est pas une droite : <b>linéariser</b> en créant une variable calculée (ici <code>=1/V</code>), colonne sélectionnée, formule commençant par « = ».</li>
+<li>Droite passant par l'origine : modèle <b>Linéaire</b> ; sinon <b>Affine</b>.</li>
+<li>Traduire le coefficient avec son unité, puis l'afficher par un <b>commentaire</b>.</li></ul>`,
+ async run(c){S.X=T4();S.X.cols=[{n:'V',u:'mL',v:VV.slice()},{n:'P',u:'hPa',v:PV.slice()},{n:'invV',u:'',v:IV.slice()}];S.X.gx='invV';S.X.gy='P';
+  S.X.m={drop:true,mod:'Linéaire',done:true,dev:false,pop:false};S.X.com=[{x:0.012,y:2100,t:`P = ${frn(A4)} / V`,f:'Ellipse'}];render();await c.wait(200)}},
+
+/* ---------------- TUTORIEL 5 : pointage vidéo ---------------- */
+{part:'Pointage vidéo',tuto:5,title:'Ouvrir le module vidéo et le film',
+ text:`<p>Un ballon a été filmé pendant un lancer, à 25 images par seconde. Le film, au format <b>AVI</b>, s'ouvre <b>depuis le module vidéo</b> de LatisPro, et non par le menu Fichier du logiciel.</p>
+<p>Cliquer sur l'icône <b>AVI</b> de la barre d'outils : la fenêtre « Séquence vidéo » s'ouvre, vide. Cliquer sur <b>Fichiers</b>, choisir le film, <b>Ouvrir</b> : la première image s'affiche.</p>
+<div class="warn"><b>Le format</b>LatisPro ne lit que des AVI non compressés ou dans un codec reconnu. Un film de téléphone (MP4) doit être converti avant. Pendant le tournage : caméra fixe, perpendiculaire au plan du mouvement, et un objet de longueur connue dans ce plan.</div>`,
+ async run(c){S.X=X5();render();await c.wait(300);
+  await c.press('tAvi',300);S.X.V.shown=true;render();await c.wait(400);
+  await c.press('xvFich',280);S.X.V.dlg=true;render();await c.wait(400);
+  await c.press('xf1',260);S.X.V.fsel=true;render();await c.wait(300);
+  await c.press('xfOuv',260);S.X.V.dlg=false;S.X.V.file=true;render();await c.wait(400);
+  await c.note({x:170,y:470},'Image 1 sur 25 : le ballon vient<br>de quitter la main',2200);}},
+{part:'Pointage vidéo',tuto:5,title:'Origine, étalon et sens des axes',
+ text:`<p><b>Sélection de l'origine</b>, puis un clic sur l'image : ici sur le ballon, au moment du lâcher. Le repère apparaît en rouge.</p>
+<p><b>Sélection de l'étalon</b> : un clic à une extrémité de l'objet de référence, un clic à l'autre (ici une règle d'un mètre, posée dans le plan du mouvement), puis on tape sa <b>longueur réelle en mètres</b>. C'est elle qui convertit les pixels en mètres.</p>
+<p><b>Sens des axes</b> : x vers la droite, y vers le haut (premier choix), le plus souvent.</p>
+<div class="warn"><b>L'étalon d'abord</b>Une erreur d'étalon fausse toutes les positions, donc les vitesses et les énergies, dans la même proportion.</div>`,
+ async run(c){S.X=X5();Object.assign(S.X.V,{shown:true,file:true});render();await c.wait(300);
+  await c.press('xvOrig',280);S.X.V.mode='origine';render();
+  const vp=(x,y)=>{const q=relPos($('xvid')),p=vpx(x,y);return{x:q.l+p.x,y:q.t+p.y}};
+  cur.classList.add('target');await c.click(vp(0,0));S.X.V.orig=true;S.X.V.mode=null;render();cur.classList.remove('target');await c.wait(400);
+  await c.press('xvEtal',280);S.X.V.mode='etalon';render();cur.classList.add('target');
+  await c.click(vp(-0.95,-0.9));S.X.V.etal=1;render();await c.wait(300);
+  await c.click(vp(-0.95,0.1));S.X.V.etal=2;S.X.V.mode=null;S.X.V.edlg=true;render();cur.classList.remove('target');await c.wait(300);
+  await c.click(c.center('xeVal'));await c.type(v=>S.X.V.eval=v,'1',150);
+  await c.press('xeOK',260);S.X.V.edlg=false;render();
+  await c.note({x:170,y:470},'Repère en rouge, étalon d\'1 m en bleu',2200);}},
+{part:'Pointage vidéo',tuto:5,title:'Pointer le ballon image par image',
+ text:`<p><b>Sélection manuelle des points</b> : on clique sur le centre du ballon ; le point est enregistré et le film <b>avance d'une image</b>. On recommence jusqu'à la dernière image utile, puis <b>Terminer la sélection manuelle</b>.</p>
+<p>La fenêtre <b>Zoom</b> grossit la zone autour du pointeur : on vise le centre de l'objet, toujours le même repère.</p>
+<div class="tip"><b>Sélection automatique ?</b>Elle ne fonctionne que sur un fond parfaitement uniforme, ce qui est rarement le cas : le pointage manuel reste la règle.</div>`,
+ async run(c){S.X=X5();Object.assign(S.X.V,{shown:true,file:true,orig:true,etal:2});render();await c.wait(300);
+  await c.press('xvMan',280);S.X.V.mode='manuel';render();cur.classList.add('target');
+  const vp=(x,y)=>{const q=relPos($('xvid')),p=vpx(x,y);return{x:q.l+p.x,y:q.t+p.y}};
+  for(let i=0;i<N5;i++){const slow=i<3;await c.move(vp(XB[i],YB[i]),slow?650:180);c.ripple();await c.wait(slow?250:40);
+    S.X.V.pts=i+1;S.X.V.img=i+1;render();if(slow)await c.wait(250)}
+  cur.classList.remove('target');
+  await c.press('xvMan',300);S.X.V.mode=null;render();
+  await c.note({x:170,y:470},'23 positions, une par image (Δt = 40 ms)',2400);}},
+{part:'Pointage vidéo',tuto:5,title:'Transférer vers les courbes, renommer',
+ text:`<p><b>Transférer vers les courbes</b>, puis fermer la fenêtre vidéo. Dans la liste des courbes apparaissent <b>Mouvement X</b> et <b>Mouvement Y</b>, en fonction du temps.</p>
+<p>On les renomme <b>x</b> et <b>y</b> par un <b>double-clic</b> sur leur nom (boîte Propriétés) : des noms courts, qui serviront dans les calculs.</p>`,
+ async run(c){S.X=X5();Object.assign(S.X.V,{shown:true,file:true,orig:true,etal:2,pts:N5,img:N5});render();await c.wait(300);
+  await c.press('xvTransf',300);S.X.V.shown=false;S.X.tab='courbes';
+  S.X.curves=[{k:'mx',n:'Mouvement X',c:'#1F4FD8',sub:'fct(Temps)'},{k:'my',n:'Mouvement Y',c:'#D21F1F',sub:'fct(Temps)'}];render();await c.wait(500);
+  await c.move(c.center('xcv_mx'));c.badge('Double-clic');c.ripple();await c.wait(300);c.unbadge();
+  S.dlg='courbe';S.dlgOld='Mouvement X';S.dlgKey='EA0';S.dlgBuf='Mouvement X';S.dlgUO='Mètre (m)';render();await c.wait(300);
+  await c.click(c.center('dcNom'));S.dlgBuf='';render();await c.type(v=>S.dlgBuf=v,'x',150);
+  await c.press('dcOK',260);S.dlg=null;S.X.curves[0].n='x';render();await c.wait(300);
+  S.X.curves[1].n='y';render();
+  await c.note({x:16,y:300},'x et y, en mètres,<br>fonctions du temps',2200);}},
+{part:'Pointage vidéo',tuto:5,title:'Tracer la trajectoire y = f(x)',
+ text:`<p>On glisse <b>y</b> sur le graphe : on obtient y en fonction du temps. Puis on glisse <b>x sous l'axe des abscisses</b> : le graphe devient <b>y = f(x)</b>, c'est-à-dire la <b>trajectoire</b> du ballon.</p>
+<div class="tip"><b>Trois graphes différents</b>x(t) et y(t) sont les équations horaires ; y(x) est la trajectoire. Ici, une parabole.</div>`,
+ async run(c){S.X=X5();S.X.tab='courbes';S.X.curves=[{k:'mx',n:'x',c:'#1F4FD8',sub:'fct(Temps)'},{k:'my',n:'y',c:'#D21F1F',sub:'fct(Temps)'}];render();await c.wait(300);
+  await c.drag('xcv_my',gp(0.5,4),'y');S.X.gview='yt';render();await c.wait(600);
+  await c.note({x:440,y:110},'y en fonction du temps',1800);
+  await c.drag('xcv_mx',{x:gp(0.5,-0.2).x,y:gp(0.5,-0.2).y+24},'x');S.X.gview='yx';S.X.curves[1].sub='fct(x)';render();await c.wait(500);
+  await c.note({x:440,y:110},'y = f(x) : la trajectoire, une parabole',2400);}},
+{part:'Pointage vidéo',tuto:5,title:'La vitesse par dérivation',
+ text:`<p><b>Traitements ▸ Calculs spécifiques ▸ Dérivée</b>. On glisse la courbe <b>x</b> dans la zone « Courbe », puis <b>Calculer</b> : la courbe « Dérivée de x » rejoint la liste. On la renomme <b>vx</b>. Même chose avec y pour obtenir <b>vy</b>.</p>
+<p>Sur un nouveau graphe : <b>vx</b> est à peu près constante (≈ ${frn(Math.round(VXM*100)/100)} m/s) ; <b>vy</b> décroît linéairement, avec une pente voisine de −9,8 m/s² : c'est l'accélération de la pesanteur.</p>
+<div class="warn"><b>La dérivée amplifie les erreurs</b>Un pointage approximatif donne des vitesses en dents de scie : soigner le pointage, toujours sur le même point de l'objet.</div>`,
+ async run(c){S.X=X5();S.X.tab='courbes';S.X.curves=[{k:'mx',n:'x',c:'#1F4FD8',sub:'fct(Temps)'},{k:'my',n:'y',c:'#D21F1F',sub:'fct(x)'}];S.X.gview='yx';render();await c.wait(300);
+  for(const [k,n,col] of [['mx','x','#5B6CC9'],['my','y','#1E8449']]){
+    await c.menu('Traitements',['mCS','mDer']);S.X.der={src:null};render();await c.wait(350);
+    await c.drag('xcv_'+k,c.center('xDerSrc'),n);S.X.der.src=n;render();await c.wait(300);
+    await c.press('xDerOK',280);S.X.der=null;S.X.curves.push({k:'v'+n,n:'v'+n,c:col,sub:'fct(Temps)'});render();await c.wait(400)}
+  S.X.win='Fenêtre n°2';S.X.gview='v';render();await c.wait(400);
+  await c.note({x:440,y:110},`vx ≈ ${frn(Math.round(VXM*100)/100)} m/s, constante ;<br>vy décroît : pente ≈ −9,8 m/s²`,2800);}},
+{part:'Pointage vidéo',tuto:5,title:'Feuille de calcul : vitesse et énergies',
+ text:`<p><b>Traitements ▸ Feuille de calculs</b> (<kbd>F3</kbd>) ; une ligne par calcul, exécution par <kbd>F2</kbd> :</p>
+<div class="eq" style="text-align:left;font-family:Consolas,monospace;font-size:.92rem">m=0.6<br>v=Sqrt(vx^2+vy^2)<br>Ec=0.5*m*v^2<br>Epp=m*9.81*y<br>Em=Ec+Epp</div>
+<p>Les dérivées s'obtiennent aussi directement : <code>vx=Deriv(x;Temps)</code>. Sur le graphe, Ec diminue pendant la montée, Epp augmente, et <b>Em reste à peu près constante</b> : les frottements de l'air sont négligeables.</p>
+<div class="warn"><b>Pas de « ² »</b>Écrire <code>v^2</code> ou <code>v*v</code> ; le point décimal, pas la virgule, et toujours le <code>*</code>.</div>`,
+ async run(c){S.X=X5();S.X.tab='courbes';S.X.curves=[{k:'mx',n:'x',c:'#1F4FD8',sub:'fct(Temps)'},{k:'my',n:'y',c:'#D21F1F',sub:'fct(x)'},{k:'vx',n:'vx',c:'#5B6CC9',sub:'fct(Temps)'},{k:'vy',n:'vy',c:'#1E8449',sub:'fct(Temps)'}];
+  S.X.win='Fenêtre n°2';S.X.gview='v';render();await c.wait(300);
+  await c.key('F3',600);S.X.calc={open:true,txt:'',done:false,res:'m = 0,6\n[23]\n[23]\n[23]\n[23]'};render();await c.wait(300);
+  await c.click(c.center('xCode'));await c.type(v=>S.X.calc.txt=v,'m=0.6\nv=Sqrt(vx^2+vy^2)\nEc=0.5*m*v^2\nEpp=m*9.81*y\nEm=Ec+Epp',45);
+  await c.key('F2',800);S.X.calc.done=true;
+  S.X.curves.push({k:'v',n:'v',c:'#7D3C98',sub:'fct(Temps)'},{k:'Ec',n:'Ec',c:'#1F4FD8',sub:'fct(Temps)'},{k:'Epp',n:'Epp',c:'#1E8449',sub:'fct(Temps)'},{k:'Em',n:'Em',c:'#B0308E',sub:'fct(Temps)'});render();await c.wait(500);
+  await c.note({x:600,y:430},'Colonne de droite : la constante m,<br>et [23] valeurs par grandeur',2200);
+  S.X.calc.open=false;S.X.win='Fenêtre n°3';S.X.gview='E';render();await c.wait(400);
+  await c.note({x:440,y:110},'Ec baisse, Epp monte,<br>Em reste à peu près constante',2600);}},
+{part:'Pointage vidéo',tuto:5,title:'Modéliser la trajectoire',
+ text:`<p><b>Traitements ▸ Modélisation</b>, glisser la courbe <b>y</b> (fct(x)) dans la zone source, modèle <b>Parabole</b> : y = a2·x² + a1·x + a0.</p>
+<div class="eq">a2 = ${f3(FT5.a)} m⁻¹&nbsp;;&nbsp;a1 = ${f3(FT5.b)}&nbsp;;&nbsp;a0 = ${f3(FT5.c)} m</div>
+<p>La théorie (deuxième loi de Newton) donne y = −g/(2 v<sub>x</sub>²)·x² + (v<sub>y0</sub>/v<sub>x</sub>)·x. On en tire <b>g = −2 a2 v<sub>x</sub>² ≈ ${frn(Math.round(-2*FT5.a*VXM*VXM*100)/100)} m/s²</b> et tan α = a1, soit <b>α ≈ ${Math.round(Math.atan(FT5.b)*180/Math.PI)}°</b> : le modèle est validé.</p>`,
+ async run(c){S.X=X5();S.X.tab='courbes';S.X.curves=[{k:'mx',n:'x',c:'#1F4FD8',sub:'fct(Temps)'},{k:'my',n:'y',c:'#D21F1F',sub:'fct(x)'},{k:'vx',n:'vx',c:'#5B6CC9',sub:'fct(Temps)'},{k:'vy',n:'vy',c:'#1E8449',sub:'fct(Temps)'}];
+  S.X.gview='mod';render();await c.wait(300);
+  await c.menu('Traitements',['mMod']);S.X.mopen=true;render();await c.wait(400);
+  await c.drag('xcv_my',c.center('xDrop'),'y fct(x)');S.X.m.drop=true;render();await c.wait(300);
+  await c.press('xChoose',260);S.X.m.pop=true;render();await c.wait(400);
+  await c.hover('xmo3',200);await c.hover('xmo4',380);c.ripple();S.X.m.pop=false;S.X.m.mod='Parabole';S.hot=null;render();await c.wait(400);
+  await c.press('xCalc',300);S.X.m.done=true;render();await c.wait(500);
+  await c.press('xDev',300);S.X.m.dev=true;render();await c.wait(500);
+  await c.note({x:500,y:96},`a2 = ${f3(FT5.a)} m⁻¹ → g ≈ ${frn(Math.round(-2*FT5.a*VXM*VXM*100)/100)} m/s²`,2800);}},
+{part:'Bilan',tuto:5,title:'À retenir',
+ text:`<ul><li>Film en <b>AVI</b>, ouvert depuis le <b>module vidéo</b> (icône AVI, puis Fichiers).</li>
+<li>Dans l'ordre : <b>origine</b>, <b>étalon</b> (deux clics + longueur réelle en m), <b>sens des axes</b>.</li>
+<li><b>Sélection manuelle des points</b> : un clic par image, toujours au même endroit de l'objet ; puis <b>Terminer</b> et <b>Transférer vers les courbes</b>.</li>
+<li>Mouvement X et Mouvement Y renommés x et y ; trajectoire : y glissé sur le graphe, x <b>sous l'axe des abscisses</b>.</li>
+<li>Vitesses : <b>Calculs spécifiques ▸ Dérivée</b>, ou <code>Deriv(x;Temps)</code> dans la feuille de calcul ; énergies dans la feuille de calcul.</li>
+<li>Modèle <b>Parabole</b> pour la trajectoire, puis comparaison des coefficients à la théorie.</li></ul>`,
+ async run(c){S.X=X5();S.X.tab='courbes';S.X.curves=[{k:'mx',n:'x',c:'#1F4FD8',sub:'fct(Temps)'},{k:'my',n:'y',c:'#D21F1F',sub:'fct(x)'}];
+  S.X.gview='mod';S.X.m={drop:true,mod:'Parabole',done:true,dev:false,pop:false};render();await c.wait(200)}}
+,
+/* ---------------- TUTORIEL 6 : générateur intégré SA1 ---------------- */
+{part:'Générateur intégré',tuto:6,title:'Ouvrir le paramétrage de l\'émission',
+ text:`<p>La centrale <b>Sysam-SP5</b> possède deux <b>sorties analogiques</b>, <b>SA1</b> et <b>SA2</b>, qui fonctionnent comme deux générateurs de tension (GBF) indépendants, avec une masse commune. On n'a donc pas besoin de GBF séparé.</p>
+<p>Dans la boîte de paramètres, le <b>troisième bouton</b> (la coche verte) ouvre le <b>paramétrage de l'émission</b> : un onglet par sortie (<b>Sortie 1</b> pour SA1, <b>Sortie 2</b> pour SA2) et la case <b>Mode GBF</b>.</p>
+<p>On coche <b>Sortie active</b> : les réglages de la sortie apparaissent.</p>
+<div class="warn"><b>Selon la centrale</b>Au lycée Pablo Neruda, la Sysam-SP5 a ces sorties. La <b>Sysam-Campus</b> du lycée Rostand n'en a pas : on y branche un GBF séparé sur une entrée, comme dans le tutoriel 3.</div>`,
+ async run(c){S.X=E0();render();await c.wait(300);
+  await c.press('xtE',300);S.X.tab='emi';render();await c.wait(400);
+  await c.note({x:262,y:200},'Paramétrage de l\'émission :<br>Sortie 1 = SA1, Sortie 2 = SA2',2200);
+  await c.press('eAct',280);S.X.E.act=true;render();await c.wait(400);
+  await c.note({x:262,y:330},'Sortie active : les réglages<br>du générateur apparaissent',2200);}},
+{part:'Générateur intégré',tuto:6,title:'Choisir la forme, l\'amplitude et la fréquence',
+ text:`<p>On choisit la <b>forme d'onde</b> : Sinus, Rampe, Triangle, Constante, Carré — ou <b>Courbes</b>, qui émet une courbe du travail en cours (créée au tableur ou à la feuille de calcul, par exemple).</p>
+<p>On règle ensuite la tension <b>Minimum</b> et la tension <b>Maximum</b>, puis la <b>Fréquence</b> en hertz. Pour une sinusoïde de 5 V d'amplitude centrée sur zéro, à 1 kHz : Minimum −5,00, Maximum 5,00, Fréquence 1000.</p>
+<p>Enfin on coche <b>Mode GBF</b> : la tension est alors émise <b>en permanence</b> sur SA1, comme avec un GBF, indépendamment de l'acquisition.</p>
+<div class="tip"><b>Minimum et maximum, pas amplitude</b>Amplitude = (Maximum − Minimum) / 2 et valeur moyenne = (Maximum + Minimum) / 2. Un signal de 0 à 5 V (Minimum 0, Maximum 5) a donc une amplitude de 2,5 V et une valeur moyenne de 2,5 V.</div>`,
+ async run(c){S.X=E0();S.X.tab='emi';S.X.E.act=true;render();await c.wait(300);
+  await c.press('eF0',300);S.X.E.forme='Sinus';render();await c.wait(300);
+  await c.click(c.center('eMin'));await c.type(v=>S.X.E.min=v,'-5,00',100);
+  await c.click(c.center('eMax'));await c.type(v=>S.X.E.max=v,'5,00',100);
+  await c.click(c.center('eFreq'));await c.type(v=>S.X.E.f=v,'1000',100);
+  await c.note({x:262,y:380},'Sinus de −5 V à +5 V, à 1000 Hz',2000);
+  await c.press('eGbf',300);S.X.E.gbf=true;render();await c.wait(300);
+  await c.note({x:262,y:160},'Mode GBF : émission permanente,<br>comme un générateur',2200);}},
+{part:'Générateur intégré',tuto:6,title:'Câbler la sortie',
+ text:`<p>La tension est disponible entre la borne <b>SA1</b> et la <b>masse</b> de la centrale. On l'envoie dans le circuit étudié — ici, pour la visualiser, directement sur l'entrée <b>EA0</b>.</p>
+<p>Un fil de SA1 vers EA0 suffit pour le signal ; la masse du circuit est reliée à une borne de masse de la centrale (toutes les masses sont communes).</p>
+<div class="warn"><b>Ne pas court-circuiter la sortie</b>Ne jamais relier SA1 directement à la masse, ni l'utiliser pour alimenter un moteur ou une lampe : la sortie ne délivre qu'un faible courant.</div>`,
+ async run(c){S.X=E0();S.X.tab='emi';Object.assign(S.X.E,{act:true,gbf:true,forme:'Sinus',min:'-5,00',max:'5,00',f:'1000'});render();await c.wait(300);
+  S.X.photo=true;render();await c.wait(500);
+  await c.note({x:330,y:440},'Face avant : entrées EA0… EA3,<br>sorties SA1 et SA2',1800);
+  S.X.cabl=1;render();await c.note({x:330,y:440},'Fil rouge : SA1 → EA0',1800);
+  S.X.cabl=2;render();await c.note({x:330,y:440},'Fil noir : masse du circuit',1800);}},
+{part:'Générateur intégré',tuto:6,title:'Visualiser le signal émis',
+ text:`<p>On revient au paramétrage de l'acquisition (bouton à la flèche rouge) et on règle l'acquisition comme pour tout signal périodique (tutoriel 3) : <b>EA0</b> active, <b>1000 points</b> sur <b>3 ms</b> (trois périodes), déclenchement sur <b>EA0</b>, <b>montant</b>, <b>0 V</b>. Puis <kbd>F10</kbd>.</p>
+<p>On retrouve la sinusoïde demandée : 5 V d'amplitude, période 1 ms.</p>
+<div class="tip"><b>Émission synchronisée</b>Si <b>Mode GBF</b> n'est pas coché, la sortie n'émet que <b>pendant l'acquisition</b> : l'émission démarre et s'arrête avec elle, sur le nombre de périodes indiqué. Le bouton <b>Emettre</b> permet aussi d'émettre seul, sans acquérir.</div>`,
+ async run(c){S.X=E0();S.X.tab='emi';Object.assign(S.X.E,{act:true,gbf:true,forme:'Sinus',min:'-5,00',max:'5,00',f:'1000'});S.X.cabl=2;render();await c.wait(300);
+  await c.press('xtA',300);S.X.tab='acq';render();await c.wait(300);
+  await c.press('xea1',260);S.X.A.ea={1:true};render();
+  await c.click(c.center('xPts'));await c.type(v=>S.X.A.pts=v,'1000',60);
+  await c.click(c.center('xTot'));await c.type(v=>S.X.A.tot=v,'3 ms',60);S.X.A.te='3 µs';render();
+  await c.press('xcolEA',260);S.X.A.col=true;render();await c.wait(200);
+  await c.click(c.center('xSrc'));S.X.A.src='EA0';render();await c.wait(150);
+  await c.click(c.center('xSens'));S.X.A.sens='Montant';render();await c.wait(150);
+  await c.click(c.center('xSeuil'));await c.type(v=>S.X.A.seuil=v,'0 V',90);
+  await c.key('F10',800);S.X.acq=true;S.X.tab='courbes';render();await c.wait(500);
+  await c.note({x:420,y:110},'Sinus de 5 V d\'amplitude à 1 kHz :<br>c\'est bien le signal réglé sur SA1',2600);}},
+{part:'Générateur intégré',tuto:6,title:'Arrêter l\'émission',
+ text:`<p>En Mode GBF, la sortie continue d'émettre après l'acquisition. Pour l'arrêter : retour au paramétrage de l'émission, puis décocher <b>Sortie active</b> (ou décocher Mode GBF).</p>
+<p>À faire avant de modifier le câblage du circuit.</p>`,
+ async run(c){S.X=E0();Object.assign(S.X.E,{act:true,gbf:true,forme:'Sinus',min:'-5,00',max:'5,00',f:'1000'});S.X.cabl=2;S.X.acq=true;S.X.A.ea={1:true};render();await c.wait(300);
+  await c.press('xtE',300);S.X.tab='emi';render();await c.wait(400);
+  await c.press('eAct',300);S.X.E.act=false;S.X.E.gbf=false;render();await c.wait(400);
+  await c.note({x:262,y:200},'Sortie inactive : SA1 n\'émet plus',2000);}},
+{part:'Bilan',tuto:6,title:'À retenir',
+ text:`<ul><li>Sorties <b>SA1</b> et <b>SA2</b> : deux générateurs intégrés à la <b>Sysam-SP5</b> (pas sur la Sysam-Campus : GBF séparé).</li>
+<li>Troisième bouton de la boîte de paramètres (coche verte) : <b>paramétrage de l'émission</b>, un onglet par sortie.</li>
+<li><b>Sortie active</b>, forme d'onde, <b>Minimum</b>, <b>Maximum</b> (en V) et <b>Fréquence</b> (en Hz).</li>
+<li><b>Mode GBF</b> coché : émission permanente ; sinon, émission synchronisée avec l'acquisition (ou bouton Emettre).</li>
+<li>Signal entre SA1 et la masse ; jamais de court-circuit, pas de charge gourmande.</li>
+<li>Pour arrêter : décocher Sortie active.</li></ul>`,
+ async run(c){S.X=E0();S.X.tab='emi';Object.assign(S.X.E,{act:true,gbf:true,forme:'Sinus',min:'-5,00',max:'5,00',f:'1000'});S.X.cabl=2;S.X.acq=true;render();await c.wait(200)}}
+
 ];
 
 /* ---------- navigation ---------- */
@@ -1094,19 +2013,20 @@ function clearFx(){stage.querySelectorAll('.note,.ripple').forEach(n=>n.remove()
 async function go(k){
   k=Math.max(0,Math.min(STEPS.length-1,k));cur_i=k;const tok=++TOKEN;clearFx();S=freshState();showText(k);
   try{
-    for(let i=0;i<k;i++){await STEPS[i].run(mk(tok,false));S.hot=null;S.menu=null;S.ctx=null;S.dlg=null;S.tabl.menu=null;S.model.pop=false}
+    const debut=STEPS.findIndex(s=>TUTO(s)===TUTO(STEPS[k]));
+    for(let i=debut;i<k;i++){await STEPS[i].run(mk(tok,false));S.hot=null;S.menu=null;S.ctx=null;S.dlg=null;S.tabl.menu=null;S.model.pop=false}
     S.win={graph:true,calc:false,tabl:false,model:false};S.retic=null;render();
     await STEPS[k].run(mk(tok,true));
     done.add(k);showList();
     if($('auto').checked&&k<STEPS.length-1){await mk(tok,true).wait(2200);go(k+1)}
   }catch(e){if(e!==CANCEL)console.error(e)}
 }
-const TUTO=s=>s.tuto===2?2:1;
-const NOMTUTO={1:'Tutoriel 1 — Acquisition temporelle : la charge d\'un condensateur',2:'Tutoriel 2 — Mesure point par point : le capteur de pression'};
+const TUTO=s=>s.tuto||1;
+const NOMTUTO={1:'Tutoriel 1 — Acquisition temporelle : la charge d\'un condensateur',2:'Tutoriel 2 — Mesure point par point : le capteur de pression',3:'Tutoriel 3 — Signal périodique : GBF, déclenchement, mode permanent',4:'Tutoriel 4 — Tableau saisi à la main : tracer et linéariser',5:'Tutoriel 5 — Pointage vidéo : trajectoire, vitesse, énergie',6:'Tutoriel 6 — Générateur intégré : sorties SA1 et SA2 (Sysam-SP5)'};
 function rang(k){const t=TUTO(STEPS[k]);let n=0;for(let i=0;i<=k;i++)if(TUTO(STEPS[i])===t)n++;return n}
 function total(t){return STEPS.filter(s=>TUTO(s)===t).length}
 function showText(k){const s=STEPS[k],parts=['Acquisition','Courbes','Tableur','Modélisation'],t=TUTO(s);
-  $('partLbl').textContent=(t===2?'Tutoriel 2':'Tutoriel 1')+' · '+(s.part==='Bilan'?'Bilan':(t===2?s.part:'Partie '+(parts.indexOf(s.part)+1)+' : '+s.part))+' · étape '+rang(k)+'/'+total(t);
+  $('partLbl').textContent='Tutoriel '+t+' · '+(s.part==='Bilan'?'Bilan':(t!==1?s.part:'Partie '+(parts.indexOf(s.part)+1)+' : '+s.part))+' · étape '+rang(k)+'/'+total(t);
   $('stepTitle').textContent=`${rang(k)}. ${s.title}`;$('stepText').innerHTML=s.text;
   document.querySelectorAll('.tutoBtn').forEach(b=>b.classList.toggle('on',+b.dataset.t===t));
   $('bPrev').disabled=k===0;$('bNext').disabled=k===STEPS.length-1;
