@@ -37,9 +37,11 @@ h2{font-size:1rem;margin:0 0 6px;color:var(--bleu)}
 footer{text-align:center;color:var(--gris);font-size:.8rem;padding:8px}
 .cache{display:none}
 </style>
+<style>/* bouton-retour v1 */#retourSite{display:inline-block;flex:none;align-self:center;margin:0 12px 6px 0;padding:5px 12px;border-radius:16px;background:#1f4e79;color:#fff!important;font:600 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-decoration:none!important;border:1px solid rgba(255,255,255,.55);vertical-align:middle}#retourSite:hover,#retourSite:focus-visible{background:#163a5c;outline:2px solid #e07a1f}@media print{#retourSite{display:none}}</style>
 </head>
 <body>
 <header>
+<a id="retourSite" href="../index.html" target="_top" title="Revenir au site">&larr;&nbsp;Retour</a>
   <h1>Pression au fond d'une éprouvette</h1>
   <p>Un tuyau souple, relié à un capteur de pression absolue, plonge dans une éprouvette de 50 cm. On choisit le liquide, on règle la profondeur h de l'extrémité du tuyau sous la surface libre, on relève la pression.</p>
 </header>
@@ -108,5 +110,6 @@ setInterval(()=>{t0+=0.25;$('lcd').textContent=fr(lecture(),1)},250);
 maj();
 })();
 </script>
+<script>(function(a){if(!a)return;a.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&!/\/animations\//.test(new URL(r).pathname)&&history.length>1){e.preventDefault();history.back();}}catch(x){}});})(document.querySelector('a.retour,#retourSite'));</script>
 </body>
 </html>

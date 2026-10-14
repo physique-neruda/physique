@@ -524,9 +524,11 @@ footer.page{max-width:1320px;margin:0 auto;padding:6px 20px 28px;color:var(--gri
 .spin i{font-style:normal;width:12px;height:16px;line-height:16px;text-align:center;background:linear-gradient(#FFFFFF,#D9DEE8);border-left:1px solid #8B90A8;font-size:9px;color:#2B3A66}
 #scX .spin.hot,#scX .eact .hot,#scX .egbf .hot,#scX .etabs .hot{outline:2px solid #D9701E}
 </style>
+<style>/* bouton-retour v1 */#retourSite{display:inline-block;flex:none;align-self:center;margin:0 12px 6px 0;padding:5px 12px;border-radius:16px;background:#1f4e79;color:#fff!important;font:600 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-decoration:none!important;border:1px solid rgba(255,255,255,.55);vertical-align:middle}#retourSite:hover,#retourSite:focus-visible{background:#163a5c;outline:2px solid #e07a1f}@media print{#retourSite{display:none}}</style>
 </head>
 <body>
 <header class="page">
+<a id="retourSite" href="../index.html" target="_top" title="Revenir au site">&larr;&nbsp;Retour</a>
   <h1>Acquérir, calculer, tracer et modéliser avec LatisPro</h1>
   <p>Six tutoriels indépendants, à choisir ci-dessous : une acquisition en fonction du temps jusqu'à la modélisation, une mesure point par point, l'acquisition d'un signal périodique, un tableau de mesures saisi à la main, le pointage d'une vidéo, et l'utilisation du générateur intégré à la centrale (sorties SA1, SA2). Chaque étape se joue sous vos yeux, le pointeur montre où cliquer.</p>
 </header>
@@ -2045,5 +2047,6 @@ document.addEventListener('keydown',e=>{if(e.target.closest('select,input'))retu
 S=freshState();render();cursorTo(480,300,0);go(0);
 })();
 </script>
+<script>(function(a){if(!a)return;a.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&!/\/animations\//.test(new URL(r).pathname)&&history.length>1){e.preventDefault();history.back();}}catch(x){}});})(document.querySelector('a.retour,#retourSite'));</script>
 </body>
 </html>

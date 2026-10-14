@@ -69,7 +69,7 @@ td.essai{color:var(--bleu);font-weight:600}
 </head>
 <body>
 
-<a class="retour" href="index.html">&larr;&nbsp; Toutes les animations</a>
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
 
 <h1>L'induction</h1>
 <p class="sous">Un aimant devant une bobine reliée à un voltmètre. Vous choisissez la force de
@@ -288,5 +288,6 @@ if(!CanvasRenderingContext2D.prototype.roundRect){
 $("bEloi").disabled=true;
 maj();affTable();
 </script>
+<script>/* bouton-retour v1 */(function(a){if(!a)return;a.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&!/\/animations\//.test(new URL(r).pathname)&&history.length>1){e.preventDefault();history.back();}}catch(x){}});})(document.querySelector('a.retour,#retourSite'));</script>
 </body>
 </html>

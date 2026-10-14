@@ -66,7 +66,7 @@ td.g{text-align:left}
 </head>
 <body>
 
-<a class="retour" href="index.html">&larr;&nbsp; Toutes les animations</a>
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
 
 <h1>L'équation de combustion</h1>
 <p class="sous">On met dans le brûleur des molécules de combustible et des molécules de dioxygène. La flamme réarrange les atomes : elle n'en crée aucun et n'en détruit aucun.</p>
@@ -274,5 +274,6 @@ function affTable(){
 }
 boutons(); maj(); affTable();
 </script>
+<script>/* bouton-retour v1 */(function(a){if(!a)return;a.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&!/\/animations\//.test(new URL(r).pathname)&&history.length>1){e.preventDefault();history.back();}}catch(x){}});})(document.querySelector('a.retour,#retourSite'));</script>
 </body>
 </html>

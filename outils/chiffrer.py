@@ -153,6 +153,7 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
     (r"^e4_sujet$", "Sujet type E4 — sujet"), (r"^e4_dres$", "Sujet type E4 — dossier ressources"),
     (r"^e4_drep$", "Sujet type E4 — documents réponses"),
     (r"^exercices_corrige$", "Exercices — corrigé complet"),
+    (r"^activite_bis_(\d)h_corrige$", "ADM 0 bis (version {0} h) — corrigé"),
     (r"^activite_corrige$", "Activité — corrigé"), (r"^activite2_corrige$", "Activité 2 — corrigé"),
     (r"^activite_anim_corrige$", "Activité sur animation — corrigé"),
     (r"^activite_banc_corrige$", "Activité au banc — corrigé"),
@@ -174,7 +175,7 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
     (r"^a(\d)_(\w+)$", "Activité {0} ({1})"), (r"^corrige_seances$", "Corrigé des séances"),
 ]
 ORDRE_PRIVE = ["prerequis", "cours_a_completer", "cours", "exercices", "bilan", "activite",
-               "activite2", "corrige_seances", "test", "test_corrige", "exercices_corrige", "activite_corrige", "activite2_corrige",
+               "activite2", "corrige_seances", "test", "test_corrige", "exercices_corrige", "activite_bis_3h_corrige", "activite_bis_2h_corrige", "activite_corrige", "activite2_corrige",
                "activite_anim_corrige", "activite_banc_corrige", "ccf", "ccf_corrige",
                "devoir", "devoir_corrige", "devoir2", "devoir2_corrige", "devoir3", "devoir3_corrige", "oral", "oral_corrige", "e4_sujet", "e4_dres",
                "e4_drep", "e4_corrige", "u51", "u51_corrige", "diagnostic_corrige"]

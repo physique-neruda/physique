@@ -64,7 +64,7 @@ td.g{text-align:left}
 </head>
 <body>
 
-<a class="retour" href="index.html">&larr;&nbsp; Toutes les animations</a>
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
 
 <h1>L'énergie d'un combustible</h1>
 <p class="sous">On brûle une petite quantité de combustible sous un récipient d'eau, et on mesure ce que l'eau a reçu. La balance indique la masse de combustible réellement brûlée.</p>
@@ -233,5 +233,6 @@ if(!CanvasRenderingContext2D.prototype.roundRect){
 }
 maj();affTable();
 </script>
+<script>/* bouton-retour v1 */(function(a){if(!a)return;a.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&!/\/animations\//.test(new URL(r).pathname)&&history.length>1){e.preventDefault();history.back();}}catch(x){}});})(document.querySelector('a.retour,#retourSite'));</script>
 </body>
 </html>

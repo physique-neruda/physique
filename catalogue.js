@@ -884,9 +884,27 @@ const DOCUMENTS = [
   {
     filiere: "bts-et", rubrique: "ADM",
     chapitre: "ADM 0 — Instruments de mesure : se former avant les TP",
+    type: "pdf", titre: "ADM 0 bis — Premiers pas avec les appareils de mesure (version 3 h)",
+    fichier: "docs/bts-et/adm00/activite_bis_3h.pdf",
+    description: "À faire avant l'activité de l'ADM 0 : continu et alternatif, période et fréquence, écran de l'oscilloscope, valeurs moyenne et efficace, multimètre et ampèremètre, défis sur les simulations.",
+    motscles: ["instruments", "multimetre", "oscilloscope", "wattmetre", "analyseur de reseau", "mesure", "calibre", "sonde", "adm"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 0 — Instruments de mesure : se former avant les TP",
+    type: "pdf", titre: "ADM 0 bis — Premiers pas avec les appareils de mesure (version 2 h)",
+    fichier: "docs/bts-et/adm00/activite_bis_2h.pdf",
+    description: "Le même document en version courte : les questions « Pour aller plus loin » sont facultatives.",
+    motscles: ["instruments", "multimetre", "oscilloscope", "wattmetre", "analyseur de reseau", "mesure", "calibre", "sonde", "adm"]
+  },
+
+  {
+    filiere: "bts-et", rubrique: "ADM",
+    chapitre: "ADM 0 — Instruments de mesure : se former avant les TP",
     type: "pdf", titre: "Activité — Se former aux instruments avant les TP",
     fichier: "docs/bts-et/adm00/activite.pdf",
-    description: "3 h en binôme sur les six simulations : multimètres, wattmètre, analyseur, oscilloscopes. Les codes de fin se recopient à la dernière page.",
+    description: "3 h en binôme sur les six simulations : multimètres, wattmètre, analyseur, oscilloscopes. À faire après l'ADM 0 bis. Les codes de fin se recopient à la dernière page.",
     motscles: ["instruments", "multimetre", "oscilloscope", "wattmetre", "analyseur de reseau", "mesure", "calibre", "sonde", "adm"]
   },
 

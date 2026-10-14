@@ -168,6 +168,12 @@ DOCUMENTS = {
          "La version distribuée en séance, avec les passages à écrire."),
         ("cours",             "Cours", "Cours complet",
          "La même chose, tout écrit. À relire après la séance."),
+        # ADM 0 bis « Premiers pas avec les appareils de mesure » (14 octobre 2026) :
+        # à faire AVANT l'activité de l'ADM 0 ; deux versions selon la durée de la séance.
+        ("activite_bis_3h",   "Cours", "Activité préalable (3 h)",
+         "La version longue, tout est noté."),
+        ("activite_bis_2h",   "Cours", "Activité préalable (2 h)",
+         "La version courte, avec des questions facultatives."),
         ("activite",          "Cours", "Activité documentaire",
          "Exploitation de documents techniques, après le cours."),
         # Fiches méthodes des instruments (ADM 0, octobre 2026)
@@ -225,10 +231,17 @@ CHAPITRES_CACHES = {
 
 # Titre affiché différent pour un document précis d'un chapitre précis.
 TITRES_PARTICULIERS = {
+    ("bts-et", "adm00", "activite_bis_3h"):
+        ("ADM 0 bis — Premiers pas avec les appareils de mesure (version 3 h)",
+         "À faire avant l'activité de l'ADM 0 : continu et alternatif, période et fréquence, "
+         "écran de l'oscilloscope, valeurs moyenne et efficace, multimètre et ampèremètre, défis sur les simulations."),
+    ("bts-et", "adm00", "activite_bis_2h"):
+        ("ADM 0 bis — Premiers pas avec les appareils de mesure (version 2 h)",
+         "Le même document en version courte : les questions « Pour aller plus loin » sont facultatives."),
     ("bts-et", "adm00", "activite"):
         ("Activité — Se former aux instruments avant les TP",
          "3 h en binôme sur les six simulations : multimètres, wattmètre, analyseur, "
-         "oscilloscopes. Les codes de fin se recopient à la dernière page."),
+         "oscilloscopes. À faire après l'ADM 0 bis. Les codes de fin se recopient à la dernière page."),
     ("bts-crsa", "ch01", "activite"):
         ("Activité 1 — Rendement d'un moteur à courant continu",
          "Menée sur l'animation du banc d'essai : aucun matériel nécessaire."),

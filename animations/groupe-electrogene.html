@@ -64,7 +64,7 @@ td.g{text-align:left}
 </head>
 <body>
 
-<a class="retour" href="index.html">&larr;&nbsp; Toutes les animations</a>
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
 
 <h1>Le groupe électrogène</h1>
 <p class="sous">Un moteur diesel entraîne un alternateur de 100 kW. On choisit la puissance électrique que demande l'installation et la durée de fonctionnement ; le groupe consomme du gazole et rejette ses gaz à l'échappement.</p>
@@ -197,5 +197,6 @@ if(!CanvasRenderingContext2D.prototype.roundRect){
 }
 maj();affTable();
 </script>
+<script>/* bouton-retour v1 */(function(a){if(!a)return;a.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&!/\/animations\//.test(new URL(r).pathname)&&history.length>1){e.preventDefault();history.back();}}catch(x){}});})(document.querySelector('a.retour,#retourSite'));</script>
 </body>
 </html>

@@ -1287,3 +1287,24 @@ plus récente** (date de compilation du PDF) :
   (`"iv"`), ce qui permet de refabriquer le site à l'identique à partir d'un fichier de mots de
   passe reconstitué. Les devoirs du BTS ET s'appellent « Devoir surveillé » dans l'espace
   enseignant (et non « Devoir type E32 »).
+
+## Mise à jour du 14 octobre 2026 (v54) — ADM 0 bis, simulations v4, bouton retour partout
+
+- **BTS ET — ADM 0 bis « Premiers pas avec les appareils de mesure »** (archive ADM 0 v4), à faire
+  **avant** l'activité de l'ADM 0, en deux versions de la même source : `activite_bis_3h.pdf`
+  (tout est noté) et `activite_bis_2h.pdf` (questions « Pour aller plus loin » facultatives). Elles
+  sont rangées dans le chapitre `adm00`, en tête, avec le mot de passe de la classe. Les deux
+  corrigés sont dans l'espace enseignant (Corrections des activités › BTS ET › ADM 0). Types
+  `activite_bis_3h` / `activite_bis_2h` ajoutés à la liste blanche du BTS ET (`filieres.py`).
+- **ADM 0** : activité et corrigé **v3** (l'ADM 0 bis en prérequis). Les six fiches méthodes sont
+  celles de la v53 (seule la date de compilation différait).
+- **Simulations des instruments v4** : `oscilloscope.html` (écran plus lisible, « 🔍 Grand
+  écran »), `analyseur-reseau.html` (grand écran) et `instruments.html` (bouton « ← Toutes les
+  animations »). Multimètres et wattmètre inchangés. Toujours réservées au BTS ET.
+- **Bouton retour sur toutes les animations** (décision du 14 octobre 2026 : « systématiquement sur
+  toutes ») : `retour_animations_v1.py` passé sur `animations/` (hors les six simulations, qui ont
+  leur propre retour) : 15 boutons ajoutés, 6 liens cassés corrigés (`index.html` →
+  `../index.html`). Le bouton revient à la page du site d'où l'on vient, sinon à l'accueil (QR code).
+  La **page d'accès** des simulations réservées (`outils/porte_animation.html`) a reçu le même
+  bouton « ← Retour », visible dès l'ouverture (avant, le seul lien n'apparaissait qu'avec le
+  formulaire). **Toute nouvelle animation doit avoir ce bouton.**

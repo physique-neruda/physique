@@ -33,12 +33,16 @@ button{font:inherit;font-weight:600;min-height:46px;padding:8px 22px;border-radi
   background:var(--bleu);color:#fff;cursor:pointer}
 button:disabled{opacity:.6}
 button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.retour{display:inline-block;margin:0 0 12px;padding:5px 12px;border-radius:16px;background:var(--bleu);
+  color:#fff!important;font-weight:600;font-size:.88rem;text-decoration:none!important}
+.retour:hover,.retour:focus-visible{background:#163a5c;outline:2px solid var(--orange)}
 #attente{text-align:center;color:var(--gris)}
 .pied{margin:14px 0 0;font-size:.8rem;color:var(--gris)}
 </style>
 </head>
 <body>
 <div class="carte" id="carte">
+  <!-- bouton-retour v1 --><a class="retour" id="retourSite" href="../#bts-et" title="Revenir au site">&larr;&nbsp;Retour</a>
   <p id="attente">Ouverture de la simulation…</p>
   <form id="formulaire" hidden>
     <h1><svg class="cadenas" viewBox="0 0 12 14" aria-hidden="true"><rect x="1" y="6" width="10" height="7.5" rx="1.5" fill="currentColor"/><path d="M3.3 6V4.3a2.7 2.7 0 0 1 5.4 0V6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Oscilloscopes numériques pas à pas</h1>
@@ -51,12 +55,16 @@ button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
       <span>Se souvenir sur cet appareil<br><small>décocher sur un ordinateur du lycée</small></span></label>
     <p class="erreur" id="erreur" role="alert"></p>
     <div class="boutons">
-      <a href="../#bts-et">Retour au site</a>
+      <a class="retour-lien" href="../#bts-et">Retour au site</a>
       <button type="submit" id="ok">Ouvrir</button>
     </div>
     <p class="pied">Rien n'est envoyé : le mot de passe est vérifié dans votre navigateur.</p>
   </form>
 </div>
+<script>/* bouton-retour v1 : revenir à la page du site d'où l'on vient, sinon à la page de la classe */
+document.querySelectorAll('#retourSite,.retour-lien').forEach(function(a){a.addEventListener('click',function(e){try{var r=document.referrer;
+if(r&&new URL(r).origin===location.origin&&!/\/animations\//.test(new URL(r).pathname)&&history.length>1){e.preventDefault();history.back();}}catch(x){}});});
+</script>
 <script src="../acces.js"></script>
 <script>
 (function(){

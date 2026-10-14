@@ -37,9 +37,11 @@ h2{font-size:1rem;margin:0 0 6px;color:var(--bleu)}
 footer{text-align:center;color:var(--gris);font-size:.8rem;padding:8px}
 .cache{display:none}
 </style>
+<style>/* bouton-retour v1 */#retourSite{display:inline-block;flex:none;align-self:center;margin:0 12px 6px 0;padding:5px 12px;border-radius:16px;background:#1f4e79;color:#fff!important;font:600 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-decoration:none!important;border:1px solid rgba(255,255,255,.55);vertical-align:middle}#retourSite:hover,#retourSite:focus-visible{background:#163a5c;outline:2px solid #e07a1f}@media print{#retourSite{display:none}}</style>
 </head>
 <body>
 <header>
+<a id="retourSite" href="../index.html" target="_top" title="Revenir au site">&larr;&nbsp;Retour</a>
   <h1>Régler une boucle de régulation</h1>
   <p>Une étuve chauffée par des résistances, une sonde, un régulateur. On envoie un échelon de consigne et on observe la température : avec un régulateur PI dont on règle le gain et le temps d'intégration, puis avec un simple thermostat tout ou rien à hystérésis.</p>
 </header>
@@ -148,5 +150,6 @@ $('oTOR').addEventListener('click',()=>{mode='TOR';$('oTOR').classList.add('on')
 afficher();
 })();
 </script>
+<script>(function(a){if(!a)return;a.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&!/\/animations\//.test(new URL(r).pathname)&&history.length>1){e.preventDefault();history.back();}}catch(x){}});})(document.querySelector('a.retour,#retourSite'));</script>
 </body>
 </html>
