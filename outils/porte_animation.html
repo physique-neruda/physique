@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- porte-animation : page d'accès fabriquée par outils/chiffrer.py, ne pas modifier.
+     La simulation elle-même est dans {{ENC}}, chiffrée avec la clé de la classe. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>{{TITRE}}</title>
+<style>
+:root{--fond:#EDF1F4;--panneau:#FFFFFF;--bord:#C9D3DB;--encre:#16232D;--gris:#5C6C79;
+  --bleu:#1B4E7D;--orange:#DD7A18;--rouge:#B3261E;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);font-size:16px;line-height:1.5;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.carte{background:var(--panneau);border:1px solid var(--bord);border-top:5px solid var(--bleu);
+  border-radius:12px;padding:22px 20px 18px;width:100%;max-width:400px;box-shadow:0 6px 24px rgba(22,35,45,.08)}
+.carte h1{font-size:1.15rem;line-height:1.25;margin:0 0 4px;color:var(--bleu)}
+.carte .classe{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.cadenas{width:13px;height:15px;vertical-align:-2px;margin-right:6px;color:var(--orange)}
+input[type=password]{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border-radius:9px;
+  border:1px solid var(--bord);min-height:48px;background:#fff;color:var(--encre)}
+input[type=password]:focus{outline:3px solid var(--orange);outline-offset:1px;border-color:var(--orange)}
+.souvenir{display:flex;gap:9px;align-items:flex-start;margin:12px 0 4px;font-size:.92rem}
+.souvenir input{width:20px;height:20px;margin-top:2px;flex:none}
+.souvenir small{color:var(--gris)}
+.erreur{color:var(--rouge);min-height:1.4em;margin:6px 0 4px;font-size:.92rem}
+.boutons{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:6px}
+.boutons a{color:var(--bleu);font-size:.9rem}
+button{font:inherit;font-weight:600;min-height:46px;padding:8px 22px;border-radius:23px;border:0;
+  background:var(--bleu);color:#fff;cursor:pointer}
+button:disabled{opacity:.6}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+#attente{text-align:center;color:var(--gris)}
+.pied{margin:14px 0 0;font-size:.8rem;color:var(--gris)}
+</style>
+</head>
+<body>
+<div class="carte" id="carte">
+  <p id="attente">Ouverture de la simulation…</p>
+  <form id="formulaire" hidden>
+    <h1><svg class="cadenas" viewBox="0 0 12 14" aria-hidden="true"><rect x="1" y="6" width="10" height="7.5" rx="1.5" fill="currentColor"/><path d="M3.3 6V4.3a2.7 2.7 0 0 1 5.4 0V6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>{{TITRE}}</h1>
+    <p class="classe">Réservé aux élèves de {{NOM_FILIERE}}. Le mot de passe de la classe est donné en cours.</p>
+    <input type="text" name="username" autocomplete="username" value="physique-{{FIL}}" hidden>
+    <label for="mdp" style="position:absolute;left:-9999px">Mot de passe</label>
+    <input type="password" id="mdp" name="password" autocomplete="current-password"
+           autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Mot de passe de la classe" required>
+    <label class="souvenir"><input type="checkbox" id="souvenir" checked>
+      <span>Se souvenir sur cet appareil<br><small>décocher sur un ordinateur du lycée</small></span></label>
+    <p class="erreur" id="erreur" role="alert"></p>
+    <div class="boutons">
+      <a href="../#{{FIL}}">Retour au site</a>
+      <button type="submit" id="ok">Ouvrir</button>
+    </div>
+    <p class="pied">Rien n'est envoyé : le mot de passe est vérifié dans votre navigateur.</p>
+  </form>
+</div>
+<script src="../acces.js"></script>
+<script>
+(function(){
+  var FIL = "{{FIL}}", AAD = "{{AAD}}", ENC = "{{ENC}}";
+  var ACCES = window.ACCES || {}, A = ACCES[FIL], P = window.ACCES_PROF || null;
+  var $ = function(id){ return document.getElementById(id); };
+  function deB64(s){ var b = atob(s), u = new Uint8Array(b.length); for(var i=0;i<b.length;i++) u[i] = b.charCodeAt(i); return u; }
+  function versB64(buf){ var u = new Uint8Array(buf), s = ""; for(var i=0;i<u.length;i++) s += String.fromCharCode(u[i]); return btoa(s); }
+  function st(n){ try{ return window[n]; }catch(e){ return null; } }
+  function lire(s, k){ try{ return s ? s.getItem(k) : null; }catch(e){ return null; } }
+  function ecrire(s, k, v){ try{ if(s) s.setItem(k, v); }catch(e){} }
+  function oublier(s, k){ try{ if(s) s.removeItem(k); }catch(e){} }
+  function importer(brut){ return crypto.subtle.importKey("raw", brut, "AES-GCM", false, ["decrypt"]); }
+  function deriver(a, mot){
+    return crypto.subtle.importKey("raw", new TextEncoder().encode(mot), "PBKDF2", false, ["deriveBits"])
+      .then(function(b){ return crypto.subtle.deriveBits({name:"PBKDF2", hash:"SHA-256", salt:deB64(a.sel), iterations:a.tours}, b, 256); });
+  }
+  function temoinOk(a, k, attendu){
+    return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(a.iv)}, k, deB64(a.temoin))
+      .then(function(t){ return new TextDecoder().decode(t) === attendu; }, function(){ return false; });
+  }
+  function formulaire(msg){
+    $("attente").hidden = true; $("formulaire").hidden = false;
+    if(msg) $("erreur").textContent = msg;
+    setTimeout(function(){ $("mdp").focus(); }, 30);
+  }
+  /* même mémorisation que la page d'accueil du site : un accès ouvert d'un côté vaut pour l'autre */
+  function memoriser(f, bits, garder){
+    var trace = JSON.stringify({sel: (f === "prive" ? P.sel : ACCES[f].sel), k: versB64(bits)});
+    var nom = "acces-" + f;
+    ecrire(st("sessionStorage"), nom, trace);
+    if(garder) ecrire(st("localStorage"), nom, trace);
+  }
+  function ouvrir(k){
+    $("formulaire").hidden = true; $("attente").hidden = false;
+    $("attente").textContent = "Ouverture de la simulation…";
+    return fetch(ENC, {cache: "no-cache"})
+      .then(function(r){ if(!r.ok) throw new Error("absent"); return r.arrayBuffer(); })
+      .then(function(buf){
+        var u = new Uint8Array(buf);
+        if(String.fromCharCode(u[0],u[1],u[2],u[3]) !== "NRD1") throw new Error("format");
+        return crypto.subtle.decrypt({name:"AES-GCM", iv:u.slice(4,16),
+                                      additionalData:new TextEncoder().encode(AAD)}, k, u.slice(16));
+      })
+      .then(function(clair){
+        var html = new TextDecoder("utf-8").decode(clair);
+        document.open(); document.write(html); document.close();
+      })
+      .catch(function(e){
+        formulaire(e && e.message === "absent" ? "La simulation est introuvable sur le site."
+          : "La simulation n'a pas pu être ouverte. Le mot de passe a peut-être changé : saisissez-le à nouveau.");
+      });
+  }
+  if(!A || !window.crypto || !crypto.subtle || !window.fetch){
+    $("attente").textContent = !A ? "Accès non configuré." :
+      "Ce navigateur ne sait pas ouvrir les simulations réservées. Essayer Chrome, Firefox ou Safari à jour.";
+    return;
+  }
+  /* accès déjà ouvert sur cet appareil (onglet ou mémorisé) ? */
+  var nom = "acces-" + FIL, brut = lire(st("sessionStorage"), nom) || lire(st("localStorage"), nom), o = null;
+  try{ o = brut ? JSON.parse(brut) : null; }catch(e){ o = null; }
+  var depart = (o && o.sel === A.sel)
+    ? importer(deB64(o.k)).then(function(k){
+        return temoinOk(A, k, "acces-ok:" + FIL).then(function(ok){
+          if(ok) return ouvrir(k);
+          oublier(st("sessionStorage"), nom); oublier(st("localStorage"), nom); formulaire();
+        });
+      }, function(){ formulaire(); })
+    : Promise.resolve(formulaire());
+  depart.catch(function(){ formulaire(); });
+
+  $("formulaire").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var mot = $("mdp").value.trim().toLowerCase(), garder = $("souvenir").checked;
+    if(!mot) return;
+    var btn = $("ok"); btn.disabled = true; btn.textContent = "Vérification…"; $("erreur").textContent = "";
+    deriver(A, mot).then(function(bits){
+      return importer(bits).then(function(k){
+        return temoinOk(A, k, "acces-ok:" + FIL).then(function(ok){
+          if(ok){ memoriser(FIL, bits, garder); return ouvrir(k); }
+          return essayerProf(mot, garder).then(function(kf){
+            if(kf) return ouvrir(kf);
+            $("erreur").textContent = "Mot de passe incorrect.";
+          });
+        });
+      });
+    }).catch(function(){ $("erreur").textContent = "Impossible de vérifier le mot de passe."; })
+      .then(function(){ btn.disabled = false; btn.textContent = "Ouvrir"; });
+  });
+
+  /* le code enseignant ouvre aussi les simulations réservées */
+  function essayerProf(mot, garder){
+    if(!P) return Promise.resolve(null);
+    return deriver(P, mot).then(importer).then(function(kp){
+      return temoinOk(P, kp, "acces-ok:prof").then(function(ok){
+        if(!ok) return null;
+        var cleFil = null;
+        return Promise.all(Object.keys(P.cles).map(function(f){
+          if(!ACCES[f]) return null;
+          var e = P.cles[f];
+          return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(e.iv), additionalData:new TextEncoder().encode(f)}, kp, deB64(e.cle))
+            .then(function(b){ memoriser(f, b, garder); if(f === FIL) return importer(b).then(function(k){ cleFil = k; }); });
+        })).then(function(){
+          if(!P.prive) return;
+          return crypto.subtle.decrypt({name:"AES-GCM", iv:deB64(P.prive.iv), additionalData:new TextEncoder().encode("prive")}, kp, deB64(P.prive.cle))
+            .then(function(b){ memoriser("prive", b, garder); }, function(){});
+        }).then(function(){ return cleFil; });
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>

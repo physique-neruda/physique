@@ -1,0 +1,319 @@
+{
+ "ch00": {
+  "num": "0",
+  "titre": "Chapitre 0 — Outils mathématiques",
+  "motscles": [
+   "outils",
+   "puissances de dix",
+   "unites",
+   "conversions",
+   "chiffres significatifs",
+   "proportionnalite"
+  ]
+ },
+ "c01": {
+  "num": "1",
+  "titre": "Cours 1 — Énergie interne et transferts thermiques",
+  "motscles": [
+   "energie",
+   "interne",
+   "thermiques",
+   "transferts"
+  ]
+ },
+ "c02": {
+  "num": "2",
+  "titre": "Cours 2 — Électromagnétisme",
+  "motscles": [
+   "electromagnetisme",
+   "flux magnetique",
+   "induction",
+   "reluctance",
+   "circuit magnetique"
+  ]
+ },
+ "c03": {
+  "num": "3",
+  "titre": "Cours 3 — Les combustions",
+  "motscles": [
+   "combustion",
+   "equation",
+   "pouvoir calorifique",
+   "pci",
+   "groupe electrogene",
+   "co2",
+   "chimie"
+  ]
+ },
+ "tp01": {
+  "num": "1",
+  "titre": "TP 1 — Notions fondamentales d'électricité",
+  "motscles": [
+   "electricite",
+   "fondamentales",
+   "notions",
+   "potentiel",
+   "loi des mailles",
+   "diviseur de tension"
+  ]
+ },
+ "tp02": {
+  "num": "2",
+  "titre": "TP 2 — Dipôles passifs et actifs",
+  "motscles": [
+   "dipole",
+   "resistance",
+   "condensateur",
+   "bobine",
+   "source",
+   "caracteristique"
+  ]
+ },
+ "tp03": {
+  "num": "3",
+  "titre": "TP 3 — Régime sinusoïdal monophasé",
+  "motscles": [
+   "sinusoidal",
+   "dephasage",
+   "fresnel",
+   "impedance",
+   "puissance active",
+   "puissance reactive",
+   "facteur de puissance",
+   "boucherot"
+  ]
+ },
+ "ch09": {
+  "num": "9",
+  "titre": "Chapitre 9 — Distribution et qualité de l'énergie électrique",
+  "motscles": [
+   "distribution",
+   "ligne",
+   "chute de tension",
+   "compensation",
+   "facteur de puissance",
+   "harmoniques",
+   "cem"
+  ]
+ },
+ "adm00": {
+  "num": "100",
+  "titre": "ADM 0 — Instruments de mesure : se former avant les TP",
+  "motscles": [
+   "instruments",
+   "multimetre",
+   "oscilloscope",
+   "wattmetre",
+   "analyseur de reseau",
+   "mesure",
+   "calibre",
+   "sonde",
+   "adm"
+  ]
+ },
+ "adm01": {
+  "num": "101",
+  "titre": "ADM 1 — Schémas électriques et appareillage de commande",
+  "motscles": [
+   "schema electrique",
+   "contacteur",
+   "relais",
+   "demarrage direct",
+   "etoile triangle",
+   "automaintien",
+   "sectionneur",
+   "relais thermique",
+   "u51",
+   "adm",
+   "appareillage"
+  ]
+ },
+ "adm02": {
+  "num": "102",
+  "titre": "ADM 2 — Four industriel : schéma, mesures et gradateur à train d'ondes",
+  "motscles": [
+   "four",
+   "gradateur",
+   "train d'ondes",
+   "schema",
+   "wattmetre",
+   "puissance",
+   "automate",
+   "adm",
+   "tp systeme"
+  ]
+ },
+ "adm03": {
+  "num": "103",
+  "titre": "ADM 3 — Banc départ-moteur : démarrage direct, mesures et protections",
+  "motscles": [
+   "depart moteur",
+   "demarrage direct",
+   "relais thermique",
+   "moteur asynchrone",
+   "courant de demarrage",
+   "diagnostic",
+   "panne",
+   "adm",
+   "tp systeme"
+  ]
+ },
+ "adm04": {
+  "num": "104",
+  "titre": "ADM 4 — Centrale de pompage : lignage, armoire et pompes",
+  "motscles": [
+   "pompage",
+   "piscine",
+   "vanne",
+   "lignage",
+   "pompe",
+   "armoire",
+   "adm",
+   "tp systeme"
+  ]
+ },
+ "adm05": {
+  "num": "105",
+  "titre": "ADM 5 — Système de levage : énergie, schémas et mise en service",
+  "motscles": [
+   "levage",
+   "energie",
+   "schema",
+   "variateur",
+   "mise en service",
+   "adm",
+   "tp systeme"
+  ]
+ },
+ "adm06": {
+  "num": "106",
+  "titre": "ADM 6 — Éclairage scénique Ermalux : schémas, variateurs et mise en service",
+  "motscles": [
+   "eclairage",
+   "variateur",
+   "gradateur",
+   "schema",
+   "mise en service",
+   "adm",
+   "tp systeme"
+  ]
+ },
+ "adm07": {
+  "num": "107",
+  "titre": "ADM 7 — Pollution harmonique et filtrage : banc Harmocem",
+  "motscles": [
+   "harmonique",
+   "thd",
+   "filtrage",
+   "spectre",
+   "analyseur",
+   "adm",
+   "tp systeme"
+  ]
+ },
+ "tp04": {
+  "num": "4",
+  "titre": "TP 4 — Le triphasé",
+  "motscles": [
+   "triphase",
+   "tension simple",
+   "tension composee",
+   "racine de 3",
+   "etoile",
+   "triangle",
+   "couplage",
+   "plaque signaletique",
+   "deux wattmetres",
+   "puissance"
+  ]
+ },
+ "tp05": {
+  "num": "5",
+  "titre": "TP 5 — Les transformateurs",
+  "motscles": [
+   "transformateur",
+   "rapport de transformation",
+   "essai a vide",
+   "essai en court-circuit",
+   "pertes fer",
+   "pertes cuivre",
+   "kapp",
+   "rendement",
+   "dyn"
+  ]
+ },
+ "tp06": {
+  "num": "6",
+  "titre": "TP 6 — Le redressement",
+  "motscles": [
+   "diode",
+   "redressement",
+   "simple alternance",
+   "pont de graetz",
+   "valeur moyenne",
+   "ondulation",
+   "filtrage",
+   "condensateur"
+  ]
+ },
+ "tp07": {
+  "num": "7",
+  "titre": "TP 7 — Le régime non sinusoïdal",
+  "motscles": [
+   "harmonique",
+   "fourier",
+   "spectre",
+   "thd",
+   "puissance deformante",
+   "facteur de puissance",
+   "neutre",
+   "rang 3"
+  ]
+ },
+ "c04": {
+  "num": "4",
+  "titre": "Cours 4 — Statique des fluides",
+  "motscles": [
+   "pression",
+   "masse volumique",
+   "bar",
+   "pression relative",
+   "rho g h",
+   "capteur de niveau",
+   "archimede",
+   "debit",
+   "puissance hydraulique"
+  ]
+ },
+ "c05": {
+  "num": "5",
+  "titre": "Cours 5 — Mécanique en translation",
+  "motscles": [
+   "vitesse",
+   "acceleration",
+   "mua",
+   "pfd",
+   "plan incline",
+   "energie cinetique",
+   "energie potentielle",
+   "travail",
+   "puissance mecanique"
+  ]
+ },
+ "c06": {
+  "num": "6",
+  "titre": "Cours 6 — Énergie, rayonnement, photométrie",
+  "motscles": [
+   "onde electromagnetique",
+   "longueur d'onde",
+   "photon",
+   "spectre",
+   "loi de wien",
+   "temperature de couleur",
+   "lumen",
+   "lux",
+   "efficacite lumineuse",
+   "irc"
+  ]
+ }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rail à coussin d'air</title>
+<style>
+:root{--bleu:#1F4E79;--bleu-clair:#E6EEF7;--orange:#D9701E;--rouge:#B03A2E;--vert:#2E7D4F;--encre:#1B2430;--gris:#5A6675;--fond:#F4F7FB;--carte:#FFFFFF;--filet:#D3DCE7;--acier:#6B7B8C;--bois:#C9A46A;--sur-accent:#FFFFFF;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bleu:#8DB8E6;--bleu-clair:#1E2C3C;--orange:#F0A060;--rouge:#E8877B;--vert:#7FD19B;--encre:#E6EBF2;--gris:#A5B0BE;--fond:#121821;--carte:#1A222D;--filet:#2E3A48;--acier:#9AA8B8;--bois:#8C744C;--sur-accent:#10161E}}
+:root[data-theme="dark"]{--bleu:#8DB8E6;--bleu-clair:#1E2C3C;--orange:#F0A060;--rouge:#E8877B;--vert:#7FD19B;--encre:#E6EBF2;--gris:#A5B0BE;--fond:#121821;--carte:#1A222D;--filet:#2E3A48;--acier:#9AA8B8;--bois:#8C744C;--sur-accent:#10161E}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fond);color:var(--encre);font-family:"Segoe UI",Roboto,Arial,sans-serif}
+header{padding:14px 16px 4px;max-width:1150px;margin:auto}
+h1{font-size:1.35rem;margin:0 0 4px;color:var(--bleu)}
+header p{margin:0;color:var(--gris);font-size:.93rem;line-height:1.4}
+main{max-width:1150px;margin:10px auto 0;padding:0 16px 20px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:14px}
+@media (max-width:860px){main{grid-template-columns:1fr}}
+.carte{background:var(--carte);border:1px solid var(--filet);border-radius:10px;padding:12px;min-width:0}
+svg{width:100%;height:auto;display:block;color:var(--encre)}
+h2{font-size:1rem;margin:0 0 8px;color:var(--bleu)}
+label{display:block;margin:0 0 10px;font-size:.93rem}
+input[type=range]{width:100%;accent-color:var(--orange)}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+button{font:inherit;border:1px solid var(--filet);background:var(--bleu-clair);color:var(--encre);border-radius:8px;padding:8px 12px;font-weight:600;cursor:pointer}
+button.act{background:var(--orange);color:var(--sur-accent);border-color:var(--orange)}
+button.on{background:var(--vert);color:var(--sur-accent);border-color:var(--vert)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.lcd{font-family:Consolas,"Courier New",monospace;font-size:2rem;background:#0F1A12;color:#7CFF8A;border-radius:8px;padding:8px 12px;text-align:right;letter-spacing:.04em}
+.lcd small{font-size:.85rem;color:#A8DDB0;float:left;margin-top:.7rem;letter-spacing:0}
+.msg{min-height:2.8em;margin-top:8px;font-size:.92rem;line-height:1.35}
+.msg.warn{color:var(--rouge);font-weight:600}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin-top:6px}
+th,td{border:1px solid var(--filet);padding:4px 6px;text-align:center;white-space:nowrap}
+th{background:var(--bleu-clair)}
+.note{font-size:.85rem;color:var(--gris);margin-top:8px;line-height:1.4}
+details{margin-top:10px;font-size:.9rem;line-height:1.45}
+summary{cursor:pointer;font-weight:600;color:var(--bleu)}
+.ligne{display:flex;justify-content:space-between;align-items:center;gap:8px}
+footer{text-align:center;color:var(--gris);font-size:.8rem;padding:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Rail à coussin d'air</h1>
+  <p>Un chariot est retenu en haut d'un rail incliné par un électroaimant. Au lâcher, le chronomètre démarre ; il s'arrête quand le drapeau du chariot coupe le faisceau de la cellule. On règle l'inclinaison, la masse, la position de la cellule et la soufflerie. Le banc ne calcule rien : il chronomètre.</p>
+</header>
+<main>
+  <section class="carte">
+    <svg id="scene" viewBox="0 0 800 330" role="img" aria-label="Rail incliné, chariot, cellule et soufflerie"></svg>
+    <div class="ctrl">
+      <button class="act" id="bLacher">Lâcher le chariot</button>
+      <button id="bRemettre">Remettre le chariot en haut</button>
+    </div>
+    <div class="msg" id="msg"></div>
+    <details>
+      <summary>Mode d'emploi</summary>
+      <ol style="margin:6px 0 0;padding-left:1.3em">
+        <li>Régler l'inclinaison, la masse et la position de la cellule (le chariot doit être en haut, contre l'électroaimant).</li>
+        <li>Mettre la soufflerie en marche.</li>
+        <li>Appuyer sur « Lâcher le chariot » : l'électroaimant le libère sans vitesse et le chronomètre démarre.</li>
+        <li>Lire la durée affichée quand le drapeau coupe le faisceau. Chaque lâcher s'inscrit dans le tableau.</li>
+        <li>La distance <i>d</i> est celle que parcourt le chariot entre le lâcher et la cellule : le zéro de la règle du rail est à la position de départ du drapeau.</li>
+      </ol>
+    </details>
+  </section>
+  <aside class="carte">
+    <h2>Chronomètre</h2>
+    <div class="lcd"><small>t</small><span id="chrono">0,000</span> s</div>
+    <h2 style="margin-top:14px">Réglages</h2>
+    <label>Inclinaison du rail : <b><span id="vA"></span>°</b><input type="range" id="alpha" min="0" max="8" step="0.5" value="5"></label>
+    <label>Masse du chariot (chariot nu 200 g + surcharges de 50 g) : <b><span id="vM"></span> g</b><input type="range" id="masse" min="200" max="500" step="50" value="250"></label>
+    <label>Position de la cellule : <b><i>d</i> = <span id="vD"></span> m</b><input type="range" id="dist" min="0.20" max="1.50" step="0.05" value="0.80"></label>
+    <div class="ligne"><span>Soufflerie</span><button id="bSouffle">arrêtée — mettre en marche</button></div>
+    <h2 style="margin-top:14px">Essais</h2>
+    <div class="table-wrap"><table><thead><tr><th>n°</th><th>α (°)</th><th>m (g)</th><th>d (m)</th><th>t (s)</th></tr></thead><tbody id="tab"></tbody></table></div>
+    <div class="ctrl"><button id="bCopier">Copier le tableau</button><button id="bEffacer">Effacer le tableau</button></div>
+    <div class="note" id="note">« Copier le tableau » place les essais dans le presse-papiers, à coller dans un tableur.</div>
+  </aside>
+</main>
+<footer>M. Cronenberger</footer>
+<script>
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const fr=(v,n)=>v.toFixed(n).replace('.',',');
+const G=9.81;            // m/s²
+const F0=0.0100;         // N : frottement du film d'air, indépendant de la masse
+const DISP=0.05;         // ± 5 % d'un lâcher à l'autre (souffle non parfaitement régulier)
+const MU=0.30;           // frottement solide quand la soufflerie est arrêtée
+const S_MIN=-0.25, S_MAX=1.80, BUTEE=1.72;   // positions le long du rail (m), zéro = drapeau au départ
+
+// ---------- tirage reproductible : le k-ième lâcher d'un réglage donne toujours la même durée
+function graine(str){let h=2166136261>>>0;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)>>>0}return h}
+function alea(seed){let t=(seed+0x6D2B79F5)>>>0;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296}
+function essai(alphaDeg,mg,d,k,souffle){
+  const m=mg/1000, sa=Math.sin(alphaDeg*Math.PI/180), ca=Math.cos(alphaDeg*Math.PI/180);
+  if(!souffle){ if(MU*ca>=sa) return {bouge:false,cause:'souffle'}; }
+  const u=2*alea(graine(alphaDeg.toFixed(1)+'|'+mg+'|'+d.toFixed(2)+'|'+k))-1;
+  const f=F0*(1+DISP*u);
+  const a=G*sa-f/m;
+  if(a<=0) return {bouge:false,cause:'pente'};
+  return {bouge:true,a,t:Math.sqrt(2*d/a)};
+}
+window.__essai=essai;
+
+// ---------- état
+let alpha=5, masse=250, dist=0.80, souffle=false;
+let s=0, enHaut=true, enCours=false, t0=0, aCour=0, tCell=null, chronoAff=0;
+const compte={}; const lignes=[];
+
+// ---------- dessin
+const PX=330, X0=60, Y0=205;   // échelle, point du rail où s = 0 quand α = 0
+function pt(sv){ // position (px) d'un point du rail d'abscisse sv, rail pivotant autour de son extrémité basse
+  const r=alpha*Math.PI/180, sb=S_MAX;
+  const xb=X0+(sb-S_MIN)*PX, yb=Y0;               // extrémité basse fixe
+  return [xb-(sb-sv)*PX*Math.cos(r), yb-(sb-sv)*PX*Math.sin(r)];
+}
+function dessiner(){
+  const r=alpha*Math.PI/180, deg=alpha;
+  let g='';
+  const tabY=290;
+  // table
+  g+=`<rect x="20" y="${tabY}" width="760" height="10" fill="var(--bois)"/>`;
+  // pieds et cales
+  const [xa,ya]=pt(S_MIN+0.08), [xb,yb]=pt(S_MAX-0.08);
+  const hp=46;
+  g+=`<line x1="${xb}" y1="${yb}" x2="${xb}" y2="${yb+hp}" stroke="var(--acier)" stroke-width="5"/>`;
+  g+=`<rect x="${xb-22}" y="${yb+hp}" width="44" height="${tabY-(yb+hp)}" fill="var(--acier)" opacity=".55"/>`;
+  g+=`<line x1="${xa}" y1="${ya}" x2="${xa}" y2="${ya+hp}" stroke="var(--acier)" stroke-width="5"/>`;
+  const hc=tabY-(ya+hp);
+  if(hc>0.5){
+    const n=Math.max(1,Math.round(hc/12));
+    for(let i=0;i<n;i++){const h=hc/n;g+=`<rect x="${xa-22}" y="${ya+hp+i*h}" width="44" height="${h}" fill="var(--bois)" stroke="var(--carte)" stroke-width="1"/>`;}
+    g+=`<text x="${xa+30}" y="${ya+hp+hc/2+4}" font-size="12" fill="var(--gris)">cales</text>`;
+  }
+  // rail
+  const [x1,y1]=pt(S_MIN), [x2,y2]=pt(S_MAX);
+  g+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="var(--acier)" stroke-width="9" stroke-linecap="round"/>`;
+  // règle graduée (zéro au drapeau de départ)
+  for(let c=0;c<=160;c+=10){
+    const sv=c/100, [x,y]=pt(sv), l=(c%50===0)?11:6;
+    const nx=-Math.sin(r), ny=Math.cos(r);
+    g+=`<line x1="${x+nx*5}" y1="${y+ny*5}" x2="${x+nx*(5+l)}" y2="${y+ny*(5+l)}" stroke="currentColor" stroke-width="1.2"/>`;
+    if(c%50===0) g+=`<text x="${x+nx*28}" y="${y+ny*28+4}" font-size="12" text-anchor="middle" fill="currentColor">${fr(sv,1)}</text>`;
+  }
+  {const [x,y]=pt(1.60);const nx=-Math.sin(r),ny=Math.cos(r);g+=`<text x="${x+nx*28+18}" y="${y+ny*28+4}" font-size="12" fill="currentColor">m</text>`;}
+  // électroaimant
+  {const [x,y]=pt(-0.215);
+   g+=`<g transform="translate(${x},${y}) rotate(${deg})"><rect x="-22" y="-30" width="18" height="30" rx="3" fill="var(--rouge)"/><text x="-13" y="-36" font-size="11" text-anchor="middle" fill="var(--rouge)">électroaimant</text></g>`;}
+  // butée
+  {const [x,y]=pt(BUTEE+0.035);
+   g+=`<g transform="translate(${x},${y}) rotate(${deg})"><rect x="0" y="-26" width="10" height="26" fill="var(--acier)"/></g>`;}
+  // cellule
+  {const [x,y]=pt(dist);
+   g+=`<g transform="translate(${x},${y}) rotate(${deg})">
+     <path d="M -14 8 L -14 -66 L 14 -66 L 14 8" fill="none" stroke="var(--vert)" stroke-width="5" stroke-linejoin="round"/>
+     <line x1="-12" y1="-52" x2="12" y2="-52" stroke="var(--rouge)" stroke-width="2" stroke-dasharray="3 2"/>
+     <text x="0" y="-74" font-size="12" text-anchor="middle" fill="var(--vert)">cellule</text></g>`;}
+  // chariot (le drapeau est à l'avant ; s = position du bord avant du drapeau)
+  {const [x,y]=pt(s);
+   let surch='';
+   const n=(masse-200)/50;
+   for(let i=0;i<n;i++){surch+=`<rect x="${-60+i*8}" y="-25" width="6" height="15" rx="1" fill="var(--orange)"/>`;}
+   let air='';
+   if(souffle){for(let i=0;i<7;i++){air+=`<circle cx="${-60+i*9}" cy="-5" r="1.6" fill="var(--bleu)" opacity=".8"><animate attributeName="cy" values="-5.5;-4;-5.5" dur="${0.5+i*0.07}s" repeatCount="indefinite"/></circle>`;}}
+   g+=`<g transform="translate(${x},${y}) rotate(${deg})">${air}
+     <path d="M -66 -6 L -66 -30 L -4 -30 L -4 -6 Z" fill="var(--bleu-clair)" stroke="var(--bleu)" stroke-width="2"/>
+     <rect x="-8" y="-66" width="8" height="36" fill="var(--encre)"/>
+     <text x="-4" y="-70" font-size="11" text-anchor="middle" fill="var(--gris)">drapeau</text>
+     ${surch}</g>`;}
+  // soufflerie
+  {const [xh,yh]=pt(1.62);
+   g+=`<path d="M 590 ${tabY-34} C 590 ${tabY-60}, ${xh} ${yh+40}, ${xh} ${yh+4}" fill="none" stroke="var(--gris)" stroke-width="4"/>`;
+   g+=`<rect x="545" y="${tabY-34}" width="90" height="34" rx="4" fill="${souffle?'var(--vert)':'var(--acier)'}"/>
+     <text x="590" y="${tabY-19}" font-size="11" text-anchor="middle" fill="var(--sur-accent)">soufflerie</text>
+     <text x="590" y="${tabY-6}" font-size="11" text-anchor="middle" fill="var(--sur-accent)">${souffle?'en marche':'arrêtée'}</text>`;}
+  // inclinomètre
+  g+=`<g transform="translate(30,14)"><rect x="0" y="0" width="170" height="40" rx="6" fill="var(--carte)" stroke="var(--filet)"/>
+     <text x="10" y="25" font-size="14" fill="var(--gris)">inclinomètre</text>
+     <text x="160" y="27" font-size="19" font-weight="700" text-anchor="end" fill="var(--encre)">${fr(alpha,1)}°</text></g>`;
+  g+=`<g transform="translate(560,14)"><rect x="0" y="0" width="210" height="40" rx="6" fill="#0F1A12"/>
+     <text x="12" y="26" font-size="14" fill="#A8DDB0">chrono</text>
+     <text x="198" y="29" font-size="22" font-family="Consolas,monospace" text-anchor="end" fill="#7CFF8A" id="chronoSvg">${fr(chronoAff,3)} s</text></g>`;
+  $('scene').innerHTML=g;
+}
+
+// ---------- interface
+function majReglages(){
+  $('vA').textContent=fr(alpha,1); $('vM').textContent=masse; $('vD').textContent=fr(dist,2);
+  $('bSouffle').textContent=souffle?'en marche — arrêter':'arrêtée — mettre en marche';
+  $('bSouffle').classList.toggle('on',souffle);
+  $('bLacher').disabled=enCours||!enHaut;
+  $('bRemettre').disabled=enCours||enHaut;
+  ['alpha','masse','dist'].forEach(id=>$(id).disabled=enCours);
+}
+function message(txt,warn){const m=$('msg');m.textContent=txt;m.classList.toggle('warn',!!warn);}
+function remettre(){ s=0; enHaut=true; enCours=false; dessiner(); majReglages(); }
+function majTableau(){
+  $('tab').innerHTML=lignes.map((l,i)=>`<tr><td>${i+1}</td><td>${fr(l.alpha,1)}</td><td>${l.masse}</td><td>${fr(l.d,2)}</td><td>${l.t===null?'—':fr(l.t,3)}</td></tr>`).join('');
+}
+function lacher(){
+  if(enCours) return;
+  if(!enHaut) remettre();
+  const cle=fr(alpha,1)+'|'+masse+'|'+fr(dist,2);
+  const k=(compte[cle]||0)+1;
+  const res=essai(alpha,masse,dist,k,souffle);
+  chronoAff=0; $('chrono').textContent=fr(0,3); dessiner();
+  if(!res.bouge){
+    if(res.cause==='souffle') message("Le chariot ne bouge pas : sans film d'air, il repose sur le rail et le frottement le retient.",true);
+    else message("Le chariot ne part pas : la pente est trop faible pour vaincre les frottements.",true);
+    return;
+  }
+  compte[cle]=k;
+  aCour=res.a; tCell=res.t; enCours=true; enHaut=false; t0=performance.now();
+  message('Le chariot descend…'); majReglages();
+  let arrete=false;
+  function pas(now){
+    const tt=(now-t0)/1000;
+    s=Math.min(0.5*aCour*tt*tt,BUTEE);
+    if(!arrete){
+      if(tt>=tCell){arrete=true; chronoAff=Math.round(tCell*1000)/1000; $('chrono').textContent=fr(chronoAff,3);
+        lignes.push({alpha,masse,d:dist,t:chronoAff}); majTableau();}
+      else {chronoAff=Math.floor(tt*1000)/1000; $('chrono').textContent=fr(chronoAff,3);}
+    }
+    dessiner();
+    if(s<BUTEE) requestAnimationFrame(pas);
+    else {enCours=false; majReglages(); message(`Durée mesurée : t = ${fr(chronoAff,3)} s. Remettre le chariot en haut pour un nouvel essai.`);}
+  }
+  requestAnimationFrame(pas);
+}
+$('alpha').addEventListener('input',e=>{alpha=+e.target.value; if(!enHaut)remettre(); dessiner(); majReglages();});
+$('masse').addEventListener('input',e=>{masse=+e.target.value; if(!enHaut)remettre(); dessiner(); majReglages();});
+$('dist').addEventListener('input',e=>{dist=Math.round(+e.target.value*100)/100; dessiner(); majReglages();});
+$('bSouffle').addEventListener('click',()=>{souffle=!souffle; dessiner(); majReglages(); message(souffle?'Soufflerie en marche : le chariot flotte sur un film d\'air.':'Soufflerie arrêtée.');});
+$('bLacher').addEventListener('click',lacher);
+$('bRemettre').addEventListener('click',()=>{remettre(); message('Chariot remis contre l\'électroaimant.');});
+$('bEffacer').addEventListener('click',()=>{lignes.length=0; majTableau();});
+$('bCopier').addEventListener('click',()=>{
+  const txt='n°\talpha (°)\tm (g)\td (m)\tt (s)\n'+lignes.map((l,i)=>[i+1,fr(l.alpha,1),l.masse,fr(l.d,2),fr(l.t,3)].join('\t')).join('\n');
+  const fini=()=>{$('note').textContent='Tableau copié : le coller dans un tableur.';};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(fini,()=>{$('note').textContent='Copie impossible ici : recopier le tableau à la main.';});}
+  else $('note').textContent='Copie impossible ici : recopier le tableau à la main.';
+});
+remettre(); message('Mettre la soufflerie en marche, puis lâcher le chariot.');
+})();
+</script>
+</body>
+</html>

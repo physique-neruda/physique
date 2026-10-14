@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- =====================================================================
+     Relevé de caractéristiques — paillasse virtuelle
+     Relevé de caractéristiques — remplace les relevés sur lampe, diode
+     et pile, dont le matériel n'est pas toujours disponible.
+     Modèles physiques : voir la fonction mesure().
+     ===================================================================== -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le relevé de caractéristiques — paillasse virtuelle</title>
+<style>
+:root{
+  --fond:#EDF1F4; --panneau:#FFFFFF; --bord:#C9D3DB;
+  --encre:#16232D; --gris:#5C6C79;
+  --bleu:#1B4E7D; --orange:#DD7A18;
+  --lcd:#182530; --lcdtexte:#E9F3E6; --lcdvert:#7FD98A;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);
+  font-size:16px;line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd .val small{font-size:.62em;color:#9DB4C0;margin-left:2px}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.45rem;color:var(--lcdvert)}
+.reglage{margin:14px 0 0}
+.reglage:first-child{margin-top:0}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px}
+.choix button{flex:1 1 auto;min-width:72px;min-height:42px;font:inherit;font-size:.86rem;
+  border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--bleu);border-color:var(--bleu);color:#fff}
+#relever{background:var(--orange);border-color:var(--orange);color:#fff;width:100%;
+  min-height:52px;font:inherit;font-size:1rem;font-weight:600;border-radius:8px;border:1px solid var(--orange)}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:10px}
+th,td{padding:5px 4px;text-align:right;border-bottom:1px solid var(--bord);font-variant-numeric:tabular-nums}
+th{color:var(--gris);font-weight:600;font-size:.74rem}
+td.dip{text-align:left;color:var(--gris)}
+.vide{color:var(--gris);font-size:.85rem;margin:10px 0 0}
+.lienbas{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.lienbas button{font:inherit;font-size:.85rem;background:none;border:none;color:var(--bleu);
+  text-decoration:underline;padding:8px 0}
+.aide{font-size:.85rem;color:var(--gris);margin:8px 0 0}
+.retour{display:inline-block;margin:16px 0 -6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+.retour:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
+
+<h1>Le relevé de caractéristiques</h1>
+<p class="sous">Le montage ne change jamais : c'est le dipôle qu'on remplace. Le curseur fait
+varier le point de fonctionnement, l'ampèremètre et le voltmètre affichent le couple
+(U&nbsp;;&nbsp;I). À vous de relever les points et de tracer la courbe.</p>
+
+<div class="bloc">
+  <canvas id="scene" width="620" height="300"></canvas>
+  <div class="lcd">
+    <div><div class="nom">Réglage</div><div class="val" id="vR">0</div></div>
+    <div><div class="nom">Intensité I</div><div class="val" id="vI">0<small>mA</small></div></div>
+    <div class="large"><div class="nom">Tension U aux bornes du dipôle</div>
+      <div class="val" id="vU">0<small>V</small></div></div>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Le dipôle sous test</h2>
+  <div class="choix" id="choixDip">
+    <button data-d="R" aria-pressed="true">D1 — résistance</button>
+    <button data-d="L" aria-pressed="false">D2 — lampe 12 V</button>
+    <button data-d="D" aria-pressed="false">D3 — diode</button>
+    <button data-d="P" aria-pressed="false">D4 — pile 4,5 V</button>
+  </div>
+  <div class="choix" id="choixSens" style="margin-top:8px;display:none">
+    <button data-s="1" aria-pressed="true">Diode dans le sens passant</button>
+    <button data-s="0" aria-pressed="false">Diode inversée</button>
+  </div>
+  <div class="choix" id="choixCharge" style="margin-top:8px;display:none">
+    <button data-c="H" aria-pressed="true">Charge : rhéostat</button>
+    <button data-c="R" aria-pressed="false">Charge : 100 &#937;</button>
+    <button data-c="L" aria-pressed="false">Charge : lampe 12 V</button>
+  </div>
+  <p class="aide" id="aideDip"></p>
+</div>
+
+<div class="bloc" id="blocReglage">
+  <h2>Réglages</h2>
+  <div class="reglage">
+    <div class="ligne"><span id="nomReg">Tension de l'alimentation</span><b id="lR">0,00 V</b></div>
+    <input type="range" id="rR" min="0" max="100" step="1" value="40">
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>Vos mesures</h2>
+  <button id="relever">Relever le point (U&nbsp;;&nbsp;I)</button>
+  <div id="zoneTable"><p class="vide">Aucune mesure pour l'instant.</p></div>
+  <div class="lienbas"><span class="aide">Huit points bien répartis suffisent.</span>
+    <button id="effacer">Tout effacer</button></div>
+</div>
+
+<script>
+"use strict";
+var dip = "R", sens = 1, charge = "H", v = 40, mesures = [];
+var $ = function(id){ return document.getElementById(id); };
+var fr = function(x,n){ return x.toFixed(n).replace(".",","); };
+
+/* --- la physique ---------------------------------------------------
+   D1  résistance ohmique de 100 ohms, alimentée de 0 a 12 V
+   D2  lampe a filament 12 V - 6 W : I = 0,50 (U/12)^0,55
+   D3  diode au silicium, I = Is (exp(U/0,06) - 1), avec 30 ohms de
+       protection en serie ; inversee, elle ne laisse rien passer
+   D4  pile reelle E = 4,52 V, r = 2,8 ohms, debitant dans un rheostat
+       de charge reglable de 1000 a 20 ohms
+   ------------------------------------------------------------------ */
+var IS = 1.575e-6;
+function udiode(i){ return 0.06 * Math.log(1 + i / IS); }
+
+function mesure(){
+  var U, I, E, R;
+  if(dip === "R"){ U = 0.12 * v; I = U / 100; }
+  else if(dip === "L"){ U = 0.12 * v; I = (U <= 0) ? 0 : 0.50 * Math.pow(U / 12, 0.55); }
+  else if(dip === "D"){
+    E = 0.15 * v;
+    if(!sens){ I = 0; U = E; }
+    else {
+      var a = 0, b = 1, m;
+      for(var k = 0; k < 60; k++){
+        m = (a + b) / 2;
+        if(30 * m + udiode(m) > E){ b = m; } else { a = m; }
+      }
+      I = (a + b) / 2; U = udiode(I);
+      if(E <= 0){ I = 0; U = 0; }
+    }
+  }
+  else {
+    if(charge === "R"){ I = 4.52 / (2.8 + 100); }
+    else if(charge === "L"){
+      var a2 = 0, b2 = 0.6, m2;
+      for(var j = 0; j < 60; j++){
+        m2 = (a2 + b2) / 2;
+        if(2.8 * m2 + 12 * Math.pow(m2 / 0.5, 1 / 0.55) > 4.52){ b2 = m2; } else { a2 = m2; }
+      }
+      I = (a2 + b2) / 2;
+    }
+    else { R = 1000 * Math.pow(0.02, v / 100); I = 4.52 / (2.8 + R); }
+    U = 4.52 - 2.8 * I;
+  }
+  return { U: U, I: I };
+}
+
+function reglage(){
+  if(dip === "P" && charge === "R") return { nom: "Charge fixe", txt: "100 \u03A9" };
+  if(dip === "P" && charge === "L") return { nom: "Charge fixe", txt: "lampe 12 V" };
+  if(dip === "P") return { nom: "Résistance de charge",
+                           txt: fr(1000 * Math.pow(0.02, v / 100), 0) + " \u03A9" };
+  if(dip === "D") return { nom: "Tension de l'alimentation",
+                           txt: fr(0.15 * v, 2) + " V" };
+  return { nom: "Tension de l'alimentation", txt: fr(0.12 * v, 2) + " V" };
+}
+
+var aides = {
+  R: "Conducteur ohmique de 100 \u03A9, 2 W admissibles.",
+  L: "Lampe à filament 12 V \u2013 6 W. Ne pas dépasser 12 V.",
+  D: "Diode au silicium, 0,5 A au maximum. Une résistance de protection de 30 \u03A9 est " +
+     "câblée en série : sans elle, la diode serait détruite dès le seuil franchi.",
+  P: "Pile de 4,5 V. Elle débite d'abord dans un rhéostat de charge — ne jamais descendre " +
+     "au-dessous de 20 \u03A9 —, puis, pour la partie C, directement dans une résistance de " +
+     "100 \u03A9 ou dans la lampe."
+};
+
+/* --- affichage ----------------------------------------------------- */
+function maj(){
+  var m = mesure(), r = reglage();
+  $("nomReg").textContent = r.nom;
+  $("lR").textContent = r.txt;
+  $("vR").textContent = r.txt;
+  $("vI").innerHTML = fr(m.I * 1000, 1) + '<small>mA</small>';
+  $("vU").innerHTML = fr(m.U, (m.U < 1 ? 3 : 2)) + '<small>V</small>';
+  $("aideDip").textContent = aides[dip];
+  $("choixSens").style.display = (dip === "D") ? "flex" : "none";
+  $("choixCharge").style.display = (dip === "P") ? "flex" : "none";
+  $("blocReglage").style.display = (dip === "P" && charge !== "H") ? "none" : "block";
+  dessine(m);
+}
+
+Array.prototype.forEach.call($("choixDip").children, function(b){
+  b.onclick = function(){
+    Array.prototype.forEach.call($("choixDip").children, function(o){
+      o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+    dip = b.dataset.d; sens = 1; charge = "H";
+    Array.prototype.forEach.call($("choixCharge").children, function(o){
+      o.setAttribute("aria-pressed", o.dataset.c === "H" ? "true" : "false"); });
+    Array.prototype.forEach.call($("choixSens").children, function(o){
+      o.setAttribute("aria-pressed", o.dataset.s === "1" ? "true" : "false"); });
+    maj();
+  };
+});
+Array.prototype.forEach.call($("choixSens").children, function(b){
+  b.onclick = function(){
+    Array.prototype.forEach.call($("choixSens").children, function(o){
+      o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+    sens = +b.dataset.s; maj();
+  };
+});
+Array.prototype.forEach.call($("choixCharge").children, function(b){
+  b.onclick = function(){
+    Array.prototype.forEach.call($("choixCharge").children, function(o){
+      o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+    charge = b.dataset.c; maj();
+  };
+});
+$("rR").oninput = function(e){ v = +e.target.value; maj(); };
+$("relever").onclick = function(){
+  var m = mesure();
+  mesures.push({ n: mesures.length + 1, d: $("choixDip").querySelector('[aria-pressed=true]').textContent,
+                 U: m.U, I: m.I });
+  affTable();
+};
+$("effacer").onclick = function(){ mesures = []; affTable(); };
+
+/* --- le dessin du montage ------------------------------------------ */
+var cs = $("scene"), ctx = cs.getContext("2d");
+function fil(x1,y1,x2,y2){ ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); }
+function rond(x,y,r){ ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); }
+
+function dessine(m){
+  ctx.clearRect(0,0,cs.width,cs.height);
+  ctx.lineWidth = 2.4; ctx.strokeStyle = "#16232D"; ctx.fillStyle = "#16232D";
+  ctx.font = "14px " + getComputedStyle(document.body).fontFamily;
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+
+  var xg = 70, xd = 430, yh = 70, yb = 235;
+  fil(xg,yh,xd,yh); fil(xg,yb,xd,yb); fil(xg,yh,xg,yb); fil(xd,yh,xd,yb);
+
+  /* source à gauche : alimentation, ou simple fil quand la pile est le dipôle */
+  ctx.fillStyle = "#FFFFFF";
+  if(dip !== "P"){
+    ctx.beginPath(); ctx.arc(xg,152,20,0,6.2832); ctx.fill(); ctx.stroke();
+    ctx.strokeStyle="#16232D"; fil(xg-10,147,xg+10,147);
+    ctx.setLineDash([3,3]); fil(xg-10,158,xg+10,158); ctx.setLineDash([]);
+    ctx.fillStyle = "#5C6C79"; ctx.textAlign = "left";
+    ctx.fillText("alimentation", 8, 138); ctx.fillText("réglable", 8, 166);
+  } else {
+    ctx.fillStyle = "#5C6C79"; ctx.textAlign = "left";
+    ctx.fillText("la pile est", 8, 138); ctx.fillText("la source", 8, 166);
+  }
+
+  /* rhéostat sur le fil du haut */
+  ctx.fillStyle = "#FFFFFF"; ctx.strokeStyle = "#16232D";
+  ctx.fillRect(150,55,72,30); ctx.strokeRect(150,55,72,30);
+  ctx.beginPath(); ctx.moveTo(158,92); ctx.lineTo(214,48); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(214,48); ctx.lineTo(206,52); ctx.lineTo(210,59); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = "#5C6C79"; ctx.textAlign = "center";
+  ctx.fillText(dip === "P"
+      ? (charge === "R" ? "charge 100 \u03A9" : (charge === "L" ? "charge : lampe" : "rhéostat de charge"))
+      : "rhéostat", 186, 108);
+
+  /* ampèremètre */
+  ctx.fillStyle = "#FFFFFF"; ctx.strokeStyle = "#DD7A18"; ctx.lineWidth = 2.4;
+  rond(330,70,19); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = "#DD7A18"; ctx.font = "bold 15px " + getComputedStyle(document.body).fontFamily;
+  ctx.fillText("A", 330, 70);
+
+  /* le dipôle sous test, sur la branche de droite */
+  ctx.strokeStyle = "#16232D"; ctx.fillStyle = "#FFFFFF"; ctx.lineWidth = 2.4;
+  ctx.clearRect(xd-30,118,60,70); fil(xd,yh,xd,118); fil(xd,188,xd,yb);
+  ctx.font = "14px " + getComputedStyle(document.body).fontFamily;
+  if(dip === "R"){
+    ctx.fillRect(xd-17,120,34,66); ctx.strokeRect(xd-17,120,34,66);
+    ctx.fillStyle = "#16232D"; ctx.fillText("100 \u03A9", xd, 153);
+  } else if(dip === "L"){
+    var p = Math.min(1, m.U * m.I / 6);
+    ctx.fillStyle = "rgba(255,196,60," + (0.15 + 0.85 * p) + ")";
+    rond(xd,153,25); ctx.fill(); ctx.strokeStyle = "#16232D"; ctx.stroke();
+    ctx.strokeStyle = "#16232D";
+    fil(xd-17,136,xd+17,170); fil(xd-17,170,xd+17,136);
+    ctx.fillStyle = "#5C6C79"; ctx.textAlign = "left"; ctx.fillText("lampe", xd+34, 153);
+  } else if(dip === "D"){
+    ctx.fillStyle = "#16232D"; ctx.beginPath();
+    if(sens){ ctx.moveTo(xd-16,132); ctx.lineTo(xd+16,132); ctx.lineTo(xd,164); }
+    else    { ctx.moveTo(xd-16,164); ctx.lineTo(xd+16,164); ctx.lineTo(xd,132); }
+    ctx.closePath(); ctx.fill();
+    ctx.lineWidth = 3.2; ctx.strokeStyle = "#16232D";
+    if(sens){ fil(xd-16,166,xd+16,166); } else { fil(xd-16,130,xd+16,130); }
+    ctx.lineWidth = 2.4;
+    ctx.fillStyle = "#5C6C79"; ctx.textAlign = "left";
+    ctx.fillText(sens ? "diode passante" : "diode inversée", xd+26, 153);
+  } else {
+    ctx.fillStyle = "#FFFFFF"; rond(xd,153,22); ctx.fill(); ctx.stroke();
+    fil(xd-11,148,xd+11,148);
+    ctx.setLineDash([3,3]); fil(xd-11,159,xd+11,159); ctx.setLineDash([]);
+    ctx.fillStyle = "#5C6C79"; ctx.textAlign = "left"; ctx.fillText("pile", xd+30, 153);
+  }
+
+  /* voltmètre en dérivation */
+  ctx.strokeStyle = "#1B4E7D"; ctx.fillStyle = "#FFFFFF";
+  fil(xd,110,540,110); fil(xd,196,540,196); fil(540,110,540,133); fil(540,173,540,196);
+  rond(540,153,20); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = "#1B4E7D"; ctx.font = "bold 15px " + getComputedStyle(document.body).fontFamily;
+  ctx.textAlign = "center"; ctx.fillText("V", 540, 153);
+}
+
+function affTable(){
+  var z = $("zoneTable");
+  if(!mesures.length){ z.innerHTML = '<p class="vide">Aucune mesure pour l\'instant.</p>'; return; }
+  var h = '<table><thead><tr><th>n°</th><th class="dip" style="text-align:left">dipôle</th>' +
+          '<th>U (V)</th><th>I (mA)</th></tr></thead><tbody>';
+  mesures.forEach(function(r){
+    h += '<tr><td>' + r.n + '</td><td class="dip">' + r.d + '</td><td>' +
+         fr(r.U, (r.U < 1 ? 3 : 2)) + '</td><td>' + fr(r.I * 1000, 1) + '</td></tr>';
+  });
+  z.innerHTML = h + '</tbody></table>';
+}
+
+maj(); affTable();
+</script>
+</body>
+</html>

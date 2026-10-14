@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Étoile-triangle — paillasse virtuelle</title>
+<style>
+:root{--fond:#EDF1F4;--panneau:#FFFFFF;--bord:#C9D3DB;--encre:#16232D;--gris:#5C6C79;
+--bleu:#1B4E7D;--orange:#DD7A18;--rouge:#C0392B;--vert:#2E8B57;--teal:#0E7C7B;
+--lcd:#182530;--lcdtexte:#E9F3E6;--lcdvert:#7FD98A;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--fond);color:var(--encre);font-family:var(--sans);font-size:16px;
+line-height:1.45;padding:0 12px 40px;max-width:640px;margin:0 auto}
+h1{font-size:1.25rem;line-height:1.25;margin:18px 0 2px;color:var(--bleu)}
+.sous{margin:0 0 14px;color:var(--gris);font-size:.9rem}
+.bloc{background:var(--panneau);border:1px solid var(--bord);border-radius:10px;padding:12px;margin-bottom:12px}
+.bloc h2{font-size:.95rem;margin:0 0 10px;color:var(--bleu)}
+canvas{display:block;width:100%;height:auto;touch-action:manipulation}
+.lcd{background:var(--lcd);border-radius:8px;padding:10px 12px;color:var(--lcdtexte);
+display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.lcd .nom{font-size:.72rem;color:#8FA3B0;margin-bottom:1px}
+.lcd .val{font-family:var(--mono);font-size:1.05rem}
+.lcd .large{grid-column:1/-1;border-top:1px solid #2C3D4C;padding-top:8px}
+.lcd .large .val{font-size:1.2rem;color:var(--lcdvert)}
+.reglage .ligne{display:flex;justify-content:space-between;align-items:baseline;font-size:.88rem;margin-bottom:2px}
+.reglage .ligne b{font-family:var(--mono);font-size:1rem;color:var(--bleu)}
+input[type=range]{width:100%;margin:0;height:34px;accent-color:var(--bleu);background:transparent}
+.choix{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.choix button{flex:1 1 auto;min-width:70px;min-height:44px;font:inherit;font-size:.84rem;
+border:1px solid var(--bord);background:#F5F8FA;color:var(--encre);border-radius:7px;padding:6px 8px}
+.choix button[aria-pressed=true]{background:var(--rouge);border-color:var(--rouge);color:#fff}
+.alerte{font-size:.86rem;color:var(--rouge);margin:8px 0 0;min-height:2.4em}
+.note{font-size:.85rem;color:var(--gris);margin:10px 0 0}
+.retour{display:inline-block;margin:14px 0 6px;font-size:.88rem;color:var(--bleu);
+  text-decoration:none;padding:8px 0;min-height:40px}
+.retour:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<a class="retour" href="../index.html">&larr;&nbsp; Toutes les animations</a>
+
+<h1>Démarrage étoile-triangle</h1>
+<p class="sous">Trois contacteurs, une temporisation, un temps mort. Observez le courant appelé.</p>
+
+<div class="bloc"><canvas id="cv" width="660" height="300"></canvas></div>
+
+<div class="bloc">
+<h2>Le montage, en direct</h2>
+<canvas id="cv2" width="660" height="430"></canvas>
+<p class="note">Les trois contacteurs sont tracés comme sur le schéma du cours : contact <b>ouvert</b>, lame écartée ; contact <b>fermé</b>, lame qui croise la barre du contact fixe. Les conducteurs sous tension sont colorés selon le couplage en cours — <span style="color:#0E7C7B;font-weight:600">étoile</span> ou <span style="color:#DD7A18;font-weight:600">triangle</span>.</p>
+</div>
+
+<div class="bloc">
+<h2>Conduite</h2>
+<div class="choix">
+  <button id="bGo">Marche</button>
+  <button id="bStop">Arrêt</button>
+  <button id="bVer" aria-pressed="false">Supprimer le verrouillage</button>
+</div>
+<div class="reglage" style="margin-top:14px">
+  <div class="ligne"><span>Temporisation du passage en triangle</span><b id="vT">6,0 s</b></div>
+  <input type="range" id="rT" min="0.5" max="12" step="0.5" value="6">
+</div>
+<p class="alerte" id="al"></p>
+</div>
+
+<div class="bloc">
+<h2>Mesures</h2>
+<div class="lcd">
+  <div><div class="nom">KM1 ligne</div><div class="val" id="o1">retombé</div></div>
+  <div><div class="nom">Couplage</div><div class="val" id="oC">—</div></div>
+  <div><div class="nom">KM2 étoile</div><div class="val" id="o2">retombé</div></div>
+  <div><div class="nom">KM3 triangle</div><div class="val" id="o3">retombé</div></div>
+  <div><div class="nom">Tension par enroulement</div><div class="val" id="oU">0 V</div></div>
+  <div><div class="nom">Vitesse</div><div class="val" id="oV">0 %</div></div>
+  <div class="large"><div class="nom">Courant absorbé (In = 12 A)</div><div class="val" id="oI">0 A</div></div>
+</div>
+<p class="note">Un démarrage direct sur ce moteur appellerait environ 72 A. En étoile, chaque enroulement ne reçoit que 400/√3 ≈ 230 V : le courant de démarrage est divisé par 3.</p>
+</div>
+
+<script>
+const cx=document.getElementById('cv').getContext('2d');
+let t=0,etat='off',km1=0,km2=0,km3=0,T=6,ver=true,n=0,I=0,defaut=false,hist=[];
+const $=i=>document.getElementById(i);
+$('rT').oninput=()=>{T=+$('rT').value;$('vT').textContent=T.toFixed(1).replace('.',',')+' s';};
+$('bGo').onclick=()=>{if(etat==='off'||etat==='defaut'){t=0;n=0;hist=[];defaut=false;etat='etoile';}};
+$('bStop').onclick=()=>{etat='off';};
+$('bVer').onclick=()=>{ver=!ver;$('bVer').setAttribute('aria-pressed',!ver);};
+let last=performance.now();
+function pas(dt){
+  if(etat==='off'||etat==='defaut'){km1=km2=km3=0;n=Math.max(0,n-dt*0.35);I=0;
+    if(etat==='off')defaut=false;}
+  else{ t+=dt; km1=1;
+    if(etat==='etoile'){ km2=1;km3=0;
+      n=Math.min(0.72,n+dt*(0.30*(1-n/0.8)));
+      I=(72/3)*(1-n/1.15);
+      if(t>=T){ etat='mort'; t=0; } }
+    else if(etat==='mort'){ km2=0;km3=0; n=Math.max(0,n-dt*0.05); I=0;
+      if(t>=0.12){ etat='triangle'; t=0; } }
+    else if(etat==='triangle'){ km3=1;km2=ver?0:1;
+      if(!ver){ defaut=true; etat='defaut'; return; }
+      n=Math.min(1,n+dt*0.55);
+      I=Math.max(12,72*(1-n)*1.05+12*n); }
+  }
+  hist.push(I); if(hist.length>600)hist.shift();
+  $('o1').textContent=km1?'COLLÉ':'retombé';
+  $('o2').textContent=km2?'COLLÉ':'retombé';
+  $('o3').textContent=km3?'COLLÉ':'retombé';
+  $('oC').textContent=km2&&km3?'ÉTOILE + TRIANGLE !':(km2?'étoile':(km3?'triangle':'—'));
+  $('oU').textContent=km2?'230 V':(km3?'400 V':'0 V');
+  $('oV').textContent=Math.round(n*100)+' %';
+  $('oI').textContent=I.toFixed(0)+' A';
+  let msg='';
+  if(defaut) msg="Court-circuit franc entre phases : KM2 et KM3 étaient collés ensemble. La protection amont a agi.";
+  else if(etat==='triangle'&&T<2.5) msg="La temporisation est trop courte : le moteur n'avait pas pris de vitesse, la pointe de courant au passage en triangle est presque celle d'un démarrage direct.";
+  else if(!ver&&etat!=='off') msg="Verrouillage supprimé : le passage en triangle va provoquer un court-circuit.";
+  $('al').textContent=msg;
+}
+function fil(x1,y1,x2,y2,e,c){cx.beginPath();cx.lineWidth=e;cx.strokeStyle=c;cx.lineCap='round';
+ cx.moveTo(x1,y1);cx.lineTo(x2,y2);cx.stroke();}
+function txt(s,x,y,sz,c,a){cx.font=(sz||11)+'px '+getComputedStyle(document.body).fontFamily;
+ cx.fillStyle=c||'#16232D';cx.textAlign=a||'center';cx.fillText(s,x,y);}
+function dessine(){
+  cx.clearRect(0,0,660,300);
+  // --- courbe de courant
+  const x0=50,y0=250,w=560,h=200;
+  fil(x0,y0,x0+w,y0,1,'#C9D3DB'); fil(x0,y0,x0,y0-h,1,'#C9D3DB');
+  txt('courant absorbé (A)',x0,y0-h-8,12,'#5C6C79','left');
+  txt('10 s',x0+w,y0+16,10,'#8FA3B0','right');
+  [0,24,48,72].forEach(v=>{const y=y0-v/80*h;fil(x0-4,y,x0+w,y,1,'#EDF1F4');
+    txt(v,x0-8,y+4,10,'#8FA3B0','right');});
+  fil(x0,y0-72/80*h,x0+w,y0-72/80*h,1,'#F3D3CE');
+  txt('démarrage direct ≈ 72 A',x0+w,y0-72/80*h-6,10,'#C0392B','right');
+  cx.beginPath();cx.lineWidth=2.5;cx.strokeStyle=defaut?'#C0392B':'#1B4E7D';
+  hist.forEach((v,i)=>{const x=x0+i/600*w,y=y0-Math.min(v,80)/80*h;i?cx.lineTo(x,y):cx.moveTo(x,y);});
+  cx.stroke();
+  // --- bandeau d'etat
+  const lab=defaut?'COURT-CIRCUIT':(etat==='etoile'?'ÉTOILE':(etat==='mort'?'temps mort':(etat==='triangle'?'TRIANGLE':'arrêt')));
+  const col=defaut?'#C0392B':(etat==='etoile'?'#0E7C7B':(etat==='triangle'?'#DD7A18':'#5C6C79'));
+  cx.fillStyle=col;cx.globalAlpha=0.12;cx.fillRect(x0,20,w,34);cx.globalAlpha=1;
+  txt(lab,x0+w/2,42,16,col);
+  // --- les trois contacteurs
+  [['KM1',km1,'#1B4E7D',150],['KM2 Y',km2,'#0E7C7B',330],['KM3 Δ',km3,'#DD7A18',510]].forEach(([l,s,c,x])=>{
+    cx.fillStyle=s?c:'#FFF';cx.strokeStyle=s?c:'#C9D3DB';cx.lineWidth=2;
+    cx.beginPath();cx.roundRect(x-52,66,104,30,6);cx.fill();cx.stroke();
+    txt(l,x,86,14,s?'#FFF':'#8FA3B0');});
+}
+
+/* ===================================================================
+   LE MONTAGE ÉTOILE-TRIANGLE, en direct
+   KM1 amène les phases sur U1-V1-W1 ; KM2 relie U2-V2-W2 (point étoile) ;
+   KM3 relie U1-W2, V1-U2, W1-V2 (triangle). Contacts tracés selon la norme.
+   =================================================================== */
+const cx2=$('cv2').getContext('2d');
+function f2(x1,y1,x2,y2,e,c,tir){cx2.beginPath();cx2.lineWidth=e;cx2.strokeStyle=c;cx2.lineCap='round';
+  if(tir)cx2.setLineDash([5,3]); cx2.moveTo(x1,y1);cx2.lineTo(x2,y2);cx2.stroke();cx2.setLineDash([]);}
+function t2(s,x,y,sz,c,a,g){cx2.font=(g?'600 ':'')+(sz||11)+'px '+getComputedStyle(document.body).fontFamily;
+  cx2.fillStyle=c||'#16232D';cx2.textAlign=a||'center';cx2.fillText(s,x,y);}
+function pt2(x,y,c){cx2.beginPath();cx2.arc(x,y,3.2,0,6.3);cx2.fillStyle=c;cx2.fill();}
+/* contact de puissance vertical : hauteur h = 8 M, coussinet de contacteur */
+function pole(x,yt,h,ferme,col){
+  const M=h/8, y1=yt+2*M, y2=yt+6*M;
+  f2(x,yt,x,y1,3,col); f2(x,y2,x,yt+h,3,col);
+  if(ferme){ f2(x,y1,x+2*M,y1,3,col); f2(x,y2,x+M,y1-M,3,col); }
+  else       f2(x,y2,x-2*M,y1,3,'#9AA8B2');
+  cx2.beginPath();cx2.arc(x,y1-M/2,M/2,1.5708,4.7124);cx2.lineWidth=2;cx2.strokeStyle=col;cx2.stroke();
+}
+/* enroulement : rectangle entre ses deux bornes */
+function enroulement(x,ya,yb,col,rempli){
+  f2(x,ya,x,ya+10,3,col); f2(x,yb-10,x,yb,3,col);
+  cx2.lineWidth=2.4;cx2.strokeStyle=col;
+  if(rempli){cx2.fillStyle=rempli;cx2.fillRect(x-8,ya+10,16,yb-ya-20);}
+  cx2.strokeRect(x-8,ya+10,16,yb-ya-20);
+}
+function dessineMontage(){
+  const W=660,H=430; cx2.clearRect(0,0,W,H);
+  const G='#9AA8B2', N='#16232D', RE='#C0392B', TEAL='#0E7C7B', OR='#DD7A18';
+  // état affiché ; en cas de défaut on fige la configuration fautive
+  const k1 = defaut ? 1 : km1, k2 = defaut ? 1 : km2, k3 = defaut ? 1 : km3;
+  const cc = defaut ? RE : (k2 ? TEAL : (k3 ? OR : RE));   // couleur du couplage
+  const P=[80,125,170];                                     // U, V, W
+  const yL=26, yK1=46, hK=64, yTap=[124,134,144], yEnrH=158, yEnrB=248;
+  const yRet=[262,274,286], yK2=300, yEt=382;
+  const xK3=[330,390,450], yK3=172;
+  // ---- réseau
+  ['L1','L2','L3'].forEach((l,i)=>{ cx2.beginPath();cx2.arc(P[i],yL,4,0,6.3);
+    cx2.strokeStyle=N;cx2.lineWidth=2;cx2.stroke(); t2(l,P[i],14,11,N); });
+  P.forEach(x=>f2(x,yL+4,x,yK1,3,N));
+  // ---- KM1 ligne
+  P.forEach(x=>pole(x,yK1,hK,k1,k1?RE:N));
+  f2(P[0]-10,yK1+hK/2,P[2]-10,yK1+hK/2,1,N,true);
+  t2('KM1',P[0]-30,yK1+hK/2+4,13,N,'right',true);
+  t2('ligne',P[0]-30,yK1+hK/2+18,10,'#5C6C79','right');
+  const cPh = k1 ? RE : G;                                  // phases en aval de KM1
+  P.forEach(x=>f2(x,yK1+hK,x,yEnrH,3,cPh));
+  // ---- enroulements
+  const actif = k1 && (k2||k3);
+  const cEnr = actif ? cc : G;
+  const fond = actif ? (cc===TEAL?'rgba(14,124,123,0.12)':(cc===OR?'rgba(221,122,24,0.14)':'rgba(192,57,43,0.14)')) : null;
+  ['U','V','W'].forEach((l,i)=>{
+    enroulement(P[i],yEnrH,yEnrB,cEnr,fond);
+    t2(l+'1',P[i]+12,yEnrH+8,10,N,'left'); t2(l+'2',P[i]+12,yEnrB-2,10,N,'left'); });
+  // tension par enroulement
+  const uEnr = !k1 ? '0 V' : (k2&&!k3 ? '230 V' : (k3&&!k2 ? '400 V' : (defaut?'—':'0 V')));
+
+  // ---- KM3 triangle : prises sur U1-V1-W1, retours vers W2-U2-V2
+  const cK3 = (k1&&k3) ? (defaut?RE:OR) : G;
+  const cible=[2,0,1];                                      // U1-W2, V1-U2, W1-V2
+  xK3.forEach((x,i)=>{
+    f2(P[i],yTap[i],x,yTap[i],2.4,cK3); pt2(P[i],yTap[i],k1?RE:N);
+    f2(x,yTap[i],x,yK3,2.4,cK3);
+    pole(x,yK3,hK,k3,k3&&k1?cK3:N);
+    const j=cible[i];
+    f2(x,yK3+hK,x,yRet[j],2.4,cK3);
+    f2(x,yRet[j],P[j],yRet[j],2.4,cK3); pt2(P[j],yRet[j],N);
+  });
+  f2(xK3[0]-10,yK3+hK/2,xK3[2]-10,yK3+hK/2,1,N,true);
+  t2('KM3',xK3[2]+34,yK3+hK/2+4,13,OR,'left',true);
+  t2('triangle',xK3[2]+34,yK3+hK/2+18,10,OR,'left');
+  // ---- KM2 étoile : W2-U2-V2 réunis
+  const cK2 = (k1&&k2) ? (defaut?RE:TEAL) : G;
+  P.forEach(x=>{ f2(x,yEnrB,x,yK2,3,(k1&&(k2||k3))?cc:G); pole(x,yK2,hK,k2,k2&&k1?cK2:N);
+                 f2(x,yK2+hK,x,yEt,3,cK2); pt2(x,yEt,cK2); });
+  f2(P[0],yEt,P[2],yEt,3,cK2);
+  f2(P[0]-10,yK2+hK/2,P[2]-10,yK2+hK/2,1,N,true);
+  t2('KM2',P[0]-30,yK2+hK/2+4,13,TEAL,'right',true);
+  t2('étoile',P[0]-30,yK2+hK/2+18,10,TEAL,'right');
+  t2('point étoile',P[2]+14,yEt+4,10,cK2,'left');
+  // ---- cartouche de l'état
+  let titre, sous, colT;
+  if(defaut){ titre='COURT-CIRCUIT'; colT=RE;
+    sous='KM2 et KM3 fermés ensemble : les phases sont reliées entre elles par le point étoile.'; }
+  else if(k1&&k2){ titre='COUPLAGE ÉTOILE'; colT=TEAL;
+    sous='KM1 et KM2 fermés, KM3 ouvert. Chaque enroulement reçoit 400/√3 ≈ 230 V.'; }
+  else if(k1&&k3){ titre='COUPLAGE TRIANGLE'; colT=OR;
+    sous='KM1 et KM3 fermés, KM2 ouvert. Chaque enroulement reçoit 400 V.'; }
+  else if(k1){ titre='TEMPS MORT'; colT='#5C6C79';
+    sous='KM2 vient de s\u2019ouvrir, KM3 pas encore fermé : aucun couplage, aucun courant.'; }
+  else { titre='ARRÊT'; colT='#5C6C79'; sous='Les trois contacteurs sont ouverts.'; }
+  cx2.fillStyle=colT; cx2.globalAlpha=0.10; cx2.fillRect(300,300,340,96); cx2.globalAlpha=1;
+  cx2.strokeStyle=colT; cx2.lineWidth=1.5; cx2.strokeRect(300,300,340,96);
+  t2(titre,470,326,16,colT,'center',true);
+  // texte sur deux lignes
+  const mots=sous.split(' '); let l1='',l2='';
+  mots.forEach(m=>{ if((l1+' '+m).length<46 && !l2) l1=(l1?l1+' ':'')+m; else l2=(l2?l2+' ':'')+m; });
+  t2(l1,470,352,11.5,N); t2(l2,470,370,11.5,N);
+  t2('KM1 '+(k1?'fermé':'ouvert')+'  ·  KM2 '+(k2?'fermé':'ouvert')+'  ·  KM3 '+(k3?'fermé':'ouvert'),
+     470,389,10,'#5C6C79');
+}
+
+function boucle(now){const dt=Math.min(0.05,(now-last)/1000);last=now;pas(dt);dessine();dessineMontage();
+ requestAnimationFrame(boucle);}
+requestAnimationFrame(boucle);
+</script>
+</body>
+</html>
