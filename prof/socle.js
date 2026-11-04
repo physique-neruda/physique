@@ -1,5 +1,5 @@
 /* =====================================================================
-   socle.js — socle commun des outils du professeur (v62, novembre 2026 ; v64 : site fermé)
+   socle.js — socle commun des outils du professeur (v62, novembre 2026 ; v64 : site fermé ; v64.2 : codes des corrigés)
 
    Deux clés, indépendantes, ouvrent ces pages :
    1. le CODE ENSEIGNANT (celui de l'espace enseignant du site) : il donne,
@@ -16,6 +16,9 @@
    v64 : le code enseignant saisi ici ouvre aussi, sur l'appareil, les clés des
    classes et la clé commune du site (commun/cles.js, chargé par la page avant
    ce module) ; les refermer ici les referme aussi sur le site.
+   v64.2 : la page « Codes des corrigés » ne demande que le code enseignant
+   (gardeCode) : les codes se recalculent sur l'appareil (cleCodes), rien n'est
+   lu ni écrit dans la base.
 
    Chiffrement (de quoi vérifier, rien à régler) :
      kpr = clé de l'espace enseignant (32 octets aléatoires, fixée une fois
@@ -221,6 +224,13 @@ async function lireFichierPrive(k, rel) {
   if (String.fromCharCode(u[0], u[1], u[2], u[3]) !== "NRD1") throw new Error("format");
   const clair = await crypto.subtle.decrypt({ name: "AES-GCM", iv: u.slice(4, 16), additionalData: TE.encode("prive/" + id) }, k.prive, u.slice(16));
   return JSON.parse(TD.decode(clair));
+}
+/* v64.2 : Kc = HMAC-SHA256(kpr, "neruda|codes-corriges|" + année), clé HMAC non extractible (codes des corrigés) */
+export async function cleCodes(annee) {
+  if (!K) throw new Error("code enseignant manquant");
+  if (!/^\d{4}-\d{4}$/.test(String(annee || ""))) throw new Error("année scolaire illisible");
+  const brut = await crypto.subtle.sign("HMAC", K.fichiers, TE.encode("neruda|codes-corriges|" + annee));
+  return crypto.subtle.importKey("raw", brut, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
 }
 export async function lireDonnees(nom) {
   if (!K) throw new Error("code enseignant manquant");
@@ -448,6 +458,41 @@ export function garde(zone) {
       };
       const so = zone.querySelector("#compte-sortir");
       if (so) so.onclick = () => deconnecterProf();
+    }
+    surChangement(rendre);
+    pret.then(rendre);
+  });
+}
+
+/* v64.2 : panneau d'accès réduit au code enseignant (pages qui ne lisent ni n'écrivent la base). */
+export function gardeCode(zone) {
+  return new Promise(resolve => {
+    let fini = false, err = "", derniere = null;
+    function rendre(force) {
+      const e = etat();
+      if (e.cle) {
+        zone.hidden = true; zone.innerHTML = "";
+        if (!fini) { fini = true; resolve(e); }
+        return;
+      }
+      if (fini) { location.reload(); return; }
+      zone.hidden = false;
+      if (derniere === false && force !== true) return;
+      derniere = false;
+      zone.innerHTML = '<h2>Accès réservé au professeur</h2><p class="aide">Le <b>code enseignant</b> suffit ici : il recalcule '
+        + "les codes sur l'appareil, rien n'est lu ni écrit dans la base. Sans « Garder », il se referme avec l'onglet.</p>"
+        + '<div class="cle"><h3>Code enseignant</h3><form id="f-code"><label class="lab" for="code">Code enseignant</label>'
+        + '<input class="champ-texte" id="code" type="password" autocomplete="off" autocapitalize="none" spellcheck="false">'
+        + '<label class="case"><input type="checkbox" id="code-garder"> Garder sur cet appareil (seulement sur votre ordinateur ou votre téléphone)</label>'
+        + '<p class="erreur" id="code-err">' + esc(err) + '</p><button class="gros" type="submit" id="code-ok">Ouvrir</button></form></div>';
+      const fc = zone.querySelector("#f-code");
+      fc.onsubmit = async ev => {
+        ev.preventDefault();
+        const b = zone.querySelector("#code-ok"), er = zone.querySelector("#code-err");
+        b.disabled = true; b.textContent = "Vérification…"; er.textContent = "";
+        try { await ouvrirCode(zone.querySelector("#code").value, zone.querySelector("#code-garder").checked); err = ""; }
+        catch (x) { err = x.message; derniere = null; rendre(true); }
+      };
     }
     surChangement(rendre);
     pret.then(rendre);

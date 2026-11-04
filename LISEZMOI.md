@@ -1743,3 +1743,50 @@ en parallèle le 2/11 : il n'en reste qu'une.
   `outils/chiffrer.py`) et `activite_corrige.pdf` (v23) ; diaporamas du CRSA ch.4 v3 (295 p.) et ch.5 v2 (219 p.).
 - Catalogue : 739 entrées. Tests : `site_v64.test.js` (112 vérifications) ; aller-retour atelier → site chiffré
   → atelier reconstruit identique au fichier près.
+
+## Mise à jour du 4 novembre 2026 (v64.2) — corrigés à débloquer par code, BTS TSMA v12
+
+- **Corrigés à débloquer** (un par exercice, par activité, ou par partie d'activité quand elle se fait en
+  plusieurs fois) : `outils/fabriquer_corriges.py` les fabrique depuis les sources LaTeX des collections (corrigé
+  recompilé, une page neuve par exercice ou par partie, découpé avec qpdf, paginé « 1 / n » ; notes pour le
+  professeur retirées ; texte comparé au corrigé complet de l'espace enseignant) dans
+  `prive-atelier/corriges/<filière>/<chapitre>/<élément>.pdf`, avec la liste `prive-atelier/donnees/corriges.json`
+  (`elements` : id `<filière>.<chapitre>.<élément>`, titre, sorte, numéro, étoiles, partie, pages ; `groupes` :
+  activité découpée → ses parties). Hors du périmètre : ADM, chapitres cachés, tests, devoirs, CCF, oraux, E4, U51.
+  Commande : `python3 -I site-physique/outils/fabriquer_corriges.py site-physique prive-atelier <collections> <travail>`
+  (collections décompressées : `sti2d/STI2D_annee_19ch_avec_ch00`, `crsa/BTS_CRSA_LaTeX`, `tsma/BTS_TSMA_LaTeX`,
+  `et/BTS_ET_LaTeX` ; babel français installé, `lmodern` masqué comme pour les collections). Une note pour le
+  professeur restée dans la source ou dans le PDF, ou une compilation en erreur : l'élément n'est pas publié (ÉCHEC
+  dans le journal, code de sortie 1). Une note doit être écrite avec `\noteprof` ou dans un encadré titré
+  « Note(s) pour le professeur » : une remarque sans étiquette ne peut pas être reconnue.
+- **Chiffrement** (`outils/chiffrer.py`, voir son en-tête) : chaque corrigé dans `corriges/<nom opaque>.enc` avec sa
+  propre clé (tirée de la clé de l'espace enseignant, stable d'une année à l'autre) ; dans la partie de chaque
+  filière du catalogue, la liste et, pour chaque classe, une enveloppe par corrigé et par activité découpée (code de
+  la classe, PBKDF2 100 000 tours, sel de la classe ; IV lié au contenu). Les codes changent avec l'année scolaire
+  (`--annee`, sinon celle du jour). `donnees/corriges.json` est publié dans l'espace enseignant avec l'année (page
+  « Codes des corrigés »). Garde-fous : `corriges/` ne contient que des fichiers NRD1 aux noms opaques, autant que de
+  corrigés listés ; groupes vérifiés (parties existantes, de la même filière, sans doublon) ; avec `pdftotext`, une
+  note pour le professeur restée dans un corrigé arrête la fabrication.
+- **Côté élève** : `commun/corriges.js` (déblocage, clés gardées dans l'onglet — et sur l'appareil avec « Rester
+  connecté » — au nom du compte, synchronisées dans la base `deblocages/{uid}` ; code nominatif : sans rapport avec
+  celui de la classe, il ouvre l'enveloppe de l'élève lue dans `codes/{uid}`, déposée par `comptes_firebase.py cles`),
+  rubrique « Corrigés des exercices et des activités » de chaque
+  chapitre dans `index.html`, liens `#corrige=<id>~<CODE>[,…]` (Pronote), `entrainement/compte.js`
+  (`codesCorriges`, `deblocages`, `enregistrerDeblocages`), `commun/cles.js` (`deriverPrive`, restreint aux
+  dérivations des corrigés : le code enseignant ouvre tout ; `oublier` efface les corrigés débloqués),
+  `commun/donnees.js` (`CORRIGES`).
+- **Côté professeur** : `prof/codes.html` + `prof/codes.js` (« Codes des corrigés » : code de la classe, message
+  Pronote, codes nominatifs ; le code enseignant seul suffit, `prof/socle.js` : `gardeCode`, `cleCodes`).
+- **Base** : règles **v5** (`codes/{uid}` lu par l'élève actif seul ; `deblocages/{uid}` écrit par l'élève, lu par
+  le professeur) et outils de comptes **v6** (`cles --site <clone>` dépose les enveloppes des codes nominatifs : à
+  relancer après chaque version du site qui change la liste des corrigés, et à la rentrée ; `verifier` : 68 essais).
+- Vecteurs d'essai : `outils/tests_codes.py` et `entrainement/tests/corriges.test.mjs` (mêmes calculs en Python,
+  côté élève et côté professeur).
+- **BTS TSMA v12** (logo du lycée Jean Rostand) : 112 PDF élèves (les exercices des ch.7 et 8 étaient les
+  corrigés), corrigés, CCF et oraux, livre du professeur v4, diaporamas v2 ; logo remplacé directement dans les PDF
+  des corrigés des séances (ch.0, ch.1) et du test du ch.1 (`outils/remplacer_logo_pdf.py` de la collection).
+  Pied de page des animations `pied-a-coulisse.html` et `treuil.html` : « M. Cronenberger » (elles servent aussi en
+  1re STI2D et en BTS ET). **Espace enseignant** : tests de l'ADM 0 bis, 30 min (v1) et 1 h (v2), dans Tests
+  (`bts-et/adm00/test_bis_30min…`, `test_bis_1h…`).
+- Tests : `site_v64.test.js` et `site_v642_corriges.test.js` (Chromium) ; aller-retour atelier → site → atelier
+  (`reconstruire_atelier_v5.py`) identique au fichier près, rechiffrement identique à l'octet.

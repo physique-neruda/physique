@@ -43,6 +43,27 @@ CHANGER UNE CLÉ (si elle ou le mot de passe de secours de la classe a circulé)
   Les versions déjà publiées restent lisibles avec l'ancienne clé dans l'historique du dépôt : seul ce
   qui est publié ensuite est protégé.
 
+CORRIGÉS À DÉBLOQUER (v64.2) : prive-atelier/corriges/<filière>/<chapitre>/<élément>.pdf (un PDF par exercice, par
+  activité ou par partie d'activité ; liste prive-atelier/donnees/corriges.json, fabriqués par
+  outils/fabriquer_corriges.py) → corriges/<identifiant opaque>.enc, chacun chiffré avec SA clé :
+    clé du corrigé  = HMAC-SHA256(kpr, "neruda|corriges|cle|" + id)   (stable d'une année à l'autre)
+    nom du fichier  = HMAC-SHA256(kpr, "neruda|corriges|nom|" + id), 20 premiers chiffres hexadécimaux
+  (kpr = clé de l'espace enseignant ; id = <filière>.<chapitre>.<élément>, ex. bts-tsma.ch07.ex03). Les CODES, eux,
+  changent à chaque année scolaire (--annee, par défaut celle du jour : août = nouvelle année) :
+    Kc              = HMAC-SHA256(kpr, "neruda|codes-corriges|" + année)          ex. année = "2026-2027"
+    code de classe  = 10 signes de ALPHABET_CODES tirés de HMAC-SHA256(Kc, "classe|" + classe + "|" + id)
+    code nominatif  = 10 signes tirés de HMAC-SHA256(Kc, "nominatif|" + identifiant + "|" + id) : sans rapport
+                      avec le code de la classe ni avec les autres codes de l'élève ;
+  et, dans la partie de la filière du catalogue (chiffrée avec la clé de la filière), pour chaque classe et chaque
+  corrigé, une enveloppe : la clé du corrigé chiffrée avec PBKDF2-HMAC-SHA256(code de classe, sel de la classe,
+  100 000 tours) (sel = HMAC-SHA256(Kc, "sel|" + classe), 16 octets ; donnée authentifiée "corrige|" + classe + "|"
+  + id ; IV = HMAC-SHA256(clé d'enveloppe, "enveloppe|" + id + "|" + SHA-256 du contenu), 12 octets). Une activité
+  découpée en parties forme un groupe : son code ouvre les clés de toutes ses parties. Les enveloppes des codes
+  NOMINATIFS ne sont pas dans le site : « comptes_firebase.py cles » (outils de comptes v6) les dépose dans
+  codes/{uid}, lisible par l'élève seul (même forme, sel = HMAC-SHA256(Kc, "sel-nominatif|" + identifiant),
+  donnée authentifiée "nominatif|" + identifiant + "|" + id). Le code enseignant ouvre tout (kpr). Aucun code
+  n'est écrit nulle part : la page « Codes des corrigés » de l'espace prof les recalcule avec le code enseignant.
+
 Principe cryptographique (inchangé pour chaque fichier) :
   - fichier chiffré = "NRD1" + IV (12 octets) + AES-256-GCM(contenu), avec le chemin du fichier en
     clair comme donnée authentifiée (docs/…/cours.pdf, animations/…html, entrainement/qcm-…js,
@@ -54,7 +75,7 @@ Principe cryptographique (inchangé pour chaque fichier) :
     enseignant (window.ACCES_PROF, même forme qu'en v62, plus la clé commune). Aucun mot de passe,
     aucune clé en clair.
 """
-import argparse, base64, glob, hashlib, hmac, json, os, re, secrets, shutil, stat, sys
+import argparse, base64, datetime, glob, hashlib, hmac, json, os, re, secrets, shutil, stat, sys
 
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
@@ -150,6 +171,176 @@ def enveloppe(kenv, cle, aad, graine):
     passage à l'autre tant que rien ne change)."""
     iv = hmac.new(kenv, b"enveloppe|" + graine.encode(), hashlib.sha256).digest()[:12]
     return {"iv": b64(iv), "cle": b64(AESGCM(kenv).encrypt(iv, cle, aad.encode()))}
+
+
+# ------------------------------------------------------------ corrigés à débloquer (v64.2)
+ALPHABET_CODES = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"     # 32 signes : ni I, ni O, ni 0, ni 1
+TOURS_CODES = 100_000
+# mêmes calculs dans commun/corriges.js (élève), prof/codes.js (professeur), comptes_firebase.py v6 (enveloppes
+# des codes nominatifs) et reconstruire_atelier_v5.py ; vecteurs d'essai dans outils/tests_codes.py
+
+
+def _h(k, texte):
+    return hmac.new(k, texte.encode("utf-8"), hashlib.sha256).digest()
+
+
+def annee_scolaire(jour=None):
+    j = jour or datetime.date.today()
+    d = j.year if j.month >= 8 else j.year - 1
+    return f"{d}-{d + 1}"
+
+
+def cle_corrige(kpr, ident):
+    return _h(kpr, "neruda|corriges|cle|" + ident)
+
+
+def nom_corrige(kpr, ident):
+    return _h(kpr, "neruda|corriges|nom|" + ident).hex()[:20]
+
+
+def cle_codes(kpr, annee):
+    return _h(kpr, "neruda|codes-corriges|" + annee)
+
+
+def signes(octets):
+    return "".join(ALPHABET_CODES[x % 32] for x in octets[:10])
+
+
+def code_classe(kc, classe, ident):
+    return signes(_h(kc, "classe|" + classe + "|" + ident))
+
+
+def code_nominatif(kc, identifiant, ident):
+    return signes(_h(kc, "nominatif|" + identifiant + "|" + ident))
+
+
+def sel_classe(kc, classe):
+    return _h(kc, "sel|" + classe)[:16]
+
+
+def sel_nominatif(kc, identifiant):
+    return _h(kc, "sel-nominatif|" + identifiant)[:16]
+
+
+def _enveloppe(code, sel, ident, charge, aad):
+    """IV tiré de la clé d'enveloppe, de l'identifiant ET du contenu : rien ne change tant que rien ne change, et deux
+    contenus différents (un groupe recomposé) n'ont jamais le même IV sous la même clé."""
+    kw = hashlib.pbkdf2_hmac("sha256", code.encode("ascii"), sel, TOURS_CODES, dklen=32)
+    iv = _h(kw, "enveloppe|" + ident + "|" + hashlib.sha256(charge).hexdigest())[:12]
+    return iv, AESGCM(kw).encrypt(iv, charge, aad.encode("utf-8"))
+
+
+def enveloppe_corrige(kc, classe, ident, charge):
+    """La clé d'un corrigé (ou, pour un groupe, les clés de ses parties mises bout à bout) chiffrée avec le code de
+    la classe."""
+    iv, c = _enveloppe(code_classe(kc, classe, ident), sel_classe(kc, classe), ident, charge,
+                       "corrige|" + classe + "|" + ident)
+    return {"iv": b64(iv), "cle": b64(c)}
+
+
+def enveloppe_nominative(kc, identifiant, ident, charge):
+    """Même chose avec le code nominatif d'un élève (déposé dans codes/{uid} par comptes_firebase.py cles)."""
+    iv, c = _enveloppe(code_nominatif(kc, identifiant, ident), sel_nominatif(kc, identifiant), ident, charge,
+                       "nominatif|" + identifiant + "|" + ident)
+    return {"iv": b64(iv), "c": b64(c)}
+
+
+# Garde-fou (même motif que outils/fabriquer_corriges.py) : une note pour le professeur restée dans un corrigé
+# arrête la fabrication. Il faut pdftotext (poppler) ; sans lui, le contrôle est sauté (une ligne le dit).
+NOTE_PROF = re.compile(r"(?:Notes?|Remarques?|Conseils?)\s+(?:au|à\s+l['’]|pour\s+le|pour\s+l['’]|pour\s+la)\s*"
+                       r"(?:professeur|enseignant|enseignante)|Pour\s+(?:le|l['’])\s*(?:professeur|enseignant|enseignante)"
+                       r"|(?:À|A)\s+l['’]attention\s+(?:du|de\s+l['’])\s*(?:professeur|enseignant|enseignante)", re.I)
+_PDFTOTEXT = {"vu": False, "chemin": None}
+
+
+def note_restee(chemin):
+    import subprocess
+    if not _PDFTOTEXT["vu"]:
+        _PDFTOTEXT["vu"], _PDFTOTEXT["chemin"] = True, shutil.which("pdftotext")
+        if not _PDFTOTEXT["chemin"]:
+            print("  (pdftotext absent : contrôle des notes pour le professeur dans les corrigés sauté)")
+    if not _PDFTOTEXT["chemin"]:
+        return None
+    r = subprocess.run([_PDFTOTEXT["chemin"], "-q", "-enc", "UTF-8", chemin, "-"], capture_output=True)
+    texte = re.sub(r"\s+", " ", re.sub(r"-\s*\n\s*", "", r.stdout.decode("utf-8", "replace")))
+    m = NOTE_PROF.search(texte)
+    return m.group(0) if m else None
+
+
+def fabriquer_corriges(prive_dir, sortie, K, annee):
+    """prive-atelier/corriges/… (liste : prive-atelier/donnees/corriges.json) -> sortie/corriges/<nom>.enc, et pour
+    chaque filière la partie « corriges » de son catalogue : la liste, les sels et les enveloppes des classes.
+    Rend ({filière: partie}, nombre de corrigés)."""
+    if not prive_dir:
+        return {}, 0
+    man_p = os.path.join(prive_dir, "donnees", "corriges.json")
+    if not os.path.exists(man_p):
+        return {}, 0
+    with open(man_p, encoding="utf-8") as h:
+        man = json.load(h)
+    kpr = K["prive"]
+    kc = cle_codes(kpr, annee)
+    dest = os.path.join(sortie, "corriges")
+    os.makedirs(dest, exist_ok=True)
+    parts = {f: {"v": 1, "annee": annee, "tours": TOURS_CODES, "sels": {}, "elements": [], "groupes": [],
+                 "enveloppes": {}} for f in PROTEGEES}
+    cles, vus = {}, set()
+    for e in man.get("elements", []):
+        fil, ident = e.get("fil"), e.get("id", "")
+        if fil not in PROTEGEES or not re.match(r"^" + re.escape(fil) + r"\.[a-z0-9]+\.[A-Za-z0-9_-]+$", ident):
+            sys.exit(f"ERREUR : corrigé mal décrit dans donnees/corriges.json : {ident!r}")
+        if ident in vus:
+            sys.exit(f"ERREUR : corrigé en double dans donnees/corriges.json : {ident}")
+        vus.add(ident)
+        rel = e.get("fichier", "")
+        if not re.match(r"^corriges/[a-z0-9-]+/[a-z0-9]+/[A-Za-z0-9_-]+\.pdf$", rel):
+            sys.exit(f"ERREUR : fichier de corrigé inattendu : {rel!r}")
+        with open(os.path.join(prive_dir, rel), "rb") as h:
+            donnees = h.read()
+        if donnees[:5] != b"%PDF-":
+            sys.exit(f"ERREUR : {rel} n'est pas un PDF")
+        note = note_restee(os.path.join(prive_dir, rel))
+        if note:
+            sys.exit(f"ERREUR : {rel} contient encore « {note} » (note pour le professeur) : corrigé à refaire "
+                     "(outils/fabriquer_corriges.py)")
+        nom, k = nom_corrige(kpr, ident), cle_corrige(kpr, ident)
+        cles[ident] = k
+        with open(os.path.join(dest, nom + ".enc"), "wb") as h:
+            h.write(chiffrer(k, "corriges/" + nom, donnees))
+        el = {x: e[x] for x in ("id", "ch", "chapitre", "sorte", "titre", "pages") if x in e}
+        for x in ("n", "etoiles", "doc", "partie", "groupe"):
+            if e.get(x) not in (None, "", 0):
+                el[x] = e[x]
+        el["f"] = nom
+        parts[fil]["elements"].append(el)
+    fil_de = {e["id"]: e["fil"] for e in man.get("elements", [])}
+    for g in man.get("groupes", []):
+        fil, gid, membres = g.get("fil"), g.get("id", ""), g.get("membres") or []
+        if (fil not in PROTEGEES or not re.match(r"^" + re.escape(fil) + r"\.[a-z0-9]+\.[A-Za-z0-9_-]+$", gid)
+                or len(membres) < 2 or len(set(membres)) != len(membres)
+                or any(m not in cles or fil_de.get(m) != fil for m in membres)):
+            sys.exit(f"ERREUR : groupe de corrigés mal décrit : {gid!r}")
+        if gid in vus:
+            sys.exit(f"ERREUR : un groupe porte le nom d'un corrigé ou d'un autre groupe : {gid}")
+        vus.add(gid)
+        parts[fil]["groupes"].append({x: g[x] for x in ("id", "ch", "chapitre", "doc", "titre", "membres") if x in g})
+    for fil, P in parts.items():
+        if not P["elements"]:
+            continue
+        for classe in CLASSES_DE[fil]:
+            P["sels"][classe] = b64(sel_classe(kc, classe))
+            env = {el["id"]: enveloppe_corrige(kc, classe, el["id"], cles[el["id"]]) for el in P["elements"]}
+            for g in P["groupes"]:
+                env[g["id"]] = enveloppe_corrige(kc, classe, g["id"], b"".join(cles[m] for m in g["membres"]))
+            P["enveloppes"][classe] = env
+    # fichiers présents mais absents de la liste : signalés (ils ne partent pas)
+    connus = {e["fichier"] for e in man.get("elements", [])}
+    for racine, _, fichiers in os.walk(os.path.join(prive_dir, "corriges")):
+        for n in fichiers:
+            rel = os.path.relpath(os.path.join(racine, n), prive_dir).replace("\\", "/")
+            if rel not in connus:
+                print(f"  attention : {rel} n'est pas dans donnees/corriges.json, il n'est pas publié")
+    return {f: P for f, P in parts.items() if P["elements"]}, len(cles)
 
 
 # ------------------------------------------------------------ fichier des clés (v3)
@@ -290,6 +481,9 @@ def lire_catalogue(chemin):
 # ------------------------------------------------------- espace enseignant
 TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qui colle
     (r"^test_corrige$", "Test — corrigé"), (r"^test$", "Test — sujet"),
+    # v64.2 : tests de l'ADM 0 bis (BTS ET, 30 min et 1 h ; session T0B)
+    (r"^test_bis_(\d+)(min|h)$", "Test de l'ADM 0 bis ({0} {1}) — sujet"),
+    (r"^test_bis_(\d+)(min|h)_corrige$", "Test de l'ADM 0 bis ({0} {1}) — corrigé"),
     (r"^ccf$", "Situation type CCF — sujet"), (r"^devoir$", "Devoir type E32 — sujet"),
     (r"^devoir(\d)$", "Devoir type E32 n°{0} — sujet"), (r"^devoir(\d)_corrige$", "Devoir type E32 n°{0} — corrigé"),
     (r"^oral$", "Oral — sujet"), (r"^u51$", "Situation U51 — sujet"),
@@ -325,7 +519,8 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
     (r"^a(\d)_(\w+)$", "Activité {0} ({1})"), (r"^corrige_seances$", "Corrigé des séances"),
 ]
 ORDRE_PRIVE = ["prerequis", "cours_a_completer", "cours", "exercices", "bilan", "activite_prealable", "activite",
-               "activite2", "corrige_seances", "test", "test_corrige", "exercices_corrige", "activite_bis_3h_corrige", "activite_bis_2h_corrige", "activite_simulations_corrige", "activite_prealable_corrige", "activite_corrige", "activite2_corrige",
+               "activite2", "corrige_seances", "test", "test_corrige", "test_bis_30min", "test_bis_30min_corrige",
+               "test_bis_1h", "test_bis_1h_corrige", "exercices_corrige", "activite_bis_3h_corrige", "activite_bis_2h_corrige", "activite_simulations_corrige", "activite_prealable_corrige", "activite_corrige", "activite2_corrige",
                "activite_anim_corrige", "activite_banc_corrige", "ccf", "ccf_corrige",
                "devoir", "devoir_corrige", "devoir2", "devoir2_corrige", "devoir3", "devoir3_corrige", "oral", "oral_corrige", "e4_sujet", "e4_dres",
                "e4_drep", "e4_corrige", "u51", "u51_corrige", "diagnostic_corrige"]
@@ -351,7 +546,7 @@ def dossier_prive(parts, doc, caches):
     if parts[0] == "diaporamas":
         return "diaporamas"
     fil, ch = parts[0], parts[1]
-    if re.match(r"^(test|test_corrige|diagnostic_corrige)$", doc):
+    if re.match(r"^(test|test_corrige|diagnostic_corrige|test_bis_\d+(min|h)(_corrige)?)$", doc):
         return "tests"
     if doc == "exercices_corrige":
         return "exercices"
@@ -373,7 +568,7 @@ def module_filieres(atelier):
         return None
 
 
-def fabriquer_prive(prive_dir, sortie, k, atelier):
+def fabriquer_prive(prive_dir, sortie, k, atelier, annee=None):
     """prive-atelier/<filière>/<chapitre>/<doc>.pdf, prive-atelier/livres/*.pdf et
     prive-atelier/diaporamas/<filière>/<chapitre>/*.pdf -> sortie/prive/<identifiant>.enc
     + sortie/prive/index.enc (la liste, chiffrée elle aussi). Les noms publiés sont des
@@ -394,7 +589,9 @@ def fabriquer_prive(prive_dir, sortie, k, atelier):
     caches = getattr(F, "CHAPITRES_CACHES", {}) if F else {}
     animations = getattr(F, "ANIMATIONS", {}) if F else {}
     entrees = []
-    for racine, _, fichiers in os.walk(prive_dir):
+    for racine, dossiers, fichiers in os.walk(prive_dir):
+        if os.path.relpath(racine, prive_dir) == ".":
+            dossiers[:] = [d for d in dossiers if d != "corriges"]     # v64.2 : publiés à part (corriges/)
         for nom in sorted(fichiers):
             rel = os.path.relpath(os.path.join(racine, nom), prive_dir).replace("\\", "/")
             parts = rel.split("/")
@@ -404,6 +601,11 @@ def fabriquer_prive(prive_dir, sortie, k, atelier):
             ident = hmac.new(k, ("fichier|" + rel).encode(), hashlib.sha256).hexdigest()[:20]
             with open(os.path.join(racine, nom), "rb") as h:
                 donnees = h.read()
+            if rel == "donnees/corriges.json" and annee:
+                # v64.2 : la page « Codes des corrigés » de l'espace prof calcule les codes de l'année publiée
+                d = json.loads(donnees.decode("utf-8"))
+                d["annee"] = annee
+                donnees = json.dumps(d, ensure_ascii=False, indent=1).encode("utf-8")
             with open(os.path.join(dest, ident + ".enc"), "wb") as h:
                 h.write(chiffrer(k, "prive/" + ident, donnees))
             doc = nom[:-4]
@@ -501,8 +703,9 @@ def page_porte(modele, titre, nom_cle, chemin, retour):
 
 
 # ------------------------------------------------------------ fabrication
-def fabriquer(atelier, sortie, c, prive_dir=None):
+def fabriquer(atelier, sortie, c, prive_dir=None, annee=None):
     atelier, sortie = os.path.abspath(atelier), os.path.abspath(sortie)
+    annee = annee or annee_scolaire()
     if sortie.startswith(atelier + os.sep) or sortie == atelier:
         sys.exit("La sortie doit être un dossier À CÔTÉ de l'atelier, pas dedans.")
     if not os.path.exists(os.path.join(atelier, "catalogue.js")):
@@ -594,6 +797,10 @@ def fabriquer(atelier, sortie, c, prive_dir=None):
             parties["commune"]["documents"].append(d)
         else:
             parties[d["filiere"]]["documents"].append(d)
+    # v64.2 : les corrigés à débloquer (fichiers corriges/*.enc ; liste et enveloppes dans la partie de la filière)
+    corr, nb_corriges = fabriquer_corriges(prive_dir, sortie, K, annee)
+    for f, P in corr.items():
+        parties[f]["corriges"] = P
     for nom_cle, contenu in parties.items():
         brut = json.dumps(contenu, ensure_ascii=False, sort_keys=True).encode("utf-8")
         with open(os.path.join(dcat, nom_cle + ".enc"), "wb") as f:
@@ -607,7 +814,7 @@ def fabriquer(atelier, sortie, c, prive_dir=None):
                 "window.CATALOGUE_CHIFFRE = true;\n")
 
     # ---- espace enseignant
-    nb_prive = fabriquer_prive(prive_dir, sortie, K["prive"], atelier) if prive_dir else 0
+    nb_prive = fabriquer_prive(prive_dir, sortie, K["prive"], atelier, annee) if prive_dir else 0
 
     # ---- acces.js
     sec = c["_secours"]
@@ -670,6 +877,16 @@ def fabriquer(atelier, sortie, c, prive_dir=None):
     with open(os.path.join(sortie, "catalogue.js"), encoding="utf-8") as h:
         if "DOCUMENTS" in h.read():
             sys.exit("ERREUR : catalogue en clair")
+    dcorr = os.path.join(sortie, "corriges")
+    if os.path.isdir(dcorr):
+        for n in os.listdir(dcorr):
+            if not re.match(r"^[0-9a-f]{20}\.enc$", n):
+                sys.exit(f"ERREUR : fichier inattendu dans corriges/ : {n}")
+            with open(os.path.join(dcorr, n), "rb") as h:
+                if h.read(4) != MAGIC:
+                    sys.exit(f"ERREUR : corrigé en clair ou abîmé : corriges/{n}")
+        if len(os.listdir(dcorr)) != nb_corriges:
+            sys.exit("ERREUR : corriges/ ne contient pas exactement les corrigés de la liste")
     # liste blanche : rien d'autre en clair que des pages, des scripts et des notices
     secrets = [v for v in ([c[f]["cle"] for f in PROTEGEES] + [c[f]["mot_de_passe"] for f in PROTEGEES]
                            + [c["_commune"]["cle"], c["_prive"]["cle"], c["_prof"]["mot_de_passe"]]) if v]
@@ -706,6 +923,8 @@ def fabriquer(atelier, sortie, c, prive_dir=None):
         shutil.move(os.path.join(sortie, nom), os.path.join(final, nom))
     os.rmdir(sortie)
     compte["prive"] = nb_prive
+    compte["corriges"] = nb_corriges
+    compte["annee"] = annee
     return compte
 
 
@@ -743,6 +962,7 @@ if __name__ == "__main__":
     ap.add_argument("--nouvelle-cle", nargs="*", default=[], help="filières (ou commune) à qui changer la clé")
     ap.add_argument("--mot", default=None, help="mot de passe imposé avec --nouveau (une seule filière)")
     ap.add_argument("--prive", default=None, help="dossier de l'espace enseignant, HORS du site")
+    ap.add_argument("--annee", default=None, help="année scolaire des codes des corrigés, ex. 2026-2027 (défaut : celle du jour)")
     a = ap.parse_args()
     if a.mot and len(a.nouveau) != 1:
         sys.exit("--mot s'emploie avec une seule filière après --nouveau.")
@@ -751,11 +971,15 @@ if __name__ == "__main__":
             sys.exit("Le fichier des clés ne doit pas être dans le dossier du site.")
     if a.depuis and os.path.abspath(a.depuis) == os.path.abspath(a.cles):
         sys.exit("--depuis et --cles doivent être deux fichiers différents (le v2 est gardé tel quel).")
+    if a.annee:
+        m = re.match(r"^(\d{4})-(\d{4})$", a.annee)
+        if not m or int(m.group(2)) != int(m.group(1)) + 1:
+            sys.exit("--annee : de la forme 2026-2027")
     c = charger_cles(a.cles, a.depuis, set(a.nouveau), set(a.nouvelle_cle), a.mot)
-    r = fabriquer(a.atelier, a.sortie, c, a.prive)
+    r = fabriquer(a.atelier, a.sortie, c, a.prive, a.annee)
     print(f"{a.sortie} fabriqué : {r['clair']} fichiers copiés tels quels ; documents "
           + ", ".join(f"{f} {n}" for f, n in r["docs"].items()) + " ; questionnaires "
           + ", ".join(f"{f} {n}" for f, n in r["qcm"].items()) + " ; animations "
           + ", ".join(f"{k} {n}" for k, n in sorted(r["animations"].items()))
           + f" ; images {r['images']} ; catalogue {r['catalogue']} parties ; sources de l'atelier chiffrées {r['atelier']}"
-          + f" ; espace enseignant {r['prive']} documents")
+          + f" ; espace enseignant {r['prive']} documents ; corrigés à débloquer {r['corriges']} (codes {r['annee']})")

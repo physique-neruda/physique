@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#EDF1F4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='1' y='1' width='26' height='26' rx='6' fill='%23D3E5EC' stroke='%239DB6C0'/%3E%3Cpath d='M4 14C7.5 4 10.5 4 14 14s6.5 10 10 0' fill='none' stroke='%23185FAE' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
-<!-- Accueil du site (v64, novembre 2026) : site FERMÉ. Sans clé sur l'appareil, seule la carte « Se connecter »
+<!-- Accueil du site (v64, novembre 2026 ; v64.2 : corrigés à débloquer par code) : site FERMÉ. Sans clé sur l'appareil, seule la carte « Se connecter »
      s'affiche (compte élève Firebase, ou accès de secours). Le catalogue est chiffré (catalogue/<partie>.enc) et
      s'ouvre avec les clés du compte : la filière de la classe et la clé commune (toutes les animations).
      Présentation : commun/theme.css (police IBM Plex Sans, SIL OFL 1.1, hébergée avec le site). -->
@@ -18,6 +18,24 @@
 .sous-titre{margin:4px 0 0;color:var(--ardoise)}
 .note{margin:12px 0 0;color:var(--ardoise);font-size:.95rem}
 form.porte.code-prof{max-width:440px;margin-top:16px}
+/* v64.2 : corrigés à débloquer */
+.code-corrige{background:var(--surface);border:1px solid var(--trait);border-radius:14px;padding:12px 14px;margin:0 0 10px}
+.code-corrige label{display:block;font-size:.92rem;color:var(--ardoise);margin:0 0 8px}
+.code-corrige .rangee{display:flex;gap:8px;flex-wrap:wrap}
+.code-corrige input{flex:1 1 11em;min-width:0;font:inherit;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;padding:10px 12px;min-height:48px;
+  border:1px solid var(--trait-fort);border-radius:10px;background:var(--papier);color:var(--encre)}
+.code-corrige .principal{width:auto;flex:0 0 auto;margin:0;padding:0 18px;min-height:48px}
+.code-corrige .erreur{color:var(--alerte);font-size:.92rem;margin:8px 0 0}
+.code-corrige .erreur:empty{display:none}
+.debloques{background:var(--vert-doux);border:1px solid var(--vert);border-radius:14px;padding:12px 14px;margin:0 0 10px}
+.debloques b{display:block;margin-bottom:6px}
+.debloques button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;font:inherit;font-weight:600;color:var(--vert);
+  background:none;border:0;padding:8px 0;min-height:44px;cursor:pointer}
+.debloques button svg{width:20px;height:20px;flex:none}
+.debloques.rate{background:var(--surface);border-color:var(--alerte)}
+.debloques.rate b{color:var(--alerte)}
+.ligne.neuf > a.ligne-lien{background:var(--vert-doux)}
+.note-corr{font-size:.9rem;color:var(--ardoise);margin:0 0 10px}
 </style>
 </head>
 <body>
@@ -55,7 +73,8 @@ form.porte.code-prof{max-width:440px;margin-top:16px}
   se connecte avec le compte donné en classe. Les documents sont chiffrés et se déchiffrent dans ton navigateur.</p>
   <p>Ton avancement (cartes, questionnaires, simulations) reste sur cet appareil et, avec ton compte, est gardé chez Google
   (Firebase, serveurs en Europe) jusqu'au 31 août ; le professeur peut le consulter. Tout est dans
-  <a href="entrainement/espace.html">Mon espace</a>. Les corrigés ne sont pas déposés ici.</p>
+  <a href="entrainement/espace.html">Mon espace</a>. Les corrigés des exercices et des activités s'ouvrent avec le code que donne
+  le professeur, en classe ou sur Pronote ; un corrigé débloqué reste ouvert avec ton compte jusqu'au 31 août.</p>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -64,17 +83,20 @@ form.porte.code-prof{max-width:440px;margin-top:16px}
 <!-- acces.js n'existe que dans la version en ligne (outils/chiffrer.py) : absent, comme dans l'atelier,
      tout est en clair et rien ne demande de connexion. -->
 <script src="acces.js"></script>
-<script src="commun/cles.js?v=64"></script>
+<script src="commun/cles.js?v=64.2"></script>
 <script src="entrainement/srs.js"></script>
-<script src="commun/donnees.js?v=64"></script>
+<script src="commun/donnees.js?v=64.2"></script>
 <script src="commun/connexion.js?v=64"></script>
+<script src="commun/corriges.js?v=64.2"></script>
 <script type="module">
   /* le compte (SDK Firebase depuis www.gstatic.com) : seulement sur le site publié */
   if (window.ACCES2) import("./entrainement/compte.js").catch(function (e) { console.warn("Compte indisponible :", e && e.message); });
 </script>
 <script>
 "use strict";
-var C = window.NerudaCles, D = window.NerudaDonnees, SRS = window.NerudaSRS;
+var C = window.NerudaCles, D = window.NerudaDonnees, SRS = window.NerudaSRS, NCR = window.NerudaCorriges || null;
+/* v64.2 : un lien de corrigé (« #corrige=… », Pronote) reçu avant la connexion est gardé dans l'onglet */
+if(NCR && /(^|#)corrige=/.test(location.hash || "")) NCR.garderLien(location.hash);
 var EN_LIGNE = !!(C && C.enLigne);
 var A2 = window.ACCES2 || null;
 var CAT = { FILIERES: [], DOCUMENTS: [] };
@@ -265,7 +287,9 @@ function vueConnexion(){
     + '<div class="intro"><h1>Physique appliquée</h1><p>Cours, TP, animations et révisions de M. Cronenberger, au lycée Pablo Neruda de Dieppe.</p>'
     + '<div class="ecran-tel">' + ecranSecteur(true) + '</div><div class="ecran-ordi">' + ecranSecteur(false) + '</div></div>'
     + '<div id="zone-connexion"></div></section>');
-  window.NerudaConnexion.monter(document.getElementById("zone-connexion"), {apres: function(){ demarrer(); }});
+  var pourCorrige = !!(NCR && NCR.lienGarde());
+  window.NerudaConnexion.monter(document.getElementById("zone-connexion"), {apres: function(){ demarrer(); },
+    titre: pourCorrige ? "Se connecter pour ouvrir le corrigé" : ""});
 }
 
 /* Le pied des accueils : qui est connecté, Mon espace, se déconnecter. */
@@ -494,7 +518,121 @@ function vueChapitreRendu(){
     html += '<h2 class="section-titre">' + echappe(r) + '</h2><div class="liste">'
       + avecPaires(docs).map(function(x){ return ligneDoc(x.doc, {associe: x.associe}); }).join("") + '</div>';
   });
+  html += blocCorriges(f, g);
   vue(html);
+  var fc = document.getElementById("f-code-corrige");
+  if(fc) fc.onsubmit = function(ev){ ev.preventDefault(); debloquer(fc); };
+  if(defilerCorriges){ defilerCorriges = false; var z = document.getElementById("corriges"); if(z) z.scrollIntoView({block: "start"}); }
+}
+
+/* ======================================================================
+   CORRIGÉS À DÉBLOQUER (v64.2) : un par exercice, par activité ou par partie d'activité (commun/corriges.js).
+   ====================================================================== */
+var derniersDebloques = null, defilerCorriges = false;   // {ids, rate} : ce que vient d'ouvrir un code ou un lien
+function titreCorrige(el){
+  return el.sorte === "exercice" ? "Exercice " + el.n + " — " + el.titre : el.titre + (el.partie ? " — " + el.partie : "");
+}
+function trouverCorrige(id){
+  var P = CAT.CORRIGES || {};
+  for(var f in P){ if(!Object.prototype.hasOwnProperty.call(P, f)) continue;
+    var l = (P[f].elements || []).filter(function(e){ return e.id === id; });
+    if(l.length) return {el: l[0], fil: f};
+    var gr = (P[f].groupes || []).filter(function(g){ return g.id === id; });
+    if(gr.length) return {el: (P[f].elements || []).filter(function(e){ return e.id === gr[0].membres[0]; })[0] || null, fil: f};
+  }
+  return null;
+}
+function ligneCorrige(el, ouvert, neuf){
+  var desc = (el.sorte === "exercice" && el.etoiles ? new Array(el.etoiles + 1).join("★") + " · " : "") + pluriel(el.pages || 1, "page")
+    + (ouvert ? "" : " · à débloquer avec le code du professeur");
+  return '<div class="ligne' + (neuf ? ' neuf' : '') + '"><a class="ligne-lien" href="#" data-corrige="' + echappe(el.id) + '">'
+    + '<span class="glyphe g-doc">' + GLYPHES.corrige + '</span><span class="corps"><span class="titre">' + echappe(titreCorrige(el)) + '</span>'
+    + '<span class="desc">' + echappe(desc) + '</span></span>' + (ouvert ? FLECHE : CADENAS) + '</a></div>';
+}
+function blocCorriges(f, g){
+  if(!NCR || !EN_LIGNE || !filiereOuverte(f.id)) return "";
+  var els = NCR.elements(CAT, f.id, g.cle);
+  if(!els.length) return "";
+  var prof = NCR.prof(), nbOuverts = els.filter(function(e){ return NCR.ouvert(e.id); }).length;
+  var e = etatCompte();
+  var h = '<h2 class="section-titre" id="corriges">Corrigés des exercices et des activités <small>'
+    + (prof ? "tous ouverts (code enseignant)" : nbOuverts + " sur " + els.length + " ouvert" + (nbOuverts > 1 ? "s" : "")) + '</small></h2>';
+  var neufs = (derniersDebloques && derniersDebloques.ids) || [];
+  if(derniersDebloques && derniersDebloques.rate){
+    h += '<div class="debloques rate" role="alert"><b>' + echappe(derniersDebloques.rate) + '</b></div>';
+  } else if(neufs.length){
+    var ici = neufs.map(trouverCorrige).filter(function(x){ return x && x.el; });
+    h += '<div class="debloques" role="status"><b>' + (ici.length > 1 ? ici.length + " corrigés débloqués" : "Corrigé débloqué") + '</b>'
+      + ici.map(function(x){ return '<button type="button" data-corrige="' + echappe(x.el.id) + '">' + GLYPHES.corrige
+          + '<span>Ouvrir : ' + echappe(titreCorrige(x.el)) + (x.el.chapitre !== g.nom ? ' (' + echappe(x.el.chapitre) + ')' : '') + '</span></button>'; }).join("")
+      + '</div>';
+  }
+  if(prof) h += '<p class="note-corr">Leurs codes, pour une classe ou pour un élève : espace prof › Codes des corrigés.</p>';
+  else {
+    h += '<form class="code-corrige" id="f-code-corrige" novalidate autocomplete="off">'
+      + '<label for="code-corrige">Le professeur donne un code pour chaque corrigé, en classe ou sur Pronote. '
+      + (e && e.connecte ? "" : "Sans compte (accès de secours), seul le code de la classe marche. ") + '</label>'
+      + '<div class="rangee"><input id="code-corrige" inputmode="text" autocapitalize="characters" autocorrect="off" spellcheck="false" maxlength="16" placeholder="7KQ4M-X2PJD" aria-label="Code du corrigé">'
+      + '<button class="principal" type="submit" id="ok-code-corrige">Débloquer</button></div>'
+      + '<p class="erreur" id="err-code-corrige" role="alert"></p></form>';
+    if(e && e.connecte && e.prof) h += '<p class="note-corr">Compte professeur : avec le code enseignant (Espace enseignant), tous les corrigés s\'ouvrent.</p>';
+  }
+  h += '<div class="liste">' + els.map(function(x){ return ligneCorrige(x, NCR.ouvert(x.id), neufs.indexOf(x.id) >= 0); }).join("") + '</div>';
+  return h;
+}
+function debloquer(form){
+  var champ = form.querySelector("input"), err = form.querySelector(".erreur"), b = form.querySelector("button");
+  b.disabled = true; b.textContent = "Vérification…"; err.textContent = "";
+  NCR.essayer(champ.value, CAT, {fil: vueFiliere}).then(function(r){
+    derniersDebloques = {ids: r.ok};
+    avertir(r.ok.length > 1 ? r.ok.length + " corrigés débloqués." : "Corrigé débloqué.");
+    defilerCorriges = true;
+    rendu();
+  }, function(x){
+    err.textContent = (x && x.message) || "Vérification impossible.";
+    b.disabled = false; b.textContent = "Débloquer";
+  });
+}
+function ouvrirCorrige(a, id){
+  var x = trouverCorrige(id);
+  if(!x || !x.el){ avertir("Ce corrigé n'est plus sur le site."); return; }
+  if(!NCR.ouvert(x.el.id)){
+    var c = document.getElementById("code-corrige");
+    if(c){ c.focus(); c.scrollIntoView({block: "center"}); }
+    avertir("Ce corrigé s'ouvre avec le code donné par le professeur.");
+    return;
+  }
+  var w = !ANDROID ? window.open("", "_blank") : null;
+  if(w){ try{ w.document.write('<p style="font:16px sans-serif;padding:20px">Ouverture du corrigé…</p>'); }catch(e){} }
+  a.classList.add("attente");
+  NCR.ouvrir(x.el).then(function(clair){
+    var blob = new Blob([clair], {type: "application/pdf"}), u = URL.createObjectURL(blob);
+    if(w){ w.location.href = u; }
+    else{ var l = document.createElement("a"); l.href = u; l.download = "corrige-" + x.el.id.replace(/\./g, "-") + ".pdf"; document.body.appendChild(l); l.click(); l.remove(); }
+    setTimeout(function(){ URL.revokeObjectURL(u); }, 120000);
+  }).catch(function(e){
+    if(w) try{ w.close(); }catch(z){}
+    var m = e && e.message;
+    avertir(m === "absent" ? "Ce corrigé est introuvable sur le site." : "Le corrigé n'a pas pu être déchiffré : déconnecte-toi, reconnecte-toi, puis réessaie.");
+  }).then(function(){ a.classList.remove("attente"); });
+}
+/* Un lien « #corrige=id~CODE,… » (message Pronote) : déblocage, puis la page du chapitre du premier corrigé. */
+function traiterLien(texte){
+  var liste = NCR ? NCR.lien(texte) : null;
+  if(NCR) NCR.oublierLien();
+  history.replaceState(null, "", location.pathname + location.search);      // le code ne reste pas dans l'adresse
+  if(!liste || !liste.length){ avertir("Ce lien de corrigé est incomplet : demande-le de nouveau au professeur."); surHash(); return; }
+  preparer(false); vue('<p class="attente-page">Déblocage du corrigé…</p>');
+  Promise.all(liste.map(function(x){
+    return NCR.essayer(x.code, CAT, {ids: [x.id]}).then(function(r){ return r.ok; }, function(){ return []; });
+  })).then(function(res){
+    var ok = [].concat.apply([], res), x = trouverCorrige(ok[0] || liste[0].id);
+    derniersDebloques = ok.length ? {ids: ok} : {ids: [], rate: x ? "Ce lien n'ouvre rien avec ce compte : il est peut-être destiné à un autre élève ou à une autre classe."
+                                                              : "Ce corrigé n'est pas sur le site de ta classe."};
+    defilerCorriges = true;
+    if(x && x.el && laFiliere(x.fil)) location.hash = "#" + x.fil + "/" + NCR.cleDuChapitre(x.el.chapitre);
+    else { derniersDebloques = null; surHash(); avertir(ok.length ? "Corrigé débloqué." : "Ce corrigé n'est pas sur le site de ta classe."); }
+  });
 }
 
 function animationsParClasse(){
@@ -543,7 +681,9 @@ function rendu(){
 /* ---------- navigation ---------- */
 function surHash(){
   var h = (location.hash || "").replace(/^#/, "");
+  if(/^corrige=/.test(h)){ traiterLien(location.hash); return; }
   try{ h = decodeURIComponent(h); }catch(e){}
+  if(derniersDebloques && !defilerCorriges) derniersDebloques = null;      // ancien message : on l'oublie en changeant de page
   recherche = ""; document.getElementById("q").value = ""; document.getElementById("q2").value = "";
   route = null; vueFiliere = null; vueChapitre = null;
   if(h === "prive" || h === "animations") route = h;
@@ -689,7 +829,8 @@ function vuePrive(){
 function seDeconnecter(){
   var NC = compte(), e = etatCompte();
   INDEX_PRIVE = null;
-  function fin(){ C.oublier(true); if(location.hash) history.replaceState(null, "", location.pathname + location.search); demarrer(); }
+  function fin(){ C.oublier(true); if(NCR){ NCR.oublier(); NCR.oublierLien(); } derniersDebloques = null;
+    if(location.hash) history.replaceState(null, "", location.pathname + location.search); demarrer(); }
   if(NC && e && e.connecte) NC.deconnecter().then(fin, fin); else fin();
 }
 
@@ -698,6 +839,8 @@ document.addEventListener("click", function(e){
   if(!t) return;
   var dx = t.closest("[data-deconnexion]");
   if(dx){ e.preventDefault(); seDeconnecter(); return; }
+  var cr = t.closest("[data-corrige]");
+  if(cr){ e.preventDefault(); ouvrirCorrige(cr, cr.getAttribute("data-corrige")); return; }
   var p = t.closest("a[data-prive]");
   if(p){ e.preventDefault(); var id = p.getAttribute("data-prive"), nom = p.getAttribute("data-nom") || id;
     ouvrirChiffre(p, "prive", "prive/" + id + ".enc", "prive/" + id, nom, /\.pdf$/i.test(nom)); return; }
@@ -757,7 +900,10 @@ function demarrer(){
     etape = "chargement";
     D.catalogue().then(function(cat){
       if(g !== generation) return;
-      CAT = cat; etape = "site"; majPastille(); surHash();
+      CAT = cat; etape = "site"; majPastille();
+      var lg = NCR ? NCR.lienGarde() : "";
+      if(lg && !/(^|#)corrige=/.test(location.hash || "")){ traiterLien(lg); return; }
+      surHash();
     }, function(){
       if(g !== generation) return;
       etape = "erreur"; preparer(false);
@@ -766,6 +912,7 @@ function demarrer(){
   });
 }
 if(C) C.surChangement(function(){ demarrer(); });
+if(NCR) NCR.surChangement(function(){ if(etape === "site" && vueChapitre && !recherche) vueChapitreRendu(); });
 brancherCompte();
 majPastille();
 demarrer();

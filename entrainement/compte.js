@@ -1,5 +1,5 @@
 /* =====================================================================
-   compte.js — le compte élève, ses clés et la synchronisation (v64, novembre 2026)
+   compte.js — le compte élève, ses clés et la synchronisation (v64, novembre 2026 ; v64.2)
 
    Module ES chargé « en plus » par espace.html, cartes.html et qcm.html :
    si ce fichier ne se charge pas (pas de réseau, SDK bloqué, vieux
@@ -31,6 +31,14 @@
      cles(rester)              promesse : relit les clés du compte dans la base
    Le journal des réponses (neruda.journal : nombre de réponses par jour et par appareil) voyage
    avec les cartes.
+   v64.2 : corrigés à débloquer par code (commun/corriges.js) :
+     codesCorriges(relire)     promesse {annee, tours, identifiant, classe, sel, env: {id: {iv, c}}} : les
+                               enveloppes des codes NOMINATIFS de l'élève (codes/{uid}, déposées par
+                               « comptes_firebase.py cles », lisibles par lui seul ; aucun code dedans) ;
+                               null pour l'invité, le prof, ou si rien n'est déposé (relu la fois suivante ;
+                               relire : relu même s'il l'a déjà été, après un « cles » relancé entre-temps)
+     deblocages()              promesse : les corrigés débloqués gardés avec le compte (deblocages/{uid})
+     enregistrerDeblocages(c)  les ajoute ({id: {k, t, n}}, fusion)
 
    Ce qui part dans Firestore : trois documents par élève, cartes/{uid},
    qcm/{uid}, simulations/{uid}, chacun {v:2, maj, cles:{<clé locale>: objet}}.
@@ -196,6 +204,7 @@ function appliquerFiche(user, fiche) {
   etat.filiere = FILIERE_DE[fiche.classe] || "";
 }
 function vider() {
+  codesLus = null;
   etat.connecte = false; etat.uid = ""; etat.prenom = ""; etat.classe = ""; etat.classeLibelle = "";
   etat.groupe = ""; etat.identifiant = ""; etat.invite = false; etat.actif = false; etat.prof = false; etat.derniereSync = 0;
   etat.filiere = "";
@@ -278,6 +287,56 @@ async function deconnecter() {
   prevenir({ type: "etat" });
 }
 
+// ---------------------------------------------------------------- corrigés à débloquer (v64.2)
+let codesLus = null;                 // {uid, promesse} : lu une fois par page (sauf « relire »)
+function codesCorriges(relire) {
+  if (!etat.connecte || !etat.uid || etat.invite || etat.prof) return Promise.resolve(null);
+  if (codesLus && codesLus.uid === etat.uid && !relire) return codesLus.promesse;
+  const uid = etat.uid;
+  const promesse = (async () => {
+    try {
+      const d = await getDoc(doc(db, "codes", uid));
+      if (!d.exists()) { if (codesLus && codesLus.promesse === promesse) codesLus = null; return null; }   // relu la fois suivante
+      const v = d.data() || {};
+      const b64 = (s, n) => typeof s === "string" && s.length === n && /^[A-Za-z0-9+/]+=*$/.test(s);
+      const tours = Number(v.tours);
+      if (v.v !== 2 || !/^\d{4}-\d{4}$/.test(String(v.annee || "")) || typeof v.identifiant !== "string" || !v.identifiant
+          || !b64(v.sel, 24) || !Number.isInteger(tours) || tours < 10000 || tours > 2000000
+          || !v.env || typeof v.env !== "object") return null;
+      const env = {};
+      for (const id of Object.keys(v.env)) {
+        const e = v.env[id];
+        if (/^[a-z0-9-]+\.[a-z0-9]+\.[A-Za-z0-9_-]+$/.test(id) && e && b64(e.iv, 16) && typeof e.c === "string"
+            && e.c.length >= 64 && e.c.length < 4000 && /^[A-Za-z0-9+/]+=*$/.test(e.c)) env[id] = { iv: e.iv, c: e.c };
+      }
+      return { annee: v.annee, tours, identifiant: v.identifiant, classe: String(v.classe || ""), sel: v.sel, env };
+    } catch (e) {
+      console.warn("NerudaCompte : codes personnels illisibles :", e && e.code);
+      codesLus = null;                 // on réessaiera
+      return null;
+    }
+  })();
+  codesLus = { uid, promesse };
+  return promesse;
+}
+async function deblocages() {
+  if (!etat.connecte || !etat.uid || etat.invite || etat.prof) return {};
+  try {
+    const d = await getDoc(doc(db, "deblocages", etat.uid));
+    if (!d.exists()) return {};
+    const v = d.data() || {};
+    return (v.cles && typeof v.cles === "object") ? v.cles : {};
+  } catch (e) {
+    console.warn("NerudaCompte : corrigés débloqués illisibles :", e && e.code);
+    return {};
+  }
+}
+async function enregistrerDeblocages(cles) {
+  if (!etat.connecte || !etat.uid || etat.invite || etat.prof || !cles || typeof cles !== "object") return false;
+  try { await setDoc(doc(db, "deblocages", etat.uid), { v: 2, maj: Date.now(), cles }, { merge: true }); return true; }
+  catch (e) { console.warn("NerudaCompte : corrigés débloqués non enregistrés :", e && e.code); return false; }
+}
+
 // ---------------------------------------------------------------- compétences
 /* Les évaluations de la classe (epreuves, champ classe) et, pour chacune,
    la copie de l'élève si elle est publiée (epreuves/{id}/copies/{identifiant} :
@@ -351,6 +410,7 @@ window.NerudaCompte = {
   pret,
   etat: copieEtat,
   connecter, deconnecter, toucher, synchroniser, competences, cles: chargerCles,
+  codesCorriges, deblocages, enregistrerDeblocages,
   surChangement(fn) { if (typeof fn === "function") ecouteurs.push(fn); },
   CLASSES
 };

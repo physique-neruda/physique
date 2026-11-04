@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Espace prof</title>
 <link rel="stylesheet" href="prof.css">
-<!-- Espace prof (v62, novembre 2026 ; v64 : fiches des copies corrigées) : accès aux outils du professeur. Rien d'autre que ce menu en clair ;
+<!-- Espace prof (v62, novembre 2026 ; v64 : fiches des copies corrigées ; v64.2 : codes des corrigés) : accès aux outils du professeur. Rien d'autre que ce menu en clair ;
      les noms et photos des élèves, le comportement et les saisies d'évaluation sont chiffrés (voir socle.js). -->
 </head>
 <body>
@@ -28,6 +28,9 @@
       <a class="outil" href="comportement.html"><b>Comportement</b>
         <span>Registre de la classe : écarts, points positifs et punitions, par élève ou par critère ;
         journal, bilan, copie pour le classeur. Chiffré sur l'appareil avant tout envoi.</span></a>
+      <a class="outil" href="codes.html"><b>Codes des corrigés</b>
+        <span>Pour chaque corrigé d'exercice ou d'activité : le code de la classe, le message à coller dans Pronote
+        (avec le lien qui débloque), et le code nominatif de chaque élève. Le code enseignant suffit.</span></a>
     </div>
     <h2>Ce que voit qui</h2>
     <p class="aide"><b>Chiffré sur cet appareil</b> (illisible pour Google comme pour GitHub) : la liste des élèves avec
@@ -42,7 +45,7 @@
   </section>
 </main>
 <script src="../acces.js"></script>
-<script src="../commun/cles.js?v=64"></script>
+<script src="../commun/cles.js?v=64.2"></script>
 <script type="module">
 import("./accueil.js").catch(function (e) {
   console.error(e);

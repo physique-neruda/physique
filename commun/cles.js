@@ -1,5 +1,5 @@
 /* =====================================================================
-   commun/cles.js — les clés du site sur cet appareil (site v64, novembre 2026)
+   commun/cles.js — les clés du site sur cet appareil (site v64, novembre 2026 ; v64.2)
 
    Depuis la v64, tout le contenu du site est chiffré (outils/chiffrer.py) :
      - une clé par filière (1sti2d, bts-crsa, bts-et, bts-tsma) : documents, questionnaires,
@@ -23,7 +23,11 @@
    La clé de l'espace enseignant (« prive ») ne va JAMAIS sur l'appareil (localStorage) : elle ne
    vit que dans l'onglet, même avec « Rester connecté ».
      dechiffrer(url, aad, nom) / texte(url, aad, nom)
+     deriverPrive(texte)  v64.2 : HMAC-SHA256(clé de l'espace enseignant, texte) pour les seuls textes
+                          « neruda|corriges|cle|… » et « neruda|codes-corriges|… » (clés des corrigés à
+                          débloquer, commun/corriges.js) ; la clé elle-même ne sort pas d'ici
      surChangement(fn)
+   v64.2 : oublier() efface aussi les corrigés débloqués sur l'appareil (neruda.corriges).
    Script classique (pas un module) : il marche sur les vieux navigateurs du lycée.
    ===================================================================== */
 (function (racine) {
@@ -33,7 +37,7 @@
   var NOM = "neruda.cles";
   var ANCIENNES = ["acces-1sti2d", "acces-bts-crsa", "acces-bts-et", "acces-bts-tsma"];
   var TE = new TextEncoder(), TD = new TextDecoder();
-  var cache = {}, brutes = {}, source = null, attente = null, ecouteurs = [];
+  var cache = {}, brutes = {}, source = null, attente = null, ecouteurs = [], hmacPrive = null;
 
   function st(n) { try { return racine[n]; } catch (e) { return null; } }
   function lireSt(s) { try { var b = s && s.getItem(NOM); return b ? JSON.parse(b) : null; } catch (e) { return null; } }
@@ -119,11 +123,11 @@
   }
 
   function oublier(tout) {
-    cache = {}; brutes = {}; source = null;
+    cache = {}; brutes = {}; source = null; hmacPrive = null;
     ["sessionStorage", "localStorage"].forEach(function (n) {
       var s = st(n);
       ecrireSt(s, null);
-      ANCIENNES.concat(["acces-prive"]).forEach(function (k) { ecrireBrut(s, k, null); });
+      ANCIENNES.concat(["acces-prive", "neruda.corriges"]).forEach(function (k) { ecrireBrut(s, k, null); });
       if (tout) ecrireBrut(s, "prof-jeton", null);
     });
     if (tout) { try { racine.indexedDB.deleteDatabase("neruda-prof"); } catch (e) { } }   // code gardé par l'espace prof
@@ -132,6 +136,7 @@
   function retirer(noms) {
     var fait = false;
     (noms || []).forEach(function (n) { if (cache[n] || brutes[n]) { delete cache[n]; delete brutes[n]; fait = true; } });
+    if ((noms || []).indexOf("prive") >= 0) hmacPrive = null;
     if ((noms || []).indexOf("prive") >= 0) ["sessionStorage", "localStorage"].forEach(function (n) { ecrireBrut(st(n), "acces-prive", null); });
     if (!fait) return;
     var garder = !!lireSt(st("localStorage"));
@@ -195,6 +200,19 @@
     });
   }
 
+  /* v64.2 : dérivations de la clé de l'espace enseignant pour les corrigés à débloquer, et elles seules */
+  function deriverPrive(texte) {
+    texte = String(texte || "");
+    if (!/^neruda\|(corriges\|cle\||codes-corriges\|)/.test(texte)) return Promise.reject(new Error("refuse"));
+    return (attente || charger()).then(function () {
+      var b = brutes.prive;
+      if (!b || !cache.prive || !capable()) { var e = new Error("cle"); e.cle = "prive"; throw e; }
+      if (!hmacPrive || hmacPrive.k !== b.k)
+        hmacPrive = { k: b.k, p: crypto.subtle.importKey("raw", deB64(b.k), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]) };
+      return hmacPrive.p.then(function (h) { return crypto.subtle.sign("HMAC", h, TE.encode(texte)); });
+    });
+  }
+
   racine.NerudaCles = {
     enLigne: !!A,
     pret: function () { return attente || charger(); },
@@ -208,6 +226,7 @@
     oublier: oublier,
     dechiffrer: dechiffrer,
     texte: function (url, aad, nom) { return dechiffrer(url, aad, nom).then(function (b) { return TD.decode(b); }); },
+    deriverPrive: deriverPrive,
     surChangement: function (f) { if (typeof f === "function") ecouteurs.push(f); }
   };
   charger();

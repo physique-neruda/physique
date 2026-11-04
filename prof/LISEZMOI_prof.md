@@ -1,4 +1,4 @@
-# Espace prof — outils du professeur (v62, 3 novembre 2026)
+# Espace prof — outils du professeur (v62, 3 novembre 2026 ; v64.2 : codes des corrigés)
 
 Adresse : `https://physique-neruda.github.io/physique/prof/` (lien dans l'espace enseignant, `#prive`, et dans
 « Mon espace » quand on est connecté avec le compte `prof`). Rien n'y est lisible sans les deux clés.
@@ -22,7 +22,8 @@ l'espace prof.
 | `index.html` + `accueil.js` | accès (les deux clés) et menu |
 | `evaluer.html` + `evaluer.js` | évaluation U51 par compétences : reprise des applications « Évaluation U51 » du groupe 1 et d'ETA1 (tuiles photo, grille par élève ou par groupe, pointage par indicateur, binômes et trinômes, bilan, copie pour le registre Excel), avec en plus le choix de la classe, la gestion des épreuves et la publication aux élèves |
 | `comportement.html` + `comportement.js` + `criteres.js` | registre de comportement : reprise de l'application « Comportement 1STI2D » (par élève avec punition facultative, par critère, journal, copie pour le classeur), avec en plus le choix de la classe, le travail donné et son échéance (« Rendu »), un bilan par période, l'import des lignes de l'ancienne application |
-| `socle.js` | accès, chiffrement, liste des élèves, fenêtres communes |
+| `codes.html` + `codes.js` (v64.2) | codes des corrigés à débloquer : pour une classe et un chapitre, le code de la classe de chaque corrigé (exercice, activité, partie d'activité, activité entière), le message à coller dans Pronote avec le lien qui débloque, et le code nominatif de chaque élève (il ne marche qu'une fois les enveloppes déposées par `comptes_firebase.py cles`) ; recalculés sur l'appareil avec le **code enseignant seul** (rien n'est lu ni écrit dans la base ; « Garder sur cet appareil » décoché par défaut, bouton pour le refermer ; les codes nominatifs ne s'impriment pas) |
+| `socle.js` | accès (`garde`, et `gardeCode` : code enseignant seul), chiffrement, clé des codes des corrigés (`cleCodes`), liste des élèves, fenêtres communes |
 | `u51.js` | grille nationale U51 (niveaux, profils, critères) et calculs ; testé par `node --test` |
 | `prof.css` | charte commune |
 

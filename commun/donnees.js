@@ -1,8 +1,8 @@
 /* =====================================================================
-   commun/donnees.js — le catalogue et les données d'entraînement (site v64)
+   commun/donnees.js — le catalogue et les données d'entraînement (site v64 ; v64.2 : corrigés à débloquer)
 
    window.NerudaDonnees :
-     catalogue()         promesse {FILIERES, DOCUMENTS}
+     catalogue()         promesse {FILIERES, DOCUMENTS, CORRIGES}
                          atelier : ce que définit catalogue.js (en clair ; chargé au besoin) ;
                          site publié : les parties de catalogue/ que les clés de l'appareil
                          ouvrent (commune + filière), remises dans l'ordre du catalogue.
@@ -39,7 +39,7 @@
     var f = [], d = [];
     try { f = (typeof FILIERES !== "undefined") ? FILIERES : (racine.FILIERES || []); } catch (e) { }
     try { d = (typeof DOCUMENTS !== "undefined") ? DOCUMENTS : (racine.DOCUMENTS || []); } catch (e) { }
-    return { FILIERES: f, DOCUMENTS: d };
+    return { FILIERES: f, DOCUMENTS: d, CORRIGES: {} };
   }
 
   function catalogue(rafraichir) {
@@ -51,13 +51,14 @@
     }
     if (promesseCatalogue && !rafraichir) return promesseCatalogue;
     promesseCatalogue = C.pret().then(function () {
-      var parties = racine.ACCES2.catalogue || {}, res = { FILIERES: [], DOCUMENTS: [] };
+      var parties = racine.ACCES2.catalogue || {}, res = { FILIERES: [], DOCUMENTS: [], CORRIGES: {} };
       var noms = Object.keys(parties).filter(function (n) { return C.cle(n); });
       return Promise.all(noms.map(function (n) {
         return C.texte(RACINE + parties[n], "catalogue/" + n, n).then(function (t) {
           var p = JSON.parse(t);
           if (p.filieres) res.FILIERES = p.filieres;
           res.DOCUMENTS = res.DOCUMENTS.concat(p.documents || []);
+          if (p.corriges) res.CORRIGES[n] = p.corriges;
         });
       })).then(function () {
         res.DOCUMENTS.sort(function (a, b) { return (a._i || 0) - (b._i || 0); });
