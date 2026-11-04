@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Questionnaire</title>
+<!--
+  Page unique de questionnaire, valable pour toutes les filières et tous
+  les chapitres. On l'appelle avec trois paramètres :
+
+      qcm.html?f=1sti2d&ch=16&type=bilan
+
+  f    identifiant de filière, celui de catalogue.js
+  ch   numéro de chapitre dans cette filière
+  type "bilan" ou "prerequis"
+
+  Les questions sont lues dans qcm-<f>-ch<XX>.js déposé à côté, produit
+  par outils/construire.py. La filière fait partie du nom de fichier :
+  sans elle, le chapitre 1 de la 1re STI2D écraserait le cours 1 du BTS ET.
+
+  Depuis la v61 (novembre 2026), le résultat est gardé dans localStorage
+  sous la clé neruda.qcm.<f>.<chapitre>.<type> (meilleur score, dernier
+  essai, nombre d'essais, questions ratées ; format v2 décrit dans srs.js).
+  Avec un compte (espace.html), il suit l'élève sur tous ses appareils :
+  compte.js, chargé en plus et sans conséquence s'il manque. Sans réseau et
+  sans compte, tout fonctionne comme avant.
+-->
+<meta name="theme-color" content="#EDF1F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="../commun/theme.css?v=64">
+<style>
+.page-qcm{max-width:720px;margin:0 auto;padding:0 16px 40px}
+.tete-page .etiq{margin:0;color:var(--ardoise);font-weight:600;font-size:.95rem}
+.tete-page h1{font-size:1.6rem;font-weight:700;letter-spacing:-.02em;margin:2px 0 0}
+.tete-page .genre{margin:4px 0 0;color:var(--ardoise)}
+.avance{display:flex;align-items:center;gap:10px;margin:18px 0 6px}
+.avance .compte{font-size:.88rem;color:var(--ardoise);white-space:nowrap;font-variant-numeric:tabular-nums}
+.jauge{flex:1;height:6px;background:var(--trait);border-radius:3px;overflow:hidden}
+.jauge span{display:block;height:100%;background:var(--orange);width:0}
+.question{background:var(--surface);border:1px solid var(--trait);border-radius:16px;padding:18px 16px 16px;margin:12px 0}
+.question p.enonce{margin:0;font-size:1.08rem}
+ol.choix{list-style:none;margin:14px 0 0;padding:0}
+ol.choix li{margin:0 0 9px}
+button.choix{width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;background:var(--surface);border:1.5px solid var(--trait-fort);
+  border-radius:12px;padding:12px 13px;display:flex;gap:11px;align-items:baseline;min-height:50px}
+button.choix:hover:not(:disabled){border-color:var(--signal);background:var(--signal-doux)}
+button.choix .lettre{font-weight:700;color:var(--signal);flex:0 0 auto;min-width:1.1em}
+button.choix:disabled{cursor:default;opacity:1}
+button.choix.juste{border-color:var(--vert);background:var(--vert-doux)}
+button.choix.juste .lettre{color:var(--vert)}
+button.choix.faux{border-color:var(--alerte);background:var(--orange-doux)}
+button.choix.faux .lettre{color:var(--alerte)}
+button.choix.terne{opacity:.55}
+.verdict{margin:14px 0 0;padding:13px 14px;border-radius:12px;font-size:.98rem}
+.verdict.ok{background:var(--vert-doux)}
+.verdict.ko{background:var(--orange-doux)}
+.verdict strong.tete{display:block;margin-bottom:3px}
+.verdict.ok strong.tete{color:var(--vert)}
+.verdict.ko strong.tete{color:var(--alerte)}
+.verdict .renvoi{display:block;margin-top:7px;font-size:.88rem;color:var(--ardoise)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 0}
+.bouton{font:inherit;font-weight:700;cursor:pointer;border:1px solid transparent;border-radius:12px;padding:12px 18px;min-height:50px;
+  background:var(--signal);color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.bouton.second{background:var(--surface);color:var(--encre);border-color:var(--trait-fort)}
+:root[data-theme="dark"] .bouton:not(.second){color:#0B1620}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bouton:not(.second){color:#0B1620}}
+.score{background:var(--surface);border:1px solid var(--trait);border-radius:16px;padding:18px;margin:18px 0 0}
+.score .chiffre{font-size:2.4rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;margin:0 0 6px}
+.score .chiffre small{font-size:1.05rem;font-weight:500;color:var(--ardoise)}
+.score h2{margin:0 0 10px;font-size:1.1rem;font-weight:700}
+.arevoir{margin:16px 0 0;padding:0;list-style:none}
+.arevoir li{padding:9px 0;border-top:1px solid var(--trait);font-size:.96rem}
+.arevoir li em{color:var(--alerte);font-style:normal;font-weight:600}
+.vide{color:var(--ardoise);font-size:.96rem}
+.etiquettes{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 12px}
+.etiquette{font-size:.84rem;padding:4px 10px;border-radius:14px;background:var(--signal-doux);color:var(--signal);font-weight:600}
+.etiquette.record{background:var(--vert-doux);color:var(--vert)}
+table{border-collapse:collapse;margin:12px 0;font-size:.94rem;display:block;overflow-x:auto;max-width:100%}
+table th,table td{border:1px solid var(--trait);padding:7px 11px;text-align:left;white-space:nowrap}
+table th{background:var(--signal-doux)}
+</style>
+</head>
+<body>
+<header class="barre" id="barre">
+  <div class="barre-int">
+    <a class="logo" href="../index.html" aria-label="Physique appliquée, accueil">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="6" fill="var(--ecran)" stroke="var(--ecran-bord)"/>
+        <path d="M4 14C7.5 4 10.5 4 14 14s6.5 10 10 0" fill="none" stroke="var(--signal)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span>Physique appliquée</span>
+    </a>
+    <a class="espace" href="espace.html"><span class="pastille" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><circle cx="10" cy="7" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 17c1.2-3.2 3.6-4.6 6.5-4.6s5.3 1.4 6.5 4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="lib">Mon espace</span></a>
+  </div>
+</header>
+<main class="page-qcm">
+  <a class="retour" id="retour" href="../index.html"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="retour-txt">Accueil</span></a>
+  <div class="tete-page">
+    <p class="etiq" id="chap"></p>
+    <h1 id="titre">Chargement…</h1>
+    <p class="genre" id="genre"></p>
+  </div>
+  <div id="zone"></div>
+</main>
+<footer class="pied"><p>Tes scores restent sur cet appareil et, avec ton compte, te suivent sur tous tes appareils
+(<a href="espace.html">Mon espace</a>).</p></footer>
+
+<script src="../acces.js"></script>
+<script src="../commun/cles.js?v=64"></script>
+<script src="srs.js"></script>
+<script src="../commun/donnees.js?v=64"></script>
+<script src="../commun/connexion.js?v=64"></script>
+<!-- Le module de compte se charge en plus ; s'il échoue (pas de réseau, SDK
+     bloqué, vieux navigateur qui ignore type="module"), la page ne le voit
+     même pas. -->
+<script type="module">
+  import("./compte.js").catch(function(e){ console.warn("Compte indisponible :", e && e.message); });
+</script>
+<script>
+(function(){
+  "use strict";
+  var SRS = window.NerudaSRS;
+  var par = new URLSearchParams(location.search);
+  var ch  = (par.get('ch') || '').replace(/[^0-9a-zA-Z]/g,'');
+  // La filiere fait partie de l'adresse : le chapitre 1 de la 1re STI2D et
+  // le cours 1 du BTS ET sont deux choses differentes, et leurs fichiers de
+  // donnees comme leur progression enregistree doivent rester separes.
+  var fil = (par.get('f') || '').replace(/[^a-z0-9-]/g,'');
+  var typ = par.get('type') === 'prerequis' ? 'prerequis' : 'bilan';
+  var zone = document.getElementById('zone');
+  if(window.NerudaDonnees && fil) window.NerudaDonnees.surveillerImages(zone, fil);   // v64 : images chiffrées
+
+  function erreur(txt){
+    document.getElementById('titre').textContent = 'Questionnaire indisponible';
+    zone.innerHTML = '<p class="rien" style="margin-top:18px">' + txt + '</p>';
+  }
+  if(!ch || !fil){ erreur("L'adresse ne précise pas la filière et le " +
+    "chapitre. Passe par la page des ressources plutôt que de taper " +
+    "l'adresse à la main."); return; }
+
+  // Le catalogue passe la CLE du chapitre : ch07, mais aussi c01, tp01, adm01.
+  // Les anciennes adresses numerotees (ch=7) restent valides : on les complete.
+  var cle = /^[0-9]+$/.test(ch) ? 'ch' + (ch.length < 2 ? '0' + ch : ch) : ch;
+  var deux = cle;
+  /* v64 : données chiffrées avec la clé de la filière ; sans elle, on demande la connexion */
+  var C = window.NerudaCles, D = window.NerudaDonnees;
+  function charger(){
+    D.chapitre(fil, cle).then(function(d){
+      if(!d){ erreur('Le chapitre ' + ch + " n'a pas encore de questionnaire."); return; }
+      var r = document.getElementById('retour'), nom = (d.etiquette ? d.etiquette + ' — ' : '') + d.titre;
+      r.href = '../index.html#' + fil + '/' + nom.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+      document.getElementById('retour-txt').textContent = d.etiquette || 'Le chapitre';
+      demarrer(d);
+    }, function(e){
+      erreur(e && e.message === 'cle' ? "Ton compte n'ouvre pas les questionnaires de cette classe."
+        : 'Le chapitre ' + ch + " n'a pas encore de questionnaire.");
+    });
+  }
+  C.pret().then(function(){
+    if(C.enLigne && !C.cle(fil)){
+      window.NerudaConnexion.attendreCompte(6000).then(function(NC){ return NC.pret; }, function(){}).then(function(){
+        if(C.cle(fil)) { charger(); return; }
+        document.getElementById('titre').textContent = 'Connecte-toi';
+        document.getElementById('genre').textContent = 'Les questionnaires s\'ouvrent avec ton compte.';
+        window.NerudaConnexion.monter(zone, {apres: function(){ if(C.cle(fil)) location.reload(); }});
+      });
+      return;
+    }
+    charger();
+  });
+
+  // ---------- outils ----------
+  function melange(t){
+    var a = t.slice();
+    for(var i=a.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1)), x = a[i]; a[i]=a[j]; a[j]=x;
+    }
+    return a;
+  }
+  function creer(balise, classe, html){
+    var e = document.createElement(balise);
+    if(classe) e.className = classe;
+    if(html !== undefined) e.innerHTML = html;
+    return e;
+  }
+  function memoriser(cle, val){
+    try{ localStorage.setItem(cle, val); }catch(e){}
+  }
+  function relire(cle){
+    try{ return localStorage.getItem(cle); }catch(e){ return null; }
+  }
+
+  // ---------- déroulement ----------
+  var LETTRES = 'abcdefgh', jeu, pos, faux, chap;
+
+  function demarrer(donnees){
+    chap = donnees;
+    document.getElementById('chap').textContent = (chap.etiquette || ('Chapitre ' + chap.num));
+    document.getElementById('titre').textContent = chap.titre;
+    document.getElementById('genre').textContent =
+      (typ === 'bilan' ? 'Bilan du chapitre' : 'Vérifier ses prérequis')
+      + ' · ' + chap.niveau;
+    document.title = (typ==='bilan'?'Bilan':'Prérequis') + ' — ' + chap.titre;
+    if(!chap[typ] || !chap[typ].length){
+      erreur('Ce chapitre ne contient pas de ' + typ + '.'); return;
+    }
+    lancer();
+  }
+
+  function lancer(){
+    // Ordre des questions ET des propositions retiré au hasard à chaque essai :
+    // on ne peut pas retenir « c'est la troisième ».
+    jeu = melange(chap[typ].map(function(q,i){ return {q:q, i:i}; })).map(function(x){
+      var q = x.q;
+      var idx = melange(q.choix.map(function(_,i){ return i; }));
+      return {
+        num   : x.i,                      // rang de la question dans le fichier de données
+        enonce: q.q,
+        choix : idx.map(function(i){ return q.choix[i]; }),
+        bonne : idx.indexOf(q.bonne),
+        expl  : q.expl || '',
+        renvoi: q.renvoi || ''
+      };
+    });
+    pos = 0; faux = [];
+    afficher();
+  }
+
+  function afficher(){
+    zone.innerHTML = '';
+    var q = jeu[pos];
+
+    var av = creer('div','avance');
+    av.appendChild(creer('span','compte','Question ' + (pos+1) + ' / ' + jeu.length));
+    var j = creer('div','jauge'); var b = creer('span');
+    b.style.width = Math.round(pos/jeu.length*100) + '%';
+    j.appendChild(b); av.appendChild(j);
+    zone.appendChild(av);
+
+    var bloc = creer('div','question');
+    bloc.appendChild(creer('p','enonce', q.enonce));
+    var ol = creer('ol','choix');
+    q.choix.forEach(function(txt,i){
+      var li = creer('li');
+      var bt = creer('button','choix');
+      bt.type = 'button';
+      bt.appendChild(creer('span','lettre', LETTRES[i] + '.'));
+      bt.appendChild(creer('span', null, txt));
+      bt.onclick = function(){ repondre(i, ol, bloc); };
+      li.appendChild(bt); ol.appendChild(li);
+    });
+    bloc.appendChild(ol);
+    zone.appendChild(bloc);
+    var prem = ol.querySelector('button');
+    if(prem) prem.focus({preventScroll:true});
+  }
+
+  function repondre(choisi, ol, bloc){
+    var q = jeu[pos], juste = (choisi === q.bonne);
+    var boutons = ol.querySelectorAll('button.choix');
+    for(var i=0;i<boutons.length;i++){
+      boutons[i].disabled = true;
+      if(i === q.bonne) boutons[i].classList.add('juste');
+      else if(i === choisi) boutons[i].classList.add('faux');
+      else boutons[i].classList.add('terne');
+    }
+    if(!juste) faux.push(q);
+
+    var v = creer('div','verdict ' + (juste ? 'ok' : 'ko'));
+    v.appendChild(creer('strong','tete', juste ? 'Bonne réponse.'
+      : 'Ce n\u2019est pas ça — la bonne réponse est '
+        + LETTRES[q.bonne] + '.'));
+    if(q.expl) v.appendChild(creer('span', null, q.expl));
+    if(q.renvoi) v.appendChild(creer('span','renvoi','À revoir : ' + q.renvoi));
+    bloc.appendChild(v);
+
+    var act = creer('div','actions');
+    var suite = creer('button','bouton',
+      pos + 1 < jeu.length ? 'Question suivante' : 'Voir mon résultat');
+    suite.type = 'button';
+    suite.onclick = function(){ pos++; (pos < jeu.length) ? afficher() : final(); };
+    act.appendChild(suite);
+    bloc.appendChild(act);
+    suite.focus({preventScroll:true});
+  }
+
+  function final(){
+    var bons = jeu.length - faux.length;
+    zone.innerHTML = '';
+    var d = creer('div','score');
+    d.appendChild(creer('h2', null, 'Résultat'));
+    d.appendChild(creer('p','chiffre', bons +
+      ' <small>bonnes réponses sur ' + jeu.length + '</small>'));
+
+    var cleStock = 'neruda.qcm.' + fil + '.' + cle + '.' + typ;
+    var avant = SRS.lireQcm(relire(cleStock));
+    var apres = SRS.enregistrerQcm(avant, bons, jeu.length,
+      faux.map(function(q){ return q.num; }));
+    memoriser(cleStock, JSON.stringify(apres));
+    if(window.NerudaCompte){ try{ window.NerudaCompte.toucher('qcm'); }catch(e){} }
+
+    var et = creer('div','etiquettes');
+    et.appendChild(creer('span','etiquette', 'Essai nº ' + apres.tentatives));
+    if(avant && bons > avant.meilleur){
+      et.appendChild(creer('span','etiquette record', 'Nouveau meilleur score'));
+    }else if(avant){
+      et.appendChild(creer('span','etiquette', 'Meilleur score : ' + apres.meilleur + ' sur ' + jeu.length));
+    }
+    if(avant && avant.date){
+      et.appendChild(creer('span','etiquette', 'Essai précédent : ' + avant.dernier + ' sur '
+        + (avant.total || jeu.length)));
+    }else if(avant){
+      et.appendChild(creer('span','etiquette', 'Essai précédent : ' + avant.dernier + ' sur ' + jeu.length));
+    }
+    d.appendChild(et);
+
+    if(faux.length){
+      d.appendChild(creer('h2', null, 'Les questions à reprendre'));
+      var ul = creer('ul','arevoir');
+      faux.forEach(function(q){
+        var li = creer('li');
+        li.appendChild(creer('div', null, q.enonce));
+        li.appendChild(creer('div', null, '<em>Réponse :</em> '
+          + q.choix[q.bonne] + (q.expl ? ' — ' + q.expl : '')));
+        ul.appendChild(li);
+      });
+      d.appendChild(ul);
+    }else{
+      d.appendChild(creer('p','vide',
+        'Tout est juste. Relance dans quelques jours pour vérifier que ça tient.'));
+    }
+    zone.appendChild(d);
+
+    var act = creer('div','actions');
+    var rj = creer('button','bouton','Recommencer');
+    rj.type = 'button'; rj.onclick = lancer;
+    act.appendChild(rj);
+    var lien = creer('a','bouton second','Réviser les cartes');
+    lien.href = 'cartes.html?f=' + fil + '&ch=' + cle;
+    act.appendChild(lien);
+    zone.appendChild(act);
+    rj.focus({preventScroll:true});
+  }
+})();
+</script>
+</body>
+</html>

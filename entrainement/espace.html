@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EDF1F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<title>Mon espace</title>
+<!--
+  Mon espace (v64, novembre 2026) : le compte de l'élève, ce qu'il a fait sur le site (cartes de
+  révision, questionnaires, simulations), ses évaluations publiées (compétences U51 et fiches des
+  devoirs corrigés), et le code de sauvegarde. Site fermé : sans clé sur l'appareil, la page demande
+  la connexion (commun/connexion.js). Ressources : commun/cles.js, commun/donnees.js (catalogue et
+  données chiffrés), srs.js, compte.js (SDK Firebase depuis www.gstatic.com).
+-->
+<link rel="stylesheet" href="../commun/theme.css?v=64">
+<link rel="stylesheet" href="../commun/fiche.css?v=64">
+<style>
+.page-espace{max-width:760px;margin:0 auto;padding:0 16px 40px}
+.page-espace h1{font-size:1.9rem;font-weight:700;letter-spacing:-.02em;margin:18px 0 2px}
+.page-espace .chapeau{margin:0;color:var(--ardoise)}
+.bloc{background:var(--surface);border:1px solid var(--trait);border-radius:16px;padding:16px 16px 14px;margin:16px 0}
+.bloc h2{margin:0 0 8px;font-size:1.15rem;font-weight:700}
+.bloc h3{margin:16px 0 4px;font-size:.95rem;color:var(--ardoise);font-weight:600}
+.vide{color:var(--ardoise);font-size:.95rem;margin:4px 0}
+.aide{color:var(--ardoise);font-size:.88rem;margin:8px 0 0}
+.etiquettes{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.etiquette{font-size:.84rem;padding:4px 10px;border-radius:14px;background:var(--signal-doux);color:var(--signal);font-weight:600}
+.etiquette.serie{background:var(--orange-doux);color:var(--orange)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.bouton{font:inherit;font-weight:700;cursor:pointer;border:1px solid transparent;border-radius:12px;padding:10px 16px;min-height:46px;
+  background:var(--signal);color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.bouton.second{background:var(--surface);color:var(--encre);border-color:var(--trait-fort)}
+.bouton:disabled{opacity:.55;cursor:default}
+:root[data-theme="dark"] .bouton:not(.second){color:#0B1620}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bouton:not(.second){color:#0B1620}}
+.suivi > .rang{padding:10px 0;border-top:1px solid var(--trait)}
+.suivi > .rang:first-child{border-top:none}
+.suivi > .rang a{color:var(--signal);text-decoration:none;font-weight:600}
+.suivi > .rang .sous{color:var(--ardoise);font-size:.84rem;margin-left:6px}
+.chiffres{display:flex;flex-wrap:wrap;gap:6px 14px;margin:3px 0 0;font-size:.92rem;color:var(--ardoise);font-variant-numeric:tabular-nums}
+.chiffres b{color:var(--encre);font-weight:600}
+.chiffres .du b{color:var(--orange)}
+.niveaux{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.niveau{font-size:.86rem;padding:3px 9px;border-radius:8px;background:var(--signal-doux);border:1px solid var(--trait)}
+.niveau b{font-weight:700;margin-right:4px}
+.niveau.N1{background:var(--orange-doux);border-color:var(--alerte)}
+.niveau.N2{background:var(--orange-doux);border-color:var(--orange)}
+.niveau.N3{background:var(--signal-doux);border-color:var(--signal)}
+.niveau.N4{background:var(--vert-doux);border-color:var(--vert)}
+.epreuve{padding:12px 0;border-top:1px solid var(--trait)}
+.epreuve:first-of-type{border-top:none}
+.epreuve .tete-ep{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.epreuve .titre{font-weight:700}
+.epreuve .date{color:var(--ardoise);font-size:.88rem}
+.epreuve .note{margin-left:auto;font-weight:700;color:var(--signal);font-size:1.15rem;font-variant-numeric:tabular-nums}
+.epreuve .nature{display:block;color:var(--ardoise);font-size:.84rem;width:100%}
+.epreuve .fiche{margin-top:2px}
+.imprimer{margin-top:10px}
+.evolution{margin:12px 0 0;padding-top:10px;border-top:1px solid var(--trait)}
+.evolution .comp{margin:6px 0;font-size:.92rem}
+.evolution .comp b{margin-right:6px}
+.evolution .suite{display:inline-flex;flex-wrap:wrap;gap:4px;align-items:center;vertical-align:middle}
+.evolution .fleche{color:var(--ardoise)}
+.lien-prof{display:inline-block;margin:10px 0 0;color:var(--signal);font-weight:600;text-decoration:none}
+.code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.78rem;line-height:1.4;overflow-wrap:anywhere;background:var(--papier);
+  border:1px dashed var(--trait-fort);border-radius:10px;padding:10px;margin:10px 0 0;max-height:9em;overflow:auto;white-space:pre-wrap}
+.champ{display:block;margin:10px 0 0}
+.champ span{display:block;font-size:.88rem;color:var(--ardoise);margin-bottom:3px}
+textarea{width:100%;min-height:5.5em;font:inherit;font-size:.86rem;padding:10px 12px;border-radius:10px;border:1px solid var(--trait-fort);background:var(--papier);color:var(--encre)}
+.erreur{color:var(--alerte);font-size:.92rem;margin:10px 0 0;min-height:1.2em}
+.erreur:empty{min-height:0}
+</style>
+</head>
+<body>
+<header class="barre" id="barre">
+  <div class="barre-int">
+    <a class="logo" href="../index.html" aria-label="Physique appliquée, accueil">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="6" fill="var(--ecran)" stroke="var(--ecran-bord)"/>
+        <path d="M4 14C7.5 4 10.5 4 14 14s6.5 10 10 0" fill="none" stroke="var(--signal)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span>Physique appliquée</span>
+    </a>
+  </div>
+</header>
+<main class="page-espace">
+  <a class="retour" href="../index.html"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Accueil</a>
+  <h1>Mon espace</h1>
+  <p class="chapeau">Ton compte, tes cartes, tes questionnaires, tes simulations et tes évaluations.</p>
+  <section class="bloc" id="compte" aria-live="polite"><h2>Compte</h2><p class="vide">Chargement de la connexion…</p></section>
+  <div id="contenu" hidden>
+    <section class="bloc" id="evaluations" hidden><h2>Mes évaluations</h2><div id="evaluations-corps"><p class="vide">Lecture…</p></div></section>
+    <section class="bloc" id="cartes"><h2>Cartes de révision</h2><div id="cartes-corps"><p class="vide">Lecture…</p></div></section>
+    <section class="bloc" id="qcm"><h2>Questionnaires</h2><div id="qcm-corps"><p class="vide">Lecture…</p></div></section>
+    <section class="bloc" id="simulations"><h2>Simulations</h2><div id="simulations-corps"><p class="vide">Lecture…</p></div></section>
+    <section class="bloc" id="sauvegarde">
+      <h2>Code de sauvegarde</h2>
+      <p class="vide">Pour transporter ton avancement sans compte : copie ce code sur l'ancien appareil, colle-le sur le
+      nouveau. Il contient seulement ton avancement (aucun nom, aucun mot de passe).</p>
+      <div class="actions"><button type="button" class="bouton" id="code-copier">Copier mon code de sauvegarde</button></div>
+      <div class="code" id="code-sortie" hidden></div>
+      <p class="aide" id="code-info"></p>
+      <label class="champ" for="code-entree"><span>Restaurer un code</span>
+        <textarea id="code-entree" placeholder="Colle ici un code qui commence par NRD1" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea></label>
+      <div class="actions"><button type="button" class="bouton second" id="code-restaurer">Restaurer</button></div>
+      <p class="erreur" id="code-erreur" role="alert"></p>
+    </section>
+  </div>
+</main>
+<footer class="pied"><p>Avec le compte donné par le professeur, ton avancement est gardé chez Google (Firebase, serveurs en
+Europe) sous ton prénom et ton initiale, jusqu'au 31 août ; le professeur peut le consulter. Les documents du site, eux, ne
+passent jamais par là.</p></footer>
+
+<script src="../acces.js"></script>
+<script src="../catalogue.js"></script>
+<script src="../commun/cles.js?v=64"></script>
+<script src="srs.js"></script>
+<script src="../commun/donnees.js?v=64"></script>
+<script src="../commun/connexion.js?v=64"></script>
+<script src="../commun/fiche.js?v=64"></script>
+<script type="module">
+  var fini = false;
+  function dire(ok){ if(fini) return; fini = true;
+    document.dispatchEvent(new CustomEvent('neruda-compte-fin', {detail: ok ? window.NerudaCompte : null})); }
+  var t = setTimeout(function(){ dire(false); }, 8000);
+  import("./compte.js").then(function(){ clearTimeout(t); dire(true); })
+    .catch(function(e){ clearTimeout(t); console.warn("Compte indisponible :", e && e.message); dire(false); });
+</script>
+<script>
+(function(){
+  "use strict";
+  var SRS = window.NerudaSRS, C = window.NerudaCles, D = window.NerudaDonnees;
+  function $(id){ return document.getElementById(id); }
+  function creer(b,c,h){ var e=document.createElement(b); if(c) e.className=c; if(h!==undefined) e.innerHTML=h; return e; }
+  function texte(b,c,t){ var e=creer(b,c); e.textContent = t; return e; }
+  function lire(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function pluriel(n, un, des){ return n + ' ' + (n > 1 ? des : un); }
+  function echapper(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function nombreFr(x){ return String(x).replace('.', ','); }
+  function ilYA(ms){
+    if(!ms) return 'pas encore';
+    var s = Math.round((Date.now() - ms)/1000);
+    if(s < 60) return 'à l\'instant'; if(s < 3600) return 'il y a ' + Math.round(s/60) + ' min';
+    if(s < 86400) return 'il y a ' + Math.round(s/3600) + ' h'; return 'il y a ' + Math.round(s/86400) + ' j';
+  }
+  function dateFr(iso){ if(!SRS.dateValide(iso)) return iso || ''; var p = iso.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; }
+  function dateCourte(iso){ if(!SRS.dateValide(iso)) return iso || ''; var p = iso.split('-'); return p[2] + '/' + p[1]; }
+
+  /* ---------------------------------------------------------------- catalogue (titres) */
+  var FIL = {}, CHAP = {};
+  function lireCatalogue(){
+    return D.catalogue().then(function(cat){
+      FIL = {}; CHAP = {};
+      (cat.FILIERES || []).forEach(function(f){ FIL[f.id] = f.nom; });
+      (cat.DOCUMENTS || []).forEach(function(d){
+        if(!d.fichier || d.fichier.indexOf('entrainement/') !== 0) return;
+        var m = /[?&]f=([a-z0-9-]+)/.exec(d.fichier), n = /[?&]ch=([0-9a-zA-Z]+)/.exec(d.fichier);
+        if(!m || !n) return;
+        var id = m[1] + '|' + n[1];
+        CHAP[id] = CHAP[id] || { fil: m[1], cle: n[1], chapitre: d.chapitre || n[1] };
+      });
+    }, function(){});
+  }
+  function infoChapitre(fil, cle){ return CHAP[fil + '|' + cle] || { fil: fil, cle: cle, chapitre: cle.toUpperCase() }; }
+
+  /* données des chapitres (nombre de cartes, de questions), lues une par une */
+  var donnees = {}, file = Promise.resolve();
+  function chargerDonnees(fil, cle, suite){
+    var id = fil + '|' + cle;
+    file = file.then(function(){
+      if(donnees[id] !== undefined) return;
+      if(C.enLigne && !C.cle(fil)){ donnees[id] = null; return; }
+      return D.chapitre(fil, cle).then(function(c){
+        donnees[id] = c ? { ids: SRS.idsCartes(c.cartes || []), cartes: (c.cartes||[]).length, bilan: (c.bilan||[]).length,
+          prerequis: (c.prerequis||[]).length } : null;
+      }, function(){ donnees[id] = null; });
+    }).then(function(){ suite(donnees[id]); });
+  }
+
+  /* ---------------------------------------------------------------- cartes */
+  function afficherCartes(){
+    var corps = $('cartes-corps'); corps.innerHTML = '';
+    var cles = SRS.clesLocales(localStorage).filter(function(k){ return k.indexOf('neruda.cartes.') === 0; });
+    var serie = SRS.serieCourante(lire('neruda.serie'));
+    if(serie >= 2){ var et = creer('div','etiquettes'); et.appendChild(texte('span','etiquette serie','Série : ' + serie + ' jours')); corps.appendChild(et); }
+    if(!cles.length){ corps.appendChild(texte('p','vide','Aucune carte revue pour l\'instant. Les cartes de chaque chapitre sont en haut de sa page, dans « S\'entraîner ».')); return; }
+    var parFil = {};
+    cles.forEach(function(k){
+      var p = k.split('.'); if(p.length < 4) return;
+      var fil = p[2], cle = p.slice(3).join('.');
+      (parFil[fil] = parFil[fil] || []).push({fil:fil, cle:cle, etat: SRS.lireCartes(lire(k))});
+    });
+    Object.keys(parFil).sort().forEach(function(fil){
+      corps.appendChild(texte('h3', null, FIL[fil] || fil));
+      var liste = creer('div','suivi');
+      parFil[fil].sort(function(a,b){ return a.cle < b.cle ? -1 : 1; }).forEach(function(x){
+        var info = infoChapitre(x.fil, x.cle);
+        var li = creer('div','rang');
+        var a = texte('a', null, info.chapitre); a.href = 'cartes.html?f=' + x.fil + '&ch=' + x.cle;
+        li.appendChild(a);
+        var ch = creer('div','chiffres');
+        var sDu = creer('span','du','<b>…</b> à revoir'), sAp = creer('span',null,'<b>…</b> apprises'), sTot = creer('span',null,'<b>…</b> cartes');
+        ch.appendChild(sDu); ch.appendChild(sAp); ch.appendChild(sTot);
+        li.appendChild(ch); liste.appendChild(li);
+        chargerDonnees(x.fil, x.cle, function(d){
+          var vues = Object.keys(x.etat.cartes).length;
+          var b = SRS.bilan(x.etat, d ? d.ids : vues);
+          sDu.innerHTML = '<b>' + b.aujourdhui + '</b> à revoir'; if(!b.aujourdhui) sDu.className = '';
+          sAp.innerHTML = '<b>' + b.apprises + '</b> ' + (b.apprises > 1 ? 'apprises' : 'apprise');
+          sTot.innerHTML = '<b>' + (d ? d.cartes : '?') + '</b> cartes';
+        });
+      });
+      corps.appendChild(liste);
+    });
+  }
+
+  /* ---------------------------------------------------------------- questionnaires */
+  function afficherQcm(){
+    var corps = $('qcm-corps'); corps.innerHTML = '';
+    var cles = SRS.clesLocales(localStorage).filter(function(k){ return k.indexOf('neruda.qcm.') === 0; });
+    if(!cles.length){ corps.appendChild(texte('p','vide','Aucun questionnaire terminé pour l\'instant.')); return; }
+    var parFil = {};
+    cles.forEach(function(k){
+      var p = k.split('.'); if(p.length < 5) return;
+      var fil = p[2], typ = p[p.length-1], cle = p.slice(3, p.length-1).join('.');
+      var q = SRS.lireQcm(lire(k)); if(!q) return;
+      (parFil[fil] = parFil[fil] || []).push({fil:fil, cle:cle, typ:typ, q:q});
+    });
+    Object.keys(parFil).sort().forEach(function(fil){
+      corps.appendChild(texte('h3', null, FIL[fil] || fil));
+      var liste = creer('div','suivi');
+      parFil[fil].sort(function(a,b){ return (a.cle + a.typ) < (b.cle + b.typ) ? -1 : 1; }).forEach(function(x){
+        var info = infoChapitre(x.fil, x.cle);
+        var li = creer('div','rang');
+        var a = texte('a', null, info.chapitre); a.href = 'qcm.html?f=' + x.fil + '&ch=' + x.cle + '&type=' + x.typ;
+        li.appendChild(a);
+        li.appendChild(texte('span','sous', x.typ === 'prerequis' ? 'Prérequis' : 'Bilan'));
+        var ch = creer('div','chiffres');
+        var sM = creer('span',null,'meilleur <b>' + x.q.meilleur + (x.q.total ? ' / ' + x.q.total : '') + '</b>');
+        ch.appendChild(sM);
+        ch.appendChild(creer('span',null,'<b>' + x.q.tentatives + '</b> ' + (x.q.tentatives > 1 ? 'essais' : 'essai')));
+        if(x.q.date){ var sd = creer('span',null,'le <b>' + dateCourte(x.q.date) + '</b>'); sd.title = dateFr(x.q.date); ch.appendChild(sd); }
+        li.appendChild(ch); liste.appendChild(li);
+        if(!x.q.total) chargerDonnees(x.fil, x.cle, function(d){
+          if(d) sM.innerHTML = 'meilleur <b>' + x.q.meilleur + ' / ' + (x.typ === 'prerequis' ? d.prerequis : d.bilan) + '</b>';
+        });
+      });
+      corps.appendChild(liste);
+    });
+  }
+
+  /* ---------------------------------------------------------------- simulations */
+  function afficherSimulations(){
+    var corps = $('simulations-corps'); corps.innerHTML = '';
+    var lignes = [];
+    SRS.clesLocales(localStorage).filter(function(k){ return SRS.usageDeCle(k) === 'simulations'; }).forEach(function(k){
+      var r = SRS.resumeSimulation(lire(k)); if(r) lignes.push({ cle:k, info: SRS.infoSimulation(k), r:r });
+    });
+    if(!lignes.length){ corps.appendChild(texte('p','vide','Aucune simulation commencée pour l\'instant.')); return; }
+    var liste = creer('div','suivi');
+    lignes.sort(function(a,b){ return a.info.nom < b.info.nom ? -1 : 1; }).forEach(function(x){
+      var li = creer('div','rang');
+      if(x.info.page){ var a = texte('a', null, x.info.nom); a.href = '../' + x.info.page; li.appendChild(a); }
+      else li.appendChild(texte('strong', null, x.info.nom));
+      if(x.info.niveau) li.appendChild(texte('span','sous', x.info.niveau));
+      var ch = creer('div','chiffres');
+      ch.appendChild(creer('span',null,'<b>' + x.r.reussis + (x.r.essayes ? ' / ' + x.r.essayes : '') + '</b> défis'));
+      ch.appendChild(creer('span',null,'<b>' + x.r.etoiles + '</b> ' + (x.r.etoiles > 1 ? 'étoiles' : 'étoile')));
+      ch.appendChild(creer('span',null,'<b>' + x.r.badges + '</b> ' + (x.r.badges > 1 ? 'badges' : 'badge')));
+      if(x.r.notions) ch.appendChild(creer('span',null,'<b>' + x.r.notions + '</b> ' + (x.r.notions > 1 ? 'notions comprises' : 'notion comprise')));
+      li.appendChild(ch); liste.appendChild(li);
+    });
+    corps.appendChild(liste);
+    corps.appendChild(texte('p','aide','Défis réussis / essayés (missions et charges mystères comprises). Le code de fin se fabrique dans la simulation elle-même.'));
+  }
+
+  /* ---------------------------------------------------------------- évaluations publiées */
+  function triCompetences(a, b){
+    var na = parseInt(String(a).replace(/\D/g,''),10) || 0, nb = parseInt(String(b).replace(/\D/g,''),10) || 0;
+    return (na - nb) || (a < b ? -1 : a > b ? 1 : 0);
+  }
+  /* la fiche d'un devoir corrigé (commun/fiche.js, la même que l'aperçu de l'espace prof) */
+  function ficheDevoir(e, d){
+    d.innerHTML = window.NerudaFiche.html(
+      { titre: e.titre, nature: e.nature, date: e.date, bareme: e.bareme, questions: e.questions, grille: e.grille },
+      { note: e.note, bareme: e.bareme, appreciation: e.appreciation, points: e.points, niveaux: e.niveaux, absent: e.absent });
+    var b = texte('button','bouton second imprimer pas-imprime','Imprimer ma fiche'); b.type = 'button';
+    b.onclick = function(){
+      d.classList.add('a-imprimer'); document.body.classList.add('impression');
+      var fin = function(){ d.classList.remove('a-imprimer'); document.body.classList.remove('impression'); window.removeEventListener('afterprint', fin); };
+      window.addEventListener('afterprint', fin);
+      window.print(); setTimeout(fin, 1500);
+    };
+    d.appendChild(b);
+  }
+  function afficherEvaluations(compte){
+    var bloc = $('evaluations'), corps = $('evaluations-corps');
+    if(!compte || !compte.etat().connecte || compte.etat().prof || compte.etat().invite){ bloc.hidden = true; return; }
+    bloc.hidden = false; corps.innerHTML = '<p class="vide">Lecture…</p>';
+    compte.competences().then(function(liste){
+      corps.innerHTML = '';
+      var publiees = liste.filter(function(e){ return e.publie; });
+      if(!publiees.length){ corps.appendChild(texte('p','vide','Aucune évaluation publiée pour l\'instant.')); return; }
+      publiees.forEach(function(e){
+        var d = creer('div','epreuve');
+        if(e.type === 'devoir'){ ficheDevoir(e, d); corps.appendChild(d); return; }
+        var h = creer('div','tete-ep');
+        h.appendChild(texte('span','titre', e.titre));
+        if(e.date) h.appendChild(texte('span','date', dateFr(e.date)));
+        if(e.note !== null && e.note !== undefined) h.appendChild(texte('span','note', nombreFr(e.note) + (e.bareme ? ' / ' + e.bareme : '')));
+        if(e.nature) h.appendChild(texte('span','nature', e.nature));
+        d.appendChild(h);
+        var niv = creer('div','niveaux'), n = e.niveaux || {};
+        Object.keys(n).sort(triCompetences).forEach(function(c){
+          var lib = (e.grille && e.grille[c]) ? e.grille[c] : '';
+          var sp = creer('span','niveau ' + String(n[c]).replace(/[^A-Za-z0-9]/g,''));
+          sp.innerHTML = '<b>' + echapper(c) + '</b>' + echapper(n[c]) + (lib ? ' <span class="sous">' + echapper(lib) + '</span>' : '');
+          sp.title = lib; niv.appendChild(sp);
+        });
+        d.appendChild(niv);
+        if(e.commentaire) d.appendChild(texte('p','aide', e.commentaire));
+        corps.appendChild(d);
+      });
+      var u51 = publiees.filter(function(e){ return e.type !== 'devoir'; });
+      var parComp = {}, libs = {};
+      u51.slice().reverse().forEach(function(e){
+        var n = e.niveaux || {};
+        Object.keys(n).forEach(function(c){
+          (parComp[c] = parComp[c] || []).push({n: n[c], t: e.court || e.titre, d: e.date});
+          if(e.grille && e.grille[c]) libs[c] = e.grille[c];
+        });
+      });
+      var codes = Object.keys(parComp).sort(triCompetences);
+      if(u51.length > 1 && codes.length){
+        var ev = creer('div','evolution');
+        ev.appendChild(texte('h3', null, 'Évolution par compétence'));
+        codes.forEach(function(c){
+          var l = creer('div','comp'); l.appendChild(texte('b', null, c));
+          var s = creer('span','suite');
+          parComp[c].forEach(function(x, i){
+            if(i) s.appendChild(texte('span','fleche','›'));
+            var sp = texte('span','niveau ' + String(x.n).replace(/[^A-Za-z0-9]/g,''), x.n);
+            sp.title = x.t + (x.d ? ' (' + dateFr(x.d) + ')' : ''); s.appendChild(sp);
+          });
+          l.appendChild(s); if(libs[c]) l.title = libs[c]; ev.appendChild(l);
+        });
+        ev.appendChild(texte('p','aide','De la plus ancienne évaluation à la plus récente. N1 : non acquise ; N2 : en cours d\'acquisition ; N3 : partiellement acquise ; N4 : acquise et transférable.'));
+        corps.appendChild(ev);
+      }
+    }).catch(function(e){ corps.innerHTML = ''; corps.appendChild(texte('p','vide','Évaluations impossibles à lire pour l\'instant.')); console.warn('evaluations :', e && e.message); });
+  }
+
+  /* ---------------------------------------------------------------- compte */
+  var compte = null, compteResolu = false;
+  function afficherCompte(){
+    var bloc = $('compte');
+    bloc.innerHTML = '<h2>Compte</h2>';
+    if(C.enLigne && !C.noms().length){
+      if(!compteResolu){ bloc.appendChild(texte('p','vide','Chargement de la connexion…')); return; }
+      bloc.innerHTML = '';
+      window.NerudaConnexion.monter(bloc, {apres: function(){ location.reload(); }});
+      return;
+    }
+    var e = compte ? compte.etat() : null;
+    if(e && e.connecte){
+      var p = creer('p', null);
+      p.appendChild(texte('strong', null, 'Connecté : ' + (e.prenom || 'compte') + (e.classeLibelle ? ', ' + e.classeLibelle : '')));
+      if(e.invite) p.appendChild(texte('span','sous',' (compte invité : rien n\'est enregistré)'));
+      bloc.appendChild(p);
+      if(e.prof){ var lp = texte('a','lien-prof','Espace prof : évaluer, comportement'); lp.href = '../prof/index.html'; bloc.appendChild(lp); }
+      bloc.appendChild(texte('p','vide','Synchronisé ' + ilYA(e.derniereSync) + '.'));
+      var act = creer('div','actions');
+      var bs = texte('button','bouton second','Synchroniser maintenant'); bs.type = 'button';
+      bs.onclick = function(){ bs.disabled = true; compte.synchroniser().then(function(){ bs.disabled = false; afficherTout(); }, function(){ bs.disabled = false; }); };
+      var bd = texte('button','bouton second','Se déconnecter'); bd.type = 'button';
+      bd.onclick = function(){ bd.disabled = true; compte.deconnecter().then(function(){ location.href = '../index.html'; }, function(){ location.href = '../index.html'; }); };
+      act.appendChild(bs); act.appendChild(bd); bloc.appendChild(act);
+      return;
+    }
+    if(!C.enLigne){ bloc.appendChild(texte('p','vide','Atelier : site en clair, sans connexion.')); return; }
+    var src = C.source();
+    bloc.appendChild(texte('p', null, src === 'prof' ? 'Accès enseignant ouvert sur cet appareil (code enseignant).'
+      : 'Accès de secours ouvert sur cet appareil, sans compte : ton avancement reste ici.'));
+    if(!compteResolu) bloc.appendChild(texte('p','vide','Recherche d\'une session de compte…'));
+    else if(!compte) bloc.appendChild(texte('p','aide','Le service de connexion ne répond pas : rien ne se synchronise pour l\'instant.'));
+    var a2 = creer('div','actions'), bf = texte('button','bouton second','Fermer l\'accès sur cet appareil'); bf.type = 'button';
+    bf.onclick = function(){ C.oublier(true); location.href = '../index.html'; };
+    a2.appendChild(bf); bloc.appendChild(a2);
+  }
+  function brancherCompte(c){
+    if(compteResolu) return;
+    compteResolu = true; compte = c || null;
+    if(compte){
+      compte.surChangement(function(evt){ if(evt.type === 'etat' || evt.type === 'donnees' || evt.type === 'cles') afficherTout(); else afficherCompte(); });
+      compte.pret.then(afficherTout, afficherTout);
+    }
+    afficherTout();
+  }
+  document.addEventListener('neruda-compte-fin', function(ev){ brancherCompte(ev.detail); });
+  setTimeout(function(){ if(!compteResolu) brancherCompte(null); }, 9000);
+
+  /* ---------------------------------------------------------------- code de sauvegarde */
+  $('code-copier').onclick = function(){
+    var sortie = $('code-sortie'), info = $('code-info'), b = $('code-copier');
+    b.disabled = true; info.textContent = '';
+    SRS.fabriquerCode(SRS.exporter(localStorage)).then(function(code){
+      sortie.textContent = code; sortie.hidden = false; b.disabled = false;
+      function montre(ok){ info.textContent = ok ? 'Code copié : colle-le dans « Restaurer un code » sur l\'autre appareil.' : 'Sélectionne le code ci-dessus et copie-le.'; }
+      if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(function(){ montre(true); }, function(){ montre(false); });
+      else montre(false);
+    }, function(e){ b.disabled = false; info.textContent = 'Impossible de fabriquer le code : ' + (e && e.message); });
+  };
+  $('code-restaurer').onclick = function(){
+    var err = $('code-erreur'), entree = $('code-entree'), b = $('code-restaurer');
+    err.textContent = ''; b.disabled = true;
+    SRS.lireCode(entree.value).then(function(paquet){
+      var n = SRS.importer(localStorage, paquet);
+      b.disabled = false; entree.value = '';
+      $('code-info').textContent = n ? pluriel(n, 'élément restauré', 'éléments restaurés') + '.' : 'Rien de nouveau dans ce code.';
+      if(compte && compte.etat().connecte){ compte.toucher('cartes'); compte.toucher('qcm'); compte.toucher('simulations'); }
+      afficherTout();
+    }, function(e){ b.disabled = false; err.textContent = (e && e.message) || 'Code illisible.'; });
+  };
+
+  /* ---------------------------------------------------------------- tout */
+  var catalogueLu = false;
+  function afficherTout(){
+    afficherCompte();
+    var ouvert = !C.enLigne || C.noms().length > 0;
+    $('contenu').hidden = !ouvert;
+    if(!ouvert) return;
+    var suite = function(){ afficherEvaluations(compte); afficherCartes(); afficherQcm(); afficherSimulations(); };
+    if(!catalogueLu){ catalogueLu = true; lireCatalogue().then(suite); } else suite();
+  }
+  C.surChangement(function(){ catalogueLu = false; });
+  C.pret().then(afficherTout);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Évaluer — U51</title>
+<link rel="stylesheet" href="prof.css">
+<!-- Évaluer (v62, novembre 2026) : les applications « Évaluation U51 » du groupe 1 et d'ETA1 réunies dans
+     le site. Logique : evaluer.js ; calculs de la grille nationale : u51.js ; accès et chiffrement : socle.js. -->
+<style>
+.ed-ligne{display:grid;grid-template-columns:52px 1fr 64px auto;gap:6px;align-items:start;padding:7px 0;border-bottom:1px dashed var(--bord)}
+.ed-ligne .code{font-size:12px;font-weight:700;color:var(--gris);padding-top:12px}
+.ed-ligne .crit{grid-column:2 / 4}
+.ed-ligne input{min-height:40px;font-size:14px;padding:7px 9px}
+.ed-comp{border-top:1px solid var(--bord);margin-top:12px;padding-top:8px}
+.ed-comp.zero{opacity:.55}
+.ed-comp h3{margin:0 0 4px;font-size:15px}
+.liste-ep{border:1px solid var(--bord);border-radius:11px;padding:9px 11px;margin-bottom:8px}
+.liste-ep.courante{border-color:var(--orange)}
+.liste-ep b{display:block}
+.liste-ep .d{font-size:12.5px;color:var(--gris);margin:2px 0 7px}
+.comp{border-top:1px solid var(--bord);margin-top:12px;padding-top:10px}
+.comp h3{margin:0 0 2px;font-size:15px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.comp h3 .poids{font-size:12px;color:var(--gris);font-weight:600}
+.comp .intit{font-size:12.5px;color:var(--gris);margin-bottom:8px}
+.niveaux{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px}
+.niv{font:inherit;font-size:13px;font-weight:700;padding:8px 2px 6px;border-radius:10px;border:1.5px solid var(--bord);
+  background:var(--carte);color:var(--txt);cursor:pointer;position:relative}
+.niv span{display:block;font-size:10.5px;font-weight:600;color:var(--gris)}
+.niv.prop{border-style:dashed;border-color:var(--gris)}
+.niv.on{color:#fff;border-style:solid}
+.niv.on span{color:#ffffffdd}
+.niv.on.N1{background:var(--n1);border-color:var(--n1)}.niv.on.N2{background:var(--n2);border-color:var(--n2)}
+.niv.on.N3{background:var(--n3);border-color:var(--n3)}.niv.on.N4{background:var(--n4);border-color:var(--n4)}
+.etiq{font-size:11.5px;color:var(--gris);margin:0 0 8px}
+.ind{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--bord)}
+.ind:last-child{border-bottom:0}
+.ind .t{flex:1;min-width:0;font-size:14px}
+.ind .t small{display:block;font-size:11.5px;color:var(--gris)}
+.tri{display:flex;gap:4px;flex:none}
+.tri button{width:38px;height:34px;border-radius:9px;border:1px solid var(--bord);background:var(--carte);
+  color:var(--gris);font:inherit;font-weight:800;font-size:15px;cursor:pointer}
+.tri button.on.a{background:var(--vert);border-color:var(--vert);color:#fff}
+.tri button.on.p{background:var(--orange);border-color:var(--orange);color:#fff}
+.tri button.on.n{background:var(--rouge);border-color:var(--rouge);color:#fff}
+.grp{background:var(--carte);border:1px solid var(--bord);border-radius:14px;padding:10px;margin-bottom:12px}
+.grp .tuile{background:var(--fond)}
+.grp.seul{background:transparent;border-style:dashed}
+.grp-t{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 2px 9px}
+.grp-t b{font-size:15px;color:var(--bleu)}
+.grp-t span{font-size:12.5px;color:var(--gris);flex:1}
+.membres{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px}
+.mb{flex:none;width:86px;text-align:center;font-size:11.5px;line-height:1.15}
+.mb img{width:56px;border-radius:9px;display:block;margin:0 auto 3px}
+.note.petite{font-size:17px;text-align:center;margin-top:3px}
+.note.petite small{font-size:10px}
+.nivrow{display:flex;gap:8px;align-items:center;margin-bottom:5px}
+.nivrow .qn{width:82px;flex:none;font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nivrow .niveaux{flex:1;min-width:0;margin:0}
+.nivrow .niv{padding:5px 1px 4px;font-size:12px}
+.nivrow .niv span{font-size:9.5px}
+.ind.multi{flex-direction:column;align-items:stretch;gap:6px}
+.tris{display:flex;flex-wrap:wrap;gap:6px 12px}
+.trig{display:flex;align-items:center;gap:5px}
+.trig span{font-size:12px;color:var(--gris);min-width:0;max-width:92px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trig.tous span{color:var(--bleu);font-weight:700}
+.trig .tri button{width:34px;height:32px;font-size:14px}
+/* v63 : indicateurs « sur la feuille » (document réponse) — rappel sans case à cocher */
+.rappel{margin:8px 0 2px;border:1px dashed var(--bord);border-radius:10px;padding:6px 10px;background:var(--doux)}
+.rappel summary{font-size:12.5px;font-weight:600;color:var(--gris);cursor:pointer;padding:3px 0}
+.r-ind{display:flex;gap:8px;align-items:baseline;padding:5px 0;border-bottom:1px dotted var(--bord)}
+.r-ind:last-child{border-bottom:0}
+.r-ind .code{font-size:11.5px;font-weight:700;color:var(--gris);min-width:42px;flex:none}
+.r-ind .t{flex:1;min-width:0;font-size:13px}
+.r-ind .t small{display:block;font-size:11px;color:var(--gris)}
+.ed-ligne .fe-lab{font-size:11px;color:var(--gris);display:flex;flex-direction:column;align-items:center;gap:1px;padding-top:6px;cursor:pointer;line-height:1.1}
+.ed-ligne .fe-lab input{min-height:0;width:18px;height:18px;margin:0;padding:0}
+.ed-ligne.fe-on .t{border-style:dashed}
+</style>
+</head>
+<body>
+<header>
+  <a class="retour" href="index.html">← Espace prof</a>
+  <h1>Évaluer — U51 par compétences</h1>
+  <div class="barre" id="barre" hidden>
+    <select id="classe" aria-label="Classe"></select>
+    <select id="epreuve" aria-label="Épreuve"></select>
+    <button class="mini" type="button" id="gerer">Épreuves…</button>
+    <span class="info" id="cpt"></span>
+    <span class="info synchro" id="sync"></span>
+  </div>
+</header>
+<main>
+  <section class="verrou" id="verrou" hidden></section>
+  <section id="sans-epreuve" hidden>
+    <p class="vide" id="sans-epreuve-txt"></p>
+    <button class="gros" type="button" id="importer-prep">Importer les grilles préparées</button>
+    <button class="gros sec" type="button" id="nouvelle">Créer une épreuve</button>
+  </section>
+  <section class="vue on" id="v-groupe" hidden>
+    <div class="modebar">
+      <div class="seg"><button type="button" id="m-eleve" class="on">Évaluer</button><button type="button" id="m-critere">Par indicateur</button><button type="button" id="m-compo">Groupes</button></div>
+      <button type="button" id="critere" hidden>Choisir un indicateur…</button>
+      <div class="etats" id="etats" hidden>
+        <button type="button" class="chip a on" data-e="a">✓ Acquis</button>
+        <button type="button" class="chip p" data-e="p">½ Partiel</button>
+        <button type="button" class="chip n" data-e="n">✗ Non</button>
+        <button type="button" class="chip" id="par-groupe" hidden>Tout le groupe</button>
+        <button type="button" class="mini" id="tous">Tous les élèves</button>
+      </div>
+      <div class="etats" id="compo" hidden>
+        <div class="etats" id="compo-grp"></div>
+        <button type="button" class="mini auto" id="g-binomes">Binômes auto</button>
+        <button type="button" class="mini auto" id="g-trinomes">Trinômes auto</button>
+        <button type="button" class="mini" id="g-vider">Défaire les groupes</button>
+        <button type="button" class="mini fini" id="g-fini">Terminé</button>
+      </div>
+    </div>
+    <div id="grille"></div>
+    <p class="aide" id="aide-groupe"></p>
+  </section>
+  <section class="vue" id="v-bilan" hidden>
+    <div class="resume" id="resume"></div>
+    <div class="etats" style="margin:0 0 10px">
+      <button type="button" class="mini fini" id="publier">Publier aux élèves…</button>
+      <button type="button" class="mini" id="depublier" hidden>Retirer la publication</button>
+    </div>
+    <div class="tab"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
+    <p class="aide">Pastille cerclée : niveau fixé par l'examinateur. Sans cercle : niveau proposé par les
+    indicateurs. Pastille pâle : compétence encore en cours d'observation ; la note reste provisoire tant
+    qu'une compétence n'est pas arrêtée (tous ses indicateurs renseignés, ou niveau fixé à la main).</p>
+    <p class="aide"><b>Publier</b> : chaque élève dont la note est complète voit, dans « Mon espace », ses niveaux
+    par compétence et sa note sur 20 pour cette épreuve — rien d'autre (ni les indicateurs, ni le commentaire pour
+    le jury). Colonne « Publié » : ✓ à jour, ✓* modifié depuis la publication (publier à nouveau pour mettre à jour).</p>
+  </section>
+  <section class="vue" id="v-export" hidden>
+    <button type="button" class="gros" id="b-copie">Copier pour le classeur Excel</button>
+    <button type="button" class="gros sec" id="b-csv">Enregistrer un fichier CSV</button>
+    <button type="button" class="gros danger" id="b-vide">Effacer les saisies de cette épreuve</button>
+    <p class="aide">« Copier » met une ligne par élève dans le presse-papiers, dans l'ordre des colonnes de
+    l'onglet <b>Saisie</b> du registre : Date, Épreuve, Élève, C2, C13, C17, C18, Note, Indicateurs, Commentaire.
+    Cliquer sur la première cellule vide de la colonne A, puis coller.</p>
+    <p class="aide">Les saisies sont chiffrées sur l'appareil puis enregistrées dans la base du site : le téléphone et
+    l'ordinateur voient les mêmes évaluations. Hors connexion, la saisie continue et repart dès que le réseau revient.
+    Le registre Excel reste l'archive de référence et produit la grille nationale imprimable de chaque élève.</p>
+  </section>
+</main>
+<nav class="bas" id="nav" hidden>
+  <button type="button" data-v="groupe" class="on">Classe</button>
+  <button type="button" data-v="bilan">Bilan</button>
+  <button type="button" data-v="export">Export</button>
+</nav>
+<input type="file" id="fichier" accept=".json,application/json" hidden>
+<script src="../acces.js"></script>
+<script src="../commun/cles.js?v=64"></script>
+<script type="module">
+import("./evaluer.js?v=63").catch(function (e) {
+  console.error(e);
+  document.querySelector("main").innerHTML = '<div class="panne"><b>Outil indisponible</b><p>Le service de connexion '
+    + '(Firebase, chargé depuis www.gstatic.com) ne répond pas : vérifier le réseau, puis recharger la page.</p></div>';
+});
+</script>
+</body>
+</html>

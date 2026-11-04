@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EDF1F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<title>Cartes de révision</title>
+<!--
+  Cartes de révision, une page pour toutes les filières :
+      cartes.html?f=1sti2d&ch=ch16        les cartes d'un chapitre
+      cartes.html?f=bts-et&jour=1         v64 : les cartes à revoir aujourd'hui, tous chapitres de la classe
+  Les cartes viennent de qcm-<f>-<chapitre>.js (outils/construire.py), chiffrées sur le site publié
+  (v64 : clé de la filière, commun/donnees.js). Répétition espacée (srs.js) : état de chaque carte dans
+  localStorage, neruda.cartes.<f>.<chapitre>, rangé par IDENTIFIANT de carte (champ id, v64 ; à défaut
+  le rang). Chaque réponse s'ajoute au journal (neruda.journal) de l'écran d'accueil. Avec un compte,
+  tout suit l'élève sur ses appareils (compte.js).
+-->
+<link rel="stylesheet" href="../commun/theme.css?v=64">
+<style>
+.page-cartes{max-width:720px;margin:0 auto;padding:0 16px 40px}
+.tete-page .etiq{margin:0;color:var(--ardoise);font-weight:600;font-size:.95rem}
+.tete-page h1{font-size:1.6rem;font-weight:700;letter-spacing:-.02em;margin:2px 0 0}
+.tete-page .genre{margin:4px 0 0;color:var(--ardoise)}
+.avance{display:flex;align-items:center;gap:10px;margin:18px 0 6px}
+.avance .compte{font-size:.88rem;color:var(--ardoise);white-space:nowrap;font-variant-numeric:tabular-nums}
+.jauge{flex:1;height:6px;background:var(--trait);border-radius:3px;overflow:hidden}
+.jauge span{display:block;height:100%;background:var(--orange);width:0}
+.carte{background:var(--surface);border:1px solid var(--trait);border-radius:16px;padding:22px 18px;margin:12px 0;min-height:11rem;
+  display:flex;flex-direction:column;justify-content:center}
+.carte .face{font-size:1.12rem}
+.carte .dos{margin-top:16px;padding-top:15px;border-top:1px dashed var(--trait-fort);font-size:1.04rem}
+.carte .source{margin-top:14px;font-size:.84rem;color:var(--ardoise)}
+.carte .indice{margin-top:16px;font-size:.88rem;color:var(--ardoise)}
+.carte .neuve{align-self:flex-start;font-size:.82rem;font-weight:700;color:var(--vert);background:var(--vert-doux);border-radius:8px;padding:3px 9px;margin-bottom:10px}
+.carte .provenance{align-self:flex-start;font-size:.82rem;color:var(--ardoise);margin-bottom:8px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.bouton{font:inherit;font-weight:700;cursor:pointer;border:1px solid transparent;border-radius:12px;padding:12px 16px;min-height:50px;
+  background:var(--signal);color:#fff;flex:1;text-align:center;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.bouton.second{background:var(--surface);color:var(--encre);border-color:var(--trait-fort)}
+.bouton.su{background:var(--vert);color:#fff}
+.bouton.pas{background:var(--orange);color:#fff}
+.bouton.presque{background:var(--surface);color:var(--orange);border-color:var(--orange)}
+:root[data-theme="dark"] .bouton:not(.second):not(.presque){color:#0B1620}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bouton:not(.second):not(.presque){color:#0B1620}}
+.bouton small{display:block;font-weight:500;font-size:.78rem;opacity:.9;margin-top:1px}
+.reponses .bouton{flex-direction:column;padding:10px 8px;line-height:1.25}
+.face img,.dos img{max-width:100%;height:auto;display:block;margin:10px auto;background:#fff;border-radius:6px;padding:4px}
+.face .sujet,.dos .sujet{display:block;font-size:.9rem;color:var(--ardoise);margin-bottom:6px}
+.score{background:var(--surface);border:1px solid var(--trait);border-radius:16px;padding:18px;margin:18px 0 0}
+.score h2{margin:0 0 8px;font-size:1.1rem;font-weight:700}
+.score .chiffre{font-size:2.4rem;font-weight:700;line-height:1;margin:0 0 6px;font-variant-numeric:tabular-nums}
+.score .chiffre small{font-size:1.05rem;font-weight:500;color:var(--ardoise)}
+.score .detail{margin:0;color:var(--ardoise);font-size:.95rem}
+.etiquettes{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.etiquette{font-size:.84rem;padding:4px 10px;border-radius:14px;background:var(--signal-doux);color:var(--signal);font-weight:600}
+.etiquette.serie{background:var(--orange-doux);color:var(--orange)}
+.etiquette.compte{background:var(--vert-doux);color:var(--vert)}
+.aide-anki{margin:12px 0 0;font-size:.88rem;color:var(--ardoise)}
+.chapitres-jour{margin-top:14px}
+table{border-collapse:collapse;margin:12px 0;font-size:.94rem;display:block;overflow-x:auto;max-width:100%}
+table th,table td{border:1px solid var(--trait);padding:7px 11px;text-align:left;white-space:nowrap}
+table th{background:var(--signal-doux)}
+</style>
+</head>
+<body>
+<header class="barre" id="barre">
+  <div class="barre-int">
+    <a class="logo" href="../index.html" aria-label="Physique appliquée, accueil">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="6" fill="var(--ecran)" stroke="var(--ecran-bord)"/>
+        <path d="M4 14C7.5 4 10.5 4 14 14s6.5 10 10 0" fill="none" stroke="var(--signal)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span>Physique appliquée</span>
+    </a>
+    <a class="espace" href="espace.html"><span class="pastille" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><circle cx="10" cy="7" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 17c1.2-3.2 3.6-4.6 6.5-4.6s5.3 1.4 6.5 4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="lib">Mon espace</span></a>
+  </div>
+</header>
+<main class="page-cartes">
+  <a class="retour" id="retour" href="../index.html"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="retour-txt">Accueil</span></a>
+  <div class="tete-page">
+    <p class="etiq" id="chap"></p>
+    <h1 id="titre">Chargement…</h1>
+    <p class="genre" id="genre">Cartes de révision</p>
+  </div>
+  <div id="zone"></div>
+</main>
+<footer class="pied"><p>Ton avancement reste sur cet appareil et, avec ton compte, te suit sur tous tes appareils
+(<a href="espace.html">Mon espace</a>).</p></footer>
+
+<script src="../acces.js"></script>
+<script src="../commun/cles.js?v=64"></script>
+<script src="srs.js"></script>
+<script src="../commun/donnees.js?v=64"></script>
+<script src="../commun/connexion.js?v=64"></script>
+<script type="module">
+  import("./compte.js").catch(function(e){ console.warn("Compte indisponible :", e && e.message); });
+</script>
+<script>
+(function(){
+  "use strict";
+  var SRS = window.NerudaSRS, C = window.NerudaCles, D = window.NerudaDonnees;
+  var par = new URLSearchParams(location.search);
+  var ch  = (par.get('ch') || '').replace(/[^0-9a-zA-Z]/g,'');
+  var fil = (par.get('f') || '').replace(/[^a-z0-9-]/g,'');
+  var modeJour = par.get('jour') === '1';
+  var zone = document.getElementById('zone');
+  var cle = /^[0-9]+$/.test(ch) ? 'ch' + (ch.length < 2 ? '0' + ch : ch) : ch;
+
+  function creer(b,c,h){ var e=document.createElement(b); if(c) e.className=c; if(h!==undefined) e.innerHTML=h; return e; }
+  function echappe(s){ return String(s||'').replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function sansAccents(s){ return (s||'').toString().normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(); }
+  function lireBrut(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function ecrire(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+  function pluriel(n, un, des){ return n + ' ' + (n > 1 ? des : un); }
+  function toucherCompte(usage){ if(window.NerudaCompte){ try{ window.NerudaCompte.toucher(usage); }catch(e){} } }
+  function melange(t){ var a = t.slice(); for(var i=a.length-1;i>0;i--){ var j = Math.floor(Math.random()*(i+1)), x=a[i]; a[i]=a[j]; a[j]=x; } return a; }
+  function erreur(txt){
+    document.getElementById('titre').textContent = 'Cartes indisponibles';
+    zone.innerHTML = '<p class="rien" style="margin-top:18px">' + txt + '</p>';
+  }
+  function retourVers(chapitre){
+    var h = '../index.html#' + fil + (chapitre ? '/' + sansAccents(chapitre).replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') : '');
+    document.getElementById('retour').href = h;
+  }
+
+  if(!fil || (!cle && !modeJour)){ erreur("L'adresse ne précise pas la classe et le chapitre."); return; }
+  D.surveillerImages(zone, fil);          // v64 : images des cartes, chiffrées sur le site publié
+
+  /* site fermé (v64) : sans la clé de la filière, on demande la connexion */
+  C.pret().then(function(){
+    if(C.enLigne && !C.cle(fil)){
+      window.NerudaConnexion.attendreCompte(6000).then(function(NC){ return NC.pret; }, function(){}).then(function(){
+        if(C.cle(fil)) { lancerPage(); return; }
+        document.getElementById('titre').textContent = 'Connecte-toi';
+        document.getElementById('genre').textContent = 'Les cartes de révision s\'ouvrent avec ton compte.';
+        window.NerudaConnexion.monter(zone, {apres: function(){
+          if(C.cle(fil)) location.reload();
+          else zone.insertAdjacentHTML('afterbegin', '<p class="rien">Ton compte n\'ouvre pas les cartes de cette classe.</p>');
+        }});
+      });
+      return;
+    }
+    lancerPage();
+  });
+
+  /* ---------------------------------------------------------------- les paquets */
+  var paquets = [], pile, pos, revoir, su, presque, total, enSeance = false, repasse = false;
+  function Paquet(cleCh, chap){
+    this.cle = cleCh; this.chap = chap; this.stock = 'neruda.cartes.' + fil + '.' + cleCh;
+    this.ids = SRS.idsCartes(chap.cartes); this.parId = {};
+    for(var i=0;i<chap.cartes.length;i++) this.parId[this.ids[i]] = chap.cartes[i];
+    this.charger();
+  }
+  Paquet.prototype.charger = function(){
+    var brut = lireBrut(this.stock);
+    this.etat = SRS.lireCartes(brut);
+    if(brut && brut.charAt(0) === '['){ ecrire(this.stock, this.etat); toucherCompte('cartes'); }
+  };
+  Paquet.prototype.bilan = function(jour){ return SRS.bilan(this.etat, this.ids, jour); };
+
+  function lancerPage(){
+    if(modeJour){ pageJour(); return; }
+    D.chapitre(fil, cle).then(function(d){
+      if(!d){ erreur("Le chapitre " + ch + " n'a pas encore de cartes."); return; }
+      if(!d.cartes || !d.cartes.length){ erreur('Ce chapitre ne contient pas encore de cartes.'); return; }
+      paquets = [new Paquet(cle, d)];
+      document.getElementById('chap').textContent = (d.etiquette || ('Chapitre ' + d.num));
+      document.getElementById('titre').textContent = d.titre;
+      document.getElementById('genre').textContent = 'Cartes de révision, ' + d.niveau;
+      document.getElementById('retour-txt').textContent = d.etiquette || 'Le chapitre';
+      retourVers((d.etiquette ? d.etiquette + ' — ' : '') + d.titre);
+      document.title = 'Cartes — ' + d.titre;
+      accueil(); brancher();
+    }, function(e){
+      erreur(e && e.message === 'cle' ? "Ton compte n'ouvre pas les cartes de cette classe."
+        : "Le chapitre " + ch + " n'a pas encore de cartes.");
+    });
+  }
+
+  /* v64 : les cartes à revoir aujourd'hui dans tous les chapitres de la classe */
+  function pageJour(){
+    document.getElementById('titre').textContent = 'Cartes du jour';
+    document.getElementById('genre').textContent = 'Les cartes à revoir aujourd\'hui, tous chapitres confondus.';
+    retourVers('');
+    D.catalogue().then(function(cat){
+      var f = (cat.FILIERES || []).filter(function(x){ return x.id === fil; })[0];
+      document.getElementById('chap').textContent = f ? f.nom : '';
+      var docs = (cat.DOCUMENTS || []).filter(function(d){ return d.filiere === fil && d.type === 'cartes'; });
+      var aCharger = docs.map(function(d){ var m = /[?&]ch=([^&]+)/.exec(d.fichier); return m ? m[1] : null; }).filter(Boolean)
+        .filter(function(c){ var e = SRS.lireCartes(lireBrut('neruda.cartes.' + fil + '.' + c)); return !SRS.cartesVide(e); });
+      var suite = Promise.resolve();
+      aCharger.forEach(function(c){
+        suite = suite.then(function(){ return D.chapitre(fil, c).then(function(d){ if(d && d.cartes && d.cartes.length) paquets.push(new Paquet(c, d)); }, function(){}); });
+      });
+      return suite;
+    }).then(function(){ accueil(); brancher(); }, function(){ erreur("Le catalogue de la classe n'a pas pu être lu."); });
+  }
+
+  var branche = false;
+  function brancher(){
+    if(branche) return;
+    document.addEventListener('neruda-compte-pret', brancher);
+    if(!window.NerudaCompte) return;
+    branche = true;
+    window.NerudaCompte.surChangement(function(evt){
+      if(enSeance || evt.type !== 'donnees') return;
+      paquets.forEach(function(p){ p.charger(); }); accueil();
+    });
+  }
+
+  function totaux(jour){
+    var t = {aujourdhui:0, dues:0, nouvelles:0, apprises:0, vues:0, total:0};
+    paquets.forEach(function(p){ var b = p.bilan(jour); t.dues += b.dues.length; t.nouvelles += b.nouvelles.length;
+      t.apprises += b.apprises; t.vues += b.vues; t.total += b.total; t.aujourdhui += modeJour ? b.dues.length : b.aujourdhui; });
+    return t;
+  }
+
+  function accueil(){
+    enSeance = false;
+    var b = totaux();
+    var serie = SRS.serieCourante(lireBrut('neruda.serie'));
+    zone.innerHTML = '';
+    var d = creer('div','score');
+    d.appendChild(creer('h2',null, modeJour ? 'À revoir aujourd\'hui' : 'Cartes du chapitre'));
+    d.appendChild(creer('p','chiffre', b.aujourdhui + ' <small>' + (b.aujourdhui > 1 ? 'cartes à revoir aujourd\'hui' : 'carte à revoir aujourd\'hui') + '</small>'));
+    var det;
+    if(modeJour){
+      det = !paquets.length ? 'Aucune carte commencée pour l\'instant : ouvre les cartes d\'un chapitre depuis sa page.'
+        : (b.aujourdhui ? pluriel(paquets.filter(function(p){ return p.bilan().dues.length; }).length, 'chapitre concerné', 'chapitres concernés') + '. Les cartes nouvelles s\'ouvrent depuis la page de chaque chapitre.'
+                       : 'Rien à revoir pour aujourd\'hui : reviens demain.');
+    }else if(!b.vues){
+      det = 'Une question par carte. Tu réponds dans ta tête, tu retournes, et tu dis si tu savais. Les cartes reviennent de moins en moins souvent à mesure que tu les sais.';
+    }else{
+      det = pluriel(b.total, 'carte', 'cartes') + ' dans le chapitre, ' + pluriel(b.vues, 'déjà vue', 'déjà vues')
+        + (b.nouvelles ? ', ' + pluriel(b.nouvelles, 'nouvelle', 'nouvelles') : '') + '.'
+        + (b.aujourdhui ? '' : ' Rien à revoir pour aujourd\'hui : reviens demain.');
+    }
+    d.appendChild(creer('p','detail', det));
+    var et = creer('div','etiquettes');
+    et.appendChild(creer('span','etiquette', pluriel(b.apprises, 'carte apprise', 'cartes apprises')));
+    if(serie >= 2) et.appendChild(creer('span','etiquette serie', 'Série : ' + serie + ' jours'));
+    if(window.NerudaCompte && window.NerudaCompte.etat().connecte){
+      et.appendChild(creer('span','etiquette compte', 'Compte : ' + echappe(window.NerudaCompte.etat().prenom || 'connecté')));
+    }
+    d.appendChild(et);
+    zone.appendChild(d);
+
+    var act = creer('div','actions');
+    if(b.aujourdhui){
+      var b1 = creer('button','bouton', b.aujourdhui === 1 ? 'Réviser la carte du jour' : 'Réviser les ' + b.aujourdhui + ' cartes du jour');
+      b1.type='button'; b1.onclick = function(){ lancer('jour'); };
+      act.appendChild(b1);
+    }
+    if(!modeJour){
+      var b2 = creer('button','bouton second','Tout revoir depuis le début');
+      b2.type='button'; b2.onclick = function(){ lancer('tout'); };
+      act.appendChild(b2);
+    }
+    if(act.childNodes.length) zone.appendChild(act);
+
+    if(modeJour){
+      var l = creer('div','liste chapitres-jour');
+      paquets.forEach(function(p){
+        var bj = p.bilan();
+        l.insertAdjacentHTML('beforeend', '<div class="ligne"><a class="ligne-lien" href="cartes.html?f=' + fil + '&amp;ch=' + p.cle + '">'
+          + '<span class="glyphe g-entr" aria-hidden="true">' + (bj.dues.length || '·') + '</span><span class="corps"><span class="titre">'
+          + echappe((p.chap.etiquette ? p.chap.etiquette + ' — ' : '') + p.chap.titre) + '</span><span class="desc">'
+          + echappe(pluriel(bj.dues.length, 'carte à revoir', 'cartes à revoir') + ', ' + pluriel(bj.apprises, 'apprise', 'apprises')) + '</span></span></a></div>');
+      });
+      if(paquets.length){ zone.appendChild(creer('h2','section-titre','Par chapitre')); zone.appendChild(l); }
+      return;
+    }
+    var chap = paquets[0].chap;
+    var act2 = creer('div','actions');
+    var lb = creer('a','bouton second','Faire le bilan du chapitre');
+    lb.href = 'qcm.html?f=' + fil + '&ch=' + cle + '&type=bilan';
+    act2.appendChild(lb);
+    var b3;
+    if(chap.anki_paquet){ b3 = creer('a','bouton second','Télécharger le paquet Anki'); b3.href = chap.anki_paquet; }
+    else { b3 = creer('button','bouton second','Télécharger pour Anki'); b3.type='button'; b3.onclick = anki; }
+    act2.appendChild(b3);
+    zone.appendChild(act2);
+    zone.appendChild(creer('p','aide-anki', chap.anki_paquet
+      ? 'Ce sont les mêmes cartes, avec leurs images. Le fichier s\'ouvre directement dans Anki.'
+      : 'Le fichier téléchargé s\'ouvre dans Anki par <em>Fichier &rsaquo; Importer</em>. Il se fabrique dans le téléphone : rien n\'est envoyé.'));
+  }
+
+  function champ(t){ return String(t||'').replace(/\t/g,' ').replace(/\r?\n/g,'<br>').trim(); }
+  function anki(){
+    var chap = paquets[0].chap;
+    var nom = chap.niveau + '::' + sansAccents(chap.titre).replace(/[:|]/g,' ');
+    var l = ['#separator:tab','#html:true','#notetype:Basic','#deck:Physique::' + nom,'#tags:physique ' + fil + ' ' + cle,'#columns:Recto\tVerso'];
+    chap.cartes.forEach(function(c){ l.push(champ(D.sourcesImages(c.recto)) + '\t' + champ(D.sourcesImages(c.verso))); });
+    var url = URL.createObjectURL(new Blob(['﻿' + l.join('\n') + '\n'], {type:'text/plain;charset=utf-8'}));
+    var a = document.createElement('a'); a.href = url; a.download = 'anki-' + fil + '-' + cle + '.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  }
+
+  /* ---------------------------------------------------------------- la séance */
+  function lancer(mode){
+    var tas = [];
+    paquets.forEach(function(p, i){
+      p.charger();
+      var b = p.bilan();
+      if(mode === 'tout') p.ids.forEach(function(id){ tas.push({p:i, id:id}); });
+      else {
+        b.dues.forEach(function(id){ tas.push({p:i, id:id}); });
+        if(!modeJour) melange(b.nouvelles).slice(0, SRS.PAQUET_NOUVELLES).forEach(function(id){ tas.push({p:i, id:id, neuve:true}); });
+      }
+    });
+    var dues = melange(tas.filter(function(x){ return !x.neuve; })), neuves = tas.filter(function(x){ return x.neuve; });
+    pile = mode === 'tout' ? melange(tas) : dues.concat(neuves);
+    pos = 0; revoir = []; su = 0; presque = 0; total = pile.length; repasse = false;
+    if(!total){ accueil(); return; }
+    enSeance = true;
+    face();
+  }
+  function entete(){
+    var av = creer('div','avance');
+    av.appendChild(creer('span','compte', (repasse ? 'Repassage ' : 'Carte ') + (pos+1) + ' / ' + pile.length));
+    var j = creer('div','jauge'), b = creer('span');
+    b.style.width = Math.round(pos/pile.length*100) + '%';
+    j.appendChild(b); av.appendChild(j);
+    return av;
+  }
+  function courante(){ var x = pile[pos], p = paquets[x.p]; return {x:x, p:p, c:p.parId[x.id]}; }
+  function face(){
+    var k = courante();
+    zone.innerHTML = '';
+    zone.appendChild(entete());
+    var d = creer('div','carte');
+    if(modeJour) d.appendChild(creer('span','provenance', echappe(k.p.chap.etiquette || k.p.chap.titre)));
+    var ec = k.p.etat.cartes[k.x.id];
+    if(!ec || !ec.n) d.appendChild(creer('span','neuve','Nouvelle carte'));
+    d.appendChild(creer('div','face', k.c.recto));
+    d.appendChild(creer('div','indice','Réponds dans ta tête, puis retourne.'));
+    zone.appendChild(d);
+    var act = creer('div','actions');
+    var b = creer('button','bouton','Retourner la carte');
+    b.type='button'; b.onclick = dos;
+    act.appendChild(b);
+    zone.appendChild(act);
+    b.focus({preventScroll:true});
+  }
+  function repondre(rep){
+    var k = courante();
+    if(!repasse){
+      SRS.repondre(k.p.etat, k.x.id, rep);
+      ecrire(k.p.stock, k.p.etat);
+      ecrire('neruda.serie', SRS.marquerJour(lireBrut('neruda.serie')));
+      ecrire('neruda.journal', SRS.noterReponse(lireBrut('neruda.journal'), SRS.appareil(localStorage)));
+      toucherCompte('cartes');
+    }
+    if(rep === 'good') su++;
+    else if(rep === 'hard') presque++;
+    else revoir.push(k.x);
+    suivante();
+  }
+  function dos(){
+    var k = courante();
+    zone.innerHTML = '';
+    zone.appendChild(entete());
+    var d = creer('div','carte');
+    if(modeJour) d.appendChild(creer('span','provenance', echappe(k.p.chap.etiquette || k.p.chap.titre)));
+    d.appendChild(creer('div','face', k.c.recto));
+    d.appendChild(creer('div','dos', (k.c.verso||'').replace(/\n/g,'<br>')));
+    if(k.c.origine) d.appendChild(creer('div','source', k.c.origine));
+    zone.appendChild(d);
+    var act = creer('div','actions reponses');
+    var ko = creer('button','bouton pas','Je ne savais pas<small>à revoir demain</small>');
+    ko.type='button'; ko.onclick = function(){ repondre('again'); };
+    var pr = creer('button','bouton presque','Presque<small>bientôt</small>');
+    pr.type='button'; pr.onclick = function(){ repondre('hard'); };
+    var ok = creer('button','bouton su','Je savais<small>plus tard</small>');
+    ok.type='button'; ok.onclick = function(){ repondre('good'); };
+    act.appendChild(ko); act.appendChild(pr); act.appendChild(ok);
+    zone.appendChild(act);
+    ok.focus({preventScroll:true});
+  }
+  function suivante(){
+    pos++;
+    if(pos < pile.length){ face(); return; }
+    if(revoir.length && !repasse){ pile = melange(revoir); revoir = []; pos = 0; repasse = true; face(); return; }
+    fin();
+  }
+  function fin(){
+    enSeance = false;
+    zone.innerHTML = '';
+    var d = creer('div','score');
+    d.appendChild(creer('h2',null,'Séance terminée'));
+    d.appendChild(creer('p','chiffre', su + ' <small>' + (su > 1 ? 'cartes sues' : 'carte sue') + ' sur ' + total + '</small>'));
+    var rate = total - su - presque, parts = [];
+    if(presque) parts.push(pluriel(presque, 'carte presque sue', 'cartes presque sues'));
+    if(rate) parts.push(pluriel(rate, 'carte à retravailler', 'cartes à retravailler'));
+    var demain = totaux(SRS.plusJours(SRS.aujourdhui(), 1)).aujourdhui;
+    d.appendChild(creer('p','detail', (parts.length ? parts.join(', ') + '. ' : '')
+      + (demain ? 'Demain, ' + pluriel(demain, 'carte t\'attend', 'cartes t\'attendent') + '.'
+                : 'Rien de prévu demain : c\'est l\'oubli qu\'on teste, pas la mémoire de la minute.')));
+    var serie = SRS.serieCourante(lireBrut('neruda.serie'));
+    if(serie >= 2){ var et = creer('div','etiquettes'); et.appendChild(creer('span','etiquette serie', 'Série : ' + serie + ' jours')); d.appendChild(et); }
+    zone.appendChild(d);
+    var act = creer('div','actions');
+    var b = creer('button','bouton', modeJour ? 'Retour aux cartes du jour' : 'Retour aux cartes du chapitre');
+    b.type='button'; b.onclick = function(){ paquets.forEach(function(p){ p.charger(); }); accueil(); };
+    act.appendChild(b);
+    if(!modeJour){ var l = creer('a','bouton second','Faire le bilan'); l.href = 'qcm.html?f=' + fil + '&ch=' + cle + '&type=bilan'; act.appendChild(l); }
+    zone.appendChild(act);
+    b.focus({preventScroll:true});
+  }
+})();
+</script>
+</body>
+</html>

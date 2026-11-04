@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- porte-animation : page d'accès fabriquée par outils/chiffrer.py (site v64), ne pas modifier.
+     L'animation elle-même est dans systeme-levage.html.enc, chiffrée (clé « prive »). -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Système de levage : lecture du schéma pas à pas</title>
+<link rel="stylesheet" href="../commun/theme.css?v=64">
+<style>
+.porte-anim{max-width:440px;margin:0 auto;padding:22px 16px 40px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.porte-anim .tete{display:flex;align-items:center;gap:12px}
+.porte-anim .tete svg{width:34px;height:34px;flex:none}
+.porte-anim h1{font-size:1.35rem;font-weight:700;letter-spacing:-.015em}
+.porte-anim .sous{margin:2px 0 0;color:var(--ardoise);font-size:.95rem}
+.porte-anim .retour{margin:0}
+#attente{color:var(--ardoise);text-align:center}
+</style>
+</head>
+<body>
+<main class="porte-anim">
+  <a class="retour" id="retourSite" href="../#prive"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Retour au site</a>
+  <div class="tete">
+    <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="6" fill="var(--ecran)" stroke="var(--ecran-bord)"/><path d="M4 14C7.5 4 10.5 4 14 14s6.5 10 10 0" fill="none" stroke="var(--signal)" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <div><h1>Système de levage : lecture du schéma pas à pas</h1><p class="sous" id="sous">Physique appliquée</p></div>
+  </div>
+  <p id="attente">Ouverture de l'animation…</p>
+  <div id="zone"></div>
+</main>
+<script>/* bouton-retour : revenir à la page du site d'où l'on vient, sinon à l'accueil */
+document.getElementById('retourSite').addEventListener('click', function(e){ try{ var r = document.referrer;
+  if(r && new URL(r).origin === location.origin && !/\/animations\//.test(new URL(r).pathname) && history.length > 1){ e.preventDefault(); history.back(); } }catch(x){} });
+</script>
+<script src="../acces.js"></script>
+<script src="../commun/cles.js?v=64"></script>
+<script src="../entrainement/srs.js"></script>
+<script src="../commun/connexion.js?v=64"></script>
+<script type="module">
+  import("../entrainement/compte.js").catch(function (e) { console.warn("Compte indisponible :", e && e.message); });
+</script>
+<script>
+(function(){
+  var CLE = "prive", AAD = "animations/systeme-levage.html", ENC = "systeme-levage.html.enc";
+  var C = window.NerudaCles, ouverte = false, montee = false;
+  var $ = function(id){ return document.getElementById(id); };
+  function ouvrir(){
+    if(ouverte) return; ouverte = true;
+    $("zone").innerHTML = ""; $("attente").hidden = false; $("attente").textContent = "Ouverture de l'animation…";
+    C.texte(ENC, AAD, CLE).then(function(html){
+      document.open(); document.write(html); document.close();
+    }).catch(function(e){
+      ouverte = false;
+      $("attente").textContent = e && e.message === "absent" ? "Cette animation est introuvable sur le site."
+        : "L'animation n'a pas pu être ouverte. Reconnecte-toi, puis réessaie.";
+    });
+  }
+  function demander(){
+    if(montee) return; montee = true;
+    $("attente").hidden = true;
+    if(CLE === "prive"){
+      $("sous").textContent = "Réservée à l'enseignant";
+      window.NerudaConnexion.monter($("zone"), {titre: "Code enseignant", apres: verifier});
+      var f = $("zone").querySelector("form");
+      f.querySelector("details").open = true;
+      var reste = f.querySelector("label.case input"); if (reste) reste.checked = false;   // jamais gardé : onglet seulement
+      [].forEach.call(f.querySelectorAll("label,input,button.principal,.aide"), function(x){ if(!x.closest("details")) x.hidden = true; });
+      return;
+    }
+    $("sous").textContent = "Connecte-toi pour ouvrir l'animation";
+    window.NerudaConnexion.monter($("zone"), {apres: verifier});
+  }
+  function verifier(){
+    if(C.cle(CLE)) { ouvrir(); return; }
+    if(montee && CLE !== "prive" && C.noms().length) $("zone").insertAdjacentHTML("afterbegin",
+      '<p class="rien">Ton compte n\'ouvre pas cette animation.</p>');
+    demander();
+  }
+  if(!C || !C.enLigne || !window.crypto || !crypto.subtle){
+    $("attente").textContent = "Ce navigateur ne sait pas ouvrir les animations du site. Essaie Chrome, Firefox ou Safari à jour.";
+    return;
+  }
+  C.surChangement(function(){ if(C.cle(CLE)) ouvrir(); });
+  C.pret().then(function(){
+    if(C.cle(CLE)) { ouvrir(); return; }
+    /* une session de compte existe peut-être : compte.js reprend alors les clés tout seul */
+    if(window.NerudaConnexion) window.NerudaConnexion.attendreCompte(6000).then(function(NC){
+      return NC.pret.then(function(){ if(!C.cle(CLE)) demander(); });
+    }, demander);
+    else demander();
+  });
+})();
+</script>
+</body>
+</html>

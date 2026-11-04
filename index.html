@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Physique appliquée — M. Cronenberger</title>
+<meta name="description" content="Cours, TP, animations et révisions de physique appliquée, lycée Pablo Neruda, Dieppe.">
+<meta name="theme-color" content="#EDF1F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='1' y='1' width='26' height='26' rx='6' fill='%23D3E5EC' stroke='%239DB6C0'/%3E%3Cpath d='M4 14C7.5 4 10.5 4 14 14s6.5 10 10 0' fill='none' stroke='%23185FAE' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<!-- Accueil du site (v64, novembre 2026) : site FERMÉ. Sans clé sur l'appareil, seule la carte « Se connecter »
+     s'affiche (compte élève Firebase, ou accès de secours). Le catalogue est chiffré (catalogue/<partie>.enc) et
+     s'ouvre avec les clés du compte : la filière de la classe et la clé commune (toutes les animations).
+     Présentation : commun/theme.css (police IBM Plex Sans, SIL OFL 1.1, hébergée avec le site). -->
+<link rel="stylesheet" href="commun/theme.css?v=64">
+<style>
+.titre-page{font-size:1.9rem;font-weight:700;letter-spacing:-.02em}
+.sous-titre{margin:4px 0 0;color:var(--ardoise)}
+.note{margin:12px 0 0;color:var(--ardoise);font-size:.95rem}
+form.porte.code-prof{max-width:440px;margin-top:16px}
+</style>
+</head>
+<body>
+
+<header class="barre" id="barre">
+  <div class="barre-int">
+    <a class="logo" href="#" id="accueil" aria-label="Physique appliquée, accueil">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="6" fill="var(--ecran)" stroke="var(--ecran-bord)"/>
+        <path d="M4 14C7.5 4 10.5 4 14 14s6.5 10 10 0" fill="none" stroke="var(--signal)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span>Physique appliquée</span>
+    </a>
+    <div class="chercher"><label for="q" class="cache">Chercher</label>
+      <input id="q" type="search" placeholder="Chercher un document, une animation…" autocomplete="off" enterkeyhint="search"></div>
+    <button type="button" class="bouton-icone" id="ouvrir-recherche" aria-label="Chercher" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <a class="espace" id="lien-espace" href="entrainement/espace.html"><span class="pastille" aria-hidden="true"></span><span class="lib">Mon espace</span></a>
+  </div>
+</header>
+<div class="zone-recherche" id="zone-recherche" hidden>
+  <label for="q2" class="cache">Chercher</label>
+  <input id="q2" type="search" placeholder="Chercher un document, une animation…" autocomplete="off" enterkeyhint="search"
+    style="width:100%;font:inherit;padding:11px 12px;border-radius:10px;min-height:46px;border:1px solid var(--trait);background:var(--surface);color:var(--encre)">
+</div>
+
+<noscript>Cette page a besoin de JavaScript.</noscript>
+
+<div class="page" id="page">
+  <aside class="rail" id="rail" aria-label="Chapitres de la classe"></aside>
+  <main id="vue"><p class="attente-page">Ouverture du site…</p></main>
+</div>
+
+<footer class="pied" id="pied">
+  <p><b>Physique appliquée</b>, le site de M. Cronenberger au lycée Pablo Neruda de Dieppe, réservé à ses élèves : chacun
+  se connecte avec le compte donné en classe. Les documents sont chiffrés et se déchiffrent dans ton navigateur.</p>
+  <p>Ton avancement (cartes, questionnaires, simulations) reste sur cet appareil et, avec ton compte, est gardé chez Google
+  (Firebase, serveurs en Europe) jusqu'au 31 août ; le professeur peut le consulter. Tout est dans
+  <a href="entrainement/espace.html">Mon espace</a>. Les corrigés ne sont pas déposés ici.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="catalogue.js"></script>
+<!-- acces.js n'existe que dans la version en ligne (outils/chiffrer.py) : absent, comme dans l'atelier,
+     tout est en clair et rien ne demande de connexion. -->
+<script src="acces.js"></script>
+<script src="commun/cles.js?v=64"></script>
+<script src="entrainement/srs.js"></script>
+<script src="commun/donnees.js?v=64"></script>
+<script src="commun/connexion.js?v=64"></script>
+<script type="module">
+  /* le compte (SDK Firebase depuis www.gstatic.com) : seulement sur le site publié */
+  if (window.ACCES2) import("./entrainement/compte.js").catch(function (e) { console.warn("Compte indisponible :", e && e.message); });
+</script>
+<script>
+"use strict";
+var C = window.NerudaCles, D = window.NerudaDonnees, SRS = window.NerudaSRS;
+var EN_LIGNE = !!(C && C.enLigne);
+var A2 = window.ACCES2 || null;
+var CAT = { FILIERES: [], DOCUMENTS: [] };
+var ANDROID = /Android/i.test(navigator.userAgent);
+
+/* ---------- utilitaires ---------- */
+function sansAccents(s){ return (s||"").toString().normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase(); }
+function echappe(s){
+  return (s === undefined || s === null ? "" : s).toString().replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; });
+}
+function cleChapitre(d){ return sansAccents(d.chapitre).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
+function laFiliere(id){ for(var i=0;i<CAT.FILIERES.length;i++){ if(CAT.FILIERES[i].id===id) return CAT.FILIERES[i]; } return null; }
+function docsDe(id){ return CAT.DOCUMENTS.filter(function(d){ return d.filiere===id; }); }
+/* « Cours 1 — Énergie interne… » → {genre:"Cours", num:"1", titre:"Énergie interne…"} */
+function decouper(nom){
+  var m = /^(.*?)\s+(\d+|série\s*\d+|\d+\s*bis)\s+—\s+(.*)$/i.exec(nom || "");
+  if(m) return {genre: m[1], num: m[2].replace(/^série\s*/i, "s"), titre: m[3], complet: nom};
+  var p = (nom || "").split(" — ");
+  if(p.length > 1) return {genre: p[0], num: "", titre: p.slice(1).join(" — "), complet: nom};
+  return {genre: "", num: "", titre: nom || "", complet: nom};
+}
+function numeroDe(dc){ return dc.num ? (dc.num.charAt(0) === "s" ? dc.num.slice(1) : dc.num) : ""; }
+function pluriel(n, mot){ return n + " " + mot + (n > 1 ? "s" : ""); }
+function enumeration(bouts){
+  return bouts.length ? bouts.slice(0,-1).join(", ") + (bouts.length>1 ? " et " : "") + bouts[bouts.length-1] : "rien pour l'instant";
+}
+function compteDe(docs){
+  var nbA = docs.filter(function(x){ return x.type==="animation"; }).length;
+  var nbE = docs.filter(function(x){ return x.type==="qcm" || x.type==="cartes" || x.type==="anki"; }).length;
+  var nbP = docs.length - nbA - nbE, b = [];
+  if(nbP) b.push(pluriel(nbP, "document"));
+  if(nbA) b.push(pluriel(nbA, "animation"));
+  if(nbE) b.push(pluriel(nbE, "entraînement"));
+  return enumeration(b);
+}
+function memoire(){ try{ return window.localStorage; }catch(e){ return null; } }
+function session(){ try{ return window.sessionStorage; }catch(e){ return null; } }
+function lire(st, k){ try{ return st ? st.getItem(k) : null; }catch(e){ return null; } }
+function ecrire(st, k, v){ try{ if(st) st.setItem(k, v); }catch(e){} }
+function compte(){ return window.NerudaCompte || null; }
+function etatCompte(){ var NC = compte(); try{ return NC ? NC.etat() : null; }catch(e){ return null; } }
+
+/* ---------- glyphes ---------- */
+var GLYPHES = {
+  doc: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.2L19 7.6V20a1.2 1.2 0 0 1-1.2 1.2H6A1.2 1.2 0 0 1 4.8 20V4A1.2 1.2 0 0 1 6 2.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3v4.8h4.8M8 12h8M8 15.5h8M8 9h3.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+  anim: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.8" y="4" width="18.4" height="14" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5.5 11c1.6-4.6 3.2-4.6 4.8 0s3.2 4.6 4.8 0 2-3.4 3.4-2.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9 21h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+  qcm: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3.5" width="7" height="7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4.8 7 1.6 1.6L9.4 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="13.5" width="7" height="7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M13 6.5h8M13 17h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+  cartes: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7.5" y="3" width="13" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5.6 6.2 4 6.6a1.6 1.6 0 0 0-1.1 2l3.3 11.6a1.6 1.6 0 0 0 2 1.1l6.6-1.9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M11 9.5h6M11 12.8h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+  corrige: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8.2L19 7.6V20a1.2 1.2 0 0 1-1.2 1.2H6A1.2 1.2 0 0 1 4.8 20V4A1.2 1.2 0 0 1 6 2.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.4 13.6 2.6 2.6 4.8-5.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+};
+var FLECHE = '<svg class="fl" viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var RETOUR = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var CADENAS = '<svg class="verrou" viewBox="0 0 12 14" aria-hidden="true"><rect x="1" y="6" width="10" height="7.5" rx="1.5" fill="currentColor"/><path d="M3.3 6V4.3a2.7 2.7 0 0 1 5.4 0V6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+var PERSONNE = '<svg viewBox="0 0 20 20" width="16" height="16"><circle cx="10" cy="7" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 17c1.2-3.2 3.6-4.6 6.5-4.6s5.3 1.4 6.5 4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+var GLYPHE_CLASSE = '<svg viewBox="0 0 24 24" width="24" height="24" style="margin:auto;color:var(--signal)"><path d="M3 9.5 12 5l9 4.5-9 4.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 11.6V16c1.4 1.4 3.1 2 5 2s3.6-.6 5-2v-4.4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>';
+
+var TYPES = {
+  animation: { glyphe: "anim",   classe: "g-anim", onglet: false, nom: "Animation" },
+  qcm:       { glyphe: "qcm",    classe: "g-entr", onglet: false, nom: "Questionnaire" },
+  cartes:    { glyphe: "cartes", classe: "g-entr", onglet: false, nom: "Cartes" },
+  anki:      { glyphe: "cartes", classe: "g-entr", onglet: true,  nom: "Paquet Anki" },
+  pdf:       { glyphe: "doc",    classe: "g-doc",  onglet: true,  nom: "Document" }
+};
+
+/* ---------- accès (v64) ---------- */
+/* Une filière protégée (acces.js en dit la liste) s'ouvre avec sa clé ; les autres (Outils) avec la clé commune. */
+function filiereOuverte(fid){
+  if(!EN_LIGNE) return true;
+  if(A2.cles[fid]) return !!C.cle(fid);
+  return !!C.cle("commune");
+}
+/* Un document chiffré : docs/<filière protégée>/….pdf ou .apkg → fichier .enc, clé de la filière du dossier. */
+function cleDuDoc(d){
+  if(!EN_LIGNE) return null;
+  var m = /^docs\/([^\/]+)\/.+\.(pdf|apkg)$/i.exec(d.fichier || "");
+  return m && A2.cles[m[1]] ? m[1] : null;
+}
+/* L'accueil dépend des clés : une seule filière → accueil de l'élève ; plusieurs (professeur) → les classes ;
+   aucune (compte invité) → les animations. */
+function genreAccueil(){
+  if(!EN_LIGNE) return "classes";
+  var e = etatCompte(), fils = C.filieres();
+  if((e && e.connecte && e.prof) || C.source() === "prof" || fils.length > 1) return "classes";
+  return fils.length === 1 ? "eleve" : "invite";
+}
+
+/* ---------- état ---------- */
+var vueFiliere = null, vueChapitre = null, route = null, recherche = "", etape = "attente";
+
+/* ---------- une ligne de document ---------- */
+function ligneDoc(d, opts){
+  opts = opts || {};
+  var f = laFiliere(d.filiere);
+  var t = TYPES[d.type] || TYPES.pdf;
+  var glyphe = (d.rubrique === "Corrigés" && d.type === "pdf") ? "corrige" : t.glyphe;
+  var k = cleDuDoc(d), verrou = k && !C.cle(k);
+  var attrs = k ? ' data-chiffre="' + echappe(k) + '" data-fichier="' + echappe(d.fichier) + '"'
+                : (t.onglet ? ' target="_blank" rel="noopener"' : "");
+  var h = '<div class="ligne">'
+    + '<a class="ligne-lien" href="' + echappe(k ? "#" : d.fichier) + '"' + attrs + '>'
+    + '<span class="glyphe ' + t.classe + '">' + GLYPHES[glyphe] + '</span>'
+    + '<span class="corps"><span class="titre">' + echappe(d.titre) + '</span>'
+    + (d.description && !opts.sansDesc ? '<span class="desc">' + echappe(d.description) + '</span>' : '')
+    + (d.trouve && !opts.sansTrouve ? '<span class="trouve">Pour trouver : ' + echappe(d.trouve) + '</span>' : '')
+    + (opts.avecLieu ? '<span class="ou">' + echappe((f ? f.nom : d.filiere) + ", " + d.chapitre) + '</span>' : '')
+    + '</span>' + (verrou ? CADENAS : FLECHE) + '</a>';
+  if(opts.associe){
+    var a = opts.associe;
+    h += '<a class="associe" href="' + echappe(a.fichier) + '">' + GLYPHES.anim + '<span>Avec l\'animation « ' + echappe(a.titre) + ' »</span></a>';
+  }
+  return h + '</div>';
+}
+/* Une animation suivie de « son » activité (« Le document à remplir pendant l'animation. ») ne fait qu'une ligne. */
+function avecPaires(docs){
+  var out = [];
+  for(var i=0;i<docs.length;i++){
+    var d = docs[i], s = docs[i+1];
+    if(d.type === "animation" && s && s.type === "pdf" && /pendant l.animation/i.test(s.description || "")){
+      out.push({doc: s, associe: d}); i++; continue;
+    }
+    out.push({doc: d});
+  }
+  return out;
+}
+
+/* ---------- l'écran ---------- */
+function grilleSVG(H){
+  H = H || 320; var m = H/2;
+  var g = '<rect x="0.5" y="0.5" width="499" height="' + (H-1) + '" rx="6" class="g"/>';
+  for(var x=50;x<500;x+=50) g += '<line class="g pts" x1="' + x + '" y1="4" x2="' + x + '" y2="' + (H-4) + '"/>';
+  for(var y=40;y<H;y+=40) g += '<line class="g pts" x1="4" y1="' + y + '" x2="496" y2="' + y + '"/>';
+  g += '<line class="axe" x1="250" y1="0" x2="250" y2="' + H + '"/><line class="axe" x1="0" y1="' + m + '" x2="500" y2="' + m + '"/>';
+  for(var t=10;t<500;t+=10) g += '<line class="axe" x1="' + t + '" y1="' + (m-4) + '" x2="' + t + '" y2="' + (m+4) + '"/>';
+  for(var u=8;u<H;u+=8) g += '<line class="axe" x1="246" y1="' + u + '" x2="254" y2="' + u + '"/>';
+  return g;
+}
+function ecranSecteur(compact){
+  /* Le réseau : 230 V efficaces, 50 Hz, 5 ms/div : 2,5 périodes sur l'écran.
+     Écran normal : 8 divisions à 100 V/div ; compact (téléphone, connexion) : 6 divisions à 200 V/div. */
+  var H = compact ? 240 : 320, vdiv = compact ? 200 : 100;
+  var d = "", amp = 325/vdiv*40;
+  for(var x=0;x<=500;x+=2.5){
+    var y = H/2 - amp*Math.sin(2*Math.PI*x/200);
+    d += (x ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+  }
+  return '<figure class="ecran" aria-label="Écran d\'oscilloscope : la tension du secteur, 230 volts efficaces, 50 hertz">'
+    + '<div class="haut"><span>CH1 ' + vdiv + ' V/div</span><span>5 ms/div</span></div>'
+    + '<svg class="grille' + (compact ? ' compacte' : '') + '" viewBox="0 0 500 ' + H + '" aria-hidden="true">' + grilleSVG(H)
+    + '<path class="trace anime" pathLength="1" d="' + d + '"/></svg>'
+    + '<figcaption class="mesures"><div><small>Valeur efficace</small><b>230<span>V</span></b></div>'
+    + '<div><small>Fréquence</small><b>50,0<span>Hz</span></b></div><div><small>Période</small><b>20,0<span>ms</span></b></div></figcaption></figure>';
+}
+/* Les réponses aux cartes des 14 derniers jours (journal de srs.js, tous appareils réunis par le compte). */
+function ecranRevisions(jours, mesures){
+  var max = 0, total = 0;
+  jours.forEach(function(j){ if(j.n > max) max = j.n; total += j.n; });
+  var pas = [1, 2, 5, 10, 20, 50, 100, 200, 500].filter(function(p){ return p * 6.5 >= max; })[0] || 1000;
+  var pts = jours.map(function(j, i){ return [25 + i*450/(jours.length - 1), 300 - j.n/pas*40]; });
+  var d = pts.map(function(p, i){ return (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1); }).join("");
+  var NOMS = ["D","L","M","M","J","V","S"];
+  var lettres = jours.map(function(j){ var p = j.date.split("-"); return NOMS[new Date(+p[0], +p[1] - 1, +p[2]).getDay()]; });
+  return '<figure class="ecran" aria-label="Tes réponses aux cartes, jour par jour, sur 14 jours : ' + pluriel(total, "réponse") + ' en tout">'
+    + '<div class="haut"><span>Tes réponses par jour</span><span>' + pas + ' / div · 14 jours</span></div>'
+    + '<svg class="grille" viewBox="0 0 500 320" aria-hidden="true">' + grilleSVG()
+    + '<path class="trace anime" pathLength="1" d="' + d + '"/>'
+    + pts.map(function(p){ return '<circle class="point anime" cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="4.5"/>'; }).join("")
+    + '</svg><div class="jours" aria-hidden="true">' + lettres.map(function(j){ return '<span>' + j + '</span>'; }).join("") + '</div>'
+    + '<figcaption class="mesures">' + mesures.map(function(m){ return '<div><small>' + m[0] + '</small><b>' + m[1] + '<span>' + m[2] + '</span></b></div>'; }).join("")
+    + '</figcaption></figure>';
+}
+
+/* ---------- vues ---------- */
+function preparer(avecRail){
+  document.getElementById("page").classList.toggle("avec-rail", !!avecRail);
+  document.getElementById("rail").innerHTML = "";
+  document.getElementById("barre").hidden = false;
+  document.getElementById("pied").hidden = false;
+}
+function vue(html){ document.getElementById("vue").innerHTML = html; }
+
+/* La connexion (site publié, aucune clé sur l'appareil). */
+function vueConnexion(){
+  preparer(false);
+  document.getElementById("pied").hidden = true;
+  document.getElementById("barre").hidden = true;
+  vue('<section class="connexion">'
+    + '<div class="intro"><h1>Physique appliquée</h1><p>Cours, TP, animations et révisions de M. Cronenberger, au lycée Pablo Neruda de Dieppe.</p>'
+    + '<div class="ecran-tel">' + ecranSecteur(true) + '</div><div class="ecran-ordi">' + ecranSecteur(false) + '</div></div>'
+    + '<div id="zone-connexion"></div></section>');
+  window.NerudaConnexion.monter(document.getElementById("zone-connexion"), {apres: function(){ demarrer(); }});
+}
+
+/* Le pied des accueils : qui est connecté, Mon espace, se déconnecter. */
+function menuCompte(){
+  if(!EN_LIGNE) return "";
+  var e = etatCompte(), src = C.source(), qui;
+  if(e && e.connecte){
+    qui = "Connecté : " + (e.prenom || e.identifiant || "compte")
+      + (e.prof ? " (professeur)" : e.invite ? " (compte invité)" : e.classeLibelle ? ", " + e.classeLibelle : "");
+  }
+  else if(src === "prof") qui = "Accès enseignant ouvert sur cet appareil";
+  else if(src === "secours") qui = "Accès de secours (mot de passe de la classe) : ton avancement reste sur cet appareil";
+  else qui = "Accès ouvert sur cet appareil";
+  return '<p class="menu-compte"><span>' + echappe(qui) + '</span><a href="entrainement/espace.html">Mon espace</a>'
+    + '<button type="button" class="lien-discret" data-deconnexion="1">Se déconnecter</button></p>';
+}
+function blocAnimations(nbA, autres){
+  return '<a class="anim-bloc" href="#animations"><span class="glyphe g-anim">' + GLYPHES.anim + '</span>'
+    + '<b>Toutes les animations' + (autres ? ' du site' : '') + '</b><span>' + nbA + ' animations et simulations'
+    + (autres ? ', celles des autres classes comprises' : ', toutes classes confondues') + '</span></a>';
+}
+/* Les outils transversaux (conversions, transformer une formule, tableur…) : sur chaque accueil. */
+function blocOutils(){
+  var o = docsDe("outils");
+  if(!o.length) return "";
+  return '<h2 class="section-titre">Outils pour toutes les classes</h2><div class="liste">'
+    + o.map(function(d){ return ligneDoc(d, {sansDesc: true, sansTrouve: true}); }).join("") + '</div>';
+}
+function nbAnimations(){ return CAT.DOCUMENTS.filter(function(d){ return d.type === "animation"; }).length; }
+
+/* Accueil du professeur et de l'atelier : l'écran puis les classes. */
+function vueClasses(){
+  preparer(false);
+  var e = etatCompte(), prof = (e && e.connecte && e.prof) || C.source() === "prof" || !!C.cle("prive");
+  var html = '<section class="accueil-tete"><div><h1>Physique appliquée</h1>'
+    + '<p>Cours, TP, animations et révisions de M. Cronenberger, au lycée Pablo Neruda de Dieppe.</p></div>'
+    + '<div class="ecran-tel">' + ecranSecteur(true) + '</div><div class="ecran-ordi">' + ecranSecteur(false) + '</div></section>'
+    + '<h2 class="section-titre">Choisir sa classe</h2><div class="liste">';
+  CAT.FILIERES.filter(function(f){ return f.id !== "outils"; }).forEach(function(f){
+    html += '<a class="chap filiere-ligne" href="#' + echappe(f.id) + '"><span class="n" aria-hidden="true">' + GLYPHE_CLASSE + '</span>'
+      + '<span class="t">' + echappe(f.nom) + '<span class="c">' + echappe(f.sous_titre || "") + '</span></span>'
+      + (filiereOuverte(f.id) ? FLECHE : CADENAS) + '</a>';
+  });
+  html += '</div>' + blocOutils() + blocAnimations(nbAnimations(), false);
+  if(EN_LIGNE && prof){
+    html += '<a class="anim-bloc" href="prof/index.html"><span class="glyphe g-entr">' + GLYPHES.qcm + '</span>'
+      + '<b>Espace prof</b><span>Évaluer (U51), comportement, fiches des copies corrigées</span></a>';
+    if(window.ACCES_PROF) html += '<a class="anim-bloc" href="#prive"><span class="glyphe g-doc">' + GLYPHES.doc + '</span>'
+      + '<b>Espace enseignant</b><span>Livres du professeur, diaporamas, corrigés' + (C.cle("prive") ? '' : ' (code enseignant)') + '</span></a>';
+  }
+  vue(html + menuCompte());
+}
+
+/* Accueil d'un élève : ses révisions, la reprise, puis les chapitres de sa classe. */
+function revisionsDe(fid){
+  var r = {dues: 0, vues: 0}, st = memoire(), auj = SRS.aujourdhui(), pref = "neruda.cartes." + fid + ".";
+  if(!st) return r;
+  SRS.clesLocales(st).forEach(function(k){
+    if(k.indexOf(pref) !== 0) return;
+    var et = SRS.lireCartes(lire(st, k));
+    for(var id in et.cartes){
+      if(!Object.prototype.hasOwnProperty.call(et.cartes, id)) continue;
+      var c = et.cartes[id];
+      if(!c || !c.n) continue;
+      r.vues++; if(c.d <= auj) r.dues++;
+    }
+  });
+  return r;
+}
+function cartesDuChapitre(g){ return g ? g.docs.filter(function(d){ return d.type === "cartes"; })[0] || null : null; }
+function vueMaison(fid){
+  preparer(false);
+  var f = laFiliere(fid) || {id: fid, nom: fid};
+  var e = etatCompte();
+  var prenom = e && e.connecte && e.prenom && !e.invite ? e.prenom.split(/\s+/)[0] : "";
+  var chapitres = parChapitre(docsDe(fid));
+  var dernier = lire(memoire(), "neruda.dernier-chapitre"), reprise = null;
+  chapitres.forEach(function(x){ if(dernier === fid + "/" + x.cle) reprise = x; });
+  var commencer = !reprise;
+  reprise = reprise || chapitres[0] || null;
+
+  var r = revisionsDe(fid);
+  var jours = SRS.reponsesParJour(lire(memoire(), "neruda.journal"), 14);
+  var serie = SRS.serieCourante(lire(memoire(), "neruda.serie"));
+  var sur7 = 0; jours.slice(7).forEach(function(j){ sur7 += j.n; });
+  var lien, libelle;
+  if(r.dues > 0){
+    lien = "entrainement/cartes.html?f=" + encodeURIComponent(fid) + "&jour=1";
+    libelle = r.dues === 1 ? "Réviser ma carte du jour" : "Réviser mes " + r.dues + " cartes du jour";
+  } else {
+    var dc = cartesDuChapitre(reprise);
+    if(!dc) chapitres.some(function(x){ dc = cartesDuChapitre(x); return !!dc; });
+    lien = dc ? dc.fichier : null;
+    libelle = r.vues ? "Rien à revoir : apprendre de nouvelles cartes" : "Commencer les cartes de révision";
+  }
+  var html = '<div class="maison-haut"><div><div class="bonjour"><h1>Bonjour' + (prenom ? ' ' + echappe(prenom) : '') + '</h1><p>' + echappe(f.nom) + '</p></div>'
+    + '<div class="actions-du-jour">';
+  if(lien) html += '<a class="principal" href="' + echappe(lien) + '">' + GLYPHES.cartes.replace('<svg', '<svg width="22" height="22"') + echappe(libelle) + '</a>';
+  if(reprise){
+    var d2 = decouper(reprise.nom);
+    html += '<a class="secondaire" href="#' + echappe(fid) + '/' + echappe(reprise.cle) + '"><span class="glyphe g-doc">' + GLYPHES.doc + '</span>'
+      + '<span><small>' + (commencer ? 'Commencer' : 'Reprendre') + '</small><b>' + echappe(d2.num ? d2.genre + " " + numeroDe(d2) + " — " + d2.titre : reprise.nom) + '</b></span></a>';
+  }
+  html += '</div></div>'
+    + ecranRevisions(jours, [["À revoir", r.dues, r.dues > 1 ? "cartes" : "carte"], ["Série", serie, serie > 1 ? "jours" : "jour"],
+                             ["Sur 7 jours", sur7, sur7 > 1 ? "réponses" : "réponse"]])
+    + '</div>';
+  if(C.source() === "secours") html += '<p class="note">Accès de secours : sans compte, ton avancement reste sur cet appareil.</p>';
+  html += chapitresDe(fid) + blocOutils() + blocAnimations(nbAnimations(), true) + menuCompte();
+  vue(html);
+}
+
+/* Accueil du compte invité : toutes les animations (les cours restent réservés aux classes). */
+function vueInvite(){
+  preparer(false);
+  var html = '<section class="accueil-tete"><div><h1>Physique appliquée</h1>'
+    + '<p>Compte invité : toutes les animations et simulations du site sont ouvertes. Les cours, TP et entraînements restent réservés aux élèves de chaque classe.</p></div>'
+    + '<div class="ecran-tel">' + ecranSecteur(true) + '</div><div class="ecran-ordi">' + ecranSecteur(false) + '</div></section>';
+  vue(html + animationsParClasse() + menuCompte());
+}
+
+/* Les chapitres d'une classe, par rubrique. */
+function parChapitre(liste){
+  var ordre = [], par = {};
+  liste.forEach(function(d){
+    var c = cleChapitre(d);
+    if(!par[c]){ par[c] = { cle:c, nom:d.chapitre, rubrique:d.rubrique, rubriques:[], docs:[] }; ordre.push(par[c]); }
+    if(par[c].rubriques.indexOf(d.rubrique) < 0) par[c].rubriques.push(d.rubrique);
+    par[c].docs.push(d);
+  });
+  return ordre;
+}
+function chapitresDe(fid){
+  var html = "", rubCourante = null;
+  parChapitre(docsDe(fid)).forEach(function(g){
+    if(g.rubrique !== rubCourante){
+      if(rubCourante !== null) html += '</div>';
+      rubCourante = g.rubrique;
+      html += '<h2 class="section-titre">' + echappe(g.rubrique) + '</h2><div class="liste">';
+    }
+    var dc = decouper(g.nom), num = numeroDe(dc);
+    html += '<a class="chap" href="#' + echappe(fid) + '/' + g.cle + '"><span class="n' + (num ? "" : " sans") + '">' + echappe(num || "·") + '</span>'
+      + '<span class="t">' + echappe(dc.num ? dc.titre : g.nom) + '<span class="c">' + compteDe(g.docs) + '</span></span>' + FLECHE + '</a>';
+  });
+  if(rubCourante !== null) html += '</div>';
+  return html;
+}
+function railDe(fid, cle){
+  var f = laFiliere(fid), html = '<a class="r-classe" href="#' + echappe(fid) + '">' + echappe(f.nom) + '</a>', rub = null;
+  parChapitre(docsDe(fid)).forEach(function(g){
+    if(g.rubrique !== rub){ rub = g.rubrique; html += '<h3>' + echappe(rub) + '</h3>'; }
+    var dc = decouper(g.nom), num = numeroDe(dc);
+    html += '<a class="r-ch" href="#' + echappe(fid) + '/' + g.cle + '"' + (g.cle === cle ? ' aria-current="page"' : '') + '><span class="n">' + echappe(num) + '</span><span>'
+      + echappe(dc.num ? dc.titre : g.nom) + '</span></a>';
+  });
+  return html;
+}
+function noteFermee(f){
+  if(filiereOuverte(f.id)) return "";
+  return '<div class="acces-note"><span>' + CADENAS.replace('class="verrou"', '') + 'Les cours de cette classe sont réservés à ses élèves ; ses animations restent ouvertes.</span></div>';
+}
+
+function vueFiliereRendu(){
+  var f = laFiliere(vueFiliere);
+  if(!f){ location.hash = ""; return; }
+  if(vueChapitre){ vueChapitreRendu(); return; }
+  preparer(false);
+  vue('<a class="retour" href="#">' + RETOUR + 'Accueil</a>'
+    + '<h1 class="titre-page">' + echappe(f.nom) + '</h1>'
+    + (f.sous_titre ? '<p class="sous-titre">' + echappe(f.sous_titre) + '</p>' : '')
+    + noteFermee(f) + chapitresDe(f.id));
+}
+
+function etatEntrainement(d){
+  var m = /[?&]ch=([^&]+)/.exec(d.fichier || ""), ch = m ? m[1] : "";
+  var st = memoire();
+  if(!SRS || !ch) return null;
+  if(d.type === "cartes"){
+    var n = /(\d+)\s+cartes/.exec(d.description || ""), total = n ? +n[1] : 0;
+    var b = SRS.bilan(SRS.lireCartes(lire(st, "neruda.cartes." + d.filiere + "." + ch)), total);
+    if(!b.vues) return {texte: total + " cartes", vif: false};
+    return b.dues.length ? {texte: b.dues.length + " à revoir", vif: true} : {texte: "rien à revoir", vif: false};
+  }
+  if(d.type === "qcm"){
+    var t = /type=([a-z]+)/.exec(d.fichier), q = SRS.lireQcm(lire(st, "neruda.qcm." + d.filiere + "." + ch + "." + (t ? t[1] : "")));
+    if(q && q.tentatives) return {texte: "meilleur : " + q.meilleur + "/" + q.total, vif: false};
+    var nq = /(\d+)\s+questions/.exec(d.description || "");
+    return {texte: (nq ? nq[1] + " questions" : (t && t[1] === "prerequis" ? "à faire avant" : "à faire après")), vif: false};
+  }
+  return null;
+}
+
+/* Une page de chapitre : le cartouche, s'entraîner, puis les documents dans l'ordre du catalogue. */
+function vueChapitreRendu(){
+  var f = laFiliere(vueFiliere);
+  var g = parChapitre(docsDe(f.id)).filter(function(x){ return x.cle===vueChapitre; })[0];
+  if(!g){ vueChapitre = null; vueFiliereRendu(); return; }
+  preparer(true);
+  if(filiereOuverte(f.id)) ecrire(memoire(), "neruda.dernier-chapitre", f.id + "/" + g.cle);
+  document.getElementById("rail").innerHTML = railDe(f.id, g.cle);
+  var dc = decouper(g.nom), num = numeroDe(dc);
+  var entr = g.docs.filter(function(d){ return d.type === "qcm" || d.type === "cartes"; });
+  var html = '<a class="retour" href="#' + echappe(f.id) + '">' + RETOUR + echappe(f.nom) + '</a>'
+    + '<section class="cartouche" aria-label="Fiche du chapitre">'
+    + '<div class="c-num"><span class="lib">' + echappe(dc.genre || "Chapitre") + '</span><span class="num">' + echappe(num || "·") + '</span></div>'
+    + '<div class="c-titre"><h1>' + echappe(dc.num || dc.genre ? dc.titre : g.nom) + '</h1></div>'
+    + '<div class="c-classe"><span class="lib">Classe</span> ' + echappe(f.nom) + '</div>'
+    + '<div class="c-contenu"><span class="lib">Dans ce chapitre</span>' + compteDe(g.docs) + '</div>'
+    + '</section>' + noteFermee(f);
+  if(entr.length){
+    var cartes = entr.filter(function(d){ return d.type === "cartes"; });
+    var qcm = entr.filter(function(d){ return d.type === "qcm"; });
+    html += '<h2 class="section-titre">S\'entraîner</h2><div class="tuiles">';
+    cartes.concat(qcm).forEach(function(d){
+      var e = etatEntrainement(d) || {texte: "", vif: false};
+      var t = TYPES[d.type];
+      var titre = d.type === "cartes" ? ["Cartes", "Cartes de révision"] : (/prerequis/.test(d.fichier) ? ["Prérequis", "Tester les prérequis"] : ["Bilan", "Bilan du chapitre"]);
+      html += '<a class="tuile" href="' + echappe(d.fichier) + '"><span class="glyphe g-entr">' + GLYPHES[t.glyphe] + '</span>'
+        + '<b><span class="court">' + titre[0] + '</span><span class="long">' + titre[1] + '</span></b><span class="etat' + (e.vif ? " vif" : "") + '">' + echappe(e.texte) + '</span></a>';
+    });
+    html += '</div>';
+  }
+  g.rubriques.forEach(function(r){
+    var docs = g.docs.filter(function(d){ return d.rubrique === r && d.type !== "qcm" && d.type !== "cartes"; });
+    if(!docs.length) return;
+    html += '<h2 class="section-titre">' + echappe(r) + '</h2><div class="liste">'
+      + avecPaires(docs).map(function(x){ return ligneDoc(x.doc, {associe: x.associe}); }).join("") + '</div>';
+  });
+  vue(html);
+}
+
+function animationsParClasse(){
+  var html = "";
+  CAT.FILIERES.forEach(function(f){
+    var a = docsDe(f.id).filter(function(d){ return d.type === "animation"; });
+    if(!a.length) return;
+    html += '<h2 class="section-titre">' + echappe(f.nom) + ' <small>' + pluriel(a.length, "animation") + '</small></h2><div class="liste">'
+      + a.map(function(d){ return ligneDoc(d, {}); }).join("") + '</div>';
+  });
+  return html;
+}
+function vueAnimations(){
+  preparer(false);
+  vue('<a class="retour" href="#">' + RETOUR + 'Accueil</a><h1 class="titre-page">Toutes les animations</h1>' + animationsParClasse());
+}
+
+function vueRecherche(){
+  preparer(false);
+  var mot = sansAccents(recherche);
+  var r = CAT.DOCUMENTS.filter(function(d){
+    var f = laFiliere(d.filiere);
+    var champs = [d.titre, d.description, d.trouve, d.chapitre, d.rubrique, f ? f.nom : ""].concat(d.motscles||[]).join(" ");
+    return sansAccents(champs).indexOf(mot) >= 0;
+  });
+  if(!r.length){ vue('<p class="rien" style="margin-top:20px">Rien ne correspond à « ' + echappe(recherche) + ' ». Essaie un autre mot, sans accent si besoin.</p>'); return; }
+  vue('<h2 class="section-titre">' + pluriel(r.length, "résultat") + '</h2><div class="liste">'
+    + r.map(function(d){ return ligneDoc(d, {avecLieu: true}); }).join("") + '</div>');
+}
+
+function vueAccueil(){
+  var g = genreAccueil();
+  if(g === "eleve") vueMaison(C.filieres()[0]);
+  else if(g === "invite") vueInvite();
+  else vueClasses();
+}
+function rendu(){
+  if(etape !== "site") return;
+  if(recherche){ vueRecherche(); return; }
+  if(route === "prive"){ vuePrive(); return; }
+  if(route === "animations"){ vueAnimations(); return; }
+  if(vueFiliere){ vueFiliereRendu(); return; }
+  vueAccueil();
+}
+
+/* ---------- navigation ---------- */
+function surHash(){
+  var h = (location.hash || "").replace(/^#/, "");
+  try{ h = decodeURIComponent(h); }catch(e){}
+  recherche = ""; document.getElementById("q").value = ""; document.getElementById("q2").value = "";
+  route = null; vueFiliere = null; vueChapitre = null;
+  if(h === "prive" || h === "animations") route = h;
+  else {
+    var bouts = h.split("/");
+    vueFiliere = bouts[0] && laFiliere(bouts[0]) ? bouts[0] : null;
+    vueChapitre = (vueFiliere && bouts[1]) ? bouts[1] : null;
+  }
+  rendu();
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", function(){ if(etape === "site") surHash(); });
+["q", "q2"].forEach(function(id){
+  document.getElementById(id).addEventListener("input", function(e){ recherche = e.target.value.trim(); if(etape === "site"){ if(recherche) rendu(); else surHash(); } });
+});
+document.getElementById("ouvrir-recherche").onclick = function(){
+  var z = document.getElementById("zone-recherche"), b = this;
+  z.hidden = !z.hidden; b.setAttribute("aria-expanded", String(!z.hidden));
+  if(!z.hidden) document.getElementById("q2").focus();
+};
+
+/* ---------- documents chiffrés ---------- */
+var minuteur = null;
+function avertir(t){
+  var z = document.getElementById("toast");
+  z.textContent = t; z.classList.add("on");
+  clearTimeout(minuteur); minuteur = setTimeout(function(){ z.classList.remove("on"); }, 3200);
+}
+function nomTelecharge(fichier){ return fichier.replace(/^docs\//, "").replace(/\//g, "-"); }
+function ouvrirChiffre(a, cle, url, aad, nom, pdf){
+  var w = (pdf && !ANDROID) ? window.open("", "_blank") : null;
+  if(w){ try{ w.document.write('<p style="font:16px sans-serif;padding:20px">Ouverture du document…</p>'); }catch(e){} }
+  a.classList.add("attente");
+  C.dechiffrer(url, aad, cle)
+    .then(function(clair){
+      var blob = new Blob([clair], {type: pdf ? "application/pdf" : "application/octet-stream"}), url2 = URL.createObjectURL(blob);
+      if(w){ w.location.href = url2; }
+      else{ var l = document.createElement("a"); l.href = url2; l.download = nom; document.body.appendChild(l); l.click(); l.remove(); }
+      setTimeout(function(){ URL.revokeObjectURL(url2); }, 120000);
+    })
+    .catch(function(e){
+      if(w) try{ w.close(); }catch(x){}
+      var m = e && e.message;
+      avertir(m === "absent" ? "Ce document est introuvable sur le site."
+        : m === "cle" ? "Ce document est réservé aux élèves de la classe."
+        : "Le document n'a pas pu être déchiffré : déconnecte-toi, reconnecte-toi, puis réessaie.");
+    })
+    .then(function(){ a.classList.remove("attente"); });
+}
+
+/* ======================================================================
+   ESPACE ENSEIGNANT (#prive) : la clé « prive », que seul le code enseignant ouvre (jamais dans la base).
+   ====================================================================== */
+var INDEX_PRIVE = null;
+function chargerIndexPrive(){
+  if(INDEX_PRIVE) return Promise.resolve(INDEX_PRIVE);
+  return C.texte("prive/index.enc", "prive/index", "prive").then(function(t){ INDEX_PRIVE = JSON.parse(t); return INDEX_PRIVE; });
+}
+function taille(n){ return n > 1e6 ? (n/1e6).toFixed(1).replace(".", ",") + " Mo" : Math.round(n/1e3) + " ko"; }
+function vuePrive(){
+  preparer(false);
+  var tete = '<a class="retour" href="#">' + RETOUR + 'Accueil</a><h1 class="titre-page">Espace enseignant</h1>';
+  if(!EN_LIGNE || !window.ACCES_PROF){ vue(tete + '<p class="rien">L\'espace enseignant n\'existe que sur le site publié.</p>'); return; }
+  if(!C.cle("prive")){
+    vue(tete + '<form class="porte code-prof" id="f-prive" novalidate><h2>Code enseignant</h2>'
+      + '<label for="code-prive">Code enseignant</label>'
+      + '<input type="password" id="code-prive" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">'
+      + '<p class="erreur" id="err-prive" role="alert"></p>'
+      + '<button class="principal" type="submit" id="ok-prive">Ouvrir</button>'
+      + '<p class="aide">Le code enseignant ne quitte pas cet appareil : il déchiffre ici même la clé de l\'espace enseignant, '
+      + 'qui reste dans cet onglet seulement (jamais gardée sur l\'appareil).</p></form>');
+    document.getElementById("f-prive").onsubmit = function(ev){
+      ev.preventDefault();
+      var b = document.getElementById("ok-prive"), err = document.getElementById("err-prive");
+      b.disabled = true; b.textContent = "Vérification…"; err.textContent = "";
+      C.secours(document.getElementById("code-prive").value, false).then(function(noms){
+        if(noms.indexOf("prive") >= 0) return;          // le changement de clés relance l'affichage
+        err.textContent = noms.length ? "Ce mot de passe ouvre une classe, pas l'espace enseignant." : "Code incorrect.";
+      }, function(x){ err.textContent = (x && x.message) || "Vérification impossible."; })
+        .then(function(){ b.disabled = false; b.textContent = "Ouvrir"; });
+    };
+    return;
+  }
+  vue(tete + '<p class="rien">Déchiffrement de la liste…</p>');
+  chargerIndexPrive().then(function(tout){
+    if(route !== "prive") return;
+    var liste = tout.filter(function(d){ return d.type !== "donnees"; });
+    var noms = {livres: "Livres du professeur"};
+    CAT.FILIERES.forEach(function(f){ noms[f.id] = f.nom; });
+    var DOSSIERS = [
+      ["livres", "Livres du professeur", "Un livre par classe : tous les documents de l'année, corrigés compris."],
+      ["diaporamas", "Diaporamas", "Le diaporama complet de chaque chapitre (cours, activités, exercices et corrigés au clic)."],
+      ["tests", "Tests", "Sujets et corrigés des tests, par classe."],
+      ["exercices", "Exercices corrigés", "Le corrigé complet de chaque feuille d'exercices, par classe."],
+      ["activites", "Corrections des activités", "Activités et activités sur animation, corrigées, par classe."],
+      ["evaluations", "Évaluations : sujets et corrigés", "CCF, devoirs E32, oraux, sujets E4 et situations U51."],
+      ["adm", "TP systèmes (ADM 2 à 7)", "Sujets, corrigés et animations des TP systèmes, retirés du site élèves."],
+      ["retires", "Chapitres retirés du site élèves", "Documents et animations des chapitres masqués (cours du collègue…)."]];
+    var parDossier = {};
+    liste.forEach(function(d){ var k = d.dossier || "retires"; (parDossier[k] = parDossier[k] || []).push(d); });
+    var html = tete + '<p class="sous-titre">' + liste.length + ' documents, rangés par dossier puis par classe.</p>'
+      + '<a class="anim-bloc" href="prof/index.html"><span class="glyphe g-anim">' + GLYPHES.qcm + '</span><b>Espace prof : évaluer, comportement, fiches</b>'
+      + '<span>Photos de la classe, grilles par compétences, registre de comportement, fiches des copies corrigées ; chiffré sur l\'appareil</span></a><div class="dossiers">';
+    DOSSIERS.forEach(function(Dz){
+      if(parDossier[Dz[0]]) html += '<a class="dossier-lien" href="#" data-dossier="' + Dz[0] + '">' + echappe(Dz[1]) + ' <span>' + parDossier[Dz[0]].length + '</span></a>';
+    });
+    html += '</div>';
+    DOSSIERS.forEach(function(Dz){
+      var docs = parDossier[Dz[0]]; if(!docs) return;
+      html += '<details class="dossier" id="dossier-' + Dz[0] + '"><summary><b>' + echappe(Dz[1]) + '</b> <span class="ou">' + docs.length + ' · ' + echappe(Dz[2]) + '</span></summary>';
+      var filCour = null, chCour = null, nbFil = {};
+      docs.forEach(function(d){ nbFil[d.fil] = (nbFil[d.fil] || 0) + 1; });
+      docs.forEach(function(d){
+        if(d.fil !== "livres" && d.fil !== filCour){
+          if(filCour !== null) html += '</details>';
+          filCour = d.fil; chCour = null;
+          html += '<details class="classe"><summary>' + echappe(noms[d.fil] || d.fil) + ' <span class="ou">' + nbFil[d.fil] + '</span></summary>';
+        }
+        if(d.fil !== "livres" && d.ch !== chCour){ chCour = d.ch; html += '<h4>' + echappe(d.chapitre) + '</h4>'; }
+        if(d.type === "lien"){
+          html += '<div class="ligne"><a class="ligne-lien" href="' + echappe(d.url) + '" target="_blank" rel="noopener"><span class="glyphe g-anim">' + GLYPHES.anim
+            + '</span><span class="corps"><span class="titre">' + echappe(d.titre) + '</span><span class="ou">animation interactive</span></span>' + FLECHE + '</a></div>';
+        } else {
+          html += '<div class="ligne"><a class="ligne-lien" href="#" data-prive="' + echappe(d.id) + '" data-nom="' + echappe(d.nom) + '"><span class="glyphe g-doc">' + GLYPHES.doc
+            + '</span><span class="corps"><span class="titre">' + echappe(d.titre) + '</span><span class="ou">' + taille(d.taille) + '</span></span>' + FLECHE + '</a></div>';
+        }
+      });
+      if(filCour !== null) html += '</details>';
+      html += '</details>';
+    });
+    html += '<p><button type="button" class="lien-discret" data-deconnexion="1">Fermer l\'accès sur cet appareil (se déconnecter)</button></p>';
+    vue(html);
+    Array.prototype.forEach.call(document.getElementById("vue").querySelectorAll("a[data-dossier]"), function(l){
+      l.onclick = function(ev){ ev.preventDefault(); var d = document.getElementById("dossier-" + l.getAttribute("data-dossier"));
+        if(d){ d.open = true; d.scrollIntoView({behavior: "smooth", block: "start"}); } };
+    });
+  }).catch(function(){
+    if(route === "prive") vue(tete + '<p class="rien">La liste n\'a pas pu être déchiffrée. Se déconnecter, puis saisir à nouveau le code enseignant.</p>');
+  });
+}
+
+/* ---------- se déconnecter ---------- */
+function seDeconnecter(){
+  var NC = compte(), e = etatCompte();
+  INDEX_PRIVE = null;
+  function fin(){ C.oublier(true); if(location.hash) history.replaceState(null, "", location.pathname + location.search); demarrer(); }
+  if(NC && e && e.connecte) NC.deconnecter().then(fin, fin); else fin();
+}
+
+document.addEventListener("click", function(e){
+  var t = e.target && e.target.closest ? e.target : null;
+  if(!t) return;
+  var dx = t.closest("[data-deconnexion]");
+  if(dx){ e.preventDefault(); seDeconnecter(); return; }
+  var p = t.closest("a[data-prive]");
+  if(p){ e.preventDefault(); var id = p.getAttribute("data-prive"), nom = p.getAttribute("data-nom") || id;
+    ouvrirChiffre(p, "prive", "prive/" + id + ".enc", "prive/" + id, nom, /\.pdf$/i.test(nom)); return; }
+  var a = t.closest("a[data-chiffre]");
+  if(!a) return;
+  e.preventDefault();
+  var k = a.getAttribute("data-chiffre"), fichier = a.getAttribute("data-fichier");
+  if(!C.cle(k)){ avertir("Ce document est réservé aux élèves de la classe."); return; }
+  ouvrirChiffre(a, k, fichier + ".enc", fichier, nomTelecharge(fichier), /\.pdf$/i.test(fichier));
+});
+
+/* ---------- le compte : initiales dans « Mon espace », relance à la connexion ---------- */
+function majPastille(){
+  var e = etatCompte(), el = document.querySelector("#lien-espace .pastille"), ini = "";
+  if(e && e.connecte && e.prenom && !e.invite){
+    var p = e.prenom.replace(/\./g, " ").trim().split(/\s+/);
+    ini = (p[0].charAt(0) + (p.length > 1 ? p[p.length - 1].charAt(0) : "")).toUpperCase();
+  }
+  el.innerHTML = ini ? echappe(ini) : PERSONNE;
+}
+var compteBranche = false;
+function brancherCompte(){
+  var NC = compte();
+  if(!NC || compteBranche) return;
+  compteBranche = true;
+  NC.surChangement(function(evt){ if(evt.type === "etat"){ majPastille(); if(etape === "site" && !recherche && !vueFiliere && !route) rendu(); } });
+  majPastille();
+}
+document.addEventListener("neruda-compte-pret", brancherCompte);
+
+/* Une session de compte existe peut-être (onglet ou « Rester connecté ») : on attend compte.js avant de
+   montrer la connexion ; sinon, la carte de connexion s'affiche tout de suite. */
+function sessionPossible(){
+  if(lire(memoire(), "neruda.rester") === "1") return true;
+  var r = false;
+  [session(), memoire()].forEach(function(st){
+    try{ for(var i = 0; st && i < st.length; i++) if(/^firebase:authUser:/.test(st.key(i))) r = true; }catch(e){}
+  });
+  return r;
+}
+var generation = 0, compteAttendu = false;
+function demarrer(){
+  var g = ++generation;
+  C.pret().then(function(){
+    if(g !== generation) return;
+    if(EN_LIGNE && !C.noms().length){
+      if(!compteAttendu && sessionPossible()){
+        etape = "attente"; preparer(false); document.getElementById("pied").hidden = true;
+        vue('<p class="attente-page">Ouverture de ta session…</p>');
+        window.NerudaConnexion.attendreCompte(6000).then(function(NC){
+          return Promise.race([NC.pret, new Promise(function(ok){ setTimeout(ok, 6000); })]);
+        }, function(){}).then(function(){ compteAttendu = true; if(g === generation) demarrer(); });
+        return;
+      }
+      etape = "connexion"; vueConnexion(); return;
+    }
+    etape = "chargement";
+    D.catalogue().then(function(cat){
+      if(g !== generation) return;
+      CAT = cat; etape = "site"; majPastille(); surHash();
+    }, function(){
+      if(g !== generation) return;
+      etape = "erreur"; preparer(false);
+      vue('<p class="rien" style="margin-top:24px">Le site n\'a pas pu s\'ouvrir : vérifie la connexion à Internet, puis recharge la page.</p>' + menuCompte());
+    });
+  });
+}
+if(C) C.surChangement(function(){ demarrer(); });
+brancherCompte();
+majPastille();
+demarrer();
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Comportement</title>
+<link rel="stylesheet" href="prof.css">
+<!-- Comportement (v62, novembre 2026) : l'application « Comportement 1STI2D » de septembre 2026 dans le site.
+     Chaque ligne est chiffrée sur l'appareil (socle.js) avant d'aller dans la base : Google ne voit ni nom, ni
+     événement, ni date. Logique : comportement.js ; critères : criteres.js. -->
+<style>
+.pun-detail{display:grid;grid-template-columns:1fr 150px;gap:0 10px;margin-top:6px}
+.etat-pun{font-size:12px;font-weight:700;margin-left:6px}
+.etat-pun.rendu{color:var(--vert)}.etat-pun.attendu{color:var(--orange)}.etat-pun.retard{color:var(--rouge)}
+.ligne .actions{display:flex;gap:4px;align-items:center}
+.periode{display:flex;gap:8px;flex-wrap:wrap;align-items:end;margin-bottom:10px}
+.periode label{font-size:12px;color:var(--gris)}
+.periode input{display:block;font:inherit;font-size:14px;padding:6px 8px;border-radius:8px;border:1px solid var(--bord);background:var(--carte);color:var(--txt)}
+td.g{text-align:left}
+</style>
+</head>
+<body>
+<header>
+  <a class="retour" href="index.html">← Espace prof</a>
+  <h1>Comportement</h1>
+  <div class="barre" id="barre" hidden>
+    <select id="classe" aria-label="Classe"></select>
+    <input type="date" id="date" aria-label="Date de la séance">
+    <span class="info" id="cpt"></span>
+    <span class="info synchro" id="sync"></span>
+  </div>
+</header>
+<main>
+  <section class="verrou" id="verrou" hidden></section>
+  <section class="vue on" id="v-classe" hidden>
+    <div class="modebar">
+      <div class="seg"><button type="button" id="m-eleve" class="on">Par élève</button><button type="button" id="m-critere">Par critère</button></div>
+      <button type="button" id="critere" hidden>Choisir un critère…</button>
+      <button type="button" class="mini" id="tout" hidden>Tout cocher</button>
+      <button type="button" class="mini" id="rien" hidden>Tout décocher</button>
+    </div>
+    <div class="grille" id="grille"></div>
+    <p class="aide" id="aide-classe"></p>
+  </section>
+  <section class="vue" id="v-journal" hidden><div id="journal"></div></section>
+  <section class="vue" id="v-bilan" hidden>
+    <div class="periode">
+      <div><label for="du">Du</label><input type="date" id="du"></div>
+      <div><label for="au">au</label><input type="date" id="au"></div>
+    </div>
+    <div class="resume" id="resume-bilan"></div>
+    <div class="tab"><table><thead><tr><th style="text-align:left">Élève</th><th>Points</th><th>Écarts</th><th>Positifs</th><th>Punitions</th><th>À rendre</th></tr></thead><tbody id="tbody"></tbody></table></div>
+    <p class="aide">Points : somme des points de la période (écarts négatifs, attitudes positives). Toucher un élève pour voir le
+    détail de ses lignes. « À rendre » : punitions avec un travail donné et pas encore marqué rendu.</p>
+  </section>
+  <section class="vue" id="v-export" hidden>
+    <button type="button" class="gros" id="b-copie">Copier pour le classeur Excel</button>
+    <button type="button" class="gros sec" id="b-csv">Enregistrer un fichier CSV</button>
+    <button type="button" class="gros sec" id="b-importer">Importer les lignes de l'ancienne application…</button>
+    <button type="button" class="gros danger" id="b-vide">Effacer toutes les lignes de cette classe</button>
+    <p class="aide">« Copier » met les lignes de la classe dans le presse-papiers, dans l'ordre des colonnes A à E de
+    l'onglet Saisie du classeur : Date, Élève, Événement, Punition, Travail donné. Sur l'ordinateur, cliquer sur la première
+    cellule vide de la colonne A et coller.</p>
+    <p class="aide">Chaque ligne est chiffrée sur cet appareil avec la clé de l'espace enseignant avant d'être enregistrée
+    dans la base du site : le téléphone et l'ordinateur voient la même liste, et personne d'autre ne peut la lire (pas même
+    Google, qui héberge la base). Hors connexion, la saisie continue et repart dès que le réseau revient.</p>
+    <p class="aide">Le classeur reste l'archive de référence : exporter au moins une fois par semaine.</p>
+  </section>
+</main>
+<nav class="bas" id="nav" hidden>
+  <button type="button" data-v="classe" class="on">Classe</button>
+  <button type="button" data-v="journal">Journal</button>
+  <button type="button" data-v="bilan">Bilan</button>
+  <button type="button" data-v="export">Export</button>
+</nav>
+<input type="file" id="fichier" accept=".json,application/json" hidden>
+<script src="../acces.js"></script>
+<script src="../commun/cles.js?v=64"></script>
+<script type="module">
+import("./comportement.js").catch(function (e) {
+  console.error(e);
+  document.querySelector("main").innerHTML = '<div class="panne"><b>Outil indisponible</b><p>Le service de connexion '
+    + '(Firebase, chargé depuis www.gstatic.com) ne répond pas : vérifier le réseau, puis recharger la page.</p></div>';
+});
+</script>
+</body>
+</html>
