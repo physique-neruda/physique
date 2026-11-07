@@ -12,7 +12,7 @@
    cles »). L'année est celle du site publié (donnees/corriges.json, écrite par chiffrer.py). Rien n'est lu ni
    écrit dans la base.
    ===================================================================== */
-import { gardeCode, cleCodes, lireDonnees, eleves, esc, copier, toast, reglage, fr, fermerCode } from "./socle.js";
+import { gardeCode, cleCodes, lireDonnees, eleves, esc, copier, toast, reglage, fr, fermerCode } from "./socle.js?v=65";
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 const CLASSES_DE = { "1sti2d": ["sti2d"], "bts-crsa": ["crsa1", "crsa2"], "bts-tsma": ["tsma1", "tsma2"], "bts-et": ["et1", "et1a"] };
@@ -56,6 +56,10 @@ function lignes(fil, ch) {
       });
     } else out.push({ id: e.id, sorte: "activite", libelle: e.titre, detail: e.pages + " p." });
   });
+  // v65 : exercices d'approfondissement (BTS CRSA) : énoncé puis corrigé
+  els.filter(e => e.sorte === "appro" || e.sorte === "appro_corrige")
+    .sort((x, y) => (x.sorte === "appro" ? 0 : 1) - (y.sorte === "appro" ? 0 : 1))
+    .forEach(e => out.push({ id: e.id, sorte: e.sorte, libelle: e.titre, detail: e.pages + " p." }));
   return out;
 }
 

@@ -124,3 +124,31 @@ Téléphone et ordinateur voient les mêmes données, y compris hors connexion (
 saisie modifiée sur deux appareils à la fois : la dernière écriture l'emporte. Évaluer un élève donné sur un seul
 appareil à la fois ; le comportement, lui, est une ligne par événement : rien ne se perd. Les saisies ne
 s'ouvrent qu'une fois lues dans la base ou le cache (« Lecture des saisies… un instant »).
+
+## v65 (6 novembre 2026) : tableau de bord, corrigés partagés
+
+**Tableau de bord** (`tableau.html`, les deux clés) : l'activité des élèves, par classe et par élève, lue dans la base
+(cartes, questionnaires, animations, corrigés débloqués) avec la liste chiffrée pour les noms. Période 7, 30 ou
+70 jours ; chiffres clés, élèves actifs par jour, chapitres travaillés (élèves × chapitres : cartes apprises ou
+meilleur score), animations, tableau des élèves ; un clic sur un nom donne le détail chapitre par chapitre. Chaque
+graphique a son tableau (« Voir le tableau »). Les titres des chapitres et le texte des questions viennent des
+données du site : ouvrir le code enseignant sur l'accueil du site s'ils manquent.
+
+**Mesures d'activité** : coupées tant qu'on ne les active pas (bandeau du tableau de bord). Avant : diffuser aux
+élèves et aux familles le texte d'information (bouton « Copier le texte », annexe B de la fiche de traitement v3).
+Activées : temps de travail ACTIF par jour et par sorte de page (une page oubliée ouverte ne compte pas),
+animations ouvertes et temps passé, documents ouverts, réussite question par question (« Questions les plus
+ratées »). Jamais pour le compte professeur, le compte collègue ni l'invité. « Couper » : les appareils arrêtent
+et effacent ce qu'ils avaient noté ; « Effacer les mesures déjà envoyées » vide la base. Un élève qui s'y oppose :
+sa fiche › « L'exclure des mesures » (la base refuse alors ses envois), puis « Effacer ses mesures ».
+
+**Corrigés partagés** (`partages.html`, les deux clés) : pour une classe ou pour un élève, chaque corrigé de
+« Codes des corrigés » a sa case. Cochée : ouvert sans code. Décochée : FERMÉ, codes compris (code de la classe et
+codes nominatifs refusés ; ce qui avait été débloqué par code se referme à la visite suivante). « Par code » (ou
+« Comme la classe » pour un élève) : la décision est retirée, les codes remarchent. Entre la classe et l'élève, la
+décision la plus récente l'emporte. Récapitulatif : par chapitre (ouverts, fermés, débloqués par code, exceptions)
+et par élève. Partages de départ : les « corrigés des séances » de la v64.2 deviennent des cases cochées (sept
+classes) et les énoncés d'approfondissement de BTS CRSA s'ouvrent à l'élève qui les a demandés — faits une fois
+par `comptes_firebase.py cles` (outils v7), sinon par le bouton du bandeau.
+
+Règles : `firestore_v6.rules` (outils de comptes v7), essai réel : `verifier` (101 essais).

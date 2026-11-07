@@ -1,5 +1,5 @@
 /* accueil.js — page d'entrée de l'espace prof (v62) */
-import { garde, fermerCode, deconnecterProf, eleves, etat } from "./socle.js";
+import { garde, fermerCode, deconnecterProf, eleves, etat } from "./socle.js?v=65";
 
 const zone = document.getElementById("verrou");
 document.getElementById("etat").textContent = "Accès réservé";

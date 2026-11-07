@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Corrigés partagés</title>
+<link rel="stylesheet" href="prof.css">
+<!-- Corrigés partagés (v65, novembre 2026) : cocher ou décocher, pour une classe ou pour un élève, les corrigés ouverts
+     sur le site, et le récapitulatif de ce qui est ouvert ou fermé. Les décisions vont dans la base (acces-classes/,
+     acces-eleves/ : règles v6) ; un corrigé coché y porte sa clé, que seuls les comptes concernés lisent. Le code
+     enseignant calcule ces clés sur l'appareil ; le compte professeur écrit. Voir partages.js. -->
+<style>
+.choix{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin:6px 0 12px}
+.choix label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600}
+.choix select{font:inherit;font-size:15px;padding:8px 10px;border-radius:10px;border:1px solid var(--bord);background:var(--carte);color:var(--txt);min-height:42px;max-width:100%}
+.modes{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 10px}
+.modes button{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--bord);background:var(--carte);color:var(--txt);cursor:pointer;min-height:40px}
+.modes button.on{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.cadre{background:var(--carte);border:1px solid var(--bord);border-radius:12px;padding:12px 14px;margin:12px 0}
+.defile{overflow-x:auto}
+table.part{min-width:0;width:100%}
+table.part td,table.part th{text-align:left;vertical-align:middle}
+table.part tr.groupe td{background:var(--doux);font-weight:600}
+table.part tr.partie td.t{padding-left:22px}
+table.part td.t .d{display:block;font-size:12px;color:var(--gris);font-weight:400}
+table.part input[type=checkbox]{width:21px;height:21px;cursor:pointer}
+table.part td.n{font-size:13px;color:var(--gris)}
+.etiq{display:inline-block;font-size:12px;font-weight:650;padding:2px 9px;border-radius:999px;white-space:nowrap;border:1px solid transparent}
+.etiq.o{background:#e3f1e4;color:#1f5e23;border-color:#b9dcbb}
+.etiq.f{background:#f8e1de;color:#8e2a1f;border-color:#ebbab3}
+.etiq.c{background:var(--doux);color:var(--gris);border-color:var(--bord)}
+.etiq.p{background:#e3eefa;color:#1b4f8c;border-color:#bcd3ee}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .etiq.o{background:#1f3a22;color:#a9dcae;border-color:#2f5a33}
+  :root:not([data-theme="light"]) .etiq.f{background:#43201c;color:#f2b5ac;border-color:#6b2f28}
+  :root:not([data-theme="light"]) .etiq.p{background:#1c2f47;color:#a9c9ee;border-color:#2f4b70}}
+:root[data-theme="dark"] .etiq.o{background:#1f3a22;color:#a9dcae;border-color:#2f5a33}
+:root[data-theme="dark"] .etiq.f{background:#43201c;color:#f2b5ac;border-color:#6b2f28}
+:root[data-theme="dark"] .etiq.p{background:#1c2f47;color:#a9c9ee;border-color:#2f4b70}
+.boutons{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+.boutons .mini{font-size:14px;padding:9px 12px}
+.bandeau{background:#fff4e5;border:1px solid #f1c98f;color:#6b4100;border-radius:12px;padding:10px 14px;margin:10px 0;font-size:14px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .bandeau{background:#3a2a12;border-color:#6b4c1f;color:#f3d6a6}}
+:root[data-theme="dark"] .bandeau{background:#3a2a12;border-color:#6b4c1f;color:#f3d6a6}
+.bandeau .mini{margin-top:8px}
+.chiffres{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 2px}
+.chiffres div{background:var(--doux);border-radius:10px;padding:8px 12px;font-size:13px;color:var(--gris)}
+.chiffres b{display:block;font-size:20px;color:var(--txt)}
+.liste-ids{font-size:13px;line-height:1.5}
+td.sans{color:var(--gris);font-style:italic}
+</style>
+</head>
+<body>
+<header>
+  <a class="retour" href="index.html">← Espace prof</a>
+  <h1>Corrigés partagés</h1>
+  <div class="barre"><span class="info" id="etat">Chargement…</span></div>
+</header>
+<main>
+  <section class="verrou" id="verrou" hidden></section>
+  <section id="outil" hidden>
+    <p class="aide">Une <b>case cochée</b> ouvre le corrigé sur le site, sans code, à la classe ou à l'élève.
+    Une <b>case décochée</b> le referme — <b>codes compris</b> : le code de la classe et les codes nominatifs de ce corrigé
+    sont refusés, et ce qui avait été débloqué par code se referme à la prochaine visite. «&nbsp;<b>Par code</b>&nbsp;» : aucune
+    décision, les codes marchent comme avant (page «&nbsp;Codes des corrigés&nbsp;»). Entre la classe et l'élève, c'est la
+    <b>dernière décision</b> qui compte. Fermer, c'est faire refuser le corrigé par le site : un code déjà donné ou une
+    clé déjà reçue restent valables pour qui contournerait le site.</p>
+    <div id="bandeau"></div>
+    <div class="modes" role="tablist">
+      <button type="button" data-mode="classe" class="on">Pour la classe</button>
+      <button type="button" data-mode="eleve">Pour un élève</button>
+      <button type="button" data-mode="recap">Récapitulatif</button>
+    </div>
+    <div class="choix">
+      <label>Classe <select id="classe"></select></label>
+      <label id="l-eleve" hidden>Élève <select id="eleve"></select></label>
+      <label id="l-chapitre">Chapitre <select id="chapitre"></select></label>
+    </div>
+    <div class="cadre" id="zone"></div>
+    <div class="boutons"><button class="mini" type="button" id="relire">Relire la base</button></div>
+    <p class="aide" id="pied"></p>
+  </section>
+</main>
+<script src="../acces.js"></script>
+<script src="../commun/cles.js?v=65"></script>
+<script type="module">
+import("./partages.js?v=65").catch(function (e) {
+  console.error(e);
+  document.getElementById("etat").textContent = "";
+  document.querySelector("main").innerHTML = '<div class="panne"><b>Outil indisponible</b><p>Le service de connexion '
+    + '(Firebase, chargé depuis www.gstatic.com) ne répond pas : vérifier le réseau, puis recharger la page.</p></div>';
+});
+</script>
+</body>
+</html>

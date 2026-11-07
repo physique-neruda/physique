@@ -1,4 +1,4 @@
-/* acces.js — fabriqué par outils/chiffrer.py (site v64), ne pas modifier.
+/* acces.js — fabriqué par outils/chiffrer.py (site v64 ; v65 : clé collègue), ne pas modifier.
    Identifiants et témoins des clés, enveloppes de secours (mot de passe de la classe)
    et du code enseignant. Aucun mot de passe, aucune clé en clair. */
 window.ACCES2 = {
@@ -29,6 +29,11 @@ window.ACCES2 = {
    "id": "r3x7_Dkf",
    "iv": "VqW6+goa51OrZK6W",
    "temoin": "T5ZEEUVCqIbIXaFB9fCUGyUwiQhcTE6l9sJAqfEcgw+6"
+  },
+  "collegue": {
+   "id": "0fb1730057bf",
+   "iv": "zZa5QUZVrtY69vzF",
+   "temoin": "GjuKYhmvk8qIJwDydGOk7DeRabJxJB27zmmv7tRf8rhh"
   },
   "commune": {
    "id": "U83bRxsj",
@@ -107,6 +112,10 @@ window.ACCES_PROF = {
    "cle": "HG62rXN1mCgIpG25wEghYl0XKga1fImQ3sA/nSffO52jal7KrWlbSLqUMOkGvvyf",
    "iv": "1wNZEDEGw0DdkXle"
   }
+ },
+ "collegue": {
+  "cle": "g5RvB3XFnNGl2dAx/oh9NLsbMv1Xnae821Mt9V+tRQNoegYWgQxYaQhE0CBDYGRr",
+  "iv": "58alHRGqrU4laGPi"
  },
  "commune": {
   "cle": "x2lzufzTlq3R+QKfv/TOgLmyOc6/Jb6S0mejEywTGVdfWaqTbH8Vt69CbUQQn/pQ",

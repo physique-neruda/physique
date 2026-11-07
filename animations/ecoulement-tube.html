@@ -33,11 +33,11 @@ document.getElementById('retourSite').addEventListener('click', function(e){ try
   if(r && new URL(r).origin === location.origin && !/\/animations\//.test(new URL(r).pathname) && history.length > 1){ e.preventDefault(); history.back(); } }catch(x){} });
 </script>
 <script src="../acces.js"></script>
-<script src="../commun/cles.js?v=64"></script>
-<script src="../entrainement/srs.js"></script>
+<script src="../commun/cles.js?v=65"></script>
+<script src="../entrainement/srs.js?v=65"></script>
 <script src="../commun/connexion.js?v=64"></script>
 <script type="module">
-  import("../entrainement/compte.js").catch(function (e) { console.warn("Compte indisponible :", e && e.message); });
+  import("../entrainement/compte.js?v=65").catch(function (e) { console.warn("Compte indisponible :", e && e.message); });
 </script>
 <script>
 (function(){
@@ -48,6 +48,12 @@ document.getElementById('retourSite').addEventListener('click', function(e){ try
     if(ouverte) return; ouverte = true;
     $("zone").innerHTML = ""; $("attente").hidden = false; $("attente").textContent = "Ouverture de l'animation…";
     C.texte(ENC, AAD, CLE).then(function(html){
+      /* v65 : mesures d'activité (temps passé, ouvertures), seulement si le professeur les a activées : le petit
+         script ajouté ne note rien sinon */
+      var nom = AAD.replace(/^animations\//, "").replace(/\.html$/, "").replace(/[^a-z0-9-]/g, "");
+      var mesure = '<script src="../entrainement/srs.js?v=65"><\/script><script src="../commun/mesures.js?v=65"><\/script>'
+        + '<script>try{NerudaMesures.demarrer("anim","' + nom + '");NerudaMesures.ouverture("' + nom + '");}catch(e){}<\/script>';
+      html = /<\/body>/i.test(html) ? html.replace(/<\/body>(?![\s\S]*<\/body>)/i, mesure + "</body>") : html + mesure;
       document.open(); document.write(html); document.close();
     }).catch(function(e){
       ouverte = false;

@@ -19,7 +19,7 @@ import {
   db, doc, setDoc, deleteDoc, collection, onSnapshot, writeBatch, getDocs,
   garde, eleves, lireDonnees, photo, esc, auj, fr, dateValide, reglage, idOpaque, chiffrerDoc, dechiffrerDoc,
   toast, ouvrirFeuille, fermerFeuille, feuille, confirmer, copier, telecharger, csv, cellule, afficherSynchro
-} from "./socle.js";
+} from "./socle.js?v=65";
 import {
   NIVEAUX, COMPETENCES, PROFILS, CRITERES, NOMCOMP, poids, comps, inds, nbTot, nbObs, propose, niveau,
   arretee, note, fmt, commence, copiePubliee, fichePubliee, copieAJour, ligneRegistre, controlerGrille,

@@ -58,10 +58,10 @@ td.nom select{font:inherit;font-size:13px;max-width:100%;padding:4px;border-radi
 </main>
 <input type="file" id="fichier" accept=".json,application/json" hidden>
 <script src="../acces.js"></script>
-<script src="../commun/cles.js?v=64.2"></script>
+<script src="../commun/cles.js?v=65"></script>
 <script src="../commun/fiche.js?v=64"></script>
 <script type="module">
-import("./fiches.js").catch(function (e) {
+import("./fiches.js?v=65").catch(function (e) {
   console.error(e);
   document.querySelector("main").innerHTML = '<div class="panne"><b>Outil indisponible</b><p>Le service de connexion '
     + '(Firebase, chargé depuis www.gstatic.com) ne répond pas : vérifier le réseau, puis recharger la page.</p></div>';

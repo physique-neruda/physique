@@ -112,8 +112,9 @@ passent jamais par là.</p></footer>
 
 <script src="../acces.js"></script>
 <script src="../catalogue.js"></script>
-<script src="../commun/cles.js?v=64.2"></script>
-<script src="srs.js"></script>
+<script src="../commun/cles.js?v=65"></script>
+<script src="srs.js?v=65"></script>
+<script src="../commun/mesures.js?v=65"></script>
 <script src="../commun/donnees.js?v=64.2"></script>
 <script src="../commun/connexion.js?v=64"></script>
 <script src="../commun/fiche.js?v=64"></script>
@@ -122,13 +123,14 @@ passent jamais par là.</p></footer>
   function dire(ok){ if(fini) return; fini = true;
     document.dispatchEvent(new CustomEvent('neruda-compte-fin', {detail: ok ? window.NerudaCompte : null})); }
   var t = setTimeout(function(){ dire(false); }, 8000);
-  import("./compte.js").then(function(){ clearTimeout(t); dire(true); })
+  import("./compte.js?v=65").then(function(){ clearTimeout(t); dire(true); })
     .catch(function(e){ clearTimeout(t); console.warn("Compte indisponible :", e && e.message); dire(false); });
 </script>
 <script>
 (function(){
   "use strict";
   var SRS = window.NerudaSRS, C = window.NerudaCles, D = window.NerudaDonnees;
+  if(window.NerudaMesures) window.NerudaMesures.demarrer('site');       // v65 : rien sans l'accord du professeur
   function $(id){ return document.getElementById(id); }
   function creer(b,c,h){ var e=document.createElement(b); if(c) e.className=c; if(h!==undefined) e.innerHTML=h; return e; }
   function texte(b,c,t){ var e=creer(b,c); e.textContent = t; return e; }

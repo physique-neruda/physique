@@ -83,14 +83,15 @@ form.porte.code-prof{max-width:440px;margin-top:16px}
 <!-- acces.js n'existe que dans la version en ligne (outils/chiffrer.py) : absent, comme dans l'atelier,
      tout est en clair et rien ne demande de connexion. -->
 <script src="acces.js"></script>
-<script src="commun/cles.js?v=64.2"></script>
-<script src="entrainement/srs.js"></script>
+<script src="commun/cles.js?v=65"></script>
+<script src="entrainement/srs.js?v=65"></script>
 <script src="commun/donnees.js?v=64.2"></script>
 <script src="commun/connexion.js?v=64"></script>
-<script src="commun/corriges.js?v=64.2"></script>
+<script src="commun/corriges.js?v=65"></script>
+<script src="commun/mesures.js?v=65"></script>
 <script type="module">
   /* le compte (SDK Firebase depuis www.gstatic.com) : seulement sur le site publié */
-  if (window.ACCES2) import("./entrainement/compte.js").catch(function (e) { console.warn("Compte indisponible :", e && e.message); });
+  if (window.ACCES2) import("./entrainement/compte.js?v=65").catch(function (e) { console.warn("Compte indisponible :", e && e.message); });
 </script>
 <script>
 "use strict";
@@ -101,6 +102,8 @@ var EN_LIGNE = !!(C && C.enLigne);
 var A2 = window.ACCES2 || null;
 var CAT = { FILIERES: [], DOCUMENTS: [] };
 var ANDROID = /Android/i.test(navigator.userAgent);
+var NM = window.NerudaMesures || null;              // v65 : mesures d'activité (rien sans l'accord du professeur)
+if(NM) NM.demarrer("site");
 
 /* ---------- utilitaires ---------- */
 function sansAccents(s){ return (s||"").toString().normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase(); }
@@ -298,7 +301,7 @@ function menuCompte(){
   var e = etatCompte(), src = C.source(), qui;
   if(e && e.connecte){
     qui = "Connecté : " + (e.prenom || e.identifiant || "compte")
-      + (e.prof ? " (professeur)" : e.invite ? " (compte invité)" : e.classeLibelle ? ", " + e.classeLibelle : "");
+      + (e.prof ? " (professeur)" : e.invite ? " (compte invité)" : e.collegue ? " (compte collègue)" : e.classeLibelle ? ", " + e.classeLibelle : "");
   }
   else if(src === "prof") qui = "Accès enseignant ouvert sur cet appareil";
   else if(src === "secours") qui = "Accès de secours (mot de passe de la classe) : ton avancement reste sur cet appareil";
@@ -334,9 +337,13 @@ function vueClasses(){
       + (filiereOuverte(f.id) ? FLECHE : CADENAS) + '</a>';
   });
   html += '</div>' + blocOutils() + blocAnimations(nbAnimations(), false);
+  if(EN_LIGNE && !prof && C.cle("collegue")){
+    html += '<a class="anim-bloc" href="#collegue"><span class="glyphe g-doc">' + GLYPHES.doc + '</span>'
+      + '<b>Espace collègue</b><span>Livres du professeur et diaporamas de chaque chapitre ; tous les corrigés des exercices et des activités sont ouverts</span></a>';
+  }
   if(EN_LIGNE && prof){
     html += '<a class="anim-bloc" href="prof/index.html"><span class="glyphe g-entr">' + GLYPHES.qcm + '</span>'
-      + '<b>Espace prof</b><span>Évaluer (U51), comportement, fiches des copies corrigées</span></a>';
+      + '<b>Espace prof</b><span>Tableau de bord, corrigés partagés, évaluer (U51), comportement, fiches des copies corrigées</span></a>';
     if(window.ACCES_PROF) html += '<a class="anim-bloc" href="#prive"><span class="glyphe g-doc">' + GLYPHES.doc + '</span>'
       + '<b>Espace enseignant</b><span>Livres du professeur, diaporamas, corrigés' + (C.cle("prive") ? '' : ' (code enseignant)') + '</span></a>';
   }
@@ -542,22 +549,38 @@ function trouverCorrige(id){
   }
   return null;
 }
+function estAppro(el){ return el && (el.sorte === "appro" || el.sorte === "appro_corrige"); }
 function ligneCorrige(el, ouvert, neuf){
+  var ferme = !ouvert && NCR && NCR.ferme && NCR.ferme(el.id);
   var desc = (el.sorte === "exercice" && el.etoiles ? new Array(el.etoiles + 1).join("★") + " · " : "") + pluriel(el.pages || 1, "page")
-    + (ouvert ? "" : " · à débloquer avec le code du professeur");
+    + (ouvert ? "" : ferme ? " · refermé par le professeur" : estAppro(el) ? " · le professeur l'ouvre à qui le demande (code ou case)"
+       : " · à débloquer avec le code du professeur");
+  var gl = el.sorte === "appro" ? GLYPHES.doc : GLYPHES.corrige;
   return '<div class="ligne' + (neuf ? ' neuf' : '') + '"><a class="ligne-lien" href="#" data-corrige="' + echappe(el.id) + '">'
-    + '<span class="glyphe g-doc">' + GLYPHES.corrige + '</span><span class="corps"><span class="titre">' + echappe(titreCorrige(el)) + '</span>'
+    + '<span class="glyphe g-doc">' + gl + '</span><span class="corps"><span class="titre">' + echappe(titreCorrige(el)) + '</span>'
     + '<span class="desc">' + echappe(desc) + '</span></span>' + (ouvert ? FLECHE : CADENAS) + '</a></div>';
+}
+function formulaireCode(e){
+  return '<form class="code-corrige" id="f-code-corrige" novalidate autocomplete="off">'
+    + '<label for="code-corrige">Le professeur donne un code pour chaque corrigé, en classe ou sur Pronote. '
+    + (e && e.connecte ? "" : "Sans compte (accès de secours), seul le code de la classe marche. ") + '</label>'
+    + '<div class="rangee"><input id="code-corrige" inputmode="text" autocapitalize="characters" autocorrect="off" spellcheck="false" maxlength="16" placeholder="7KQ4M-X2PJD" aria-label="Code du corrigé">'
+    + '<button class="principal" type="submit" id="ok-code-corrige">Débloquer</button></div>'
+    + '<p class="erreur" id="err-code-corrige" role="alert"></p></form>';
 }
 function blocCorriges(f, g){
   if(!NCR || !EN_LIGNE || !filiereOuverte(f.id)) return "";
-  var els = NCR.elements(CAT, f.id, g.cle);
-  if(!els.length) return "";
-  var prof = NCR.prof(), nbOuverts = els.filter(function(e){ return NCR.ouvert(e.id); }).length;
-  var e = etatCompte();
-  var h = '<h2 class="section-titre" id="corriges">Corrigés des exercices et des activités <small>'
-    + (prof ? "tous ouverts (code enseignant)" : nbOuverts + " sur " + els.length + " ouvert" + (nbOuverts > 1 ? "s" : "")) + '</small></h2>';
+  var tous = NCR.elements(CAT, f.id, g.cle);
+  if(!tous.length) return "";
+  var appro = tous.filter(estAppro), els = tous.filter(function(x){ return !estAppro(x); });
+  var prof = NCR.prof(), e = etatCompte(), coll = !!(e && e.connecte && e.collegue);
+  var nbOuverts = els.filter(function(x){ return NCR.ouvert(x.id); }).length;
   var neufs = (derniersDebloques && derniersDebloques.ids) || [];
+  var verrouilles = tous.some(function(x){ return !NCR.ouvert(x.id); });
+  var formulaire = (!prof && !coll && verrouilles) ? formulaireCode(e) : "";
+  var h = '<h2 class="section-titre" id="corriges">' + (els.length ? 'Corrigés des exercices et des activités <small>'
+    + (prof ? "tous ouverts (code enseignant)" : coll ? "tous ouverts (compte collègue)" : nbOuverts + " sur " + els.length + " ouvert" + (nbOuverts > 1 ? "s" : "")) + '</small>'
+    : 'Pour aller plus loin <small>exercices d\'approfondissement</small>') + '</h2>';
   if(derniersDebloques && derniersDebloques.rate){
     h += '<div class="debloques rate" role="alert"><b>' + echappe(derniersDebloques.rate) + '</b></div>';
   } else if(neufs.length){
@@ -567,17 +590,18 @@ function blocCorriges(f, g){
           + '<span>Ouvrir : ' + echappe(titreCorrige(x.el)) + (x.el.chapitre !== g.nom ? ' (' + echappe(x.el.chapitre) + ')' : '') + '</span></button>'; }).join("")
       + '</div>';
   }
-  if(prof) h += '<p class="note-corr">Leurs codes, pour une classe ou pour un élève : espace prof › Codes des corrigés.</p>';
+  if(prof) h += '<p class="note-corr">Les ouvrir ou les refermer pour une classe ou un élève : espace prof › Corrigés partagés ; leurs codes : espace prof › Codes des corrigés.</p>';
+  else if(coll) h += '<p class="note-corr">Compte collègue : tous les corrigés sont ouverts, sans code.</p>';
   else {
-    h += '<form class="code-corrige" id="f-code-corrige" novalidate autocomplete="off">'
-      + '<label for="code-corrige">Le professeur donne un code pour chaque corrigé, en classe ou sur Pronote. '
-      + (e && e.connecte ? "" : "Sans compte (accès de secours), seul le code de la classe marche. ") + '</label>'
-      + '<div class="rangee"><input id="code-corrige" inputmode="text" autocapitalize="characters" autocorrect="off" spellcheck="false" maxlength="16" placeholder="7KQ4M-X2PJD" aria-label="Code du corrigé">'
-      + '<button class="principal" type="submit" id="ok-code-corrige">Débloquer</button></div>'
-      + '<p class="erreur" id="err-code-corrige" role="alert"></p></form>';
+    h += formulaire;
     if(e && e.connecte && e.prof) h += '<p class="note-corr">Compte professeur : avec le code enseignant (Espace enseignant), tous les corrigés s\'ouvrent.</p>';
   }
-  h += '<div class="liste">' + els.map(function(x){ return ligneCorrige(x, NCR.ouvert(x.id), neufs.indexOf(x.id) >= 0); }).join("") + '</div>';
+  if(els.length) h += '<div class="liste">' + els.map(function(x){ return ligneCorrige(x, NCR.ouvert(x.id), neufs.indexOf(x.id) >= 0); }).join("") + '</div>';
+  if(appro.length){
+    if(els.length) h += '<h2 class="section-titre" id="approfondissement">Pour aller plus loin <small>exercices d\'approfondissement</small></h2>';
+    h += '<p class="sous-titre">Des problèmes plus complexes, pour qui est en avance sur le cours : le professeur les ouvre à qui les demande.</p>'
+      + '<div class="liste">' + appro.map(function(x){ return ligneCorrige(x, NCR.ouvert(x.id), neufs.indexOf(x.id) >= 0); }).join("") + '</div>';
+  }
   return h;
 }
 function debloquer(form){
@@ -597,15 +621,17 @@ function ouvrirCorrige(a, id){
   var x = trouverCorrige(id);
   if(!x || !x.el){ avertir("Ce corrigé n'est plus sur le site."); return; }
   if(!NCR.ouvert(x.el.id)){
+    if(NCR.ferme && NCR.ferme(x.el.id)){ avertir("Le professeur a refermé ce document pour l'instant."); return; }
     var c = document.getElementById("code-corrige");
     if(c){ c.focus(); c.scrollIntoView({block: "center"}); }
-    avertir("Ce corrigé s'ouvre avec le code donné par le professeur.");
+    avertir(estAppro(x.el) ? "Demande au professeur : il l'ouvre avec un code ou depuis son espace." : "Ce corrigé s'ouvre avec le code donné par le professeur.");
     return;
   }
   var w = !ANDROID ? window.open("", "_blank") : null;
   if(w){ try{ w.document.write('<p style="font:16px sans-serif;padding:20px">Ouverture du corrigé…</p>'); }catch(e){} }
   a.classList.add("attente");
   NCR.ouvrir(x.el).then(function(clair){
+    if(NM) NM.document();
     var blob = new Blob([clair], {type: "application/pdf"}), u = URL.createObjectURL(blob);
     if(w){ w.location.href = u; }
     else{ var l = document.createElement("a"); l.href = u; l.download = "corrige-" + x.el.id.replace(/\./g, "-") + ".pdf"; document.body.appendChild(l); l.click(); l.remove(); }
@@ -673,6 +699,7 @@ function rendu(){
   if(etape !== "site") return;
   if(recherche){ vueRecherche(); return; }
   if(route === "prive"){ vuePrive(); return; }
+  if(route === "collegue"){ vueCollegue(); return; }
   if(route === "animations"){ vueAnimations(); return; }
   if(vueFiliere){ vueFiliereRendu(); return; }
   vueAccueil();
@@ -686,7 +713,7 @@ function surHash(){
   if(derniersDebloques && !defilerCorriges) derniersDebloques = null;      // ancien message : on l'oublie en changeant de page
   recherche = ""; document.getElementById("q").value = ""; document.getElementById("q2").value = "";
   route = null; vueFiliere = null; vueChapitre = null;
-  if(h === "prive" || h === "animations") route = h;
+  if(h === "prive" || h === "animations" || h === "collegue") route = h;
   else {
     var bouts = h.split("/");
     vueFiliere = bouts[0] && laFiliere(bouts[0]) ? bouts[0] : null;
@@ -719,6 +746,7 @@ function ouvrirChiffre(a, cle, url, aad, nom, pdf){
   a.classList.add("attente");
   C.dechiffrer(url, aad, cle)
     .then(function(clair){
+      if(NM) NM.document();
       var blob = new Blob([clair], {type: pdf ? "application/pdf" : "application/octet-stream"}), url2 = URL.createObjectURL(blob);
       if(w){ w.location.href = url2; }
       else{ var l = document.createElement("a"); l.href = url2; l.download = nom; document.body.appendChild(l); l.click(); l.remove(); }
@@ -807,7 +835,7 @@ function vuePrive(){
           html += '<div class="ligne"><a class="ligne-lien" href="' + echappe(d.url) + '" target="_blank" rel="noopener"><span class="glyphe g-anim">' + GLYPHES.anim
             + '</span><span class="corps"><span class="titre">' + echappe(d.titre) + '</span><span class="ou">animation interactive</span></span>' + FLECHE + '</a></div>';
         } else {
-          html += '<div class="ligne"><a class="ligne-lien" href="#" data-prive="' + echappe(d.id) + '" data-nom="' + echappe(d.nom) + '"><span class="glyphe g-doc">' + GLYPHES.doc
+          html += '<div class="ligne"><a class="ligne-lien" href="#" data-prive="' + echappe(d.id) + '" data-nom="' + echappe(d.nom) + '"' + (d.cle === "collegue" ? ' data-cle="collegue"' : '') + '><span class="glyphe g-doc">' + GLYPHES.doc
             + '</span><span class="corps"><span class="titre">' + echappe(d.titre) + '</span><span class="ou">' + taille(d.taille) + '</span></span>' + FLECHE + '</a></div>';
         }
       });
@@ -825,10 +853,52 @@ function vuePrive(){
   });
 }
 
+/* ======================================================================
+   ESPACE COLLÈGUE (#collegue, v65) : livres du professeur et diaporamas, chiffrés avec la clé « collegue »
+   (déposée dans la base pour le compte collègue ; le code enseignant l'ouvre aussi). Rien d'autre de
+   l'espace enseignant : ni tests, ni devoirs, ni CCF, ni données d'élèves.
+   ====================================================================== */
+var INDEX_COLLEGUE = null;
+function vueCollegue(){
+  preparer(false);
+  var tete = '<a class="retour" href="#">' + RETOUR + 'Accueil</a><h1 class="titre-page">Espace collègue</h1>';
+  if(!EN_LIGNE || !C.cle("collegue")){ vue(tete + '<p class="rien">Cet espace s\'ouvre avec le compte collègue.</p>' + menuCompte()); return; }
+  vue(tete + '<p class="rien">Déchiffrement de la liste…</p>');
+  (INDEX_COLLEGUE ? Promise.resolve(INDEX_COLLEGUE) : C.texte("prive/index-collegue.enc", "prive/index-collegue", "collegue").then(function(t){ INDEX_COLLEGUE = JSON.parse(t); return INDEX_COLLEGUE; }))
+  .then(function(liste){
+    if(route !== "collegue") return;
+    var noms = {livres: "Livres du professeur"};
+    CAT.FILIERES.forEach(function(f){ noms[f.id] = f.nom; });
+    var html = tete + '<p class="sous-titre">Livres du professeur et diaporamas de M. Cronenberger. Les corrigés des exercices et des activités sont ouverts dans chaque chapitre.</p>';
+    [["livres", "Livres du professeur", "Un livre par classe : tous les documents de l'année, corrigés compris."],
+     ["diaporamas", "Diaporamas", "Le diaporama complet de chaque chapitre (cours, activités, exercices et corrigés au clic)."]].forEach(function(Dz){
+      var docs = liste.filter(function(d){ return d.dossier === Dz[0]; });
+      if(!docs.length) return;
+      html += '<h2 class="section-titre">' + echappe(Dz[1]) + ' <small>' + docs.length + '</small></h2><p class="sous-titre">' + echappe(Dz[2]) + '</p>';
+      var filCour = null;
+      docs.forEach(function(d){
+        if(d.fil !== "livres" && d.fil !== filCour){
+          if(filCour !== null) html += '</div></details>';
+          filCour = d.fil;
+          html += '<details class="classe"><summary>' + echappe(noms[d.fil] || d.fil) + '</summary><div class="liste">';
+        }
+        if(d.fil === "livres" && filCour === null){ filCour = "livres"; html += '<div class="liste">'; }
+        html += '<div class="ligne"><a class="ligne-lien" href="#" data-prive="' + echappe(d.id) + '" data-nom="' + echappe(d.nom) + '" data-cle="collegue"><span class="glyphe g-doc">' + GLYPHES.doc
+          + '</span><span class="corps"><span class="titre">' + echappe(d.fil === "livres" ? d.titre : d.chapitre) + '</span><span class="desc">' + taille(d.taille) + '</span></span>' + FLECHE + '</a></div>';
+      });
+      if(filCour === "livres") html += '</div>';
+      else if(filCour !== null) html += '</div></details>';
+    });
+    vue(html + menuCompte());
+  }).catch(function(){
+    if(route === "collegue") vue(tete + '<p class="rien">La liste n\'a pas pu être déchiffrée : se déconnecter, puis se reconnecter.</p>' + menuCompte());
+  });
+}
+
 /* ---------- se déconnecter ---------- */
 function seDeconnecter(){
   var NC = compte(), e = etatCompte();
-  INDEX_PRIVE = null;
+  INDEX_PRIVE = null; INDEX_COLLEGUE = null;
   function fin(){ C.oublier(true); if(NCR){ NCR.oublier(); NCR.oublierLien(); } derniersDebloques = null;
     if(location.hash) history.replaceState(null, "", location.pathname + location.search); demarrer(); }
   if(NC && e && e.connecte) NC.deconnecter().then(fin, fin); else fin();
@@ -843,7 +913,9 @@ document.addEventListener("click", function(e){
   if(cr){ e.preventDefault(); ouvrirCorrige(cr, cr.getAttribute("data-corrige")); return; }
   var p = t.closest("a[data-prive]");
   if(p){ e.preventDefault(); var id = p.getAttribute("data-prive"), nom = p.getAttribute("data-nom") || id;
-    ouvrirChiffre(p, "prive", "prive/" + id + ".enc", "prive/" + id, nom, /\.pdf$/i.test(nom)); return; }
+    var kp = p.getAttribute("data-cle") === "collegue" ? "collegue" : "prive";
+    if(kp === "collegue" && !C.cle("collegue")){ avertir("Ce document s'ouvre avec la clé des livres et des diaporamas : se déconnecter, puis se reconnecter."); return; }
+    ouvrirChiffre(p, kp, "prive/" + id + ".enc", "prive/" + id, nom, /\.pdf$/i.test(nom)); return; }
   var a = t.closest("a[data-chiffre]");
   if(!a) return;
   e.preventDefault();

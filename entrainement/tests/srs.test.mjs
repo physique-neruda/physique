@@ -218,11 +218,59 @@ test("v64 : journal des réponses (par jour et par appareil), fusion sans double
 
 test("v64 : le journal voyage avec les cartes (usage, normalisation, fusion)", () => {
   assert.equal(SRS.usageDeCle("neruda.journal"), "journal");
+  const J = SRS.aujourdhui();                          // v65 : la fusion ne garde que les 70 derniers jours
   const a = SRS.noterReponse(null, "tel", J, 1), b = SRS.noterReponse(null, "pc", J, 2);
   const f = SRS.fusionner("neruda.journal", JSON.stringify(a), b);
   assert.deepEqual(f.jours[J], { tel: 1, pc: 1 });
+  const vieux = SRS.fusionner("neruda.journal", { v: 1, jours: { [SRS.plusJours(J, -80)]: { tel: 3 } } }, a);
+  assert.deepEqual(Object.keys(vieux.jours), [J]);
   const st = stockage({});
   const id1 = SRS.appareil(st), id2 = SRS.appareil(st);
   assert.match(id1, /^[0-9a-z]{6,16}$/);
   assert.equal(id1, id2);
+});
+
+test("v65 : mesures d'activité (temps par sorte de page, animations, documents ; 70 jours ; fusion par appareil)", () => {
+  assert.equal(SRS.usageDeCle("neruda.activite"), "activite");
+  const J = SRS.aujourdhui();
+  let a = SRS.noterActivite(null, "tel", { categorie: "cartes", secondes: 15 }, J, 1);
+  a = SRS.noterActivite(a, "tel", { categorie: "anim", secondes: 15, animation: "Principe-Inertie!" }, J, 2);
+  a = SRS.noterActivite(a, "tel", { animation: "principe-inertie", ouverture: true }, J, 3);
+  a = SRS.noterActivite(a, "tel", { document: true }, J, 4);
+  a = SRS.noterActivite(a, "tel", { categorie: "inconnue", secondes: 15 }, J, 5);      // catégorie inconnue : ignorée
+  assert.deepEqual(a.jours[J].tel, { t: { cartes: 15, anim: 15 }, a: { "principe-inertie": [1, 15] }, d: 1 });
+  const b = SRS.noterActivite(null, "pc", { categorie: "cartes", secondes: 30 }, J, 6);
+  const f = SRS.fusionner("neruda.activite", JSON.stringify(a), b);
+  assert.deepEqual(Object.keys(f.jours[J]).sort(), ["pc", "tel"]);
+  const f2 = SRS.fusionner("neruda.activite", f, f);                                   // fusion idempotente
+  assert.deepEqual(f2.jours, f.jours);
+  const pj = SRS.activiteParJour(f, 2, J);
+  assert.equal(pj.length, 2);
+  assert.equal(pj[1].total, 60);
+  assert.deepEqual(pj[1].a["principe-inertie"], [1, 15]);
+  const vieux = SRS.noterActivite({ v: 1, jours: { "2026-08-01": { tel: { t: { site: 15 } } } } }, "tel", { categorie: "site", secondes: 15 }, J, 7);
+  assert.equal(vieux.jours["2026-08-01"], undefined);                                  // plus de 70 jours : effacé
+  const garde = SRS.fusionner("neruda.activite", { v: 1, jours: { [SRS.plusJours(J, -71)]: { tel: { t: { site: 15 } } } } }, a);
+  assert.deepEqual(Object.keys(garde.jours), [J]);                                     // … et ne revient pas par la fusion
+  assert.equal(SRS.normaliser("neruda.activite", null), null);
+});
+
+test("v65 : réussite question par question (voyage avec les mesures, pas avec les questionnaires)", () => {
+  assert.equal(SRS.usageDeCle("neruda.qstat.bts-crsa.ch01.bilan"), "activite");
+  let q = SRS.noterQuestions(null, [{ i: 0, ok: true }, { i: 3, ok: false }, { i: -1, ok: false }], 1);
+  q = SRS.noterQuestions(q, [{ i: 3, ok: false }], 2);
+  assert.deepEqual(q.q, { "0": [1, 0], "3": [2, 2] });
+  const f = SRS.fusionner("neruda.qstat.bts-crsa.ch01.bilan", q, SRS.noterQuestions(null, [{ i: 0, ok: false }], 3));
+  assert.deepEqual(f.q, { "0": [1, 1], "3": [2, 2] });
+  assert.equal(SRS.normaliser("neruda.qstat.x.ch01.bilan", { v: 1, q: { "7": [0, 0] } }), null);
+  const st = stockage({ "neruda.qstat.bts-crsa.ch01.bilan": JSON.stringify(q), "neruda.qcm.bts-crsa.ch01.bilan": JSON.stringify({ meilleur: 3, total: 5 }) });
+  assert.deepEqual(SRS.clesLocales(st), ["neruda.qcm.bts-crsa.ch01.bilan", "neruda.qstat.bts-crsa.ch01.bilan"]);
+});
+
+test("v65 : animations à jeux (neruda.anim.*) et outils v2", () => {
+  assert.equal(SRS.usageDeCle("neruda.anim.principe-inertie"), "simulations");
+  const r = SRS.resumeSimulation({ j1: { ok: true, essais: 2, etoiles: 3 }, j2: { ok: false, essais: 1, etoiles: 0 } });
+  assert.equal(r.reussis, 1); assert.equal(r.essayes, 2); assert.equal(r.etoiles, 3);
+  const f = SRS.fusionner("neruda.anim.principe-inertie", { j1: { ok: false, essais: 1, etoiles: 0 } }, { j1: { ok: true, essais: 1, etoiles: 2 } });
+  assert.deepEqual(f.j1, { ok: true, essais: 1, etoiles: 2 });
 });

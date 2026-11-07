@@ -28,6 +28,9 @@
                           débloquer, commun/corriges.js) ; la clé elle-même ne sort pas d'ici
      surChangement(fn)
    v64.2 : oublier() efface aussi les corrigés débloqués sur l'appareil (neruda.corriges).
+   v65 : la clé « collegue » (livres du professeur et diaporamas de l'espace enseignant, rechiffrés avec elle) :
+   lue dans la base par le compte collègue et le compte prof, ouverte aussi par le code enseignant (ACCES_PROF.collegue).
+   Ce n'est pas une filière : filieres() ne la compte pas. oublier() efface aussi le réglage des mesures.
    Script classique (pas un module) : il marche sur les vieux navigateurs du lycée.
    ===================================================================== */
 (function (racine) {
@@ -127,7 +130,7 @@
     ["sessionStorage", "localStorage"].forEach(function (n) {
       var s = st(n);
       ecrireSt(s, null);
-      ANCIENNES.concat(["acces-prive", "neruda.corriges"]).forEach(function (k) { ecrireBrut(s, k, null); });
+      ANCIENNES.concat(["acces-prive", "neruda.corriges", "neruda.mesures"]).forEach(function (k) { ecrireBrut(s, k, null); });
       if (tout) ecrireBrut(s, "prof-jeton", null);
     });
     if (tout) { try { racine.indexedDB.deleteDatabase("neruda-prof"); } catch (e) { } }   // code gardé par l'espace prof
@@ -175,6 +178,7 @@
           travaux.push(ouvrirEnveloppe(kp, P.cles[f], f).then(function (b) { tr[f] = { k: versB64(b) }; }, function () { }));
         });
         if (P.commune) travaux.push(ouvrirEnveloppe(kp, P.commune, "commune").then(function (b) { tr.commune = { k: versB64(b) }; }, function () { }));
+        if (P.collegue) travaux.push(ouvrirEnveloppe(kp, P.collegue, "collegue").then(function (b) { tr.collegue = { k: versB64(b) }; }, function () { }));
         if (P.prive) travaux.push(ouvrirEnveloppe(kp, P.prive, "prive").then(function (b) {
           tr.prive = { k: versB64(b) };
           var trace = JSON.stringify({ sel: P.sel, k: versB64(b) });     // lue par prof/socle.js, onglet seulement
@@ -218,7 +222,7 @@
     pret: function () { return attente || charger(); },
     cle: function (n) { return cache[n] || null; },
     noms: function () { return Object.keys(cache); },
-    filieres: function () { return Object.keys(cache).filter(function (n) { return n !== "commune" && n !== "prive"; }); },
+    filieres: function () { return Object.keys(cache).filter(function (n) { return n !== "commune" && n !== "prive" && n !== "collegue"; }); },
     source: function () { return source; },
     enregistrer: enregistrer,
     secours: secours,

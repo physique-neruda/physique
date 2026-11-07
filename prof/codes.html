@@ -80,9 +80,9 @@ table.codes input[type=checkbox]{width:19px;height:19px}
   </section>
 </main>
 <script src="../acces.js"></script>
-<script src="../commun/cles.js?v=64.2"></script>
+<script src="../commun/cles.js?v=65"></script>
 <script type="module">
-import("./codes.js").catch(function (e) {
+import("./codes.js?v=65").catch(function (e) {
   console.error(e);
   document.getElementById("etat").textContent = "";
   document.querySelector("main").innerHTML = '<div class="panne"><b>Outil indisponible</b><p>Le service de connexion '

@@ -1,5 +1,6 @@
 /* =====================================================================
-   srs.js — la mémoire de l'entraînement (v61, novembre 2026 ; v64 : journal, identifiants des cartes)
+   srs.js — la mémoire de l'entraînement (v61, novembre 2026 ; v64 : journal, identifiants des cartes ;
+   v65 : outils v2, animations à jeux, mesures d'activité et réussite question par question)
 
    Tout ce qui décide QUAND revoir une carte, comment garder un score de
    questionnaire, comment fusionner deux historiques (le téléphone et
@@ -18,10 +19,21 @@
      neruda.journal                         v64 : nombre de réponses aux cartes par jour et par
                                             appareil (l'écran de l'accueil) ; voyage avec les cartes
      neruda.appareil                        v64 : identifiant aléatoire de l'appareil (ne voyage pas)
-     instr-<nom>, et les clés propres des simulations de la 1re STI2D :
+     instr-<nom>, les clés propres des simulations de la 1re STI2D et celles
+     des deux outils (outil-transformer-formule, outil-conversion-unites) :
                                             données des simulations
                                             (écrites par les simulations
                                             elles-mêmes, lues ici)
+     neruda.anim.<nom>                      v65 : jeux d'une animation ({<jeu>: {ok, essais,
+                                            etoiles}}), fusionnés jeu par jeu
+     neruda.activite                        v65 : temps de travail et ouvertures des animations,
+                                            par jour et par appareil (mesures activées par le
+                                            professeur, après l'information des élèves)
+     neruda.qstat.<filière>.<chapitre>.<type>  v65 : réussite question par question d'un
+                                            questionnaire (mêmes conditions) ; voyage avec les
+                                            mesures d'activité (activite/{uid})
+     neruda.mesures                         v65 : « 1 » quand les mesures sont activées (lu dans
+                                            la base par compte.js ; ne voyage pas)
 
    État v2 d'un chapitre de cartes :
      {"v":2,"maj":<ms>,"cartes":{"<indice>":{"e":2.5,"i":<jours>,
@@ -215,9 +227,10 @@
   SRS.fusionnerJournal = function (a, b) {
     a = SRS.lireJournal(a); b = SRS.lireJournal(b);
     var r = { v: 1, jours: {}, maj: Math.max(a.maj, b.maj) };
+    var limite = SRS.plusJours(SRS.aujourdhui(), -SRS.JOURS_JOURNAL);   // v65 : les jours trop anciens ne reviennent pas
     [a, b].forEach(function (x) {
       for (var d in x.jours) {
-        if (!Object.prototype.hasOwnProperty.call(x.jours, d)) continue;
+        if (!Object.prototype.hasOwnProperty.call(x.jours, d) || d < limite) continue;
         r.jours[d] = r.jours[d] || {};
         for (var k in x.jours[d]) if (Object.prototype.hasOwnProperty.call(x.jours[d], k))
           r.jours[d][k] = Math.max(r.jours[d][k] || 0, x.jours[d][k]);
@@ -361,15 +374,21 @@
     { cle: "instr-fiwatt",       nom: "Wattmètre FIWATT",                    page: "animations/wattmetre.html",                   niveau: "BTS ET" },
     { cle: "instr-ca8331",       nom: "Analyseur de réseau C.A 8331",        page: "animations/analyseur-reseau.html",            niveau: "BTS ET" },
     { cle: "multimetre-sdm3055-essentiel", nom: "Multimètre Siglent SDM3055", page: "animations/multimetre-sdm3055-essentiel.html", niveau: "1re STI2D" },
-    { cle: "instr-ds1102cd-ens", nom: "Oscilloscope Rigol DS1102CD",         page: "animations/oscilloscope-ds1102cd.html",       niveau: "1re STI2D" }
+    { cle: "instr-ds1102cd-ens", nom: "Oscilloscope Rigol DS1102CD",         page: "animations/oscilloscope-ds1102cd.html",       niveau: "1re STI2D" },
+    // novembre 2026 : les deux outils transversaux (tutoriel + jeux + bilan, mêmes champs defis/comprendre)
+    { cle: "outil-transformer-formule", nom: "Transformer une formule",       page: "animations/transformer-formule.html",         niveau: "Outils" },
+    { cle: "outil-conversion-unites",   nom: "Convertir avec les puissances de dix", page: "animations/conversion-unites.html",   niveau: "Outils" },
+    // v65 : animation à jeux (forme plate {<jeu>: {ok, essais, etoiles}})
+    { cle: "neruda.anim.principe-inertie", nom: "Forces et principe d'inertie", page: "animations/principe-inertie.html",       niveau: "BTS CRSA" }
   ];
   SRS.estCleSimulation = function (cle) {
-    if (cle.indexOf("instr-") === 0) return true;
+    if (cle.indexOf("instr-") === 0 || cle.indexOf("neruda.anim.") === 0) return true;
     for (var i = 0; i < SRS.SIMULATIONS.length; i++) if (SRS.SIMULATIONS[i].cle === cle) return true;
     return false;
   };
   SRS.infoSimulation = function (cle) {
     for (var i = 0; i < SRS.SIMULATIONS.length; i++) if (SRS.SIMULATIONS[i].cle === cle) return SRS.SIMULATIONS[i];
+    if (cle.indexOf("neruda.anim.") === 0) return { cle: cle, nom: cle.slice(12), page: "animations/" + cle.slice(12) + ".html", niveau: "" };
     return { cle: cle, nom: cle.replace(/^instr-/, "Instrument "), page: "", niveau: "" };
   };
   /* Résumé d'une simulation : défis (ou missions + charges mystères) réussis,
@@ -388,6 +407,15 @@
         var et = nombre(g[k].etoiles, 0);
         etoiles += et;
         if (et > 0) reussis++;
+      }
+    }
+    if (!essayes) {                       // v65 : animation à jeux, forme plate {<jeu>: {ok, essais, etoiles}}
+      for (k in v) {
+        if (!Object.prototype.hasOwnProperty.call(v, k) || !v[k] || typeof v[k] !== "object" || Array.isArray(v[k])) continue;
+        if (!("ok" in v[k]) && !("etoiles" in v[k]) && !("essais" in v[k])) continue;
+        essayes++;
+        etoiles += nombre(v[k].etoiles, 0);
+        if (v[k].ok || nombre(v[k].etoiles, 0) > 0) reussis++;
       }
     }
     var badges = 0;
@@ -417,12 +445,170 @@
     return f;
   };
 
+  /* v65 : animation à jeux sans horodatage ({<jeu>: {ok, essais, etoiles}}) : fusion jeu par jeu, sans rien
+     perdre (réussi d'un côté = réussi ; essais et étoiles au maximum). */
+  SRS.fusionnerAnim = function (a, b) {
+    if (typeof a === "string") { try { a = JSON.parse(a); } catch (e) { a = null; } }
+    if (typeof b === "string") { try { b = JSON.parse(b); } catch (e) { b = null; } }
+    if (!a || typeof a !== "object") return b; if (!b || typeof b !== "object") return a;
+    var f = {}, k;
+    [a, b].forEach(function (x) {
+      for (k in x) {
+        if (!Object.prototype.hasOwnProperty.call(x, k)) continue;
+        var v = x[k];
+        if (v && typeof v === "object" && !Array.isArray(v) && ("ok" in v || "etoiles" in v || "essais" in v)) {
+          var g = f[k] || {};
+          f[k] = { ok: !!(g.ok || v.ok), essais: Math.max(nombre(g.essais, 0), nombre(v.essais, 0)),
+                   etoiles: Math.max(nombre(g.etoiles, 0), nombre(v.etoiles, 0)) };
+        } else if (k === "maj") f.maj = Math.max(nombre(f.maj, 0), nombre(v, 0));
+        else if (!(k in f)) f[k] = v;
+      }
+    });
+    return f;
+  };
+
+  // ------------------------------------------------------------ mesures d'activité (v65)
+  /* {v:1, maj, jours:{"AAAA-MM-JJ":{"<appareil>":{t:{cartes, qcm, anim, site}, a:{"<animation>":[ouvertures, secondes]},
+     d: documents ouverts}}}} : comptées par appareil (deux appareils se fusionnent sans compter deux fois, au maximum
+     de chaque compteur), gardées 70 jours. Rien n'est noté tant que le professeur n'a pas activé les mesures. */
+  SRS.CATEGORIES_TEMPS = ["cartes", "qcm", "anim", "site"];
+  function lireJourActivite(o) {
+    var r = { t: {}, a: {}, d: 0 }, k;
+    if (!o || typeof o !== "object") return r;
+    if (o.t && typeof o.t === "object") for (k in o.t) if (SRS.CATEGORIES_TEMPS.indexOf(k) >= 0) {
+      var s = Math.max(0, Math.round(nombre(o.t[k], 0))); if (s) r.t[k] = Math.min(s, 86400);
+    }
+    if (o.a && typeof o.a === "object") for (k in o.a) if (Object.prototype.hasOwnProperty.call(o.a, k) && /^[a-z0-9-]{1,60}$/.test(k)
+        && Array.isArray(o.a[k])) {
+      var ou = Math.max(0, Math.round(nombre(o.a[k][0], 0))), se = Math.max(0, Math.round(nombre(o.a[k][1], 0)));
+      if (ou || se) r.a[k] = [Math.min(ou, 999), Math.min(se, 86400)];
+    }
+    r.d = Math.max(0, Math.min(999, Math.round(nombre(o.d, 0))));
+    return r;
+  }
+  SRS.lireActivite = function (brut) {
+    var v = brut;
+    if (typeof v === "string") { try { v = JSON.parse(v); } catch (e) { v = null; } }
+    var r = { v: 1, jours: {}, maj: 0 };
+    if (!v || typeof v !== "object" || !v.jours || typeof v.jours !== "object") return r;
+    r.maj = nombre(v.maj, 0);
+    for (var j in v.jours) {
+      if (!Object.prototype.hasOwnProperty.call(v.jours, j) || !SRS.dateValide(j)) continue;
+      var a = v.jours[j], o = {};
+      if (!a || typeof a !== "object") continue;
+      for (var k in a) if (Object.prototype.hasOwnProperty.call(a, k) && /^[0-9a-z]{1,16}$/i.test(k)) {
+        var x = lireJourActivite(a[k]);
+        if (Object.keys(x.t).length || Object.keys(x.a).length || x.d) o[k] = x;
+      }
+      if (Object.keys(o).length) r.jours[j] = o;
+    }
+    return r;
+  };
+  /* quoi : {categorie, secondes, animation, ouverture (vrai), document (vrai)} */
+  SRS.noterActivite = function (brut, appareil, quoi, aujourdhui, maintenant) {
+    aujourdhui = aujourdhui || SRS.aujourdhui();
+    quoi = quoi || {};
+    var j = SRS.lireActivite(brut);
+    var app = String(appareil || "x").replace(/[^0-9a-z]/gi, "").slice(0, 16) || "x";
+    var jour = j.jours[aujourdhui] = j.jours[aujourdhui] || {};
+    var x = jour[app] = jour[app] || { t: {}, a: {}, d: 0 };
+    var s = Math.max(0, Math.round(nombre(quoi.secondes, 0)));
+    if (s && SRS.CATEGORIES_TEMPS.indexOf(quoi.categorie) >= 0) x.t[quoi.categorie] = Math.min((x.t[quoi.categorie] || 0) + s, 86400);
+    var an = String(quoi.animation || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 60);
+    if (an && (quoi.ouverture || s)) {
+      var v = x.a[an] || [0, 0];
+      x.a[an] = [Math.min(v[0] + (quoi.ouverture ? 1 : 0), 999), Math.min(v[1] + s, 86400)];
+    }
+    if (quoi.document) x.d = Math.min((x.d || 0) + 1, 999);
+    j.maj = maintenant || Date.now();
+    var limite = SRS.plusJours(aujourdhui, -SRS.JOURS_JOURNAL);
+    for (var d in j.jours) if (Object.prototype.hasOwnProperty.call(j.jours, d) && d < limite) delete j.jours[d];
+    return j;
+  };
+  SRS.fusionnerActivite = function (a, b) {
+    a = SRS.lireActivite(a); b = SRS.lireActivite(b);
+    var r = { v: 1, jours: {}, maj: Math.max(a.maj, b.maj) };
+    // gardées 70 jours : un jour plus ancien, encore dans la copie du compte, n'est pas repris (et part à l'envoi suivant)
+    var limite = SRS.plusJours(SRS.aujourdhui(), -SRS.JOURS_JOURNAL);
+    [a, b].forEach(function (x) {
+      for (var d in x.jours) {
+        if (!Object.prototype.hasOwnProperty.call(x.jours, d) || d < limite) continue;
+        var J = r.jours[d] = r.jours[d] || {};
+        for (var k in x.jours[d]) {
+          if (!Object.prototype.hasOwnProperty.call(x.jours[d], k)) continue;
+          var s = x.jours[d][k], c = J[k] = J[k] || { t: {}, a: {}, d: 0 }, n;
+          for (n in s.t) c.t[n] = Math.max(c.t[n] || 0, s.t[n]);
+          for (n in s.a) { var v = c.a[n] || [0, 0]; c.a[n] = [Math.max(v[0], s.a[n][0]), Math.max(v[1], s.a[n][1])]; }
+          c.d = Math.max(c.d || 0, s.d || 0);
+        }
+      }
+    });
+    return r;
+  };
+  /* Par jour (tous appareils) : [{date, t:{cartes, qcm, anim, site}, total, a:{animation:[ouvertures, secondes]}, d}] */
+  SRS.activiteParJour = function (brut, n, aujourdhui) {
+    aujourdhui = aujourdhui || SRS.aujourdhui();
+    var j = SRS.lireActivite(brut), r = [];
+    for (var i = n - 1; i >= 0; i--) {
+      var d = SRS.plusJours(aujourdhui, -i), o = { date: d, t: {}, total: 0, a: {}, d: 0 }, J = j.jours[d] || {};
+      for (var k in J) {
+        if (!Object.prototype.hasOwnProperty.call(J, k)) continue;
+        var x = J[k], m;
+        for (m in x.t) { o.t[m] = (o.t[m] || 0) + x.t[m]; o.total += x.t[m]; }
+        for (m in x.a) { var v = o.a[m] || [0, 0]; o.a[m] = [v[0] + x.a[m][0], v[1] + x.a[m][1]]; }
+        o.d += x.d || 0;
+      }
+      r.push(o);
+    }
+    return r;
+  };
+
+  // ------------------------------------------------------------ réussite question par question (v65)
+  /* {v:1, maj, q:{"<indice>":[posées, ratées]}} : cumulée d'un essai à l'autre (au maximum de chaque compteur à la
+     fusion) ; indices du fichier de données, comme « rates ». Même condition que les mesures d'activité. */
+  SRS.lireQstat = function (brut) {
+    var v = brut;
+    if (typeof v === "string") { try { v = JSON.parse(v); } catch (e) { v = null; } }
+    var r = { v: 1, q: {}, maj: 0 };
+    if (!v || typeof v !== "object" || !v.q || typeof v.q !== "object") return r;
+    r.maj = nombre(v.maj, 0);
+    for (var k in v.q) if (Object.prototype.hasOwnProperty.call(v.q, k) && /^\d{1,4}$/.test(k) && Array.isArray(v.q[k])) {
+      var a = Math.max(0, Math.min(9999, Math.round(nombre(v.q[k][0], 0)))), b = Math.max(0, Math.min(a, Math.round(nombre(v.q[k][1], 0))));
+      if (a) r.q[k] = [a, b];
+    }
+    return r;
+  };
+  /* resultats : [{i: indice, ok: vrai|faux}] d'un essai terminé */
+  SRS.noterQuestions = function (brut, resultats, maintenant) {
+    var s = SRS.lireQstat(brut);
+    (resultats || []).forEach(function (x) {
+      if (!x || typeof x.i !== "number" || x.i < 0 || x.i > 9999) return;
+      var k = String(Math.round(x.i)), v = s.q[k] || [0, 0];
+      s.q[k] = [Math.min(v[0] + 1, 9999), Math.min(v[1] + (x.ok ? 0 : 1), 9999)];
+    });
+    s.maj = maintenant || Date.now();
+    return s;
+  };
+  SRS.fusionnerQstat = function (a, b) {
+    a = SRS.lireQstat(a); b = SRS.lireQstat(b);
+    var r = { v: 1, q: {}, maj: Math.max(a.maj, b.maj) };
+    [a, b].forEach(function (x) {
+      for (var k in x.q) if (Object.prototype.hasOwnProperty.call(x.q, k)) {
+        var v = r.q[k] || [0, 0];
+        r.q[k] = [Math.max(v[0], x.q[k][0]), Math.max(v[1], x.q[k][1])];
+      }
+    });
+    return r;
+  };
+
   // ------------------------------------------------------------ fusion générale
   SRS.usageDeCle = function (cle) {
     if (cle.indexOf("neruda.cartes.") === 0) return "cartes";
     if (cle.indexOf("neruda.qcm.") === 0) return "qcm";
     if (cle === "neruda.serie") return "serie";
     if (cle === "neruda.journal") return "journal";
+    if (cle === "neruda.activite") return "activite";                       // v65
+    if (cle.indexOf("neruda.qstat.") === 0) return "activite";             // v65 : voyage avec les mesures (activite/{uid})
     if (SRS.estCleSimulation(cle)) return "simulations";
     return "";
   };
@@ -432,7 +618,8 @@
       case "qcm": return SRS.fusionnerQcm(a, b);
       case "serie": return SRS.fusionnerSerie(a, b);
       case "journal": return SRS.fusionnerJournal(a, b);
-      case "simulations": return SRS.fusionnerSimulation(a, b);
+      case "activite": return cle.indexOf("neruda.qstat.") === 0 ? SRS.fusionnerQstat(a, b) : SRS.fusionnerActivite(a, b);
+      case "simulations": return cle.indexOf("neruda.anim.") === 0 ? SRS.fusionnerAnim(a, b) : SRS.fusionnerSimulation(a, b);
       default: return b === undefined ? a : b;
     }
   };
@@ -444,6 +631,10 @@
       case "qcm": return SRS.lireQcm(brut);
       case "serie": { var s = SRS.lireSerie(brut); return s.dernier ? s : null; }
       case "journal": { var jo = SRS.lireJournal(brut); return Object.keys(jo.jours).length ? jo : null; }
+      case "activite": {
+        if (cle.indexOf("neruda.qstat.") === 0) { var qs = SRS.lireQstat(brut); return Object.keys(qs.q).length ? qs : null; }
+        var ac = SRS.lireActivite(brut); return Object.keys(ac.jours).length ? ac : null;
+      }
       case "simulations": {
         var v = brut;
         if (typeof v === "string") { try { v = JSON.parse(v); } catch (e) { v = null; } }

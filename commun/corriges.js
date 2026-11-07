@@ -29,6 +29,18 @@
      lien(texte)               [{id, code}] d'un lien « #corrige=id~CODE,id~CODE », ou null
      garderLien(texte) / lienGarde() / oublierLien()   lien reçu avant la connexion (onglet)
      normaliser(code) / joli(code) / oublier() / surChangement(fn)
+   v65 : les DÉCISIONS du professeur (page « Corrigés partagés » de l'espace prof) — pour la classe
+   (acces-classes/{classe}) et pour l'élève (acces-eleves/{uid}) : {id: {s: "o" (ouvert, avec la clé k) | "f" (fermé), t}}.
+   Pour un corrigé, la décision la plus récente des deux l'emporte (à égalité, celle de l'élève) :
+     - ouvert : la clé est prise telle quelle, sans code (gardée ici avec n = "partage", jamais renvoyée dans
+       deblocages/{uid} : la décision suffit) ;
+     - fermé : la clé est effacée de l'appareil et de deblocages/{uid}, et les codes (de classe ou nominatifs) de ce
+       corrigé sont refusés tant que le professeur ne l'a pas rouvert ;
+     - aucune : les codes marchent comme avant ; un corrigé qui n'était ouvert que par une décision se referme.
+   Les décisions ne s'appliquent qu'avec un compte (pas en accès de secours). Le compte collègue reçoit ainsi tous les
+   corrigés (décisions déposées par « comptes_firebase.py cles »).
+     decisionsLues()           les décisions connues pour le compte ({id: {s, t}}), ou null
+     ferme(id)                 vrai si le professeur a refermé ce corrigé pour ce compte
    Calculs identiques à outils/chiffrer.py (vecteurs d'essai : outils/tests_codes.py).
    Script classique (pas un module), chargé après commun/cles.js.
    ===================================================================== */
@@ -41,6 +53,7 @@
   var TE = new TextEncoder();
   var stock = null, stockQui = "", ecouteurs = [], importees = {}, compteConnu = false, attentes = [];
   var provisoires = {};        // débloqués avant que le compte soit connu : dans la page seulement, puis à lui
+  var decisions = null, decisionsQui = "";   // v65 : {id: {s, t, k?}} effectives pour le compte (classe + élève)
   var MOTIF_ID = /^[a-z0-9-]+\.[a-z0-9]+\.[A-Za-z0-9_-]+$/;
 
   function st(n) { try { return racine[n]; } catch (e) { return null; } }
@@ -95,7 +108,7 @@
     var q = identite();
     if (!q) return false;
     if (!stockQui) { if (Object.keys(stock).length) { stockQui = q; memoriser(); } else stockQui = q; }
-    else if (stockQui !== q) { stock = {}; stockQui = q; importees = {}; memoriser(); prevenir(); }
+    else if (stockQui !== q) { stock = {}; stockQui = q; importees = {}; decisions = null; decisionsQui = ""; memoriser(); prevenir(); }
     var p = Object.keys(provisoires);
     if (p.length) {
       var neufs = {};
@@ -113,7 +126,7 @@
     ecrireSt(st("localStorage"), garder() ? o : null);
   }
   function oublier() {
-    stock = {}; stockQui = ""; importees = {}; provisoires = {};
+    stock = {}; stockQui = ""; importees = {}; provisoires = {}; decisions = null; decisionsQui = "";
     ecrireSt(st("sessionStorage"), null); ecrireSt(st("localStorage"), null);
     prevenir();
   }
@@ -151,7 +164,12 @@
   function prof() { return !!(C && C.cle && C.cle("prive") && C.deriverPrive); }
   /* Ce qui est gardé sert à qui utilise l'appareil ; tant que le compte n'est pas connu, seulement ce qui vient
      d'être débloqué dans cette page (provisoires : le compte le prend dès qu'il est connu). */
-  function ouvert(id) { return prof() || (proprietaire() && !!stock[id]) || !!provisoires[id]; }
+  function ferme(id) {
+    if (prof() || !decisions || decisionsQui !== identite()) return false;
+    var d = decisions[id];
+    return !!(d && d.s === "f");
+  }
+  function ouvert(id) { return prof() || (!ferme(id) && ((proprietaire() && !!stock[id]) || !!provisoires[id])); }
   function cleDe(id) {
     if (importees[id]) return importees[id];
     var e = (proprietaire() ? stock[id] : null) || provisoires[id], p;
@@ -238,11 +256,13 @@
     if (!fils.length) return Promise.reject(new Error("Aucun corrigé à débloquer pour l'instant."));
     // compte encore inconnu au bout de 10 s (réseau très lent, Firebase injoignable) : seuls les codes de classe
     // sont essayés, et ce qui s'ouvre reste dans la page jusqu'à ce que le compte soit connu
-    return attendreCompte(o.attente || 10000).then(function () { return essayerConnu(n.code, cat, o, fils); });
+    return attendreCompte(o.attente || 10000).then(function () {
+      return (avecCompte() && !decisions) ? synchroniser().then(function () { }, function () { }) : null;
+    }).then(function () { return essayerConnu(n.code, cat, o, fils); });
   }
   function essayerConnu(code, cat, o, fils) {
     var e = etatCompte(), N = compte();
-    var maClasse = (e && e.connecte && !e.prof && !e.invite && e.classe) ? e.classe : "";
+    var maClasse = (e && e.connecte && !e.prof && !e.invite && !e.collegue && e.classe) ? e.classe : "";
     var perso = (maClasse && N && N.codesCorriges) ? N.codesCorriges(!!o.relire).catch(function () { return null; }) : Promise.resolve(null);
     var incomplet = false;
     return perso.then(function (doc) {
@@ -261,15 +281,22 @@
       if (!essais.length) throw new Error("Ces corrigés ne sont pas ceux de ta classe.");
       return Promise.all(essais);
     }).then(function (res) {
-      var neufs = {}, ok = [], nominatif = false, t = Date.now();
+      var neufs = {}, ok = [], nominatif = false, t = Date.now(), refermes = 0;
       res.forEach(function (r) {
         if (r.perime && r.nominatif) incomplet = true;
         Object.keys(r.t).forEach(function (id) {
+          if (ferme(id)) { refermes++; return; }             // v65 : refermé par le professeur, codes compris
           if (ok.indexOf(id) < 0) ok.push(id);
           if (r.nominatif) nominatif = true;
           neufs[id] = { k: versB64(r.t[id]), t: t, n: r.nominatif ? "nominatif" : "classe" };
         });
       });
+      if (!ok.length && refermes) {
+        var errf = new Error(refermes > 1 ? "Ces corrigés ont été refermés par le professeur : ils ne s'ouvrent plus pour l'instant."
+                                          : "Ce corrigé a été refermé par le professeur : il ne s'ouvre plus pour l'instant.");
+        errf.code = "ferme";
+        throw errf;
+      }
       if (!ok.length && maClasse && incomplet && !o.relire)        // codes personnels peut-être déposés entre-temps
         return essayerConnu(code, cat, Object.assign({}, o, { relire: true }), fils);
       if (!ok.length) {
@@ -302,9 +329,38 @@
               && identite() === "u:" + e.uid) ? N : null;
   }
   function envoyer(cles) {
-    var N = avecCompte();
-    if (!N || !Object.keys(cles).length) return Promise.resolve(false);
-    return N.enregistrerDeblocages(cles).catch(function () { return false; });
+    var N = avecCompte(), a = {};
+    Object.keys(cles || {}).forEach(function (id) { if (cles[id] && cles[id].n !== "partage") a[id] = cles[id]; });
+    if (!N || !Object.keys(a).length) return Promise.resolve(false);
+    return N.enregistrerDeblocages(a).catch(function () { return false; });
+  }
+  /* v65 : décisions effectives {id: {s, t, k?}} : la plus récente de la classe et de l'élève (à égalité : l'élève). */
+  function effectives(cl, el) {
+    var r = {}, id;
+    cl = cl || {}; el = el || {};
+    for (id in cl) if (Object.prototype.hasOwnProperty.call(cl, id)) r[id] = cl[id];
+    for (id in el) if (Object.prototype.hasOwnProperty.call(el, id) && (!r[id] || el[id].t >= r[id].t)) r[id] = el[id];
+    return r;
+  }
+  /* Applique les décisions au stock ; rend {change, aRetirer: ids à effacer de deblocages/{uid}}. */
+  function appliquer(D, distant) {
+    var s = stock, change = false, aRetirer = [], id;
+    for (id in D) {
+      if (!Object.prototype.hasOwnProperty.call(D, id) || !MOTIF_ID.test(id)) continue;
+      var d = D[id];
+      if (d.s === "o") {
+        if (!s[id] || s[id].k !== d.k) { s[id] = { k: d.k, t: d.t || Date.now(), n: "partage" }; change = true; }
+      } else if (d.s === "f") {
+        if (s[id]) { delete s[id]; change = true; }
+        if (provisoires[id]) delete provisoires[id];
+        if (distant && distant[id]) aRetirer.push(id);
+      }
+    }
+    for (id in s) if (Object.prototype.hasOwnProperty.call(s, id) && s[id] && s[id].n === "partage" && !(D[id] && D[id].s === "o")) {
+      delete s[id]; change = true;                                // ouvert par une décision qui n'existe plus
+    }
+    if (change) importees = {};
+    return { change: change, aRetirer: aRetirer };
   }
   var enCours = null, enCoursQui = "";
   function synchroniser() {
@@ -312,15 +368,25 @@
     if (!N || !q) return Promise.resolve(0);
     if (enCours && enCoursQui === q) return enCours;
     enCoursQui = q;
-    var p = enCours = N.deblocages().then(function (distant) {
+    var lecture = N.accesCorriges ? N.accesCorriges().catch(function () { return { classe: undefined, eleve: undefined }; })
+                                  : Promise.resolve({ classe: null, eleve: null });
+    var p = enCours = Promise.all([N.deblocages(), lecture]).then(function (r) {
+      var distant = r[0], acces = r[1];
       if (identite() !== q || !proprietaire()) return 0;        // le compte a changé pendant la lecture
-      var s = stock, recus = 0, manquants = {};
+      var s = stock, recus = 0, manquants = {}, D = null;
+      // décisions : une lecture qui a échoué (hors ligne) ne change rien à ce qui est sur l'appareil
+      if (acces && acces.classe !== undefined && acces.eleve !== undefined) {
+        D = effectives(acces.classe && acces.classe.d, acces.eleve && acces.eleve.d);
+        decisions = D; decisionsQui = q;
+      } else if (decisionsQui === q) D = decisions;
       Object.keys(distant || {}).forEach(function (id) {
-        if (MOTIF_ID.test(id) && valide(distant[id]) && !s[id]) { s[id] = distant[id]; recus++; }
+        if (MOTIF_ID.test(id) && valide(distant[id]) && !s[id] && !(D && D[id] && D[id].s === "f")) { s[id] = distant[id]; recus++; }
       });
-      Object.keys(s).forEach(function (id) { if (!(distant || {})[id]) manquants[id] = s[id]; });
-      if (recus) { memoriser(); prevenir(); }
+      var a = D ? appliquer(D, distant) : { change: false, aRetirer: [] };
+      Object.keys(s).forEach(function (id) { if (!(distant || {})[id] && s[id].n !== "partage") manquants[id] = s[id]; });
+      if (recus || a.change) { memoriser(); prevenir(); }
       if (Object.keys(manquants).length) envoyer(manquants);
+      if (a.aRetirer.length && N.retirerDeblocages) N.retirerDeblocages(a.aRetirer).catch(function () { });
       return recus;
     }, function () { return 0; });
     p.then(function () { if (enCours === p) enCours = null; }, function () { if (enCours === p) enCours = null; });
@@ -373,7 +439,8 @@
 
   racine.NerudaCorriges = {
     partie: partie, elements: elements, groupes: groupes, ouvert: ouvert, prof: prof,
-    essayer: essayer, ouvrir: ouvrir, synchroniser: synchroniser,
+    essayer: essayer, ouvrir: ouvrir, synchroniser: synchroniser, ferme: ferme,
+    decisionsLues: function () { return (decisions && decisionsQui === identite()) ? decisions : null; },
     lien: lien, garderLien: garderLien, lienGarde: lienGarde, oublierLien: oublierLien,
     normaliser: normaliser, joli: joli, oublier: oublier, cleDuChapitre: cleDuChapitre,
     surChangement: function (f) { if (typeof f === "function") ecouteurs.push(f); }

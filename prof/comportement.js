@@ -7,6 +7,12 @@
    le travail donné et son échéance, un bilan par période et l'import des
    lignes de l'ancienne application.
 
+   v65 : l'HISTORIQUE de l'ancienne application (91 lignes, 18/09 → 16/10/2026) est repris tout seul à la
+   première ouverture : les lignes, déjà chiffrées, sont rangées dans l'espace enseignant
+   (donnees/comportement_import_1sti2d.json) et écrites dans la base si elles n'y sont pas ; reglages/prof
+   garde la trace de cette reprise (elle ne se refait pas, même si les lignes sont effacées ensuite).
+   L'import manuel (Export › « Importer les lignes de l'ancienne application… ») reste possible.
+
    Base Firestore : comportement/{id aléatoire} = {v: 1, iv, d}, CHIFFRÉ
    sur l'appareil (socle.js) ; en clair, rien : ni la classe, ni la date,
    ni l'élève — la base ne voit que le nombre de documents et l'heure à
@@ -15,10 +21,10 @@
       echeance, rendu, ts}
    ===================================================================== */
 import {
-  db, doc, setDoc, deleteDoc, collection, onSnapshot, writeBatch,
+  db, doc, getDoc, setDoc, deleteDoc, collection, onSnapshot, writeBatch, lireDonnees,
   garde, eleves, photo, esc, auj, fr, dateValide, pts, reglage, idAleatoire, chiffrerDoc, dechiffrerDoc,
   toast, ouvrirFeuille, fermerFeuille, confirmer, copier, telecharger, csv, cellule, afficherSynchro
-} from "./socle.js";
+} from "./socle.js?v=65";
 import { EVTS, PUNITIONS } from "./criteres.js";
 
 const $ = id => document.getElementById(id);
@@ -294,6 +300,40 @@ $("fichier").addEventListener("change", async ev => {
   }, { danger: false, libelle: "Importer" });
 });
 
+// ------------------------------------------------------------------ reprise automatique de l'historique (v65)
+const REPRISE = "comportement-1sti2d-2026-11-03";
+let repriseFaite = false;
+async function repriseAutomatique() {
+  if (repriseFaite || !docsServeur) return;
+  repriseFaite = true;
+  let reg = {};
+  try { const d = await getDoc(doc(db, "reglages", "prof")); reg = d.exists() ? (d.data() || {}) : {}; }
+  catch (e) { repriseFaite = false; return; }                      // règles pas encore à jour, hors ligne : plus tard
+  if (reg.imports && reg.imports[REPRISE]) return;
+  let paquet = null;
+  try { paquet = await lireDonnees("comportement_import_1sti2d.json"); } catch (e) { return; }      // absent de cette version
+  if (!paquet || paquet.format !== "neruda-comportement-import" || !Array.isArray(paquet.lignes)) return;
+  const valides = [];
+  for (const x of paquet.lignes) {
+    if (!x || !/^[0-9a-f]{20}$/.test(x.id || "")) continue;
+    const l = await dechiffrerDoc("comportement/" + x.id, x);
+    if (l && l.ident && dateValide(l.date)) valides.push([x, l]);
+  }
+  if (!valides.length) return;                                     // autre clé : on ne marque rien
+  const nouveaux = valides.filter(([x]) => !DOCS.has(x.id) && !attente.has(x.id));
+  try {
+    for (let k = 0; k < nouveaux.length; k += 400) {
+      const b = writeBatch(db);
+      nouveaux.slice(k, k + 400).forEach(([x, l]) => { b.set(doc(db, "comportement", x.id), { v: 1, iv: x.iv, d: x.d }); attente.set(x.id, l); });
+      await b.commit();
+    }
+    const imports = Object.assign({}, reg.imports || {}); imports[REPRISE] = auj();
+    await setDoc(doc(db, "reglages", "prof"), { imports, maj: Date.now() }, { merge: true });
+  } catch (e) { toast("Reprise de l'historique refusée par la base (" + (e.code || "erreur") + ")"); repriseFaite = false; return; }
+  fusion(); maj();
+  if (nouveaux.length) toast("Historique de l'ancienne application repris : " + nouveaux.length + " ligne" + (nouveaux.length > 1 ? "s" : "") + " (18/09 → 16/10)");
+}
+
 // ------------------------------------------------------------------ démarrage
 function changerClasse() {
   reglage("comportement-classe", classe);
@@ -334,5 +374,6 @@ garde($("verrou")).then(async () => {
     effaces.forEach(id => { if (!m.has(id)) effaces.delete(id); });
     afficherSynchro($("sync"), snap.metadata);
     fusion(); maj();
+    if (docsServeur && !repriseFaite) repriseAutomatique();
   }, e => { $("sync").textContent = "● lecture refusée (" + (e.code || "erreur") + ")"; });
 });

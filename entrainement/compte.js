@@ -39,9 +39,21 @@
                                relire : relu même s'il l'a déjà été, après un « cles » relancé entre-temps)
      deblocages()              promesse : les corrigés débloqués gardés avec le compte (deblocages/{uid})
      enregistrerDeblocages(c)  les ajoute ({id: {k, t, n}}, fusion)
+   v65 :
+     accesCorriges()           promesse {classe, eleve} : les décisions du professeur sur les corrigés (cases de la page
+                               « Corrigés partagés ») — acces-classes/{classe} et acces-eleves/{uid}, chacun
+                               {v, maj, d: {id: {s: "o"|"f", t, k?}}} ; null si absent ou illisible
+     retirerDeblocages(ids)    efface ces corrigés de deblocages/{uid} (corrigé refermé par le professeur)
+     etat().collegue           compte collègue (fiche classe « collegue ») : les quatre filières, la clé collègue
+                               (livres du professeur et diaporamas) et tous les corrigés (acces-eleves/{uid}, déposé
+                               par « comptes_firebase.py cles ») ; aucun droit professeur, aucune donnée d'élève
+     etat().mesures            mesures d'activité activées par le professeur (reglages/site) : temps de travail,
+                               ouvertures des animations, réussite question par question ; neruda.mesures = « 1 »
+                               sur l'appareil tant qu'un compte élève est connecté et que c'est activé
 
    Ce qui part dans Firestore : trois documents par élève, cartes/{uid},
-   qcm/{uid}, simulations/{uid}, chacun {v:2, maj, cles:{<clé locale>: objet}}.
+   qcm/{uid}, simulations/{uid}, chacun {v:2, maj, cles:{<clé locale>: objet}}
+   (v65 : et activite/{uid}, seulement quand les mesures sont activées).
    Jamais : le nom tapé dans une simulation pour le code de fin, les mots
    de passe des filières, les documents du site.
    La fusion (élément par élément, le plus récent gagne) est celle de srs.js.
@@ -54,20 +66,22 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   initializeFirestore, getFirestore, memoryLocalCache,
-  doc, getDoc, setDoc, collection, query, where, getDocs
+  doc, getDoc, setDoc, updateDoc, deleteField, FieldPath, collection, query, where, getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const DOMAINE = "@physique-neruda.site";
-const USAGES = ["cartes", "qcm", "simulations"];
+const USAGES = ["cartes", "qcm", "simulations", "activite"];      // v65 : activite (mesures activées seulement)
 const DELAI_ENVOI = 3000;          // ms : regroupement des écritures
 const TAILLE_MAX = 150000;         // caractères JSON par document envoyé
 const FILIERE_DE = { sti2d: "1sti2d", crsa1: "bts-crsa", crsa2: "bts-crsa", tsma1: "bts-tsma", tsma2: "bts-tsma",
                      et1: "bts-et", et1a: "bts-et" };
+const FILIERES = ["1sti2d", "bts-crsa", "bts-et", "bts-tsma"];
 const CLASSES = {
   sti2d: "1re STI2D",
   crsa1: "BTS CRSA 1re année", crsa2: "BTS CRSA 2e année",
   tsma1: "BTS TSMA 1re année", tsma2: "BTS TSMA 2e année",
-  et1: "BTS ET 1re année", et1a: "BTS ET 1re année (apprentis)"
+  et1: "BTS ET 1re année", et1a: "BTS ET 1re année (apprentis)",
+  collegue: "Collègue (lecture seule)"
 };
 
 const SRS = window.NerudaSRS;
@@ -87,7 +101,7 @@ try {
 
 // ---------------------------------------------------------------- état
 const etat = { connecte: false, uid: "", prenom: "", classe: "", classeLibelle: "", groupe: "", filiere: "",
-               identifiant: "", invite: false, actif: false, prof: false, derniereSync: 0 };
+               identifiant: "", invite: false, actif: false, prof: false, collegue: false, depannage: false, mesures: false, derniereSync: 0 };
 const ecouteurs = [];
 let enAttente = new Set();
 let minuterie = null;
@@ -116,6 +130,7 @@ function pourCompte(cle, objet) {
 // ---------------------------------------------------------------- synchronisation
 async function synchroniserUsage(usage) {
   if (!etat.connecte || !etat.uid) return [];
+  if (usage === "activite" && (!etat.mesures || etat.prof || etat.collegue || etat.invite || etat.depannage)) return [];
   const ref = doc(db, usage, etat.uid);
   let distant = {};
   try {
@@ -193,7 +208,8 @@ async function chargerFiche(user) {
   const f = d.data() || {};
   if (f.actif === false) return null;
   return { prenom: String(f.prenom || ""), classe: String(f.classe || ""), groupe: String(f.groupe || ""),
-           identifiant: String(f.identifiant || ""), invite: f.invite === true, actif: f.actif !== false };
+           identifiant: String(f.identifiant || ""), invite: f.invite === true, actif: f.actif !== false,
+           collegue: String(f.classe || "") === "collegue", depannage: f.depannage === true };
 }
 function appliquerFiche(user, fiche) {
   etat.connecte = true; etat.uid = user.uid;
@@ -201,13 +217,59 @@ function appliquerFiche(user, fiche) {
   etat.classeLibelle = CLASSES[fiche.classe] || fiche.classe;
   etat.groupe = fiche.groupe; etat.invite = fiche.invite; etat.actif = fiche.actif;
   etat.identifiant = fiche.identifiant; etat.prof = fiche.classe === "prof";
+  etat.collegue = fiche.collegue === true;
+  etat.depannage = fiche.depannage === true;          // v65 : compte de dépannage partagé, jamais mesuré
   etat.filiere = FILIERE_DE[fiche.classe] || "";
 }
 function vider() {
   codesLus = null;
   etat.connecte = false; etat.uid = ""; etat.prenom = ""; etat.classe = ""; etat.classeLibelle = "";
   etat.groupe = ""; etat.identifiant = ""; etat.invite = false; etat.actif = false; etat.prof = false; etat.derniereSync = 0;
-  etat.filiere = "";
+  etat.filiere = ""; etat.collegue = false; etat.depannage = false; etat.mesures = false;
+  mesuresLocales(false);
+}
+
+// ---------------------------------------------------------------- mesures d'activité (v65)
+/* reglages/site = {mesures: vrai|faux, depuis, maj, exclus: [uid]} : écrit par le professeur (tableau de bord), lu par tout compte
+   actif. Sur l'appareil, neruda.mesures = l'uid du compte mesuré autorise commun/mesures.js, qcm.html et les
+   animations à noter (temps, ouvertures, réussite question par question) ; pour un vrai compte d'élève seulement (ni le
+   prof, ni le collègue, ni l'invité, ni un compte de dépannage partagé). Ce qui a été noté pour un autre compte est
+   effacé avant de noter pour celui-ci ; une remise à zéro du professeur (remiseAZero) efface aussi l'appareil. */
+/* Mesures coupées (ou compte déconnecté) : le drapeau, ET ce qui avait été noté sur l'appareil (neruda.activite,
+   neruda.qstat.*) — rien ne reste ni ne part plus tard au nom d'un autre compte. Ce qui est déjà dans la base
+   (activite/{uid}) s'efface depuis le tableau de bord. */
+function purgerMesures() {
+  try { for (const k of SRS.clesLocales(localStorage)) if (SRS.usageDeCle(k) === "activite") localStorage.removeItem(k); } catch (e) { }
+}
+function mesuresLocales(oui, remise) {
+  try {
+    const avant = localStorage.getItem("neruda.mesures") || "";
+    if (oui) {
+      // autre compte que celui pour qui l'appareil notait (ou propriétaire inconnu), ou remise à zéro du professeur
+      // depuis : on repart de rien
+      const r = Number(remise) || 0, vu = Number(localStorage.getItem("neruda.mesures.remise")) || 0;
+      if (avant !== etat.uid || r > vu) purgerMesures();
+      if (r > vu) localStorage.setItem("neruda.mesures.remise", String(r));
+      localStorage.setItem("neruda.mesures", etat.uid);
+      return;
+    }
+    localStorage.removeItem("neruda.mesures");
+    purgerMesures();
+  } catch (e) { }
+}
+async function lireReglages() {
+  let oui = false, remise = 0;
+  if (etat.connecte && etat.uid && etat.classe && !etat.prof && !etat.collegue && !etat.invite && !etat.depannage) {
+    try {
+      const d = await getDoc(doc(db, "reglages", "site")), v = d.exists() ? (d.data() || {}) : {};
+      // v65 : un élève qui s'est opposé aux mesures (liste exclus) n'est jamais mesuré
+      oui = v.mesures === true && !(Array.isArray(v.exclus) && v.exclus.includes(etat.uid));
+      remise = Number(v.remiseAZero) || 0;
+    } catch (e) { oui = lireLocal("neruda.mesures") === etat.uid; }     // hors ligne : on garde le dernier état connu
+  }
+  etat.mesures = oui;
+  mesuresLocales(oui, remise);
+  return oui;
 }
 
 // ---------------------------------------------------------------- clés du site (v64)
@@ -217,6 +279,7 @@ function clesManquantes() {
   if (!C || !C.enLigne || !etat.connecte || !etat.classe) return false;
   if (!C.cle("commune")) return true;
   if (etat.prof) return C.filieres().length < 4;
+  if (etat.collegue) return C.filieres().length < 4 || !C.cle("collegue");
   return !etat.invite && !!etat.filiere && !C.cle(etat.filiere);
 }
 async function chargerCles(rester) {
@@ -231,7 +294,8 @@ async function chargerCles(rester) {
     } catch (e) { console.warn("NerudaCompte : clés illisibles :", e && e.code); }
   } else {
     // une lecture refusée (clé absente, règles pas encore à jour) n'empêche pas de garder les autres
-    const noms = ["commune"].concat(!etat.invite && etat.filiere ? [etat.filiere] : []);
+    const noms = etat.collegue ? ["commune"].concat(FILIERES, ["collegue"])
+      : ["commune"].concat(!etat.invite && etat.filiere ? [etat.filiere] : []);
     for (const n of noms) {
       try {
         const d = await getDoc(doc(db, "cles", n));
@@ -266,8 +330,10 @@ async function connecter(identifiant, motDePasse, rester) {
     if (!fiche) { try { await signOut(auth); } catch (e) { } throw new Error("sans-classe"); }
     appliquerFiche(cred.user, fiche);
     try { if (rester) localStorage.setItem("neruda.rester", "1"); else localStorage.removeItem("neruda.rester"); } catch (e) { }
-    // nouvelle identité sur cet onglet : on repart des seules clés de ce compte
+    // nouvelle identité sur cet onglet : on repart des seules clés de ce compte (oublier() efface aussi le drapeau des
+    // mesures : les réglages se lisent après)
     if (window.NerudaCles && window.NerudaCles.noms().length) window.NerudaCles.oublier();
+    try { await lireReglages(); } catch (e) { }
     try { await chargerCles(!!rester); }
     catch (e) { console.warn("NerudaCompte : clés illisibles :", e && e.code); }
     prevenir({ type: "etat" });
@@ -278,6 +344,7 @@ async function connecter(identifiant, motDePasse, rester) {
   }
 }
 async function deconnecter() {
+  if (etat.mesures) enAttente.add("activite");     // v65 : ce qui a été noté part avant d'être effacé de l'appareil
   envoyerEnAttente();
   if (enCours) { try { await enCours; } catch (e) { } }
   try { await signOut(auth); } catch (e) { }
@@ -329,6 +396,43 @@ async function deblocages() {
   } catch (e) {
     console.warn("NerudaCompte : corrigés débloqués illisibles :", e && e.code);
     return {};
+  }
+}
+/* v65 : les décisions du professeur (cases de « Corrigés partagés ») : celles de la classe et celles de l'élève. */
+function lireDecisions(v) {
+  if (!v || typeof v !== "object" || !v.d || typeof v.d !== "object") return null;
+  const d = {};
+  for (const id of Object.keys(v.d)) {
+    const x = v.d[id];
+    if (!/^[a-z0-9-]+\.[a-z0-9]+\.[A-Za-z0-9_-]+$/.test(id) || !x || (x.s !== "o" && x.s !== "f")) continue;
+    const t = Number(x.t) || 0;
+    if (x.s === "o") { if (typeof x.k === "string" && /^[A-Za-z0-9+/]{43}=$/.test(x.k)) d[id] = { s: "o", t, k: x.k }; }
+    else d[id] = { s: "f", t };
+  }
+  return { maj: Number(v.maj) || 0, d };
+}
+async function accesCorriges() {
+  if (!etat.connecte || !etat.uid || etat.invite || etat.prof) return { classe: null, eleve: null };
+  const res = { classe: null, eleve: null };
+  if (etat.classe && !etat.collegue) {
+    try { const d = await getDoc(doc(db, "acces-classes", etat.classe)); if (d.exists()) res.classe = lireDecisions(d.data()); }
+    catch (e) { console.warn("NerudaCompte : corrigés partagés (classe) illisibles :", e && e.code); res.classe = undefined; }
+  } else if (!etat.collegue) res.classe = undefined;      // classe inconnue (fiche illisible) : rien ne change sur l'appareil
+  try { const d = await getDoc(doc(db, "acces-eleves", etat.uid)); if (d.exists()) res.eleve = lireDecisions(d.data()); }
+  catch (e) { console.warn("NerudaCompte : corrigés partagés (élève) illisibles :", e && e.code); res.eleve = undefined; }
+  return res;
+}
+async function retirerDeblocages(ids) {
+  if (!etat.connecte || !etat.uid || etat.invite || etat.prof || !Array.isArray(ids) || !ids.length) return false;
+  try {
+    const args = [];
+    for (const id of ids) args.push(new FieldPath("cles", id), deleteField());
+    args.push("maj", Date.now());
+    await updateDoc(doc(db, "deblocages", etat.uid), ...args);
+    return true;
+  } catch (e) {
+    if (e && e.code === "not-found") return true;
+    console.warn("NerudaCompte : corrigés refermés non retirés :", e && e.code); return false;
   }
 }
 async function enregistrerDeblocages(cles) {
@@ -387,6 +491,7 @@ const pret = new Promise(resolve => {
         if (fiche) {
           appliquerFiche(user, fiche);
           if (clesManquantes()) { try { await chargerCles(); } catch (e) { console.warn("NerudaCompte : clés illisibles :", e && e.code); } }
+          try { await lireReglages(); } catch (e) { }
         } else {
           vider(); try { await signOut(auth); } catch (e) { }
           if (C && C.source() === "compte") C.oublier();
@@ -410,7 +515,7 @@ window.NerudaCompte = {
   pret,
   etat: copieEtat,
   connecter, deconnecter, toucher, synchroniser, competences, cles: chargerCles,
-  codesCorriges, deblocages, enregistrerDeblocages,
+  codesCorriges, deblocages, enregistrerDeblocages, accesCorriges, retirerDeblocages, reglages: lireReglages,
   surChangement(fn) { if (typeof fn === "function") ecouteurs.push(fn); },
   CLASSES
 };

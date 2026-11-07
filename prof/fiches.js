@@ -31,7 +31,7 @@
                                          niveaux, absent, maj}                  — lu par cet élève seul
    ===================================================================== */
 import { db, doc, getDoc, collection, writeBatch, getDocs, garde, eleves, esc, fr, dateValide, toast,
-         ouvrirFeuille, fermerFeuille, confirmer, telecharger } from "./socle.js";
+         ouvrirFeuille, fermerFeuille, confirmer, telecharger } from "./socle.js?v=65";
 
 const $ = id => document.getElementById(id);
 const F = window.NerudaFiche;

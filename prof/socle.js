@@ -19,6 +19,7 @@
    v64.2 : la page « Codes des corrigés » ne demande que le code enseignant
    (gardeCode) : les codes se recalculent sur l'appareil (cleCodes), rien n'est
    lu ni écrit dans la base.
+   v65 : cleCorrige(id) (corrigés partagés sans code), CLASSES_DE, FIL_DE, comptes() (fiches de la base).
 
    Chiffrement (de quoi vérifier, rien à régler) :
      kpr = clé de l'espace enseignant (32 octets aléatoires, fixée une fois
@@ -38,10 +39,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   initializeFirestore, getFirestore, persistentLocalCache, persistentMultipleTabManager, terminate, clearIndexedDbPersistence,
-  doc, getDoc, setDoc, deleteDoc, collection, onSnapshot, writeBatch, getDocs
+  doc, getDoc, setDoc, deleteDoc, collection, onSnapshot, writeBatch, getDocs, updateDoc, deleteField, FieldPath,
+  arrayUnion, arrayRemove, runTransaction
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-export { doc, getDoc, setDoc, deleteDoc, collection, onSnapshot, writeBatch, getDocs };
+export { doc, getDoc, setDoc, deleteDoc, collection, onSnapshot, writeBatch, getDocs, updateDoc, deleteField, FieldPath,
+         arrayUnion, arrayRemove, runTransaction };
 
 const DOMAINE = "@physique-neruda.site";
 const TE = new TextEncoder(), TD = new TextDecoder();
@@ -188,6 +191,7 @@ export async function ouvrirCode(code, garder) {
     const ouvrir = async (e, aad) => versB64(await s.decrypt({ name: "AES-GCM", iv: deB64(e.iv), additionalData: TE.encode(aad) }, kp, deB64(e.cle)));
     for (const f of Object.keys(PROF.cles || {})) { try { tr[f] = { k: await ouvrir(PROF.cles[f], f) }; } catch (e) { } }
     if (PROF.commune) { try { tr.commune = { k: await ouvrir(PROF.commune, "commune") }; } catch (e) { } }
+    if (PROF.collegue) { try { tr.collegue = { k: await ouvrir(PROF.collegue, "collegue") }; } catch (e) { } }   // v65
     try { await N.enregistrer(tr, !!garder, "prof"); } catch (e) { }
   } else {
     // site v63 et avant (acces.js v1) : traces « acces-<filière> » lues par l'ancien accueil
@@ -231,6 +235,22 @@ export async function cleCodes(annee) {
   if (!/^\d{4}-\d{4}$/.test(String(annee || ""))) throw new Error("année scolaire illisible");
   const brut = await crypto.subtle.sign("HMAC", K.fichiers, TE.encode("neruda|codes-corriges|" + annee));
   return crypto.subtle.importKey("raw", brut, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+}
+/* v65 : la clé d'un corrigé (base64), pour l'ouvrir à une classe ou à un élève sans code (« Corrigés partagés ») :
+   HMAC-SHA256(kpr, "neruda|corriges|cle|" + id), comme outils/chiffrer.py */
+export async function cleCorrige(id) {
+  if (!K) throw new Error("code enseignant manquant");
+  if (!/^[a-z0-9-]+\.[a-z0-9]+\.[A-Za-z0-9_-]+$/.test(String(id || ""))) throw new Error("corrigé mal nommé");
+  return versB64(await crypto.subtle.sign("HMAC", K.fichiers, TE.encode("neruda|corriges|cle|" + id)));
+}
+/* v65 : les classes de chaque filière ; les comptes de la base (fiches eleves/{uid} : prénom et initiale, classe,
+   identifiant, actif) — lues par le compte professeur seulement */
+export const CLASSES_DE = { "1sti2d": ["sti2d"], "bts-crsa": ["crsa1", "crsa2"], "bts-tsma": ["tsma1", "tsma2"], "bts-et": ["et1", "et1a"] };
+export const FIL_DE = {};
+for (const f of Object.keys(CLASSES_DE)) for (const c of CLASSES_DE[f]) FIL_DE[c] = f;
+export async function comptes() {
+  const s = await getDocs(collection(db, "eleves"));
+  return s.docs.map(d => Object.assign({}, d.data() || {}, { uid: d.id }));
 }
 export async function lireDonnees(nom) {
   if (!K) throw new Error("code enseignant manquant");

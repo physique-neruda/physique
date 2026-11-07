@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Espace prof</title>
 <link rel="stylesheet" href="prof.css">
-<!-- Espace prof (v62, novembre 2026 ; v64 : fiches des copies corrigées ; v64.2 : codes des corrigés) : accès aux outils du professeur. Rien d'autre que ce menu en clair ;
+<!-- Espace prof (v62, novembre 2026 ; v64 : fiches des copies corrigées ; v64.2 : codes des corrigés ; v65 : tableau de bord, corrigés partagés) : accès aux outils du professeur. Rien d'autre que ce menu en clair ;
      les noms et photos des élèves, le comportement et les saisies d'évaluation sont chiffrés (voir socle.js). -->
 </head>
 <body>
@@ -19,6 +19,13 @@
   <section class="verrou" id="verrou" hidden></section>
   <section id="outils" hidden>
     <div class="outils">
+      <a class="outil" href="tableau.html"><b>Tableau de bord</b>
+        <span>L'activité des élèves sur le site, par classe et par élève : élèves actifs, cartes, questionnaires,
+        chapitres travaillés, animations, corrigés débloqués ; avec les mesures d'activité (à activer après
+        l'information des élèves) : temps de travail et questions les plus ratées.</span></a>
+      <a class="outil" href="partages.html"><b>Corrigés partagés</b>
+        <span>Cocher ou décocher les corrigés ouverts sans code, pour la classe ou pour un élève ; décocher referme
+        tout, codes compris. Récapitulatif de ce qui est ouvert, fermé ou débloqué par code.</span></a>
       <a class="outil" href="evaluer.html"><b>Évaluer — U51 par compétences</b>
         <span>Grilles nationales C2, C13, C17, C18 avec les photos de la classe ; groupes et trinômes, bilan,
         copie pour le registre Excel, publication des niveaux et de la note aux élèves.</span></a>
@@ -37,7 +44,8 @@
     leurs noms et leurs photos, les lignes de comportement, les saisies d'évaluation (indicateurs, niveaux,
     commentaires pour le jury). <b>Lisible par l'élève seul</b>, une fois publiés : ses niveaux de compétences et sa
     note sur 20 pour une épreuve, la fiche de sa copie corrigée (appréciation, points par question, note brute), dans
-    « Mon espace ». Ni nom de famille ni coefficient PAP dans la base. Rien n'est publié sans que vous le demandiez.</p>
+    « Mon espace ». Ni nom de famille ni coefficient PAP dans la base. Rien n'est publié sans que vous le demandiez.
+    <b>Mesures d'activité</b> (tableau de bord) : coupées tant que vous ne les activez pas ; lisibles par vous seul.</p>
     <div class="etats">
       <button class="mini" type="button" id="fermer-code">Refermer le code enseignant sur cet appareil</button>
       <button class="mini" type="button" id="sortir">Se déconnecter du compte professeur</button>
@@ -45,9 +53,9 @@
   </section>
 </main>
 <script src="../acces.js"></script>
-<script src="../commun/cles.js?v=64.2"></script>
+<script src="../commun/cles.js?v=65"></script>
 <script type="module">
-import("./accueil.js").catch(function (e) {
+import("./accueil.js?v=65").catch(function (e) {
   console.error(e);
   document.getElementById("etat").textContent = "";
   document.querySelector("main").innerHTML = '<div class="panne"><b>Outils indisponibles</b><p>Le service de connexion '

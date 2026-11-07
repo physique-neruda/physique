@@ -64,6 +64,13 @@ CORRIGÉS À DÉBLOQUER (v64.2) : prive-atelier/corriges/<filière>/<chapitre>/<
   donnée authentifiée "nominatif|" + identifiant + "|" + id). Le code enseignant ouvre tout (kpr). Aucun code
   n'est écrit nulle part : la page « Codes des corrigés » de l'espace prof les recalcule avec le code enseignant.
 
+CLÉ COLLÈGUE (v65) : kcol = HMAC-SHA256(kpr, "neruda|collegue|v1"), tirée de la clé de l'espace enseignant (rien à
+  ajouter au fichier des clés). Les LIVRES DU PROFESSEUR et les DIAPORAMAS de l'espace enseignant sont chiffrés avec
+  elle (mêmes noms de fichiers ; l'index de l'espace enseignant le note : "cle": "collegue") et listés aussi dans
+  prive/index-collegue.enc (chiffré avec elle). Le compte collègue la lit dans la base (« comptes_firebase.py cles »,
+  outils v7) ; le code enseignant l'ouvre aussi (ACCES_PROF.collegue). Elle n'ouvre rien d'autre : ni la liste des
+  élèves, ni les tests, devoirs, CCF, ni le reste de l'espace enseignant.
+
 Principe cryptographique (inchangé pour chaque fichier) :
   - fichier chiffré = "NRD1" + IV (12 octets) + AES-256-GCM(contenu), avec le chemin du fichier en
     clair comme donnée authentifiée (docs/…/cours.pdf, animations/…html, entrainement/qcm-…js,
@@ -401,11 +408,17 @@ def charger_cles(chemin, depuis=None, nouveau=(), nouvelle_cle=(), mot_impose=No
     return c
 
 
+def cle_collegue(kpr):
+    """v65 : clé des livres du professeur et des diaporamas (compte collègue), tirée de la clé de l'espace enseignant."""
+    return hmac.new(kpr, b"neruda|collegue|v1", hashlib.sha256).digest()
+
+
 def cles_brutes(c):
-    """{nom: octets} : les quatre filières, commune, prive."""
+    """{nom: octets} : les quatre filières, commune, prive ; v65 : collegue (tirée de prive)."""
     k = {fil: ub64(c[fil]["cle"]) for fil in PROTEGEES}
     k["commune"] = ub64(c["_commune"]["cle"])
     k["prive"] = ub64(c["_prive"]["cle"])
+    k["collegue"] = cle_collegue(k["prive"])
     return k
 
 
@@ -413,6 +426,7 @@ def ids_cles(c):
     i = {fil: c[fil]["id"] for fil in PROTEGEES}
     i["commune"] = c["_commune"]["id"]
     i["prive"] = c["_prive"]["id"]
+    i["collegue"] = hmac.new(cle_collegue(ub64(c["_prive"]["cle"])), b"neruda|id", hashlib.sha256).hexdigest()[:12]
     return i
 
 
@@ -490,6 +504,9 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
     (r"^e4_sujet$", "Sujet type E4 — sujet"), (r"^e4_dres$", "Sujet type E4 — dossier ressources"),
     (r"^e4_drep$", "Sujet type E4 — documents réponses"),
     (r"^exercices_corrige$", "Exercices — corrigé complet"),
+    # v65 : exercices d'approfondissement (session APR, BTS CRSA ch.0 à 5)
+    (r"^approfondissement$", "Exercices d'approfondissement — énoncé"),
+    (r"^approfondissement_corrige$", "Exercices d'approfondissement — corrigé et notes pour le professeur"),
     (r"^activite_bis_(\d)h_corrige$", "ADM 0 bis (version {0} h) — corrigé"),
     (r"^activite_simulations_corrige$", "Activité sur simulations — corrigé"),
     (r"^activite_prealable_corrige$", "Activité préalable — corrigé"),
@@ -520,7 +537,7 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
 ]
 ORDRE_PRIVE = ["prerequis", "cours_a_completer", "cours", "exercices", "bilan", "activite_prealable", "activite",
                "activite2", "corrige_seances", "test", "test_corrige", "test_bis_30min", "test_bis_30min_corrige",
-               "test_bis_1h", "test_bis_1h_corrige", "exercices_corrige", "activite_bis_3h_corrige", "activite_bis_2h_corrige", "activite_simulations_corrige", "activite_prealable_corrige", "activite_corrige", "activite2_corrige",
+               "test_bis_1h", "test_bis_1h_corrige", "exercices_corrige", "approfondissement", "approfondissement_corrige", "activite_bis_3h_corrige", "activite_bis_2h_corrige", "activite_simulations_corrige", "activite_prealable_corrige", "activite_corrige", "activite2_corrige",
                "activite_anim_corrige", "activite_banc_corrige", "ccf", "ccf_corrige",
                "devoir", "devoir_corrige", "devoir2", "devoir2_corrige", "devoir3", "devoir3_corrige", "oral", "oral_corrige", "e4_sujet", "e4_dres",
                "e4_drep", "e4_corrige", "u51", "u51_corrige", "diagnostic_corrige"]
@@ -548,7 +565,7 @@ def dossier_prive(parts, doc, caches):
     fil, ch = parts[0], parts[1]
     if re.match(r"^(test|test_corrige|diagnostic_corrige|test_bis_\d+(min|h)(_corrige)?)$", doc):
         return "tests"
-    if doc == "exercices_corrige":
+    if doc in ("exercices_corrige", "approfondissement", "approfondissement_corrige"):
         return "exercices"
     if re.match(r"^(activite\w*|a\d_\w+|s01_\w+)_corrige$", doc):
         return "activites"
@@ -568,7 +585,7 @@ def module_filieres(atelier):
         return None
 
 
-def fabriquer_prive(prive_dir, sortie, k, atelier, annee=None):
+def fabriquer_prive(prive_dir, sortie, k, atelier, annee=None, kcol=None):
     """prive-atelier/<filière>/<chapitre>/<doc>.pdf, prive-atelier/livres/*.pdf et
     prive-atelier/diaporamas/<filière>/<chapitre>/*.pdf -> sortie/prive/<identifiant>.enc
     + sortie/prive/index.enc (la liste, chiffrée elle aussi). Les noms publiés sont des
@@ -606,8 +623,9 @@ def fabriquer_prive(prive_dir, sortie, k, atelier, annee=None):
                 d = json.loads(donnees.decode("utf-8"))
                 d["annee"] = annee
                 donnees = json.dumps(d, ensure_ascii=False, indent=1).encode("utf-8")
+            collegue = bool(kcol) and parts[0] in ("livres", "diaporamas")      # v65 : clé collègue
             with open(os.path.join(dest, ident + ".enc"), "wb") as h:
-                h.write(chiffrer(k, "prive/" + ident, donnees))
+                h.write(chiffrer(kcol if collegue else k, "prive/" + ident, donnees))
             doc = nom[:-4]
             if donnees_prof:
                 e = {"fil": "donnees", "ch": "", "chapitre": "Données des outils du professeur",
@@ -627,6 +645,8 @@ def fabriquer_prive(prive_dir, sortie, k, atelier, annee=None):
                      "ordre": ORDRE_PRIVE.index(doc) if doc in ORDRE_PRIVE else 50}
             e.update({"id": ident, "nom": rel.replace("/", "-"), "taille": len(donnees),
                       "dossier": "donnees" if donnees_prof else dossier_prive(parts, doc, caches)})
+            if collegue:
+                e["cle"] = "collegue"
             entrees.append(e)
     # animations des chapitres retirés du site élèves : liens dans l'espace enseignant
     for fil, chs in caches.items():
@@ -649,6 +669,10 @@ def fabriquer_prive(prive_dir, sortie, k, atelier, annee=None):
     brut = json.dumps(entrees, ensure_ascii=False, sort_keys=True).encode("utf-8")
     with open(os.path.join(dest, "index.enc"), "wb") as h:
         h.write(chiffrer(k, "prive/index", brut))
+    if kcol:      # v65 : ce que le compte collègue voit de l'espace enseignant (livres et diaporamas), et rien d'autre
+        col = [e for e in entrees if e.get("cle") == "collegue"]
+        with open(os.path.join(dest, "index-collegue.enc"), "wb") as h:
+            h.write(chiffrer(kcol, "prive/index-collegue", json.dumps(col, ensure_ascii=False, sort_keys=True).encode("utf-8")))
     return len(entrees)
 
 
@@ -814,14 +838,14 @@ def fabriquer(atelier, sortie, c, prive_dir=None, annee=None):
                 "window.CATALOGUE_CHIFFRE = true;\n")
 
     # ---- espace enseignant
-    nb_prive = fabriquer_prive(prive_dir, sortie, K["prive"], atelier, annee) if prive_dir else 0
+    nb_prive = fabriquer_prive(prive_dir, sortie, K["prive"], atelier, annee, K["collegue"]) if prive_dir else 0
 
     # ---- acces.js
     sec = c["_secours"]
     ksec = {}            # mot de passe de secours -> clé d'enveloppe (sel commun)
     acces = {"version": 2, "cles": {}, "secours": {"sel": sec["sel"], "tours": sec["tours"], "cles": {}},
              "catalogue": {nom: "catalogue/" + nom + ".enc" for nom in parties}}
-    for nom in PROTEGEES + ["commune", "prive"]:
+    for nom in PROTEGEES + ["commune", "prive", "collegue"]:
         acces["cles"][nom] = dict(temoin(K[nom], nom), id=IDS[nom])
     for fil in PROTEGEES:
         kw = deriver(c[fil]["mot_de_passe"], ub64(sec["sel"]), sec["tours"])
@@ -844,12 +868,15 @@ def fabriquer(atelier, sortie, c, prive_dir=None, annee=None):
                   "cles": env_prof,
                   "commune": {"iv": b64(ivc), "cle": b64(AESGCM(kp).encrypt(ivc, K["commune"], b"commune"))},
                   "prive": {"iv": b64(ivp), "cle": b64(AESGCM(kp).encrypt(ivp, K["prive"], b"prive"))}}
+    # v65 : la clé collègue (livres du professeur, diaporamas), ouverte aussi par le code enseignant
+    ivk = hmac.new(kp, ("enveloppe|collegue|" + IDS["collegue"]).encode(), hashlib.sha256).digest()[:12]
+    acces_prof["collegue"] = {"iv": b64(ivk), "cle": b64(AESGCM(kp).encrypt(ivk, K["collegue"], b"collegue"))}
     # garde-fou : un mot de passe de secours ne doit pas en ouvrir un autre ni le code enseignant
     mots = [c[f]["mot_de_passe"] for f in PROTEGEES] + [prof["mot_de_passe"]]
     if len(set(mots)) != len(mots):
         sys.exit("ERREUR : deux mots de passe identiques dans le fichier des clés")
     with open(os.path.join(sortie, "acces.js"), "w", encoding="utf-8") as f:
-        f.write("/* acces.js — fabriqué par outils/chiffrer.py (site v64), ne pas modifier.\n"
+        f.write("/* acces.js — fabriqué par outils/chiffrer.py (site v64 ; v65 : clé collègue), ne pas modifier.\n"
                 "   Identifiants et témoins des clés, enveloppes de secours (mot de passe de la classe)\n"
                 "   et du code enseignant. Aucun mot de passe, aucune clé en clair. */\n"
                 "window.ACCES2 = " + json.dumps(acces, indent=1, sort_keys=True) + ";\n"
@@ -889,7 +916,7 @@ def fabriquer(atelier, sortie, c, prive_dir=None, annee=None):
             sys.exit("ERREUR : corriges/ ne contient pas exactement les corrigés de la liste")
     # liste blanche : rien d'autre en clair que des pages, des scripts et des notices
     secrets = [v for v in ([c[f]["cle"] for f in PROTEGEES] + [c[f]["mot_de_passe"] for f in PROTEGEES]
-                           + [c["_commune"]["cle"], c["_prive"]["cle"], c["_prof"]["mot_de_passe"]]) if v]
+                           + [c["_commune"]["cle"], c["_prive"]["cle"], c["_prof"]["mot_de_passe"], b64(K["collegue"])]) if v]
     noms = noms_eleves(prive_dir)
     for r, ds, fs in os.walk(sortie):
         ds[:] = [d for d in ds if d != ".git"]
