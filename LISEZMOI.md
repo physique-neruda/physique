@@ -1790,3 +1790,29 @@ en parallèle le 2/11 : il n'en reste qu'une.
   (`bts-et/adm00/test_bis_30min…`, `test_bis_1h…`).
 - Tests : `site_v64.test.js` et `site_v642_corriges.test.js` (Chromium) ; aller-retour atelier → site → atelier
   (`reconstruire_atelier_v5.py`) identique au fichier près, rechiffrement identique à l'octet.
+
+
+---
+
+## Mise à jour du 7 novembre 2026 (v65.1) — parcours de révision du chapitre 3 de la 1re STI2D
+
+La v65 (tableau de bord, corrigés partagés, compte collègue, mesures d'activité) est décrite dans
+`prof/LISEZMOI_prof.md`, partie « v65 ».
+
+**Nouvelle animation : `animations/parcours-courant-continu.html`**, « Parcours de révision — Courant continu ».
+Tout le chapitre en une page : six questions de départ, quatre niveaux (un fil et deux points, loi des nœuds,
+conventions générateur et récepteur, loi des mailles), chacun avec ses mots, une prévision, l'animation, le cours,
+un exemple résolu, l'entraînement et un boss ; un laboratoire virtuel, un exercice de bac monté pas à pas, le boss
+final, le cours imprimable niveau par niveau et les cartes de la « quête du jour ». Déclarée dans `ANIMATIONS` de
+`outils/filieres.py` au chapitre 3 de la 1re STI2D, rubrique *Cours*, juste avant le bilan ; chiffrée avec la clé
+commune comme les autres animations, ouverte par sa page d'accès (mesures v65 comprises).
+
+Faite à part, elle a été mise au format du site : en-tête HTML complet, **plus d'appel à Google Fonts** (les polices
+du système prennent le relais : aucun appel réseau), bouton *Retour* v1 dans le bandeau, **aucune mention de
+classe** (règle du 10 septembre : « 1re STI2D » retiré du sur-titre, du pied de page et des références au
+programme). Le pied de page et l'aide disaient « rien n'est envoyé » : c'est vrai des réponses, pas du temps passé
+quand le professeur active les mesures ; la phrase dit désormais que les réponses ne sont jamais envoyées. La
+progression reste dans le navigateur (clé `ludo5-sti2d-continu-v1`, que le compte ne synchronise pas) ;
+l'identifiant interne, repris dans le code ENT de fin de séance, est inchangé.
+
+**Le site** : 729 entrées au catalogue (une de plus).
