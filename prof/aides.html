@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Codes des aides aux branchements</title>
+<link rel="stylesheet" href="prof.css">
+<!-- Codes des aides aux branchements (v65.4, 16 novembre 2026) : pour un jour, le code de niveau 2 (indice) et de
+     niveau 3 (solution) de chaque poste de la série 01 ADM, recalculés sur cet appareil avec le code enseignant
+     (aides.js, aides_codes.js). Rien n'est lu ni écrit dans la base. Un code ne marche que le jour dit. -->
+<style>
+.choix{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 12px}
+.choix input{font:inherit;font-size:15px;padding:7px 9px;border-radius:10px;border:1px solid var(--bord);background:var(--carte);color:var(--txt);min-height:42px}
+.choix .mini{font-size:14px;padding:9px 12px}
+.cadre{background:var(--carte);border:1px solid var(--bord);border-radius:12px;padding:12px 14px;margin:12px 0}
+table.codes{width:100%;border-collapse:collapse}
+table.codes th,table.codes td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--bord);vertical-align:middle}
+table.codes th .d,table.codes td .d{font-size:12px;color:var(--gris);font-weight:400}
+table.codes button.code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:20px;font-weight:700;letter-spacing:.08em;
+  background:var(--doux);color:var(--txt);border:1px solid var(--bord);border-radius:9px;padding:6px 10px;cursor:pointer}
+@media (max-width:520px){table.codes button.code{font-size:15px;letter-spacing:.02em;padding:5px 6px}table.codes th{font-size:11px}table.codes th,table.codes td{padding:7px 3px}.cadre{padding:10px 8px}}
+.defile{overflow-x:auto}
+@media print{header,.choix,.noimp{display:none!important} body{padding:0} table.codes button.code{border:0;background:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="retour" href="index.html">← Espace prof</a>
+  <h1>Codes des aides aux branchements</h1>
+  <div class="barre"><span class="info" id="etat">Chargement…</span></div>
+</header>
+<main>
+  <section class="verrou" id="verrou" hidden></section>
+  <section id="outil" hidden>
+    <p class="aide">ADM série 01 : sur les pages « Aide aux branchements », l'élève branche seul ; la vérification dit
+    seulement combien de cordons ou de réglages sont à revoir. Le <b>niveau 1</b> (repérage des points du système)
+    s'ouvre tout seul après une vérification ratée. Les <b>niveaux 2</b> (indice : quel cordon est faux et pourquoi,
+    bornes à utiliser) et <b>3</b> (solution « Montre-moi ») demandent le code ci-dessous, propre au poste et
+    <b>valable seulement ce jour-là</b>. La page de l'élève affiche ensuite le niveau atteint et la pénalité (partie C :
+    −0,5 point au niveau 2, −1 point au niveau 3) à reporter sur l'énoncé. Toucher un code le copie.</p>
+    <div class="choix">
+      <button class="mini" type="button" id="veille">◀ Veille</button>
+      <input type="date" id="jour" aria-label="Jour">
+      <button class="mini" type="button" id="lendemain">Lendemain ▶</button>
+      <button class="mini" type="button" id="aujourdhui">Aujourd'hui</button>
+      <button class="mini" type="button" id="imprimer">Imprimer</button>
+    </div>
+    <div class="cadre">
+      <h2 id="titre-jour">Codes du jour</h2>
+      <div class="defile"><table class="codes" id="table"></table></div>
+    </div>
+    <p class="aide">Les pages des élèves contiennent les codes jusqu'au 10 juillet 2027 ; ils changent à la rentrée avec
+    l'année des codes des corrigés (nouvelle version des aides à fabriquer).</p>
+    <div class="boutons noimp"><button class="mini" type="button" id="fermer-code">Refermer le code enseignant sur cet appareil</button></div>
+  </section>
+</main>
+<script src="../acces.js"></script>
+<script src="../commun/cles.js?v=65"></script>
+<script type="module">
+import("./aides.js?v=65.4").catch(function (e) {
+  console.error(e);
+  document.getElementById("etat").textContent = "";
+  document.querySelector("main").innerHTML = '<div class="panne"><b>Outil indisponible</b><p>Le service de connexion '
+    + '(Firebase, chargé depuis www.gstatic.com) ne répond pas : vérifier le réseau, puis recharger la page.</p></div>';
+});
+</script>
+</body>
+</html>

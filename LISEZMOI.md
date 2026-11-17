@@ -1816,3 +1816,51 @@ progression reste dans le navigateur (clé `ludo5-sti2d-continu-v1`, que le comp
 l'identifiant interne, repris dans le code ENT de fin de séance, est inchangé.
 
 **Le site** : 729 entrées au catalogue (une de plus).
+
+## Mise à jour du 16 novembre 2026 (v65.4) — aides aux branchements v2 : aide graduée et codes du jour
+
+Demande de M. Cronenberger : la solution était donnée trop facilement aux élèves. Les quatre pages
+`animations/aide-branchements-{four,banc,harmocem,compensation}.html` (mêmes adresses : les QR codes ne changent pas)
+passent en **v2** :
+- l'élève **branche seul** (onglet « Je branche », par défaut) ; « Vérifier » ne dit que le **nombre** de cordons et de
+  réglages à revoir. La page ne contient plus la solution en clair : seulement des empreintes des bons cordons et réglages ;
+- **niveau 1 — repérage** (gratuit) : ouvert après une vérification ratée, les points du système qui servent à la mesure
+  clignotent ;
+- **niveau 2 — indice** et **niveau 3 — solution** (« Montre-moi ») : chiffrés dans la page, ils s'ouvrent avec le
+  **code du jour** du poste, donné par le professeur (`prof/aides.html`, « Codes des aides aux branchements » ; code
+  enseignant seul). Un code ne vaut que pour un poste, un niveau et un jour (enveloppes du 16/11/2026 au 10/07/2027 ;
+  PBKDF2 100 000 tours). Pénalité : −0,5 point (niveau 2), −1 point (niveau 3) sur la partie C ; la page affiche le
+  niveau atteint, l'élève le coche sur l'énoncé ;
+- Kc = HMAC-SHA256(kpr, `neruda|codes-corriges|<année>`) (celle des codes des corrigés), code = 6 signes de
+  HMAC-SHA256(Kc, `aide|<poste>|<niveau>|<AAAA-MM-JJ>`) ; clé du niveau L = HMAC-SHA256(kpr, `neruda|aides|cle|<poste>|<L>`).
+  Les pages se fabriquent avec `build_aides.py` v2 (archive `BTS_ET_ADM_serie01_v2.zip`, `--cles mots_de_passe_v3.json`) :
+  **à refaire à la rentrée** (nouvelle année des codes, nouvel intervalle de dates).
+- Énoncés et corrigés de la série 01 en **v2** (`docs/bts-et/adms01/`, espace enseignant) : encadré « En cas de difficulté »
+  de la partie C (niveaux, pénalité, case « niveau d'aide atteint ») ; note pour le professeur. Une seule page change par
+  énoncé (four et banc p. 7, Harmocem et compensation p. 6).
+
+
+---
+
+## Mise à jour du 17 novembre 2026 (v65.5) — activités guidées (pilote : TP 3 du BTS ET), animation « Déphasage »
+
+La v65.5 **contient la v65.4 du 16 novembre** (aides aux branchements v2), jamais poussée seule.
+
+- **Activités guidées** : `activites/guidee.html` + `activites/guidee.js` (en clair, aucun contenu de cours) ouvrent
+  `activites/<filière>.<activité>.js.enc`, chiffré avec la clé de la filière (compte élève ou accès de secours de la
+  classe). Première activité : `activites/guidee.html?a=bts-et.regime-sinusoidal`, l'activité expérimentale du TP 3
+  (prise en main, parties A à E, mêmes numéros et mêmes lettres que la feuille, qui reste la version de secours). Les
+  étapes s'ouvrent l'une après l'autre ; les mesures sont contrôlées par leur **cohérence** (plages larges, Z_C × f
+  constant, U_R/R = I…), jamais par une valeur unique ; les prévisions sont figées avant la mesure ; les conclusions
+  s'écrivent avant de voir la conclusion attendue ; aides graduées (aide 1 après un essai, aide 2 après deux, aide 3
+  après trois), liens vers les simulations du site ; deux **visas** (montage de la partie B, ampèremètre de la partie C)
+  donnés d'un geste depuis le téléphone du professeur, ou par un code de secours du jour.
+- **Espace prof › Activités guidées** (`prof/seance.html`) : voir `prof/LISEZMOI_prof.md`, partie v65.5.
+- **Animation `animations/dephasage-fresnel.html`** (« Déphasage et représentation de Fresnel », v1 du 17/11) : clé
+  commune, page d'accès comme les autres ; appelée par les aides de l'activité guidée. **Pas encore rattachée aux
+  chapitres** (entrées `ANIMATIONS` de `outils/filieres.py` et ligne de `entrainement/srs.js` à ajouter à la prochaine
+  fabrication complète : BTS ET TP 3, BTS CRSA ch. 7 et 19, BTS TSMA ch. 13 et 17).
+- `outils/chiffrer.py` : chiffre `activites/<filière>.<activité>.js` avec la clé de la filière ; `activites/guidee.html`
+  et `guidee.js` admis en clair. Reconstruction de l'atelier : `reconstruire_atelier_v7.py` (NE_PAS_PUBLIER).
+- **Base** : règles **v7** (`firestore_v7.rules`, outils de comptes, NE_PAS_PUBLIER) — à publier dans la console
+  **avant** d'ouvrir une séance : sans elles, les élèves ne peuvent pas lire la séance ni écrire leur avancement.

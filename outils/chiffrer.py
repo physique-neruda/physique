@@ -5,6 +5,9 @@ FERMÉ : rien ne s'ouvre sans un compte élève (Firebase) ou un code de secours
 
     python3 outils/chiffrer.py site-physique site-en-ligne --cles mots_de_passe_v3.json --prive prive-atelier
 
+v65.5 (17/11/2026) : activites/<filière>.<activité>.js (contenu d'une activité guidée) est chiffré avec la clé de la
+filière, comme les questionnaires ; activites/guidee.html et guidee.js restent en clair (aucun contenu de cours).
+
   site-physique/          l'atelier : tout en clair (PDF, animations, questionnaires, catalogue).
   site-en-ligne/          ce qui part sur GitHub : le contenu chiffré, plus acces.js.
   mots_de_passe_v3.json   les clés et les mots de passe de secours. JAMAIS dans le site ni sur GitHub
@@ -106,8 +109,12 @@ CLAIR_PERMIS = [re.compile(x) for x in (
     r"^entrainement/(cartes|qcm|espace)\.html$", r"^entrainement/(srs|compte|firebase-config)\.js$",
     r"^entrainement/LISEZMOI_espace\.md$", r"^entrainement/tests/[a-z0-9_]+\.test\.mjs$",
     r"^animations/[a-z0-9-]+\.html$", r"^prof/[A-Za-z0-9_]+\.(html|js|css|md)$", r"^outils/[a-z0-9_]+\.(py|html)$",
+    r"^activites/guidee\.(html|js)$",
     r"^docs/[a-z0-9-]+/LISEZMOI\.txt$")]
 MOTIF_QCM = re.compile(r"^qcm-(" + "|".join(re.escape(f) for f in PROTEGEES) + r")-([0-9A-Za-z]+)\.js$")
+# v65.5 : contenu d'une activité guidée, activites/<filière>.<activité>.js : clé de la filière (la page et son moteur,
+# activites/guidee.html et guidee.js, restent en clair : ils ne portent aucun contenu de cours)
+MOTIF_ACTIVITE = re.compile(r"^(" + "|".join(re.escape(f) for f in PROTEGEES) + r")\.([a-z0-9-]+)\.js$")
 CLASSES_DE = {"1sti2d": ["sti2d"], "bts-crsa": ["crsa1", "crsa2"], "bts-tsma": ["tsma1", "tsma2"],
               "bts-et": ["et1", "et1a"]}
 
@@ -783,6 +790,13 @@ def fabriquer(atelier, sortie, c, prive_dir=None, annee=None):
                     f.write(page_porte(modele_porte, titre, nom_cle, chemin, retour))
                 compte["animations"][nom_cle] = compte["animations"].get(nom_cle, 0) + 1
                 continue
+            # v65.5 : contenu d'une activité guidée : clé de la filière
+            m = MOTIF_ACTIVITE.match(nom) if parts == ["activites"] else None
+            if m:
+                with open(os.path.join(cible, nom + ".enc"), "wb") as f:
+                    f.write(chiffrer(K[m.group(1)], chemin, donnees))
+                compte["qcm"][m.group(1)] += 1
+                continue
             # questionnaires et cartes d'un chapitre : clé de la filière
             m = MOTIF_QCM.match(nom) if parts == ["entrainement"] else None
             if m:
@@ -899,6 +913,8 @@ def fabriquer(atelier, sortie, c, prive_dir=None, annee=None):
                         sys.exit(f"ERREUR : animation en clair : {p}")
             if relr == "entrainement" and MOTIF_QCM.match(n):
                 sys.exit(f"ERREUR : questionnaire en clair : {p}")
+            if relr == "activites" and MOTIF_ACTIVITE.match(n):
+                sys.exit(f"ERREUR : activité guidée en clair : {p}")
             if ATELIER_CHIFFRE.match((relr + "/" + n) if relr != "." else n):
                 sys.exit(f"ERREUR : source de l'atelier en clair : {p}")
     with open(os.path.join(sortie, "catalogue.js"), encoding="utf-8") as h:

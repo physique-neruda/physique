@@ -23,6 +23,7 @@ l'espace prof.
 | `evaluer.html` + `evaluer.js` | évaluation U51 par compétences : reprise des applications « Évaluation U51 » du groupe 1 et d'ETA1 (tuiles photo, grille par élève ou par groupe, pointage par indicateur, binômes et trinômes, bilan, copie pour le registre Excel), avec en plus le choix de la classe, la gestion des épreuves et la publication aux élèves |
 | `comportement.html` + `comportement.js` + `criteres.js` | registre de comportement : reprise de l'application « Comportement 1STI2D » (par élève avec punition facultative, par critère, journal, copie pour le classeur), avec en plus le choix de la classe, le travail donné et son échéance (« Rendu »), un bilan par période, l'import des lignes de l'ancienne application |
 | `codes.html` + `codes.js` (v64.2) | codes des corrigés à débloquer : pour une classe et un chapitre, le code de la classe de chaque corrigé (exercice, activité, partie d'activité, activité entière), le message à coller dans Pronote avec le lien qui débloque, et le code nominatif de chaque élève (il ne marche qu'une fois les enveloppes déposées par `comptes_firebase.py cles`) ; recalculés sur l'appareil avec le **code enseignant seul** (rien n'est lu ni écrit dans la base ; « Garder sur cet appareil » décoché par défaut, bouton pour le refermer ; les codes nominatifs ne s'impriment pas) |
+| `aides.html` + `aides.js` + `aides_codes.js` (v65.4) | codes du jour des **aides aux branchements** de l'ADM série 01 : pour un jour, le code de niveau 2 (indice) et de niveau 3 (solution) de chacun des quatre postes ; Kc = la clé des codes des corrigés de l'année, code = 6 signes de HMAC-SHA256(Kc, `aide|<poste>|<niveau>|<AAAA-MM-JJ>`) ; recalculés avec le code enseignant seul, rien dans la base ; test `entrainement/tests/aides_codes.test.mjs` |
 | `socle.js` | accès (`garde`, et `gardeCode` : code enseignant seul), chiffrement, clé des codes des corrigés (`cleCodes`), liste des élèves, fenêtres communes |
 | `u51.js` | grille nationale U51 (niveaux, profils, critères) et calculs ; testé par `node --test` |
 | `prof.css` | charte commune |
@@ -152,3 +153,38 @@ classes) et les énoncés d'approfondissement de BTS CRSA s'ouvrent à l'élève
 par `comptes_firebase.py cles` (outils v7), sinon par le bouton du bandeau.
 
 Règles : `firestore_v6.rules` (outils de comptes v7), essai réel : `verifier` (101 essais).
+
+
+## v65.5 (17 novembre 2026) : activités guidées
+
+**Page `seance.html` + `seance.js`** (les deux clés), pensée pour le téléphone du professeur pendant une activité faite
+sur le site par les élèves (première activité : TP 3 du BTS ET, « Régime sinusoïdal », page élève
+`../activites/guidee.html?a=bts-et.regime-sinusoidal`).
+
+- **Visas** : chaque demande d'un poste arrive en tête de liste (la plus ancienne d'abord, en rouge au-delà de 5 min).
+  Une demande s'ouvre sur les **photos du poste** (élèves ayant demandé, et ceux du même poste arrêtés au même visa ;
+  toucher une photo pour retirer ou ajouter), le **schéma attendu**, la liste de ce qu'on vérifie et, si une épreuve
+  d'Évaluer est liée à la séance, ses **critères « au poste »** (A / P / N, écrits dans les saisies chiffrées d'Évaluer,
+  exactement comme depuis la page Évaluer). On accorde en **glissant** la poignée verte jusqu'au bout (un simple toucher
+  ne suffit pas) ; ou « À reprendre » avec un motif (puces + précision), que l'élève lit aussitôt.
+- **Suivi** : par poste, chaque élève avec son étape, le temps passé, les aides et les essais ; ✋ visa demandé, ⏱ même
+  étape depuis plus de N minutes (réglable), 🛟 aide 3 ouverte, ⚑ mesure maintenue malgré l'alerte de cohérence, 💤 plus de
+  nouvelles depuis 6 min. Toucher un élève : toutes ses étapes et ses réponses ; « Débloquer cette étape » (elle compte
+  comme faite), « Accorder le visa », changer de poste.
+- **Étapes** : pour chaque étape, faits / élèves au travail, élèves arrêtés dessus, temps médian, aides, essais moyens ;
+  toucher une ligne : les réponses de toute la classe (répartition des choix, prévisions, conclusions rédigées).
+- **Réglages** : ouvrir / fermer la séance (fermée : les élèves relisent sans avancer), parties ouvertes, aides
+  **formatif** (gratuites, mais visibles) ou **évalué** (aide 2 : 0,5 point ; aide 3 : 1 point, par étape), montrer la
+  réponse attendue après celle de l'élève, **tout ouvrir** (panne, fin de séance : toutes les étapes, sans visa), seuil de
+  l'alerte « bloqué », **épreuve d'Évaluer liée**, **codes de secours du jour** (un par visa, valables ce jour et pour cette
+  classe : l'élève sans réseau le tape sous « Pas de réseau ? »), QR code et adresse de l'activité, effacer la séance.
+
+**Base (règles v7)** : `seances/{classe}--{activité}` (réglages, écrits par le professeur, lus par les élèves de la
+classe ; empreintes PBKDF2 des codes de secours, jamais les codes), `seances/{…}/eleves/{uid}` (avancement : étapes,
+essais, aides, réponses, demande de visa ; écrit par l'élève seulement quand la séance est ouverte et que c'est celle de sa
+classe), `seances/{…}/visas/{uid}` (visas, refus, déblocages, poste imposé ; écrits par le professeur, lus par l'élève).
+Le contenu de l'activité (étapes, schémas des visas) est lu dans `../activites/<filière>.<activité>.js.enc`, chiffré
+avec la clé de la filière : rien de l'énoncé n'est en clair dans la page du professeur.
+
+**Codes de secours** : code = 6 signes de `ALPHABET_CODES` tirés de HMAC-SHA256(clé des noms, `guidee|secours|<séance>|<visa>|<AAAA-MM-JJ>`)
+(`idOpaque`), recalculés sur l'appareil ; la séance garde seulement `{date, sel, tours: 60000, h: {visa: PBKDF2(code, sel|visa)}}`.
