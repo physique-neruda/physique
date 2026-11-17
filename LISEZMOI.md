@@ -1864,3 +1864,43 @@ La v65.5 **contient la v65.4 du 16 novembre** (aides aux branchements v2), jamai
   et `guidee.js` admis en clair. Reconstruction de l'atelier : `reconstruire_atelier_v7.py` (NE_PAS_PUBLIER).
 - **Base** : règles **v7** (`firestore_v7.rules`, outils de comptes, NE_PAS_PUBLIER) — à publier dans la console
   **avant** d'ouvrir une séance : sans elles, les élèves ne peuvent pas lire la séance ni écrire leur avancement.
+
+## Mise à jour du 17 novembre 2026, soir (v65.6) — catalogue
+
+- Nouveau type de ligne **`activite`** dans le catalogue (`index.html`, TYPES) : « Activité guidée sur le site » dans
+  BTS ET › TP 3, juste avant « Activité expérimentale » (lien `activites/guidee.html?a=bts-et.regime-sinusoidal`).
+- Animation **Déphasage et représentation de Fresnel** rattachée à BTS ET TP 3, BTS CRSA ch. 7 et 19, BTS TSMA ch. 13
+  et 17 ; clé `anim-dephasage-fresnel` dans `SRS.SIMULATIONS`.
+- **Retrait** du « Parcours de révision — Courant continu » (1re STI2D ch. 3).
+- Feuille du TP 3 (activité) en **v26** : encadré « Activité guidée sur le site » (QR code, chemin depuis un ordinateur,
+  adresse directe), bloc LaTeX `acces-activite.tex` (`\accesactivite`).
+
+## Mise à jour du 18 novembre 2026 (v65.7) — ADM série 01 en activités guidées
+
+- **Quatre activités guidées** : `activites/bts-et.adm-s01-four.js`, `…-banc.js`, `…-harmocem.js`,
+  `…-compensation.js` (chiffrées avec la clé bts-et). La **feuille est notée** (toutes les réponses s'y écrivent) ; le
+  site guide pas à pas (mêmes numéros), ouvre les simulations et l'**aide aux branchements** (dans le même onglet : son
+  « Retour » ramène à l'activité, et le niveau d'aide atteint est repris), demande les **visas**, contrôle la
+  **vraisemblance** des mesures (jamais une réponse de la feuille), chronomètre les **attentes de 5 minutes** du coffret
+  de compensation, et recueille les **codes de fin** des simulations. Un groupe par système : pas de numéro de poste.
+- **Moteur** (`activites/guidee.js`, en clair, sans contenu de cours) : champs texte (codes), champs facultatifs, étape
+  d'attente minutée (`attente`), étape facultative « Passer », ressource ouverte dans le même onglet (`meme`), niveau
+  de l'aide aux branchements lu dans l'onglet (`aide`), message de réussite propre à l'étape (`bravo`), contrôles de
+  vraisemblance pouvant être maintenus (`vraisemblance`).
+- **Catalogue** : quatre lignes « Activité guidée — … » dans ADM série 01, chacune juste avant sa feuille.
+- **Feuilles de l'ADM série 01 en v3** : même encadré QR code + chemin depuis un ordinateur + adresse ; corrigés
+  inchangés (v2). PDF du site remplacés (`docs/bts-et/adms01/s01_*.pdf`).
+- **Espace enseignant** : `donnees/visas_guidees.json` (chiffré, clé privée) — listes du professeur, schémas corrigés,
+  photos annotées des postes, critères d'Évaluer et motifs « à reprendre » des visas de l'ADM : rien de cela n'est dans
+  le fichier de l'activité que l'élève télécharge.
+- **Espace prof › Activités guidées** : plusieurs séances de la même classe suivies à la fois (voir
+  `prof/LISEZMOI_prof.md`, partie v65.7). Aucune nouvelle règle de base (règles v7).
+
+## Mise à jour du 18 novembre 2026 (v65.8) — l'animation « Déphasage » dans les cours
+
+Encadré « Animation du site » (QR code, chemin depuis un ordinateur, adresse) dans le cours complet et le cours à
+compléter : BTS ET TP 3 (fin du § 4, représentation de Fresnel), BTS CRSA ch. 7 (après la définition du déphasage) et
+ch. 19 (fin du § 5, résonance), BTS TSMA ch. 13 (fin du § 5, résonance) et ch. 17 (fin du § 3, les trois puissances).
+Bloc LaTeX `acces-animation-cours.tex` (`\accesanimation`). PDF du site remplacés ; versions : BTS ET TP 3 v26, CRSA
+ch. 7 et 19 v24, TSMA ch. 13 et 17 v13.
+

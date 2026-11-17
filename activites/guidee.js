@@ -47,6 +47,7 @@ function proche(x, e, tol, tolA) {
   if (!isFinite(x) || !isFinite(e)) return false;
   return Math.abs(x - e) <= Math.max((tol || 0) * Math.abs(e), tolA || 0) + 1e-12;
 }
+function minSec(ms) { const s = Math.ceil(ms / 1000); return Math.floor(s / 60) + " min " + String(s % 60).padStart(2, "0") + " s"; }
 function duree(ms) {
   const m = Math.floor(ms / 60000);
   return m < 1 ? "moins d'une minute" : m < 60 ? m + " min" : Math.floor(m / 60) + " h " + String(m % 60).padStart(2, "0");
@@ -174,8 +175,8 @@ function rendre() {
   const q = $("qui");
   q.hidden = false;
   q.innerHTML = esc(S.apercu ? "Aperçu (professeur)" : S.local ? "Sans compte" : (S.compte.prenom || "Élève"))
-    + (S.moi.poste ? ` · poste ${S.moi.poste}` : "") + (S.local || S.apercu ? "" : '<span class="pt" aria-hidden="true"></span>');
-  q.onclick = () => { if (!S.apercu) choisirPoste(); };
+    + (S.moi.poste && !ACT.groupeUnique ? ` · poste ${S.moi.poste}` : "") + (S.local || S.apercu ? "" : '<span class="pt" aria-hidden="true"></span>');
+  q.onclick = () => { if (!S.apercu && !ACT.groupeUnique) choisirPoste(); };
   if (!S.local && !S.apercu && !S.chargee) { app.innerHTML = '<p class="g-attente">Lecture de la séance…</p>'; return; }
   if (!S.local && !S.apercu && (!S.seance || S.seance.etat !== "ouverte") && !Object.keys(S.moi.e).length) { rendreFermee(); return; }
   if (!S.moi.accueil) { rendreAccueil(); return; }
@@ -193,13 +194,14 @@ function rendreFermee() {
 }
 function rendreAccueil() {
   const postes = Array.from({ length: 12 }, (_, i) => i + 1);
+  if (ACT.groupeUnique && !S.moi.poste) S.moi.poste = 1;
   app.innerHTML = `<section class="g-carte g-accueil">
     <h2>${typo(ACT.titre)}</h2><p class="g-sous">${typo(ACT.sousTitre)}</p>
     ${S.local ? `<p class="g-alerte">${typo("Tu n'es pas connecté avec ton compte : ton avancement reste sur cet appareil et le professeur ne le voit pas. Les visas se donnent alors de vive voix.")}</p>`
       : S.apercu ? `<p class="g-alerte">${typo("Aperçu du professeur : toutes les étapes sont ouvertes, rien n'est enregistré dans la base.")}</p>`
       : `<div class="g-info"><b>${typo("Ce que voit ton professeur")}</b><p>${typo("Ton avancement dans cette activité : les étapes faites et quand, le nombre d'essais, les aides ouvertes, tes réponses. Lui seul les voit ; elles servent à t'aider pendant la séance. Elles sont effacées à la fin de l'année scolaire.")}</p></div>`}
-    <h3>${typo("À quel poste travailles-tu ?")}</h3>
-    <div class="g-postes">${postes.map(n => `<button type="button" class="g-poste${S.moi.poste === n ? " on" : ""}" data-p="${n}">${n}</button>`).join("")}</div>
+    ${ACT.groupeUnique ? "" : `<h3>${typo("À quel poste travailles-tu ?")}</h3>
+    <div class="g-postes">${postes.map(n => `<button type="button" class="g-poste${S.moi.poste === n ? " on" : ""}" data-p="${n}">${n}</button>`).join("")}</div>`}
     <button type="button" class="principal" id="commencer" ${S.moi.poste ? "" : "disabled"}>Commencer</button></section>`;
   app.querySelectorAll(".g-poste").forEach(b => b.onclick = () => {
     S.moi.poste = Number(b.dataset.p); app.querySelectorAll(".g-poste").forEach(x => x.classList.toggle("on", x === b));
@@ -262,7 +264,24 @@ function rendreEtape(e) {
     if (e.photos) h += `<div class="g-photos">${e.photos.map(k => img(k, "g-photo")).join("")}</div>`;
     h += `<div class="g-consigne">${typo(String(e.html || "").replace("{{MATERIEL}}", ACT.materiel))}</div>`;
     if (e.image2) h += `<figure class="g-fig">${img(e.image2)}</figure>`;
-    if (e.type === "info") h += lecture ? '<p class="g-ok">✓ Fait</p>' : `<button type="button" class="principal" id="valider">${typo(e.bouton || "C'est fait")}</button>`;
+    if (e.type === "info") {
+      // étape d'attente : le bouton ne s'ouvre qu'au bout du temps donné (e.attente, en secondes)
+      const reste = e.attente && !lecture ? e.attente * 1000 - (maintenant() - (x.t0 || maintenant())) : 0;
+      if (lecture) h += '<p class="g-ok">✓ Fait</p>';
+      else if (reste > 0) {
+        h += `<div class="g-attend"><span class="tourne" aria-hidden="true"></span><span>${typo("Patiente encore")} <b id="compte-a-rebours">${minSec(reste)}</b></span></div>
+          <button type="button" class="principal" id="valider" disabled>${typo(e.bouton || "C'est fait")}</button>`;
+        clearInterval(S.minuterie);
+        const fin = maintenant() + reste;
+        S.minuterie = setInterval(() => {            // seul le décompte change chaque seconde ; la page se redessine à la fin
+          const r = fin - maintenant(), el = document.getElementById("compte-a-rebours");
+          if (S.vue !== e.id || !el) { clearInterval(S.minuterie); return; }
+          if (r <= 0) { clearInterval(S.minuterie); rendreSiCalme(); return; }
+          el.textContent = minSec(r);
+        }, 1000);
+      } else h += `<button type="button" class="principal" id="valider">${typo(e.bouton || "C'est fait")}</button>`;
+      if (!lecture && e.facultatif) h += `<button type="button" class="secondaire-bouton" id="passer">${typo("Passer cette étape facultative")}</button>`;
+    }
     if (e.type === "exo") h += rendreExo(e, x, lecture);
     if (e.type === "prevision") h += rendrePrevision(e, x, lecture);
     if (e.type === "texte") h += rendreTexte(e, x, lecture);
@@ -277,12 +296,22 @@ function rendreEtape(e) {
   else if (e.ressources && e.ressources.length) h += rendreRessources(e);
   return h;
 }
+function valeurChamp(f, x) {
+  const r = x.r && x.r[f.id];
+  if (r === undefined || r === null || r === "") return "";
+  return f && f.texte ? String(r) : fmt(Number(r), 4).replace(/\u202f/g, "");
+}
 function rendreChamp(f, x, lecture) {
-  const v = x.r && x.r[f.id] !== undefined ? fmt(Number(x.r[f.id]), 4).replace(/ /g, "") : "";
-  return `<label class="g-champ"><span class="l">${typo(f.label)}</span><span class="z"><input type="text" inputmode="decimal" autocomplete="off" data-champ="${f.id}" value="${esc(v)}" ${lecture ? "disabled" : ""}><span class="u">${esc(f.unite || "")}</span></span></label>`;
+  const v = valeurChamp(f, x);
+  return `<label class="g-champ${f.texte ? " texte" : ""}"><span class="l">${typo(f.label)}${f.facultatif ? ' <small class="g-discret">(facultatif)</small>' : ""}</span><span class="z"><input type="text" ${f.texte ? 'autocapitalize="characters" spellcheck="false"' : 'inputmode="decimal"'} autocomplete="off" data-champ="${f.id}" value="${esc(v)}" ${lecture ? "disabled" : ""}><span class="u">${esc(f.unite || "")}</span></span></label>`;
+}
+function jourLocal() { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function niveauAide(id) {
+  try { const st = JSON.parse(sessionStorage.getItem("aide-" + id + "-" + jourLocal()) || "null"); return st && st.niveau >= 0 ? Math.min(3, st.niveau) : undefined; }
+  catch (e) { return undefined; }
 }
 function rendreQuestion(q, k, x, lecture, prevision) {
-  const rep = x.r && x.r["q" + k];
+  const rep = x.r && x.r["q" + k] !== undefined ? x.r["q" + k] : (q.aide && !lecture ? niveauAide(q.aide) : undefined);
   return `<fieldset class="g-q" data-q="${k}"><legend>${typo(q.texte)}</legend>` + q.choix.map((c, j) =>
     `<label class="g-choix${rep === j ? " pris" : ""}${lecture && !prevision && j === q.bonne ? " bon" : ""}"><input type="radio" name="q${k}" value="${j}" ${rep === j ? "checked" : ""} ${lecture ? "disabled" : ""}><span>${typo(c)}</span></label>`).join("")
     + "</fieldset>";
@@ -298,8 +327,8 @@ function rendreExo(e, x, lecture) {
       let t = '<div class="g-tab"><table><thead><tr><th></th>' + T.titres.map(c => `<th>${typo(c)}</th>`).join("") + "</tr></thead><tbody>";
       T.colonnes.forEach((col, k) => {
         t += `<tr><th>${typo(col)}</th>` + T.lignes.map(l => {
-          const id = l[k], v = x.r && x.r[id] !== undefined ? fmt(Number(x.r[id]), 4).replace(/\u202f/g, "") : "";
-          return `<td><input type="text" inputmode="decimal" autocomplete="off" data-champ="${id}" value="${esc(v)}" aria-label="${esc(((champs.find(f => f.id === id) || {}).label || id).replace(/<[^>]+>/g, ""))}" ${lecture ? "disabled" : ""}></td>`;
+          const id = l[k], fc = champs.find(f => f.id === id) || {}, v = valeurChamp(fc, x);
+          return `<td><input type="text" ${fc.texte ? "" : 'inputmode="decimal"'} autocomplete="off" data-champ="${id}" value="${esc(v)}" aria-label="${esc(((champs.find(f => f.id === id) || {}).label || id).replace(/<[^>]+>/g, ""))}" ${lecture ? "disabled" : ""}></td>`;
         }).join("") + "</tr>";
       });
       return t + "</tbody></table></div>";
@@ -334,7 +363,7 @@ function rendrePrevision(e, x, lecture) {
   h += (e.questions || []).map((q, k) => rendreQuestion(q, k, x, lecture, true)).join("");
   if (e.justification) h += `<label class="g-texte"><span>${typo(e.invite || "Justifie en une phrase.")}</span><textarea id="just" rows="3" ${lecture ? "disabled" : ""}>${esc(x.r && x.r.j || "")}</textarea></label>`;
   h += '<div class="g-retour" id="retour" role="status"></div>';
-  h += lecture ? `<p class="g-ok">${typo("✓ Prévision enregistrée : la mesure tranchera.")}</p>` : '<button type="submit" class="principal" id="verifier">Enregistrer ma prévision</button>';
+  h += lecture ? `<p class="g-ok">${typo(e.enregistre || "✓ Prévision enregistrée : la mesure tranchera.")}</p>` : `<button type="submit" class="principal" id="verifier">${typo(e.bouton || "Enregistrer ma prévision")}</button>`;
   return h + "</form>";
 }
 function rendreTexte(e, x, lecture) {
@@ -362,7 +391,7 @@ function rendreVisa(e, x, lecture) {
 }
 function rendreRessources(e) {
   return `<section class="g-aides"><h3>Ressources du site</h3><div class="g-res">${e.ressources.map((r, k) =>
-    `<a href="${esc(r.u)}" target="_blank" rel="noopener" data-res="${k}">${typo(r.t)}</a>`).join("")}</div></section>`;
+    `<a href="${esc(r.u)}"${r.meme ? "" : ' target="_blank" rel="noopener"'} data-res="${k}">${typo(r.t)}</a>`).join("")}</div></section>`;
 }
 function niveauDispo(e, x, k) {
   if (!e.aides || k > e.aides.length) return { ok: false };
@@ -387,7 +416,7 @@ function rendreAides(e, x) {
     h += "</div>";
   }
   if (e.ressources && e.ressources.length) h += `<p class="g-res-t">Ressources du site</p><div class="g-res">${e.ressources.map((r, k) =>
-    `<a href="${esc(r.u)}" target="_blank" rel="noopener" data-res="${k}">${typo(r.t)}</a>`).join("")}</div>`;
+    `<a href="${esc(r.u)}"${r.meme ? "" : ' target="_blank" rel="noopener"'} data-res="${k}">${typo(r.t)}</a>`).join("")}</div>`;
   return h + "</section>";
 }
 
@@ -396,12 +425,18 @@ function brancher(e) {
   app.querySelectorAll("[data-aller]").forEach(b => b.onclick = () => { if (b.dataset.aller) { S.vue = b.dataset.aller; rendre(); window.scrollTo(0, 0); } });
   const v = $("valider"); if (v) v.onclick = () => terminer(e, {});
   app.querySelectorAll("[data-aide]").forEach(b => b.onclick = () => ouvrirAide(e, Number(b.dataset.aide)));
-  app.querySelectorAll("[data-res]").forEach(a => a.addEventListener("click", () => { const x = E(e.id); x.l = (x.l || 0) + 1; sauver(); }));
+  app.querySelectorAll("[data-res]").forEach(a => a.addEventListener("click", ev => {
+    const x = E(e.id); x.l = (x.l || 0) + 1;
+    if (a.target) { sauver(); return; }
+    // même onglet (aide aux branchements) : on enregistre avant de partir ; « Retour » ramène ici
+    ev.preventDefault(); sauver(true); setTimeout(() => { location.href = a.href; }, 400);
+  }));
+  const p = $("passer"); if (p) p.onclick = () => { clearInterval(S.minuterie); const x = E(e.id); x.s = 1; terminer(e, {}, true); };
   const f = $("form"); if (!f) return;
   if (e.type === "visa") brancherVisa(e, f);
   else f.onsubmit = ev => { ev.preventDefault(); verifier(e); };
   const m = $("maintenir"); if (m) m.onclick = () => { const x = E(e.id); x.m = 1; x.r = lireSaisies(e).v; terminer(e, x.r, true); };
-  const p = $("passer"); if (p) p.onclick = () => { const x = E(e.id); x.s = 1; terminer(e, {}, true); };
+
 }
 function ouvrirAide(e, k) {
   const x = E(e.id);
@@ -416,9 +451,10 @@ function ouvrirAide(e, k) {
 function lireSaisies(e) {
   const v = {}, vides = [];
   (e.champs || []).forEach(f => {
-    const i = app.querySelector(`[data-champ="${f.id}"]`);
-    const n = lireNombre(i ? i.value : "");
-    if (isNaN(n)) vides.push(f.id); else v[f.id] = n;
+    const i = app.querySelector(`[data-champ="${f.id}"]`), brut = i ? i.value.trim() : "";
+    if (f.texte) { if (brut) v[f.id] = brut.slice(0, 120); else if (!f.facultatif) vides.push(f.id); return; }
+    const n = lireNombre(brut);
+    if (isNaN(n)) { if (!(f.facultatif && !brut)) vides.push(f.id); } else v[f.id] = n;
   });
   (e.questions || []).forEach((q, k) => {
     const c = app.querySelector(`input[name="q${k}"]:checked`);
@@ -454,8 +490,9 @@ function verifier(e) {
   const A = api(s.v), msgs = [], faux = [], types = new Set();
   for (const f of e.champs || []) {
     const val = s.v[f.id];
+    if (f.texte || val === undefined) continue;
     if (f.plage && (val < f.plage[0] || val > f.plage[1])) { faux.push(f.id); types.add("mesure"); msgs.push(f.hors || e.hors || "Cette valeur surprend : refais la mesure."); continue; }
-    if (f.verif) { const m = f.verif(val, A); if (m) { faux.push(f.id); types.add("calcul"); msgs.push(m); continue; } }
+    if (f.verif) { const m = f.verif(val, A); if (m) { faux.push(f.id); types.add(f.vraisemblance ? "mesure" : "calcul"); msgs.push(m); continue; } }
     if (f.attendu) {
       const att = f.attendu(A);
       if (!isFinite(att)) continue;            // valeur de départ manquante (étape débloquée sans mesure) : non vérifiable
@@ -485,7 +522,7 @@ function terminer(e, r, force) {
   x.ok = 1; x.t1 = maintenant(); if (!x.t0) x.t0 = x.t1;
   delete x.horsPlage;
   sauver(true);
-  if (e.type === "exo" || e.type === "texte" || e.type === "prevision" || force) { S.vue = e.id; rendre(); const r2 = $("retour"); if (r2 && e.type === "exo" && !force) { r2.innerHTML = "✓ Juste."; r2.className = "g-retour ok"; } }
+  if (e.type === "exo" || e.type === "texte" || e.type === "prevision" || force) { S.vue = e.id; rendre(); const r2 = $("retour"); if (r2 && e.type === "exo" && !force) { r2.innerHTML = typo(e.bravo || "✓ Juste."); r2.className = "g-retour ok"; } }
   else { const c = courante(); S.vue = c ? c.id : e.id; rendre(); }
   window.scrollTo({ top: 0 });
 }
@@ -541,7 +578,7 @@ async function chargerContenu(fil) {
 }
 async function demarrer() {
   const m = MOTIF.exec(PARAM);
-  if (!m) { panne("L'adresse ne précise pas l'activité : passe par le QR code ou le lien donné par le professeur."); return; }
+  if (!m) { panne("L'adresse ne précise pas l'activité : passe par le QR code de ta feuille ou par le site."); return; }
   const fil = m[1], C = window.NerudaCles;
   if (!C || !window.crypto || !crypto.subtle) { panne("Ce navigateur ne sait pas ouvrir les activités du site : essaie Chrome, Firefox ou Safari à jour."); return; }
   await C.pret();

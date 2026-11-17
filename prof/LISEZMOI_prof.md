@@ -188,3 +188,22 @@ avec la clé de la filière : rien de l'énoncé n'est en clair dans la page du 
 
 **Codes de secours** : code = 6 signes de `ALPHABET_CODES` tirés de HMAC-SHA256(clé des noms, `guidee|secours|<séance>|<visa>|<AAAA-MM-JJ>`)
 (`idOpaque`), recalculés sur l'appareil ; la séance garde seulement `{date, sel, tours: 60000, h: {visa: PBKDF2(code, sel|visa)}}`.
+
+## v65.7 (18 novembre 2026) : plusieurs activités guidées en même temps (ADM série 01)
+
+- **Une classe, plusieurs séances** : la page suit toutes les activités guidées de la classe choisie. L'onglet
+  **Visas** reçoit les demandes de toutes les séances ouvertes, dans une seule file (la plus ancienne en tête), avec le
+  nom du système (« Four · Léa M., Hugo D. »). **Suivi** montre une section par activité ouverte. **Étapes** et
+  **Réglages** portent sur l'activité choisie dans la liste (● = séance ouverte).
+- **Réglages › Créer et ouvrir toutes les séances de la série** (ADM série 01) : les quatre séances d'un coup, toutes
+  les parties ouvertes, aides en formatif, et l'épreuve d'Évaluer du système liée si elle existe pour la classe
+  (s01four, s01banc, s01harmocem, s01comp).
+- **Feuille du visa** : la liste de ce qu'on vérifie, le **schéma corrigé** et les **photos annotées** du poste, les
+  **critères** du visa (indicateurs de la grille, dans l'ordre utile) et des **motifs** propres au système viennent de
+  `donnees/visas_guidees.json` (espace enseignant chiffré) ; pour le TP 3, ils restent ceux de l'activité.
+- **Groupes** : dans une activité « groupe unique » (un trinôme par système), pas de numéro de poste ; la demande
+  porte les prénoms du groupe.
+- **Alerte « bloqué »** : au-delà du seuil réglé ou, s'il est plus long, de la durée prévue de l'étape (simulations).
+- Le **QR code** de chaque activité est imprimé en tête de sa feuille, avec l'adresse et le chemin sur le site : plus
+  besoin de le projeter (il reste dans Réglages).
+

@@ -379,7 +379,9 @@
     { cle: "outil-transformer-formule", nom: "Transformer une formule",       page: "animations/transformer-formule.html",         niveau: "Outils" },
     { cle: "outil-conversion-unites",   nom: "Convertir avec les puissances de dix", page: "animations/conversion-unites.html",   niveau: "Outils" },
     // v65 : animation à jeux (forme plate {<jeu>: {ok, essais, etoiles}})
-    { cle: "neruda.anim.principe-inertie", nom: "Forces et principe d'inertie", page: "animations/principe-inertie.html",       niveau: "BTS CRSA" }
+    { cle: "neruda.anim.principe-inertie", nom: "Forces et principe d'inertie", page: "animations/principe-inertie.html",       niveau: "BTS CRSA" },
+    // novembre 2026 : déphasage et Fresnel (tutoriel + jeux + bilan, mêmes champs defis/comprendre que les outils)
+    { cle: "anim-dephasage-fresnel", nom: "Déphasage et représentation de Fresnel", page: "animations/dephasage-fresnel.html", niveau: "BTS" }
   ];
   SRS.estCleSimulation = function (cle) {
     if (cle.indexOf("instr-") === 0 || cle.indexOf("neruda.anim.") === 0) return true;
