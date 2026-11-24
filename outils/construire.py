@@ -89,15 +89,27 @@ def _opts_choix(zone):
 
 
 def _opts_opt(zone):
-    """ET : une suite de \\opt{\\textbf{a.} proposition}."""
+    """ET : une suite de \\opt{\\textbf{a.} proposition}. v65.10 (24/11/2026) : aussi \\opts{a}{b}{c}, trois
+    propositions courtes sur une seule ligne (bilan du Cours 2 v7) ; sans cela ces questions n'avaient plus de choix."""
     out, j = [], 0
+    motif = re.compile(r"\\opts?\{")
     while True:
-        m = re.compile(r"\\opt\{").search(zone, j)
+        m = motif.search(zone, j)
         if not m:
             break
-        o, j = _arg(zone, m.end() - 1)
-        o = tex2txt(_pre(o))
-        out.append(re.sub(r"^[a-d]\.\s*", "", o).strip())
+        k = m.end() - 1
+        args = []
+        for _ in range(3 if m.group(0).startswith("\\opts") else 1):
+            while k < len(zone) and zone[k] in " \t\n":
+                k += 1
+            if k >= len(zone) or zone[k] != "{":
+                break
+            o, k = _arg(zone, k)
+            args.append(o)
+        j = k
+        for o in args:
+            o = tex2txt(_pre(o))
+            out.append(re.sub(r"^[a-d]\.\s*", "", o).strip())
     return out
 
 
@@ -200,6 +212,25 @@ def _fichiers(filiere, racine, ch):
     return (b if os.path.exists(b) else None, c if os.path.exists(c) else None)
 
 
+# v65.10 (24/11/2026) : questions dont l'énoncé renvoie à un schéma que le questionnaire en ligne ne montre pas.
+# Les énoncés de remplacement sont du contenu : ils vivent dans outils/filieres.py (SANS_SCHEMA), publié chiffré.
+SCHEMA = re.compile(r"\b(schéma|figure|ci-contre|ci-dessous|ci-dessus)\b", re.I)
+
+
+def sans_schema(filiere, ch, bilan):
+    try:
+        from filieres import SANS_SCHEMA
+    except ImportError:
+        SANS_SCHEMA = {}
+    for n, q in enumerate(bilan, 1):
+        for (fil, c, debut), texte in SANS_SCHEMA.items():
+            if fil == filiere and c == ch and q["q"].startswith(debut):
+                q["q"] = texte
+        if SCHEMA.search(q["q"]):
+            print(f"    !! question {n} : l'énoncé renvoie à un schéma absent du questionnaire en ligne "
+                  f"(ajouter une reformulation dans SANS_SCHEMA)", file=sys.stderr)
+
+
 def construire(filiere, racine, sortie):
     with open(os.path.join(ICI, "..", "chapitres", filiere + ".json"), encoding="utf-8") as f:
         chaps = json.load(f)
@@ -212,6 +243,7 @@ def construire(filiere, racine, sortie):
             continue
         print(f"  {ch}")
         bilan = lire_bilan(open(fb, encoding="utf-8").read(), filiere)
+        sans_schema(filiere, ch, bilan)
         cours = open(fc, encoding="utf-8").read() if fc else ""
         cours = sans_hors_programme(cours)
         cartes = fabriquer_cartes(cours, bilan=bilan)

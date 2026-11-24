@@ -380,6 +380,11 @@
     { cle: "outil-conversion-unites",   nom: "Convertir avec les puissances de dix", page: "animations/conversion-unites.html",   niveau: "Outils" },
     // v65 : animation à jeux (forme plate {<jeu>: {ok, essais, etoiles}})
     { cle: "neruda.anim.principe-inertie", nom: "Forces et principe d'inertie", page: "animations/principe-inertie.html",       niveau: "BTS CRSA" },
+    // v65.10 : les quatre animations du Cours 2 du BTS ET (kit commun, forme {n<niveau>: {best, parties}})
+    { cle: "neruda.anim.flux-magnetique", nom: "Le flux magnétique",          page: "animations/flux-magnetique.html", niveau: "BTS ET" },
+    { cle: "neruda.anim.induction",       nom: "L'induction",                 page: "animations/induction.html",       niveau: "BTS ET" },
+    { cle: "neruda.anim.sens-champ",      nom: "Le sens du champ magnétique", page: "animations/sens-champ.html",      niveau: "BTS ET" },
+    { cle: "neruda.anim.reluctance",      nom: "Le circuit magnétique",       page: "animations/reluctance.html",      niveau: "BTS ET" },
     // novembre 2026 : déphasage et Fresnel (tutoriel + jeux + bilan, mêmes champs defis/comprendre que les outils)
     { cle: "anim-dephasage-fresnel", nom: "Déphasage et représentation de Fresnel", page: "animations/dephasage-fresnel.html", niveau: "BTS" }
   ];
@@ -418,6 +423,17 @@
         essayes++;
         etoiles += nombre(v[k].etoiles, 0);
         if (v[k].ok || nombre(v[k].etoiles, 0) > 0) reussis++;
+      }
+    }
+    if (!essayes) {                       // v65.10 : kit commun (Cours 2 du BTS ET), {n<niveau>: {best, parties}}
+      for (k in v) {
+        if (!Object.prototype.hasOwnProperty.call(v, k) || !/^n\d+$/.test(k) || !v[k] || typeof v[k] !== "object") continue;
+        var meilleur = (typeof v[k].best === "number" && isFinite(v[k].best)) ? v[k].best : null;
+        if (meilleur === null && !nombre(v[k].parties, 0)) continue;      // niveau jamais joué
+        essayes++;
+        var e = meilleur === null ? 0 : meilleur >= 12 ? 3 : meilleur >= 9 ? 2 : meilleur >= 6 ? 1 : 0;   // barème du kit (6 défis, 2 points)
+        etoiles += e;
+        if (e > 0) reussis++;
       }
     }
     var badges = 0;
@@ -462,6 +478,10 @@
           var g = f[k] || {};
           f[k] = { ok: !!(g.ok || v.ok), essais: Math.max(nombre(g.essais, 0), nombre(v.essais, 0)),
                    etoiles: Math.max(nombre(g.etoiles, 0), nombre(v.etoiles, 0)) };
+        } else if (v && typeof v === "object" && !Array.isArray(v) && /^n\d+$/.test(k) && ("best" in v || "parties" in v)) {
+          // v65.10 : kit commun (Cours 2 du BTS ET) : meilleur score et nombre de parties, au maximum
+          var h = f[k] || {}, bs = [h.best, v.best].filter(function (x) { return typeof x === "number" && isFinite(x); });
+          f[k] = { best: bs.length ? Math.max.apply(null, bs) : null, parties: Math.max(nombre(h.parties, 0), nombre(v.parties, 0)) };
         } else if (k === "maj") f.maj = Math.max(nombre(f.maj, 0), nombre(v, 0));
         else if (!(k in f)) f[k] = v;
       }

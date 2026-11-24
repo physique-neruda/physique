@@ -32,7 +32,7 @@ UNITES = {
 }
 PREFIXES = {'milli':'m','centi':'c','deci':'d','deca':'da','hecto':'h','kilo':'k',
             'mega':'M','giga':'G','micro':'µ','nano':'n'}
-BASES = {'metre':'m','gram':'g','gramme':'g','second':'s','seconde':'s','minute':'min',
+BASES = {'metre':'m','meter':'m','gram':'g','gramme':'g','second':'s','seconde':'s','minute':'min',
          'hour':'h','heure':'h','kelvin':'K','celsius':'°C','degreeCelsius':'°C',
          'degree':'°','newton':'N','pascal':'Pa','bar':'bar','ubar':'bar','joule':'J',
          'watt':'W','volt':'V','ampere':'A','ohm':'Ω','farad':'F','henry':'H',
@@ -77,6 +77,7 @@ def _nombre(n):
 def tex2txt(s, html=False):
     s = re.sub(r'%.*', '', s)
     s = s.replace('{,}', ',')   # décimales à la française dans les formules
+    s = re.sub(r'\\ell(?=\\[a-zA-Z])', 'ℓ ', s); s = re.sub(r'\\ell(?![a-zA-Z])', 'ℓ', s)   # v65.10 : B·I·ℓ (la longueur disparaissait), avant \\sin collé
     # \SIrange{2}{5}{\percent} -> « 2 à 5 % » (sinon « 25 »)
     s = re.sub(r'\\SIrange\{([^{}]*)\}\{([^{}]*)\}\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}',
                lambda m: _nombre(m.group(1)) + ' à ' + _nombre(m.group(2)) + '\u00a0' + _unite(m.group(3)), s)
