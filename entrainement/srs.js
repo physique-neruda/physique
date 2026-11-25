@@ -380,6 +380,8 @@
     { cle: "outil-conversion-unites",   nom: "Convertir avec les puissances de dix", page: "animations/conversion-unites.html",   niveau: "Outils" },
     // v65 : animation à jeux (forme plate {<jeu>: {ok, essais, etoiles}})
     { cle: "neruda.anim.principe-inertie", nom: "Forces et principe d'inertie", page: "animations/principe-inertie.html",       niveau: "BTS CRSA" },
+    // v65.12 : animation à jeux « Faire tourner » (ch.4 du BTS CRSA ; kit {n<niveau>: {best, parties}}, barème 6/9/12)
+    { cle: "neruda.anim.faire-tourner", nom: "Faire tourner : clé de serrage et plateau", page: "animations/faire-tourner.html", niveau: "BTS CRSA" },
     // v65.10 : les quatre animations du Cours 2 du BTS ET (kit commun, forme {n<niveau>: {best, parties}})
     { cle: "neruda.anim.flux-magnetique", nom: "Le flux magnétique",          page: "animations/flux-magnetique.html", niveau: "BTS ET" },
     { cle: "neruda.anim.induction",       nom: "L'induction",                 page: "animations/induction.html",       niveau: "BTS ET" },

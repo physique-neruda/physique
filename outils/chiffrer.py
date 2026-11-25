@@ -517,6 +517,7 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
     (r"^activite_bis_(\d)h_corrige$", "ADM 0 bis (version {0} h) — corrigé"),
     (r"^activite_simulations_corrige$", "Activité sur simulations — corrigé"),
     (r"^activite_prealable_corrige$", "Activité préalable — corrigé"),
+    (r"^activite_rotation_corrige$", "Activité sur la rotation — corrigé"),
     (r"^activite_corrige$", "Activité — corrigé"), (r"^activite2_corrige$", "Activité 2 — corrigé"),
     (r"^activite_anim_corrige$", "Activité sur animation — corrigé"),
     (r"^activite_banc_corrige$", "Activité au banc — corrigé"),
@@ -539,12 +540,12 @@ TITRES_PRIVES = [  # (motif du nom de fichier, titre affiché) — le premier qu
     # documents élèves des chapitres retirés du site (CHAPITRES_CACHES)
     (r"^prerequis$", "Prérequis"), (r"^cours_a_completer$", "Cours à compléter"),
     (r"^cours$", "Cours complet"), (r"^exercices$", "Exercices"), (r"^bilan$", "Bilan"),
-    (r"^activite_prealable$", "Activité préalable"), (r"^activite$", "Activité"), (r"^activite2$", "Activité 2"),
+    (r"^activite_prealable$", "Activité préalable"), (r"^activite$", "Activité"), (r"^activite_rotation$", "Activité sur la rotation"), (r"^activite2$", "Activité 2"),
     (r"^a(\d)_(\w+)$", "Activité {0} ({1})"), (r"^corrige_seances$", "Corrigé des séances"),
 ]
 ORDRE_PRIVE = ["prerequis", "cours_a_completer", "cours", "exercices", "bilan", "activite_prealable", "activite",
-               "activite2", "corrige_seances", "test", "test_corrige", "test_bis_30min", "test_bis_30min_corrige",
-               "test_bis_1h", "test_bis_1h_corrige", "exercices_corrige", "approfondissement", "approfondissement_corrige", "activite_bis_3h_corrige", "activite_bis_2h_corrige", "activite_simulations_corrige", "activite_prealable_corrige", "activite_corrige", "activite2_corrige",
+               "activite_rotation", "activite2", "corrige_seances", "test", "test_corrige", "test_bis_30min", "test_bis_30min_corrige",
+               "test_bis_1h", "test_bis_1h_corrige", "exercices_corrige", "approfondissement", "approfondissement_corrige", "activite_bis_3h_corrige", "activite_bis_2h_corrige", "activite_simulations_corrige", "activite_prealable_corrige", "activite_corrige", "activite2_corrige", "activite_rotation_corrige",
                "activite_anim_corrige", "activite_banc_corrige", "ccf", "ccf_corrige",
                "devoir", "devoir_corrige", "devoir2", "devoir2_corrige", "devoir3", "devoir3_corrige", "oral", "oral_corrige", "e4_sujet", "e4_dres",
                "e4_drep", "e4_corrige", "u51", "u51_corrige", "diagnostic_corrige"]

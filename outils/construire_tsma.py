@@ -86,6 +86,9 @@ def tex2txt(s, html=False):
     s = re.sub(r'\\SI\{([^{}]*)\}\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}',
                lambda m: _nombre(m.group(1)) + '\u00a0' + _unite(m.group(2)), s)
     s = re.sub(r'\\num(?:list)?\{([^{}]*)\}', lambda m: _nombre(m.group(1)), s)
+    # v65.12 : \ang{45} -> « 45° » (le degré disparaissait : « à 45 du manche ») ; « cos\ang{90} » -> « cos 90° »
+    s = re.sub(r'(?<=[A-Za-z])\\ang\{([^{}]*)\}', lambda m: ' ' + _nombre(m.group(1)) + '°', s)
+    s = re.sub(r'\\ang\{([^{}]*)\}', lambda m: _nombre(m.group(1)) + '°', s)
     s = re.sub(r'\\si\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}', lambda m: _unite(m.group(1)), s)
     sup0 = str.maketrans('-0123456789n','⁻⁰¹²³⁴⁵⁶⁷⁸⁹ⁿ')
     s = re.sub(r'\^\{([-\dn]+)\}', lambda m: m.group(1).translate(sup0), s)
@@ -128,6 +131,7 @@ def tex2txt(s, html=False):
             'epsilon':'ε','nu':'ν','xi':'ξ','zeta':'ζ','chi':'χ','kappa':'κ'}
     for k, v in grec.items():
         s = s.replace('\\' + k + ' ', v).replace('\\' + k, v)
+    s = re.sub(r'(?<=[^\s{])\\times(?=\s)', r' \\times', s)   # v65.12 : « F\times d » -> « F × d » (et non « F× d »)
     s = s.replace('\\times', '×').replace('\\cdot', '·').replace('\\pm', '±')
     s = s.replace('\\approx', '≈').replace('\\leq', '≤').replace('\\geq', '≥')
     s = s.replace('\\to', '→').replace('\\infty', '∞').replace('\\ldots', '…')

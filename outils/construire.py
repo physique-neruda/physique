@@ -40,8 +40,9 @@ def _pre(t):
     \\dot\\omega et \\omega donnaient tous deux « ω » : deux propositions de QCM
     devenaient identiques, et l'étudiant voyait deux fois la même ligne.
     """
-    t = re.sub(r"\\dot\s*\{?\\?([a-zA-Z]+)\}?", r"d\1/dt", t)
-    t = re.sub(r"\\ddot\s*\{?\\?([a-zA-Z]+)\}?", r"d²\1/dt²", t)
+    # v65.12 : on garde la barre oblique inverse d'une lettre grecque (\dot\omega -> « dω/dt », et non « domega/dt »)
+    t = re.sub(r"\\dot\s*\{?(\\?[a-zA-Z]+)\}?", r"d\1/dt", t)
+    t = re.sub(r"\\ddot\s*\{?(\\?[a-zA-Z]+)\}?", r"d²\1/dt²", t)
     return t
 
 
@@ -55,7 +56,7 @@ def _questions(enonce, macro_opts):
         q, i = _arg(enonce, m.end() - 1)
         suite = enonce.find("\\q{", i)
         zone = enonce[i:suite if suite > 0 else len(enonce)]
-        questions.append({"q": tex2txt(q), "choix": macro_opts(zone)})
+        questions.append({"q": tex2txt(_pre(q)), "choix": macro_opts(zone)})   # v65.12 : _pre aussi sur l'énoncé
     return questions
 
 
@@ -119,7 +120,7 @@ def _corrige_enumerate(corrige, n):
     rep, expl = {}, {}
     for k, m in enumerate(items, 1):
         fin = items[k].start() if k < len(items) else len(corrige)
-        texte = tex2txt(corrige[m.end():fin]).strip()
+        texte = tex2txt(_pre(corrige[m.end():fin])).strip()   # v65.12 : _pre aussi sur le corrigé commenté
         texte = re.sub(r"(\s*\b(tcolorbox|document|enumerate)\b)+\s*$", "", texte).strip()
         rep[k] = "abcd".index(m.group(1))
         expl[k] = texte
@@ -137,7 +138,7 @@ def _corrige_paires(corrige, n):
         fin = trouves[k + 1].start() if k + 1 < len(trouves) else len(corrige)
         num = int(m.group(1))
         rep[num] = "abcd".index(m.group(2))
-        texte = tex2txt(corrige[m.end():fin]).strip(" —-–\n\t")
+        texte = tex2txt(_pre(corrige[m.end():fin])).strip(" —-–\n\t")
         texte = re.sub(r"^(et|,)\s*", "", texte).strip()
         texte = re.sub(r"(\s*\b(tcolorbox|document|enumerate)\b)+\s*$", "", texte).strip()
         expl[num] = texte
@@ -157,7 +158,7 @@ def _corrige_cor(corrige, n):
     for m in re.finditer(r"\\cor\{\s*(\d+)\.?\s*([a-d])\.?\s*\}", corrige):
         texte, _ = _arg(corrige, m.end())
         rep[int(m.group(1))] = "abcd".index(m.group(2))
-        expl[int(m.group(1))] = tex2txt(texte).strip()
+        expl[int(m.group(1))] = tex2txt(_pre(texte)).strip()
     return rep, expl
 
 

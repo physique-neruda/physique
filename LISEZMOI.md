@@ -1904,3 +1904,34 @@ ch. 19 (fin du § 5, résonance), BTS TSMA ch. 13 (fin du § 5, résonance) et c
 Bloc LaTeX `acces-animation-cours.tex` (`\accesanimation`). PDF du site remplacés ; versions : BTS ET TP 3 v26, CRSA
 ch. 7 et 19 v24, TSMA ch. 13 et 17 v13.
 
+
+## Mise à jour du 25 novembre 2026 (v65.12) — CRSA ch.4 : l'activité « Faire tourner » (collection v25)
+
+- **Activité sur la rotation** : nouveau type de document `activite_rotation` (rubrique TP, après `activite`) et son
+  titre particulier (« Activité — Qu'est-ce qui fait tourner, et qu'est-ce qui résiste ? ») ;
+  `docs/bts-crsa/ch04/activite_rotation.pdf` (7 pages, avant le paragraphe 3 du cours). Rubrique TP du ch.4 : animation
+  « Forces et principe d'inertie », activité préalable, animation « Rail à coussin d'air », activité sur le chariot,
+  animation « Faire tourner », activité sur la rotation.
+- **Animation « Faire tourner »** (`animations/faire-tourner.html`) : page d'accès et clé commune comme les autres, **à la
+  même adresse** que le code QR de l'activité ; deux bancs (clé de serrage, plateau tournant) et quatre niveaux de jeux
+  avec un code de fin. Son entrée dans `ANIMATIONS["bts-crsa"]` (`outils/filieres.py`) est placée devant le document de
+  l'activité (`"avant": "activite_rotation"`). Elle est aussi dans « Mon espace » (`SRS.SIMULATIONS`, clé
+  `neruda.anim.faire-tourner`) : mêmes étoiles et même barème (6, 9, 12 points) que les autres animations à jeux.
+- **PDF élèves remplacés** : `cours.pdf` et `cours_a_completer.pdf` (§ 3 réécrit : décrire la rotation, ce qui fait
+  tourner, ce qui résiste, la loi), `exercices.pdf` et `bilan.pdf`. Les autres PDF du chapitre sont identiques au pixel
+  à ceux du site : ils n'ont pas été remplacés.
+- **Questionnaire du ch.4** : le bilan passe de 12 à 14 questions (deux nouvelles : deux volants de même masse, où tirer
+  sur une clé) ; les 16 cartes (écrites à la main) et les 6 prérequis sont inchangés ; description du bilan : « Quatorze
+  questions pour se tester ».
+- **Outils de fabrication** : `construire_tsma.py` écrit « 45° » (le degré disparaissait) et « F × d » (et non « F× d ») ;
+  `construire.py` écrit « dω/dt » (et non « domega/dt ») et garde le point de ω̇ dans l'énoncé et le corrigé commenté
+  (« Avec ω l'accélération angulaire » était faux). Les autres chapitres n'ont pas été refabriqués : leur texte ne
+  changera qu'au prochain passage de l'outil.
+- **Espace enseignant** : `bts-crsa/ch04/activite_rotation_corrige.pdf` (nouveau : « Activité sur la rotation —
+  corrigé », dans Corrections des activités ; titre et rang ajoutés à `TITRES_PRIVES` et `ORDRE_PRIVE` de
+  `outils/chiffrer.py`), `exercices_corrige.pdf`, `ccf.pdf` et `ccf_corrige.pdf` (v25) ; diaporama du CRSA ch.4 v5 (399 p.).
+- **Corrigés à débloquer** : ch.4 refabriqué par `outils/fabriquer_corriges.py` ; nouvel élément `activite_rotation`
+  (l'activité entière, sans les notes pour le professeur) ; corrigés des exercices 1, 3 et 7 remplacés, les autres sont
+  identiques au pixel et n'ont pas été remplacés. Une note pour le professeur placée dans une activité doit être
+  délimitée (entre accolades ou dans `\noteprof`) : sans cela, l'outil retire aussi ce qui la suit jusqu'à la ligne vide.
+- Catalogue : 741 entrées (739 en v65.11).
